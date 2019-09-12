@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   s.source      = { :git => "https://github.com/adswizz/adswizz-ad-sdk-releases.git", :tag => s.version }
 
-  s.vendored_frameworks = 'AudioAdSDK.framework' 
+  s.vendored_frameworks = 'Framework/AudioAdSDK.framework' 
   s.requires_arc = true
   
 end
