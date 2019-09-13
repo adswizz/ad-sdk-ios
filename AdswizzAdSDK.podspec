@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "AdswizzAdSDK"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Audio Ad serving SDK"
   s.description  = <<-DESC
                   The only audio-centric SDK to Drive Innovation & Differentiation in Audio monetization
