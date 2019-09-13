@@ -195,6 +195,18 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+/// Ad companion options to configure it with
+SWIFT_CLASS_NAMED("AdCompanionOptions")
+@interface AASDKAdCompanionOptions : NSObject
+/// Set how long the sync-banner is supposed to be visible after the ad playout.
+/// Default value is 0, which means the sync-companion is removed when the ad ends.
+/// If <code>extraExposureTime</code> is Double.greatestFiniteMagnitude, then the sync-companion will be exposed forever or until the next sync-companion.
+/// If fallback companions are active and <code>extraExposureTime</code> is activated, then the fallback companions will be delayed.
+@property (nonatomic) NSTimeInterval extraExposureTime;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @protocol AASDKAdCompanionViewDelegate;
 @class NSCoder;
 
@@ -225,6 +237,12 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
+@class UIGestureRecognizer;
+
+@interface AASDKAdCompanionView (SWIFT_EXTENSION(AudioAdSDK)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class WKWebView;
 @class WKWebViewConfiguration;
 @class WKNavigationAction;
@@ -232,12 +250,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 @interface AASDKAdCompanionView (SWIFT_EXTENSION(AudioAdSDK)) <WKUIDelegate>
 - (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@class UIGestureRecognizer;
-
-@interface AASDKAdCompanionView (SWIFT_EXTENSION(AudioAdSDK)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -334,29 +346,149 @@ SWIFT_PROTOCOL_NAMED("AdEvent")
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdEventType, "AdEventType", closed) {
 /// Default state.
   AASDKAdEventTypeUnknown = 0,
-/// A log event for the ads being played. These are typically non fatal errors.
-  AASDKAdEventTypeLog = 1,
 /// An ad will start loading.
-  AASDKAdEventTypeWillStartLoading = 2,
+  AASDKAdEventTypeWillStartLoading = 1,
 /// Player playing the ad has finished loading(buffering). Usefull when playing ads with internal player.
-  AASDKAdEventTypeDidFinishLoading = 3,
+  AASDKAdEventTypeDidFinishLoading = 2,
 /// Ad has started.
-  AASDKAdEventTypeDidStartPlaying = 4,
+  AASDKAdEventTypeDidStartPlaying = 3,
 /// Ad paused.
-  AASDKAdEventTypeDidPausePlaying = 5,
+  AASDKAdEventTypeDidPausePlaying = 4,
 /// First quartile of a linear ad was reached.
-  AASDKAdEventTypeFirstQuartile = 6,
+  AASDKAdEventTypeFirstQuartile = 5,
 /// Midpoint of a linear ad was reached.
-  AASDKAdEventTypeMidpoint = 7,
+  AASDKAdEventTypeMidpoint = 6,
 /// Third quartile of a linear ad was reached.
-  AASDKAdEventTypeThirdQuartile = 8,
+  AASDKAdEventTypeThirdQuartile = 7,
 /// Complete quartile of a liniar ad was reached
-  AASDKAdEventTypeComplete = 9,
+  AASDKAdEventTypeComplete = 8,
 /// Single ad has finished.
-  AASDKAdEventTypeDidFinishPlaying = 10,
+  AASDKAdEventTypeDidFinishPlaying = 9,
 /// All ads managed by the ads manager have finished.
-  AASDKAdEventTypeAllAdsDidFinishPlaying = 11,
+  AASDKAdEventTypeAllAdsDidFinishPlaying = 10,
 };
+
+enum Level : NSInteger;
+@protocol AASDKAdLoggerDestination;
+
+/// Main logger class for SDK
+SWIFT_CLASS_NAMED("AdLogger")
+@interface AASDKAdLogger : NSObject
+/// Shared instance for the logger
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdLogger * _Nonnull shared;)
++ (AASDKAdLogger * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+/// Set the loglevel. By default is none.
+@property (nonatomic) enum Level level;
+/// Set the destination for the logger. Default is NSLog.
+@property (nonatomic, strong) id <AASDKAdLoggerDestination> _Nonnull destination;
+/// Use this to log info for a filename, function and lineNumber
+/// \param functionName use default
+///
+/// \param fileName use default
+///
+/// \param lineNumber use default
+///
++ (void)verboseWithFunctionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
+/// Log something as verbose level
+/// \param closure information to log
+///
+/// \param functionName use default
+///
+/// \param fileName use default
+///
+/// \param lineNumber use default
+///
++ (void)verbose:(SWIFT_NOESCAPE id _Nullable (^ _Nonnull)(void))closure functionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
+/// Use this to log info for a filename, function and lineNumber
+/// \param functionName use default
+///
+/// \param fileName use default
+///
+/// \param lineNumber use default
+///
++ (void)infoWithFunctionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
+/// Log something as info level
+/// \param closure information to log
+///
+/// \param functionName use default
+///
+/// \param fileName use default
+///
+/// \param lineNumber use default
+///
++ (void)info:(SWIFT_NOESCAPE id _Nullable (^ _Nonnull)(void))closure functionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
+/// Use this to log debug for a filename, function and lineNumber
+/// \param functionName use default
+///
+/// \param fileName use default
+///
+/// \param lineNumber use default
+///
++ (void)debugWithFunctionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
+/// Log something as debug level
+/// \param closure information to log
+///
+/// \param functionName use default
+///
+/// \param fileName use default
+///
+/// \param lineNumber use default
+///
++ (void)debug:(SWIFT_NOESCAPE id _Nullable (^ _Nonnull)(void))closure functionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
+/// Use this to log error for a filename, function and lineNumber
+/// \param functionName use default
+///
+/// \param fileName use default
+///
+/// \param lineNumber use default
+///
++ (void)errorWithFunctionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
+/// Log something as error level
+/// \param closure information to log
+///
+/// \param functionName use default
+///
+/// \param fileName use default
+///
+/// \param lineNumber use default
+///
++ (void)error:(SWIFT_NOESCAPE id _Nullable (^ _Nonnull)(void))closure functionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+/// Logger level
+typedef SWIFT_ENUM(NSInteger, Level, closed) {
+/// Vebose log level. This is the most verbose. Might print object content.
+  LevelVerbose = 0,
+/// Debug log level.
+  LevelDebug = 1,
+/// Info log level.
+  LevelInfo = 2,
+/// Error log level. This is the most critical
+  LevelError = 3,
+/// This logs nothing.
+  LevelNone = 4,
+};
+
+
+
+
+/// Write a custom destination for the logger. Default destination is NSLog.
+SWIFT_PROTOCOL_NAMED("AdLoggerDestination")
+@protocol AASDKAdLoggerDestination
+/// Called when there is something to log from
+/// \param level log level
+///
+/// \param functionName name of the function where the call occured
+///
+/// \param fileName name of the file
+///
+/// \param lineNumber line number
+///
+/// \param line log line
+///
+- (void)log:(enum Level)level functionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber line:(NSString * _Nonnull)line;
+@end
 
 @class AASDKAdManagerSettings;
 @protocol AASDKAdManagerDelegate;
@@ -488,21 +620,37 @@ SWIFT_CLASS_NAMED("AdswizzAdRequest")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// Ad request protocol
+typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdswizzAdRequestProtocol, "HTTPProtocol", closed) {
+  AASDKAdswizzAdRequestProtocolHttp = 0,
+  AASDKAdswizzAdRequestProtocolHttps = 1,
+};
+
+/// VAST version
+typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdswizzAdRequestVASTVersion, "VASTVersion", closed) {
+  AASDKAdswizzAdRequestVASTVersionV40 = 0,
+  AASDKAdswizzAdRequestVASTVersionV41 = 1,
+};
+
 enum AASDKGDPROption : NSInteger;
 
 /// Builder class for AdRequest
 SWIFT_CLASS_NAMED("Builder")
 @interface AASDKAdswizzAdRequestBuilder : NSObject
-/// Set protocol version. Default is “4.0”. Possible values: “4.0”, “4.1”.
+/// Http protocol. Default is https.
 /// \param protocolVersion protocolVersion description
 ///
 ///
-/// throws:
-/// a bad protocol error if the string is not valid
+/// returns:
+/// same builder object
+- (AASDKAdswizzAdRequestBuilder * _Nonnull)withHttpProtocol:(enum AASDKAdswizzAdRequestProtocol)httpProtocol SWIFT_WARN_UNUSED_RESULT;
+/// Set vast version. Default is 4.0.
+/// \param protocolVersion protocolVersion description
+///
 ///
 /// returns:
 /// same builder object
-- (AASDKAdswizzAdRequestBuilder * _Nullable)withProtocolVersion:(NSString * _Nonnull)protocolVersion error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (AASDKAdswizzAdRequestBuilder * _Nonnull)withVastVersion:(enum AASDKAdswizzAdRequestVASTVersion)vastVersion SWIFT_WARN_UNUSED_RESULT;
 /// Set zone on which the request will be made. Mandatory.
 /// \param zoneId zoneId description
 ///
@@ -585,6 +733,48 @@ SWIFT_CLASS_NAMED("Builder")
 @end
 
 
+
+@protocol AASDKAdswizzSDKDelegate;
+
+/// Adswizz SDK class
+SWIFT_CLASS_NAMED("AdswizzSDK")
+@interface AASDKAdswizzSDK : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizzSDK * _Nonnull shared;)
++ (AASDKAdswizzSDK * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+/// delegate for interactive module status
+@property (nonatomic, weak) id <AASDKAdswizzSDKDelegate> _Nullable delegate;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// Init the AdswizzSDK
+/// \param installationId unique installationId id instance
+///
++ (void)initializeWithInstallationId:(NSString * _Nonnull)installationId;
+/// Uninit the AdswizzSDK
++ (void)uninitialize;
+/// Set the ad companion options
+/// \param options update companion options
+///
++ (void)setAdCompanionOptions:(AASDKAdCompanionOptions * _Nonnull)options;
+@end
+
+
+
+
+
+
+
+
+SWIFT_PROTOCOL_NAMED("AdswizzSDKDelegate")
+@protocol AASDKAdswizzSDKDelegate
+/// Notification from AdswizzSDK that recording has started
+/// \param adswizzSDK the AdswizzSDK object
+///
+- (void)adswizzSDKRecordingStarted:(AASDKAdswizzSDK * _Nonnull)adswizzSDK;
+/// Notification from AdswizzSDK that recording has stopped
+/// \param adswizzSDK the AdswizzSDK object
+///
+- (void)adswizzSDKRecordingStopped:(AASDKAdswizzSDK * _Nonnull)adswizzSDK;
+@end
 
 
 
@@ -724,6 +914,18 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKMediaPlayerStatus, "MediaPlayerStatus",
 
 
 
+
+
+/// Speech recognition uses Amazon Transcribe Service
+/// These are the required keys name to be added in you Info.pList in order to start Amazon Transcribe.
+SWIFT_CLASS_NAMED("SpeechSettingsKeys")
+@interface AASDKSpeechSettingsKeys : NSObject
+/// Amazon Transcriber identity pool id region key name found in  your Info.pList. Content should be a string.
+/// E.g.: AdswizzAWSIdentityPoolIdRegion = “eu-west-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx”
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AWSTranscriberIdentityPoolIdRegion;)
++ (NSString * _Nonnull)AWSTranscriberIdentityPoolIdRegion SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 

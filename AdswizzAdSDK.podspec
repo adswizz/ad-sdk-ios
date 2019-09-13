@@ -25,4 +25,7 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'Framework/AudioAdSDK.framework' 
   s.requires_arc = true
   
+  s.dependency 'AWSCore'
+  s.dependency 'SocketRocket', :inhibit_warnings => true
+  
 end
