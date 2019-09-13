@@ -26,6 +26,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   
   s.dependency 'AWSCore'
-  s.dependency 'SocketRocket', :inhibit_warnings => true
+  s.dependency 'SocketRocket'
   
 end
