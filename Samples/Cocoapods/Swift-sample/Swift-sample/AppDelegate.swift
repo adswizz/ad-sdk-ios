@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioAdSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Initialize Adswizz SDK
+        AdswizzSDK.initialize(installationId: "<your_installation_id>")
+        
         return true
     }
 
