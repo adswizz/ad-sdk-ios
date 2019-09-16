@@ -2,11 +2,7 @@
 
 The only audio-centric SDK to Drive Innovation & Differentiation in Audio monetization
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Requirements
+## Requirements
 
 * Xcode 10.2 or newer
 * iOS 11.0+
@@ -39,7 +35,7 @@ Unzip the content of the DropBox link. The unzipped content should contain the f
 
 Drop the AdswizzAdSDK.framework file in your project Frameworks directory. Make sure AdswizzAdSDK.framework is present in the “Embedded Binaries” section in your target. Make sure to add AWSCore.framework and SocketRocket.framework in your project as well.
 
-### Releases
+## Releases
 
 Check out the [releases section](https://github.com/adswizz/ad-sdk-ios/releases) for downloadable zips of the SDK.
 
