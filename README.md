@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 * Xcode 10.2 or newer
 * iOS 11.0+
 * Swift 5.0+
-* CocoaPods (optional but recommended)
+* CocoaPods (recommended)
 
 ## Installation
 
@@ -29,9 +29,15 @@ If you prefer not to use any of the supported dependency managers above, you can
 
 #### Embedded Framework
 
+Unzip the content of the DropBox link. The unzipped content should contain the following:
+
 ```
-Give the example
+* AdswizzAdSDK.framework binary
+* AdswizzAdSDK.dSYM file
+* coresponding .bcsymbolmap file
 ```
+
+Drop the AdswizzAdSDK.framework file in your project Frameworks directory. Make sure AdswizzAdSDK.framework is present in the “Embedded Binaries” section in your target. Make sure to add AWSCore.framework and SocketRocket.framework in your project as well.
 
 ### Releases
 
