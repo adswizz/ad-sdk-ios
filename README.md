@@ -1,5 +1,4 @@
 # AdswizzAdSDK - iOS Swift
----------------------------
 
 The only audio-centric SDK to Drive Innovation & Differentiation in Audio monetization
 
