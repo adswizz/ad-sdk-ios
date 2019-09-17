@@ -43,6 +43,6 @@ playground.xcworkspace
 # Samples
 Samples/Swift/BasicExample/Carthage
 Samples/Swift/BasicExample/Pods
-Samples/ObjectiveC/BasicExample/Carthage
-Samples/ObjectiveC/BasicExample/Pods
+Samples/ObjectiveC/BasicExampleObjC/Carthage
+Samples/ObjectiveC/BasicExampleObjC/Pods
 
