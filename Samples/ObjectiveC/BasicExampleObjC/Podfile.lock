@@ -19,7 +19,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AdswizzAdSDK:
-    :commit: 2c7cd9988bf5f5ab8988d2b84509f3d850976041
+    :commit: 449b0ae91d03b7aa8bcedca94587f56e3f2b235b
     :git: https://github.com/adswizz/ad-sdk-ios.git
 
 SPEC CHECKSUMS:
