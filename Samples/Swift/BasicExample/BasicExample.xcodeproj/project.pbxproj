@@ -17,6 +17,9 @@
 		AEE83AF6232FAD2400A730FF /* BasicExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE83AF5232FAD2400A730FF /* BasicExampleTests.swift */; };
 		AEE83B01232FAD2500A730FF /* BasicExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE83B00232FAD2500A730FF /* BasicExampleUITests.swift */; };
 		AEE83B0F232FC8A700A730FF /* content_example.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AEE83B0E232FC8A700A730FF /* content_example.mp3 */; };
+		AEE83B54233121FB00A730FF /* UIWindow+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE83B53233121FB00A730FF /* UIWindow+SafeArea.swift */; };
+		AEE83B562331226100A730FF /* ViewController+AdManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE83B552331226100A730FF /* ViewController+AdManagerDelegate.swift */; };
+		AEE83B58233122C300A730FF /* ViewController+AdCompanionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE83B57233122C300A730FF /* ViewController+AdCompanionViewDelegate.swift */; };
 		B8D4F5F36468280751B34EFA /* Pods_BasicExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF506BBEF02E5393BFD09373 /* Pods_BasicExampleTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +61,9 @@
 		AEE83B00232FAD2500A730FF /* BasicExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicExampleUITests.swift; sourceTree = "<group>"; };
 		AEE83B02232FAD2500A730FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEE83B0E232FC8A700A730FF /* content_example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = content_example.mp3; sourceTree = "<group>"; };
+		AEE83B53233121FB00A730FF /* UIWindow+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+SafeArea.swift"; sourceTree = "<group>"; };
+		AEE83B552331226100A730FF /* ViewController+AdManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+AdManagerDelegate.swift"; sourceTree = "<group>"; };
+		AEE83B57233122C300A730FF /* ViewController+AdCompanionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+AdCompanionViewDelegate.swift"; sourceTree = "<group>"; };
 		B0CE56B5881B598036D3D6F5 /* Pods-BasicExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-BasicExampleTests/Pods-BasicExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF506BBEF02E5393BFD09373 /* Pods_BasicExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C352EE834626825FAE3469 /* Pods_BasicExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +124,9 @@
 			children = (
 				AEE83AE0232FAD2300A730FF /* AppDelegate.swift */,
 				AEE83AE2232FAD2300A730FF /* ViewController.swift */,
+				AEE83B552331226100A730FF /* ViewController+AdManagerDelegate.swift */,
+				AEE83B57233122C300A730FF /* ViewController+AdCompanionViewDelegate.swift */,
+				AEE83B53233121FB00A730FF /* UIWindow+SafeArea.swift */,
 				AEE83AE4232FAD2300A730FF /* Main.storyboard */,
 				AEE83AE7232FAD2400A730FF /* Assets.xcassets */,
 				AEE83AE9232FAD2400A730FF /* LaunchScreen.storyboard */,
@@ -396,6 +405,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEE83AE3232FAD2300A730FF /* ViewController.swift in Sources */,
+				AEE83B54233121FB00A730FF /* UIWindow+SafeArea.swift in Sources */,
+				AEE83B58233122C300A730FF /* ViewController+AdCompanionViewDelegate.swift in Sources */,
+				AEE83B562331226100A730FF /* ViewController+AdManagerDelegate.swift in Sources */,
 				AEE83AE1232FAD2300A730FF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
