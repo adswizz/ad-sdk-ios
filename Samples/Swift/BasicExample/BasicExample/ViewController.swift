@@ -124,7 +124,7 @@ extension ViewController: AdManagerDelegate {
             if let view = companionView {
                 self.view.addSubview(view)
                 let views = ["view": view]
-                self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-0@900-[view]-0@900-|", metrics: [:], views: views as [String : Any]))
+                self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-0-[view]-0-|", metrics: [:], views: views as [String : Any]))
                 self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0@900-[view]-0@900-|", metrics: [:], views: views as [String : Any]))
                 
                 let height = NSLayoutConstraint.init(item: view,
@@ -157,9 +157,7 @@ extension ViewController: AdManagerDelegate {
             playContent()
             
             // Remove companion view
-            if let view = companionView {
-                view.removeFromSuperview()
-            }
+             companionView?.removeFromSuperview()
             
             // Cleanup
             self.adManager = nil
