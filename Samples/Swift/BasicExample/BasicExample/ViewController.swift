@@ -12,6 +12,8 @@ import AVFoundation
 
 class ViewController: UIViewController {
     var adManager: AdManager?
+    var adConnection: AdRequestConnection?
+    
     lazy var companionView: AdCompanionView? = {
         let view = AdCompanionView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -242,6 +244,9 @@ extension ViewController {
     }
     
     @objc func requestAds() {
+        // Cancel current connection if running
+        adConnection?.cancel()
+        
         // Adswizz request ads
         do {
             let adRequest = try AdswizzAdRequest.Builder()
@@ -251,8 +256,8 @@ extension ViewController {
                 .with(companionZones: companionZones)
                 .with(companionAdsEnabled: true)
                 .build()
-            let adRequestConnection = AdRequestConnection(for: adRequest)
-            adRequestConnection.requestAds { adManager, error in
+            adConnection = AdRequestConnection(for: adRequest)
+            adConnection?.requestAds { adManager, error in
                 if let error = error {
                     print("Ad request connection failed to retrieve ads with error = \(error)")
                 } else {
@@ -262,6 +267,9 @@ extension ViewController {
                     
                     // Prepare
                     adManager?.prepare()
+                    
+                    // Cleanup
+                    self.adConnection = nil
                 }
             }
         } catch {
