@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "AdswizzAdSDK"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Audio Ad serving SDK"
   s.description  = <<-DESC
                   The only audio-centric SDK to Drive Innovation & Differentiation in Audio monetization
@@ -13,9 +13,7 @@ Pod::Spec.new do |s|
       Copyright 2019 AdsWizz, Inc. All rights reserved.
       LICENSE
   }
-
   s.author      = { "AdsWizz, Inc" => "teodor.cristea@adswizz.com" }
-  s.social_media_url  = "http://twitter.com/adswizz"
 
   s.platform    = :ios
   s.ios.deployment_target = '11.0'
