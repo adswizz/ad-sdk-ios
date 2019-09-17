@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Adswizz SDK
         AdswizzSDK.initialize(installationId: "<your_installation_id>")
         
+        // Set optional settings for Adswizz SDK
+        //let options = AdCompanionOptions()
+        //options.extraExposureTime = 1
+        //AdswizzSDK.setAdCompanionOptions(options)
+        
         return true
     }
 
