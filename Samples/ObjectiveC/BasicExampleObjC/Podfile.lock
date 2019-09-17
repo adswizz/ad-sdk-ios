@@ -1,5 +1,5 @@
 PODS:
-  - AdswizzAdSDK (0.0.3):
+  - AdswizzAdSDK (0.0.4):
     - AWSCore
     - SocketRocket
   - AWSCore (2.11.0)
@@ -19,11 +19,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AdswizzAdSDK:
-    :commit: 6b72564708773dcf540604b217a11c735d23d533
+    :commit: 2c7cd9988bf5f5ab8988d2b84509f3d850976041
     :git: https://github.com/adswizz/ad-sdk-ios.git
 
 SPEC CHECKSUMS:
-  AdswizzAdSDK: 66972ea95559757b3ab5f106ddd02b69617406e0
+  AdswizzAdSDK: c28adf1858b684ec519c4c90d39bd06765218572
   AWSCore: 63f0b3569679a497081c915985fbd549e6be64c1
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
 
