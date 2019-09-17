@@ -237,12 +237,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
-@class UIGestureRecognizer;
-
-@interface AASDKAdCompanionView (SWIFT_EXTENSION(AudioAdSDK)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class WKWebView;
 @class WKWebViewConfiguration;
 @class WKNavigationAction;
@@ -250,6 +244,12 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 @interface AASDKAdCompanionView (SWIFT_EXTENSION(AudioAdSDK)) <WKUIDelegate>
 - (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UIGestureRecognizer;
+
+@interface AASDKAdCompanionView (SWIFT_EXTENSION(AudioAdSDK)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -381,78 +381,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdLogge
 @property (nonatomic) enum Level level;
 /// Set the destination for the logger. Default is NSLog.
 @property (nonatomic, strong) id <AASDKAdLoggerDestination> _Nonnull destination;
-/// Use this to log info for a filename, function and lineNumber
-/// \param functionName use default
-///
-/// \param fileName use default
-///
-/// \param lineNumber use default
-///
-+ (void)verboseWithFunctionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
-/// Log something as verbose level
-/// \param closure information to log
-///
-/// \param functionName use default
-///
-/// \param fileName use default
-///
-/// \param lineNumber use default
-///
-+ (void)verbose:(SWIFT_NOESCAPE id _Nullable (^ _Nonnull)(void))closure functionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
-/// Use this to log info for a filename, function and lineNumber
-/// \param functionName use default
-///
-/// \param fileName use default
-///
-/// \param lineNumber use default
-///
-+ (void)infoWithFunctionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
-/// Log something as info level
-/// \param closure information to log
-///
-/// \param functionName use default
-///
-/// \param fileName use default
-///
-/// \param lineNumber use default
-///
-+ (void)info:(SWIFT_NOESCAPE id _Nullable (^ _Nonnull)(void))closure functionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
-/// Use this to log debug for a filename, function and lineNumber
-/// \param functionName use default
-///
-/// \param fileName use default
-///
-/// \param lineNumber use default
-///
-+ (void)debugWithFunctionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
-/// Log something as debug level
-/// \param closure information to log
-///
-/// \param functionName use default
-///
-/// \param fileName use default
-///
-/// \param lineNumber use default
-///
-+ (void)debug:(SWIFT_NOESCAPE id _Nullable (^ _Nonnull)(void))closure functionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
-/// Use this to log error for a filename, function and lineNumber
-/// \param functionName use default
-///
-/// \param fileName use default
-///
-/// \param lineNumber use default
-///
-+ (void)errorWithFunctionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
-/// Log something as error level
-/// \param closure information to log
-///
-/// \param functionName use default
-///
-/// \param fileName use default
-///
-/// \param lineNumber use default
-///
-+ (void)error:(SWIFT_NOESCAPE id _Nullable (^ _Nonnull)(void))closure functionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -469,6 +397,8 @@ typedef SWIFT_ENUM(NSInteger, Level, closed) {
 /// This logs nothing.
   LevelNone = 4,
 };
+
+
 
 
 
@@ -527,17 +457,6 @@ SWIFT_PROTOCOL_NAMED("AdManagerDelegate")
 /// \param error the error received
 ///
 - (void)adManager:(id <AASDKAdManager> _Nonnull)adManager didReceiveAd:(id <AASDKAdData> _Nullable)ad error:(NSError * _Nonnull)error;
-/// Called when an ad is ready to play.
-/// The implementing code should pause the content playback and prepare
-/// for ad playback.
-/// \param adManager The AdManager requesting content pause
-///
-- (void)adManagerDidRequestContentPause:(id <AASDKAdManager> _Nonnull)adManager;
-/// Called when an ad has finished or an error occurred during the playback.
-/// The implementing code should resume the content playback.
-/// \param adManager The AdManager requesting content resume
-///
-- (void)adManagerDidRequestContentResume:(id <AASDKAdManager> _Nonnull)adManager;
 /// Called when there is an event with the current ad in the ad manager
 /// \param adManager The AdManager that sent the event
 ///
@@ -593,26 +512,6 @@ SWIFT_CLASS_NAMED("AdRequestConnection")
 
 
 
-/// The <code>AdStreamManager</code> provides support while inserting the ads server side
-SWIFT_CLASS_NAMED("AdStreamManager")
-@interface AASDKAdStreamManager : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-/// The <code>AdStreamManagerDelegate</code> protocol defines the methods used to retrieve information about ads and companion banners inserted server-side.
-SWIFT_PROTOCOL_NAMED("AdStreamManagerDelegate")
-@protocol AASDKAdStreamManagerDelegate
-@end
-
-
-/// The ‘AdStreamManagerSettings’ class provides settings for the Ad Stream Manager.
-SWIFT_CLASS_NAMED("AdStreamManagerSettings")
-@interface AASDKAdStreamManagerSettings : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 /// The <code>AdswizzAdRequest</code> connection to a Adswizz Ad Server
 SWIFT_CLASS_NAMED("AdswizzAdRequest")
 @interface AASDKAdswizzAdRequest : NSObject <AASDKAdRequest>
@@ -638,14 +537,14 @@ enum AASDKGDPROption : NSInteger;
 SWIFT_CLASS_NAMED("Builder")
 @interface AASDKAdswizzAdRequestBuilder : NSObject
 /// Http protocol. Default is https.
-/// \param protocolVersion protocolVersion description
+/// \param httpProtocol http protocol
 ///
 ///
 /// returns:
 /// same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withHttpProtocol:(enum AASDKAdswizzAdRequestProtocol)httpProtocol SWIFT_WARN_UNUSED_RESULT;
 /// Set vast version. Default is 4.0.
-/// \param protocolVersion protocolVersion description
+/// \param vastVersion vastVersion description
 ///
 ///
 /// returns:
@@ -846,7 +745,7 @@ SWIFT_PROTOCOL_NAMED("MediaFile")
 @protocol AASDKMediaFile
 /// Uri for the media file
 @property (nonatomic, readonly, copy) NSString * _Nonnull uri;
-/// MIME type for the file container. Popular MIME types include, but are not limited to “video/mp4” for MP4,  “audio/mpeg” and “audio/aac”for audio ads.
+/// MIME type for the file container. Popular MIME types include, but are not limited to “video/mp4” for MP4,  “audio/mpeg” and “audio/aac” for audio ads.
 @property (nonatomic, readonly, copy) NSString * _Nonnull type;
 /// The codec used to encode the file which can take values as specified by RFC 4281: http://tools.ietf.org/html/rfc4281.
 @property (nonatomic, readonly, copy) NSString * _Nullable codec;
