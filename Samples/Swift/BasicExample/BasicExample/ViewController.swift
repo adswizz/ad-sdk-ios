@@ -64,6 +64,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Request ads"
         
         // Build UI
         let delegate = UIApplication.shared.delegate as! AppDelegate
@@ -121,7 +122,7 @@ extension ViewController: AdManagerDelegate {
         case .didStartPlaying:
             // Ad manager started playing the ad(s)
             // Show a companion ad which will automatically be synced with the ad
-            if let view = companionView {
+            if let view = companionView, view.superview == nil {
                 self.view.addSubview(view)
                 let views = ["view": view]
                 self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-0-[view]-0-|", metrics: [:], views: views as [String : Any]))
@@ -155,9 +156,6 @@ extension ViewController: AdManagerDelegate {
             // Ad manager just finished playing (all) ad(s)
             // Resume content
             playContent()
-            
-            // Remove companion view
-             companionView?.removeFromSuperview()
             
             // Cleanup
             self.adManager = nil
