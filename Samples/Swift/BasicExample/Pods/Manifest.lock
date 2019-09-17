@@ -1,0 +1,32 @@
+PODS:
+  - AdswizzAdSDK (0.0.2):
+    - AWSCore
+    - SocketRocket
+  - AWSCore (2.11.0)
+  - SocketRocket (0.5.1)
+
+DEPENDENCIES:
+  - AdswizzAdSDK (from `https://github.com/adswizz/ad-sdk-ios.git`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AWSCore
+    - SocketRocket
+
+EXTERNAL SOURCES:
+  AdswizzAdSDK:
+    :git: https://github.com/adswizz/ad-sdk-ios.git
+
+CHECKOUT OPTIONS:
+  AdswizzAdSDK:
+    :commit: 2e1c16fdfd5bf26f136fce62aaf8bb2cf9b7c78f
+    :git: https://github.com/adswizz/ad-sdk-ios.git
+
+SPEC CHECKSUMS:
+  AdswizzAdSDK: 8709bf9d85750e2a5d2bf83af818410ca12932d4
+  AWSCore: 63f0b3569679a497081c915985fbd549e6be64c1
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+
+PODFILE CHECKSUM: abec2640bbdbed1de03c56bb78a9d7b49f482d69
+
+COCOAPODS: 1.7.5
