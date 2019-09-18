@@ -33,7 +33,14 @@ Unzip the content of the DropBox link. The unzipped content should contain the f
 * coresponding .bcsymbolmap file
 ```
 
-Drop the AdswizzAdSDK.framework file in your project Frameworks directory. Make sure AdswizzAdSDK.framework is present in the “Embedded Binaries” section in your target. Make sure to add AWSCore.framework and SocketRocket.framework in your project as well.
+Drop the AdswizzAdSDK.framework file in your project Frameworks directory. Make sure AdswizzAdSDK.framework is present in the “Embedded Binaries” section in your target.
+AdswizzAdSDK also needs to link the following .frameworks:
+
+```
+AWSCore.framework
+SocketRocket.framework
+```
+Make sure to add those in your project as well.
 
 ## Releases
 
