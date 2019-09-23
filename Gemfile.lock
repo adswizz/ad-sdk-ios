@@ -132,6 +132,7 @@ GEM
       os (>= 0.9, < 2.0)
       signet (~> 0.7)
     highline (1.7.10)
+    http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.3)
@@ -160,6 +161,11 @@ GEM
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
       uber (< 0.2.0)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     retriable (3.1.2)
     rouge (2.0.7)
     ruby-macho (1.4.0)
@@ -207,6 +213,7 @@ PLATFORMS
 DEPENDENCIES
   cocoapods
   fastlane
+  rest-client
 
 BUNDLED WITH
    1.17.3

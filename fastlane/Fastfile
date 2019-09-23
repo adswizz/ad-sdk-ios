@@ -94,6 +94,12 @@ platform :ios do
   desc "Commits and pushes changes to remote"
   lane :deliver_AdswizzAdSDK do |lane|
 
+	if !lane[:version]
+      raise "No version specified".red
+    end
+
+	version = lane[:version]
+
   	# Deliver
   	deliver_sdk framework: "AdswizzAdSDK", version: version
 
