@@ -66,32 +66,30 @@ platform :ios do
     sh "git commit -am 'Fastlane: Releasing #{framework} version #{version}'"
 
 
-    FileUtils::cd('/Users/teodor.cristea/Work/ios-sdk-releases', :verbose => true) do  # chdir
+    #4. push commit changes
+    #push_to_git_remote(
+    #    tags: false
+    #)
+    sh "git push origin master"
 
- 		#4. push commit changes
-    	push_to_git_remote(
-        	tags: false
-    	)
+    # 5. create a local tag with the new version
+    message = "Fastlane: version bumped to #{version}"
+    add_git_tag(
+        message: message,
+        tag: "#{version}",
+        prefix: "",
+        build_number: version
+    ) 
 
-    	# 5. create a local tag with the new version
-    	message = "Fastlane: version bumped to #{version}"
-    	add_git_tag(
-        	message: message,
-        	tag: "#{version}",
-        	prefix: "",
-        	build_number: version
-    	) 
-
-    	# 6. publish a new release into Github
-    	github_release = set_github_release(
-        	#api_token: ENV["GITHUB_TOKEN"],
-        	repository_name: "adswizz/ad-sdk-ios",
-        	name: "#{version}",
-        	tag_name: "#{version}",
-        	description: message,
-        	commitish: "master"
-    	)
-	end # return to original directory
+    # 6. publish a new release into Github
+    github_release = set_github_release(
+        #api_token: ENV["GITHUB_TOKEN"],
+        repository_name: "adswizz/ad-sdk-ios",
+        name: "#{version}",
+        tag_name: "#{version}",
+        description: message,
+        commitish: "master"
+    )
 
   end
 end
