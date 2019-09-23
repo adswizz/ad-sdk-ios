@@ -21,7 +21,7 @@ platform :ios do
     framework = lane[:framework]
     version = lane[:version]
 
-    podspec = "#{framework}.podspec"
+    podspec = "/Users/teodor.cristea/Work/ios-sdk-releases/#{framework}.podspec"
 
     version = version_bump_podspec(
       path: podspec,
@@ -48,16 +48,19 @@ platform :ios do
     framework = lane[:framework]
     version = lane[:version]
 
-    ensure_git_branch(
-      branch: 'master'
-    )
-    ensure_git_status_clean
+    #ensure_git_branch(
+    #  branch: 'master'
+    #)
+    #ensure_git_status_clean
 
-   	# 1. validate .podspec
-    pod_lib_lint
-
-    # 2. update podspec version
+    # 1. update podspec version
+    sh "ls"
     update_framework_podspec framework: framework, version: version
+
+    # 2. validate .podspec
+   	pod_lib_lint(
+   		podspec: "/Users/teodor.cristea/Work/ios-sdk-releases/#{framework}.podspec"
+   	)
     
     #3. Commit changes
     sh "git commit -am 'Fastlane: Releasing #{framework} version #{version}'"
