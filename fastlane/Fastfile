@@ -21,7 +21,7 @@ platform :ios do
     framework = lane[:framework]
     version = lane[:version]
 
-    podspec = "/Users/teodor.cristea/Work/ios-sdk-releases/#{framework}.podspec"
+    podspec = "#{framework}.podspec"
 
     version = version_bump_podspec(
       path: podspec,
@@ -35,7 +35,7 @@ platform :ios do
   desc "Push framework binary files"
   desc "Creates a git tag for new version"
   desc "Commits and pushes changes to remote"
-  lane :deliver_sdk do |lane|
+  private_lane :deliver_sdk do |lane|
 
     if !lane[:framework]
       raise "No framework specified!".red
@@ -48,29 +48,25 @@ platform :ios do
     framework = lane[:framework]
     version = lane[:version]
 
-    #ensure_git_branch(
-    #  branch: 'master'
-    #)
-    #ensure_git_status_clean
+    ensure_git_branch(
+      branch: 'master'
+    )
+    ensure_git_status_clean
 
     # 1. update podspec version
-    sh "ls"
     update_framework_podspec framework: framework, version: version
 
     # 2. validate .podspec
-   	pod_lib_lint(
-   		podspec: "/Users/teodor.cristea/Work/ios-sdk-releases/#{framework}.podspec"
-   	)
+   	pod_lib_lint
     
     #3. Commit changes
     sh "git commit -am 'Fastlane: Releasing #{framework} version #{version}'"
 
-
     #4. push commit changes
-    #push_to_git_remote(
-    #    tags: false
-    #)
-    sh "git push origin master"
+    push_to_git_remote(
+        tags: false
+    )
+    #sh "git push origin master"
 
     # 5. create a local tag with the new version
     message = "Fastlane: version bumped to #{version}"
@@ -92,6 +88,17 @@ platform :ios do
     )
 
   end
+
+  desc "Prepares AdswizzAdSDK framework"
+  desc "Creates a git tag for new version"
+  desc "Commits and pushes changes to remote"
+  lane :deliver_AdswizzAdSDK do |lane|
+
+  	# Deliver
+  	deliver_sdk framework: "AdswizzAdSDK", version: version
+
+  end
+
 end
 
 
