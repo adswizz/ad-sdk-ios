@@ -278,22 +278,21 @@ SWIFT_PROTOCOL_NAMED("AdCompanionViewDelegate")
 @optional
 /// \param adCompanionView The <code>AdCompanionView</code> instance which triggers the ad request
 ///
-- (void)adCompanionViewWillLoadAd:(AASDKAdCompanionView * _Nonnull)adCompanionView;
-/// Called when an ad request succeeded and the companion view displayed its content.
+- (void)adCompanionViewWillLoad:(AASDKAdCompanionView * _Nonnull)adCompanionView;
+/// Called when the companion started to be displayed on the screen.
 /// \param adCompanionView The <code>AdCompanionView</code> instance which displayed the ad content
 ///
-- (void)adCompanionViewDidDisplayAd:(AASDKAdCompanionView * _Nonnull)adCompanionView;
+- (void)adCompanionViewDidDisplay:(AASDKAdCompanionView * _Nonnull)adCompanionView;
 /// Called when an ad request failed. The failure is normally due to network connectivity.
-/// \param adCompanionView The <code>AdCompanionView</code> instance which failed to request the ad
+/// \param adCompanionView The <code>AdCompanionView</code> instance which failed to display
 ///
 /// \param error The error received
 ///
-- (void)adCompanionView:(AASDKAdCompanionView * _Nonnull)adCompanionView didFailToDisplayAd:(NSError * _Nonnull)error;
-/// Called when the companion view is out of context. This means that the stream is not correlated
-/// anymore with the companion view.
-/// \param adCompanionView The <code>AdCompanionView</code> instance which is out of context
+- (void)adCompanionView:(AASDKAdCompanionView * _Nonnull)adCompanionView didFailToDisplay:(NSError * _Nonnull)error;
+/// Called when the companion view ends displaying.
+/// \param adCompanionView The <code>AdCompanionView</code> instance which is ended display
 ///
-- (void)adCompanionViewOutOfContext:(AASDKAdCompanionView * _Nonnull)adCompanionView;
+- (void)adCompanionViewDidEndDisplay:(AASDKAdCompanionView * _Nonnull)adCompanionView;
 /// Give the host application a chance to override the default behaviour when a
 /// <code>clickThrough</code> event occurs.
 /// Return <code>true</code> if the host application wants to handle itself the targetURL
@@ -426,7 +425,7 @@ SWIFT_PROTOCOL_NAMED("AdLoggerDestination")
 
 /// The <code>AdManager</code> provides support while playing the ads
 SWIFT_PROTOCOL_NAMED("AdManager")
-@protocol AASDKAdManager <NSObject>
+@protocol AASDKAdManager
 /// Ad manager settings object
 @property (nonatomic, strong) AASDKAdManagerSettings * _Nonnull adManagerSettings;
 @property (nonatomic, weak) id <AASDKAdManagerDelegate> _Nullable delegate;
@@ -447,7 +446,7 @@ SWIFT_PROTOCOL_NAMED("AdManager")
 /// @protocol
 /// The <code>AdManagerDelegate</code> protocol defines the methods used to retrieve information about ad playback (impression, quartiles, etc).
 SWIFT_PROTOCOL_NAMED("AdManagerDelegate")
-@protocol AASDKAdManagerDelegate <NSObject>
+@protocol AASDKAdManagerDelegate
 /// Called when there was an error playing the ad.
 /// Log the error and resume playing content.
 /// \param adManager The AdManager that errored
@@ -521,14 +520,16 @@ SWIFT_CLASS_NAMED("AdswizzAdRequest")
 
 /// Ad request protocol
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdswizzAdRequestProtocol, "HTTPProtocol", closed) {
+/// Http
   AASDKAdswizzAdRequestProtocolHttp = 0,
+/// Https
   AASDKAdswizzAdRequestProtocolHttps = 1,
 };
 
 /// VAST version
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdswizzAdRequestVASTVersion, "VASTVersion", closed) {
+/// Use VAST 4.0
   AASDKAdswizzAdRequestVASTVersionV40 = 0,
-  AASDKAdswizzAdRequestVASTVersionV41 = 1,
 };
 
 enum AASDKGDPROption : NSInteger;
@@ -613,13 +614,6 @@ SWIFT_CLASS_NAMED("Builder")
 /// returns:
 /// same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withGdprConsent:(enum AASDKGDPROption)gdprConsent SWIFT_WARN_UNUSED_RESULT;
-/// Set whether the request will enable companion ads. Optional. Defaults to false.
-/// \param companionAdsEnabled true if companion ads should be enabled or false otherwise
-///
-///
-/// returns:
-/// same builder object
-- (AASDKAdswizzAdRequestBuilder * _Nonnull)withCompanionAdsEnabled:(BOOL)companionAdsEnabled SWIFT_WARN_UNUSED_RESULT;
 /// Builds an AdswizzAdRequest object
 ///
 /// throws:
@@ -689,9 +683,13 @@ SWIFT_PROTOCOL_NAMED("AdswizzSDKDelegate")
 
 
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKGDPROption, "GDPRConsent", closed) {
+/// GDPR rules don’t apply
   AASDKGDPROptionNotApplicable = 0,
+/// App didn’t asked for the user’s consent yet
   AASDKGDPROptionNotAsked = 1,
+/// User granted consent
   AASDKGDPROptionGranted = 2,
+/// User denied consent
   AASDKGDPROptionDenied = 3,
 };
 

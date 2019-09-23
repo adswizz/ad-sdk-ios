@@ -1,0 +1,93 @@
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+fastlane_require 'fileutils'
+fastlane_require 'RestClient'
+
+default_platform :ios
+
+platform :ios do
+
+  desc "Updates framework podspec version"
+  private_lane :update_framework_podspec do |lane|
+
+    if !lane[:framework]
+      raise "No framework specified!".red
+    end
+
+    if !lane[:version]
+      raise "No version specified!".red
+    end
+
+    framework = lane[:framework]
+    version = lane[:version]
+
+    podspec = "#{framework}.podspec"
+
+    version = version_bump_podspec(
+      path: podspec,
+      version_number: version
+    )
+
+  end
+
+
+  desc "Increments cocoapods podspec version"
+  desc "Push framework binary files"
+  desc "Creates a git tag for new version"
+  desc "Commits and pushes changes to remote"
+  lane :deliver_sdk do |lane|
+
+    if !lane[:framework]
+      raise "No framework specified!".red
+    end
+
+	if !lane[:version]
+      raise "No version specified".red
+    end
+
+    framework = lane[:framework]
+    version = lane[:version]
+
+    ensure_git_branch(
+      branch: 'master'
+    )
+    ensure_git_status_clean
+
+   	# 1. validate .podspec
+    pod_lib_lint
+
+    # 2. update podspec version
+    update_framework_podspec framework: framework, version: version
+    
+    #3. Commit changes
+    sh "git commit -am 'Fastlane: Releasing #{framework} version #{version}'"
+
+    #4. push commit changes
+    push_to_git_remote(
+        tags: false
+    )
+
+    # 5. create a local tag with the new version
+    message = "Fastlane: version bumped to #{version}"
+    add_git_tag(
+        message: message,
+        tag: "#{version}",
+        prefix: "",
+        build_number: version
+    ) 
+
+    # 6. publish a new release into Github
+    github_release = set_github_release(
+        #api_token: ENV["GITHUB_TOKEN"],
+        repository_name: "adswizz/ad-sdk-ios",
+        name: "#{version}",
+        tag_name: "#{version}",
+        description: message,
+        commitish: "master"
+    )
+
+  end
+end
+
+
+
