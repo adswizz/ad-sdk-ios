@@ -100,6 +100,7 @@ platform :ios do
    	copy_binaries framework: framework, version: version, source: source
 
     #3. Commit changes
+    sh "git add --all"
     sh "git commit -am 'Fastlane: Releasing #{framework} version #{version}'"
 
     #4. push commit changes
