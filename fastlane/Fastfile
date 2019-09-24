@@ -8,7 +8,7 @@ default_platform :ios
 platform :ios do
 
   desc "Updates framework podspec version"
-  private_lane :update_framework_podspec do |lane|
+  private_lane :update_binaries_podspec do |lane|
 
     if !lane[:framework]
       raise "No framework specified!".red
@@ -30,12 +30,39 @@ platform :ios do
 
   end
 
+  desc "Updates the Framework folder with binaries from release/build output folder"
+  private_lane :copy_binaries do |lane|
+
+    if !lane[:framework]
+      raise "No framework specified!".red
+    end
+
+    if !lane[:version]
+      raise "No version specified!".red
+    end
+
+    if !lane[:source]
+      raise "No source path specified!".red
+    end
+
+    framework = lane[:framework]
+    version = lane[:version]
+    source = lane[:source]
+    destination = "Framework"
+
+    # Cleanup Framework
+    FileUtils::rm_rf "#{destination}/."
+
+    # Copy binaries
+  	FileUtils::cp_r("#{source}/.", "#{destination}")
+
+  end
 
   desc "Increments cocoapods podspec version"
   desc "Push framework binary files"
   desc "Creates a git tag for new version"
   desc "Commits and pushes changes to remote"
-  private_lane :deliver_sdk do |lane|
+  lane :deliver_binaries do |lane|
 
     if !lane[:framework]
       raise "No framework specified!".red
@@ -45,8 +72,18 @@ platform :ios do
       raise "No version specified".red
     end
 
+    if !lane[:source]
+      raise "No source specified".red
+    end
+
+	if !lane[:api_token]
+      raise "No API GitHub token specified".red
+    end
+
     framework = lane[:framework]
     version = lane[:version]
+    api_token = lane[:api_token]
+    source = lane[:source]
 
     ensure_git_branch(
       branch: 'master'
@@ -54,11 +91,14 @@ platform :ios do
     ensure_git_status_clean
 
     # 1. update podspec version
-    update_framework_podspec framework: framework, version: version
+    update_binaries_podspec framework: framework, version: version
 
     # 2. validate .podspec
    	pod_lib_lint
     
+   	#3. copy new binaries
+   	copy_binaries framework: framework, version: version, source: source
+
     #3. Commit changes
     sh "git commit -am 'Fastlane: Releasing #{framework} version #{version}'"
 
@@ -79,7 +119,7 @@ platform :ios do
 
     # 6. publish a new release into Github
     github_release = set_github_release(
-        #api_token: ENV["GITHUB_TOKEN"],
+        api_token: "#{api_token}",
         repository_name: "adswizz/ad-sdk-ios",
         name: "#{version}",
         tag_name: "#{version}",
@@ -88,23 +128,6 @@ platform :ios do
     )
 
   end
-
-  desc "Prepares AdswizzAdSDK framework"
-  desc "Creates a git tag for new version"
-  desc "Commits and pushes changes to remote"
-  lane :deliver_AdswizzAdSDK do |lane|
-
-	if !lane[:version]
-      raise "No version specified".red
-    end
-
-	version = lane[:version]
-
-  	# Deliver
-  	deliver_sdk framework: "AdswizzAdSDK", version: version
-
-  end
-
 end
 
 
