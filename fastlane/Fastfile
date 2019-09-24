@@ -88,7 +88,7 @@ platform :ios do
     ensure_git_branch(
       branch: 'master'
     )
-    #ensure_git_status_clean
+    ensure_git_status_clean
 
     # 1. update podspec version
     update_binaries_podspec framework: framework, version: version
@@ -107,7 +107,6 @@ platform :ios do
     push_to_git_remote(
         tags: false
     )
-    #sh "git push origin master"
 
     # 5. create a local tag with the new version
     message = "Fastlane: version bumped to #{version}"
