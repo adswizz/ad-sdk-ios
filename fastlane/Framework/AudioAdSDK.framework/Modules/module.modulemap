@@ -1,0 +1,11 @@
+framework module AudioAdSDK {
+  umbrella header "AudioAdSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module AudioAdSDK.Swift {
+    header "AudioAdSDK-Swift.h"
+    requires objc
+}
