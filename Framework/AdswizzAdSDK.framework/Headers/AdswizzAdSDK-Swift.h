@@ -189,7 +189,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_attribute(external_source_symbol)
 # pragma push_macro("any")
 # undef any
-# pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="AudioAdSDK",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
+# pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="AdswizzAdSDK",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
 # pragma pop_macro("any")
 #endif
 
@@ -237,19 +237,19 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
+@class UIGestureRecognizer;
+
+@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzAdSDK)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class WKWebView;
 @class WKWebViewConfiguration;
 @class WKNavigationAction;
 @class WKWindowFeatures;
 
-@interface AASDKAdCompanionView (SWIFT_EXTENSION(AudioAdSDK)) <WKUIDelegate>
+@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzAdSDK)) <WKUIDelegate>
 - (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@class UIGestureRecognizer;
-
-@interface AASDKAdCompanionView (SWIFT_EXTENSION(AudioAdSDK)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -260,7 +260,7 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 @class WKNavigation;
 
-@interface AASDKAdCompanionView (SWIFT_EXTENSION(AudioAdSDK)) <WKNavigationDelegate>
+@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzAdSDK)) <WKNavigationDelegate>
 - (void)webView:(WKWebView * _Nonnull)webView didStartProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
@@ -627,23 +627,25 @@ SWIFT_CLASS_NAMED("Builder")
 
 
 
-@protocol AASDKAdswizzSDKDelegate;
+@protocol AASDKAdswizzAdSDKDelegate;
 
-/// Adswizz SDK class
-SWIFT_CLASS_NAMED("AdswizzSDK")
-@interface AASDKAdswizzSDK : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizzSDK * _Nonnull shared;)
-+ (AASDKAdswizzSDK * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+/// Adswizz Ad SDK class
+SWIFT_CLASS_NAMED("AdswizzAdSDK")
+@interface AASDKAdswizzAdSDK : NSObject
+/// SDK object
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizzAdSDK * _Nonnull shared;)
++ (AASDKAdswizzAdSDK * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 /// delegate for interactive module status
-@property (nonatomic, weak) id <AASDKAdswizzSDKDelegate> _Nullable delegate;
+@property (nonatomic, weak) id <AASDKAdswizzAdSDKDelegate> _Nullable delegate;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-/// Init the AdswizzSDK
-/// \param installationId unique installationId id instance
+/// Initialize AdswizzAdSDK
 ///
-+ (void)initializeWithInstallationId:(NSString * _Nonnull)installationId;
-/// Uninit the AdswizzSDK
-+ (void)uninitialize;
+/// throws:
+/// throws if you are missing information in Info.pList
+- (BOOL)initializeAndReturnError:(NSError * _Nullable * _Nullable)error;
+/// Unitialize AdswizzAdSDK
+- (void)uninitialize;
 /// Set the ad companion options
 /// \param options update companion options
 ///
@@ -657,16 +659,30 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 
 
 
-SWIFT_PROTOCOL_NAMED("AdswizzSDKDelegate")
-@protocol AASDKAdswizzSDKDelegate
-/// Notification from AdswizzSDK that recording has started
-/// \param adswizzSDK the AdswizzSDK object
+SWIFT_PROTOCOL_NAMED("AdswizzAdSDKDelegate")
+@protocol AASDKAdswizzAdSDKDelegate
+/// Notification from AdswizzAdSDK that recording has started
+/// \param adswizzAdSDK the AdswizzAdSDK object
 ///
-- (void)adswizzSDKRecordingStarted:(AASDKAdswizzSDK * _Nonnull)adswizzSDK;
-/// Notification from AdswizzSDK that recording has stopped
-/// \param adswizzSDK the AdswizzSDK object
+- (void)adswizzAdSDKRecordingStarted:(AASDKAdswizzAdSDK * _Nonnull)adswizzAdSDK;
+/// Notification from AdswizzAdSDK that recording has stopped
+/// \param adswizzAdSDK the AdswizzAdSDK object
 ///
-- (void)adswizzSDKRecordingStopped:(AASDKAdswizzSDK * _Nonnull)adswizzSDK;
+- (void)adswizzAdSDKRecordingStopped:(AASDKAdswizzAdSDK * _Nonnull)adswizzAdSDK;
+@end
+
+
+SWIFT_CLASS_NAMED("AdswizzSettingsKeys")
+@interface AASDKAdswizzSettingsKeys : NSObject
+/// Speech recognition uses Amazon Transcribe Service
+/// Amazon Transcriber identity pool id region key name found in  your Info.pList. Content should be a string.
+/// E.g.: AdswizzAdSDKAWSIdentityPoolIdRegion = “eu-west-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx”
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AWSTranscriberIdentityPoolIdRegion;)
++ (NSString * _Nonnull)AWSTranscriberIdentityPoolIdRegion SWIFT_WARN_UNUSED_RESULT;
+/// Adswizz Ad SDK expects and installation id in your Info.pList. This is a string.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull InstallationId;)
++ (NSString * _Nonnull)InstallationId SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -811,18 +827,6 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKMediaPlayerStatus, "MediaPlayerStatus",
 
 
 
-
-
-/// Speech recognition uses Amazon Transcribe Service
-/// These are the required keys name to be added in you Info.pList in order to start Amazon Transcribe.
-SWIFT_CLASS_NAMED("SpeechSettingsKeys")
-@interface AASDKSpeechSettingsKeys : NSObject
-/// Amazon Transcriber identity pool id region key name found in  your Info.pList. Content should be a string.
-/// E.g.: AdswizzAWSIdentityPoolIdRegion = “eu-west-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx”
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AWSTranscriberIdentityPoolIdRegion;)
-+ (NSString * _Nonnull)AWSTranscriberIdentityPoolIdRegion SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 
