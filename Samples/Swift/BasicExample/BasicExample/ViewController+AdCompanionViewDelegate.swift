@@ -7,23 +7,23 @@
 //
 
 import Foundation
-import AudioAdSDK
+import AdswizzAdSDK
 
 extension ViewController: AdCompanionViewDelegate {
-    func adCompanionViewWillLoadAd(_ adCompanionView: AdCompanionView) {
+    func adCompanionViewWillLoad(_ adCompanionView: AdCompanionView) {
         print("Received companion event: willLoadAd")
     }
     
-    func adCompanionViewDidDisplayAd(_ adCompanionView: AdCompanionView) {
+    func adCompanionViewDidDisplay(_ adCompanionView: AdCompanionView) {
         print("Received companion event: didDisplayAd")
     }
     
-    func adCompanionView(_ adCompanionView: AdCompanionView, didFailToDisplayAd error: Error) {
+    func adCompanionView(_ adCompanionView: AdCompanionView, didFailToDisplay error: Error) {
         print("Received companion error: didFailToDisplayAd")
     }
     
-    func adCompanionViewOutOfContext(_ adCompanionView: AdCompanionView) {
-        print("Received companion event: outOfContext")
+    func adCompanionViewDidEndDisplay(_ adCompanionView: AdCompanionView) {
+        print("Received companion event: didEndDisplay")
     }
     
     func adCompanionView(_ adCompanionView: AdCompanionView, shouldOverrideCompanionClickThrough url: URL?) -> Bool {

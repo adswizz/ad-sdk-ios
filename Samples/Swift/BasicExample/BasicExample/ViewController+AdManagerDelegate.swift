@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import AudioAdSDK
+import AdswizzAdSDK
 
 extension ViewController: AdManagerDelegate {
     func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error) {

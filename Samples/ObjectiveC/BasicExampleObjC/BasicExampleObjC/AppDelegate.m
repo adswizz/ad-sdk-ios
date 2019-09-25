@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <AudioAdSDK/AudioAdSDK.h>
+#import <AdswizzAdSDK/AdswizzAdSDK.h>
 
 @interface AppDelegate ()
 
@@ -18,13 +18,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // Initialize Adswizz SDK
-    [AASDKAdswizzSDK initializeWithInstallationId:@"<your_installation_id>"];
+    // Initialize Adswizz SDK.
+    // Note that AdswizzAdSDK expects an installationId in your app's info.plist.
+    // More details in AASDKAdswizzSettingsKeys
+    NSError *error = nil;
+    [AASDKAdswizzAdSDK.shared initializeAndReturnError:&error];
+    if (error) {
+        NSLog(@"%@", error);
+    }
     
     // Set optional settings for Adswizz SDK
     //AASDKAdCompanionOptions *options = [AASDKAdCompanionOptions new];
     //options.extraExposureTime = 1.0;
-    //[AASDKAdswizzSDK setAdCompanionOptions:options];
+    //[AASDKAdswizzAdSDK setAdCompanionOptions:options];
     
     return YES;
 }

@@ -45,5 +45,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>AdswizzAdSDKInstallationId</key>
+	<string>&lt;YOUR_INSTALLATION_ID&gt;</string>
 </dict>
 </plist>

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AudioAdSDK
+import AdswizzAdSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,13 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Initialize Adswizz SDK
-        AdswizzSDK.initialize(installationId: "<your_installation_id>")
+        // Initialize Adswizz SDK.
+        // Note that AdswizzAdSDK expects an installationId in your app's info.plist.
+        // More details in AdswizzSettingsKeys
+        do {
+            try AdswizzAdSDK.shared.initialize()
+        } catch {
+            print(error as NSError)
+        }
         
         // Set optional settings for Adswizz SDK
-        //let options = AdCompanionOptions()
-        //options.extraExposureTime = 1
-        //AdswizzSDK.setAdCompanionOptions(options)
+//        let options = AdCompanionOptions()
+//        options.extraExposureTime = 5
+//        AdswizzAdSDK.setAdCompanionOptions(options)
         
         return true
     }

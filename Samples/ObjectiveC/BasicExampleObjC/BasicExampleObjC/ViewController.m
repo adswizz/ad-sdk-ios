@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "UIWindow+SafeArea.h"
 
-#import <AudioAdSDK/AudioAdSDK.h>
+#import <AdswizzAdSDK/AdswizzAdSDK.h>
 #import <AVFoundation/AVFoundation.h>
 
 // Private interface
@@ -127,7 +127,7 @@
 
 - (void)requestAds {
     NSError *error;
-    AASDKAdswizzAdRequest *adRequest = [[[[[[[AASDKAdswizzAdRequestBuilder new] withServer:@"demo.deliveryengine.adswizz.com"] withPlayerId:@"playerId"] withZoneId:@"12561"] withCompanionZones:@"12562"] withCompanionAdsEnabled:YES] buildAndReturnError:&error];
+    AASDKAdswizzAdRequest *adRequest = [[[[[[AASDKAdswizzAdRequestBuilder new] withServer:@"demo.deliveryengine.adswizz.com"] withPlayerId:@"playerId"] withZoneId:@"12561"] withCompanionZones:@"12562"] buildAndReturnError:&error];
     
     if (error) {
         NSLog(@"Oops, the request is not valid");
@@ -278,20 +278,20 @@
 
 #pragma mark - AASDKAdCompanionViewDelegate
 
-- (void)adCompanionViewWillLoadAd:(AASDKAdCompanionView * _Nonnull)adCompanionView {
+- (void)adCompanionViewWillLoad:(AASDKAdCompanionView * _Nonnull)adCompanionView {
     NSLog(@"Received companion event: willLoadAd");
 }
 
-- (void)adCompanionViewDidDisplayAd:(AASDKAdCompanionView * _Nonnull)adCompanionView {
+- (void)adCompanionViewDidDisplay:(AASDKAdCompanionView * _Nonnull)adCompanionView {
     NSLog(@"Received companion event: didDisplayAd");
 }
 
-- (void)adCompanionView:(AASDKAdCompanionView * _Nonnull)adCompanionView didFailToDisplayAd:(NSError * _Nonnull)error {
+- (void)adCompanionView:(AASDKAdCompanionView * _Nonnull)adCompanionView didFailToDisplay:(NSError * _Nonnull)error {
     NSLog(@"Received companion event: didFailToDisplayAd");
 }
 
-- (void)adCompanionViewOutOfContext:(AASDKAdCompanionView * _Nonnull)adCompanionView {
-    NSLog(@"Received companion event: outOfContext");
+- (void)adCompanionViewDidEndDisplay:(AASDKAdCompanionView * _Nonnull)adCompanionView {
+    NSLog(@"Received companion event: didEndDisplay");
 }
 
 - (BOOL)adCompanionView:(AASDKAdCompanionView * _Nonnull)adCompanionView shouldOverrideCompanionClickThrough:(NSURL * _Nullable)url {

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AudioAdSDK
+import AdswizzAdSDK
 import AVFoundation
 
 class ViewController: UIViewController {
@@ -160,7 +160,6 @@ extension ViewController {
                 .with(playerId: playerId)
                 .with(zoneId: zoneId)
                 .with(companionZones: companionZones)
-                .with(companionAdsEnabled: true)
                 .build()
             adConnection = AdRequestConnection(for: adRequest)
             adConnection?.requestAds { adManager, error in
