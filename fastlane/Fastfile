@@ -45,10 +45,14 @@ platform :ios do
       raise "No source path specified!".red
     end
 
+    if !lane[:destination]
+      raise "No destination path specified!".red
+    end
+
     framework = lane[:framework]
     version = lane[:version]
     source = lane[:source]
-    destination = "Framework"
+    destination = lane[:destination]
 
     # Cleanup Framework
     FileUtils::rm_rf "#{destination}/."
