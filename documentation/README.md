@@ -42,7 +42,7 @@ AdswizzAdSDK on iOS depends on 2 external libraries to support voice recognition
 ## Changes in your Info.pList file
 
 With the addition of the AdswizzAdSDK.framework to your application you will need to add some keys to the Info.pList. Let’s split these in 2 categories.
-
+![][unnamed]
 
 
 1. Settings for the framework(recommend):
