@@ -44,13 +44,14 @@ AdswizzAdSDK on iOS depends on 2 external libraries to support voice recognition
 With the addition of the AdswizzAdSDK.framework to your application you will need to add some keys to the Info.pList. Let’s split these in 2 categories.
 
 
-1. Settings for the framework(recommend):
-    1. Add “**_AdswizzAdSDKInstallationId_**” string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzAdSDK will throw an error.
+1. Settings for the framework:
+    1. Add "**_AdswizzAdSDKInstallationId_**" string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzAdSDK will throw an error.
     <img src="installationId.png" width="1000" />
-    2.  “**_AdswizzAdSDKAWSIdentityPoolIdRegion_**” string setting. It is a string in the format "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx" and will be provided by an Adswizz PIM. This setting is not mandatory, but if not set it will affect voice detection during interactive ads.
+    
+    2. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" string setting. It is a string in the format "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx" and will be provided by an Adswizz PIM. This setting is **not mandatory**, but if not set it will affect voice detection during interactive ads.
     <img src="aws.png" width="1000" />
 
-2. Settings for permissions(required)
+2. Settings for permissions(**required**):
     1. Add **_NSCalendarsUsageDescription_** entry. While playing an interactive ad the SDK might trigger a “Calendar” action which will need access at the calendar.
     2. Add **_NSContactsUsageDescription_** entry. While the “Calendar” action presents the event you might want to invite people.
     3. Add **_NSLocationWhenInUseUsageDescription_** entry. Adswizz SDK might want to track the location while the app is in foreground for a better targetability. 
