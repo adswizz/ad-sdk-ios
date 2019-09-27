@@ -58,7 +58,6 @@ With the addition of the AdswizzAdSDK.framework to your application you will nee
     5. Add **_NSMicrophoneUsageDescription_** entry. While an interactive ad will play with voice detection the SDK will require access to the microphone to record.
     6. Add **_NSSpeechRecognitionUsageDescription_** entry. While an interactive ad will play with voice detection the SDK will require access to Speech Kit to convert voice to text.
     7. Add **_NSPhotoLibraryUsageDescription_** entry. Adswizz SDK might want to save images in the library during an interactive ad.
-    
     <img src="InfoPList.png" width="1000" />
 
 
@@ -418,7 +417,7 @@ put your player in **_initialized_** state. If your player cannot load the url t
 If your player is buffering data you can report that to the SDK by setting the state to buffering. If your done **_buffering_** report **_bufferingFinished_**. Reporting **_buffering_** and **_bufferingFinished_** ensures that quartile/progress events are reported correctly and are not subject to network interruptions. If your player is ready to play the ads(it might not have yet buffered enough data) it can report a state of **_readyToPlay_**, meaning the player’s play method might be called. This state is optional and it resembles AVPlayer currentItem readyToPlay status. If your player started playing set the state to **_playing_**. If you pause the playing set the state to **_pause_**. **Resume** presumes the state to change to **_playing_** again. When the player has finished playing the ad set the state to **_finished_**.
 
 Here is a state machine for your player to implement.
-
+<img src="MediaPlayerState.png" width="1000" />
 
 
 # AdManager life cycle
@@ -455,3 +454,4 @@ If you need to skip an ad you can call this method to skip the current ad from t
 ## AdManager - reset
 
 If you decide to skip all ads in the AdManager from the current one you can call this method. For each ad skipped your app will trigger **_didFinishPlaying_** and a **_allAdsDidFinishPlaying_** event will be sent at the end. Looping through the ad again will need a call to **_prepare_** function.
+<img src="AdManagerState.png" width="1000" />
