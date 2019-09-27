@@ -1,6 +1,4 @@
-
 # **AdswizzAdSDK - Integration**
-
 
 # Get started
 
@@ -388,22 +386,23 @@ class YourPlayer: NSObject, MediaPlayerState {
 Let’s break down the MediaPlayerState protocol.
 
 
-## MediaPlayerState protocol - currentDuration
+## MediaPlayerState protocol
+### currentDuration
 
 Your player needs to inform the AdswizzAdSDK of the current duration of the media as soon as possible. The media duration is required to compute quartile events or progress events in the SDK. If it is **not possible** to report the media duration just **set it to 0**. If the SDK reads 0 from currentDuration it will rely on the VAST response media file duration. If the VAST duration is missing as well the quartile/progress events will be triggered at the end of the media player in the correct order but not when they actually happened.
 
 
-## MediaPlayerState protocol - currentPlayHead
+### currentPlayHead
 
 For a good reporting of the quartile/progress events your player should update where the player is at from the whole ad duration. It is **recommended** that your player should update this value at an interval of **1 second**. Going below this might trigger performance issues. If your player skips forward or backwards as the ad is playing, update this member accordingly to reflect the action taken. This will affect the way quartile events are fired by the SDK.
 
 
-## MediaPlayerState protocol - metadataItem
+### metadataItem
 
 If your player can read metadata from the media that is playing it should report it through this member. While not necessary for a client side insertion it makes more sense when you are playing a stream.
 
 
-## MediaPlayerState protocol - playerStatus
+### playerStatus
 
 While your player is playing the ad it should update this member so that AdswizzAdSDK start monitoring the status of the ad through your player. **Failing to update** this member accordingly will not generate the desired events from **_AdManager_** object.  Upon receiving the ad url from the AdManager on **_willStartLoading_** event in 
 
@@ -431,28 +430,28 @@ After requesting your first ad from Adswizz ad server you are ready to play the 
 
 Once presented with an AdManager one could call different actions on the AdManager. Let’s break them down.
 
-
-## AdManager - prepare
+## AdManager protocol
+### prepare
 
 You call this method to begin to cycle through the ads in the AdManager. If you decided to let the SDK handle the playing of the ads this method ensures that the internal player is starting to buffer enough data so that ad playing starts smoothly. After calling this method the first ad is beginning to load. The SDK will trigger **_willStartLoading_** event informing your app that buffering has begun for the ad. If the SDK is playing the ad you will also get **_didFinishLoading_** event for the first ad. If you are playing the ad you will not get this message as your player is responsible to start the buffering process.
 
 
-## AdManager - play
+### play
 
 If you decided to let the SDK play the ads you will need to call **_play_** method on **_didFinishLoading_**(recommended). Calling this method while you are handling the ad playing has no effect in the SDK. You can call this method after you paused the AdManager to resume playing. AdManager will trigger a **_didStartPlaying_** event back to your app for confirmation.
 
 
-## AdManager - pause
+### pause
 
 If you decided to let the SDK play the ads you can call **_pause_** method whenever you need to stop playing the ads in the AdManager. Calling this method while you are handling the ad playing has no effect in the SDK. AdManager will trigger a **_didPausePlaying_** event back to your app for confirmation.
 
 
-## AdManager - skipAd
+### skipAd
 
 If you need to skip an ad you can call this method to skip the current ad from the AdManager. This method applies even if you decided to take control of the ad playing. Your app will receive a **_didFinishPlaying_** event for the current ad and if the AdManager has a new ad you will receive **_willStartLoading_** for that one. If no ads are available an **_allAdsDidFinishPlaying_** will be sent, signaling that all ads got processed in the AdManager.
 
 
-## AdManager - reset
+### reset
 
 If you decide to skip all ads in the AdManager from the current one you can call this method. For each ad skipped your app will trigger **_didFinishPlaying_** and a **_allAdsDidFinishPlaying_** event will be sent at the end. Looping through the ad again will need a call to **_prepare_** function.
 <img src="img/AdManagerState.png" width="1000" />
