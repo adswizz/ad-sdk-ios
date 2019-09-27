@@ -42,12 +42,13 @@ AdswizzAdSDK on iOS depends on 2 external libraries to support voice recognition
 ## Changes in your Info.pList file
 
 With the addition of the AdswizzAdSDK.framework to your application you will need to add some keys to the Info.pList. Let’s split these in 2 categories.
-![][unnamed]
 
 
 1. Settings for the framework(recommend):
     1. Add “**_AdswizzAdSDKInstallationId_**” string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzAdSDK will throw an error.
+    <img src="installationId.png" width="1000" />
     2.  “**_AdswizzAdSDKAWSIdentityPoolIdRegion_**” string setting. It is a string in the format "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx" and will be provided by an Adswizz PIM. This setting is not mandatory, but if not set it will affect voice detection during interactive ads.
+    <img src="aws.png" width="1000" />
 
 2. Settings for permissions(required)
     1. Add **_NSCalendarsUsageDescription_** entry. While playing an interactive ad the SDK might trigger a “Calendar” action which will need access at the calendar.
@@ -57,6 +58,9 @@ With the addition of the AdswizzAdSDK.framework to your application you will nee
     5. Add **_NSMicrophoneUsageDescription_** entry. While an interactive ad will play with voice detection the SDK will require access to the microphone to record.
     6. Add **_NSSpeechRecognitionUsageDescription_** entry. While an interactive ad will play with voice detection the SDK will require access to Speech Kit to convert voice to text.
     7. Add **_NSPhotoLibraryUsageDescription_** entry. Adswizz SDK might want to save images in the library during an interactive ad.
+    
+    <img src="InfoPList.png" width="1000" />
+
 
 ## Changes to your app distribution
 
