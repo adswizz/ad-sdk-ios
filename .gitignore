@@ -47,10 +47,14 @@ Samples/ObjectiveC/BasicExampleObjC/Carthage
 Samples/ObjectiveC/BasicExampleObjC/Pods
 
 # Fastlane
+.fastlane/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 .env
+Gemfile
+Gemfile.lock
+
 
 
