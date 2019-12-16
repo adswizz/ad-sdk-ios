@@ -5,6 +5,7 @@
       * [Adding the SDK to your Xcode project](#adding-the-sdk-to-your-xcode-project)
       * [Changes in your Info.pList file](#changes-in-your-infoplist-file)
       * [Changes to your app distribution](#changes-to-your-app-distribution)
+      * [Changes in your app Signing and Capabilities](#changes-in-your-app-signing-and-capabilities)
       * [Your first ad request](#your-first-ad-request)
       * [Working with AdManager object](#working-with-admanager-object)
    * [<strong>Companion Banner</strong>](#companion-banner)
@@ -122,6 +123,11 @@ lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PAT
 EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")
 done
 ```
+
+## Changes in your app Signing and Capabilities
+
+AdswizzAdSDK framework can provide several device information using a data collector module. As of iOS 13 WiFi data can only be retrieved if the app entitlements contains `Access Wi-Fi Information` capability.
+In order to set it go to your app's target, select Signing & Capabilities and add `Access Wi-Fi Information` capability by tapping the "+" button above.
 
 
 
