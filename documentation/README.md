@@ -16,6 +16,13 @@
       * [Voice enabled interactive ads](#voice-enabled-interactive-ads)
       * [Handling voice recording](#handling-voice-recording)
       * [Handling interactive ad events](#handling-interactive-ad-events)
+   * [<strong>Server Side Insertion</strong>](#server-side-insertion)
+      * [AdswizzAdStreamManager operations](#adswizzadstreammanager-operations)
+         * [play](#play)
+         * [pause](#pause)
+         * [resume](#resume)
+         * [resume](#stop)
+      * [AdStreamManagerDelegate protocol](#adstreammanagerdelegate-protocol)      
    * [<strong>Debugging AdswizzAdSDK</strong>](#debugging-adswizzadsdk)
    * [<strong>Playing ads using your player</strong>](#playing-ads-using-your-player)
       * [MediaPlayerState protocol](#mediaplayerstate-protocol)
@@ -346,6 +353,121 @@ func interactiveAdManager(_ adManager: AdManager, didReceiveAdEvent event: Inter
 }
 ```
 
+# Server Side Insertion
+
+**_AdswizzAdSDK_** provides the possibility of playing a live stream(HLS or ICY) from AIS servers while giving access to the interactive ads inserted in the stream. This is done by reading the player's metadata for specific Adswizz data and convert it in Adswizz interactive format or companion banner support.
+To get started you need to create an **_AdswizzAdStreamManager_** with an URL for an ad server provided by a PIM.
+
+
+```swift
+import AdswizzAdSDK
+
+class YourModelClass: AdStreamManagerDelegate {
+   var streamManager: AdswizzAdStreamManager?
+
+func prepareForPlay() {
+....
+do {
+    streamManager = try AdswizzAdStreamManager.Builder()
+        .with(adServer: "SERVER_PROVIDED_BY_PIM")           //Mandatory
+        .with(httpProtocol: .https)                         //Optional: http or https protocol for the ad server. If not provided https will be chosen.
+        .with(companionZones: "COMPANION_PROVIDED_BY_PIM")  //Optional: companion zone provided by a PIM
+        .build()
+} catch {
+    print(error)
+}
+...
+}
+
+```
+At this point the **_AdswizzAdStreamManager_** can be configured with a companion zone that will be used in case that the ad break should contain a companion zone in the metadata but it is missing.
+Once the stream object is constructed you need to set the delegate and decide whether or not you want to play the stream with your player or let the SDK do it for you:
+
+```swift
+streamManager?.delegate = self
+```
+
+If you decide to play the stream with your player, you need to provide a MediaPlayerState object and use the following code:
+
+
+```swift
+let settings = AdStreamManagerSettings()
+settings.player = yourPlayer
+streamManager?.adStreamManagerSettings = settings
+```
+
+## AdswizzAdStreamManager operations
+### play
+
+To start playing a stream, call this function from **_AdswizzAdStreamManager_** with an URL to an AIS server. Call this function even if you want to play the stream because the URL will be enhanced with extra parameters and it is a mandatory step in order to have access to interactive ads or companion banner support. In return, **_AdswizzAdSDK_** will call back `func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: URL)` with the newly formatted URL.
+
+### pause
+
+To pause a stream that is played by the internal player in the SDK call this function. If you are using your own player this will do nothing.
+
+
+### resume
+
+To resume a stream that is played by the internal player in the SDK call this function. If you are using your own player this will do nothing.
+
+
+### stop
+
+To stop a stream that is played by the internal player in the SDK call this function. If you are using your own player this will do nothing.
+
+
+## AdStreamManagerDelegate protocol
+Notifications sent from **_AdswizzAdSDK_** to your app are implemented in AdStreamManagerDelegate protocol. 
+
+### func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: URL)
+After calling play on the **_AdswizzAdStreamManager_** object you will be called on this function with the url decorated with extra parameters. It is here where you can begin playing the stream if you opted for an external player. If you decided to let the SDK play the stream you don't need to do anything in this function.
+
+```swift
+func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: URL) {
+  yourPlayer.play(url)
+}
+```
+
+### func adStreamManager(_ adstreamManager: AdStreamManager, stateChanged state: MediaPlayerStatus)
+Whenever the internal or your player state changes you will get notified in this function. Use the states here to update your UI accordingly.
+
+### func adStreamManager(_ adstreamManager: AdStreamManager, metadataChanged metadata: [AVMetadataItem])
+Whenever the metadata is changed on the internal player stream you will be notified here. If you opted to play the stream this func won't be called.
+
+### func adStreamManager(_ adstreamManager: AdStreamManager, adBreakStarted manager: AdManager)
+When an ad break was detected in your stream you will get an **_AdManager_** object containing the current running ad. At this point you can expect to work with an **_AdManager_** the same way you did when it was received after an **_AdswizzAdRequest_** except you are not obligated to keep a reference to the object. Here is how it might look in your app:
+
+```swift
+func adStreamManager(_ adstreamManager: AdStreamManager, adBreakStarted manager: AdManager) {
+    //let settings = AdManagerSettings()
+    //settings.player = yourAdPlayer     // optional step were you tell the AdManager that you want to play the ads
+    //manager.adManagerSettings = settings
+    manager?.delegate = self             // register for notification on this AdManager
+    manager?.interactiveDelegate = self  // register for interactive ads notifications
+}
+```
+
+During the ad break, you will get updates about the status of the ad if you implement **_AdMangerDelegate_** protocol or **_InteractiveAdManagerDelegate_** protocol.
+When you get this **_AdManager_**, the ad will automatically play in the SDK since it is part of the stream. During this ad operations on **_AdManager_** such as play or pause will not work. However you can skip the ad break or reset the whole **_AdManager_** object. Most of the times there will be only one ad in the **_AdManager_** but you can expect other ads to be inserted from the SDK if the ad is extended.
+
+### func adStreamManager(_ adstreamManager: AdStreamManager, adBreakEnded manager: AdManager)
+When the ad break from the stream has ended you will get notified to clean up anything related to your **_AdManager_**.
+
+```swift
+func adStreamManager(_ adstreamManager: AdStreamManager, adBreakEnded manager: AdManager) {
+    manager?.delegate = nil
+    manager?.interactiveDelegate = nil
+}
+```
+
+### func adStreamManagerWillReconnect(_ adstreamManager: AdStreamManager)
+While interacting with an ad in the ad break, the stream might interrupt due to actions like skip ad or extend ad. At this time the SDK will inform you that will reconnect to the stream so the current ad will not be served again.
+
+### func adStreamManagerPlayerShouldPause(_ adstreamManager: AdStreamManager)
+When deciding to play with an external player the SDK might inform you to pause the ad playing.
+
+### func adStreamManagerPlayerShouldResume(_ adstreamManager: AdStreamManager)
+When deciding to play with an external player the SDK might inform you to resume the ad playing.
 
 
 # Debugging AdswizzAdSDK
