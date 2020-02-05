@@ -157,10 +157,10 @@ An Adswizz PIM will provide you a unique sdk installation id which you need to a
 var adRequest: AdswizzAdRequest!
 do {
       adRequest = try AdswizzAdRequest.Builder()
-            	.with(server: "SERVER_PROVIDED_BY_PIM")
-            	.with(zoneId: "ZONEID_PROVIDED_BY_PIM")
-            	.with(playerId: "PLAYERID_PROVIDED_BY_PIM")
-            	.build()
+              .with(server: "SERVER_PROVIDED_BY_PIM")
+              .with(zoneId: "ZONEID_PROVIDED_BY_PIM")
+              .with(playerId: "PLAYERID_PROVIDED_BY_PIM")
+              .build()
 } catch {
      print(error)
 }
@@ -217,9 +217,9 @@ func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
     switch event.event {
       case .didFinishLoading:
            adManager.play() //Start playing the next ad in the AdManager
-    	case .didFinishPlaying:
-        	break // Current ad has finished playing
-    	case .allAdsDidFinishPlaying:
+      case .didFinishPlaying:
+          break // Current ad has finished playing
+      case .allAdsDidFinishPlaying:
             break // All ads from the AdManager have finished
       default:
           break
@@ -250,9 +250,9 @@ First when you create an **_AdswizzAdRequest_** you must configure the **_compan
 
 ```swift
 adRequest = try AdswizzAdRequest.Builder()
-            	.with(server: "SERVER_PROVIDED_BY_PIM")
-            	.with(zoneId: "ZONEID_PROVIDED_BY_PIM")
-            	.with(playerId: "PLAYERID_PROVIDED_BY_PIM")
+              .with(server: "SERVER_PROVIDED_BY_PIM")
+              .with(zoneId: "ZONEID_PROVIDED_BY_PIM")
+              .with(playerId: "PLAYERID_PROVIDED_BY_PIM")
                 .with(companionZones: "COMPANION_PROVIDED_BY_PIM")
                 .build()
 ```
@@ -265,22 +265,7 @@ Once the request is made, if there is a companion associated with the ad it will
 
 You can associate a delegate to your **_AdCompanionView_** that conforms to the **_AdCompanionViewDelegate_** protocol. You will be notified when the ad has loaded the companion view, if the companion view was displayed, or if it ended the display. If there was an error while loading the companion you will be notified through this delegate. Also, you can decide whether or not to override click through on the companion view. 
 
-You can also deactivate companion view temporarily by setting the **_active_** member to false. 
-
-
-## Extra exposure time for an AdCompanionView
-
-By default the AdCompanionView will end displaying the content after the ad finishes playing. If you need to keep the companion on the screen for a longer time(or indefinitely) you can configure it like this.
-
-
-```swift
-let adCompanionOptions = AdCompanionOptions()
-adCompanionOptions.extraExposureTime = 1.2 // these are seconds.
-// if you need the companion forever on the screen
-// adCompanionOptions.extraExposureTime = .greatestFiniteMagnitude
-AdswizzAdSDK.setAdCompanionOptions(adCompanionOptions)
-```
-
+You can also deactivate companion view temporarily by setting the **_active_** member to false.
 
 
 # Interactive ads
@@ -335,8 +320,8 @@ func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
 extension YourModelClass: InteractiveAdManagerDelegate {
 func interactiveAdManager(_ adManager: AdManager, shouldPresentCoupon pkpassData: Data) {
     do {
-        	let receivedPass = try PKPass(data: data)
-        	if let vc = PKAddPassesViewController(pass: receivedPass) {
+          let receivedPass = try PKPass(data: data)
+          if let vc = PKAddPassesViewController(pass: receivedPass) {
                // Here you can present the view controller
             } 
     } catch {
@@ -415,7 +400,7 @@ class YourPlayer: NSObject, MediaPlayerState {
 ```
 
 
-Let’s break down the MediaPlayerState protocol.
+Let’s break down the **_MediaPlayerState_** protocol.
 
 
 ## MediaPlayerState protocol
@@ -438,11 +423,9 @@ If your player can read metadata from the media that is playing it should report
 
 While your player is playing the ad it should update this member so that AdswizzAdSDK start monitoring the status of the ad through your player. **Failing to update** this member accordingly will not generate the desired events from **_AdManager_** object.  Upon receiving the ad url from the AdManager on **_willStartLoading_** event in 
 
-
 ```swift
 func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)
 ```
-
 
 put your player in **_initialized_** state. If your player cannot load the url the player should report **_failure_** state. It can however, set this state during the playing if an error occurred and it does not make sense to continue with this ad. When setting **_failure_** or **_unknown_** as the state of your player the SDK will terminate the current ad sent in **_willStartLoading_** and inform your app that the media player state is unknown. The AdManager will move to the next ad if available.
 
@@ -450,6 +433,22 @@ If your player is buffering data you can report that to the SDK by setting the s
 
 Here is a state machine for your player to implement.
 <img src="img/MediaPlayerState.png" width="1000" />
+
+### isBufferingWhilePaused
+
+If your player continues to buffer data after it was paused set this property to true. This is usefull when playing a stream to let the SDK decide whether or not to reconnect your stream.
+
+### lastError
+
+If your player encountered an error while playing an ad, report it in this property. This will help the SDK to better report errors back to the ad server.
+
+### capabilities
+
+If your player has specific capabilities(skip, mute, autoplay, autoplay when muted, fullscreen or it can display an icon) list them in this property. This will help the SDK inform the ad server for better targetability. If you are not interested in this feature set this property to nil.
+
+### stateInfo
+
+This describes a collection of IAB specific states(skipped, muted, autoplayed, fullscreen) your player might be. This will help the SDK infor the ad server for better targetability. If you are not interested in this feature set this property to nil.
 
 
 # AdManager life cycle
@@ -487,3 +486,68 @@ If you need to skip an ad you can call this method to skip the current ad from t
 
 If you decide to skip all ads in the AdManager from the current one you can call this method. For each ad skipped your app will trigger **_didFinishPlaying_** and a **_allAdsDidFinishPlaying_** event will be sent at the end. Looping through the ad again will need a call to **_prepare_** function.
 <img src="img/AdManagerState.png" width="1000" />
+
+
+# AdswizzAdSDK general settings
+
+## Companion banner
+
+### Extra exposure time for an AdCompanionView
+
+By default the **_AdCompanionView_** will end displaying the content after the ad finishes playing. If you need to keep the companion on the screen for a longer time(or indefinitely) you can configure it like this.
+
+
+```swift
+let adCompanionOptions = AdCompanionOptions()
+adCompanionOptions.extraExposureTime = 1.2 // these are seconds.
+// if you need the companion forever on the screen
+// adCompanionOptions.extraExposureTime = .greatestFiniteMagnitude
+AdswizzAdSDK.setAdCompanionOptions(adCompanionOptions)
+```
+
+## Location
+
+### Enable significant changes for location
+
+By default **_AdswizzAdSDK_** will collect location updates using startUpdatingLocation api from CLLocationManager meaning this option is set to **_false_**. If you desired to limit the location updates only to those more significant set this setting to **_true_**.
+
+```swift
+AdswizzAdSDK.shared.enableLocationSignificantChanges = true
+```
+
+### Location accuracy
+By default **_AdswizzAdSDK_** location accuracy is set to the nearest kilometer. You can update this to a new CLLocationAccuracy value.
+
+```swift
+AdswizzAdSDK.shared.locationAccuracy = kCLLocationAccuracyBest
+```
+
+## Privacy
+
+### GDPR
+
+Adswizz services are GDPR compliant. As a result **_AdswizzAdSDK_** will decorate urls that connect to Adswizz services accordingly to reflect the desired GDPR user consent. To modify the GDPR consent you need to configured like this:
+
+```swift
+AdswizzAdSDK.shared.gdprConsent = <Desired_GDPR_Consent>
+```
+
+If not configured, the default value for GDPR consent in **_AdswizzAdSDK_** will be  **_notApplicable_**. Other possible values are:
+  * **_notAsked_**: the user was not asked yet about GDPR consent
+  * **_granted_**: the user has granted access
+  * **_denied_**: the user has denied access
+
+### CCPA
+
+With the introduction of CCPA in US, **_AdswizzAdSDK_** gives you the possibility to forward the user consent accordingly.
+
+```swift
+AdswizzAdSDK.shared.ccpaConfig = AdswizzCCPAConfig.Builder()
+                                                  .with(explicitNotice: <Desired_CCPA_Consent>)
+                                                  .with(optOut: <Desired_CCPA_Consent>)
+                                                  .with(lspa: <Desired_CCPA_Consent>)
+                                                  .build()
+
+```
+
+The default value for **_explicitNotice_**, **_optOut_** and **_lspa_** is **_notApplicable_**. Other possibile values are **_yes_** and **_no_**
