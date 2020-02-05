@@ -38,6 +38,16 @@
          * [pause](#pause)
          * [skipAd](#skipad)
          * [reset](#reset)
+   * [<strong>AdswizzAdSDK general settings</strong>](#adswizzadsdk-general-settings)
+      * [Companion banner](#companion-banner)
+         * [Extra exposure time for an AdCompanionView](#extra-exposure-time-for-an-adcompanionview)
+      * [Location](#location)
+         * [Enable significant changes for location](#enable-significant-changes-for-location)
+         * [Location accuracy](#location-accuracy)
+      * [Privacy](#privacy)
+         * [GDPR](#gdpr)
+         * [CCPA](#ccpa)
+
 
 # Get started
 
