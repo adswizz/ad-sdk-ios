@@ -21,7 +21,7 @@
          * [play](#play)
          * [pause](#pause)
          * [resume](#resume)
-         * [resume](#stop)
+         * [stop](#stop)
       * [AdStreamManagerDelegate protocol](#adstreammanagerdelegate-protocol)      
    * [<strong>Debugging AdswizzAdSDK</strong>](#debugging-adswizzadsdk)
    * [<strong>Playing ads using your player</strong>](#playing-ads-using-your-player)
@@ -417,17 +417,17 @@ To start playing a stream, call this function from **_AdswizzAdStreamManager_** 
 
 ### pause
 
-To pause a stream that is played by the internal player in the SDK call this function. If you are using your own player this will do nothing.
+To pause a stream that is played by the internal player in the SDK call this function. If you are using your own player this will have no effect.
 
 
 ### resume
 
-To resume a stream that is played by the internal player in the SDK call this function. If you are using your own player this will do nothing.
+To resume a stream that is played by the internal player in the SDK call this function. If you are using your own player this will have no effect.
 
 
 ### stop
 
-To stop a stream that is played by the internal player in the SDK call this function. If you are using your own player this will do nothing.
+To stop a stream that is played by the internal player in the SDK call this function. If you are using your own player this will have no effect.
 
 
 ## AdStreamManagerDelegate protocol
@@ -662,7 +662,7 @@ AdswizzAdSDK.shared.locationAccuracy = kCLLocationAccuracyBest
 
 ### GDPR
 
-Adswizz services are GDPR compliant. As a result **_AdswizzAdSDK_** will decorate urls that connect to Adswizz services accordingly to reflect the desired GDPR user consent. To modify the GDPR consent you need to configured like this:
+Adswizz services are GDPR compliant. As a result **_AdswizzAdSDK_** will decorate urls that connect to Adswizz services accordingly to reflect the desired GDPR user consent. To modify the GDPR consent you need to configured it like this:
 
 ```swift
 AdswizzAdSDK.shared.gdprConsent = <Desired_GDPR_Consent>
