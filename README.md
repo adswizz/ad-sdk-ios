@@ -39,6 +39,7 @@ AdswizzAdSDK also needs to link the following .frameworks:
 ```
 AWSCore.framework
 SocketRocket.framework
+SwiftProtobuf.framework
 ```
 Make sure to add those in your project as well.
 
