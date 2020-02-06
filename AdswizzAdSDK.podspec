@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.license      = {
     :type => 'Copyright',
     :text => <<-LICENSE
-      Copyright 2019 AdsWizz, Inc. All rights reserved.
+      Copyright 2020 AdsWizz, Inc. All rights reserved.
       LICENSE
   }
   s.author      = { "AdsWizz, Inc" => "sdk@adswizz.com" }
@@ -25,5 +25,6 @@ Pod::Spec.new do |s|
   
   s.dependency 'AWSCore'
   s.dependency 'SocketRocket'
+  s.dependency 'SwiftProtobuf'
   
 end
