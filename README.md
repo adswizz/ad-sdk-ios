@@ -1,4 +1,4 @@
-# AdswizzAdSDK - iOS Swift
+# AdswizzSDK - iOS Swift
 
 The only audio-centric SDK to Drive Innovation & Differentiation in Audio monetization
 
@@ -13,32 +13,33 @@ The only audio-centric SDK to Drive Innovation & Differentiation in Audio moneti
 
 ### CocoaPods
 
-[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate AdswizzAdSDK into your Xcode project using CocoaPods, specify it in your `Podfile`:
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate AdswizzSDK into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'AdswizzAdSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
+pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
 ```
 
 ### Manually
 
-If you prefer not to use any of the supported dependency managers above, you can integrate AdswizzAdSDK into your project manually.
+If you prefer not to use any of the supported dependency managers above, you can integrate AdswizzSDK into your project manually.
 
 #### Embedded Framework
 
 Unzip the content of the DropBox link. The unzipped content should contain the following:
 
 ```
-* AdswizzAdSDK.framework binary
-* AdswizzAdSDK.dSYM file
+* AdswizzSDK.framework binary
+* AdswizzSDK.dSYM file
 * coresponding .bcsymbolmap file
 ```
 
-Drop the AdswizzAdSDK.framework file in your project Frameworks directory. Make sure AdswizzAdSDK.framework is present in the “Embedded Binaries” section in your target.
-AdswizzAdSDK also needs to link the following .frameworks:
+Drop the AdswizzSDK.framework file in your project Frameworks directory. Make sure AdswizzSDK.framework is present in the “Embedded Binaries” section in your target.
+AdswizzSDK also needs to link the following .frameworks:
 
 ```
 AWSCore.framework
 SocketRocket.framework
+SwiftProtobuf.framework
 ```
 Make sure to add those in your project as well.
 
