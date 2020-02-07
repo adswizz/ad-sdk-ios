@@ -1,4 +1,4 @@
-# **AdswizzAdSDK - Integration**
+# **AdswizzSDK - Integration**
    * [<strong>Get started</strong>](#get-started)
       * [Prerequisites](#prerequisites)
       * [Dependencies](#dependencies)
@@ -23,7 +23,7 @@
          * [resume](#resume)
          * [stop](#stop)
       * [AdStreamManagerDelegate protocol](#adstreammanagerdelegate-protocol)      
-   * [<strong>Debugging AdswizzAdSDK</strong>](#debugging-adswizzadsdk)
+   * [<strong>Debugging AdswizzSDK</strong>](#debugging-AdswizzSDK)
    * [<strong>Playing ads using your player</strong>](#playing-ads-using-your-player)
       * [MediaPlayerState protocol](#mediaplayerstate-protocol)
          * [currentDuration](#currentduration)
@@ -42,7 +42,7 @@
          * [pause](#pause)
          * [skipAd](#skipad)
          * [reset](#reset)
-   * [<strong>AdswizzAdSDK general settings</strong>](#adswizzadsdk-general-settings)
+   * [<strong>AdswizzSDK general settings</strong>](#AdswizzSDK-general-settings)
       * [Companion banner](#companion-banner)
          * [Extra exposure time for an AdCompanionView](#extra-exposure-time-for-an-adcompanionview)
       * [Location](#location)
@@ -55,7 +55,7 @@
 
 # Get started
 
-AdswizzAdSDK helps integrating Adswizz interactive ads in your application in a client side scenario. In a client side insertion your app will request ads from Adswizz ad server and you will decide when to play them.
+AdswizzSDK helps integrating Adswizz interactive ads in your application in a client side scenario. In a client side insertion your app will request ads from Adswizz ad server and you will decide when to play them.
 
 
 ## Prerequisites
@@ -69,7 +69,7 @@ AdswizzAdSDK helps integrating Adswizz interactive ads in your application in a 
 
 ## Dependencies
 
-AdswizzAdSDK on iOS depends on 2 external libraries to support voice recognition (Amazon’s AWSCore and Facebook’s SocketRocket). These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If choose the manual integration you will have to provide them at link time.
+AdswizzSDK on iOS depends on 2 external libraries to support voice recognition (Amazon’s AWSCore and Facebook’s SocketRocket). These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If choose the manual integration you will have to provide them at link time.
 
 
 ## Adding the SDK to your Xcode project
@@ -78,25 +78,25 @@ AdswizzAdSDK on iOS depends on 2 external libraries to support voice recognition
 
 1. Using CocoaPods 
 
-    You can easily integrate AdswizzAdSDK in your project. If you already have a pod file just the following line:
+    You can easily integrate AdswizzSDK in your project. If you already have a pod file just the following line:
     ```ruby
-    pod 'AdswizzAdSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git" 
+    pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git" 
     ```
-    With the Podfile modified just run `pod install`. You will be prompted to enter security credentials to access the AdswizzAdSDK repository. These credentials will be provided by an Adswizz PIM. If the login was successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library and Facebook’s SocketRocket. These are required for voice detection in interactive ads.
+    With the Podfile modified just run `pod install`. You will be prompted to enter security credentials to access the AdswizzSDK repository. These credentials will be provided by an Adswizz PIM. If the login was successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library and Facebook’s SocketRocket. These are required for voice detection in interactive ads.
 
 2. Manual
 
-    Unzip the content of the DropBox link. You will get the AdswizzAdSDK.framework binary and it’s corresponding dSYM file and bcsymbolmap file. Drop the AdswizzAdSDK.framework file in your project Frameworks directory. Make sure AdswizzAdSDK.framework is present in the “Embedded Binaries” section in your target. Make sure to add AWSCore.framework and SocketRocket.framework in your project as well.
+    Unzip the content of the DropBox link. You will get the AdswizzSDK.framework binary and it’s corresponding dSYM file and bcsymbolmap file. Drop the AdswizzSDK.framework file in your project Frameworks directory. Make sure AdswizzSDK.framework is present in the “Embedded Binaries” section in your target. Make sure to add AWSCore.framework and SocketRocket.framework in your project as well.
 
 
 
 ## Changes in your Info.pList file
 
-With the addition of the AdswizzAdSDK.framework to your application you will need to add some keys to the Info.pList. Let’s split these in 2 categories.
+With the addition of the AdswizzSDK.framework to your application you will need to add some keys to the Info.pList. Let’s split these in 2 categories.
 
 
 1. Settings for the framework:
-    1. Add "**_AdswizzAdSDKInstallationId_**" string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzAdSDK will throw an error.
+    1. Add "**_AdswizzAdSDKInstallationId_**" string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
     <img src="img/installationId.png" width="1000" />
     
     2. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" string setting. It is a string in the format "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx" and will be provided by an Adswizz PIM. This setting is **not mandatory**, but if not set it will affect voice detection during interactive ads.
@@ -115,7 +115,7 @@ With the addition of the AdswizzAdSDK.framework to your application you will nee
 
 ## Changes to your app distribution
 
-AdswizzAdSDK.framework is a fat library(both simulator and device binaries are bundled together). When you upload your app in the AppStore you will need to strip down the simulator part from the AdswizzAdSDK.framework. To do that go to your target’s app “Build Phases” page and tap on “New Run Script Phase” option. Paste the following script.
+AdswizzSDK.framework is a fat library(both simulator and device binaries are bundled together). When you upload your app in the AppStore you will need to strip down the simulator part from the AdswizzSDK.framework. To do that go to your target’s app “Build Phases” page and tap on “New Run Script Phase” option. Paste the following script.
 
 
 ```bash
@@ -148,19 +148,19 @@ done
 
 ## Your first ad request
 
-First, you need to configure the AdswizzAdSDK. The recommended way to do that is in your **_AppDelegate_** class on **_didFinishLaunchingWithOptions_** function. Here is a snippet of what this might look like:
+First, you need to configure the AdswizzSDK. The recommended way to do that is in your **_AppDelegate_** class on **_didFinishLaunchingWithOptions_** function. Here is a snippet of what this might look like:
 
 
 ```swift
 import UIKit
-import AdswizzAdSDK
+import AdswizzSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 ......
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
   do {
-     try AdswizzAdSDK.shared.initialize()
+     try AdswizzSDK.shared.initialize()
   } catch {
      print(error)
   }
@@ -208,7 +208,7 @@ As a result of this call the SDK will provide you with an error if the call was 
 
 If the request to the Adswizz Ad server was a success the SDK will return an **_AdManager_** object which you will own and will be the way the SDK will communicate events back to your application. To get this communication channel open you need to set up a delegate for the **_AdManager_** that conforms to the **_AdManagerDelegate_** protocol. The **_AdManager_** will call 
 
-`func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)` whenever events of interest might happen in the SDK. Consult AdEventType enum for a list of possible events from the AdswizzAdSDK. If an error happens in the SDK while using this object `func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)` will be called.
+`func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)` whenever events of interest might happen in the SDK. Consult AdEventType enum for a list of possible events from the AdswizzSDK. If an error happens in the SDK while using this object `func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)` will be called.
 
 As a first step, an **_AdManager_** needs to have some settings. You can create an **_AdManagerSettings_** object and pass it to your newly created instance of **_AdManager_**. In this object you can specify if you want to play the ad with the SDK’s internal player or a player of your choice that must conform to **_MediaPlayerState_** protocol.
 
@@ -216,7 +216,7 @@ Next, you need to call prepare method on the **_AdManager_** object. This will b
 
 
 ```swift
-import AdswizzAdSDK
+import AdswizzSDK
 
 class YourModelClass: AdManagerDelegate {
    var adManager: AdManager?
@@ -251,12 +251,12 @@ func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
 ```
 
 
-To actually start the **_AdManager_** rolling the ads you must call the play method on the **_AdManager_** when deciding to use the internal player. If you provide the player than you only need to start playing the ad in your player and the AdswizzAdSDK will observe the **_MediaPlayerState_** interface and decide when the ad has finished. In this case, calling **_adManager.play()_** is not necessary.
+To actually start the **_AdManager_** rolling the ads you must call the play method on the **_AdManager_** when deciding to use the internal player. If you provide the player than you only need to start playing the ad in your player and the AdswizzSDK will observe the **_MediaPlayerState_** interface and decide when the ad has finished. In this case, calling **_adManager.play()_** is not necessary.
 
 
 # Companion Banner
 
-AdswizzAdSDK lets you configure companion banner(s) if you are provided by the Adswizz PIM with a companion zone id.
+AdswizzSDK lets you configure companion banner(s) if you are provided by the Adswizz PIM with a companion zone id.
 
 
 ## Adding an AdCompanionView
@@ -296,26 +296,26 @@ Adswizz interactive ads require some permissions on your app. Please refer to th
 
 ## Voice enabled interactive ads
 
-To use voice interactive ads there are some dependencies on third party libraries (Amazon’s **AWSCore.framework** and Facebook’s **SocketRocket.framework**). Also, in Info.pList you need to add a string key called **_AdswizzAWSIdentityPoolIdRegion_** with the content received from an Adswizz PIM. Failing to add this key will reduce the ability of voice detection while your app is in the background.
+To use voice interactive ads there are some dependencies on third party libraries (Amazon’s **AWSCore.framework** and Facebook’s **SocketRocket.framework**). Also, in Info.pList you need to add a string key called **_AdswizzAdSDKAWSIdentityPoolIdRegion_** with the content received from an Adswizz PIM. Failing to add this key will reduce the ability of voice detection while your app is in the background.
 
 
 ## Handling voice recording
 
-Apple recommends that your app’s UI reflect when recording started or stopped. AdswizzAdSDK provides a way to notify your app that recording has begun/stopped. Here is  what you need:
+Apple recommends that your app’s UI reflect when recording started or stopped. AdswizzSDK provides a way to notify your app that recording has begun/stopped. Here is  what you need:
 
 
 ```swift
-extension AppDelegate: AdswizzAdSDKDelegate {
+extension AppDelegate: AdswizzSDKDelegate {
     func configureAdswizzSDK() {
-       AdswizzAdSDK.initialize(installationId: "YOUR_INSTALLATION_ID")
-       AdswizzAdSDK.setDelegate(self)
+       AdswizzSDK.initialize(installationId: "YOUR_INSTALLATION_ID")
+       AdswizzSDK.setDelegate(self)
     }
    
-   func adswizzSDKRecordingStarted(_ adswizzSDK: AdswizzAdSDK) {
+   func adswizzSDKRecordingStarted(_ adswizzSDK: AdswizzSDK) {
        // Update your UI to reflect that the SDK is recording
    }
 
-   func adswizzSDKRecordingStopped(_ adswizzSDK: AdswizzAdSDK) {
+   func adswizzSDKRecordingStopped(_ adswizzSDK: AdswizzSDK) {
        // Update your UI to reflect that the SDK is not recording anymore
    }
 }
@@ -325,7 +325,7 @@ extension AppDelegate: AdswizzAdSDKDelegate {
 
 ## Handling interactive ad events
 
-While the **_AdMangerDelegate_** provides a list of **_AdEventType_** covering the life cycle of an ad it does not provide information on an interactive ad. To get more insight on what is happening while an interactive ad is playing you can set the **_interactiveDelegate_** on the **_AdManager_**. While implementing **_InteractiveAdManagerDelegate_** you will need to provide code to present a PKAddPassesViewController in case the AdswizzAdSDK needs to save a coupon in the Wallet.
+While the **_AdMangerDelegate_** provides a list of **_AdEventType_** covering the life cycle of an ad it does not provide information on an interactive ad. To get more insight on what is happening while an interactive ad is playing you can set the **_interactiveDelegate_** on the **_AdManager_**. While implementing **_InteractiveAdManagerDelegate_** you will need to provide code to present a PKAddPassesViewController in case the AdswizzSDK needs to save a coupon in the Wallet.
 
 
 ```swift
@@ -369,12 +369,12 @@ func interactiveAdManager(_ adManager: AdManager, didReceiveAdEvent event: Inter
 
 # Server Side Insertion
 
-**_AdswizzAdSDK_** provides the possibility of playing a live stream(HLS or ICY) from AIS servers while giving access to the interactive ads inserted in the stream. This is done by reading the player's metadata for specific Adswizz data and convert it in Adswizz interactive format or companion banner support.
+**_AdswizzSDK_** provides the possibility of playing a live stream(HLS or ICY) from AIS servers while giving access to the interactive ads inserted in the stream. This is done by reading the player's metadata for specific Adswizz data and convert it in Adswizz interactive format or companion banner support.
 To get started you need to create an **_AdswizzAdStreamManager_** with an URL for an ad server provided by a PIM.
 
 
 ```swift
-import AdswizzAdSDK
+import AdswizzSDK
 
 class YourModelClass: AdStreamManagerDelegate {
    var streamManager: AdswizzAdStreamManager?
@@ -413,7 +413,7 @@ streamManager?.adStreamManagerSettings = settings
 ## AdswizzAdStreamManager operations
 ### play
 
-To start playing a stream, call this function from **_AdswizzAdStreamManager_** with an URL to an AIS server. Call this function even if you want to play the stream because the URL will be enhanced with extra parameters and it is a mandatory step in order to have access to interactive ads or companion banner support. In return, **_AdswizzAdSDK_** will call back `func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: URL)` with the newly formatted URL.
+To start playing a stream, call this function from **_AdswizzAdStreamManager_** with an URL to an AIS server. Call this function even if you want to play the stream because the URL will be enhanced with extra parameters and it is a mandatory step in order to have access to interactive ads or companion banner support. In return, **_AdswizzSDK_** will call back `func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: URL)` with the newly formatted URL.
 
 ### pause
 
@@ -431,7 +431,7 @@ To stop a stream that is played by the internal player in the SDK call this func
 
 
 ## AdStreamManagerDelegate protocol
-Notifications sent from **_AdswizzAdSDK_** to your app are implemented in AdStreamManagerDelegate protocol. 
+Notifications sent from **_AdswizzSDK_** to your app are implemented in AdStreamManagerDelegate protocol. 
 
 ### func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: URL)
 After calling play on the **_AdswizzAdStreamManager_** object you will be called on this function with the url decorated with extra parameters. It is here where you can begin playing the stream if you opted for an external player. If you decided to let the SDK play the stream you don't need to do anything in this function.
@@ -484,13 +484,13 @@ When deciding to play with an external player the SDK might inform you to pause 
 When deciding to play with an external player the SDK might inform you to resume the ad playing.
 
 
-# Debugging AdswizzAdSDK
+# Debugging AdswizzSDK
 
 The SDK uses an internal logger called **_AdLogger_**. By default the log level is set to none, meaning nothing gets logged. If you need more information from the SDK you can enable a different log level, verbose being the lower one (not recommended though in production). You can also provide a new destination for the logger (e.g.: pipe it to your app logger). By default SDK log event get dumped in the console.
 
 
 ```swift
-extension AppDelegate: AdswizzAdSDKDelegate {
+extension AppDelegate: AdswizzSDKDelegate {
     func configureAdswizzSDK() {
       ......
       AdLogger.shared.level = .info
@@ -510,7 +510,7 @@ extension AppDelegate: AdLoggerDestination {
 
 # Playing ads using your player
 
-AdswizzAdSDK gives you the possibility to choose whether to play the ad media with your player or let the SDK handle that for you. By default, the SDK will play the ad. If you need to take control of the playing you must configure the **_AdManager_** object received after an **_AdConnectionRequest_** with a new **_AdManagerSettings_** object. You can provide here your player that must conform to **_MediaPlayerState_** protocol. This protocol will notify the SDK of changes in the player through KVO. Here is how you setup a player.
+AdswizzSDK gives you the possibility to choose whether to play the ad media with your player or let the SDK handle that for you. By default, the SDK will play the ad. If you need to take control of the playing you must configure the **_AdManager_** object received after an **_AdConnectionRequest_** with a new **_AdManagerSettings_** object. You can provide here your player that must conform to **_MediaPlayerState_** protocol. This protocol will notify the SDK of changes in the player through KVO. Here is how you setup a player.
 
 
 ```swift
@@ -542,7 +542,7 @@ Let’s break down the **_MediaPlayerState_** protocol.
 ## MediaPlayerState protocol
 ### currentDuration
 
-Your player needs to inform the AdswizzAdSDK of the current duration of the media as soon as possible. The media duration is required to compute quartile events or progress events in the SDK. If it is **not possible** to report the media duration just **set it to 0**. If the SDK reads 0 from currentDuration it will rely on the VAST response media file duration. If the VAST duration is missing as well the quartile/progress events will be triggered at the end of the media player in the correct order but not when they actually happened.
+Your player needs to inform the AdswizzSDK of the current duration of the media as soon as possible. The media duration is required to compute quartile events or progress events in the SDK. If it is **not possible** to report the media duration just **set it to 0**. If the SDK reads 0 from currentDuration it will rely on the VAST response media file duration. If the VAST duration is missing as well the quartile/progress events will be triggered at the end of the media player in the correct order but not when they actually happened.
 
 
 ### currentPlayHead
@@ -557,7 +557,7 @@ If your player can read metadata from the media that is playing it should report
 
 ### playerStatus
 
-While your player is playing the ad it should update this member so that AdswizzAdSDK start monitoring the status of the ad through your player. **Failing to update** this member accordingly will not generate the desired events from **_AdManager_** object.  Upon receiving the ad url from the AdManager on **_willStartLoading_** event in 
+While your player is playing the ad it should update this member so that AdswizzSDK start monitoring the status of the ad through your player. **Failing to update** this member accordingly will not generate the desired events from **_AdManager_** object.  Upon receiving the ad url from the AdManager on **_willStartLoading_** event in 
 
 ```swift
 func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)
@@ -624,7 +624,7 @@ If you decide to skip all ads in the AdManager from the current one you can call
 <img src="img/AdManagerState.png" width="1000" />
 
 
-# AdswizzAdSDK general settings
+# AdswizzSDK general settings
 
 ## Companion banner
 
@@ -638,47 +638,47 @@ let adCompanionOptions = AdCompanionOptions()
 adCompanionOptions.extraExposureTime = 1.2 // these are seconds.
 // if you need the companion forever on the screen
 // adCompanionOptions.extraExposureTime = .greatestFiniteMagnitude
-AdswizzAdSDK.setAdCompanionOptions(adCompanionOptions)
+AdswizzSDK.setAdCompanionOptions(adCompanionOptions)
 ```
 
 ## Location
 
 ### Enable significant changes for location
 
-By default **_AdswizzAdSDK_** will collect location updates using startUpdatingLocation api from CLLocationManager meaning this option is set to **_false_**. If you desired to limit the location updates only to those more significant set this setting to **_true_**.
+By default **_AdswizzSDK_** will collect location updates using startUpdatingLocation api from CLLocationManager meaning this option is set to **_false_**. If you desired to limit the location updates only to those more significant set this setting to **_true_**.
 
 ```swift
-AdswizzAdSDK.shared.enableLocationSignificantChanges = true
+AdswizzSDK.shared.enableLocationSignificantChanges = true
 ```
 
 ### Location accuracy
-By default **_AdswizzAdSDK_** location accuracy is set to the nearest kilometer. You can update this to a new CLLocationAccuracy value.
+By default **_AdswizzSDK_** location accuracy is set to the nearest kilometer. You can update this to a new CLLocationAccuracy value.
 
 ```swift
-AdswizzAdSDK.shared.locationAccuracy = kCLLocationAccuracyBest
+AdswizzSDK.shared.locationAccuracy = kCLLocationAccuracyBest
 ```
 
 ## Privacy
 
 ### GDPR
 
-Adswizz services are GDPR compliant. As a result **_AdswizzAdSDK_** will decorate urls that connect to Adswizz services accordingly to reflect the desired GDPR user consent. To modify the GDPR consent you need to configured it like this:
+Adswizz services are GDPR compliant. As a result **_AdswizzSDK_** will decorate urls that connect to Adswizz services accordingly to reflect the desired GDPR user consent. To modify the GDPR consent you need to configured it like this:
 
 ```swift
-AdswizzAdSDK.shared.gdprConsent = <Desired_GDPR_Consent>
+AdswizzSDK.shared.gdprConsent = <Desired_GDPR_Consent>
 ```
 
-If not configured, the default value for GDPR consent in **_AdswizzAdSDK_** will be  **_notApplicable_**. Other possible values are:
+If not configured, the default value for GDPR consent in **_AdswizzSDK_** will be  **_notApplicable_**. Other possible values are:
   * **_notAsked_**: the user was not asked yet about GDPR consent
   * **_granted_**: the user has granted access
   * **_denied_**: the user has denied access
 
 ### CCPA
 
-With the introduction of CCPA in US, **_AdswizzAdSDK_** gives you the possibility to forward the user consent accordingly.
+With the introduction of CCPA in US, **_AdswizzSDK_** gives you the possibility to forward the user consent accordingly.
 
 ```swift
-AdswizzAdSDK.shared.ccpaConfig = AdswizzCCPAConfig.Builder()
+AdswizzSDK.shared.ccpaConfig = AdswizzCCPAConfig.Builder()
                                                   .with(explicitNotice: <Desired_CCPA_Consent>)
                                                   .with(optOut: <Desired_CCPA_Consent>)
                                                   .with(lspa: <Desired_CCPA_Consent>)
