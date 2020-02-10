@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.platform    = :ios
   s.ios.deployment_target = '11.0'
-  s.swift_versions = ['5.0', '5.1', '5.1.3']
+  s.swift_versions = ['5.0']
 
   s.source      = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => s.version }
 
