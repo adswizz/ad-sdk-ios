@@ -82,7 +82,28 @@ AdswizzSDK on iOS depends on 2 external libraries to support voice recognition (
     ```ruby
     pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git" 
     ```
-    With the Podfile modified just run `pod install`. You will be prompted to enter security credentials to access the AdswizzSDK repository. These credentials will be provided by an Adswizz PIM. If the login was successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library and Facebook’s SocketRocket. These are required for voice detection in interactive ads.
+    With the Podfile modified just run `pod install`. You will be prompted to enter security credentials to access the AdswizzSDK repository. These credentials will be provided by an Adswizz PIM. If the login was successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library, Facebook’s SocketRocket and SwiftProtobuf. These are required for voice detection in interactive ads. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all the Swift dependecies must be built the same way. As [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
+    ```ruby
+    post_install do |installer|
+     installer.pods_project.targets.each do |target|
+         # propagate 'BUILD_LIBRARY_FOR_DISTRIBUTION' build setting
+         if target.name == "SwiftProtobuf"
+           target.build_configurations.each do |config|
+               xcconfig_path = config.base_configuration_reference.real_path
+               # read from xcconfig to build_settings dictionary
+               build_settings = Hash[*File.read(xcconfig_path).lines.map{|x| x.split(/\s*=\s*/, 2)}.flatten]
+               build_settings["BUILD_LIBRARY_FOR_DISTRIBUTION"] = 'YES'
+               # write build_settings dictionary to xcconfig
+               File.open(xcconfig_path, "w") do |file|
+                 build_settings.each{ |k, v|
+                   file.write("#{k} = #{v}")
+                 }
+               end
+           end
+         end
+     end
+    end
+    ```
 
 2. Manual
 
