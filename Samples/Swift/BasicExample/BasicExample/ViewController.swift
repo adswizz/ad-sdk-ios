@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AdswizzAdSDK
+import AdswizzSDK
 import AVFoundation
 
 class ViewController: UIViewController {
@@ -60,7 +60,6 @@ class ViewController: UIViewController {
     var timer:Timer!
     
     let adServer = "demo.deliveryengine.adswizz.com"
-    let playerId = "Acastiosplayer"
     let zoneId = "12561"
     let companionZones = "12562"
 
@@ -157,11 +156,10 @@ extension ViewController {
         do {
             let adRequest = try AdswizzAdRequest.Builder()
                 .with(server: adServer)
-                .with(playerId: playerId)
                 .with(zoneId: zoneId)
                 .with(companionZones: companionZones)
                 .build()
-            adConnection = AdRequestConnection(for: adRequest)
+            adConnection = try AdRequestConnection(for: adRequest)
             adConnection?.requestAds { adManager, error in
                 if let error = error {
                     print("Ad request connection failed to retrieve ads with error = \(error)")

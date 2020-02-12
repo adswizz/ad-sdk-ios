@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import AdswizzAdSDK
+import AdswizzSDK
 
 extension ViewController: AdCompanionViewDelegate {
     func adCompanionViewWillLoad(_ adCompanionView: AdCompanionView) {
@@ -26,10 +26,11 @@ extension ViewController: AdCompanionViewDelegate {
         print("Received companion event: didEndDisplay")
     }
     
-    func adCompanionView(_ adCompanionView: AdCompanionView, shouldOverrideCompanionClickThrough url: URL?) -> Bool {
+    func adCompanionView(_ adCompanionView: AdCompanionView, shouldOverrideCompanionClickThrough url: URL) -> Bool {
         // Return true if you want to handle the click through URL yourself
         // e.g open it up with in-app Safari web view
-        // By default it returns false and opens the URL in Safari app
+        // By default it returns false which signals the SDK to handle it internally
+        // As a result it will exit the app and open the URL in default Safari app
         return false
     }
     
