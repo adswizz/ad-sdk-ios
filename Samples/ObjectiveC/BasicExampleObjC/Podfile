@@ -3,7 +3,7 @@ platform :ios, '11.0'
 
 target 'BasicExampleObjC' do
   use_frameworks!
-  pod 'AdswizzAdSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
+  pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
   
   target 'BasicExampleObjCTests' do
     inherit! :search_paths
