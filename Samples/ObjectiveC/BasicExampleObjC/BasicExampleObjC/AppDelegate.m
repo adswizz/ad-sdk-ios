@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <AdswizzAdSDK/AdswizzAdSDK.h>
+#import <AdswizzSDK/AdswizzSDK.h>
 
 @interface AppDelegate ()
 
@@ -18,19 +18,40 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // Initialize Adswizz SDK.
-    // Note that AdswizzAdSDK expects an installationId in your app's info.plist.
-    // More details in AASDKAdswizzSettingsKeys
+    // Initialize AASDKAdswizzSDK.
+    // Note that AASDKAdswizzSDK expects the following in your app's info.plist:
+    //  1. an installationId
+    //  2. a playerId
+    // More details in AASDKAdswizzSettingsKeys.
     NSError *error = nil;
-    [AASDKAdswizzAdSDK.shared initializeAndReturnError:&error];
+    [AASDKAdswizzSDK.shared initializeAndReturnError:&error];
     if (error) {
         NSLog(@"%@", error);
     }
     
-    // Set optional settings for Adswizz SDK
-    //AASDKAdCompanionOptions *options = [AASDKAdCompanionOptions new];
-    //options.extraExposureTime = 1.0;
-    //[AASDKAdswizzAdSDK setAdCompanionOptions:options];
+    // Set optional settings for AASDKAdswizzSDK.
+    // You can set/change them at any time and the SDK will update accordingly.
+    
+    // Set the companion banner to stay on screen longer than default (0 seconds)
+    AASDKAdCompanionOptions *options = [AASDKAdCompanionOptions new];
+    options.extraExposureTime = 5.0; // in seconds
+    [AASDKAdswizzSDK setAdCompanionOptions:options];
+    
+    // You may want to pass the GDPR consent status if it applies to your app.
+    // You can set the .gdprConsent property whenever you have the info available from your users.
+    // Defaults to .notApplicable which means the rules of the GDPR do not apply.
+    [[AASDKAdswizzSDK shared] setGdprConsent:AASDKGDPROptionGranted];
+
+    // Same as .gdprConsent, through the .ccpaConfig
+    // you define the U.S privacy string if it applies to your app.
+    // Defaults to .notApplicable which means the rules of the CCPA do not apply.
+    AASDKAdswizzCCPAConfig *ccpaConfig = [[[[[AASDKAdswizzCCPAConfigBuilder new] withExplicitNotice:AASDKCCPAOptionYes] withOptOut:AASDKCCPAOptionNo] withLspa:AASDKCCPAOptionYes] build];
+    [[AASDKAdswizzSDK shared] setCcpaConfig:ccpaConfig];
+    
+    // These settings affect how the SDK handles location if permission is granted at any time.
+    // Otherwise they have no effect.
+    [[AASDKAdswizzSDK shared] setLocationAccuracy:1000.0]; // in meters
+    [[AASDKAdswizzSDK shared] setEnableLocationSignificantChanges:NO];
     
     return YES;
 }

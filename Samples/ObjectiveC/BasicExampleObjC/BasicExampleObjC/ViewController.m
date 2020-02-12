@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "UIWindow+SafeArea.h"
 
-#import <AdswizzAdSDK/AdswizzAdSDK.h>
+#import <AdswizzSDK/AdswizzSDK.h>
 #import <AVFoundation/AVFoundation.h>
 
 // Private interface
@@ -127,8 +127,7 @@
 
 - (void)requestAds {
     NSError *error;
-    AASDKAdswizzAdRequest *adRequest = [[[[[[AASDKAdswizzAdRequestBuilder new] withServer:@"demo.deliveryengine.adswizz.com"] withPlayerId:@"playerId"] withZoneId:@"12561"] withCompanionZones:@"12562"] buildAndReturnError:&error];
-    
+    AASDKAdswizzAdRequest *adRequest = [[[[[AASDKAdswizzAdRequestBuilder new] withServer:@"demo.deliveryengine.adswizz.com"] withZoneId:@"12561"] withCompanionZones:@"12562"] buildAndReturnError:&error];
     if (error) {
         NSLog(@"Oops, the request is not valid");
         return;
@@ -138,7 +137,12 @@
     [self.adConnection cancel];
     
     // Create and trigger a connection
-    self.adConnection = [[AASDKAdRequestConnection alloc] initFor:adRequest];
+    self.adConnection = [[AASDKAdRequestConnection alloc] initFor:adRequest error:&error];
+    if (error) {
+        NSLog(@"Oops, the connection is not valid");
+        return;
+    }
+    
     [self.adConnection requestAdsWithCompletion:^(id<AASDKAdManager> _Nullable manager, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Ad request connection failed to retrieve ads with error = %@", error);
@@ -294,10 +298,11 @@
     NSLog(@"Received companion event: didEndDisplay");
 }
 
-- (BOOL)adCompanionView:(AASDKAdCompanionView * _Nonnull)adCompanionView shouldOverrideCompanionClickThrough:(NSURL * _Nullable)url {
+- (BOOL)adCompanionView:(AASDKAdCompanionView * _Nonnull)adCompanionView shouldOverrideCompanionClickThrough:(NSURL * _Nonnull)url {
     // Return true if you want to handle the click through URL yourself
     // e.g open it up with in-app Safari web view
-    // By default it returns false and opens the URL in Safari app
+    // By default it returns false which signals the SDK to handle it internally
+    // As a result it will exit the app and open the URL in default Safari app
     return NO;
 }
 
