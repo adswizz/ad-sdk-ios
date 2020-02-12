@@ -82,7 +82,7 @@ AdswizzSDK on iOS depends on 2 external libraries to support voice recognition (
     ```ruby
     pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git" 
     ```
-    With the Podfile modified just run `pod install`. You will be prompted to enter security credentials to access the AdswizzSDK repository. These credentials will be provided by an Adswizz PIM. If the login was successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library, Facebook’s SocketRocket and SwiftProtobuf. These are required for voice detection in interactive ads. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependecies must be built the same way. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
+    With the Podfile modified just run `pod install`. You will be prompted to enter security credentials to access the AdswizzSDK repository. These credentials will be provided by an Adswizz PIM. If the login was successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library, Facebook’s SocketRocket and SwiftProtobuf. These are required for voice detection in interactive ads. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
     ```ruby
     post_install do |installer|
      installer.pods_project.targets.each do |target|
