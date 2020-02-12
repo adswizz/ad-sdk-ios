@@ -98,8 +98,11 @@ With the addition of the AdswizzSDK.framework to your application you will need 
 1. Settings for the framework:
     1. Add "**_AdswizzAdSDKInstallationId_**" string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
     <img src="img/installationId.png" width="1000" />
+
+    2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
+    <img src="img/playerId.png" width="1000" />
     
-    2. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" string setting. It is a string in the format "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx" and will be provided by an Adswizz PIM. This setting is **not mandatory**, but if not set it will affect voice detection during interactive ads.
+    3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" string setting. It is a string in the format "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx" and will be provided by an Adswizz PIM. This setting is **not mandatory**, but if not set it will affect voice detection during interactive ads.
     <img src="img/aws.png" width="1000" />
 
 2. Settings for permissions(**required**):
@@ -180,7 +183,6 @@ do {
       adRequest = try AdswizzAdRequest.Builder()
               .with(server: "SERVER_PROVIDED_BY_PIM")
               .with(zoneId: "ZONEID_PROVIDED_BY_PIM")
-              .with(playerId: "PLAYERID_PROVIDED_BY_PIM")
               .build()
 } catch {
      print(error)
@@ -188,7 +190,7 @@ do {
 ```
 
 
-Ad server, zoneId and playerId will be provided to you by an Adswizz PIM. 
+Ad server and zoneId will be provided to you by an Adswizz PIM. 
 
 After this point you need create an **_AdRequestConnection_** object and call requestAds with the ad request object.
 
