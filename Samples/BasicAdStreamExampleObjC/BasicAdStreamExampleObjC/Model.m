@@ -106,17 +106,20 @@
     NSLog(@"ad manager: %@ -- triggered ad event: %@", adManager, event.stringEvent);
     
     switch (event.event) {
-        case AASDKAdEventTypeDidStartPlaying:
+        case AASDKAdEventTypeDidFinishLoading:
         {
-            // Ad manager started playing the ad(s)
-            [self.adBreakDelegate modelDidStartAdBreak:self];
+            //necessary, if there is more than one ad in the manager
+            [adManager play];
             break;
         }
-        case AASDKAdEventTypeDidFinishPlaying:
+        case AASDKAdEventTypeDidStartPlaying:
+        {
+            //current ad in AdManager is playing
+            break;
+        }
         case AASDKAdEventTypeAllAdsDidFinishPlaying:
         {
             // Ad manager just finished playing (all) ad(s)
-            [self.adBreakDelegate modelDidEndAdBreak:self];
             break;
         }
         default:
@@ -136,6 +139,8 @@
     self.adBreakManager = manager;
     self.adBreakManager.delegate = self; // register for notification on this AdManager
     self.adBreakManager.interactiveDelegate = self; // register for interactive ads notifications
+    // Ad manager started playing the ad(s)
+    [self.adBreakDelegate modelDidStartAdBreak:self];
 }
 
 - (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager stateChanged:(enum AASDKMediaPlayerStatus)state {
@@ -147,6 +152,8 @@
     self.adBreakManager.delegate = nil;
     self.adBreakManager.interactiveDelegate = nil;
     self.adBreakManager = nil;
+    // Ad manager just finished playing (all) ad(s)
+    [self.adBreakDelegate modelDidEndAdBreak:self];
 }
 
 - (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager metadataChanged:(NSArray<AVMetadataItem *> * _Nonnull)metadata {

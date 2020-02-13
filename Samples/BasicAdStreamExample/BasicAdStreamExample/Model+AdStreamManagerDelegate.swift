@@ -20,6 +20,8 @@ extension Model: AdStreamManagerDelegate {
         adBreakManager = manager
         adBreakManager?.delegate = self // register for notification on this AdManager
         adBreakManager?.interactiveDelegate = self // register for interactive ads notifications
+        // Ad manager started playing the ad(s)
+        adBreakDelegate?.modelDidStartAdBreak(self)
     }
     
     func adStreamManager(_ adstreamManager: AdStreamManager, adBreakEnded manager: AdManager) {
@@ -27,6 +29,8 @@ extension Model: AdStreamManagerDelegate {
         adBreakManager?.delegate = nil
         adBreakManager?.interactiveDelegate = nil
         adBreakManager = nil
+        // Ad manager just finished playing (all) ad(s)
+        adBreakDelegate?.modelDidEndAdBreak(self)
     }
 
     func adStreamManager(_ adstreamManager: AdStreamManager, stateChanged state: MediaPlayerStatus) {

@@ -18,17 +18,17 @@ extension Model: AdManagerDelegate {
         print("ad manager: \(adManager) triggered ad event: \(event.stringEvent)")
         
         switch event.event {
+        case .didFinishLoading:
+            adManager.play() //necessary, if there is more than one ad in the manager
         case .didStartPlaying:
-            // Ad manager started playing the ad(s)
-            adBreakDelegate?.modelDidStartAdBreak(self)
-            
-        case .didFinishPlaying, .allAdsDidFinishPlaying:
+            //current ad in AdManager is playing
+            break
+        case .allAdsDidFinishPlaying:
             // Ad manager just finished playing (all) ad(s)
-            adBreakDelegate?.modelDidEndAdBreak(self)
-            
+            break
         default:
             break
-        }
+        }        
     }
 }
 
