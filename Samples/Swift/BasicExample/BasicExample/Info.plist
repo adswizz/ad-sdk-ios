@@ -47,5 +47,9 @@
 	</array>
 	<key>AdswizzAdSDKInstallationId</key>
 	<string>&lt;YOUR_INSTALLATION_ID&gt;</string>
+	<key>AdswizzAdSDKPlayerId</key>
+	<string>&lt;YOUR_PLAYER_ID&gt;</string>
+	<key>AdswizzAdSDKAWSIdentityPoolIdRegion</key>
+	<string>&lt;YOUR_AWS_ID&gt;</string>
 </dict>
 </plist>

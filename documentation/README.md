@@ -82,7 +82,28 @@ AdswizzSDK for iOS depends on two external libraries in order to support voice r
     ```ruby
     pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git" 
     ```
-    After modifying the podfile, run `pod install`. You will be prompted to enter the security credentials to access the AdswizzSDK repository. You can obtain the credentials from your Adswizz partner integration manager. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library and Facebook’s SocketRocket. Both are required for performing voice detection in interactive voice ads.
+    After modifying the podfile, run `pod install`. You will be prompted to enter the security credentials to access the AdswizzSDK repository. You can obtain the credentials from your Adswizz partner integration manager. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library, Facebook’s SocketRocket and SwiftProtobuf. The first two are required for performing voice detection in interactive voice ads. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
+    ```ruby
+    post_install do |installer|
+     installer.pods_project.targets.each do |target|
+         # propagate 'BUILD_LIBRARY_FOR_DISTRIBUTION' build setting
+         if target.name == "SwiftProtobuf"
+           target.build_configurations.each do |config|
+               xcconfig_path = config.base_configuration_reference.real_path
+               # read from xcconfig to build_settings dictionary
+               build_settings = Hash[*File.read(xcconfig_path).lines.map{|x| x.split(/\s*=\s*/, 2)}.flatten]
+               build_settings["BUILD_LIBRARY_FOR_DISTRIBUTION"] = 'YES'
+               # write build_settings dictionary to xcconfig
+               File.open(xcconfig_path, "w") do |file|
+                 build_settings.each{ |k, v|
+                   file.write("#{k} = #{v}")
+                 }
+               end
+           end
+         end
+     end
+    end
+    ```
 
 
 2. Manual
@@ -97,7 +118,11 @@ After adding AdswizzSDK.framework to your application, you’ll also need to add
 1. Settings for the framework:
     1. Add "**_AdswizzSDKInstallationId_**" as a string setting. This is a unique string provided by your Adswizz Integration Manager. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
     <img src="img/installationId.png" width="1000" />
-    2. Add "**_AdswizzSDKAWSIdentityPoolIdRegion_**" as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**, but not setting it will affect voice detection during interactive ads.
+
+    2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
+    <img src="img/playerId.png" width="1000" />
+
+    3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**, but not setting it will affect voice detection during interactive ads.    
     <img src="img/aws.png" width="1000" />
     
 2. Settings for permissions(**required**):
@@ -177,9 +202,8 @@ Next, let's create an **_AdswizzAdRequest_** object and configure it.
 var adRequest: AdswizzAdRequest!
 do {
       adRequest = try AdswizzAdRequest.Builder()
-              .with(server: "SERVER_PROVIDED_BY_Integration Manager")
-              .with(zoneId: "ZONEID_PROVIDED_BY_Integration Manager")
-              .with(playerId: "PLAYERID_PROVIDED_BY_Integration Manager")
+              .with(server: "SERVER_PROVIDED_BY_PIM")
+              .with(zoneId: "ZONEID_PROVIDED_BY_PIM")
               .build()
 } catch {
      print(error)
@@ -187,7 +211,7 @@ do {
 ```
 
 
-_Ad server__, _zoneId__ and _playerId__ will be provided to you by your Adswizz Integration Manager. 
+_Ad server__ and _zoneId__ will be provided to you by your Adswizz Integration Manager. 
 
 Moving next, you need create an **_AdRequestConnection_** object and call requestAds with the ad request object.
 
