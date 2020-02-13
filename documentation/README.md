@@ -121,10 +121,10 @@ After adding AdswizzSDK.framework to your application, you’ll also need to add
     1. Add "**_AdswizzSDKInstallationId_**" as a string setting. This is a unique string provided by your Adswizz Integration Manager. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
     <img src="img/installationId.png" width="1000" />
 
-    2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
+    2. Add "**_AdswizzAdSDKPlayerId_**"(??? AdSDK) string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
     <img src="img/playerId.png" width="1000" />
 
-    3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**, but not setting it will affect voice detection during interactive ads.    
+    3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**"(??? AdSDK) as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**, but not setting it will affect voice detection during interactive ads.    
     <img src="img/aws.png" width="1000" />
     
 2. Settings for permissions(**required**):
@@ -519,7 +519,7 @@ When deciding to play with an external player the SDK might inform you to resume
 
 # Debugging AdswizzSDK
 
-The SDK uses an internal logger called **_AdLogger_**. By default, the log level is set to none, meaning that nothing gets logged. Should you need the SDK logging events, you can enable a different log level; verbose is the one with the highest density, hence we do not recommend its use in production. 
+The SDK uses an internal logger called **_AdLogger_**. By default, the logging level is set to none, meaning that nothing gets logged. Should you need the SDK logging events, you can enable a different logging level; verbose is the one with the highest density, hence we do not recommend its use in production. 
 You can also provide a new destination for the logger (e.g.: pipe it to your app logger). By default, the SDK dumps log events in the console.
 
 
@@ -724,4 +724,4 @@ AdswizzSDK.shared.ccpaConfig = AdswizzCCPAConfig.Builder()
 
 ```
 
-The default value for **_explicitNotice_**, **_optOut_** and **_lspa_** is **_notApplicable_**. Other possibile values are **_yes_** and **_no_**
+The default value for **_explicitNotice_**, **_optOut_** and **_lspa_** is **_notApplicable_**. Other possibile values are **_yes_** and **_no_**.
