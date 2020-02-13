@@ -72,7 +72,7 @@ In a server side insertion scenario, it takes the pressure off your app by makin
 ## Dependencies
 
 AdswizzSDK for iOS depends on two external libraries in order to support voice recognition in interactive voice ads, namely *Amazon’s AWSCore* and *Facebook’s SocketRocket*. <br>
-It also relies on *SwiftProtobuf* to handle the serialized communication with Adswizz cloud services. (???)please validate
+It also relies on *SwiftProtobuf* to handle the serialized communication with Adswizz cloud services. 
 These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If choose the manual integration you will have to provide them at link time.
 
 
@@ -118,13 +118,13 @@ After adding AdswizzSDK.framework to your application, you’ll also need to add
 
 
 1. Settings for the framework:
-    1. Add "**_AdswizzSDKInstallationId_**" as a string setting. This is a unique string provided by your Adswizz Integration Manager. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
+    1. Add "**_AdswizzAdSDKInstallationId_**" as a string setting. This is a unique string provided by your Adswizz Integration Manager. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
     <img src="img/installationId.png" width="1000" />
 
-    2. Add "**_AdswizzAdSDKPlayerId_**"(??? AdSDK) string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
+    2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
     <img src="img/playerId.png" width="1000" />
 
-    3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**"(??? AdSDK) as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**, but not setting it will affect voice detection during interactive ads.    
+    3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**, but not setting it will affect voice detection during interactive ads.    
     <img src="img/aws.png" width="1000" />
     
 2. Settings for permissions(**required**):
@@ -292,25 +292,24 @@ Once created, the SDK will keep track of all of your companion views and automat
 
 ## Setting things up
 
-When you create an **_AdswizzAdRequest_** object for the first time, you need to configure the **_companionZones_** ??? with the value provided by your Integration Manager.
+When you create an **_AdswizzAdRequest_** object for the first time, you need to fill in the **_companionZones_** with the value provided by your Integration Manager.
 
 
 ```swift
 adRequest = try AdswizzAdRequest.Builder()
               .with(server: "SERVER_PROVIDED_BY_INTEGRATION_MANAGER")
               .with(zoneId: "ZONEID_PROVIDED_BY_INTEGRATION_MANAGER")
-              .with(playerId: "PLAYERID_PROVIDED_BY_INTEGRATION_MANAGER")
-                .with(companionZones: "COMPANION_PROVIDED_BY_INTEGRATION_MANAGER")
-                .build()
+              .with(companionZones: "COMPANION_PROVIDED_BY_INTEGRATION_MANAGER")
+              .build()
 ```
 
 
-Once the request is made, if there is any companion ???(banner) associated with the ad, it will be loaded into your **_AdCompanionView_** object.
+Once the request is made, if there is any companion banner associated with the ad, it will be loaded into your **_AdCompanionView_** object.
 
 
 ## Companion events
 
-You can associate a delegate to your **_AdCompanionView_** ??? that conforms to the **_AdCompanionViewDelegate_** protocol. You will be notified when the ad loaded the companion view, if the companion view was displayed, or if it ended the display. If there was an error while loading the companion ???(view,banner) you will be notified through this delegate. Also, you can decide whether or not to override click through ???(what exactly) on the companion view. 
+You can associate a delegate to your **_AdCompanionView_** object that conforms to the **_AdCompanionViewDelegate_** protocol. You will be notified when the ad loaded the companion view, if the companion view was displayed, or if it ended the display. If there was an error while loading the companion banner you will be notified through this delegate. Also, you can decide whether or not to override click through target URL on the companion banner. 
 
 You can also deactivate companion view temporarily by setting the **_active_** member to false.
 
@@ -352,8 +351,8 @@ extension AppDelegate: AdswizzSDKDelegate {
 
 ## Handling interactive ad events
 
-While the **_AdMangerDelegate_** object (???) provides a list of events through **_AdEventType_** covering the life cycle of an ad, it does not provide information on interactive ads. 
-To get more insight on what is happening while an interactive ad is playing you can set the **_interactiveDelegate_** on the **_AdManager_** ??? object. While implementing **_InteractiveAdManagerDelegate_** you will need to provide code ???(what code) to present a PKAddPassesViewController in case the AdswizzSDK needs to save a coupon in the Wallet.
+While the **_AdMangerDelegate_** object provides a list of events through **_AdEventType_** covering the life cycle of an ad, it does not provide information on interactive ads. 
+To get more insight on what is happening while an interactive ad is playing you can set the **_interactiveDelegate_** on the **_AdManager_** object. While implementing **_InteractiveAdManagerDelegate_** you will need to provide the code below to present a _PKAddPassesViewController_ in case the AdswizzSDK needs to save a coupon in the Wallet.
 
 
 ```swift
@@ -398,7 +397,7 @@ func interactiveAdManager(_ adManager: AdManager, didReceiveAdEvent event: Inter
 # Server Side Insertion
 
 AdswizzSDK handles interactive ad insertions, while playing HLS or ICY live streams from Ad Insertion Servers. This is possible by reading the player's metadata for specific Adswizz data and convert it in Adswizz interactive formats or companion banners.
-To get started, you need to create an **_AdswizzAdStreamManager_** ??? object with a URL pointing to the ad server your Integration Manager provide you.
+To get started, you need to create an **_AdswizzAdStreamManager_** object with a URL pointing to the ad server your Integration Manager provide you.
 
 
 ```swift
@@ -422,14 +421,14 @@ do {
 }
 
 ```
-At this point the **_AdswizzAdStreamManager_** object ??? can be configured with a companion zone that will be used in case the ad break defines a companion zone in the metadata but the reference to its location is missing in the VAST response.??? (is it VAST response)
+At this point the **_AdswizzAdStreamManager_** object can be configured with a companion zone that will be used in case the ad break defines a companion zone in the metadata but the reference to its location is missing in the stream metadata.
 Once the stream object is constructed you need to set the delegate and decide whether or not you want to play the stream with your player or let the SDK do it for you:
 
 ```swift
 streamManager?.delegate = self
 ```
 
-If you decide to play the stream with your player, you need to provide a MediaPlayerState object ??? with the following code:
+If you decide to play the stream with your player, you need to provide a **_MediaPlayerState_** object with the following code:
 
 
 ```swift
@@ -442,7 +441,7 @@ streamManager?.adStreamManagerSettings = settings
 ### play
 
 To start playing a stream, call this function from **_AdswizzAdStreamManager_** with an URL to a valid AIS server. 
-You should call this function even if you are playing the stream with your own player, because the URL will be enhanced with extra parameters that enable the delivery of interactive ads and companion banners. In return ???(to what), **_AdswizzSDK_** will call back `func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: URL)` with the newly formatted URL.
+You should call this function even if you are playing the stream with your own player, because the URL will be enhanced with extra parameters that enable the delivery of interactive ads and companion banners. As a response, **_AdswizzSDK_** will call back `func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: URL)` with the newly formatted URL.
 
 ### pause
 
@@ -460,7 +459,7 @@ To stop a stream that is played by the SDK internal player, call this function. 
 
 
 ## AdStreamManagerDelegate protocol
-Notifications sent from **_AdswizzSDK_** to your app are implemented in the AdStreamManagerDelegate protocol. 
+Notifications sent from **_AdswizzSDK_** to your app are implemented in the **_AdStreamManagerDelegate_** protocol. 
 
 ### func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: URL)
 After calling the play function in the **_AdswizzAdStreamManager_** object, you will be called on this function with the url decorated with the extra parameters. 
@@ -495,7 +494,7 @@ func adStreamManager(_ adstreamManager: AdStreamManager, adBreakStarted manager:
 ```
 
 During the ad break, you will get updates on the status of the ad if you implement the **_AdMangerDelegate_** protocol or the **_InteractiveAdManagerDelegate_** protocol.
-When you get this **_AdManager_** object, the SDK internal player will automatically play the ad, since it is part of the stream. During the ad time, **_AdManager_** will not react to operations such as play or pause. However, you can skip the ad break or reset the whole **_AdManager_** object. Most of the times there will be only one ad in the **_AdManager_** object but you can expect other ads to be inserted from the SDK if the ad is extended ??? (didn't understand).
+When you get this **_AdManager_** object, the SDK internal player will automatically play the ad, since it is part of the stream. During the ad time, **_AdManager_** will not react to operations such as play or pause. However, you can skip the ad break or reset the whole **_AdManager_** object. Most of the times there will be only one ad in the **_AdManager_** object but you can expect other ads to be inserted from the SDK if the ad is extended. This can happen, for instance, when the listener interacts with an ad (i.e. ShakeMe), in order to listen an extension of the ad (more details on a topic).
 
 ### func adStreamManager(_ adstreamManager: AdStreamManager, adBreakEnded manager: AdManager)
 When the ad break from the stream has ended you will get notified to clean up anything related to your **_AdManager_**.
@@ -577,7 +576,7 @@ Let’s break down the **_MediaPlayerState_** protocol.
 ## MediaPlayerState protocol
 ### currentDuration
 
-Your player needs to report the current duration ???(or total duration) of the media to the AdswizzSDK, as soon as possible. The media duration is required to compute quartile events or progress events in the SDK. If it is **not possible** to report the media duration, then **set it to 0**. If the SDK reads 0 from currentDuration, it will rely on the VAST response media to compute ???(is it compute) the file duration. If the VAST duration is missing as well, the quartile/progress events will be triggered at the end of the media player in the correct order but not when they actually happened.
+Your player needs to report the total duration of the media to the AdswizzSDK, as soon as possible. The media duration is required to compute quartile events or progress events in the SDK. If it is **not possible** to report the media duration, then **set it to 0**. If the SDK reads 0 from currentDuration, it will rely on the data in the VAST metadata to get the file duration. If the info is missing in the VAST metadata as well, the quartile/progress events will be triggered at the end of the media player in the correct order but not when they actually happened.
 
 
 ### currentPlayHead
@@ -587,21 +586,21 @@ For a good reporting of the quartile/progress events, your player should update 
 
 ### metadataItem
 
-If your player can read metadata from the media that is playing, it should report it through this member. While this is not necessary for a client side insertion ???(is it optional or not recommended), it makes more sense when you are playing a stream. ???(makes more sense or it's recommended?)
+If your player can read metadata from the media that is playing, it should report it through this member. While this is not required for a client side insertion, it is mandatory to relay this data when you are in the server side insertion scenario.
 
 
 ### playerStatus
 
-While your player is playing the ad it should update this member so that the AdswizzSDK can start monitoring the status of the ad through your player. **Failing to update** this member accordingly will not generate the desired events from **_AdManager_** object ???(will render **_AdManager_** incapable of generating normal? events).  
-Upon receiving the ad url from the AdManager???(general question - shouldn't we mark **_AdManager_** as an object throughout the entire doc) on **_willStartLoading_** event in ???(we need to rephrase this one, as it's hard to comprehend)
+While your player is playing the ad it should update this member so that the AdswizzSDK can start monitoring the status of the ad through your player. **Failing to update** this member accordingly will render **_AdManager_** incapable of generating normal events.
+You should put your player in the **_initialized_** state upon receiving the ad url from the **_AdManager_**, on **_willStartLoading_** event in the following function:
 
 ```swift
 func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)
 ```
 
-put your player in **_initialized_** state. 
+
 If your player cannot load the ad url, the player should report the **_failure_** state. You also need to set this state in case the error occurs during the ad playback, and the ad cannot be played anymore. 
-When you set **_failure_** or **_unknown_** as the state of your player, the SDK will terminate the current ad that was sent in **_willStartLoading_**, and inform your app that the media player state is unknown ???(what about the failure). The AdManager will move to the next ad, if available.
+When you set **_failure_** or **_unknown_** as the state of your player, the SDK will terminate the current ad that was sent in **_willStartLoading_**, and inform your app that the media player state is **_unknown_**. The AdManager will move to the next ad, if available.
 
 If your player is buffering data, you can report that to the SDK by setting the state to **_buffering_**. Once your player finishes buffering, you need to report **_bufferingFinished_**. Reporting **_buffering_** and **_bufferingFinished_** ensures that quartile/progress events are reported correctly and are not subject to network interruptions. Once your player is ready to play the ads (after buffering enough data), it can report a state of **_readyToPlay_**, meaning the player’s play method might be called. This state is optional and it resembles the AVPlayer currentItem readyToPlay status. If your player started the ad playback, set the state to **_playing_**. If you pause the playback, set the state to **_pause_**. Similarly, **Resume** will change the state to **_playing_** again. When the player has finished playing the ad, set the state to **_finished_**.
 
@@ -610,7 +609,7 @@ Here is a state machine for your player to implement.
 
 ### isBufferingWhilePaused
 
-If your player continues to buffer data after it was paused, set this property to true. When you are playing a stream, this is a good way to let the SDK decide whether or not it should reconnect your stream. ???(not sure it makes sense)
+If your player continues to buffer data after it was paused, set this property to true. When you are playing a stream, this is a good way to let the SDK decide whether or not it should pick up from where it was paused, or reconnect to the live stream again. 
 
 ### lastError
 
@@ -627,18 +626,19 @@ This is a collection of IAB specific states (skipped, muted, autoplayed, fullscr
 
 # AdManager life cycle
 
-After requesting your first ad from the Adswizz ad server, you are ready to play the ads from the AdManager object. Keep in mind that you might receive more than one ad from the server but you are not required to play them all. If you decide to play multiple ads in your app, you need to listen to the events that the AdManager ??? (or **_AdManager_ - general question) sends to your app and decide what is the appropriate action to take. Here is a diagram of the AdManager state.
-???(diagram is low below, should we move it up?)
+After requesting your first ad from the Adswizz ad server, you are ready to play the ads from the AdManager object. Keep in mind that you might receive more than one ad from the server but you are not required to play them all. If you decide to play multiple ads in your app, you need to listen to the events that the **_AdManager_** sends to your app and decide what is the appropriate action to take. Here is a diagram of the AdManager state.
+
+<img src="img/AdManagerState.png" width="1000" />
 
 
 ## AdManager operations
 
-Once presented with an AdManager ???(object) one could call different actions on it. Let’s break them down.
+Once presented with an **_AdManager_** object one could call different actions on it. Let’s break them down.
 
 ## AdManager protocol
 ### prepare
 
-You call this method to begin cycling through the ads in the AdManager ???(object). If you decided to let the SDK handle the playback of the ads, this method ensures that the internal player is starting to buffer enough data so that ad playback starts smoothly. After calling this method, the first ad is beginning to load. The SDK will trigger **_willStartLoading_** event informing your app that buffering has begun for the ad. If the SDK is playing the ad, you will also get **_didFinishLoading_** event for the first ad. If you are playing the ad, you will not get this message since your player is responsible to start the buffering process.
+You call this method to begin cycling through the ads in the **_AdManager_** object. If you decided to let the SDK handle the playback of the ads, this method ensures that the internal player is starting to buffer enough data so that ad playback starts smoothly. After calling this method, the first ad is beginning to load. The SDK will trigger **_willStartLoading_** event informing your app that buffering has begun for the ad. If the SDK is playing the ad, you will also get **_didFinishLoading_** event for the first ad. If you are playing the ad, you will not get this message since your player is responsible to start the buffering process.
 
 
 ### play
@@ -658,8 +658,7 @@ If you need to skip an ad, you can call this method to skip the current ad from 
 
 ### reset
 
-If you decided to skip all the ads in the AdManager from the current one you can call this method ???(did not understand; from the current one onwards or how?). For each ad you skip, your app will trigger **_didFinishPlaying_**, and a **_allAdsDidFinishPlaying_** event will be sent at the end. Looping through the ad again will need a call to **_prepare_** function.
-<img src="img/AdManagerState.png" width="1000" />
+If you decided to skip all the upcoming ads in the **_AdManager_** object, you can call this method. For each ad you skip, your app will trigger **_didFinishPlaying_**, and a **_allAdsDidFinishPlaying_** event will be sent at the end. Looping through the ad again will need a call to **_prepare_** function.
 
 
 # AdswizzSDK general settings
