@@ -9,7 +9,7 @@
       * [Working with AdManager object](#working-with-admanager-object)
    * [<strong>Companion Banner</strong>](#companion-banner)
       * [Adding an AdCompanionView](#adding-an-adcompanionview)
-      * [Setting up](#setting-up)
+      * [Setting things up](#setting-things-up)
       * [Companion events](#companion-events)
       * [Extra exposure time for an AdCompanionView](#extra-exposure-time-for-an-adcompanionview)
    * [<strong>Interactive ads</strong>](#interactive-ads)
@@ -23,7 +23,7 @@
          * [resume](#resume)
          * [stop](#stop)
       * [AdStreamManagerDelegate protocol](#adstreammanagerdelegate-protocol)      
-   * [<strong>Debugging AdswizzSDK</strong>](#debugging-AdswizzSDK)
+   * [<strong>Debugging AdswizzSDK</strong>](#debugging-adswizzsdk)
    * [<strong>Playing ads using your player</strong>](#playing-ads-using-your-player)
       * [MediaPlayerState protocol](#mediaplayerstate-protocol)
          * [currentDuration](#currentduration)
@@ -42,7 +42,7 @@
          * [pause](#pause)
          * [skipAd](#skipad)
          * [reset](#reset)
-   * [<strong>AdswizzSDK general settings</strong>](#AdswizzSDK-general-settings)
+   * [<strong>AdswizzSDK general settings</strong>](#adswizzsdk-general-settings)
       * [Companion banner](#companion-banner)
          * [Extra exposure time for an AdCompanionView](#extra-exposure-time-for-an-adcompanionview)
       * [Location](#location)
@@ -51,7 +51,9 @@
       * [Privacy](#privacy)
          * [GDPR](#gdpr)
          * [CCPA](#ccpa)
-
+   * [<strong>(Optional) Prepare your application for advanced targetability capabilities</strong>](#optional-prepare-your-application-for-advanced-targetability-capabilities)
+      * [Privacy implications](#privacy-implications)
+      * [Technical prerequisites](#technical-prerequisites)
 
 # Get started
 
@@ -724,3 +726,20 @@ AdswizzSDK.shared.ccpaConfig = AdswizzCCPAConfig.Builder()
 ```
 
 The default value for **_explicitNotice_**, **_optOut_** and **_lspa_** is **_notApplicable_**. Other possibile values are **_yes_** and **_no_**.
+
+# (Optional) Prepare your application for advanced targetability capabilities
+
+## Privacy implications
+
+Please be advised that enabling Raw Data Signal Collection, you need to carefully inform your customers that your application handles and processes anonymised data. Please point your product and legal teams to the below data and make sure it is reflected in your application’s Privacy Policy.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+| Device Targeting | Contextual Targeting | User Targeting|
+|:-----------------|:---------------------|:--------------|
+| Data collected:<br>* device name, language, country and currency<br>* screen brightness level<br>* audio volume level<br>* battery level and status (charging/not charging)<br>* bundle id<br>* operating system version and name | Data collected:<br>* bluetoothdevices (currently connected and history)<br>* if device is connected to a wifi(true/false) and wifinetwork name (incaseconnected)<br>* network carrier name and country<br>* accelerometer, gps, and gyroscope data<br>* if headphone jack is plugged/unplugged<br>* time zone information-in GMTformat<br>* if daylight saving time is applied (true/false) | Data collected:<br>* identifierForAdvertising(idfa) status (enabled/disabled) and ID (if enabled) |
+
+
+## Technical prerequisites
+
+AdswizzSDK framework can provide several device information using a data collector module. As of iOS 13 WiFi data can only be retrieved if the app entitlements contains `Access Wi-Fi Information` capability.
+In order to set it go to your app's target, select Signing & Capabilities and add `Access Wi-Fi Information` capability by tapping the "+" button above.
