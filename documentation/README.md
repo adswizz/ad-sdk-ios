@@ -295,10 +295,10 @@ When you create an **_AdswizzAdRequest_** object for the first time, you need to
 
 ```swift
 adRequest = try AdswizzAdRequest.Builder()
-              .with(server: "SERVER_PROVIDED_BY_Integration Manager")
-              .with(zoneId: "ZONEID_PROVIDED_BY_Integration Manager")
-              .with(playerId: "PLAYERID_PROVIDED_BY_Integration Manager")
-                .with(companionZones: "COMPANION_PROVIDED_BY_Integration Manager")
+              .with(server: "SERVER_PROVIDED_BY_INTEGRATION_MANAGER")
+              .with(zoneId: "ZONEID_PROVIDED_BY_INTEGRATION_MANAGER")
+              .with(playerId: "PLAYERID_PROVIDED_BY_INTEGRATION_MANAGER")
+                .with(companionZones: "COMPANION_PROVIDED_BY_INTEGRATION_MANAGER")
                 .build()
 ```
 
@@ -409,9 +409,9 @@ func prepareForPlay() {
 ....
 do {
     streamManager = try AdswizzAdStreamManager.Builder()
-        .with(adServer: "SERVER_PROVIDED_BY_Integration Manager")           //Mandatory
+        .with(adServer: "SERVER_PROVIDED_BY_INTEGRATION_MANAGER")           //Mandatory
         .with(httpProtocol: .https)                         //Optional: http or https protocol for the ad server. If not provided https will be chosen.
-        .with(companionZones: "COMPANION_PROVIDED_BY_Integration Manager")  //Optional: companion zone provided by a Integration Manager
+        .with(companionZones: "COMPANION_PROVIDED_BY_INTEGRATION_MANAGER")  //Optional: companion zone provided by a Integration Manager
         .build()
 } catch {
     print(error)
