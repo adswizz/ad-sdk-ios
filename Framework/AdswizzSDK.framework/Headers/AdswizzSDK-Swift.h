@@ -502,8 +502,8 @@ SWIFT_CLASS_NAMED("AdManagerSettings")
 /// The <code>AdRequest</code> encapsulates the components of a request used to fetch ads from the Ad Server
 SWIFT_CLASS_NAMED("AdRequest")
 @interface AASDKAdRequest : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@property (nonatomic, readonly, copy) NSURL * _Nullable url;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class NSNumber;
@@ -533,10 +533,16 @@ SWIFT_CLASS_NAMED("AdRequestConnection")
 
 
 
+@protocol AASDKAdStreamManagerDelegate;
+@class AASDKAdStreamManagerSettings;
 
 /// The <code>AdStreamManager</code> supports playing a stream either with the internal player or an external player
-SWIFT_CLASS("_TtC10AdswizzSDK15AdStreamManager")
-@interface AdStreamManager : NSObject
+SWIFT_CLASS_NAMED("AdStreamManager")
+@interface AASDKAdStreamManager : NSObject
+/// Delegate for the ad stream
+@property (nonatomic, weak) id <AASDKAdStreamManagerDelegate> _Nullable delegate;
+/// Ad stream settings
+@property (nonatomic, strong) AASDKAdStreamManagerSettings * _Nonnull adStreamManagerSettings;
 /// Start playing a stream at the url
 /// \param url stream address
 ///
@@ -555,7 +561,7 @@ SWIFT_CLASS("_TtC10AdswizzSDK15AdStreamManager")
 
 
 
-@interface AdStreamManager (SWIFT_EXTENSION(AdswizzSDK))
+@interface AASDKAdStreamManager (SWIFT_EXTENSION(AdswizzSDK))
 - (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
 @end
 
@@ -570,46 +576,46 @@ SWIFT_PROTOCOL_NAMED("AdStreamManagerDelegate")
 ///
 /// \param url url where to play from
 ///
-- (void)adStreamManager:(AdStreamManager * _Nonnull)adstreamManager willStartPlaying:(NSURL * _Nonnull)url;
+- (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager willStartPlaying:(NSURL * _Nonnull)url;
 /// AdBreak was detected
 /// \param adstreamManager owner
 ///
 /// \param manager ad manager object that will handle the ad break
 ///
-- (void)adStreamManager:(AdStreamManager * _Nonnull)adstreamManager adBreakStarted:(id <AASDKAdManager> _Nonnull)manager;
+- (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager adBreakStarted:(id <AASDKAdManager> _Nonnull)manager;
 /// Notify of changes in the ad stream manager
 /// \param adstreamManager owner
 ///
 /// \param state current state of the player playing the stream
 ///
-- (void)adStreamManager:(AdStreamManager * _Nonnull)adstreamManager stateChanged:(enum AASDKMediaPlayerStatus)state;
+- (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager stateChanged:(enum AASDKMediaPlayerStatus)state;
 /// Ad break ended
 /// \param adstreamManager owner
 ///
 /// \param manager ad manager object that managed the ad break
 ///
-- (void)adStreamManager:(AdStreamManager * _Nonnull)adstreamManager adBreakEnded:(id <AASDKAdManager> _Nonnull)manager;
+- (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager adBreakEnded:(id <AASDKAdManager> _Nonnull)manager;
 /// Metadata changed in the player
 /// \param adstreamManager owner
 ///
 /// \param metadata data changed
 ///
-- (void)adStreamManager:(AdStreamManager * _Nonnull)adstreamManager metadataChanged:(NSArray<AVMetadataItem *> * _Nonnull)metadata;
+- (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager metadataChanged:(NSArray<AVMetadataItem *> * _Nonnull)metadata;
 /// Ad stream is about to reconnect if the ad break was skipped
 /// or another ad was inserted in the adbreak and thus the stream has shifted
 /// \param adstreamManager owner
 ///
-- (void)adStreamManagerWillReconnect:(AdStreamManager * _Nonnull)adstreamManager;
+- (void)adStreamManagerWillReconnect:(AASDKAdStreamManager * _Nonnull)adstreamManager;
 /// Called when the stream is played with an external player and the AdStreamManager decides to pause content
 /// When this gets called you should pause the stream content
 /// \param adstreamManager owner
 ///
-- (void)adStreamManagerPlayerShouldPause:(AdStreamManager * _Nonnull)adstreamManager;
+- (void)adStreamManagerPlayerShouldPause:(AASDKAdStreamManager * _Nonnull)adstreamManager;
 /// Called when the stream is played with an external player and the AdStreamManager decides to resume content
 /// When this gets called you should resume the stream content
 /// \param adstreamManager owner
 ///
-- (void)adStreamManagerPlayerShouldResume:(AdStreamManager * _Nonnull)adstreamManager;
+- (void)adStreamManagerPlayerShouldResume:(AASDKAdStreamManager * _Nonnull)adstreamManager;
 @end
 
 
@@ -625,6 +631,9 @@ SWIFT_CLASS_NAMED("AdStreamManagerSettings")
 /// The <code>AdswizzAdRequest</code> connection to a Adswizz Ad Server
 SWIFT_CLASS_NAMED("AdswizzAdRequest")
 @interface AASDKAdswizzAdRequest : AASDKAdRequest
+@property (nonatomic, readonly, copy) NSURL * _Nullable url;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 /// VAST version
@@ -724,7 +733,7 @@ SWIFT_CLASS_NAMED("Builder")
 
 
 SWIFT_CLASS_NAMED("AdswizzAdStreamManager")
-@interface AASDKAdswizzAdStreamManager : AdStreamManager
+@interface AASDKAdswizzAdStreamManager : AASDKAdStreamManager
 @property (nonatomic, readonly) enum AASDKAdswizzAdRequestProtocol httpProtocol;
 @property (nonatomic, readonly, copy) NSString * _Nonnull adServer;
 @property (nonatomic, readonly, copy) NSString * _Nullable companionZone;
