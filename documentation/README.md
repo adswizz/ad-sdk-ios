@@ -58,7 +58,7 @@
 AdswizzSDK facilitates the ad lifecycle management, right from your application. 
 Sensing listeners environment, it crafts the overall ad exercise for superior addressability and augmented interactivity.
 
-On top, in a client side insertion scenario, it retrieves the ad with its associated assets, and handles the reporting operations. 
+On top, in a client side insertion scenario, it retrieves the ad with its associated assets, and handles the reporting operations.<br>
 In a server side insertion scenario, it takes the pressure off your app by making the interactivity and assets easily available.
 
 
@@ -71,7 +71,9 @@ In a server side insertion scenario, it takes the pressure off your app by makin
 
 ## Dependencies
 
-AdswizzSDK for iOS depends on two external libraries in order to support voice recognition in interactive voice ads, namely Amazon’s AWSCore and Facebook’s SocketRocket. These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If choose the manual integration you will have to provide them at link time.
+AdswizzSDK for iOS depends on two external libraries in order to support voice recognition in interactive voice ads, namely *Amazon’s AWSCore* and *Facebook’s SocketRocket*. <br>
+It also relies on *SwiftProtobuf* to handle the serialized communication with Adswizz cloud services. (???)please validate
+These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If choose the manual integration you will have to provide them at link time.
 
 
 ## Adding the SDK to your Xcode project
@@ -82,7 +84,7 @@ AdswizzSDK for iOS depends on two external libraries in order to support voice r
     ```ruby
     pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git" 
     ```
-    After modifying the podfile, run `pod install`. You will be prompted to enter the security credentials to access the AdswizzSDK repository. You can obtain the credentials from your Adswizz partner integration manager. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library, Facebook’s SocketRocket and SwiftProtobuf. The first two are required for performing voice detection in interactive voice ads. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
+    After modifying the podfile, run `pod install`. You will be prompted to enter the security credentials to access the AdswizzSDK repository. You can obtain the credentials from your Adswizz partner integration manager. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library, Facebook’s SocketRocket and SwiftProtobuf. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
     ```ruby
     post_install do |installer|
      installer.pods_project.targets.each do |target|
