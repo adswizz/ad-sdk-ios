@@ -41,10 +41,7 @@ playground.xcworkspace
 .build/
 
 # Samples
-Samples/Swift/BasicExample/Carthage
-Samples/Swift/BasicExample/Pods
-Samples/ObjectiveC/BasicExampleObjC/Carthage
-Samples/ObjectiveC/BasicExampleObjC/Pods
+Samples/Pods
 
 # Fastlane
 fastlane

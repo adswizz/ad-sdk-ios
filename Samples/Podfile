@@ -1,0 +1,95 @@
+# Uncomment the next line to define a global platform for your project
+workspace 'Examples.xcworkspace'
+platform :ios, '11.0'
+use_frameworks!
+
+# common pods used in all example modules
+def common_pods
+  pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
+end
+
+project 'BasicAdStreamExample/BasicAdStreamExample.xcodeproj'
+project 'BasicAdStreamExampleObjC/BasicAdStreamExampleObjC.xcodeproj'
+project 'BasicAdRequestExample/BasicAdRequestExample.xcodeproj'
+project 'BasicAdRequestExampleObjC/BasicAdRequestExampleObjC.xcodeproj'
+
+target :BasicAdRequestExample do
+  project 'BasicAdRequestExample/BasicAdRequestExample.xcodeproj'
+  common_pods
+
+  target 'BasicAdRequestExampleTests' do
+    inherit! :search_paths
+    common_pods
+  end
+
+  target 'BasicAdRequestExampleUITests' do
+    inherit! :search_paths
+    common_pods
+  end
+end
+
+target :BasicAdRequestExampleObjC do
+  project 'BasicAdRequestExampleObjC/BasicAdRequestExampleObjC.xcodeproj'
+  common_pods
+
+  target 'BasicAdRequestExampleObjCTests' do
+    inherit! :search_paths
+    common_pods
+  end
+
+  target 'BasicAdRequestExampleObjCUITests' do
+    inherit! :search_paths
+    common_pods
+  end
+end
+
+target :BasicAdStreamExample do
+  project 'BasicAdStreamExample/BasicAdStreamExample.xcodeproj'
+  common_pods
+
+  target 'BasicAdStreamExampleTests' do
+    inherit! :search_paths
+    common_pods
+  end
+
+  target 'BasicAdStreamExampleUITests' do
+    inherit! :search_paths
+    common_pods
+  end
+end
+
+target :BasicAdStreamExampleObjC do
+  project 'BasicAdStreamExampleObjC/BasicAdStreamExampleObjC.xcodeproj'
+  common_pods
+
+  target 'BasicAdStreamExampleObjCTests' do
+    inherit! :search_paths
+    common_pods
+  end
+
+  target 'BasicAdStreamExampleObjCUITests' do
+    inherit! :search_paths
+    common_pods
+  end
+end
+
+ post_install do |installer|
+     installer.pods_project.targets.each do |target|
+         # propagate 'BUILD_LIBRARY_FOR_DISTRIBUTION' build setting
+         if target.name == "SwiftProtobuf"
+           target.build_configurations.each do |config|
+               xcconfig_path = config.base_configuration_reference.real_path
+               # read from xcconfig to build_settings dictionary
+               build_settings = Hash[*File.read(xcconfig_path).lines.map{|x| x.split(/\s*=\s*/, 2)}.flatten]
+               build_settings["BUILD_LIBRARY_FOR_DISTRIBUTION"] = 'YES'
+               # write build_settings dictionary to xcconfig
+               File.open(xcconfig_path, "w") do |file|
+                 build_settings.each{ |k, v|
+                   file.write("#{k} = #{v}")
+                 }
+               end
+           end
+         end
+     end
+ end
+
