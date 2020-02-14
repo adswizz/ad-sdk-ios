@@ -731,15 +731,16 @@ The default value for **_explicitNotice_**, **_optOut_** and **_lspa_** is **_no
 
 ## Privacy implications
 
-Please be advised that enabling Raw Data Signal Collection, you need to carefully inform your customers that your application handles and processes anonymised data. Please point your product and legal teams to the below data and make sure it is reflected in your application’s Privacy Policy.
+Please be advised that if you choose to enable the Raw Data Signal Collection, you will have to inform your customers that your application handles and processes personal anonymized data. 
+We highly encourage you to loop your product and legal teams in the process of defining the best way to reflect this in your application’s Privacy Policy.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-| Device Targeting | Contextual Targeting | User Targeting|
+| Data collected for <br>**Device Targeting** | Data collected for <br>**Contextual Targeting** | Data collected for <br>**User Targeting**|
 |:-----------------|:---------------------|:--------------|
-| Data collected:<br>* device name, language, country and currency<br>* screen brightness level<br>* audio volume level<br>* battery level and status (charging/not charging)<br>* bundle id<br>* operating system version and name | Data collected:<br>* bluetooth devices (currently connected and history)<br>* if device is connected to a wifi(true/false) and wifi network name (in case it is connected)<br>* network carrier name and country<br>* accelerometer, gps and gyroscope data<br>* if headphone jack is plugged/unplugged<br>* time zone information-in GMT format<br>* if daylight saving time is applied (true/false) | Data collected:<br>* identifierForAdvertising(idfa) status (enabled/disabled) and ID (if enabled) |
+| Data collected:<br>* device name, language, country and currency<br>* screen brightness level<br>* audio volume level<br>* battery level and status (charging/not charging)<br>* bundle id<br>* operating system version and name | Data collected:<br>* bluetooth devices (currently connected and history)<br>* WifFi Status (true/false) and WiFi network name / SSID (if connected)<br>* network carrier name and country<br>* accelerometer, GPS and gyroscope data<br>* headphone jack status (plugged/unplugged)<br>* time zone information (in GMT format)<br>* daylight saving time status (true/false) | Data collected:<br>* identifierForAdvertising(idfa) status (enabled/disabled) and ID (if enabled) |
 
 
 ## Technical prerequisites
 
-AdswizzSDK framework can provide several device information using a data collector module. As of iOS 13 WiFi data can only be retrieved if the app entitlements contains `Access Wi-Fi Information` capability.
-In order to set it go to your app's target, select Signing & Capabilities and add `Access Wi-Fi Information` capability by tapping the "+" button above.
+AdswizzSDK framework can provide several device information using a data collector module. As of iOS 13, WiFi data can only be retrieved if the app entitlements contains the `Access Wi-Fi Information` capability.
+In order to set it, go to your app's target, select Signing & Capabilities and add `Access Wi-Fi Information` capability by tapping the "+" button above.
