@@ -517,6 +517,11 @@ When deciding to play with an external player the SDK might inform you to pause 
 ### func adStreamManagerPlayerShouldResume(_ adstreamManager: AdStreamManager)
 When deciding to play with an external player the SDK might inform you to resume the ad playing.
 
+Here is a diagram of the AdswizzAdStreamManager state.
+
+<img src="img/AdswizzAdStreamManagerState.png" width="1000" />
+
+
 
 # Debugging AdswizzSDK
 
