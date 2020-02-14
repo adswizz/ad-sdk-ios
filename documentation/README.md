@@ -399,7 +399,7 @@ func interactiveAdManager(_ adManager: AdManager, didReceiveAdEvent event: Inter
 # Server Side Insertion
 
 AdswizzSDK handles interactive ad insertions, while playing HLS or ICY live streams from Ad Insertion Servers. This is possible by reading the player's metadata for specific Adswizz data and convert it in Adswizz interactive formats or companion banners.
-To get started, you need to create an **_AdswizzAdStreamManager_** object with a URL pointing to the ad server your Integration Manager provide you.
+To get started, you need to create an **_AdswizzAdStreamManager_** object with a URL pointing to the ad server your Integration Manager provided you.
 
 
 ```swift
