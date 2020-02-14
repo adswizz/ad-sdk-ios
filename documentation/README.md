@@ -731,11 +731,11 @@ The default value for **_explicitNotice_**, **_optOut_** and **_lspa_** is **_no
 
 ## Privacy implications
 
-Please be advised that if you choose to enable the Raw Data Signal Collection, you will have to inform your customers that your application handles and processes personal anonymized data. 
-We highly encourage you to loop your product and legal teams in the process of defining the best way to reflect this in your application’s Privacy Policy.
+Please be advised that if you choose to enable the Raw Data Signal Collection, you will have to inform your customers that your application handles and processes personal anonymized data. <br>
+**We highly encourage you to loop your product and legal teams in the process of defining the best way to reflect this in your application’s Privacy Policy.**
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-| Data collected for <br>**_Device Targeting__** | Data collected for <br>**_Contextual Targeting_** | Data collected for <br>**_User Targeting_**|
+| Data collected for <br>**_Device Targeting_** | Data collected for <br>**_Contextual Targeting_** | Data collected for <br>**_User Targeting_**|
 |:-----------------|:---------------------|:--------------|
 | * device name, language, country and currency<br>* screen brightness level<br>* audio volume level<br>* battery level and status (charging/not charging)<br>* bundle id<br>* operating system version and name | * bluetooth devices (currently connected and history)<br>* WifFi Status (true/false) and WiFi network name / SSID (if connected)<br>* network carrier name and country<br>* accelerometer, GPS and gyroscope data<br>* headphone jack status (plugged/unplugged)<br>* time zone information (in GMT format)<br>* daylight saving time status (true/false) | * identifierForAdvertising(idfa) status (enabled/disabled) and ID (if enabled) |
 
