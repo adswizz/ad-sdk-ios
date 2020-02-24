@@ -2,8 +2,8 @@
   * [<strong>Before you start</strong>](#before-you-start)
       * [What is ‘Client Side Insertion’](#what-is-client-side-insertion)
       * [What is ‘Server Side Insertion’](#what-is-server-side-insertion)
-      * [What you need to do ‘Client Side Insertion’](#what-you-need-to-do-client-side-insertion)
-      * [What you need to do ‘Server Side Insertion’](#what-you-need-to-do-server-side-insertion)
+      * [Prerequisites for ‘Client Side Insertion’](#what-you-need-to-do-client-side-insertion)
+      * [Prerequisites for ‘Server Side Insertion’](#what-you-need-to-do-server-side-insertion)
    * [<strong>Get started</strong>](#get-started)
       * [Prerequisites](#prerequisites)
       * [Dependencies](#dependencies)
@@ -80,7 +80,7 @@ The SDK will handle all communication during ad fetching with the ad server whil
 
 ## What is ‘Server Side Insertion’
 
-For server side scenario it is required to have an AIS as a streaming server with the audio ads being automatically inserted by the  server side. The streaming server and SDK split their responsibilities as following:
+For server side scenario it is required to have an AIS (Ads Insertion Server) as a streaming server with the audio ads being automatically inserted on the server side. The streaming server and the SDK split their responsibilities as follows:
 
 **Streaming Server:**
 *  detects ad breaks and inserts audio ads into the audio stream
@@ -89,12 +89,12 @@ For server side scenario it is required to have an AIS as a streaming server wit
 **SDK:**
 *  decorates audio stream URL to increase targetability of ads
 *  detects all events associated with an ad break (start, stop, change of ad)
-*  retrieves, displays, synchronizes companion banner with audio content based on metadata information
+*  retrieves, displays, synchronizes companion banner with the audio content based on metadata information
 *  retrieves and process interactivity metadata information based on metadata information
 
-## What you need to do ‘Client Side Insertion’
+## Prerequisites for ‘Client Side Insertion’
 
-In order to succesufully integrate the ‘Client Side Insertion’ you would need to set/provide the following information for your **_AdswizzAdRequest_** within **_AdRequestConnection_**:
+In order to succesufully integrate the ‘Client Side Insertion’ you will need to set/provide the following information for your **_AdswizzAdRequest_** object within **_AdRequestConnection_**:
 *  adServer = the name of AdServer used to fetch ads from
 *  zoneId = identifier of zone used to retrieve audio/video ads from
 *  companionZones = (optional) identifier of zone to retrieve creatives to be displayed by the companion banner
@@ -106,9 +106,9 @@ The following can be set as general AdswizzSDK parameters:
 *  (optional) location accuracy
 *  (optional) location enable significant changes
 
-## What you need to do ‘Server Side Insertion’
+## Prerequisites for ‘Server Side Insertion’
 
-In order to succesufully integrate the ‘Server Side Insertion’ you would need to set/provide the following information for your **_AdswizzAdStreamManager_**:
+In order to succesufully integrate the ‘Server Side Insertion’ you will need to set/provide the following information for your **_AdswizzAdStreamManager_** object:
 *  adServer = the name of Adserver used to insert ads from
 *  companionZones = (optional) identifier of zone to retrieve creatives to be displayed by the companion banner
 *  adStreamURL = URL of audio stream (pass it to **_AdswizzAdStreamManager_**'s play() method)
@@ -190,7 +190,8 @@ After adding AdswizzSDK.framework to your application, you’ll also need to add
     2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
     <img src="img/playerId.png" width="1000" />
 
-    3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**, but not setting it will affect voice detection during interactive ads.    
+    3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**, but not setting it will affect voice detection during 
+    .    
     <img src="img/aws.png" width="1000" />
     
 2. Settings for permissions(**required**):
