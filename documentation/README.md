@@ -11,15 +11,6 @@
       * [Changes in your Info.pList file](#changes-in-your-infoplist-file)
       * [Changes to your app distribution](#changes-to-your-app-distribution)
       * [SDK initialization and setup](#sdk-initialization-and-setup)
-   * [<strong>Companion Banner</strong>](#companion-banner)
-      * [Adding an AdCompanionView](#adding-an-adcompanionview)
-      * [Setting things up](#setting-things-up)
-      * [Companion events](#companion-events)
-      * [Extra exposure time for an AdCompanionView](#extra-exposure-time-for-an-adcompanionview)
-   * [<strong>Interactive ads</strong>](#interactive-ads)
-      * [Voice enabled interactive ads](#voice-enabled-interactive-ads)
-      * [Handling voice recording](#handling-voice-recording)
-      * [Handling interactive ad events](#handling-interactive-ad-events)
    * [<strong>Client Side Insertion</strong>](#client-side-insertion)
       * [Your first ad request](#your-first-ad-request)
       * [Working with AdManager object](#working-with-admanager-object)
@@ -38,6 +29,15 @@
          * [resume](#resume)
          * [stop](#stop)
       * [AdStreamManagerDelegate protocol](#adstreammanagerdelegate-protocol)      
+   * [<strong>Interactive ads</strong>](#interactive-ads)
+      * [Voice enabled interactive ads](#voice-enabled-interactive-ads)
+      * [Handling voice recording](#handling-voice-recording)
+      * [Handling interactive ad events](#handling-interactive-ad-events)
+   * [<strong>Companion Banner</strong>](#companion-banner)
+      * [Adding an AdCompanionView](#adding-an-adcompanionview)
+      * [Setting things up](#setting-things-up)
+      * [Companion events](#companion-events)
+      * [Extra exposure time for an AdCompanionView](#extra-exposure-time-for-an-adcompanionview)
    * [<strong>Debugging AdswizzSDK</strong>](#debugging-adswizzsdk)
    * [<strong>Playing ads using your player</strong>](#playing-ads-using-your-player)
       * [MediaPlayerState protocol](#mediaplayerstate-protocol)
@@ -265,121 +265,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 Your Adswizz Integration Manager will provide you a unique sdk installation id which you need to add in your Info.pList under the **_AdswizzSDKInstallationId_** key. You are now ready for your first ad request in a client side scenario, or playing a live stream in case of the server side insertion approach.
 
-
-# Companion Banner
-
-AdswizzSDK lets you configure companion banner(s) if your Integration Manager provides you a companion zone id.
-
-
-## Adding an AdCompanionView
-
-Companion views can be added from storyboard/xib when you add a view. Just specify the **_AdCompanionView_** class. You can also add the view programmatically. 
-Once created, the SDK will keep track of all of your companion views and automatically fill them with ad related content as the ad is playing.
-
-
-## Setting things up
-
-When you create an **_AdswizzAdRequest_** object for the first time, you need to fill in the **_companionZones_** with the value provided by your Integration Manager.
-
-
-```swift
-adRequest = try AdswizzAdRequest.Builder()
-              .with(server: "SERVER_PROVIDED_BY_INTEGRATION_MANAGER")
-              .with(zoneId: "ZONEID_PROVIDED_BY_INTEGRATION_MANAGER")
-              .with(companionZones: "COMPANION_PROVIDED_BY_INTEGRATION_MANAGER")
-              .build()
-```
-
-
-Once the request is made, if there is any companion banner associated with the ad, it will be loaded into your **_AdCompanionView_** object.
-
-
-## Companion events
-
-You can associate a delegate to your **_AdCompanionView_** object that conforms to the **_AdCompanionViewDelegate_** protocol. You will be notified when the ad loaded the companion view, if the companion view was displayed, or if it ended the display. If there was an error while loading the companion banner you will be notified through this delegate. Also, you can decide whether or not to override click through target URL on the companion banner. 
-
-You can also deactivate companion view temporarily by setting the **_active_** member to false.
-
-
-# Interactive ads
-
-Adswizz interactive ads require some permissions on your app. Please refer to the “Changes in you Info.pList” section to operate the necessary changes.
-
-
-## Voice enabled interactive ads
-
-Adswizz SDK depends on a few external, third party libraries in order to delivery interactive voice ads (Amazon’s **AWSCore.framework** and Facebook’s **SocketRocket.framework**). 
-To properly set up the dependencies, you need to provide inside your Info.pList a string key called **_AdswizzSDKAWSIdentityPoolIdRegion_** with the value received from your Adswizz Integration Manager. Failing to add this key will reduce the ability of voice detection while the app is in the background.
-
-
-## Handling voice recording
-
-Apple recommends that your app’s UI reflect when recording started or stopped. AdswizzSDK provides a way to notify your app that recording has begun or stopped:
-
-
-```swift
-extension AppDelegate: AdswizzSDKDelegate {
-    func configureAdswizzSDK() {
-       AdswizzSDK.initialize(installationId: "YOUR_INSTALLATION_ID")
-       AdswizzSDK.setDelegate(self)
-    }
-   
-   func adswizzSDKRecordingStarted(_ adswizzSDK: AdswizzSDK) {
-       // Update your UI to reflect that the SDK is recording
-   }
-
-   func adswizzSDKRecordingStopped(_ adswizzSDK: AdswizzSDK) {
-       // Update your UI to reflect that the SDK is not recording anymore
-   }
-}
-```
-
-
-
-## Handling interactive ad events
-
-While the **_AdMangerDelegate_** object provides a list of events through **_AdEventType_** covering the life cycle of an ad, it does not provide information on interactive ads. 
-To get more insight on what is happening while an interactive ad is playing you can set the **_interactiveDelegate_** on the **_AdManager_** object. While implementing **_InteractiveAdManagerDelegate_** you will need to provide the code below to present a _PKAddPassesViewController_ in case the AdswizzSDK needs to save a coupon in the Wallet.
-
-
-```swift
-class YourModelClass {
-......
-func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
-    ......
-    // Get interactive ad notifications from the SDK
-    adManager?.interactiveDelegate = self
-    ......
- }
-......
-extension YourModelClass: InteractiveAdManagerDelegate {
-func interactiveAdManager(_ adManager: AdManager, shouldPresentCoupon pkpassData: Data) {
-    do {
-          let receivedPass = try PKPass(data: data)
-          if let vc = PKAddPassesViewController(pass: receivedPass) {
-               // Here you can present the view controller
-            } 
-    } catch {
-    }
-}
-    
-func interactiveAdManager(_ adManager: AdManager, didReceiveAdEvent event: InteractiveAdEvent) {
-  switch event.event {
-    case .willBeSkipped:
-     // Ad will be skipped as a result of an action during interactive ad
-     break
-    case .skipped:
-     // Ad was skipped as a result of an action during interactive ad                 
-     break
-    case .extended:
-     // Ad was extended with a new media as a result of an action
-     break
-    default:
-      break
-    }
-}
-}
-```
 
 # Client Side Insertion
 
@@ -632,6 +517,121 @@ Here is a diagram of the AdswizzAdStreamManager state.
 
 <img src="img/AdswizzAdStreamManagerState.png" width="1000" />
 
+
+# Interactive ads
+
+Adswizz interactive ads require some permissions on your app. Please refer to the “Changes in you Info.pList” section to operate the necessary changes.
+
+
+## Voice enabled interactive ads
+
+Adswizz SDK depends on a few external, third party libraries in order to delivery interactive voice ads (Amazon’s **AWSCore.framework** and Facebook’s **SocketRocket.framework**). 
+To properly set up the dependencies, you need to provide inside your Info.pList a string key called **_AdswizzSDKAWSIdentityPoolIdRegion_** with the value received from your Adswizz Integration Manager. Failing to add this key will reduce the ability of voice detection while the app is in the background.
+
+
+## Handling voice recording
+
+Apple recommends that your app’s UI reflect when recording started or stopped. AdswizzSDK provides a way to notify your app that recording has begun or stopped:
+
+
+```swift
+extension AppDelegate: AdswizzSDKDelegate {
+    func configureAdswizzSDK() {
+       AdswizzSDK.initialize(installationId: "YOUR_INSTALLATION_ID")
+       AdswizzSDK.setDelegate(self)
+    }
+   
+   func adswizzSDKRecordingStarted(_ adswizzSDK: AdswizzSDK) {
+       // Update your UI to reflect that the SDK is recording
+   }
+
+   func adswizzSDKRecordingStopped(_ adswizzSDK: AdswizzSDK) {
+       // Update your UI to reflect that the SDK is not recording anymore
+   }
+}
+```
+
+
+
+## Handling interactive ad events
+
+While the **_AdMangerDelegate_** object provides a list of events through **_AdEventType_** covering the life cycle of an ad, it does not provide information on interactive ads. 
+To get more insight on what is happening while an interactive ad is playing you can set the **_interactiveDelegate_** on the **_AdManager_** object. While implementing **_InteractiveAdManagerDelegate_** you will need to provide the code below to present a _PKAddPassesViewController_ in case the AdswizzSDK needs to save a coupon in the Wallet.
+
+
+```swift
+class YourModelClass {
+......
+func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
+    ......
+    // Get interactive ad notifications from the SDK
+    adManager?.interactiveDelegate = self
+    ......
+ }
+......
+extension YourModelClass: InteractiveAdManagerDelegate {
+func interactiveAdManager(_ adManager: AdManager, shouldPresentCoupon pkpassData: Data) {
+    do {
+          let receivedPass = try PKPass(data: data)
+          if let vc = PKAddPassesViewController(pass: receivedPass) {
+               // Here you can present the view controller
+            } 
+    } catch {
+    }
+}
+    
+func interactiveAdManager(_ adManager: AdManager, didReceiveAdEvent event: InteractiveAdEvent) {
+  switch event.event {
+    case .willBeSkipped:
+     // Ad will be skipped as a result of an action during interactive ad
+     break
+    case .skipped:
+     // Ad was skipped as a result of an action during interactive ad                 
+     break
+    case .extended:
+     // Ad was extended with a new media as a result of an action
+     break
+    default:
+      break
+    }
+}
+}
+```
+
+
+# Companion Banner
+
+AdswizzSDK lets you configure companion banner(s) if your Integration Manager provides you a companion zone id.
+
+
+## Adding an AdCompanionView
+
+Companion views can be added from storyboard/xib when you add a view. Just specify the **_AdCompanionView_** class. You can also add the view programmatically. 
+Once created, the SDK will keep track of all of your companion views and automatically fill them with ad related content as the ad is playing.
+
+
+## Setting things up
+
+When you create an **_AdswizzAdRequest_** object for the first time, you need to fill in the **_companionZones_** with the value provided by your Integration Manager.
+
+
+```swift
+adRequest = try AdswizzAdRequest.Builder()
+              .with(server: "SERVER_PROVIDED_BY_INTEGRATION_MANAGER")
+              .with(zoneId: "ZONEID_PROVIDED_BY_INTEGRATION_MANAGER")
+              .with(companionZones: "COMPANION_PROVIDED_BY_INTEGRATION_MANAGER")
+              .build()
+```
+
+
+Once the request is made, if there is any companion banner associated with the ad, it will be loaded into your **_AdCompanionView_** object.
+
+
+## Companion events
+
+You can associate a delegate to your **_AdCompanionView_** object that conforms to the **_AdCompanionViewDelegate_** protocol. You will be notified when the ad loaded the companion view, if the companion view was displayed, or if it ended the display. If there was an error while loading the companion banner you will be notified through this delegate. Also, you can decide whether or not to override click through target URL on the companion banner. 
+
+You can also deactivate companion view temporarily by setting the **_active_** member to false.
 
 
 # Debugging AdswizzSDK
