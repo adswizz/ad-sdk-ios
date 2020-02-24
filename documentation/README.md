@@ -108,10 +108,10 @@ The following can be set as general AdswizzSDK parameters:
 
 ## What you need to do ‘Server Side Insertion’
 
-In order to succesufully integrate the ‘Server Side Insertion’ you would need to set/provide the following information for your **_AdswizzAdStreamManager**_:
+In order to succesufully integrate the ‘Server Side Insertion’ you would need to set/provide the following information for your **_AdswizzAdStreamManager_**:
 *  adServer = the name of Adserver used to insert ads from
 *  companionZones = (optional) identifier of zone to retrieve creatives to be displayed by the companion banner
-*  adStreamURL = URL of audio stream (pass it to **_AdswizzAdStreamManager**_'s play() method)
+*  adStreamURL = URL of audio stream (pass it to **_AdswizzAdStreamManager_**'s play() method)
 
 The following can be set as general AdswizzSDK parameters:
 *  (optional) GDPR consent value
