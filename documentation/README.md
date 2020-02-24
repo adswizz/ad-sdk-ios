@@ -61,7 +61,7 @@
    * [<strong>(Optional) Prepare your application for advanced targetability capabilities</strong>](#optional-prepare-your-application-for-advanced-targetability-capabilities)
       * [Privacy implications](#privacy-implications)
       * [Technical prerequisites](#technical-prerequisites)
-   * [<strong>Code examples</strong>](#code-examples)
+   * [<strong>Sample projects</strong>](#code-examples)
       * [BasicAdRequestExample](#basicadrequestexample)
       * [BasicAdRequestExampleObjC](#basicadrequestexampleobjc)
       * [BasicAdStreamExample](#basicadstreamexample)
@@ -823,7 +823,7 @@ Please be advised that if you choose to enable the Raw Data Signal Collection, y
 AdswizzSDK framework can provide several device information using a data collector module. As of iOS 13, WiFi data can only be retrieved if the app entitlements contains the `Access Wi-Fi Information` capability.
 In order to set it, go to your app's target, select Signing & Capabilities and add `Access Wi-Fi Information` capability by tapping the "+" button above.
 
-# Code examples
+# Sample projects
 
 Best way to see the AdswizzSDK in action is by studying the example projects included in the /Samples folder. The examples are structured as separate projects in the _**Examples.workspace**_. Note that the samples workspace uses Cocoapods to install AdswizzSDK and necessary dependencies. To succesufully build and run the samples you first need to run a `pod install` to make sure all the neccessary dependencies are downloaded and resolved properly.
 Next, open _**Examples.workspace**_ and run each sample individually by selecting the aproppriate target and click 'Run' in XCode.
