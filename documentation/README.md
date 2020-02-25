@@ -49,6 +49,7 @@
          * [lastError](#lasterror)
          * [capabilities](#capabilities)
          * [stateInfo](#stateinfo)
+         * [volume](#volume)
    * [<strong>AdswizzSDK general settings</strong>](#adswizzsdk-general-settings)
       * [Companion banner](#companion-banner)
          * [Extra exposure time for an AdCompanionView](#extra-exposure-time-for-an-adcompanionview)
@@ -740,6 +741,10 @@ If your player has specific capabilities (skip, mute, autoplay, autoplay when mu
 ### stateInfo
 
 This is a collection of IAB specific states (skipped, muted, autoplayed, fullscreen) that your player might go through. Reporting these accordingly will help the SDK relay this information to the ad server, and will ultimately help achieve for better targetability. If you are not interested in this feature, then set this property to nil.
+
+### volume
+
+If your player can update the volume of the media, update this property with a value between 0.0 and 1.0. A value of 0.0 indicates silence; a value of 1.0 (the default) indicates full audio volume for the player instance.
 
 # AdswizzSDK general settings
 
