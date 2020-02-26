@@ -270,7 +270,7 @@ Your Adswizz Integration Manager will provide you a unique SDK installation id w
 # Client-Side Insertion
 
 
-In this scenario, AdswizzSDK let you decide when and where to request ads from an Ads Insertion Server and subsequently play those ads in your application.
+In this scenario, AdswizzSDK lets you decide when and where to request ads from an Ads Insertion Server and subsequently play those ads in your application.
 
 
 ## Your first ad request
