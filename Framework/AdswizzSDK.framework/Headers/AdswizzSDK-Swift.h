@@ -1079,6 +1079,9 @@ SWIFT_PROTOCOL_NAMED("MediaPlayerState")
 @required
 /// Tells if the player continues buffering after it was paused.
 @property (nonatomic, readonly) BOOL isBufferingWhilePaused;
+/// Report volume for the player. This value should be between [0..1].
+/// A value of 0.0 indicates silence; a value of 1.0 (the default) indicates full audio volume for the player instance.
+@property (nonatomic, readonly) float volume;
 /// Targetability
 /// If the player failed to play the content this could report the last error, otherwise this should be nil.
 @property (nonatomic, readonly) NSError * _Nullable lastError;

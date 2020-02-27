@@ -597,6 +597,7 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   @objc dynamic var metadataItem: [AVFoundation.AVMetadataItem]? { get }
   @objc optional var bufferingCompleted: Swift.Bool { get }
   @objc var isBufferingWhilePaused: Swift.Bool { get }
+  @objc dynamic var volume: Swift.Float { get }
   @objc var lastError: Swift.Error? { get }
   @objc var capabilities: Swift.Set<AdswizzSDK.MediaPlayerCapability>? { get }
   @objc var stateInfo: Swift.Set<AdswizzSDK.MediaPlayerCapability.State>? { get }
