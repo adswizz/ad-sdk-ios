@@ -1,9 +1,9 @@
 # **AdswizzSDK - Integration**
   * [<strong>Before you start</strong>](#before-you-start)
-      * [What is ‘Client Side Insertion’](#what-is-client-side-insertion)
-      * [What is ‘Server Side Insertion’](#what-is-server-side-insertion)
-      * [Prerequisites for ‘Client Side Insertion’](#prerequisites-for-client-side-insertion)
-      * [Prerequisites for ‘Server Side Insertion’](#prerequisites-for-server-side-insertion)
+      * [What is ‘Client-Side Insertion’](#what-is-client-side-insertion)
+      * [What is ‘Server-Side Insertion’](#what-is-server-side-insertion)
+      * [Prerequisites for ‘Client-Side Insertion’](#prerequisites-for-client-side-insertion)
+      * [Prerequisites for ‘Server-Side Insertion’](#prerequisites-for-server-side-insertion)
    * [<strong>Get started</strong>](#get-started)
       * [Prerequisites](#prerequisites)
       * [Dependencies](#dependencies)
@@ -11,7 +11,7 @@
       * [Changes in your Info.pList file](#changes-in-your-infoplist-file)
       * [Changes to your app distribution](#changes-to-your-app-distribution)
       * [SDK initialization and setup](#sdk-initialization-and-setup)
-   * [<strong>Client Side Insertion</strong>](#client-side-insertion)
+   * [<strong>Client-Side Insertion</strong>](#client-side-insertion)
       * [Your first ad request](#your-first-ad-request)
       * [Working with AdManager object](#working-with-admanager-object)
       * [AdManager life cycle](#admanager-life-cycle)
@@ -22,7 +22,7 @@
          * [pause](#pause)
          * [skipAd](#skipad)
          * [reset](#reset)
-   * [<strong>Server Side Insertion</strong>](#server-side-insertion)
+   * [<strong>Server-Side Insertion</strong>](#server-side-insertion)
       * [AdswizzAdStreamManager operations](#adswizzadstreammanager-operations)
          * [play](#play)
          * [pause](#pause)
@@ -49,6 +49,7 @@
          * [lastError](#lasterror)
          * [capabilities](#capabilities)
          * [stateInfo](#stateinfo)
+         * [volume](#volume)
    * [<strong>AdswizzSDK general settings</strong>](#adswizzsdk-general-settings)
       * [Companion banner](#companion-banner)
          * [Extra exposure time for an AdCompanionView](#extra-exposure-time-for-an-adcompanionview)
@@ -72,15 +73,15 @@
 This guide is addressed to the iOS Developers who want to integrate AdswizzSDK in their iOS apps.
 Here is a quick overview. More details will be provided for each scenario in their respective section.
 
-## What is ‘Client Side Insertion’
+## What is ‘Client-Side Insertion’
 
-For client side scenario you may use any streaming server and you are not require to use an AIS (Ads Insertion Server). 
-Your app is responsable for the built-in logic to decide when to start and end an ad break by fetching ads from the ad server and playing them with your apps's audio/video capabilities.
+For client-side scenario you may use any streaming server and you are not required to use an AIS (Ads Insertion Server). 
+Your app is responsible for the built-in logic to decide when to start and end an ad break by fetching ads from the ad server and playing them with your apps's audio/video capabilities.
 The SDK will handle all communication during ad fetching with the ad server while being in charge with displaying companion banner and performing various event reporting (impressions & quartiles).
 
-## What is ‘Server Side Insertion’
+## What is ‘Server-Side Insertion’
 
-For server side scenario it is required to have an AIS (Ads Insertion Server) as a streaming server with the audio ads being automatically inserted on the server side. The streaming server and the SDK split their responsibilities as follows:
+For server-side scenario it is required to have an AIS (Ads Insertion Server) as a streaming server with the audio ads being automatically inserted on the server-side. The streaming server and the SDK split their responsibilities as follows:
 
 **Streaming Server:**
 *  detects ad breaks and inserts audio ads into the audio stream
@@ -92,9 +93,9 @@ For server side scenario it is required to have an AIS (Ads Insertion Server) as
 *  retrieves, displays, synchronizes companion banner with the audio content based on metadata information
 *  retrieves and process interactivity metadata information based on metadata information
 
-## Prerequisites for ‘Client Side Insertion’
+## Prerequisites for ‘Client-Side Insertion’
 
-In order to succesufully integrate the ‘Client Side Insertion’ you will need to set/provide the following information for your **_AdswizzAdRequest_** object within **_AdRequestConnection_**:
+In order to successfully integrate the ‘Client-Side Insertion’ you will need to set/provide the following information for your **_AdswizzAdRequest_** object within **_AdRequestConnection_**:
 *  adServer = the name of AdServer used to fetch ads from
 *  zoneId = identifier of zone used to retrieve audio/video ads from
 *  companionZones = (optional) identifier of zone to retrieve creatives to be displayed by the companion banner
@@ -106,9 +107,9 @@ The following can be set as general AdswizzSDK parameters:
 *  (optional) location accuracy
 *  (optional) location enable significant changes
 
-## Prerequisites for ‘Server Side Insertion’
+## Prerequisites for ‘Server-Side Insertion’
 
-In order to succesufully integrate the ‘Server Side Insertion’ you will need to set/provide the following information for your **_AdswizzAdStreamManager_** object:
+In order to succesufully integrate the ‘Server-Side Insertion’ you will need to set/provide the following information for your **_AdswizzAdStreamManager_** object:
 *  adServer = the name of Adserver used to insert ads from
 *  companionZones = (optional) identifier of zone to retrieve creatives to be displayed by the companion banner
 *  adStreamURL = URL of audio stream (pass it to **_AdswizzAdStreamManager_**'s play() method)
@@ -124,8 +125,8 @@ The following can be set as general AdswizzSDK parameters:
 AdswizzSDK facilitates the ad lifecycle management, right from your application. 
 Sensing listeners environment, it crafts the overall ad exercise for superior addressability and augmented interactivity.
 
-On top, in a client side insertion scenario, it retrieves the ad with its associated assets, and handles the reporting operations.<br>
-In a server side insertion scenario, it takes the pressure off your app by making the interactivity and assets easily available.
+On top, in a client-side insertion scenario, it retrieves the ad with its associated assets, and handles the reporting operations.<br>
+In a server-side insertion scenario, it takes the pressure off your app by making the interactivity and assets easily available.
 
 
 ## Prerequisites
@@ -197,10 +198,10 @@ After adding AdswizzSDK.framework to your application, you’ll also need to add
 2. Settings for permissions(**required**):
     1. Add **_NSCalendarsUsageDescription_** entry. There are interactive ads that, once acted upon, add events in the Calendar. For this, the SDK requires access to the Calendar.
     2. Add **_NSContactsUsageDescription_** entry. As events are added to the Calendar, the user might be interested in inviting friends along. For this, the SDK requires access to the Contacts.
-    3. Add **_NSLocationWhenInUseUsageDescription_** entry. One of the best targeting criterion for ads is users’s location. The SDK only updates location when in the foreground. For this, the SDK requires access to Location - While the app is in use.
+    3. Add **_NSLocationWhenInUseUsageDescription_** entry. One of the best targeting criteria for ads is users’ location. The SDK only updates location when in the foreground. For this, the SDK requires access to Location - While the app is in use.
     4. Add **_NSLocationAlwaysAndWhenInUseUsageDescription_** entry. To enhance the location-based targeting capability, the SDK can leverage the location information, when the app is running in background. For this, the SDK requires access to Location - Always.
     5. Add **_NSMicrophoneUsageDescription_** entry. Interactive voice ads depend on the user being able to interact with the ad, through voice. For this, the SDK requires access to the Microphone.
-    6. Add **_NSSpeechRecognitionUsageDescription_** entry. Once the user interact with an interactive voice ad, the SDK needs to convert voice into text, in order to comprehend the command. For this, the SDK will require access to SpeechKit.
+    6. Add **_NSSpeechRecognitionUsageDescription_** entry. Once the user interacts with an interactive voice ad, the SDK needs to convert voice into text, in order to comprehend the command. For this, the SDK will require access to SpeechKit.
     7. Add **_NSPhotoLibraryUsageDescription_** entry. One of the actions users can perform on an interactive ad, is saving a coupon or a banner to the photo library. For this, the SDK requires access to the Photo Library.
     <img src="img/InfoPList.png" width="1000" />
 
@@ -263,13 +264,13 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 
 
-Your Adswizz Integration Manager will provide you a unique sdk installation id which you need to add in your Info.pList under the **_AdswizzSDKInstallationId_** key. You are now ready for your first ad request in a client side scenario, or playing a live stream in case of the server side insertion approach.
+Your Adswizz Integration Manager will provide you a unique SDK installation id which you need to add in your Info.pList under the **_AdswizzSDKInstallationId_** key. You are now ready for your first ad request in a client-side scenario, or playing a live stream in case of the server-side insertion approach.
 
 
-# Client Side Insertion
+# Client-Side Insertion
 
 
-In this scenario, AdswizzSDK let's you decide when and where to request ads from an Ads Insertion Server and subsequently play those ads in your application.
+In this scenario, AdswizzSDK lets you decide when and where to request ads from an Ads Insertion Server and subsequently play those ads in your application.
 
 
 ## Your first ad request
@@ -357,7 +358,7 @@ If you provide the player, then you only need to start playing the ad in your pl
 
 ## AdManager life cycle
 
-After requesting your first ad from the Adswizz ad server, you are ready to play the ads from the AdManager object. Keep in mind that you might receive more than one ad from the server but you are not required to play them all. If you decide to play multiple ads in your app, you need to listen to the events that the **_AdManager_** sends to your app and decide what is the appropriate action to take. Here is a diagram of the AdManager state.
+After requesting your first ad from the Adswizz ad server, you are ready to play the ads from the AdManager object. Keep in mind that you might receive more than one ad from the server, but you are not required to play them all. If you decide to play multiple ads in your app, you need to listen to the events that the **_AdManager_** sends to your app and decide what is the appropriate action to take. Here is a diagram of the AdManager state.
 
 <img src="img/AdManagerState.png" width="1000" />
 
@@ -392,7 +393,7 @@ If you need to skip an ad, you can call this method to skip the current ad from 
 If you decided to skip all the upcoming ads in the **_AdManager_** object, you can call this method. For each ad you skip, your app will trigger **_didFinishPlaying_**, and a **_allAdsDidFinishPlaying_** event will be sent at the end. Looping through the ad again will need a call to **_prepare_** function.
 
 
-# Server Side Insertion
+# Server-Side Insertion
 
 AdswizzSDK handles interactive ad insertions, while playing HLS or ICY live streams from Ad Insertion Servers. This is possible by reading the player's metadata for specific Adswizz data and convert it in Adswizz interactive formats or companion banners.
 To get started, you need to create an **_AdswizzAdStreamManager_** object with a URL pointing to the ad server your Integration Manager provided you.
@@ -525,7 +526,7 @@ Adswizz interactive ads require some permissions on your app. Please refer to th
 
 ## Voice enabled interactive ads
 
-Adswizz SDK depends on a few external, third party libraries in order to delivery interactive voice ads (Amazon’s **AWSCore.framework** and Facebook’s **SocketRocket.framework**). 
+Adswizz SDK depends on a few external, third party libraries in order to deliver interactive voice ads (Amazon’s **AWSCore.framework** and Facebook’s **SocketRocket.framework**). 
 To properly set up the dependencies, you need to provide inside your Info.pList a string key called **_AdswizzSDKAWSIdentityPoolIdRegion_** with the value received from your Adswizz Integration Manager. Failing to add this key will reduce the ability of voice detection while the app is in the background.
 
 
@@ -629,7 +630,7 @@ Once the request is made, if there is any companion banner associated with the a
 
 ## Companion events
 
-You can associate a delegate to your **_AdCompanionView_** object that conforms to the **_AdCompanionViewDelegate_** protocol. You will be notified when the ad loaded the companion view, if the companion view was displayed, or if it ended the display. If there was an error while loading the companion banner you will be notified through this delegate. Also, you can decide whether or not to override click through target URL on the companion banner. 
+You can associate a delegate to your **_AdCompanionView_** object that conforms to the **_AdCompanionViewDelegate_** protocol. You will be notified when the ad loaded the companion view, if the companion view was displayed, or if it ended the display. If there was an error while loading the companion banner, you will be notified through this delegate. Also, you can decide whether or not to override click through target URL on the companion banner. 
 
 You can also deactivate companion view temporarily by setting the **_active_** member to false.
 
@@ -704,7 +705,7 @@ For a good reporting of the quartile/progress events, your player should update 
 
 ### metadataItem
 
-If your player can read metadata from the media that is playing, it should report it through this member. While this is not required for a client side insertion, it is mandatory to relay this data when you are in the server side insertion scenario.
+If your player can read metadata from the media that is playing, it should report it through this member. While this is not required for a client-side insertion, it is mandatory to relay this data when you are in the server-side insertion scenario.
 
 
 ### playerStatus
@@ -727,7 +728,7 @@ Here is a state machine for your player to implement.
 
 ### isBufferingWhilePaused
 
-If your player continues to buffer data after it was paused, set this property to true. When you are playing a stream, this is a good way to let the SDK decide whether or not it should pick up from where it was paused, or reconnect to the live stream again. 
+If your player continues to buffer data after it was paused, set this property to true. When you are playing a stream, this is a good way to let the SDK decide whether or not it should pick up from where it was paused or reconnect to the live stream again. 
 
 ### lastError
 
@@ -735,11 +736,15 @@ If your player encountered an error while playing an ad, report it in this prope
 
 ### capabilities
 
-If your player has specific capabilities (skip, mute, autoplay, autoplay when muted, fullscreen or it can display an icon), list them in this property. SDK will relay this information to the ad server, and will ultimately help achieve better targetability. If you are not interested in this feature, then set this property to nil.
+If your player has specific capabilities (skip, mute, autoplay, autoplay when muted, fullscreen or it can display an icon), list them in this property. SDK will relay this information to the ad server and will ultimately help achieve better targetability. If you are not interested in this feature, then set this property to nil.
 
 ### stateInfo
 
-This is a collection of IAB specific states (skipped, muted, autoplayed, fullscreen) that your player might go through. Reporting these accordingly will help the SDK relay this information to the ad server, and will ultimately help achieve for better targetability. If you are not interested in this feature, then set this property to nil.
+This is a collection of IAB specific states (skipped, muted, autoplayed, fullscreen) that your player might go through. Reporting these accordingly will help the SDK relay this information to the ad server and will ultimately help achieve for better targetability. If you are not interested in this feature, then set this property to nil.
+
+### volume
+
+If your player can update the volume of the media, update this property with a value between 0.0 and 1.0. A value of 0.0 indicates silence; a value of 1.0 (the default) indicates full audio volume for the player instance.
 
 # AdswizzSDK general settings
 
@@ -769,7 +774,7 @@ AdswizzSDK.shared.enableLocationSignificantChanges = true
 ```
 
 ### Location accuracy
-By default **_AdswizzSDK_** location accuracy is set to the nearest kilometer. You can update this to a new _CLLocationAccuracy_ value.
+By default, **_AdswizzSDK_** location accuracy is set to the nearest kilometer. You can update this to a new _CLLocationAccuracy_ value.
 
 ```swift
 AdswizzSDK.shared.locationAccuracy = kCLLocationAccuracyBest
@@ -779,7 +784,7 @@ AdswizzSDK.shared.locationAccuracy = kCLLocationAccuracyBest
 
 ### GDPR
 
-AdsWizz services are GDPR compliant. As a result **_AdswizzSDK_** will decorate urls that connect to Adswizz services accordingly to reflect the desired GDPR user consent. To modify the GDPR consent you need to configured it like this:
+AdsWizz services are GDPR compliant. As a result, **_AdswizzSDK_** will decorate urls that connect to Adswizz services accordingly to reflect the desired GDPR user consent. To modify the GDPR consent you need to configure it like this:
 
 ```swift
 AdswizzSDK.shared.gdprConsent = <Desired_GDPR_Consent>
@@ -815,7 +820,7 @@ Please be advised that if you choose to enable the Raw Data Signal Collection, y
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 | Data collected for <br>**_Device Targeting_** | Data collected for <br>**_Contextual Targeting_** | Data collected for <br>**_User Targeting_**|
 |:-----------------|:---------------------|:--------------|
-| * device name, language, country and currency<br>* screen brightness level<br>* audio volume level<br>* battery level and status (charging/not charging)<br>* bundle id<br>* operating system version and name | * bluetooth devices (currently connected and history)<br>* WifFi Status (true/false) and WiFi network name / SSID (if connected)<br>* network carrier name and country<br>* accelerometer, GPS and gyroscope data<br>* headphone jack status (plugged/unplugged)<br>* time zone information (in GMT format)<br>* daylight saving time status (true/false) | * identifierForAdvertising(idfa) status (enabled/disabled) and ID (if enabled) |
+| * device name and locale <br>* screen brightness level<br>* audio volume level<br>* battery level and status (charging/not charging)<br>* bundle id<br>* operating system version and name | * bluetooth devices (currently connected and history)<br>* WiFi Status (true/false) and WiFi network name / SSID (if connected)<br>* network carrier name and country<br>* accelerometer, GPS and gyroscope data<br>* headphone jack status (plugged/unplugged)<br>* time zone information (in GMT format)<br>* daylight saving time status (true/false) | * idfa (identifierForAdvertising) status (enabled/disabled) and ID (if enabled) |
 
 
 ## Technical prerequisites
@@ -830,7 +835,7 @@ Next, open _**Examples.workspace**_ and run each sample individually by selectin
 
 ## BasicAdRequestExample
 
-This sample demonstrates a basic client side insertion scenario by showing how to create and customize an _**AdswizzAdRequest**_. It shows how to use it to create an _**AdRequestConnection**_ and finally request ads. Next, it demonstrates basic usage of an instance of _**AdManager**_ once it is obtained from the SDK. It also creates and displays an _**AdCompanionView**_ while playing ad(s).
+This sample demonstrates a basic client-side insertion scenario by showing how to create and customize an _**AdswizzAdRequest**_. It shows how to use it to create an _**AdRequestConnection**_ and finally request ads. Next, it demonstrates basic usage of an instance of _**AdManager**_ once it is obtained from the SDK. It also creates and displays an _**AdCompanionView**_ while playing ad(s).
 The sample attempts to simulate an app which plays its normal content and ocassionaly requests ads, pauses content, plays ads and finally resumes to normal content again. 
 
 ## BasicAdRequestExampleObjC
@@ -839,7 +844,7 @@ The same sample from above fully written in Objective-C. It demonstrates how eve
 
 ## BasicAdStreamExample
 
-This sample demonstrates a basic server side insertion scenario by showing how to create and customize an _**AdswizzAdStreamManager**_. It shows how to play/stop/pause/resume a live stream. It also creates and displays an _**AdCompanionView**_ during ad break(s).
+This sample demonstrates a basic server-side insertion scenario by showing how to create and customize an _**AdswizzAdStreamManager**_. It shows how to play/stop/pause/resume a live stream. It also creates and displays an _**AdCompanionView**_ during ad break(s).
 
 ## BasicAdStreamExampleObjC
 
