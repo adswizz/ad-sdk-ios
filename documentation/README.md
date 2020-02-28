@@ -62,7 +62,7 @@
    * [<strong>(Optional) Prepare your application for advanced targetability capabilities</strong>](#optional-prepare-your-application-for-advanced-targetability-capabilities)
       * [Privacy implications](#privacy-implications)
       * [Technical prerequisites](#technical-prerequisites)
-   * [<strong>Sample projects</strong>](#code-examples)
+   * [<strong>Sample projects</strong>](#sample-projects)
       * [BasicAdRequestExample](#basicadrequestexample)
       * [BasicAdRequestExampleObjC](#basicadrequestexampleobjc)
       * [BasicAdStreamExample](#basicadstreamexample)
