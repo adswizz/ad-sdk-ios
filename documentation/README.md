@@ -191,8 +191,7 @@ After adding AdswizzSDK.framework to your application, you’ll also need to add
     2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
     <img src="img/playerId.png" width="1000" />
 
-    3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**, but not setting it will affect voice detection during 
-    .    
+    3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**. Must be set only if you want to traffic voice ads.    
     <img src="img/aws.png" width="1000" />
     
 2. Settings for permissions(**required**):
