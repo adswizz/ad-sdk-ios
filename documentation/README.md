@@ -829,7 +829,14 @@ In order to set it, go to your app's target, select Signing & Capabilities and a
 
 # Sample projects
 
-Best way to see the AdswizzSDK in action is by studying the example projects included in the /Samples folder. The examples are structured as separate projects in the _**Examples.workspace**_. Note that the samples workspace uses Cocoapods to install AdswizzSDK and necessary dependencies. To succesufully build and run the samples you first need to run a `pod install` to make sure all the neccessary dependencies are downloaded and resolved properly.
+Best way to see the AdswizzSDK in action is by studying the example projects included in the `/Samples` folder. Download the `/Samples` folder using the below `git` command:
+```properties
+$ git clone https://github.com/adswizz/ad-sdk-ios.git
+Username: your_username
+Password: Personal_Access_Token_provided
+ ```
+
+The examples are structured as separate projects in the _**Examples.workspace**_. Note that the samples workspace uses Cocoapods to install AdswizzSDK and necessary dependencies. To succesufully build and run the samples you first need to run a `pod install` to make sure all the neccessary dependencies are downloaded and resolved properly.
 Next, open _**Examples.workspace**_ and run each sample individually by selecting the aproppriate target and click 'Run' in XCode.
 
 ## BasicAdRequestExample
