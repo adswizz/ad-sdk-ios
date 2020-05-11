@@ -251,7 +251,7 @@
 		AE51949E23F5446D0083D87B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Inc, AdsWizz";
 				TargetAttributes = {
 					AE5194A523F5446D0083D87B = {
@@ -612,6 +612,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9D0E395C1D7258E3ABF0F81C /* Pods-BasicAdStreamExampleObjC.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
@@ -630,6 +631,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C6C69DA973F518671B7DC4DB /* Pods-BasicAdStreamExampleObjC.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
@@ -648,7 +650,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 610D460C38999705E518EFD5 /* Pods-BasicAdStreamExampleObjCTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
@@ -670,7 +672,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15F760835A769C47EC7EF169 /* Pods-BasicAdStreamExampleObjCTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
@@ -692,7 +694,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B0BFDDCD4B86D0F6828B456F /* Pods-BasicAdStreamExampleObjCUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
 				INFOPLIST_FILE = BasicAdStreamExampleObjCUITests/Info.plist;
@@ -712,7 +714,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10F77E36958081333B0E9BBE /* Pods-BasicAdStreamExampleObjCUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
 				INFOPLIST_FILE = BasicAdStreamExampleObjCUITests/Info.plist;

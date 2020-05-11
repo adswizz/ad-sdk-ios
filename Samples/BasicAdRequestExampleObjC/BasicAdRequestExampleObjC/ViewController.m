@@ -127,7 +127,13 @@
 
 - (void)requestAds {
     NSError *error;
-    AASDKAdswizzAdRequest *adRequest = [[[[[AASDKAdswizzAdRequestBuilder new] withServer:@"demo.deliveryengine.adswizz.com"] withZoneId:@"12561"] withCompanionZones:@"12562"] buildAndReturnError:&error];
+    AASDKAdswizzAdZone *adZone = [[[AASDKAdswizzAdZoneBuilder new] withZoneId:@"12561"] buildAndReturnError:&error];
+    if (error) {
+        NSLog(@"Oops, ad zone is no valid");
+        return;
+    }
+    
+    AASDKAdswizzAdRequest *adRequest = [[[[[AASDKAdswizzAdRequestBuilder new] withServer:@"demo.deliveryengine.adswizz.com"] withZone:adZone] withCompanionZones:@"12562"] buildAndReturnError:&error];
     if (error) {
         NSLog(@"Oops, the request is not valid");
         return;
@@ -265,7 +271,7 @@
             break;
         }
         case AASDKAdEventTypeDidFinishPlaying:
-        case AASDKAdEventTypeAllAdsDidFinishPlaying:
+        case AASDKAdEventTypeAllAdsCompleted:
         {
             // Ad manager just finished playing (all) ad(s)
             // Resume content

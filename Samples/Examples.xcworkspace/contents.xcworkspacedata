@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:BasicAdRequestWatchExample/BasicAdRequestWatchExample.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:BasicAdStreamExampleObjC/BasicAdStreamExampleObjC.xcodeproj">
    </FileRef>
    <FileRef
@@ -14,6 +17,12 @@
       location = "group:BasicAdRequestExample/BasicAdRequestExample.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:BasicAdRequestExample/../ExternalPlayerExample/ExternalPlayerExample.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ExternalPlayerExample/ExternalPlayerExample.xcodeproj">
    </FileRef>
 </Workspace>

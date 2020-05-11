@@ -21,6 +21,11 @@
 		AE51944423F40B020083D87B /* ViewController+AdCompanionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51944023F40B020083D87B /* ViewController+AdCompanionViewDelegate.swift */; };
 		AE51944523F40B020083D87B /* UIWindow+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51944123F40B020083D87B /* UIWindow+SafeArea.swift */; };
 		AE51944723F410850083D87B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51944623F410850083D87B /* ViewController.swift */; };
+		AE5EBA412411391100ECAEF7 /* NowPlayableMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA402411391100ECAEF7 /* NowPlayableMetadata.swift */; };
+		AE5EBA47241144FE00ECAEF7 /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA46241144FE00ECAEF7 /* ViewControllerModel.swift */; };
+		AE5EBA4D24114A4600ECAEF7 /* ViewController+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA4C24114A4600ECAEF7 /* ViewController+Model.swift */; };
+		AE5EBA512411584A00ECAEF7 /* ViewController+NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA502411584A00ECAEF7 /* ViewController+NowPlaying.swift */; };
+		AE5EBA57241159D900ECAEF7 /* WatchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA56241159D900ECAEF7 /* WatchSupport.swift */; };
 		BDF7B220CE2DD8C19E8AA079 /* Pods_BasicAdRequestExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB56C6B3B0F7E28DA3AA4DF /* Pods_BasicAdRequestExampleTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +72,11 @@
 		AE51944023F40B020083D87B /* ViewController+AdCompanionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+AdCompanionViewDelegate.swift"; sourceTree = "<group>"; };
 		AE51944123F40B020083D87B /* UIWindow+SafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+SafeArea.swift"; sourceTree = "<group>"; };
 		AE51944623F410850083D87B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AE5EBA402411391100ECAEF7 /* NowPlayableMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableMetadata.swift; sourceTree = "<group>"; };
+		AE5EBA46241144FE00ECAEF7 /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
+		AE5EBA4C24114A4600ECAEF7 /* ViewController+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Model.swift"; sourceTree = "<group>"; };
+		AE5EBA502411584A00ECAEF7 /* ViewController+NowPlaying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+NowPlaying.swift"; path = "../../BasicAdRequestWatchExample/BasicAdRequestWatchExample/ViewController+NowPlaying.swift"; sourceTree = "<group>"; };
+		AE5EBA56241159D900ECAEF7 /* WatchSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchSupport.swift; path = ../../BasicAdRequestWatchExample/BasicAdRequestWatchExample/WatchSupport.swift; sourceTree = "<group>"; };
 		EF1DF8204411D40E83992AE6 /* Pods-BasicAdRequestExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicAdRequestExampleTests.release.xcconfig"; path = "Target Support Files/Pods-BasicAdRequestExampleTests/Pods-BasicAdRequestExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		FA0F49714075734452A7DB68 /* Pods_BasicAdRequestExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicAdRequestExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -124,12 +134,17 @@
 		AE5193CC23F3F7600083D87B /* BasicAdRequestExample */ = {
 			isa = PBXGroup;
 			children = (
+				AE5EBA402411391100ECAEF7 /* NowPlayableMetadata.swift */,
 				AE5193CD23F3F7600083D87B /* AppDelegate.swift */,
 				AE5193CF23F3F7600083D87B /* SceneDelegate.swift */,
 				AE51944123F40B020083D87B /* UIWindow+SafeArea.swift */,
 				AE51944623F410850083D87B /* ViewController.swift */,
+				AE5EBA46241144FE00ECAEF7 /* ViewControllerModel.swift */,
+				AE5EBA4C24114A4600ECAEF7 /* ViewController+Model.swift */,
 				AE51943F23F40B020083D87B /* ViewController+AdManagerDelegate.swift */,
 				AE51944023F40B020083D87B /* ViewController+AdCompanionViewDelegate.swift */,
+				AE5EBA502411584A00ECAEF7 /* ViewController+NowPlaying.swift */,
+				AE5EBA56241159D900ECAEF7 /* WatchSupport.swift */,
 				AE5193D323F3F7600083D87B /* Main.storyboard */,
 				AE5193D623F3F7630083D87B /* Assets.xcassets */,
 				AE5193D823F3F7630083D87B /* LaunchScreen.storyboard */,
@@ -439,10 +454,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE5EBA412411391100ECAEF7 /* NowPlayableMetadata.swift in Sources */,
 				AE51944723F410850083D87B /* ViewController.swift in Sources */,
 				AE51944523F40B020083D87B /* UIWindow+SafeArea.swift in Sources */,
 				AE5193CE23F3F7600083D87B /* AppDelegate.swift in Sources */,
+				AE5EBA512411584A00ECAEF7 /* ViewController+NowPlaying.swift in Sources */,
+				AE5EBA47241144FE00ECAEF7 /* ViewControllerModel.swift in Sources */,
+				AE5EBA4D24114A4600ECAEF7 /* ViewController+Model.swift in Sources */,
 				AE51944423F40B020083D87B /* ViewController+AdCompanionViewDelegate.swift in Sources */,
+				AE5EBA57241159D900ECAEF7 /* WatchSupport.swift in Sources */,
 				AE51944323F40B020083D87B /* ViewController+AdManagerDelegate.swift in Sources */,
 				AE5193D023F3F7600083D87B /* SceneDelegate.swift in Sources */,
 			);

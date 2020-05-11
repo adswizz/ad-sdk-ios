@@ -58,11 +58,8 @@ class ViewController: UIViewController {
     var audioPlayer = AVAudioPlayer()
     var isPlaying = false
     var timer:Timer!
+    var model: ViewControllerModelProtocol?
     
-    let adServer = "demo.deliveryengine.adswizz.com"
-    let zoneId = "12561"
-    let companionZones = "12562"
-
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Request ads"
@@ -86,6 +83,9 @@ class ViewController: UIViewController {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-side-[status]-side-|", metrics: metrics, views: views as [String : Any]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-0-[bar]-0-|", metrics: metrics, views: views as [String : Any]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-top-[time]-[status]-(>=0)-[bar]-bottom-|", metrics: metrics, views: views as [String : Any]))
+        
+        // Prepare model
+        model = build()
         
         // Prepare content playback
         let path = Bundle.main.path(forResource: "content_example", ofType: "mp3")!
@@ -122,6 +122,9 @@ extension ViewController {
                            options: [.autoreverse, .repeat] , animations: {
                             self.status.alpha = 1
             }) { finished in }
+            
+            // Send watch message if paired
+            model?.watchSupport?.sendMessage(.playingContent)
         }
     }
     
@@ -149,14 +152,27 @@ extension ViewController {
     }
     
     @objc func requestAds() {
+        guard
+            let adServer = model?.adServer,
+            let zoneId = model?.zoneId,
+            let companionZones = model?.companionZones else {
+                return
+        }
+        
         // Cancel current connection if running
         adConnection?.cancel()
         
         // Adswizz request ads
         do {
+            
+            let zoneBuilder = AdswizzAdZone.Builder()
+            let zone = try zoneBuilder
+                .with(zoneId: zoneId)
+                .build()
+
             let adRequest = try AdswizzAdRequest.Builder()
                 .with(server: adServer)
-                .with(zoneId: zoneId)
+                .with(zones: [zone])
                 .with(companionZones: companionZones)
                 .build()
             adConnection = try AdRequestConnection(for: adRequest)
@@ -173,6 +189,9 @@ extension ViewController {
                     
                     // Cleanup
                     self.adConnection = nil
+                    
+                    // Send watch message
+                    self.model?.watchSupport?.sendMessage(.playingAds)
                 }
             }
         } catch {

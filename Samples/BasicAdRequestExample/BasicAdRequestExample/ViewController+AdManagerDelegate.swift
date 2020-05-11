@@ -59,7 +59,16 @@ extension ViewController: AdManagerDelegate {
                 self.view.addConstraints([height, centerX, centerY])
             }
             
-        case .didFinishPlaying, .allAdsDidFinishPlaying:
+            // Update Now Playing with a valid file URL and metadata
+            if let firstFile = event.ad?.mediaFiles.first?.uri, let firstFileURL = URL(string: firstFile) {
+                updateNowPlaying(with: NowPlayableStaticMetadata(assetURL: firstFileURL,
+                                                                 isLiveStream: false,
+                                                                 title: "Adswizz Ad",
+                                                                 artist: "Basic Ad Request",
+                                                                 artwork: nil))
+            }
+            
+        case .didFinishPlaying, .allAdsCompleted:
             // Ad manager just finished playing (all) ad(s)
             // Resume content
             playContent()

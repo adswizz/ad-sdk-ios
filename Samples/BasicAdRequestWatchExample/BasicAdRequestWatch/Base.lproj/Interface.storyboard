@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lqP-7d-ivY">
+    <device id="watch44"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
+    </dependencies>
+    <scenes>
+        <!--MainController-->
+        <scene sceneID="v5l-BV-w6v">
+            <objects>
+                <controller identifier="MainController" id="lqP-7d-ivY" customClass="MainController" customModule="BasicAdRequestWatch_Extension">
+                    <items>
+                        <label width="1" alignment="center" verticalAlignment="center" text="Status label" textAlignment="center" numberOfLines="0" id="hcj-Yb-pme"/>
+                    </items>
+                    <connections>
+                        <outlet property="status" destination="hcj-Yb-pme" id="r8v-Yd-DSa"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="408" y="599.55357142857144"/>
+        </scene>
+    </scenes>
+</document>

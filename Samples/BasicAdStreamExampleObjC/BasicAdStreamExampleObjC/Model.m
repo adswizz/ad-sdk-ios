@@ -117,7 +117,7 @@
             //current ad in AdManager is playing
             break;
         }
-        case AASDKAdEventTypeAllAdsDidFinishPlaying:
+        case AASDKAdEventTypeAllAdsCompleted:
         {
             // Ad manager just finished playing (all) ad(s)
             break;

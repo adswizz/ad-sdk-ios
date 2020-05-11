@@ -5,13 +5,15 @@ use_frameworks!
 
 # common pods used in all example modules
 def common_pods
-  pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
+pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
 end
 
 project 'BasicAdStreamExample/BasicAdStreamExample.xcodeproj'
 project 'BasicAdStreamExampleObjC/BasicAdStreamExampleObjC.xcodeproj'
 project 'BasicAdRequestExample/BasicAdRequestExample.xcodeproj'
 project 'BasicAdRequestExampleObjC/BasicAdRequestExampleObjC.xcodeproj'
+project 'BasicAdRequestWatchExample/BasicAdRequestWatchExample.xcodeproj'
+project 'ExternalPlayerExample/ExternalPlayerExample.xcodeproj'
 
 target :BasicAdRequestExample do
   project 'BasicAdRequestExample/BasicAdRequestExample.xcodeproj'
@@ -26,6 +28,27 @@ target :BasicAdRequestExample do
     inherit! :search_paths
     common_pods
   end
+end
+
+target :BasicAdRequestWatchExample do
+  project 'BasicAdRequestWatchExample/BasicAdRequestWatchExample.xcodeproj'
+  common_pods
+
+  target 'BasicAdRequestWatchExampleTests' do
+    inherit! :search_paths
+    common_pods
+  end
+
+  target 'BasicAdRequestWatchExampleUITests' do
+    inherit! :search_paths
+    common_pods
+  end
+end
+
+target 'BasicAdRequestWatch Extension' do
+  platform :watchos, '6.1'
+  project 'BasicAdRequestWatchExample/BasicAdRequestWatchExample.xcodeproj'
+pod 'AdswizzWatchSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
 end
 
 target :BasicAdRequestExampleObjC do
@@ -71,6 +94,11 @@ target :BasicAdStreamExampleObjC do
     inherit! :search_paths
     common_pods
   end
+end
+
+target :ExternalPlayerExample do
+  project 'ExternalPlayerExample/ExternalPlayerExample.xcodeproj'
+  common_pods
 end
 
  post_install do |installer|

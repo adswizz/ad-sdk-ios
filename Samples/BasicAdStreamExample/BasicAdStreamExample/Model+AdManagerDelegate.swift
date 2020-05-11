@@ -23,7 +23,7 @@ extension Model: AdManagerDelegate {
         case .didStartPlaying:
             //current ad in AdManager is playing
             break
-        case .allAdsDidFinishPlaying:
+        case .allAdsCompleted:
             // Ad manager just finished playing (all) ad(s)
             break
         default:

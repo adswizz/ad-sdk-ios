@@ -1,77 +1,99 @@
-# **AdswizzSDK - Integration guide**
-   * [<strong>Before you start</strong>](#before-you-start)
-      * [What is ‘Client-Side Insertion’](#what-is-client-side-insertion)
-      * [What is ‘Server-Side Insertion’](#what-is-server-side-insertion)
-      * [Prerequisites for ‘Client-Side Insertion’](#prerequisites-for-client-side-insertion)
-      * [Prerequisites for ‘Server-Side Insertion’](#prerequisites-for-server-side-insertion)
-   * [<strong>Get started</strong>](#get-started)
-      * [Prerequisites](#prerequisites)
-      * [Dependencies](#dependencies)
-      * [Adding the SDK to your Xcode project](#adding-the-sdk-to-your-xcode-project)
-      * [Changes in your Info.pList file](#changes-in-your-infoplist-file)
-      * [Changes to your app distribution](#changes-to-your-app-distribution)
-      * [SDK initialization and setup](#sdk-initialization-and-setup)
-   * [<strong>Client-Side Insertion</strong>](#client-side-insertion)
-      * [Your first ad request](#your-first-ad-request)
-      * [Working with AdManager object](#working-with-admanager-object)
-      * [AdManager life cycle](#admanager-life-cycle)
-      * [AdManager operations](#admanager-operations)
-      * [AdManager protocol](#admanager-protocol)
-         * [prepare](#prepare)
-         * [play](#play)
-         * [pause](#pause)
-         * [skipAd](#skipad)
-         * [reset](#reset)
-   * [<strong>Server-Side Insertion</strong>](#server-side-insertion)
-      * [AdswizzAdStreamManager operations](#adswizzadstreammanager-operations)
-         * [play](#play)
-         * [pause](#pause)
-         * [resume](#resume)
-         * [stop](#stop)
-      * [AdStreamManagerDelegate protocol](#adstreammanagerdelegate-protocol)      
-   * [<strong>Interactive ads</strong>](#interactive-ads)
-      * [Voice enabled interactive ads](#voice-enabled-interactive-ads)
-      * [Handling voice recording](#handling-voice-recording)
-      * [Handling interactive ad events](#handling-interactive-ad-events)
-   * [<strong>Companion Banner</strong>](#companion-banner)
-      * [Adding an AdCompanionView](#adding-an-adcompanionview)
-      * [Setting things up](#setting-things-up)
-      * [Companion events](#companion-events)
-      * [Extra exposure time for an AdCompanionView](#extra-exposure-time-for-an-adcompanionview)
-   * [<strong>Debugging AdswizzSDK</strong>](#debugging-adswizzsdk)
-   * [<strong>Playing ads using your player</strong>](#playing-ads-using-your-player)
-      * [MediaPlayerState protocol](#mediaplayerstate-protocol)
-         * [currentDuration](#currentduration)
-         * [currentPlayHead](#currentplayhead)
-         * [metadataItem](#metadataitem)
-         * [playerStatus](#playerstatus)
-         * [isBufferingWhilePaused](#isbufferingwhilepaused)
-         * [lastError](#lasterror)
-         * [capabilities](#capabilities)
-         * [stateInfo](#stateinfo)
-         * [volume](#volume)
-   * [<strong>AdswizzSDK general settings</strong>](#adswizzsdk-general-settings)
-      * [Companion banner](#companion-banner)
-         * [Extra exposure time for an AdCompanionView](#extra-exposure-time-for-an-adcompanionview)
-      * [Location](#location)
-         * [Enable significant changes for location](#enable-significant-changes-for-location)
-         * [Location accuracy](#location-accuracy)
-      * [Privacy](#privacy)
-         * [GDPR](#gdpr)
-         * [CCPA](#ccpa)
-   * [<strong>(Optional) Prepare your application for advanced targetability capabilities</strong>](#optional-prepare-your-application-for-advanced-targetability-capabilities)
-      * [Privacy implications](#privacy-implications)
-      * [Technical prerequisites](#technical-prerequisites)
-   * [<strong>Sample projects</strong>](#sample-projects)
-      * [BasicAdRequestExample](#basicadrequestexample)
-      * [BasicAdRequestExampleObjC](#basicadrequestexampleobjc)
-      * [BasicAdStreamExample](#basicadstreamexample)
-      * [BasicAdStreamExampleObjC](#basicadstreamexampleobjc)
+# **AdswizzSDK for iOS - Integration guide**
+- [Before you start](#before-you-start)
+  * [What is ‘Client-Side Insertion’](#what-is-client-side-insertion)
+  * [What is ‘Server-Side Insertion’](#what-is-server-side-insertion)
+  * [Prerequisites for ‘Client-Side Insertion’](#prerequisites-for-client-side-insertion)
+  * [Prerequisites for ‘Server-Side Insertion’](#prerequisites-for-server-side-insertion)
+- [Get started](#get-started)
+  * [Prerequisites](#prerequisites)
+  * [Dependencies](#dependencies)
+  * [Adding the SDK to your Xcode project](#adding-the-sdk-to-your-xcode-project)
+  * [Changes in your Info.pList file](#changes-in-your-infoplist-file)
+  * [Changes to your app distribution](#changes-to-your-app-distribution)
+  * [SDK initialization and setup](#sdk-initialization-and-setup)
+- [Client-Side Insertion](#client-side-insertion)
+  * [Setting up your zone(s) for ad request](#setting-up-your-zone-for-ad-request)
+  * [Your first ad request](#your-first-ad-request)
+  * [Working with AdManager object](#working-with-admanager-object)
+  * [AdManager life cycle](#admanager-life-cycle)
+    + [AdManager operations](#admanager-operations)
+    + [AdManager protocol](#admanager-protocol)
+      - [prepare](#prepare)
+      - [play](#play)
+      - [pause](#pause)
+      - [skipAd](#skipad)
+      - [reset](#reset)
+- [Server-Side Insertion](#server-side-insertion)
+  * [AdswizzAdStreamManager operations](#adswizzadstreammanager-operations)
+    + [play](#play-1)
+    + [pause](#pause-1)
+    + [resume](#resume)
+    + [stop](#stop)
+  * [AdStreamManagerDelegate protocol](#adstreammanagerdelegate-protocol)
+- [Interactive ads](#interactive-ads)
+  * [Voice enabled interactive ads](#voice-enabled-interactive-ads)
+  * [Handling voice recording](#handling-voice-recording)
+  * [Handling interactive ad events](#handling-interactive-ad-events)
+- [Companion Banner](#companion-banner)
+  * [Adding an AdCompanionView](#adding-an-adcompanionview)
+  * [Setting things up](#setting-things-up)
+  * [Companion events](#companion-events)
+- [Debugging AdswizzSDK](#debugging-adswizzsdk)
+- [Playing ads using your player](#playing-ads-using-your-player)
+  * [MediaPlayerState protocol](#mediaplayerstate-protocol)
+    + [currentDuration](#currentduration)
+    + [currentPlayHead](#currentplayhead)
+    + [metadataItem](#metadataitem)
+    + [playerStatus](#playerstatus)
+    + [isBufferingWhilePaused](#isbufferingwhilepaused)
+    + [lastError](#lasterror)
+    + [capabilities](#capabilities)
+    + [stateInfo](#stateinfo)
+    + [volume](#volume)
+- [AdswizzSDK general settings](#adswizzsdk-general-settings)
+  * [Companion banner](#companion-banner)
+    + [Extra exposure time for an AdCompanionView](#extra-exposure-time-for-an-adcompanionview)
+  * [Location](#location)
+    + [Enable significant changes for location](#enable-significant-changes-for-location)
+    + [Location accuracy](#location-accuracy)
+  * [Privacy](#privacy)
+    + [GDPR](#gdpr)
+    + [CCPA](#ccpa)
+- [(Optional) Prepare your application for advanced targetability capabilities](#optional-prepare-your-application-for-advanced-targetability-capabilities)
+  * [Privacy implications](#privacy-implications)
+  * [Technical prerequisites](#technical-prerequisites)
+- [Sample projects](#sample-projects)
+  * [BasicAdRequestExample](#basicadrequestexample)
+  * [BasicAdRequestExampleObjC](#basicadrequestexampleobjc)
+  * [BasicAdStreamExample](#basicadstreamexample)
+  * [BasicAdStreamExampleObjC](#basicadstreamexampleobjc)
+  * [ExternalPlayerExample](#externalplayerexample)
+# **AdswizzWatchSDK for WatchOS - Integration guide**
+- [AdswizzWatchSDK](#adswizzwatchsdk)
+  * [What is AdswizzWatchSDK](#what-is-adswizzwatchsdk)
+  * [What it does do](#what-it-does-do)
+  * [What it doesn't do](#what-it-doesnt-do)
+  * [Prerequisites for a successful integration](#prerequisites-for-a-successful-integration)
+  * [Cases when updating 'Now Playing' information from iOS won't start the WatchOS companion app](#cases-when-updating-now-playing-information-from-ios-wont-start-the-watchos-companion-app)
+- [Integrating AdswizzWatchSDK](#integrating-adswizzwatchsdk)
+  * [Prerequisites](#prerequisites-1)
+  * [Adding the SDK to your Xcode project](#adding-the-sdk-to-your-xcode-project-1)
+  * [SDK integration](#sdk-integration)
+    + [Watch Extension state](#watch-extension-state)
+    + [Forwarding messages from WCSession to AdswizzWatchSDK/AdswizzSDK](#forwarding-messages-from-wcsession-to-adswizzwatchsdkadswizzsdk)
+    + [Sending messages from AdswizzWatchSDK/AdswizzSDK to WCSession](#sending-messages-from-adswizzwatchsdkadswizzsdk-to-wcsession)
+    + [Running your WatchOS companion app in the background](#running-your-watchos-companion-app-in-the-background)
+- [Debugging AdswizzWatchSDK](#debugging-adswizzsdk-1)
+- [Sample projects](#sample-projects-1)
+  * [BasicAdRequestWatchExample](#basicadrequestwatchexample)
+    + [Getting started](#getting-started)
+    + [Running the sample](#running-the-sample)
+- [Privacy implications](#privacy-implications-1)
 
 # Before you start
 
-This guide is addressed to the iOS Developers who want to integrate AdswizzSDK in their iOS apps.
-Here is a quick overview. More details will be provided for each scenario in their respective section.
+This guide is addressed to the iOS Developers who want to integrate AdswizzSDK in their iOS apps. AdswizzSDK is not thread safe, so it is expected that all the calls to the SDK and any updates to the MediaPlayerState are done on the main thread. AdswizzSDK does all the heavy lifting on background queues, so that the main queue remains responsive.
+You'll find below a quick overview, as more details are provided for each scenario in their respective section.
 
 ## What is ‘Client-Side Insertion’
 
@@ -139,7 +161,7 @@ In a server-side insertion scenario, it takes the pressure off your app by makin
 ## Dependencies
 
 AdswizzSDK for iOS depends on two external libraries in order to support voice recognition in interactive voice ads, namely *Amazon’s AWSCore* and *Facebook’s SocketRocket*. <br>
-It also relies on *SwiftProtobuf* to handle the serialized communication with Adswizz cloud services. 
+It also relies on *SwiftProtobuf* to handle the serialized communication with AdsWizz cloud services. 
 These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If choose the manual integration you will have to provide them at link time.
 
 
@@ -149,9 +171,9 @@ These dependencies are automatically added if you choose to integrate the SDK us
 
     You can easily integrate AdswizzSDK into your project. If you already have a pod file, you just need to add the following line:
     ```ruby
-    pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git" 
+    pod 'AdswizzSDK', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git" 
     ```
-    After modifying the podfile, run `pod install`. You will be prompted to enter the security credentials to access the AdswizzSDK repository. You can obtain the credentials from your Adswizz partner integration manager. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library, Facebook’s SocketRocket and SwiftProtobuf. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
+    Replace **_ADSWIZZ_GITHUB_TOKEN_** with token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for password enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library, Facebook’s SocketRocket and SwiftProtobuf. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
     ```ruby
     post_install do |installer|
      installer.pods_project.targets.each do |target|
@@ -177,7 +199,7 @@ These dependencies are automatically added if you choose to integrate the SDK us
 
 2. Manual
 
-    Unzip the AdswizzSDK archive, which contains AdswizzSDK.framework binary and its corresponding dSYM and bcsymbolmap files. Drop the AdswizzSDK.framework file in your project’s Frameworks directory. Make sure AdswizzSDK.framework is listed in the “Embedded Binaries” section of your target. Make sure to add AWSCore.framework and SocketRocket.framework in your project as well.
+    Unzip the AdswizzSDK archive, which contains AdswizzSDK.framework binary and its corresponding dSYM and bcsymbolmap files. Drop the AdswizzSDK.framework file in your project’s Frameworks directory. Make sure AdswizzSDK.framework is listed in the “Embedded Binaries” section of your target. Make sure to add AWSCore.framework, SocketRocket.framework and SwiftProtobuf.framework in your project as well. Be sure to have SwiftProtobuf.framework compiled with BUILD_LIBRARY_FOR_DISTRIBUTION = YES as AdswizzSDK.framework will need it.
 
 ## Changes in your Info.pList file
 
@@ -185,10 +207,10 @@ After adding AdswizzSDK.framework to your application, you’ll also need to add
 
 
 1. Settings for the framework:
-    1. Add "**_AdswizzAdSDKInstallationId_**" as a string setting. This is a unique string provided by your Adswizz Integration Manager. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
+    1. Add "**_AdswizzAdSDKInstallationId_**" as a string setting. This is a unique string provided by your AdsWizz Integration Manager. This setting **is mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
     <img src="img/installationId.png" width="1000" />
 
-    2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by an Adswizz PIM. This setting **is mandatory** and if not set in your app’s Info.pList the initialize method of the AdswizzSDK will throw an error.
+    2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by an AdsWizz PIM. This setting **is mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
     <img src="img/playerId.png" width="1000" />
 
     3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**. Must be set only if you want to traffic voice ads.    
@@ -263,7 +285,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 
 
-Your Adswizz Integration Manager will provide you a unique SDK installation id which you need to add in your Info.pList under the **_AdswizzSDKInstallationId_** key. You are now ready for your first ad request in a client-side scenario, or playing a live stream in case of the server-side insertion approach.
+Your AdsWizz Integration Manager will provide you a unique SDK installation id which you need to add in your Info.pList under the **_AdswizzSDKInstallationId_** key. You are now ready for your first ad request in a client-side scenario, or playing a live stream in case of the server-side insertion approach.
 
 
 # Client-Side Insertion
@@ -271,29 +293,64 @@ Your Adswizz Integration Manager will provide you a unique SDK installation id w
 
 In this scenario, AdswizzSDK lets you decide when and where to request ads from an Ads Insertion Server and subsequently play those ads in your application.
 
+## Setting up your zone(s) for ad request
+
+Following the SDK initialization, the next step would be to create and configure one or more **_AdswizzAdZone_** objects before passing them to your **_AdswizzAdRequest_** object.
+
+```swift
+var zone: AdswizzAdZone!
+do {
+      zone = try AdswizzAdZone.Builder()
+          .with(zoneId: "ZONEID_PROVIDED_BY_PIM")         // mandatory
+          .with(maxAds: maximum_number_of_ads)            // optional
+          .with(maxDuration: maximum_duration_in_seconds) // optional
+          .build()
+} catch {
+     print(error)
+}
+```
+
+_zoneId__ will be provided to you by your Adswizz Integration Manager.
+
+Note that `maxAds` and `maxDuration` properties are completely optional. Also, if you're using a single zone to configure the **_AdswizzAdRequest_** object, these properties will have no effect, so you can skip setting them.
 
 ## Your first ad request
 
-Following the SDK initialization, you are now ready to create an **_AdswizzAdRequest_** object and configure it.
-
+Once you've created and configure your **_AdswizzAdZone_** objects, you are ready to create an **_AdswizzAdRequest_** object and configure it. Consider the example below where it uses a configured zone from the previous code snippet above:
 
 ```swift
 var adRequest: AdswizzAdRequest!
 do {
       adRequest = try AdswizzAdRequest.Builder()
               .with(server: "SERVER_PROVIDED_BY_PIM")
-              .with(zoneId: "ZONEID_PROVIDED_BY_PIM")
+              .with(zone: zone)
               .build()
 } catch {
      print(error)
 }
 ```
 
+The _Ad server__ will be provided to you by your Adswizz Integration Manager.
+If your specific use case involves dealing with multiple zones, your AdsWizz Integration Manager will provide you all the required zone ids. You will then be able to set and use multiple distinct and unique **_AdswizzAdZone_** objects. Here's an example of multiple zone request:
 
-_Ad server__ and _zoneId__ will be provided to you by your Adswizz Integration Manager. 
+```swift
+let zone1: AdswizzAdZone!
+let zone2: AdswizzAdZone!
+let zone3: AdswizzAdZone!
+var adRequest: AdswizzAdRequest!
+do {
+      adRequest = try AdswizzAdRequest.Builder()
+              .with(server: "SERVER_PROVIDED_BY_PIM")
+              .with(zones: [zone1, zone2, zone3])
+              .build()
+} catch {
+     print(error)
+}
+```
+Please note that the order you pass the zones is important, as the AdsWizz Ad Server will take that into account during ad selection.
+
 
 Moving next, you need create an **_AdRequestConnection_** object and call requestAds with the ad request object.
-
 
 ```swift
 let adRequestConnection = AdRequestConnection(for: adRequest)
@@ -307,7 +364,7 @@ Subsequent to this request, the SDK will return an error if the call failed or a
 
 ## Working with AdManager object
 
-If the request to the Adswizz Ad server was successful, the SDK will return an **_AdManager_** object which you will own. This will be the way the SDK will communicate events back to your application. 
+If the request to the AdsWizz Ad server was successful, the SDK will return an **_AdManager_** object which you will own. This will be the way the SDK will communicate events back to your application. 
 To get this communication channel open you need to set up a delegate for the **_AdManager_** that conforms to the **_AdManagerDelegate_** protocol. 
 The **_AdManager_** will call `func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)` whenever events of interest occur in the SDK. Please consult AdEventType enum for a list of possible events from the AdswizzSDK. If an error happens in the SDK while using this object, `func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)` will be called.
 
@@ -357,7 +414,7 @@ If you provide the player, then you only need to start playing the ad in your pl
 
 ## AdManager life cycle
 
-After requesting your first ad from the Adswizz ad server, you are ready to play the ads from the AdManager object. Keep in mind that you might receive more than one ad from the server, but you are not required to play them all. If you decide to play multiple ads in your app, you need to listen to the events that the **_AdManager_** sends to your app and decide what is the appropriate action to take. Here is a diagram of the AdManager state.
+After requesting your first ad from the AdsWizz ad server, you are ready to play the ads from the AdManager object. Keep in mind that you might receive more than one ad from the server, but you are not required to play them all. If you decide to play multiple ads in your app, you need to listen to the events that the **_AdManager_** sends to your app and decide what is the appropriate action to take. Here is a diagram of the AdManager state. If you want the AdManager to play the ads with the internal player, follow the left diagram. If you want to use your own player, follow the diagram on the right.
 
 <img src="img/AdManagerState.png" width="1000" />
 
@@ -374,8 +431,7 @@ You call this method to begin cycling through the ads in the **_AdManager_** obj
 
 #### play
 
-If you decided to let the SDK play the ads you will need to call **_play_** method on **_didFinishLoading_** (recommended). Calling this method while you are handling the ad playback has no effect in the SDK. You can call this method after you paused the AdManager to resume playback. AdManager will trigger a **_didStartPlaying_** event back to your app for confirmation.
-
+If you decided to let the SDK play the ads you will need to call **_play_** method on **_didFinishLoading_** (recommended). Calling this method while you are handling the ad playback has no effect in the SDK. You can call this method after you paused the AdManager to resume playback. AdManager will trigger a **_didStartPlaying_** event back to your app for confirmation. 
 
 #### pause
 
@@ -394,7 +450,7 @@ If you decided to skip all the upcoming ads in the **_AdManager_** object, you c
 
 # Server-Side Insertion
 
-AdswizzSDK handles interactive ad insertions, while playing HLS or ICY live streams from Ad Insertion Servers. This is possible by reading the player's metadata for specific Adswizz data and convert it in Adswizz interactive formats or companion banners.
+AdswizzSDK handles interactive ad insertions, while playing HLS or ICY live streams from Ad Insertion Servers. This is possible by reading the player's metadata for specific AdsWizz data and convert it in AdsWizz interactive formats or companion banners.
 To get started, you need to create an **_AdswizzAdStreamManager_** object with a URL pointing to the ad server your Integration Manager provided you.
 
 
@@ -520,13 +576,13 @@ Here is a diagram of the AdswizzAdStreamManager state.
 
 # Interactive ads
 
-Adswizz interactive ads require some permissions on your app. Please refer to the “Changes in you Info.pList” section to operate the necessary changes.
+AdsWizz interactive ads require some permissions on your app. Please refer to the “Changes in you Info.pList” section to operate the necessary changes.
 
 
 ## Voice enabled interactive ads
 
-Adswizz SDK depends on a few external, third party libraries in order to deliver interactive voice ads (Amazon’s **AWSCore.framework** and Facebook’s **SocketRocket.framework**). 
-To properly set up the dependencies, you need to provide inside your Info.pList a string key called **_AdswizzSDKAWSIdentityPoolIdRegion_** with the value received from your Adswizz Integration Manager. Failing to add this key will reduce the ability of voice detection while the app is in the background.
+AdsWizz SDK depends on a few external, third party libraries in order to deliver interactive voice ads (Amazon’s **AWSCore.framework** and Facebook’s **SocketRocket.framework**). 
+To properly set up the dependencies, you need to provide inside your Info.pList a string key called **_AdswizzSDKAWSIdentityPoolIdRegion_** with the value received from your AdsWizz Integration Manager. Failing to add this key will reduce the ability of voice detection while the app is in the background.
 
 
 ## Handling voice recording
@@ -606,7 +662,7 @@ AdswizzSDK lets you configure companion banner(s) if your Integration Manager pr
 
 ## Adding an AdCompanionView
 
-Companion views can be added from storyboard/xib when you add a view. Just specify the **_AdCompanionView_** class. You can also add the view programmatically. 
+Companion views can be added from storyboard/xib when you add a view. Just specify the **_AASDKAdCompanionView_** ObjC class. You can also add the view programmatically. 
 Once created, the SDK will keep track of all of your companion views and automatically fill them with ad related content as the ad is playing.
 
 
@@ -662,7 +718,8 @@ extension AppDelegate: AdLoggerDestination {
 # Playing ads using your player
 
 By default, AdswizzSDK is configured to play the ad media using its internal player.
-If you prefer playing the ad with your own player, you must configure the **_AdManager_** object received after an **_AdConnectionRequest_** with a new **_AdManagerSettings_** object. Here you can provide the player that must conform to the **_MediaPlayerState_** protocol. This protocol will notify the SDK that the player was changed, via KVO. 
+If you prefer playing the ad with your own player, you must configure the **_AdManager_** object received after an **_AdConnectionRequest_** with a new **_AdManagerSettings_** object. Here you can provide the player that must conform to the **_MediaPlayerState_** protocol. This protocol will notify the SDK that the player was changed, via KVO. You can also check the AdManager life cycle diagram (right one) to see what is expected from your player, so that the AdManger can function properly.
+
 Here is how you set up your own player:
 
 ```swift
@@ -783,7 +840,7 @@ AdswizzSDK.shared.locationAccuracy = kCLLocationAccuracyBest
 
 ### GDPR
 
-AdsWizz services are GDPR compliant. As a result, **_AdswizzSDK_** will decorate urls that connect to Adswizz services accordingly to reflect the desired GDPR user consent. To modify the GDPR consent you need to configure it like this:
+AdsWizz services are GDPR compliant. As a result, **_AdswizzSDK_** will decorate urls that connect to AdsWizz services accordingly to reflect the desired GDPR user consent. To modify the GDPR consent you need to configure it like this:
 
 ```swift
 AdswizzSDK.shared.gdprConsent = <Desired_GDPR_Consent>
@@ -856,7 +913,257 @@ This sample demonstrates a basic server-side insertion scenario by showing how t
 
 The same sample from above fully written in Objective-C.
 
+## ExternalPlayerExample
 
+This sample demonstrates how to implement your external player using _**MediaPlayerState**_ protocol in order for **_AdswizzSDK_** to properly work. Also, this sample shows how you could debug events in the SDK by using _**AdLogger**_ with a verbose level.
+
+
+# AdswizzWatchSDK
+
+This guide is for the iOS developers who want to integrate **_AdswizzWatchSDK_** in their WatchOS companion apps, in order to extend the audio ad experience and interactivity on these devices.
+You will find below a quick overview. More details will be provided for each scenario in their respective section.
+
+## What is AdswizzWatchSDK?
+**_AdswizzWatchSDK_** is an extension of the **_AdswizzSDK_**, specifically built for WatchOS (6.0+) companion apps that will enable you to use AdsWizz interactive ads on the listener's watch. **_AdswizzWatchSDK_** is dependent on **_AdswizzSDK_** in order to work properly.
+
+## What it does do
+**_AdswizzWatchSDK_** will enhance **_AdswizzSDK_** capabilities to deliver rich audio ads and engage with listeners in a context relevant, non-intrusive manner. Thus, **_AdswizzWatchSDK_** relies on a good integration of **_AdswizzSDK_** version 7.0 or above.
+If, for example **_AdswizzSDK_** will have to play a shake-me ad on the phone it will also sense 'shake-me' events on the watch using **_AdswizzWatchSDK_**.
+If the communication with the watch is viable, **_AdswizzWatchSDK_** will also collect some data from the listener to improve the targeting capabilities. Information collected on the watch will be listed below.
+
+## What it doesn't do
+**_AdswizzWatchSDK_** can't function without **_AdswizzSDK_**. It can't request ads from an ad server nor is it able to play media files. It won't make any network requests and all its communication is with **_AdswizzSDK_**. It is important to note that **_AdswizzWatchSDK_** is just an extension of **_AdswizzSDK_**.
+
+## Prerequisites for a successful integration
+In order for **_AdswizzSDK_** to use the **_AdswizzWatchSDK_** on the listener's watch, you need to make sure that your iOS app automatically opens the WatchOS companion app before the ad break starts. To do that, your iOS app needs to update the [Now Playing](https://developer.apple.com/documentation/mediaplayer/becoming_a_now_playable_app) information. When updating Now Playing in the iOS app, your WatchOS companion app will be automatically started. To recap, here's a list of things to keep in mind when integrating **_AdswizzWatchSDK_**:
+* make sure your app is compliant with [Now Playing](https://developer.apple.com/documentation/mediaplayer/becoming_a_now_playable_app)
+* make sure you update Now Playing information every time an ad is about to be played. Ideally, you can sync it with the **_willStartLoading_** event you receive with the **_AdManager_** object. This will increase the probability that your WatchOS companion app will start on the watch.
+* make sure your companion app has not opted out for [Auto-launch Audio App](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/watchOSKeys.html)
+
+## Cases when updating 'Now Playing' information from iOS won't start the WatchOS companion app
+* If the user has launched another app on his watch and this is in the foreground, WatchOS will not bring in foreground the corresponding WatchOS companion app even if the iOS app updated the 'Now Playing' information.
+* User has set “Auto-Launch Audio Apps” to false on WatchOS settings (Settings/General/Wake Screen).
+
+# Integrating AdswizzWatchSDK
+## Prerequisites
+
+*   Xcode 10+
+*   Swift 5.0+ if the integration app uses Swift, or Objective-C
+*   Framework binaries - via CocoaPods
+
+## Adding the SDK to your Xcode project
+**_AdswizzWatchSDK_** is delivered as an xcframework, so the best way to integrate it is through Cocoapods. If you already have a pod file, you just need to add the following line in your watch extension target:
+
+```ruby
+    pod 'AdswizzWatchSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
+```
+ 
+After modifying the podfile, run `pod install`. You will be prompted to enter the security credentials to access the AdswizzSDK repository. You can obtain the credentials from your AdsWizz partner integration manager. Once authorization is successful, the framework will be installed.
+
+## SDK integration
+**_AdswizzWatchSDK_** doesn't need to be initialized.
+
+### Watch Extension state
+**_AdswizzWatchSDK_** needs to be informed of the state of your WatchOS extension. Here is how you can do that in ExtensionDelegate class:
+
+```swift
+import WatchKit
+import WatchConnectivity
+
+class ExtensionDelegate: NSObject, WKExtensionDelegate {
+    //Wrapper around WCSessionDelegate
+    private lazy var sessionDelegate: SessionDelegate = {
+        return SessionDelegate()
+    }()
+
+    override init() {
+        super.init()
+        // Activate the session asynchronously as early as possible.
+        // In the case of being background launched with a task, this may save some background runtime budget.
+        //
+        WCSession.default.delegate = sessionDelegate
+        WCSession.default.activate()
+    }
+
+    func applicationDidBecomeActive() {
+        //notify AdswizzWatchSDK that extension is active
+        AdswizzWatchSDK.shared.applicationDidBecomeActive()
+    }
+
+    func applicationWillResignActive() {
+        //notify AdswizzWatchSDK that extension will be inactive
+        AdswizzWatchSDK.shared.applicationWillResignActive()
+    }
+
+    func applicationWillEnterForeground() {
+        //notify AdswizzWatchSDK that extension will enter foreground
+        AdswizzWatchSDK.shared.applicationWillEnterForeground()
+    }
+    
+    func applicationDidEnterBackground() {
+        //notify AdswizzWatchSDK that extension entered background
+        AdswizzWatchSDK.shared.applicationDidEnterBackground()
+    }
+}
+```
+Calling these **_AdswizzWatchSDK_** APIs is essential for **_AdswizzSDK_** to **_AdswizzWatchSDK_** communication.
+
+Next, you need to link your **_WCSessionDelegate_** object to be notified by **_AdswizzWatchSDK_** or **_AdswizzSDK_** about watch messages you have to send to the other side.
+
+```swift
+#if os(iOS)
+    let watchSession: WatchSession = AdswizzSDK.shared.watchSession.setDelegate(self)
+#elseif os(watchOS)
+    let watchSession: WatchSession = AdswizzWatchSDK.shared.watchSession.setDelegate(self)
+#endif
+```
+This code is common to both platform iOS/WatchOS and can be treated in the same file that can be shared between your iOS app and your WatchOS extension.
+Here is the setup of this common SessionDelegate class:
+
+```swift
+import Foundation
+import WatchConnectivity
+#if os(iOS)
+import AdswizzSDK
+#elseif os(watchOS)
+import AdswizzWatchSDK
+#endif
+
+class SessionDelegate: NSObject {
+#if os(iOS)
+    let watchSession: WatchSession = AdswizzSDK.shared.watchSession
+#elseif os(watchOS)
+    let watchSession: WatchSession = AdswizzWatchSDK.shared.watchSession
+#endif
+    
+    override init() {
+        super.init()
+        //set this object to handle WatchSessionDelegate
+        watchSession.setDelegate(self)
+    }
+ }
+```
+
+### Forwarding messages from WCSession to AdswizzWatchSDK/AdswizzSDK
+In SessionDelegate class we need to conform to WCSessionDelegate to handle two APIs that AdsWizz uses in order to send messages from iOS to WatchOS or vice-versa. Remember, this code is common to iOS (**_AdswizzSDK_**) and WatchOS (**_AdswizzWatchSDK_**).
+
+```swift
+extension SessionDelegate: WCSessionDelegate {
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        //inspect the data
+        //If it is from AdsWizz SDK's, forward it to the WatchSession
+        if message.isAdswizzWatchData {
+            watchSession.receivedMessage(message)
+        }
+        //handle your data
+        ....
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        //inspect the data
+        //If it is from AdsWizz SDK's, forward it to the WatchSession
+        if applicationContext.isAdswizzWatchData {
+            watchSession.receivedMessage(applicationContext)
+        }
+        //handle your data
+        ....
+    }
+}
+```
+**_AdswizzSDK_**/**_AdswizzWatchSDK_** provides an utility to inspect WatchOS-related messages and see if there is a need to forward them to the SDK.
+
+### Sending messages from AdswizzWatchSDK/AdswizzSDK to WCSession
+In SessionDelegate class we need to conform to **_WatchSessionDelegate_** to send messages over WCSession default object. When **_AdswizzSDK_**/**_AdswizzWatchSDK_** will call these functions all states regarding WCSession object will be verified internally in order to make the call.
+
+```swift
+extension SessionDelegate: WatchSessionDelegate {
+    func sendMessage(_ data: [String : Any]) {
+        //use sendMessage API to send a direct message to the other side.
+        //The state of the WCSession was already verified internally in the SDK.
+        WCSession.default.sendMessage(data, replyHandler: nil) { error in
+            //log the error
+        }
+    }
+    
+    func updateApplicationContext(_ data: [String: Any]) {
+        //use updateApplicationContext API to send the message.
+        //The state of the WCSession has already been verified internally in the SDK.
+        do {
+            try WCSession.default.updateApplicationContext(data)
+        } catch {
+            //log the error
+        }
+    }
+}
+```
+
+### Running your WatchOS companion app in the background
+By default, most of the WatchOS companion apps will not run in the background, meaning the OS will not permit communication between iOS and WatchOS for your app. If, by  any chance, you have registered your app to play music in the background or you are running a work out session in your WatchOS extension you can notify **_AdswizzWatchSDK_** that you are running in the background. This will help you provide better targeting capabilities.
+
+```swift
+  AdswizzWatchSDK.shared.runningInBackground = true // your  WatchOS is running in the background
+```
+# Debugging AdswizzWatchSDK
+
+The SDK uses an internal logger called **_AdLogger_**. By default, the logging level is set to none, meaning that nothing gets logged. Should you need the SDK logging events, you can enable a different logging level; verbose is the one with the highest density, hence we do not recommend its use in production.
+You can also provide a new destination for the logger (e.g.: pipe it to your app logger). By default, the SDK dumps log events in the console.
+
+
+```swift
+extension ExtensionDelegate {
+    func configureAdswizzSDK() {
+      ......
+      AdLogger.shared.level = .info
+      AdLogger.shared.destination = self
+      ......
+    }
+}
+......
+extension ExtensionDelegate: AdLoggerDestination {
+  func log(_ level: AdLogger.Level, functionName: String, fileName: String, lineNumber: Int, line: String) {
+      //Pipe it to your logger
+  }
+}
+```
+
+# Sample projects
+
+Best way to see the **_AdswizzWatchSDK_** in action is by studying the example projects included in the `/Samples` folder. Download the `/Samples` folder using the below `git` command:
+```properties
+$ git clone https://github.com/adswizz/ad-sdk-ios.git
+Username: adswizz-sdk
+Password: your_access_token (provided by AdsWizz)
+ ```
+
+The examples are structured as separate projects in the _**Examples.workspace**_. Note that the samples workspace uses Cocoapods to install **_AdswizzWatchSDK_** and **_AdswizzSDK_** and necessary dependencies. To successfully build and run the samples you first need to run a `pod install` to make sure all the necessary dependencies are downloaded and resolved properly.
+Next, open _**Examples.workspace**_ and run each sample individually by selecting the appropriate target and click 'Run' in XCode.
+
+## BasicAdRequestWatchExample
+
+This sample demonstrates how to use **_AdswizzWatchSDK_** in WatchOS companion app.
+It shows how the main app project communicates through a watch extension using messages and updates a status label on the watch mirroring events happening in the iOS companion app.
+
+### Getting started
+
+For this purpose it uses a basic approach to show how to structure your app project with a WatchOS extension:
+* **_BasicAdRequestWatchExample_** encapsulates the main app project
+* **_BasicAdRequestWatch_** encapsulates the interface for the watch extension
+* **_BasicAdRequestWatch Extension_** enacapsulates the logic for the watch extension
+
+### Running the sample
+
+To get the most out of the sample you would ideally run it with actual devices (both iOS and WatchOS). This way you will be able to interact with the watch when interactive ads are being played on the iOS companion app.
+Also note the usage of [Now Playing](https://developer.apple.com/documentation/mediaplayer/becoming_a_now_playable_app) in **_BasicAdRequestWatchExample_**. When an interactive ad is being played it allows the iOS companion app to wake up the watch extension and take action on the watch itself (e.g shake the watch, use speech-to-text for voice ads, etc).
+
+# Privacy implications
+
+Please be advised that if you choose to enable the Raw Data Signal Collection, you will have to inform your customers that your application handles and processes personal anonymized data. <br>
+**We highly encourage you to loop your product and legal teams in the process of defining the best way to reflect this in your application’s Privacy Policy.**
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+| Data collected for <br>**_Device Targeting_** | Data collected for <br>**_Contextual Targeting_** |
+|:-----------------|:---------------------|
+| * device type <br>* operating system version | * bluetooth devices (currently connected and history)|
 
 
 
