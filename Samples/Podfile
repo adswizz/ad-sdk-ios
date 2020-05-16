@@ -5,7 +5,7 @@ use_frameworks!
 
 # common pods used in all example modules
 def common_pods
-pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
+pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git", :branch => 'release/7.1.0-swift5.1.3'
 end
 
 project 'BasicAdStreamExample/BasicAdStreamExample.xcodeproj'

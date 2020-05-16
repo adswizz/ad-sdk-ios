@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.2.2 (swiftlang-1103.0.32.6 clang-1103.0.32.51)
+// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
 // swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AdswizzSDK
 import AVFoundation
 import AWSCore
@@ -54,7 +54,7 @@ extension NSTextAlignment : Swift.Codable {
     get
   }
 }
-@_hasMissingDesignatedInitializers public class SWXMLHashOptions {
+public class SWXMLHashOptions {
   public var shouldProcessLazily: Swift.Bool
   public var shouldProcessNamespaces: Swift.Bool
   public var caseInsensitive: Swift.Bool
@@ -63,7 +63,7 @@ extension NSTextAlignment : Swift.Codable {
   public var detectParsingErrors: Swift.Bool
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class SWXMLHash {
+public class SWXMLHash {
   public class func config(_ configAction: (AdswizzSDK.SWXMLHashOptions) -> Swift.Void) -> AdswizzSDK.SWXMLHash
   public func parse(_ xml: Swift.String) -> AdswizzSDK.XMLIndexer
   public func parse(_ data: Foundation.Data) -> AdswizzSDK.XMLIndexer
@@ -73,10 +73,10 @@ extension NSTextAlignment : Swift.Codable {
   public class func lazy(_ data: Foundation.Data) -> AdswizzSDK.XMLIndexer
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class IndexOp {
+public class IndexOp {
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class IndexOps {
+public class IndexOps {
   @objc deinit
 }
 public struct ParsingError : Swift.Error {
@@ -162,7 +162,7 @@ extension IndexingError : Swift.CustomStringConvertible {
 }
 public protocol XMLContent : Swift.CustomStringConvertible {
 }
-@_hasMissingDesignatedInitializers public class TextElement : AdswizzSDK.XMLContent {
+public class TextElement : AdswizzSDK.XMLContent {
   final public let text: Swift.String
   @objc deinit
 }
@@ -170,7 +170,7 @@ public struct XMLAttribute {
   public let name: Swift.String
   public let text: Swift.String
 }
-@_hasMissingDesignatedInitializers public class XMLElement : AdswizzSDK.XMLContent {
+public class XMLElement : AdswizzSDK.XMLContent {
   final public let name: Swift.String
   public var caseInsensitive: Swift.Bool {
     get
@@ -223,10 +223,10 @@ public typealias AdManagerOwner = AdswizzSDK.AdManager
   @objc func interactiveAdManager(_ adManager: AdswizzSDK.AdManagerOwner, shouldPresentCoupon pkpassData: Foundation.Data)
   @objc func interactiveAdManager(_ adManager: AdswizzSDK.AdManagerOwner, didReceiveAdEvent event: AdswizzSDK.InteractiveAdEvent)
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdManagerSettings) final public class AdManagerSettings : ObjectiveC.NSObject {
+@objc(AASDKAdManagerSettings) final public class AdManagerSettings : ObjectiveC.NSObject {
   @objc weak final public var player: AdswizzSDK.MediaPlayerState?
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension AdswizzAdRequest.VASTVersion : Swift.RawRepresentable {
   public typealias RawValue = Swift.String
@@ -245,13 +245,13 @@ extension HTTPProtocol : Swift.RawRepresentable {
 extension AVAuthorizationStatus : Swift.Codable {
 }
 extension AdswizzAdStreamManager {
-  @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdStreamManagerBuilder) public class Builder : ObjectiveC.NSObject {
+  @objc(AASDKAdswizzAdStreamManagerBuilder) public class Builder : ObjectiveC.NSObject {
     @objc public func with(httpProtocol: AdswizzSDK.HTTPProtocol) -> AdswizzSDK.AdswizzAdStreamManager.Builder
     @objc public func with(companionZones: Swift.String) -> AdswizzSDK.AdswizzAdStreamManager.Builder
     @objc public func with(adServer: Swift.String) -> AdswizzSDK.AdswizzAdStreamManager.Builder
     @objc public func build() throws -> AdswizzSDK.AdswizzAdStreamManager
-    @objc deinit
     @objc override dynamic public init()
+    @objc deinit
   }
 }
 extension UIUserInterfaceIdiom : Swift.Codable {
@@ -264,7 +264,7 @@ extension UIUserInterfaceIdiom : Swift.Codable {
   @objc optional func adCompanionView(_ adCompanionView: AdswizzSDK.AdCompanionView, shouldOverrideCompanionClickThrough url: Foundation.URL) -> Swift.Bool
   @objc optional func adCompanionViewWillLeaveApplication(_ adCompanionView: AdswizzSDK.AdCompanionView)
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdCompanionView) public class AdCompanionView : UIKit.UIView {
+@objc(AASDKAdCompanionView) public class AdCompanionView : UIKit.UIView {
   @objc @IBOutlet weak public var delegate: AdswizzSDK.AdCompanionViewDelegate?
   @objc public var active: Swift.Bool
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
@@ -412,29 +412,29 @@ extension NSDictionary {
   @objc var maxBitrate: Foundation.NSNumber? { get }
   @objc var fileSize: Foundation.NSNumber? { get }
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdswizzSettingsKeys) public class AdswizzSettingsKeys : ObjectiveC.NSObject {
+@objc(AASDKAdswizzSettingsKeys) public class AdswizzSettingsKeys : ObjectiveC.NSObject {
   @objc public static let AWSTranscriberIdentityPoolIdRegion: Swift.String
   @objc public static let InstallationId: Swift.String
   @objc public static let PlayerId: Swift.String
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdZone) final public class AdswizzAdZone : ObjectiveC.NSObject {
-  @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdZoneBuilder) public class Builder : ObjectiveC.NSObject {
+@objc(AASDKAdswizzAdZone) final public class AdswizzAdZone : ObjectiveC.NSObject {
+  @objc(AASDKAdswizzAdZoneBuilder) public class Builder : ObjectiveC.NSObject {
     @objc public func with(zoneId: Swift.String) -> AdswizzSDK.AdswizzAdZone.Builder
     @objc public func with(maxAds: Swift.UInt) -> AdswizzSDK.AdswizzAdZone.Builder
     @objc public func with(maxDuration: Foundation.TimeInterval) -> AdswizzSDK.AdswizzAdZone.Builder
     @objc public func build() throws -> AdswizzSDK.AdswizzAdZone
-    @objc deinit
     @objc override dynamic public init()
+    @objc deinit
   }
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @objc(AASDKAdLoggerDestination) public protocol AdLoggerDestination {
   @objc func log(_ level: AdswizzSDK.AdLogger.Level, functionName: Swift.String, fileName: Swift.String, lineNumber: Swift.Int, line: Swift.String)
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdLogger) final public class AdLogger : ObjectiveC.NSObject {
+@objc(AASDKAdLogger) final public class AdLogger : ObjectiveC.NSObject {
   @objc public enum Level : Swift.Int {
     case verbose
     case debug
@@ -450,8 +450,8 @@ extension NSDictionary {
   @objc public static let shared: AdswizzSDK.AdLogger
   @objc final public var level: AdswizzSDK.AdLogger.Level
   @objc final public var destination: AdswizzSDK.AdLoggerDestination
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension AVAudioSession.Port : Swift.Codable {
 }
@@ -522,14 +522,14 @@ extension AVAudioSession.Port : Swift.Codable {
   case http
   case https
 }
-@_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdRequest) final public class AdswizzAdRequest : AdswizzSDK.AdRequest {
+@objc(AASDKAdswizzAdRequest) final public class AdswizzAdRequest : AdswizzSDK.AdRequest {
   @objc override final public var url: Foundation.URL? {
     @objc get
   }
   @objc(AASDKAdswizzAdRequestVASTVersion) public enum VASTVersion : Swift.Int {
     case v40
   }
-  @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdRequestBuilder) public class Builder : ObjectiveC.NSObject {
+  @objc(AASDKAdswizzAdRequestBuilder) public class Builder : ObjectiveC.NSObject {
     @objc public func with(httpProtocol: AdswizzSDK.HTTPProtocol) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(vastVersion: AdswizzSDK.AdswizzAdRequest.VASTVersion) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(zone: AdswizzSDK.AdswizzAdZone) -> AdswizzSDK.AdswizzAdRequest.Builder
@@ -541,21 +541,21 @@ extension AVAudioSession.Port : Swift.Codable {
     @objc public func with(server: Swift.String) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(additionalCustomParameters: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func build() throws -> AdswizzSDK.AdswizzAdRequest
-    @objc deinit
     @objc override dynamic public init()
+    @objc deinit
   }
   @objc override dynamic public init()
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdStreamManagerSettings) final public class AdStreamManagerSettings : ObjectiveC.NSObject {
+@objc(AASDKAdStreamManagerSettings) final public class AdStreamManagerSettings : ObjectiveC.NSObject {
   @objc weak final public var player: AdswizzSDK.MediaPlayerState?
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension AdStreamManager {
   @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdCompanionOptions) public class AdCompanionOptions : ObjectiveC.NSObject {
+@objc(AASDKAdCompanionOptions) public class AdCompanionOptions : ObjectiveC.NSObject {
   @objc public var extraExposureTime: Foundation.TimeInterval
   @objc override dynamic public init()
   @objc deinit
@@ -602,7 +602,7 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   @objc func adswizzSDKRecordingStarted(_ adswizzSDK: AdswizzSDK.AdswizzSDK)
   @objc func adswizzSDKRecordingStopped(_ adswizzSDK: AdswizzSDK.AdswizzSDK)
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AASDKAdswizzSDK) public class AdswizzSDK : ObjectiveC.NSObject {
+@objc(AASDKAdswizzSDK) public class AdswizzSDK : ObjectiveC.NSObject {
   @objc public static let shared: AdswizzSDK.AdswizzSDK
   @objc weak public var delegate: AdswizzSDK.AdswizzSDKDelegate?
   @objc public var watchSession: AdswizzSDK.WatchSession {
@@ -645,9 +645,9 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(AASDKMediaPlayerCapability) final public class MediaPlayerCapability : ObjectiveC.NSObject {
+@objc(AASDKMediaPlayerCapability) final public class MediaPlayerCapability : ObjectiveC.NSObject {
   @objc final public let state: AdswizzSDK.MediaPlayerCapability.State?
-  @_hasMissingDesignatedInitializers @objc(AASDKMediaPlayerStateInfo) final public class State : ObjectiveC.NSObject {
+  @objc(AASDKMediaPlayerStateInfo) final public class State : ObjectiveC.NSObject {
     @objc override dynamic public init()
     @objc deinit
   }
@@ -672,14 +672,14 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   @objc var capabilities: Swift.Set<AdswizzSDK.MediaPlayerCapability>? { get }
   @objc var stateInfo: Swift.Set<AdswizzSDK.MediaPlayerCapability.State>? { get }
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdRequest) open class AdRequest : ObjectiveC.NSObject {
+@objc(AASDKAdRequest) open class AdRequest : ObjectiveC.NSObject {
   @objc open var url: Foundation.URL? {
     get
-  }
+    }
   @objc override dynamic public init()
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdStreamManager) public class AdswizzAdStreamManager : AdswizzSDK.AdStreamManager {
+@objc(AASDKAdswizzAdStreamManager) public class AdswizzAdStreamManager : AdswizzSDK.AdStreamManager {
   @objc final public let httpProtocol: AdswizzSDK.HTTPProtocol
   @objc final public let adServer: Swift.String
   @objc final public let companionZone: Swift.String?
@@ -699,7 +699,7 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
     get
   }
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdStreamManager) open class AdStreamManager : ObjectiveC.NSObject {
+@objc(AASDKAdStreamManager) open class AdStreamManager : ObjectiveC.NSObject {
   @objc weak public var delegate: AdswizzSDK.AdStreamManagerDelegate?
   @objc public var adStreamManagerSettings: AdswizzSDK.AdStreamManagerSettings
   @objc open func play(with url: Foundation.URL) throws
@@ -725,8 +725,8 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(AASDKAdswizzCCPAConfig) final public class AdswizzCCPAConfig : ObjectiveC.NSObject {
-  @_inheritsConvenienceInitializers @objc(AASDKAdswizzCCPAConfigBuilder) final public class Builder : ObjectiveC.NSObject {
+@objc(AASDKAdswizzCCPAConfig) final public class AdswizzCCPAConfig : ObjectiveC.NSObject {
+  @objc(AASDKAdswizzCCPAConfigBuilder) final public class Builder : ObjectiveC.NSObject {
     @objc final public func with(explicitNotice: AdswizzSDK.CCPAConsent) -> AdswizzSDK.AdswizzCCPAConfig.Builder
     @objc final public func with(optOut: AdswizzSDK.CCPAConsent) -> AdswizzSDK.AdswizzCCPAConfig.Builder
     @objc final public func with(lspa: AdswizzSDK.CCPAConsent) -> AdswizzSDK.AdswizzCCPAConfig.Builder
@@ -737,8 +737,8 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   final public let explicitNotice: AdswizzSDK.CCPAConsent
   final public let optOut: AdswizzSDK.CCPAConsent
   final public let lspa: AdswizzSDK.CCPAConsent
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension AdswizzCCPAConfig {
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
@@ -761,7 +761,6 @@ extension AdswizzSDK.CCPAConsent : Swift.RawRepresentable {}
 extension AdswizzSDK.AdEventType : Swift.Equatable {}
 extension AdswizzSDK.AdEventType : Swift.Hashable {}
 extension AdswizzSDK.AdEventType : Swift.RawRepresentable {}
-extension AdswizzSDK.CompanionRenderingMode : Swift.Equatable {}
 extension AdswizzSDK.CompanionRenderingMode : Swift.Hashable {}
 extension AdswizzSDK.CompanionRenderingMode : Swift.RawRepresentable {}
 extension AdswizzSDK.GDPRConsent : Swift.Equatable {}
