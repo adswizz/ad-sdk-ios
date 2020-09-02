@@ -4,10 +4,10 @@ The only audio-centric SDK to Drive Innovation & Differentiation in Audio moneti
 
 ## Requirements
 
-* Xcode 10.2 or newer
+* Xcode 11+ or newer
 * iOS 11.0+
 * Swift 5.0+
-* CocoaPods (recommended)
+* CocoaPods 1.9.3+ (recommended)
 
 ## Installation
 
@@ -51,9 +51,7 @@ If you prefer not to use any of the supported dependency managers above, you can
 Unzip the content of the DropBox link. The unzipped content should contain the following:
 
 ```
-* AdswizzSDK.framework binary
-* AdswizzSDK.dSYM file
-* coresponding .bcsymbolmap file
+AdswizzSDK.xcframework binary
 ```
 
 Drop the AdswizzSDK.framework file in your project Frameworks directory. Make sure AdswizzSDK.framework is present in the “Embedded Binaries” section in your target.

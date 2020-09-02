@@ -9,7 +9,6 @@
   * [Dependencies](#dependencies)
   * [Adding the SDK to your Xcode project](#adding-the-sdk-to-your-xcode-project)
   * [Changes in your Info.pList file](#changes-in-your-infoplist-file)
-  * [Changes to your app distribution](#changes-to-your-app-distribution)
   * [SDK initialization and setup](#sdk-initialization-and-setup)
 - [Client-Side Insertion](#client-side-insertion)
   * [Setting up your zone(s) for ad request](#setting-up-your-zone-for-ad-request)
@@ -95,6 +94,12 @@
 This guide is addressed to the iOS Developers who want to integrate AdswizzSDK in their iOS apps. AdswizzSDK is not thread safe, so it is expected that all the calls to the SDK and any updates to the MediaPlayerState are done on the main thread. AdswizzSDK does all the heavy lifting on background queues, so that the main queue remains responsive.
 You'll find below a quick overview, as more details are provided for each scenario in their respective section.
 
+Starting with iOS 14, Apple fundamentally changed the way the Identifier For Advertisers (IDFA) value can be accessed. Part of the App Tracking Transparency framework, the process implies a 2-steps approach:
+STEP1) **The integrator (host app) is responsible** for setting up a NSUserTrackingUsageDescription to display a system-permission alert request, and then call requestTrackingAuthorization(completionHandler:) to present the app-tracking authorization request to the end user.
+STEP2) Provided end users will grant permission for tracking, AdsWizz SDK will employ the new framework to read the IDFA value.
+
+**N.B.: AdsWizz SDK will not show the request for permission dialogue, as the publisher is responsible for controlling and designing the user experience for obtaining the tracking consent. We encourage you to involve your product, UX/UI and engineering teams in the process of designing the best solution. It is very important that you ensure a high opt-in rate for the Tracking permission, as strong business value (higher CPMs) is dependent on being able to read the IDFA value.**
+
 ## What is ‘Client-Side Insertion’
 
 For client-side scenario you may use any streaming server and you are not required to use an AIS (Ads Insertion Server). 
@@ -153,7 +158,7 @@ In a server-side insertion scenario, it takes the pressure off your app by makin
 
 ## Prerequisites
 
-*   Xcode 10+
+*   Xcode 11+
 *   Swift 5.0+ if the integration app uses Swift or Objective-C
 *   Framework binaries - either via CocoaPods or archive
 
@@ -169,7 +174,7 @@ These dependencies are automatically added if you choose to integrate the SDK us
 
 1. Using CocoaPods 
 
-    You can easily integrate AdswizzSDK into your project. If you already have a pod file, you just need to add the following line:
+    AdswizzSDK is delivered as an xcframework, so the best way to integrate it is through Cocoapods. The recommended version for Cocoapods is 1.9.3 or newer. If you already have a pod file, you just need to add the following line:
     ```ruby
     pod 'AdswizzSDK', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git" 
     ```
@@ -199,11 +204,11 @@ These dependencies are automatically added if you choose to integrate the SDK us
 
 2. Manual
 
-    Unzip the AdswizzSDK archive, which contains AdswizzSDK.framework binary and its corresponding dSYM and bcsymbolmap files. Drop the AdswizzSDK.framework file in your project’s Frameworks directory. Make sure AdswizzSDK.framework is listed in the “Embedded Binaries” section of your target. Make sure to add AWSCore.framework, SocketRocket.framework and SwiftProtobuf.framework in your project as well. Be sure to have SwiftProtobuf.framework compiled with BUILD_LIBRARY_FOR_DISTRIBUTION = YES as AdswizzSDK.framework will need it.
+    Unzip the AdswizzSDK archive, which contains AdswizzSDK.xcframework binary. Drop the AdswizzSDK.xcframework file in your project’s Frameworks directory. Make sure AdswizzSDK.xcframework is listed in the “Embedded Binaries” section of your target. Make sure to add AWSCore.framework, SocketRocket.framework and SwiftProtobuf.framework in your project as well. Be sure to have SwiftProtobuf.framework compiled with BUILD_LIBRARY_FOR_DISTRIBUTION = YES as AdswizzSDK.framework will need it.
 
 ## Changes in your Info.pList file
 
-After adding AdswizzSDK.framework to your application, you’ll also need to add some keys in the Info.pList. Let’s split these in 2 categories:
+After adding AdswizzSDK.xcframework to your application, you’ll also need to add some keys in the Info.pList. Let’s split these in 2 categories:
 
 
 1. Settings for the framework:
@@ -226,37 +231,6 @@ After adding AdswizzSDK.framework to your application, you’ll also need to add
     7. Add **_NSPhotoLibraryUsageDescription_** entry. One of the actions users can perform on an interactive ad, is saving a coupon or a banner to the photo library. For this, the SDK requires access to the Photo Library.
     <img src="img/InfoPList.png" width="1000" />
 
-
-## Changes to your app distribution
-
-AdswizzSDK.framework is a fat library, as both simulator and device binaries are bundled together. When you upload your app in the AppStore you will need to remove the simulator part from the AdswizzSDK.framework. For that, go to your target’s app “Build Phases” page and tap on “New Run Script Phase” option, and paste the following script:
-
-
-```bash
-if [ "$CONFIGURATION" == "Debug" ]; then
-echo "Skip frameworks cleaning in debug version"
-exit 0
-fi
-
-APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
-
-# This script loops through the frameworks embedded in the application and
-# removes unused architectures.
-find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK
-do
-FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
-FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"
-echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"
-
-EXTRACTED_ARCHS=()
-
-for ARCH in $ARCHS
-do
-echo "Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME"
-lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"
-EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")
-done
-```
 
 
 
@@ -952,7 +926,7 @@ In order for **_AdswizzSDK_** to use the **_AdswizzWatchSDK_** on the listener's
 *   Framework binaries - via CocoaPods
 
 ## Adding the SDK to your Xcode project
-**_AdswizzWatchSDK_** is delivered as an xcframework, so the best way to integrate it is through Cocoapods. If you already have a pod file, you just need to add the following line in your watch extension target:
+**_AdswizzWatchSDK_** is delivered as an xcframework, so the best way to integrate it is through Cocoapods. The recommended version for Cocoapods is 1.9.3 or newer. If you already have a pod file, you just need to add the following line in your watch extension target:
 
 ```ruby
     pod 'AdswizzWatchSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"

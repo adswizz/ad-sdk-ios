@@ -316,6 +316,7 @@
 			buildConfigurationList = AE5EB9FA240FAB0C00ECAEF7 /* Build configuration list for PBXNativeTarget "BasicAdRequestWatchExample" */;
 			buildPhases = (
 				AEA96BE2451C8B51B011FEAE /* [CP] Check Pods Manifest.lock */,
+				A26C978F6342C71AB12551DD /* [CP] Prepare Artifacts */,
 				AE5EB9CC240FAB0A00ECAEF7 /* Sources */,
 				AE5EB9CD240FAB0A00ECAEF7 /* Frameworks */,
 				AE5EB9CE240FAB0A00ECAEF7 /* Resources */,
@@ -337,6 +338,7 @@
 			buildConfigurationList = AE5EB9FD240FAB0C00ECAEF7 /* Build configuration list for PBXNativeTarget "BasicAdRequestWatchExampleTests" */;
 			buildPhases = (
 				E45C252B15A9F5AC42DD9B01 /* [CP] Check Pods Manifest.lock */,
+				5BC2F1AC26710A4BAFC21C0F /* [CP] Prepare Artifacts */,
 				AE5EB9E2240FAB0C00ECAEF7 /* Sources */,
 				AE5EB9E3240FAB0C00ECAEF7 /* Frameworks */,
 				AE5EB9E4240FAB0C00ECAEF7 /* Resources */,
@@ -357,6 +359,7 @@
 			buildConfigurationList = AE5EBA00240FAB0C00ECAEF7 /* Build configuration list for PBXNativeTarget "BasicAdRequestWatchExampleUITests" */;
 			buildPhases = (
 				BFBF6767ABC681BFB7826577 /* [CP] Check Pods Manifest.lock */,
+				5FC525B744256BDC6101012B /* [CP] Prepare Artifacts */,
 				AE5EB9ED240FAB0C00ECAEF7 /* Sources */,
 				AE5EB9EE240FAB0C00ECAEF7 /* Frameworks */,
 				AE5EB9EF240FAB0C00ECAEF7 /* Resources */,
@@ -558,6 +561,40 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExample/Pods-BasicAdRequestWatchExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5BC2F1AC26710A4BAFC21C0F /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleTests/Pods-BasicAdRequestWatchExampleTests-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleTests/Pods-BasicAdRequestWatchExampleTests-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleTests/Pods-BasicAdRequestWatchExampleTests-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FC525B744256BDC6101012B /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleUITests/Pods-BasicAdRequestWatchExampleUITests-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleUITests/Pods-BasicAdRequestWatchExampleUITests-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleUITests/Pods-BasicAdRequestWatchExampleUITests-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		73901861FB3488F2032A771E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -595,6 +632,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A26C978F6342C71AB12551DD /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExample/Pods-BasicAdRequestWatchExample-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExample/Pods-BasicAdRequestWatchExample-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExample/Pods-BasicAdRequestWatchExample-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AEA96BE2451C8B51B011FEAE /* [CP] Check Pods Manifest.lock */ = {
