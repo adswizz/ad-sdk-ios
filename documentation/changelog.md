@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.1.3] - 2020-09-25
+### Fixed
+- Upon iOS 14 release AdswizzSDK is able to safely collect a valid IDFA value even if  **_ATTrackingManager.trackingAuthorizationStatus_** is not yet determined (user was not asked yet for permission which essentially means it behaves as pre-iOS 14). When user explicitly denies access to IDFA (**_ATTrackingManager.trackingAuthorizationStatus_** is denied), **_ASIdentifierManager_** will provide an invalid IDFA with `00000000-0000-0000-0000-000000000000` format and AdswizzSDK will properly handle the restriction.
+
+### Changed
+- Code is compiled with XCode 12 (production) and Swift 5.3 support
+
 ## [7.1.2] - 2020-08-28
 ### Fixed
 - iOS 14 compliant method to verify access and read the IDFA value. 
