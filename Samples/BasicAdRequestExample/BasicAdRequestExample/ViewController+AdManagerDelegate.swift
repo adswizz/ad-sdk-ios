@@ -18,7 +18,7 @@ extension ViewController: AdManagerDelegate {
         print("ad manager: \(adManager) triggered ad event: \(event.stringEvent)")
         
         switch event.event {
-        case .didFinishLoading:
+        case .readyForPlay:
             // Ad manager finished loading ad(s)
             // Before playing the ads you should pause your own content
             pauseContent()
@@ -60,7 +60,7 @@ extension ViewController: AdManagerDelegate {
             }
             
             // Update Now Playing with a valid file URL and metadata
-            if let firstFile = event.ad?.mediaFiles.first?.uri, let firstFileURL = URL(string: firstFile) {
+            if let firstFile = event.ad?.asset.mediaUrl, let firstFileURL = URL(string: firstFile) {
                 updateNowPlaying(with: NowPlayableStaticMetadata(assetURL: firstFileURL,
                                                                  isLiveStream: false,
                                                                  title: "Adswizz Ad",

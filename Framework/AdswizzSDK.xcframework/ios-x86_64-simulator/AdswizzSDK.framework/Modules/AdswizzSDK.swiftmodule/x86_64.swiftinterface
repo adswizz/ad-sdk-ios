@@ -1,0 +1,868 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AdswizzSDK
+import AVFoundation
+import AWSCore
+import AdSupport
+@_exported import AdswizzSDK
+import AppTrackingTransparency
+import AudioToolbox
+import CoreTelephony.CTTelephonyNetworkInfo
+import SystemConfiguration.CaptiveNetwork
+import Contacts
+import CoreLocation
+import CoreMotion
+import CoreTelephony
+import EventKit
+import EventKitUI
+import Foundation
+import MessageUI
+import Photos
+import Speech
+import Swift
+import SwiftProtobuf
+import SystemConfiguration
+import UIKit
+import UserNotifications
+import WatchConnectivity
+import WebKit
+extension CGSize : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension NSTextAlignment : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc(AASDKInteractiveAdEvent) public protocol InteractiveAdEvent : Event {
+  @objc var ad: AdData? { get }
+  @objc var event: InteractiveAdEventType { get }
+}
+@objc(AASDKInteractiveAdEventType) public enum InteractiveAdEventType : Swift.Int, Swift.CaseIterable {
+  case unknown
+  case willBeSkipped
+  case skipped
+  case extended
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+  public typealias AllCases = [InteractiveAdEventType]
+  public static var allCases: [InteractiveAdEventType] {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class SWXMLHashOptions {
+  public var shouldProcessLazily: Swift.Bool
+  public var shouldProcessNamespaces: Swift.Bool
+  public var caseInsensitive: Swift.Bool
+  public var encoding: Swift.String.Encoding
+  public var userInfo: [Swift.CodingUserInfoKey : Any]
+  public var detectParsingErrors: Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class SWXMLHash {
+  public class func config(_ configAction: (SWXMLHashOptions) -> Swift.Void) -> SWXMLHash
+  public func parse(_ xml: Swift.String) -> XMLIndexer
+  public func parse(_ data: Foundation.Data) -> XMLIndexer
+  public class func parse(_ xml: Swift.String) -> XMLIndexer
+  public class func parse(_ data: Foundation.Data) -> XMLIndexer
+  public class func lazy(_ xml: Swift.String) -> XMLIndexer
+  public class func lazy(_ data: Foundation.Data) -> XMLIndexer
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class IndexOp {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class IndexOps {
+  @objc deinit
+}
+public struct ParsingError : Swift.Error {
+  public let line: Swift.Int
+  public let column: Swift.Int
+}
+public enum IndexingError : Swift.Error {
+  case attribute(attr: Swift.String)
+  case attributeValue(attr: Swift.String, value: Swift.String)
+  case key(key: Swift.String)
+  case index(idx: Swift.Int)
+  case initialize(instance: Swift.AnyObject)
+  case encoding
+  case error
+  @available(*, unavailable, renamed: "attribute(attr:)")
+  public static func Attribute(attr: Swift.String) -> IndexingError
+  @available(*, unavailable, renamed: "attributeValue(attr:value:)")
+  public static func AttributeValue(attr: Swift.String, value: Swift.String) -> IndexingError
+  @available(*, unavailable, renamed: "key(key:)")
+  public static func Key(key: Swift.String) -> IndexingError
+  @available(*, unavailable, renamed: "index(idx:)")
+  public static func Index(idx: Swift.Int) -> IndexingError
+  @available(*, unavailable, renamed: "initialize(instance:)")
+  public static func Init(instance: Swift.AnyObject) -> IndexingError
+  @available(*, unavailable, renamed: "error")
+  public static var Error: IndexingError {
+    get
+  }
+}
+public enum XMLIndexer {
+  case element(XMLElement)
+  case list([XMLElement])
+  case stream(IndexOps)
+  case xmlError(IndexingError)
+  case parsingError(ParsingError)
+  @available(*, unavailable, renamed: "element(_:)")
+  public static func Element(_: XMLElement) -> XMLIndexer
+  @available(*, unavailable, renamed: "list(_:)")
+  public static func List(_: [XMLElement]) -> XMLIndexer
+  @available(*, unavailable, renamed: "stream(_:)")
+  public static func Stream(_: IndexOps) -> XMLIndexer
+  @available(*, unavailable, renamed: "xmlError(_:)")
+  public static func XMLError(_: IndexingError) -> XMLIndexer
+  @available(*, unavailable, renamed: "withAttribute(_:_:)")
+  public static func withAttr(_ attr: Swift.String, _ value: Swift.String) throws -> XMLIndexer
+  public var element: XMLElement? {
+    get
+  }
+  public var all: [XMLIndexer] {
+    get
+  }
+  public var children: [XMLIndexer] {
+    get
+  }
+  @available(*, unavailable, renamed: "filterChildren(_:)")
+  public func filter(_ included: (XMLElement, Swift.Int) -> Swift.Bool) -> XMLIndexer
+  public func filterChildren(_ included: (XMLElement, Swift.Int) -> Swift.Bool) -> XMLIndexer
+  public func filterAll(_ included: (XMLElement, Swift.Int) -> Swift.Bool) -> XMLIndexer
+  public var userInfo: [Swift.CodingUserInfoKey : Any] {
+    get
+  }
+  public func withAttribute(_ attr: Swift.String, _ value: Swift.String) throws -> XMLIndexer
+  public init(_ rawObject: Swift.AnyObject) throws
+  public init(_ elem: XMLElement)
+  public func byKey(_ key: Swift.String) throws -> XMLIndexer
+  public subscript(key: Swift.String) -> XMLIndexer {
+    get
+  }
+  public func byIndex(_ index: Swift.Int) throws -> XMLIndexer
+  public subscript(index: Swift.Int) -> XMLIndexer {
+    get
+  }
+}
+extension XMLIndexer : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension IndexingError : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public protocol XMLContent : Swift.CustomStringConvertible {
+}
+@_hasMissingDesignatedInitializers public class TextElement : XMLContent {
+  final public let text: Swift.String
+  @objc deinit
+}
+public struct XMLAttribute {
+  public let name: Swift.String
+  public let text: Swift.String
+}
+@_hasMissingDesignatedInitializers public class XMLElement : XMLContent {
+  final public let name: Swift.String
+  public var caseInsensitive: Swift.Bool {
+    get
+  }
+  public var allAttributes: [Swift.String : XMLAttribute]
+  public func attribute(by name: Swift.String) -> XMLAttribute?
+  public var text: Swift.String {
+    get
+  }
+  public var recursiveText: Swift.String {
+    get
+  }
+  public var innerXML: Swift.String {
+    get
+  }
+  public var children: [XMLContent]
+  @objc deinit
+}
+extension TextElement : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension XMLAttribute : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension XMLElement : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension SWXMLHash {
+  public typealias XMLElement = SWXMLHashXMLElement
+}
+public typealias SWXMLHashXMLElement = XMLElement
+extension XMLIndexer {
+  public func withAttribute<A, V>(_ attr: A, _ value: V) throws -> XMLIndexer where A : Swift.RawRepresentable, V : Swift.RawRepresentable, A.RawValue == Swift.String, V.RawValue == Swift.String
+  public func byKey<K>(_ key: K) throws -> XMLIndexer where K : Swift.RawRepresentable, K.RawValue == Swift.String
+  public subscript<K>(key: K) -> XMLIndexer where K : Swift.RawRepresentable, K.RawValue == Swift.String {
+    get
+  }
+}
+extension XMLElement {
+  public func attribute<N>(by name: N) -> XMLAttribute? where N : Swift.RawRepresentable, N.RawValue == Swift.String
+}
+public typealias AdManagerOwner = AdManager
+@objc(AASDKInteractiveAdManagerDelegate) public protocol InteractiveAdManagerDelegate {
+  @objc func interactiveAdManager(_ adManager: AdManagerOwner, shouldPresentCoupon pkpassData: Foundation.Data)
+  @objc func interactiveAdManager(_ adManager: AdManagerOwner, didReceiveAdEvent event: InteractiveAdEvent)
+}
+@_inheritsConvenienceInitializers @objc(AASDKAdManagerSettings) final public class AdManagerSettings : ObjectiveC.NSObject {
+  @objc weak final public var player: MediaPlayerState?
+  @objc final public func addCachePolicy(_ policy: AdCachePolicy)
+  @objc final public var assetQuality: AdAssetQuality
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension AdManagerSettings {
+  @objc final public func isCachedAssetsEnabled() -> Swift.Bool
+}
+extension AdswizzAdRequest.VASTVersion : Swift.RawRepresentable {
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension HTTPProtocol : Swift.RawRepresentable {
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension AVAuthorizationStatus : Swift.Codable {
+}
+extension AdswizzAdStreamManager {
+  @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdStreamManagerBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc public func with(httpProtocol: HTTPProtocol) -> AdswizzAdStreamManager.Builder
+    @objc public func with(companionZones: Swift.String) -> AdswizzAdStreamManager.Builder
+    @objc public func with(adServer: Swift.String) -> AdswizzAdStreamManager.Builder
+    @objc public func build() throws -> AdswizzAdStreamManager
+    @objc deinit
+    @objc override dynamic public init()
+  }
+}
+extension UIUserInterfaceIdiom : Swift.Codable {
+}
+@objc(AASDKAdCompanionViewDelegate) public protocol AdCompanionViewDelegate {
+  @objc optional func adCompanionViewWillLoad(_ adCompanionView: AdCompanionView)
+  @objc optional func adCompanionViewDidDisplay(_ adCompanionView: AdCompanionView)
+  @objc optional func adCompanionView(_ adCompanionView: AdCompanionView, didFailToDisplay error: Swift.Error)
+  @objc optional func adCompanionViewDidEndDisplay(_ adCompanionView: AdCompanionView)
+  @objc optional func adCompanionView(_ adCompanionView: AdCompanionView, shouldOverrideCompanionClickThrough url: Foundation.URL) -> Swift.Bool
+  @objc optional func adCompanionViewWillLeaveApplication(_ adCompanionView: AdCompanionView)
+}
+@_inheritsConvenienceInitializers @objc(AASDKAdCompanionView) public class AdCompanionView : UIKit.UIView {
+  @objc @IBOutlet weak public var delegate: AdCompanionViewDelegate?
+  @objc public var active: Swift.Bool
+  @objc public var clickThrough: Foundation.URL? {
+    @objc get
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public func awakeFromNib()
+  @objc override dynamic public func layoutSubviews()
+  @objc override dynamic public var intrinsicContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+  @objc override dynamic public func updateConstraints()
+  @objc deinit
+}
+extension AdCompanionView : UIKit.UIGestureRecognizerDelegate {
+  @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+extension AdCompanionView : WebKit.WKNavigationDelegate {
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didStartProvisionalNavigation navigation: WebKit.WKNavigation!)
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+}
+extension AdCompanionView : WebKit.WKUIDelegate {
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, createWebViewWith configuration: WebKit.WKWebViewConfiguration, for navigationAction: WebKit.WKNavigationAction, windowFeatures: WebKit.WKWindowFeatures) -> WebKit.WKWebView?
+}
+@objc(AASDKAdData) public protocol AdData {
+  @objc var id: Swift.String? { get }
+  @objc var asset: AdAsset { get }
+  @objc var companions: [Companion] { get }
+}
+public protocol XMLIndexerDeserializable {
+  static func deserialize(_ element: XMLIndexer) throws -> Self
+}
+extension XMLIndexerDeserializable {
+  public static func deserialize(_ element: XMLIndexer) throws -> Self
+}
+public protocol XMLElementDeserializable {
+  static func deserialize(_ element: XMLElement) throws -> Self
+}
+extension XMLElementDeserializable {
+  public static func deserialize(_ element: XMLElement) throws -> Self
+}
+public protocol XMLAttributeDeserializable {
+  static func deserialize(_ attribute: XMLAttribute) throws -> Self
+}
+extension XMLAttributeDeserializable {
+  public static func deserialize(attribute: XMLAttribute) throws -> Self
+}
+extension XMLIndexer {
+  public func value<T>(ofAttribute attr: Swift.String) throws -> T where T : XMLAttributeDeserializable
+  public func value<T>(ofAttribute attr: Swift.String) -> T? where T : XMLAttributeDeserializable
+  public func value<T>(ofAttribute attr: Swift.String) throws -> [T] where T : XMLAttributeDeserializable
+  public func value<T>(ofAttribute attr: Swift.String) throws -> [T]? where T : XMLAttributeDeserializable
+  public func value<T>(ofAttribute attr: Swift.String) throws -> [T?] where T : XMLAttributeDeserializable
+  public func value<T>() throws -> T where T : XMLElementDeserializable
+  public func value<T>() throws -> T? where T : XMLElementDeserializable
+  public func value<T>() throws -> [T] where T : XMLElementDeserializable
+  public func value<T>() throws -> [T]? where T : XMLElementDeserializable
+  public func value<T>() throws -> [T?] where T : XMLElementDeserializable
+  public func value<T>() throws -> T where T : XMLIndexerDeserializable
+  public func value<T>() throws -> T? where T : XMLIndexerDeserializable
+  public func value<T>() throws -> [T] where T : XMLIndexerDeserializable
+  public func value<T>() throws -> [T]? where T : XMLIndexerDeserializable
+  public func value<T>() throws -> [T?] where T : XMLIndexerDeserializable
+}
+extension XMLIndexer {
+  public func value<T, A>(ofAttribute attr: A) throws -> T where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  public func value<T, A>(ofAttribute attr: A) -> T? where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  public func value<T, A>(ofAttribute attr: A) throws -> [T] where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  public func value<T, A>(ofAttribute attr: A) throws -> [T]? where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  public func value<T, A>(ofAttribute attr: A) throws -> [T?] where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+}
+extension XMLElement {
+  public func value<T>(ofAttribute attr: Swift.String) throws -> T where T : XMLAttributeDeserializable
+  public func value<T>(ofAttribute attr: Swift.String) -> T? where T : XMLAttributeDeserializable
+}
+extension XMLElement {
+  public func value<T, A>(ofAttribute attr: A) throws -> T where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  public func value<T, A>(ofAttribute attr: A) -> T? where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+}
+public enum XMLDeserializationError : Swift.Error, Swift.CustomStringConvertible {
+  case implementationIsMissing(method: Swift.String)
+  case nodeIsInvalid(node: XMLIndexer)
+  case nodeHasNoValue
+  case typeConversionFailed(type: Swift.String, element: XMLElement)
+  case attributeDoesNotExist(element: XMLElement, attribute: Swift.String)
+  case attributeDeserializationFailed(type: Swift.String, attribute: XMLAttribute)
+  @available(*, unavailable, renamed: "implementationIsMissing(method:)")
+  public static func ImplementationIsMissing(method: Swift.String) -> XMLDeserializationError
+  @available(*, unavailable, renamed: "nodeHasNoValue(_:)")
+  public static func NodeHasNoValue(_: IndexOps) -> XMLDeserializationError
+  @available(*, unavailable, renamed: "typeConversionFailed(_:)")
+  public static func TypeConversionFailed(_: IndexingError) -> XMLDeserializationError
+  @available(*, unavailable, renamed: "attributeDoesNotExist(_:_:)")
+  public static func AttributeDoesNotExist(_ attr: Swift.String, _ value: Swift.String) throws -> XMLDeserializationError
+  @available(*, unavailable, renamed: "attributeDeserializationFailed(_:_:)")
+  public static func AttributeDeserializationFailed(_ attr: Swift.String, _ value: Swift.String) throws -> XMLDeserializationError
+  public var description: Swift.String {
+    get
+  }
+}
+extension String : XMLElementDeserializable, XMLAttributeDeserializable {
+  public static func deserialize(_ element: XMLElement) -> Swift.String
+  public static func deserialize(_ attribute: XMLAttribute) -> Swift.String
+}
+extension Int : XMLElementDeserializable, XMLAttributeDeserializable {
+  public static func deserialize(_ element: XMLElement) throws -> Swift.Int
+  public static func deserialize(_ attribute: XMLAttribute) throws -> Swift.Int
+}
+extension Double : XMLElementDeserializable, XMLAttributeDeserializable {
+  public static func deserialize(_ element: XMLElement) throws -> Swift.Double
+  public static func deserialize(_ attribute: XMLAttribute) throws -> Swift.Double
+}
+extension Float : XMLElementDeserializable, XMLAttributeDeserializable {
+  public static func deserialize(_ element: XMLElement) throws -> Swift.Float
+  public static func deserialize(_ attribute: XMLAttribute) throws -> Swift.Float
+}
+extension Bool : XMLElementDeserializable, XMLAttributeDeserializable {
+  public static func deserialize(_ element: XMLElement) throws -> Swift.Bool
+  public static func deserialize(_ attribute: XMLAttribute) throws -> Swift.Bool
+}
+@objc(AASDKWatchSessionDelegate) public protocol WatchSessionDelegate : AnyObject {
+  @objc func sendMessage(_ data: [Swift.String : Any])
+  @objc func updateApplicationContext(_ data: [Swift.String : Any])
+}
+@objc(AASDKWatchSession) public protocol WatchSession {
+  @objc func receivedMessage(_ data: [Swift.String : Any])
+  @objc func setDelegate(_ delegate: WatchSessionDelegate)
+}
+extension Dictionary where Key == Swift.String {
+  public var isAdswizzWatchData: Swift.Bool {
+    get
+  }
+}
+extension NSDictionary {
+  @objc dynamic public var isAdswizzWatchData: Swift.Bool {
+    @objc get
+  }
+}
+@objc(AASDKMediaFile) public protocol MediaFile {
+  @objc var uri: Swift.String { get }
+  @objc var type: Swift.String { get }
+  @objc var codec: Swift.String? { get }
+  @objc var id: Swift.String? { get }
+  @objc var bitrate: Foundation.NSNumber? { get }
+  @objc var minBitrate: Foundation.NSNumber? { get }
+  @objc var maxBitrate: Foundation.NSNumber? { get }
+  @objc var fileSize: Foundation.NSNumber? { get }
+}
+@objc(AASDKAdCachePolicy) public enum AdCachePolicy : Swift.Int {
+  case assets
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(AASDKAdswizzSettingsKeys) public class AdswizzSettingsKeys : ObjectiveC.NSObject {
+  @objc public static let AWSTranscriberIdentityPoolIdRegion: Swift.String
+  @objc public static let InstallationId: Swift.String
+  @objc public static let PlayerId: Swift.String
+  @objc deinit
+  @objc override dynamic public init()
+}
+@_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdZone) final public class AdswizzAdZone : ObjectiveC.NSObject {
+  @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdZoneBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc public func with(zoneId: Swift.String) -> AdswizzAdZone.Builder
+    @objc public func with(maxAds: Swift.UInt) -> AdswizzAdZone.Builder
+    @objc public func with(maxDuration: Foundation.TimeInterval) -> AdswizzAdZone.Builder
+    @objc public func build() throws -> AdswizzAdZone
+    @objc deinit
+    @objc override dynamic public init()
+  }
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc(AASDKAdLoggerDestination) public protocol AdLoggerDestination {
+  @objc func log(_ level: AdLogger.Level, functionName: Swift.String, fileName: Swift.String, lineNumber: Swift.Int, line: Swift.String)
+}
+@_inheritsConvenienceInitializers @objc(AASDKAdLogger) final public class AdLogger : ObjectiveC.NSObject {
+  @objc public enum Level : Swift.Int {
+    case verbose
+    case debug
+    case info
+    case error
+    case none
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc public static let shared: AdLogger
+  @objc final public var level: AdLogger.Level
+  @objc final public var destination: AdLoggerDestination
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc(AASDKAdAssetQuality) public enum AdAssetQuality : Swift.Int {
+  case low
+  case medium
+  case high
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension AVAudioSession.Port : Swift.Codable {
+}
+@objc(AASDKAdManagerDelegate) public protocol AdManagerDelegate {
+  @objc func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Swift.Error)
+  @objc func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)
+  @objc optional func adManager(_ adManager: AdManager, ad: AdData, didChangedPlayHead playHead: Foundation.TimeInterval, adDuration duration: Foundation.TimeInterval)
+}
+@objc(AASDKAdManager) public protocol AdManager {
+  @objc var adManagerSettings: AdManagerSettings { get set }
+  @objc weak var delegate: AdManagerDelegate? { get set }
+  @objc weak var interactiveDelegate: InteractiveAdManagerDelegate? { get set }
+  @objc func prepare()
+  @objc func play()
+  @objc func pause()
+  @objc func skipAd()
+  @objc func reset()
+}
+@objc(AASDKAdRequestConnection) final public class AdRequestConnection : ObjectiveC.NSObject {
+  public typealias AdsRequestCompletion = (AdManager?, Swift.Error?) -> Swift.Void
+  final public var timeout: Swift.Double
+  @objc final public var objc_timeout: Foundation.NSNumber {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+  @objc public init(for request: AdRequest) throws
+  @objc final public func requestAds(completion: @escaping AdRequestConnection.AdsRequestCompletion)
+  @objc final public func cancel()
+  @objc override dynamic public init()
+}
+@objc(AASDKAdStreamManagerDelegate) public protocol AdStreamManagerDelegate : AnyObject {
+  @objc func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: Foundation.URL)
+  @objc func adStreamManager(_ adstreamManager: AdStreamManager, adBreakStarted manager: AdManager)
+  @objc func adStreamManager(_ adstreamManager: AdStreamManager, stateChanged state: MediaPlayerStatus)
+  @objc func adStreamManager(_ adstreamManager: AdStreamManager, adBreakEnded manager: AdManager)
+  @objc func adStreamManager(_ adstreamManager: AdStreamManager, metadataChanged metadata: [AVFoundation.AVMetadataItem])
+  @objc func adStreamManagerWillReconnect(_ adstreamManager: AdStreamManager)
+  @objc func adStreamManagerPlayerShouldPause(_ adstreamManager: AdStreamManager)
+  @objc func adStreamManagerPlayerShouldResume(_ adstreamManager: AdStreamManager)
+}
+@objc(AASDKCompanionStaticResource) public protocol StaticResource : ObjectiveC.NSObjectProtocol {
+  @objc var uri: Swift.String { get }
+  @objc var creativeType: Swift.String { get }
+}
+@objc(AASDKCompanionRenderingMode) public enum CompanionRenderingMode : Swift.Int {
+  case def
+  case endCard
+  case concurrent
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(AASDKCompanionResource) public protocol CompanionResource : ObjectiveC.NSObjectProtocol {
+  @objc var staticRes: [StaticResource]? { get }
+  @objc var iFrame: [Swift.String]? { get }
+  @objc var html: [Swift.String]? { get }
+}
+@objc(AASDKCompanion) public protocol Companion : ObjectiveC.NSObjectProtocol {
+  @objc var width: Swift.Int { get }
+  @objc var height: Swift.Int { get }
+  @objc var id: Swift.String? { get }
+  @objc var renderingMode: CompanionRenderingMode { get }
+  @objc var resource: CompanionResource { get }
+}
+@objc(AASDKAdswizzAdRequestProtocol) public enum HTTPProtocol : Swift.Int {
+  case http
+  case https
+}
+@_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdRequest) final public class AdswizzAdRequest : AdRequest {
+  @objc override final public var url: Foundation.URL? {
+    @objc get
+  }
+  @objc(AASDKAdswizzAdRequestVASTVersion) public enum VASTVersion : Swift.Int {
+    case v40
+  }
+  @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdRequestBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc public func with(httpProtocol: HTTPProtocol) -> AdswizzAdRequest.Builder
+    @objc public func with(vastVersion: AdswizzAdRequest.VASTVersion) -> AdswizzAdRequest.Builder
+    @objc public func with(zone: AdswizzAdZone) -> AdswizzAdRequest.Builder
+    @objc public func with(zones: [AdswizzAdZone]) -> AdswizzAdRequest.Builder
+    @objc public func with(zoneAlias: Swift.String) -> AdswizzAdRequest.Builder
+    @objc public func with(companionZones: Swift.String?) -> AdswizzAdRequest.Builder
+    @objc public func with(tagsArray: Swift.String?) -> AdswizzAdRequest.Builder
+    @objc public func with(referrer: Swift.String?) -> AdswizzAdRequest.Builder
+    @objc public func with(server: Swift.String) -> AdswizzAdRequest.Builder
+    @objc public func with(additionalCustomParameters: Swift.String?) -> AdswizzAdRequest.Builder
+    @objc public func build() throws -> AdswizzAdRequest
+    @objc deinit
+    @objc override dynamic public init()
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(AASDKAdStreamManagerSettings) final public class AdStreamManagerSettings : ObjectiveC.NSObject {
+  @objc weak final public var player: MediaPlayerState?
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension AdStreamManager {
+  @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+}
+@_inheritsConvenienceInitializers @objc(AASDKAdCompanionOptions) public class AdCompanionOptions : ObjectiveC.NSObject {
+  @objc public var extraExposureTime: Swift.Double
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(AASDKEvent) public protocol Event : ObjectiveC.NSObjectProtocol {
+  @objc var extraAdData: [Swift.String : Any]? { get }
+  @objc var stringEvent: Swift.String { get }
+}
+@objc(AASDKAdEvent) public protocol AdEvent : Event {
+  @objc var ad: AdData? { get }
+  @objc var event: AdEventType { get }
+}
+@objc(AASDKAdEventType) public enum AdEventType : Swift.Int, Swift.CaseIterable {
+  case unknown
+  case preparingForPlay
+  case readyForPlay
+  case didStartPlaying
+  case didPausePlaying
+  case firstQuartile
+  case midpoint
+  case thirdQuartile
+  case complete
+  case didFinishPlaying
+  case allAdsCompleted
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+  public typealias AllCases = [AdEventType]
+  public static var allCases: [AdEventType] {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(AASDKAnalytics) final public class AASDKAnalytics : ObjectiveC.NSObject {
+  @objc(AASDKAnalyticsCategory) public enum Level : Swift.Int, Swift.Codable, Swift.Comparable {
+    case none
+    case error
+    case info
+    public static func < (a: AASDKAnalytics.Level, b: AASDKAnalytics.Level) -> Swift.Bool
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc(AASDKAnalyticsEvent) public protocol AnalyticsEvent {
+  @objc var id: Swift.String { get }
+  @objc var category: Swift.String { get }
+  @objc var level: AASDKAnalytics.Level { get }
+  @objc var params: [Swift.String : Any]? { get }
+}
+@objc(AASDKAnalyticsCollecting) public protocol AnalyticsCollecting {
+  @objc func log(_ event: AnalyticsEvent, _ timestamp: Foundation.Date)
+  @objc func send(forced: Swift.Bool)
+}
+@objc(AASDKAnalyticsCollector) public protocol AnalyticsCollector {
+  @objc func add(_ connector: AnalyticsConnector)
+  @objc func remove(_ connector: AnalyticsConnector)
+}
+@objc(AASDKAnalyticsConnector) public protocol AnalyticsConnector : AnyObject, AnalyticsCollecting {
+}
+extension AdLogger.Level : Swift.Comparable {
+  public static func < (lhs: AdLogger.Level, rhs: AdLogger.Level) -> Swift.Bool
+}
+extension AdLogger.Level : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+@objc(AASDKAdswizzSDKDelegate) public protocol AdswizzSDKDelegate : AnyObject {
+  @objc func adswizzSDKRecordingStarted(_ adswizzSDK: AdswizzSDK)
+  @objc func adswizzSDKRecordingStopped(_ adswizzSDK: AdswizzSDK)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AASDKAdswizzSDK) public class AdswizzSDK : ObjectiveC.NSObject {
+  @objc public static let shared: AdswizzSDK
+  @objc weak public var delegate: AdswizzSDKDelegate?
+  @objc public var watchSession: WatchSession {
+    @objc get
+  }
+  @objc public func initialize() throws
+  @objc public func uninitialize()
+  @objc public static func setAdCompanionOptions(_ options: AdCompanionOptions)
+  @objc public var gdprConsent: GDPRConsent {
+    @objc get
+    @objc set
+  }
+  @objc public var ccpaConfig: AdswizzCCPAConfig {
+    @objc get
+    @objc set
+  }
+  @objc public var locationAccuracy: CoreLocation.CLLocationAccuracy {
+    @objc get
+    @objc set
+  }
+  @objc public var enableLocationSignificantChanges: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var analytics: AnalyticsCollector {
+    @objc get
+  }
+  @objc deinit
+}
+@objc(AASDKMediaPlayerStatus) public enum MediaPlayerStatus : Swift.Int {
+  case unknown
+  case initialized
+  case buffering
+  case bufferingFinished
+  case readyToPlay
+  case playing
+  case paused
+  case finished
+  case failed
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(AASDKMediaPlayerCapability) final public class MediaPlayerCapability : ObjectiveC.NSObject {
+  @objc final public let state: MediaPlayerCapability.State?
+  @_hasMissingDesignatedInitializers @objc(AASDKMediaPlayerStateInfo) final public class State : ObjectiveC.NSObject {
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc public static let skip: MediaPlayerCapability
+  @objc public static let mute: MediaPlayerCapability
+  @objc public static let autoplay: MediaPlayerCapability
+  @objc public static let mautoplay: MediaPlayerCapability
+  @objc public static let fullscreen: MediaPlayerCapability
+  @objc public static let icon: MediaPlayerCapability
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(AASDKMediaPlayerState) public protocol MediaPlayerState : ObjectiveC.NSObjectProtocol {
+  @objc dynamic var currentPlayhead: Foundation.TimeInterval { get }
+  @objc var currentDuration: Foundation.TimeInterval { get }
+  @objc dynamic var playerStatus: MediaPlayerStatus { get }
+  @objc dynamic var metadataItem: [AVFoundation.AVMetadataItem]? { get }
+  @objc optional var bufferingCompleted: Swift.Bool { get }
+  @objc var isBufferingWhilePaused: Swift.Bool { get }
+  @objc dynamic var volume: Swift.Float { get }
+  @objc var lastError: Swift.Error? { get }
+  @objc var capabilities: Swift.Set<MediaPlayerCapability>? { get }
+  @objc var stateInfo: Swift.Set<MediaPlayerCapability.State>? { get }
+}
+@objc(AASDKAdAssetDelegate) public protocol AdAssetDelegate {
+  @objc optional func adAsset(_ asset: AdAsset, didFinishDownloadingData data: Foundation.Data)
+  @objc optional func adAsset(_ asset: AdAsset, didDownload data: Foundation.Data, bytesDownloaded: Swift.Int64, outOf bytesExpected: Swift.Int64)
+  @objc optional func adAsset(_ asset: AdAsset, downloadingFailedWith error: Swift.Error)
+}
+@objc(AASDKAdAssetState) public enum AdAssetState : Swift.Int {
+  case unknown
+  case scheduled
+  case initialized
+  case loading
+  case ready
+  case failed
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(AASDKAdAsset) public protocol AdAsset {
+  @objc var data: Foundation.Data? { get }
+  @objc var mediaUrl: Swift.String? { get }
+  @objc var mimeType: Swift.String? { get }
+  @objc var expectedContentLength: Swift.Int64 { get }
+  @objc var state: AdAssetState { get }
+  @objc weak var delegate: AdAssetDelegate? { get set }
+}
+@_inheritsConvenienceInitializers @objc(AASDKAdRequest) open class AdRequest : ObjectiveC.NSObject {
+  @objc open var url: Foundation.URL? {
+    get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdStreamManager) public class AdswizzAdStreamManager : AdStreamManager {
+  @objc final public let httpProtocol: HTTPProtocol
+  @objc final public let adServer: Swift.String
+  @objc final public let companionZone: Swift.String?
+  @objc override public func play(with url: Foundation.URL) throws
+  override public func didReceive(metadata: [AVFoundation.AVMetadataItem])
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(AASDKGDPROption) public enum GDPRConsent : Swift.Int, Swift.Codable {
+  case notApplicable
+  case notAsked
+  case granted
+  case denied
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(AASDKAdStreamManager) open class AdStreamManager : ObjectiveC.NSObject {
+  @objc weak public var delegate: AdStreamManagerDelegate?
+  @objc public var adStreamManagerSettings: AdStreamManagerSettings
+  @objc open func play(with url: Foundation.URL) throws
+  @objc open func stop()
+  @objc open func pause()
+  @objc open func resume()
+  open func didReceive(metadata: [AVFoundation.AVMetadataItem])
+  open func adBreakDetected(of duration: Foundation.TimeInterval, for adId: Swift.String?)
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc(AASDKCCPAOption) public enum CCPAConsent : Swift.Int, Swift.Codable, Swift.CaseIterable {
+  case no
+  case yes
+  case notApplicable
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+  public typealias AllCases = [CCPAConsent]
+  public static var allCases: [CCPAConsent] {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(AASDKAdswizzCCPAConfig) final public class AdswizzCCPAConfig : ObjectiveC.NSObject {
+  @_inheritsConvenienceInitializers @objc(AASDKAdswizzCCPAConfigBuilder) final public class Builder : ObjectiveC.NSObject {
+    @objc final public func with(explicitNotice: CCPAConsent) -> AdswizzCCPAConfig.Builder
+    @objc final public func with(optOut: CCPAConsent) -> AdswizzCCPAConfig.Builder
+    @objc final public func with(lspa: CCPAConsent) -> AdswizzCCPAConfig.Builder
+    @objc final public func build() -> AdswizzCCPAConfig
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  final public let explicitNotice: CCPAConsent
+  final public let optOut: CCPAConsent
+  final public let lspa: CCPAConsent
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension AdswizzCCPAConfig {
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+}
+extension InteractiveAdEventType : Swift.Equatable {}
+extension InteractiveAdEventType : Swift.Hashable {}
+extension InteractiveAdEventType : Swift.RawRepresentable {}
+extension AASDKAnalytics.Level : Swift.Hashable {}
+extension AASDKAnalytics.Level : Swift.RawRepresentable {}
+extension AdswizzAdRequest.VASTVersion : Swift.Equatable {}
+extension AdswizzAdRequest.VASTVersion : Swift.Hashable {}
+extension HTTPProtocol : Swift.Equatable {}
+extension HTTPProtocol : Swift.Hashable {}
+extension MediaPlayerStatus : Swift.Equatable {}
+extension MediaPlayerStatus : Swift.Hashable {}
+extension MediaPlayerStatus : Swift.RawRepresentable {}
+extension AdCachePolicy : Swift.Equatable {}
+extension AdCachePolicy : Swift.Hashable {}
+extension AdCachePolicy : Swift.RawRepresentable {}
+extension AdLogger.Level : Swift.Hashable {}
+extension AdLogger.Level : Swift.RawRepresentable {}
+extension AdAssetQuality : Swift.Equatable {}
+extension AdAssetQuality : Swift.Hashable {}
+extension AdAssetQuality : Swift.RawRepresentable {}
+extension CCPAConsent : Swift.Equatable {}
+extension CCPAConsent : Swift.Hashable {}
+extension CCPAConsent : Swift.RawRepresentable {}
+extension AdEventType : Swift.Equatable {}
+extension AdEventType : Swift.Hashable {}
+extension AdEventType : Swift.RawRepresentable {}
+extension CompanionRenderingMode : Swift.Equatable {}
+extension CompanionRenderingMode : Swift.Hashable {}
+extension CompanionRenderingMode : Swift.RawRepresentable {}
+extension AdAssetState : Swift.Equatable {}
+extension AdAssetState : Swift.Hashable {}
+extension AdAssetState : Swift.RawRepresentable {}
+extension GDPRConsent : Swift.Equatable {}
+extension GDPRConsent : Swift.Hashable {}
+extension GDPRConsent : Swift.RawRepresentable {}

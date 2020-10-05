@@ -226,8 +226,13 @@ public typealias AdManagerOwner = AdManager
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdManagerSettings) final public class AdManagerSettings : ObjectiveC.NSObject {
   @objc weak final public var player: MediaPlayerState?
+  @objc final public func addCachePolicy(_ policy: AdCachePolicy)
+  @objc final public var assetQuality: AdAssetQuality
   @objc deinit
   @objc override dynamic public init()
+}
+extension AdManagerSettings {
+  @objc final public func isCachedAssetsEnabled() -> Swift.Bool
 }
 extension AdswizzAdRequest.VASTVersion : Swift.RawRepresentable {
   public typealias RawValue = Swift.String
@@ -268,6 +273,9 @@ extension UIUserInterfaceIdiom : Swift.Codable {
 @_inheritsConvenienceInitializers @objc(AASDKAdCompanionView) public class AdCompanionView : UIKit.UIView {
   @objc @IBOutlet weak public var delegate: AdCompanionViewDelegate?
   @objc public var active: Swift.Bool
+  @objc public var clickThrough: Foundation.URL? {
+    @objc get
+  }
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc override dynamic public func awakeFromNib()
@@ -291,7 +299,7 @@ extension AdCompanionView : WebKit.WKUIDelegate {
 }
 @objc(AASDKAdData) public protocol AdData {
   @objc var id: Swift.String? { get }
-  @objc var mediaFiles: [MediaFile] { get }
+  @objc var asset: AdAsset { get }
   @objc var companions: [Companion] { get }
 }
 public protocol XMLIndexerDeserializable {
@@ -413,6 +421,14 @@ extension NSDictionary {
   @objc var maxBitrate: Foundation.NSNumber? { get }
   @objc var fileSize: Foundation.NSNumber? { get }
 }
+@objc(AASDKAdCachePolicy) public enum AdCachePolicy : Swift.Int {
+  case assets
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc(AASDKAdswizzSettingsKeys) public class AdswizzSettingsKeys : ObjectiveC.NSObject {
   @objc public static let AWSTranscriberIdentityPoolIdRegion: Swift.String
   @objc public static let InstallationId: Swift.String
@@ -454,11 +470,22 @@ extension NSDictionary {
   @objc deinit
   @objc override dynamic public init()
 }
+@objc(AASDKAdAssetQuality) public enum AdAssetQuality : Swift.Int {
+  case low
+  case medium
+  case high
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 extension AVAudioSession.Port : Swift.Codable {
 }
 @objc(AASDKAdManagerDelegate) public protocol AdManagerDelegate {
   @objc func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Swift.Error)
   @objc func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)
+  @objc optional func adManager(_ adManager: AdManager, ad: AdData, didChangedPlayHead playHead: Foundation.TimeInterval, adDuration duration: Foundation.TimeInterval)
 }
 @objc(AASDKAdManager) public protocol AdManager {
   @objc var adManagerSettings: AdManagerSettings { get set }
@@ -477,11 +504,11 @@ extension AVAudioSession.Port : Swift.Codable {
     @objc get
     @objc set
   }
+  @objc deinit
   @objc public init(for request: AdRequest) throws
   @objc final public func requestAds(completion: @escaping AdRequestConnection.AdsRequestCompletion)
   @objc final public func cancel()
   @objc override dynamic public init()
-  @objc deinit
 }
 @objc(AASDKAdStreamManagerDelegate) public protocol AdStreamManagerDelegate : AnyObject {
   @objc func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: Foundation.URL)
@@ -571,8 +598,8 @@ extension AdStreamManager {
 }
 @objc(AASDKAdEventType) public enum AdEventType : Swift.Int, Swift.CaseIterable {
   case unknown
-  case willStartLoading
-  case didFinishLoading
+  case preparingForPlay
+  case readyForPlay
   case didStartPlaying
   case didPausePlaying
   case firstQuartile
@@ -590,6 +617,37 @@ extension AdStreamManager {
   public static var allCases: [AdEventType] {
     get
   }
+}
+@_inheritsConvenienceInitializers @objc(AASDKAnalytics) final public class AASDKAnalytics : ObjectiveC.NSObject {
+  @objc(AASDKAnalyticsCategory) public enum Level : Swift.Int, Swift.Codable, Swift.Comparable {
+    case none
+    case error
+    case info
+    public static func < (a: AASDKAnalytics.Level, b: AASDKAnalytics.Level) -> Swift.Bool
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc(AASDKAnalyticsEvent) public protocol AnalyticsEvent {
+  @objc var id: Swift.String { get }
+  @objc var category: Swift.String { get }
+  @objc var level: AASDKAnalytics.Level { get }
+  @objc var params: [Swift.String : Any]? { get }
+}
+@objc(AASDKAnalyticsCollecting) public protocol AnalyticsCollecting {
+  @objc func log(_ event: AnalyticsEvent, _ timestamp: Foundation.Date)
+  @objc func send(forced: Swift.Bool)
+}
+@objc(AASDKAnalyticsCollector) public protocol AnalyticsCollector {
+  @objc func add(_ connector: AnalyticsConnector)
+  @objc func remove(_ connector: AnalyticsConnector)
+}
+@objc(AASDKAnalyticsConnector) public protocol AnalyticsConnector : AnyObject, AnalyticsCollecting {
 }
 extension AdLogger.Level : Swift.Comparable {
   public static func < (lhs: AdLogger.Level, rhs: AdLogger.Level) -> Swift.Bool
@@ -627,6 +685,9 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   @objc public var enableLocationSignificantChanges: Swift.Bool {
     @objc get
     @objc set
+  }
+  @objc public var analytics: AnalyticsCollector {
+    @objc get
   }
   @objc deinit
 }
@@ -672,6 +733,32 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   @objc var lastError: Swift.Error? { get }
   @objc var capabilities: Swift.Set<MediaPlayerCapability>? { get }
   @objc var stateInfo: Swift.Set<MediaPlayerCapability.State>? { get }
+}
+@objc(AASDKAdAssetDelegate) public protocol AdAssetDelegate {
+  @objc optional func adAsset(_ asset: AdAsset, didFinishDownloadingData data: Foundation.Data)
+  @objc optional func adAsset(_ asset: AdAsset, didDownload data: Foundation.Data, bytesDownloaded: Swift.Int64, outOf bytesExpected: Swift.Int64)
+  @objc optional func adAsset(_ asset: AdAsset, downloadingFailedWith error: Swift.Error)
+}
+@objc(AASDKAdAssetState) public enum AdAssetState : Swift.Int {
+  case unknown
+  case scheduled
+  case initialized
+  case loading
+  case ready
+  case failed
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(AASDKAdAsset) public protocol AdAsset {
+  @objc var data: Foundation.Data? { get }
+  @objc var mediaUrl: Swift.String? { get }
+  @objc var mimeType: Swift.String? { get }
+  @objc var expectedContentLength: Swift.Int64 { get }
+  @objc var state: AdAssetState { get }
+  @objc weak var delegate: AdAssetDelegate? { get set }
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdRequest) open class AdRequest : ObjectiveC.NSObject {
   @objc open var url: Foundation.URL? {
@@ -747,6 +834,8 @@ extension AdswizzCCPAConfig {
 extension InteractiveAdEventType : Swift.Equatable {}
 extension InteractiveAdEventType : Swift.Hashable {}
 extension InteractiveAdEventType : Swift.RawRepresentable {}
+extension AASDKAnalytics.Level : Swift.Hashable {}
+extension AASDKAnalytics.Level : Swift.RawRepresentable {}
 extension AdswizzAdRequest.VASTVersion : Swift.Equatable {}
 extension AdswizzAdRequest.VASTVersion : Swift.Hashable {}
 extension HTTPProtocol : Swift.Equatable {}
@@ -754,8 +843,14 @@ extension HTTPProtocol : Swift.Hashable {}
 extension MediaPlayerStatus : Swift.Equatable {}
 extension MediaPlayerStatus : Swift.Hashable {}
 extension MediaPlayerStatus : Swift.RawRepresentable {}
+extension AdCachePolicy : Swift.Equatable {}
+extension AdCachePolicy : Swift.Hashable {}
+extension AdCachePolicy : Swift.RawRepresentable {}
 extension AdLogger.Level : Swift.Hashable {}
 extension AdLogger.Level : Swift.RawRepresentable {}
+extension AdAssetQuality : Swift.Equatable {}
+extension AdAssetQuality : Swift.Hashable {}
+extension AdAssetQuality : Swift.RawRepresentable {}
 extension CCPAConsent : Swift.Equatable {}
 extension CCPAConsent : Swift.Hashable {}
 extension CCPAConsent : Swift.RawRepresentable {}
@@ -765,6 +860,9 @@ extension AdEventType : Swift.RawRepresentable {}
 extension CompanionRenderingMode : Swift.Equatable {}
 extension CompanionRenderingMode : Swift.Hashable {}
 extension CompanionRenderingMode : Swift.RawRepresentable {}
+extension AdAssetState : Swift.Equatable {}
+extension AdAssetState : Swift.Hashable {}
+extension AdAssetState : Swift.RawRepresentable {}
 extension GDPRConsent : Swift.Equatable {}
 extension GDPRConsent : Swift.Hashable {}
 extension GDPRConsent : Swift.RawRepresentable {}

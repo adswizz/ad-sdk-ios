@@ -79,14 +79,14 @@ extension Model: AdManagerDelegate {
         delegate?.model(self, log: "Received message \(event.stringEvent)")
         
         switch event.event {
-        case .willStartLoading:
-            guard let firstMedia = event.ad?.mediaFiles.first else {
+        case .preparingForPlay:
+            guard let adMedia = event.ad?.asset.mediaUrl else {
                 adManager.skipAd()
                 return
             }
             
             //let's mock the duration as we don't have it in out player
-            player.play(firstMedia.uri, duration: 6.0)
+            player.play(adMedia, duration: 6.0)
             
         case .didFinishPlaying, .allAdsCompleted:
             // Cleanup

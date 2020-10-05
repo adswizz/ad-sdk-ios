@@ -18,7 +18,7 @@ extension Model: AdManagerDelegate {
         print("ad manager: \(adManager) triggered ad event: \(event.stringEvent)")
         
         switch event.event {
-        case .didFinishLoading:
+        case .readyForPlay:
             adManager.play() //necessary, if there is more than one ad in the manager
         case .didStartPlaying:
             //current ad in AdManager is playing

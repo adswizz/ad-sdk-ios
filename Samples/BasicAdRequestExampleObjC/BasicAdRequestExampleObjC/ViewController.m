@@ -225,7 +225,7 @@
     NSLog(@"ad manager: %@ -- triggered ad event: %@", adManager, event.stringEvent);
     
     switch (event.event) {
-        case AASDKAdEventTypeDidFinishLoading:
+        case AASDKAdEventTypeReadyForPlay:
         {
             // Ad manager finished loading ad(s)
             // Before playing the ads you should pause your own content

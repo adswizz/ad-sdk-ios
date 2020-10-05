@@ -212,8 +212,113 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 
+/// Analytics namespace
+SWIFT_CLASS_NAMED("AASDKAnalytics")
+@interface AASDKAnalytics : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+/// Level for a category
+typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAnalyticsCategory, "Level", open) {
+  AASDKAnalyticsCategoryNone = 0,
+  AASDKAnalyticsCategoryError = 1,
+  AASDKAnalyticsCategoryInfo = 2,
+};
 
 
+
+
+
+
+
+
+
+
+
+
+
+enum AASDKAdAssetState : NSInteger;
+@protocol AASDKAdAssetDelegate;
+
+/// The <code>AdAsset</code> provides support during asset downloading / caching
+SWIFT_PROTOCOL_NAMED("AdAsset")
+@protocol AASDKAdAsset
+/// The asset’s track data. Might be missing
+@property (nonatomic, readonly, copy) NSData * _Nullable data;
+/// The selected media file uri for the asset
+@property (nonatomic, readonly, copy) NSString * _Nullable mediaUrl;
+/// The asset’s creative type. For audio ads expect values to include, but not limited to “audio/mpeg” and “audio/aac”
+@property (nonatomic, readonly, copy) NSString * _Nullable mimeType;
+/// The asset’s expected data length in bytes
+@property (nonatomic, readonly) int64_t expectedContentLength;
+/// The asset’s status. Defaults to .initialized
+@property (nonatomic, readonly) enum AASDKAdAssetState state;
+/// Asset delegate. Optional
+@property (nonatomic, weak) id <AASDKAdAssetDelegate> _Nullable delegate;
+@end
+
+
+/// Informs its delegate of <code>AdAsset</code> networking events. Optional.
+/// Can be used to track the status of an <code>AdAsset</code> during buferring / pre-caching if available.
+SWIFT_PROTOCOL_NAMED("AdAssetDelegate")
+@protocol AASDKAdAssetDelegate
+@optional
+/// Is called when the asset data is fully downloaded.
+/// \param asset asset owner
+///
+/// \param data downloaded data
+///
+- (void)adAsset:(id <AASDKAdAsset> _Nonnull)asset didFinishDownloadingData:(NSData * _Nonnull)data;
+/// Is called when a new slice of data has been downloaded for the asset.
+/// Progress can be calculated as a 0…1 range e.g <code>bytesDownloaded</code>/ <code>bytesExpected</code>
+/// \param asset asset owner
+///
+/// \param data downloaded data so far
+///
+/// \param bytesDownloaded downloaded data progress in bytes
+///
+/// \param bytesExpected expected data to download in bytes
+///
+- (void)adAsset:(id <AASDKAdAsset> _Nonnull)asset didDownload:(NSData * _Nonnull)data bytesDownloaded:(int64_t)bytesDownloaded outOf:(int64_t)bytesExpected;
+/// Is called when encountered an error during data’s download for the asset.
+/// \param asset asset owner
+///
+/// \param error the error
+///
+- (void)adAsset:(id <AASDKAdAsset> _Nonnull)asset downloadingFailedWith:(NSError * _Nonnull)error;
+@end
+
+/// The <code>AdAssetQuality</code> provides quality options for which assets will be cached/played by Ad Manager
+typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdAssetQuality, "AdAssetQuality", open) {
+/// Low quality
+  AASDKAdAssetQualityLow = 0,
+/// Medium-high quality
+  AASDKAdAssetQualityMedium = 1,
+/// High-very high quality
+  AASDKAdAssetQualityHigh = 2,
+};
+
+/// The states for an <code>AdAsset</code> object
+typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdAssetState, "AdAssetState", open) {
+/// The asset is an errored state.
+  AASDKAdAssetStateUnknown = 0,
+/// The asset has been scheduled for loading.
+  AASDKAdAssetStateScheduled = 1,
+/// The asset has been created and is about to start loading.
+  AASDKAdAssetStateInitialized = 2,
+/// The asset is loading its data.
+  AASDKAdAssetStateLoading = 3,
+/// The  asset has finished loading.
+  AASDKAdAssetStateReady = 4,
+/// The asset encountered an error during loading.
+  AASDKAdAssetStateFailed = 5,
+};
+
+/// The <code>AdCachePolicy</code> provides caching options for the ads managed by Ad Manager
+typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdCachePolicy, "AdCachePolicy", open) {
+/// Enable the ad manager to cache assets
+  AASDKAdCachePolicyAssets = 0,
+};
 
 
 /// Ad companion options to configure it with
@@ -241,6 +346,8 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// A deactivated companion view means that any requests are not performed anymore.
 /// Setting it to <code>true</code> will activate again the companion view.
 @property (nonatomic) BOOL active;
+/// Return the click through URL for this companion if the loaded resource is a static companion
+@property (nonatomic, readonly, copy) NSURL * _Nullable clickThrough;
 /// Init
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -254,6 +361,12 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
+@class UIGestureRecognizer;
+
+@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class WKWebView;
 @class WKWebViewConfiguration;
 @class WKNavigationAction;
@@ -263,11 +376,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 - (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class UIGestureRecognizer;
-
-@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
 
 
 
@@ -321,7 +429,6 @@ SWIFT_PROTOCOL_NAMED("AdCompanionViewDelegate")
 - (void)adCompanionViewWillLeaveApplication:(AASDKAdCompanionView * _Nonnull)adCompanionView;
 @end
 
-@protocol AASDKMediaFile;
 @protocol AASDKCompanion;
 
 /// AdData public protocol
@@ -329,8 +436,8 @@ SWIFT_PROTOCOL_NAMED("AdData")
 @protocol AASDKAdData
 /// Id for an ad. It might be missing.
 @property (nonatomic, readonly, copy) NSString * _Nullable id;
-/// Media files for the ad
-@property (nonatomic, readonly, copy) NSArray<id <AASDKMediaFile>> * _Nonnull mediaFiles;
+/// Asset data for the ad
+@property (nonatomic, readonly, strong) id <AASDKAdAsset> _Nonnull asset;
 /// Companions associtated with the ad
 @property (nonatomic, readonly, copy) NSArray<id <AASDKCompanion>> * _Nonnull companions;
 @end
@@ -361,9 +468,9 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdEventType, "AdEventType", open) {
 /// Default state.
   AASDKAdEventTypeUnknown = 0,
 /// An ad will start loading.
-  AASDKAdEventTypeWillStartLoading = 1,
+  AASDKAdEventTypePreparingForPlay = 1,
 /// Player playing the ad has finished loading(buffering). Usefull when playing ads with internal player.
-  AASDKAdEventTypeDidFinishLoading = 2,
+  AASDKAdEventTypeReadyForPlay = 2,
 /// Ad has started.
   AASDKAdEventTypeDidStartPlaying = 3,
 /// Ad paused.
@@ -475,6 +582,20 @@ SWIFT_PROTOCOL_NAMED("AdManagerDelegate")
 /// \param event The event received
 ///
 - (void)adManager:(id <AASDKAdManager> _Nonnull)adManager didReceiveAdEvent:(id <AASDKAdEvent> _Nonnull)event;
+@optional
+/// Called when playhead for the internal player has changed on the current ad
+/// It will also be called when playHead positions itself on 0 or close to 0, immediatly after didStartPlaying’ event.
+/// Frequency of calling this function depends on how frequently the internal player is sending updates to the SDK. This usually happens at 1s interval but you can
+/// expect more frequent updates if the player considers necessary to do so.
+/// \param adManager The AdManager that sent the event
+///
+/// \param ad Ad that is being played
+///
+/// \param playHead Current position of the play head. Should be in interval [0..duration].
+///
+/// \param duration Total duration of the ad media as reported by the internal SDK player.
+///
+- (void)adManager:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad didChangedPlayHead:(NSTimeInterval)playHead adDuration:(NSTimeInterval)duration;
 @end
 
 @protocol AASDKMediaPlayerState;
@@ -486,7 +607,22 @@ SWIFT_CLASS_NAMED("AdManagerSettings")
 /// If it is not set than the SDK will use an internal player to play the ad
 /// and the user of the SDK will be notified when to pause/resume it’s content
 @property (nonatomic, weak) id <AASDKMediaPlayerState> _Nullable player;
+/// Adds a cache option that might be provided from outside
+/// By default no caching options will be used
+- (void)addCachePolicy:(enum AASDKAdCachePolicy)policy;
+/// Set an <code>AdAssetQuality</code>  option which will be used to load/play the asset that matches the level of quality.
+/// If the Ad Manager can’t find a match for the level you set it will use the next ‘best’ quality level if available. Defaults to high.
+@property (nonatomic) enum AASDKAdAssetQuality assetQuality;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface AASDKAdManagerSettings (SWIFT_EXTENSION(AdswizzSDK))
+/// Indicates if caching capabilities for creative assets are enabled or not
+///
+/// returns:
+/// true if cache option for assets is enabled, or false otherwise
+- (BOOL)isCachedAssetsEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -496,6 +632,7 @@ SWIFT_CLASS_NAMED("AdRequest")
 @property (nonatomic, readonly, copy) NSURL * _Nullable url;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 @class NSNumber;
 
@@ -868,6 +1005,7 @@ SWIFT_CLASS_NAMED("Builder")
 @protocol AASDKAdswizzSDKDelegate;
 @protocol AASDKWatchSession;
 enum AASDKGDPROption : NSInteger;
+@protocol AASDKAnalyticsCollector;
 
 /// Adswizz Ad SDK class
 SWIFT_CLASS_NAMED("AdswizzSDK")
@@ -900,7 +1038,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 @property (nonatomic) CLLocationAccuracy locationAccuracy;
 /// Enable/disable location significant changes mode
 @property (nonatomic) BOOL enableLocationSignificantChanges;
+/// Access the analytics object
+@property (nonatomic, readonly, strong) id <AASDKAnalyticsCollector> _Nonnull analytics;
 @end
+
 
 
 
@@ -933,6 +1074,57 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull PlayerId;)
 + (NSString * _Nonnull)PlayerId SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@protocol AASDKAnalyticsEvent;
+
+/// AnalyticsCollecting protocol, all events will be received on a serial background queue
+SWIFT_PROTOCOL_NAMED("AnalyticsCollecting")
+@protocol AASDKAnalyticsCollecting
+/// Log an event matched to a category and level
+/// \param event event to log
+///
+- (void)log:(id <AASDKAnalyticsEvent> _Nonnull)event :(NSDate * _Nonnull)timestamp;
+/// Force a send to all connectors
+/// When you recieve this call, the connector should try to flush all its stored event if forced is true
+/// \param forced true if the action is to be required immediatly
+///
+- (void)sendWithForced:(BOOL)forced;
+@end
+
+@protocol AASDKAnalyticsConnector;
+
+/// AnalyticsCollector protocol
+SWIFT_PROTOCOL_NAMED("AnalyticsCollector")
+@protocol AASDKAnalyticsCollector
+/// Add a connector
+/// \param connector the connector
+///
+- (void)add:(id <AASDKAnalyticsConnector> _Nonnull)connector;
+/// Remove a connector
+/// \param connector the connector
+///
+- (void)remove:(id <AASDKAnalyticsConnector> _Nonnull)connector;
+@end
+
+
+/// AnalyticsConnector inherits AnalyticsCollecting for now
+SWIFT_PROTOCOL_NAMED("AnalyticsConnector")
+@protocol AASDKAnalyticsConnector <AASDKAnalyticsCollecting>
+@end
+
+
+/// AnalyticsEvent
+SWIFT_PROTOCOL_NAMED("AnalyticsEvent")
+@protocol AASDKAnalyticsEvent
+/// id for the event - should be unique
+@property (nonatomic, readonly, copy) NSString * _Nonnull id;
+/// category for the event
+@property (nonatomic, readonly, copy) NSString * _Nonnull category;
+/// level for the event
+@property (nonatomic, readonly) enum AASDKAnalyticsCategory level;
+/// extra params attached to the event
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable params;
 @end
 
 /// The U.S. Privacy consent
@@ -993,6 +1185,7 @@ SWIFT_PROTOCOL_NAMED("CompanionResource")
 /// html resources
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable html;
 @end
+
 
 
 
@@ -1194,6 +1387,8 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKMediaPlayerStatus, "MediaPlayerStatus",
 
 
 
+
+
 /// Static resource protocol
 SWIFT_PROTOCOL_NAMED("StaticResource")
 @protocol AASDKCompanionStaticResource <NSObject>
@@ -1202,6 +1397,8 @@ SWIFT_PROTOCOL_NAMED("StaticResource")
 /// creative type
 @property (nonatomic, readonly, copy) NSString * _Nonnull creativeType;
 @end
+
+
 
 
 

@@ -14,6 +14,9 @@
   * [Setting up your zone(s) for ad request](#setting-up-your-zone-for-ad-request)
   * [Your first ad request](#your-first-ad-request)
   * [Working with AdManager object](#working-with-admanager-object)
+    + [Setup AdManager](#setup-admanager)
+    + [Precaching ads in AdManager](#precaching-ads-in-admanager)
+    + [Start AdManager](#start-admanager)
   * [AdManager life cycle](#admanager-life-cycle)
     + [AdManager operations](#admanager-operations)
     + [AdManager protocol](#admanager-protocol)
@@ -58,6 +61,7 @@
   * [Privacy](#privacy)
     + [GDPR](#gdpr)
     + [CCPA](#ccpa)
+- [AdswizzSDK Analytics](#adswizzsdk-analytics)  
 - [(Optional) Prepare your application for advanced targetability capabilities](#optional-prepare-your-application-for-advanced-targetability-capabilities)
   * [Privacy implications](#privacy-implications)
   * [Technical prerequisites](#technical-prerequisites)
@@ -158,14 +162,14 @@ In a server-side insertion scenario, it takes the pressure off your app by makin
 
 ## Prerequisites
 
-*   Xcode 11+
+*   Xcode 12+
 *   Swift 5.0+ if the integration app uses Swift or Objective-C
 *   Framework binaries - either via CocoaPods or archive
 
 
 ## Dependencies
 
-AdswizzSDK for iOS depends on two external libraries in order to support voice recognition in interactive voice ads, namely *Amazon’s AWSCore* and *Facebook’s SocketRocket*. <br>
+AdswizzSDK for iOS depends on two external libraries in order to support voice recognition in interactive voice ads, namely *Amazon’s AWSCore* and *Facebook’s SocketRocket*. *AWSCore* is a dependency used by the [AdswizzSDK Analytics](#adswizzsdk-analytics) too. <br>
 It also relies on *SwiftProtobuf* to handle the serialized communication with AdsWizz cloud services. 
 These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If choose the manual integration you will have to provide them at link time.
 
@@ -342,10 +346,16 @@ If the request to the AdsWizz Ad server was successful, the SDK will return an *
 To get this communication channel open you need to set up a delegate for the **_AdManager_** that conforms to the **_AdManagerDelegate_** protocol. 
 The **_AdManager_** will call `func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)` whenever events of interest occur in the SDK. Please consult AdEventType enum for a list of possible events from the AdswizzSDK. If an error happens in the SDK while using this object, `func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)` will be called.
 
-As a first step, an **_AdManager_** needs to be set up. You can create an **_AdManagerSettings_** object and pass it to your newly created **_AdManager_** instance. In this object you can specify if you want to play the ad with the SDK’s internal player or use a player of your choice that must conform to the **_MediaPlayerState_** protocol.
+### Setup AdManager
 
-Next, you need to call the _.prepare()_ method on the **_AdManager_** object. This will buffer the ads if you decide the play them with the internal player. Here is how it looks like.
+As a first step, an **_AdManager_** needs to be set up. This will be done by creating an **_AdManagerSettings_** object and pass it to your newly created **_AdManager_** instance. In this object you can specify if you want to play the ad with the SDK’s internal player or use a player of your choice that must conform to the **_MediaPlayerState_** protocol.
+Additionally, you can instruct **_AdManager_** which level of asset quality it should match from the available creatives for an ad. This can be done by setting the appropriate **_AdAssetQuality_** property on your instance of **_AdManagerSettings_**. By default the AdswizzSDK will attempt to select an ad asset which matches the **_.high_** quality.
+You can fine tune it by using the other available quality levels such as **_.medium_** or **_.low_**.
 
+**_AdManager_** is also capable of pre-caching the creatives assets for all of its ads before/while actually playing them. This is done by setting the appropriate **_AdCachePolicy_** on your instance of **_AdManagerSettings_**. By default the AdswizzSDK does not (pre-)cache the ads.
+
+Next, you need to call the _.prepare()_ method on the **_AdManager_** object. This will buffer the ads if you decide the play them with the internal player.
+Here is how it looks like.
 
 ```swift
 import AdswizzSDK
@@ -357,18 +367,21 @@ func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
     ......
     self.adManager = adManager   // Keep a strong reference of this object
     adManager?.delegate = self   // Get notifications from the Ad SDK
-    let settings = AdManagerSettings() // Not required
-    //settings.player = yourPlayer     // Optional
+    
+    let settings = AdManagerSettings()    // Not required
+    //settings.assetQuality = .medium     // Optional, defaults to .high
+    //settings.player = yourPlayer        // Optional
+    //settings.addCachePolicy(.assets)    // Optional, by default the AdManager will not use its pre-caching capability
+    adManager.adManagerSettings = settings
+
     adManager?.prepare()   // Start buffering the ads in the AdManager
 }
 ......
 
-
-
 ......
 func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
     switch event.event {
-      case .didFinishLoading:
+      case .readyForPlay:
            adManager.play() //Start playing the next ad in the AdManager
       case .didFinishPlaying:
           break // Current ad has finished playing
@@ -382,6 +395,83 @@ func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
 }
 ```
 
+### Precaching ads in AdManager
+
+Pre-caching the media (creative) assets will allow for your app to serve audio ads in poor network or possibly complete lack of network connection. This will improve user experience because an ad can play instantly or prevent buffering mid ad.
+AdswizzSDK offers the capability of a caching like experience, by expanding the size of the buffer to allow for essentially buffering the entire media asset from each ad managed by **_AdManager_**.
+
+You can access the underlaying **_asset_** property of an **_ad_** data, which provides additional information for that particular media asset. 
+This **_AdAsset_** interface makes it easy to get access to the following information:
+  * **_data_**: the asset's track data (byte array). Might be missing
+  * **_mediaUrl_**: the selected media file uri for the asset. The result of your choice of AdAssetQuality
+  * **_mimeType_**: the asset's creative type. For audio ads expect values to include, but not limited to "audio/mpeg" and "audio/aac"
+  * **_expectedContentLength_**: the asset's expected data length in bytes
+  * **_state_**: the asset's status. See AdAssetState for all possible states
+  * **_delegate_**: asset delegate. Optional. If set it will notify your app with asset progress during loading
+
+If you enable the **_.assets_** cache option through your **_AdManagerSettings_** instance, and after you set it on **_AdManager_** object, calling _.prepare()_ on **_AdManager_** instance will trigger the pre-caching mechanism.
+To take full advantage of this behaviour you would ideally call _.prepare()_ in advance, before playing the ads with either the internal player or your own. This allows AdswizzSDK to download and store the media assets for _all_ of its ads and maximizes effectiveness. However, you are not required to adhere to this strategy.
+
+Here is how it looks like with the pre-caching enabled.
+
+```swift
+import AdswizzSDK
+
+class YourModelClass: AdManagerDelegate, AdAssetDelegate {
+   var adManager: AdManager?
+.....
+func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
+    ......
+    self.adManager = adManager   // Keep a strong reference of this object
+    adManager?.delegate = self   // Get notifications from the Ad SDK
+    
+    let settings = AdManagerSettings()
+    //settings.player = yourPlayer      // Optional
+    settings.addCachePolicy(.assets)    // Instruct the AdManager to trigger the pre-caching mechanism
+    adManager.adManagerSettings = settings
+
+    adManager?.prepare()   // Start pre-caching the ads in the AdManager
+}
+......
+
+......
+func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
+    switch event.event {
+      case .preparingForPlay:
+           event.ad?.asset.delegate = self //Optional, get notifications for this ad's asset
+      case .readyForPlay:
+           adManager.play() //Start playing the next ad in the AdManager
+      case .didFinishPlaying:
+          break // Current ad has finished playing
+      case .allAdsDidFinishPlaying:
+            break // All ads from the AdManager have finished
+      default:
+          break
+    }
+}
+......
+
+......
+func adAsset(_ asset: AdAsset, didFinishDownloadingData data: Data) {
+    //At this point the asset data is fully downloaded
+    //...
+}
+    
+func adAsset(_ asset: AdAsset, didDownload data: Data, bytesDownloaded: Int64, outOf bytesExpected: Int64) {
+    //Called when a new slice of data has been downloaded for the asset.
+    //Progress can be calculated as a 0...1 range e.g `bytesDownloaded` / `bytesExpected`
+    //...
+}
+    
+func adAsset(_ asset: AdAsset, downloadingFailedWith error: Error) {
+    //Called when encountered an error during data's download for the asset
+    //...
+}
+......
+}
+```
+
+### Start AdManager
 
 If you decided to use the SDK internal player, to actually start the **_AdManager_** rolling the ads you must call the _.play()_ method inside the **_AdManager_** object. 
 If you provide the player, then you only need to start playing the ad in your player and the AdswizzSDK will observe the **_MediaPlayerState_** interface and sense when the ad has finished. In this case, calling **_adManager.play()_** is not necessary.
@@ -400,12 +490,12 @@ Once presented with an **_AdManager_** object one could call different actions o
 ### AdManager protocol
 #### prepare
 
-You call this method to begin cycling through the ads in the **_AdManager_** object. If you decided to let the SDK handle the playback of the ads, this method ensures that the internal player is starting to buffer enough data so that ad playback starts smoothly. After calling this method, the first ad is beginning to load. The SDK will trigger **_willStartLoading_** event informing your app that buffering has begun for the ad. If the SDK is playing the ad, you will also get **_didFinishLoading_** event for the first ad. If you are playing the ad, you will not get this message since your player is responsible to start the buffering process.
+You call this method to begin cycling through the ads in the **_AdManager_** object. If you decided to let the SDK handle the playback of the ads, this method ensures that the internal player is starting to buffer enough data so that ad playback starts smoothly. After calling this method, the first ad is beginning to load. The SDK will trigger **_preparingForPlay_** event informing your app that buffering has begun for the ad. If the SDK is playing the ad, you will also get **_readyForPlay_** event for the first ad. If you are playing the ad, you will not get this message since your player is responsible to start the buffering process.
 
 
 #### play
 
-If you decided to let the SDK play the ads you will need to call **_play_** method on **_didFinishLoading_** (recommended). Calling this method while you are handling the ad playback has no effect in the SDK. You can call this method after you paused the AdManager to resume playback. AdManager will trigger a **_didStartPlaying_** event back to your app for confirmation. 
+If you decided to let the SDK play the ads you will need to call **_play_** method on **_readyForPlay_** (recommended). Calling this method while you are handling the ad playback has no effect in the SDK. You can call this method after you paused the AdManager to resume playback. AdManager will trigger a **_didStartPlaying_** event back to your app for confirmation. 
 
 #### pause
 
@@ -414,7 +504,7 @@ If you decided to let the SDK play the ads, you can call **_pause_** method when
 
 #### skipAd
 
-If you need to skip an ad, you can call this method to skip the current ad from the AdManager. This method applies even if you decided to take control of the ad playback. Your app will receive a **_didFinishPlaying_** event for the current ad, and if the AdManager has a new ad you will receive **_willStartLoading_** for that one. If no ads are available, an **_allAdsDidFinishPlaying_** will be sent, signaling that all ads got processed in the AdManager.
+If you need to skip an ad, you can call this method to skip the current ad from the AdManager. This method applies even if you decided to take control of the ad playback. Your app will receive a **_didFinishPlaying_** event for the current ad, and if the AdManager has a new ad you will receive **_preparingForPlay_** for that one. If no ads are available, an **_allAdsDidFinishPlaying_** will be sent, signaling that all ads got processed in the AdManager.
 
 
 #### reset
@@ -741,7 +831,7 @@ If your player can read metadata from the media that is playing, it should repor
 ### playerStatus
 
 While your player is playing the ad it should update this member so that the AdswizzSDK can start monitoring the status of the ad through your player. **Failing to update** this member accordingly will render **_AdManager_** incapable of generating normal events.
-You should put your player in the **_initialized_** state upon receiving the ad url from the **_AdManager_**, on **_willStartLoading_** event in the following function:
+You should put your player in the **_initialized_** state upon receiving the ad url from the **_AdManager_**, on **_preparingForPlay_** event in the following function:
 
 ```swift
 func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)
@@ -749,7 +839,7 @@ func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)
 
 
 If your player cannot load the ad url, the player should report the **_failure_** state. You also need to set this state in case the error occurs during the ad playback, and the ad cannot be played anymore. 
-When you set **_failure_** or **_unknown_** as the state of your player, the SDK will terminate the current ad that was sent in **_willStartLoading_**, and inform your app that the media player state is **_unknown_**. The AdManager will move to the next ad, if available.
+When you set **_failure_** or **_unknown_** as the state of your player, the SDK will terminate the current ad that was sent in **_preparingForPlay_**, and inform your app that the media player state is **_unknown_**. The AdManager will move to the next ad, if available.
 
 If your player is buffering data, you can report that to the SDK by setting the state to **_buffering_**. Once your player finishes buffering, you need to report **_bufferingFinished_**. Reporting **_buffering_** and **_bufferingFinished_** ensures that quartile/progress events are reported correctly and are not subject to network interruptions. Once your player is ready to play the ads (after buffering enough data), it can report a state of **_readyToPlay_**, meaning the player’s play method might be called. This state is optional and it resembles the AVPlayer currentItem readyToPlay status. If your player started the ad playback, set the state to **_playing_**. If you pause the playback, set the state to **_pause_**. Similarly, **Resume** will change the state to **_playing_** again. When the player has finished playing the ad, set the state to **_finished_**.
 
@@ -840,6 +930,31 @@ AdswizzSDK.shared.ccpaConfig = AdswizzCCPAConfig.Builder()
 
 The default value for **_explicitNotice_**, **_optOut_** and **_lspa_** is **_notApplicable_**. Other possibile values are **_yes_** and **_no_**.
 
+# AdswizzSDK Analytics
+
+**_AdswizzSDK_** framework collects and exposes information on SDK's events that occur during its lifecycle. It was built to log different event types (informative and errors) that cover both integration robustness and ad lifecycle management in both client-side and server-side scenarios.
+To enable integrators complement their specific app analytics systems (e.g. Firebase, Mixpanel etc) with AdsWizz SDK internal events, the **_AdswizzSDK_** framework provides you with the ability to receive all the analytics events from the SDK and forward them to your own ingestion pipelines by implementing **_AnalyticsConnector_** protocol. 
+If you want to learn more about the types of events you can listen and use, please reach out to your Integration Manager at AdsWizz.
+
+AdsWizz may also use this mechanism to collect and analyze SDK performance metrics in order to identify integration specific issues that might affect capacity or impressions/opportunities ratio.
+
+```swift
+class YourAnalyticsConnector: AnalyticsConnector {
+  func log(_ event: AnalyticsEvent, _ timestamp: Date) {
+      //Store or send this event to your desired platform
+      //This will be called on a background queue    
+  }
+
+  func send(forced: Bool) {
+      //Get's called when the SDK uninitialize. There might be other times in the future were this gets called.
+      //If forced is true you should be flushing the stored events ASAP. If it is false you can send your events whenever you want.
+      //This will be called on a background queue    
+  }
+}
+```
+
+Possibile events of interest for you might be those with the level set to **_error_**.
+
 # (Optional) Prepare your application for advanced targetability capabilities
 
 ## Privacy implications
@@ -911,7 +1026,7 @@ If the communication with the watch is viable, **_AdswizzWatchSDK_** will also c
 ## Prerequisites for a successful integration
 In order for **_AdswizzSDK_** to use the **_AdswizzWatchSDK_** on the listener's watch, you need to make sure that your iOS app automatically opens the WatchOS companion app before the ad break starts. To do that, your iOS app needs to update the [Now Playing](https://developer.apple.com/documentation/mediaplayer/becoming_a_now_playable_app) information. When updating Now Playing in the iOS app, your WatchOS companion app will be automatically started. To recap, here's a list of things to keep in mind when integrating **_AdswizzWatchSDK_**:
 * make sure your app is compliant with [Now Playing](https://developer.apple.com/documentation/mediaplayer/becoming_a_now_playable_app)
-* make sure you update Now Playing information every time an ad is about to be played. Ideally, you can sync it with the **_willStartLoading_** event you receive with the **_AdManager_** object. This will increase the probability that your WatchOS companion app will start on the watch.
+* make sure you update Now Playing information every time an ad is about to be played. Ideally, you can sync it with the **_preparingForPlay_** event you receive with the **_AdManager_** object. This will increase the probability that your WatchOS companion app will start on the watch.
 * make sure your companion app has not opted out for [Auto-launch Audio App](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/watchOSKeys.html)
 
 ## Cases when updating 'Now Playing' information from iOS won't start the WatchOS companion app

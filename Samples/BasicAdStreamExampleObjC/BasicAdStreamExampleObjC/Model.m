@@ -106,7 +106,7 @@
     NSLog(@"ad manager: %@ -- triggered ad event: %@", adManager, event.stringEvent);
     
     switch (event.event) {
-        case AASDKAdEventTypeDidFinishLoading:
+        case AASDKAdEventTypeReadyForPlay:
         {
             //necessary, if there is more than one ad in the manager
             [adManager play];
