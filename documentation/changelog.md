@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.2.1] - 2020-10-26
+### Fixed
+- Companion banners (**AdCompanionView** objects) behaviour change: firing one **creativeView** tracking event per ad when displaying multiple companion banners for the same ad.
+- Fixed an issue that was preventing the display of in app notification view for interactive ads.
+
 ## [7.2.0] - 2020-09-30
 ### Added
 - SDK support to provide the current ad's duration and playback progress updates to Host App.

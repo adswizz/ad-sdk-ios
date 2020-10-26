@@ -1,7 +1,7 @@
 BCSymbolMap Version: 2.0
-Apple clang version 12.0.0 (clang-1200.0.32.2)
-/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk
-iPhoneOS14.0.sdk
+Apple clang version 12.0.0 (clang-1200.0.32.21)
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.1.sdk
+iPhoneOS14.1.sdk
 /Users/dev/Library/Developer/Xcode/DerivedData/AdswizzSDK-caxxkmsgjhiylkarcgijxdkyhlzt/Build/Intermediates.noindex/DependantBuilds/AdswizzSDK.build/Release-iphoneos/AdswizzSDK.build/DerivedSources/AdswizzSDK_vers.c
 /Users/dev/.jenkins/workspace/AdswizzSDK iOS Prerelease/AdswizzSDK-develop/AdswizzSDK
 /Users/dev/.jenkins/workspace/AdswizzSDK iOS Prerelease/AdswizzSDK-develop/AdCore/AdCore/Helpers/XMLValidation.c
@@ -6540,7 +6540,7 @@ objectdestroy.7
 $ss22_ContiguousArrayBufferV19_uninitializedCount15minimumCapacityAByxGSi_SitcfCSS_Tg5Tf4nnd_n
 $ss22_ContiguousArrayBufferV18_initStorageHeader5count8capacityySi_SitFSS_Tg5
 _swift_stdlib_malloc_size
-/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/usr/lib/swift/shims/LibcShims.h
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.1.sdk/usr/lib/swift/shims/LibcShims.h
 $ss22_ContiguousArrayBufferVAByxGycfCSS_Tg5
 $sSaySSGSayxGSKsWl
 __swift_allocate_boxed_opaque_existential_1
@@ -8558,7 +8558,7 @@ isAdvertisingTrackingEnabled.get
 idfa.get
 replaceMacros
 NSMakeRange
-/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
 $sShyxGSlsSl9formIndex5aftery0B0Qzz_tFTW10AdswizzSDK21MediaPlayerCapabilityC_Ti5
 $sSh9formIndex5afterySh0B0Vyx_Gz_tF10AdswizzSDK21MediaPlayerCapabilityC_Tg5
 $sSh8_VariantV9formIndex5afterySh0C0Vyx_Gz_tF10AdswizzSDK21MediaPlayerCapabilityC_Tg5
@@ -23516,6 +23516,7 @@ _$s10AdswizzSDK21InAppNotificationViewC03webF0_9didFinishySo05WKWebF0C_So12WKNav
 _$s10AdswizzSDK21InAppNotificationViewC03webF0_9didFinishySo05WKWebF0C_So12WKNavigationCSgtFTo
 _$s10AdswizzSDK21InAppNotificationViewC03webF0_7didFail9withErrorySo05WKWebF0C_So12WKNavigationCSgs0K0_ptFTo
 _$s10AdswizzSDK21InAppNotificationViewC14loadWebContentyyKF
+_$s10Foundation3URLV10AdswizzSDKE4fromACSgSS_tcfC
 _$s10AdswizzSDK21InAppNotificationViewC5coderACSgSo7NSCoderC_tcfcTf4gn_n
 _$s10AdswizzSDK21InAppNotificationViewC03webF0_7didFail9withErrorySo05WKWebF0C_So12WKNavigationCSgs0K0_ptFTf4ddnn_n
 _$s10AdswizzSDK21InAppNotificationViewC03webF0_9didFinishySo05WKWebF0C_So12WKNavigationCSgtFySo6CGSizeVcfU_TA
@@ -51137,6 +51138,7 @@ __ZN5swift39swift51override_conformsToSwiftProtocolEPKNS_14TargetMetadataINS_9In
 _Swift51Overrides
 /AppleInternal/BuildRoot/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang --driver-mode=g++ -D CMARK_STATIC_DEFINE -D GTEST_HAS_RTTI=0 -D LLVM_DISABLE_ABI_BREAKING_CHECKS_ENFORCING=1 -D __STDC_CONSTANT_MACROS -D __STDC_FORMAT_MACROS -D __STDC_LIMIT_MACROS -I stdlib/toolchain/Compatibility51 -I /AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Sources/swiftlang/swiftlang-1200.0.29.2/swift/stdlib/toolchain/Compatibility51 -I include -I /AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Sources/swiftlang/swiftlang-1200.0.29.2/swift/include -I /AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Sources/swiftlang/swiftlang-1200.0.29.2/llvm-project/llvm/include -I /AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Binaries/swiftlang/install/TempContent/Objects/BNI_assert_lightweight/llvm-macosx-x86_64/include -I /AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Sources/swiftlang/swiftlang-1200.0.29.2/llvm-project/clang/include -I /AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Binaries/swiftlang/install/TempContent/Objects/BNI_assert_lightweight/llvm-macosx-x86_64/tools/clang/include -I /AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Sources/swiftlang/swiftlang-1200.0.29.2/cmark/src -I /AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Binaries/swiftlang/install/TempContent/Objects/BNI_assert_lightweight/cmark-macosx-x86_64/src -Wno-unknown-warning-option -Werror=unguarded-availability-new -fno-stack-protector -fPIC -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-class-memaccess -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wstring-conversion -fdiagnostics-color -Werror=switch -Wdocumentation -Wimplicit-fallthrough -Wunreachable-code -Woverloaded-virtual -D OBJC_OLD_DISPATCH_PROTOTYPES=0 -O2 -D NDEBUG -isysroot /AppleInternal/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -fno-exceptions -funwind-tables -fno-rtti -Werror=gnu -Wall -Wglobal-constructors -Wexit-time-destructors -fvisibility=hidden -D SWIFT_COMPATIBILITY_LIBRARY=1 -D SWIFT_TARGET_LIBRARY_NAME=swiftCompatibility51 -fembed-bitcode=all --target=arm64-apple-ios7.0 -isysroot /AppleInternal/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk -arch arm64 -F/AppleInternal/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/../../../Developer/Library/Frameworks -F/AppleInternal/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/../../../Developer/AppleInternal/Library/Frameworks -miphoneos-version-min=7.0 -O2 -g -D NDEBUG -std=c++14 -MD -MT stdlib/toolchain/Compatibility51/CMakeFiles/swiftCompatibility51-iphoneos-arm64.dir/Overrides.cpp.o -MF stdlib/toolchain/Compatibility51/CMakeFiles/swiftCompatibility51-iphoneos-arm64.dir/Overrides.cpp.o.d -o stdlib/toolchain/Compatibility51/CMakeFiles/swiftCompatibility51-iphoneos-arm64.dir/Overrides.cpp.o -c /AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Sources/swiftlang/swiftlang-1200.0.29.2/swift/stdlib/toolchain/Compatibility51/Overrides.cpp -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-enum-enum-conversion -Wno-enum-float-conversion -mlinker-version=609 -stdlib=libc++
 /AppleInternal/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk
+iPhoneOS14.0.sdk
 /AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Sources/swiftlang/swiftlang-1200.0.29.2/swift/stdlib/toolchain/Compatibility51/Overrides.cpp
 /AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Binaries/swiftlang/install/TempContent/Objects/BNI_assert_lightweight/swift-macosx-x86_64
 _swift_getFunctionReplacement50
