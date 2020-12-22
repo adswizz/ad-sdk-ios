@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "AdswizzSDK"
-  s.version     = "7.2.1"
+  s.version     = "7.3.0"
   s.summary     = "Audio Ad serving SDK"
   s.description = <<-DESC
                   The only audio-centric SDK to Drive Innovation & Differentiation in Audio monetization
@@ -17,9 +17,9 @@ Pod::Spec.new do |s|
 
   s.platform    = :ios
   s.ios.deployment_target = '11.0'
-  s.swift_versions = ['5.3']
+  s.swift_versions = ['5.3.2']
 
-s.source      = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "release/7.2.1" }
+s.source      = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "release/7.3.0" }
 
   s.vendored_frameworks = 'Framework/AdswizzSDK.xcframework'
   s.requires_arc = true
@@ -27,4 +27,5 @@ s.source      = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "
   s.dependency 'AWSCore'
   s.dependency 'SocketRocket'
   s.dependency 'SwiftProtobuf'
+  s.dependency 'AdswizzSDKPrivacyData', '1.0.6'
 end

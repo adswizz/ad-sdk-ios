@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:BasicTrackingPermissionExample/BasicTrackingPermissionExample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BasicVideoAdExample/BasicVideoAdExample.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:BasicAdRequestWatchExample/BasicAdRequestWatchExample.xcodeproj">
    </FileRef>
    <FileRef

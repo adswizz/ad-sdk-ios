@@ -6,6 +6,7 @@
   * [Prerequisites for ‘Server-Side Insertion’](#prerequisites-for-server-side-insertion)
 - [Get started](#get-started)
   * [Prerequisites](#prerequisites)
+  * [Changelog](#changelog)
   * [Dependencies](#dependencies)
   * [Adding the SDK to your Xcode project](#adding-the-sdk-to-your-xcode-project)
   * [Changes in your Info.pList file](#changes-in-your-infoplist-file)
@@ -26,7 +27,9 @@
       - [skipAd](#skipad)
       - [reset](#reset)
 - [Server-Side Insertion](#server-side-insertion)
+  * [Precaching before playing](#precaching-before-playing)
   * [AdswizzAdStreamManager operations](#adswizzadstreammanager-operations)
+    + [prepare](#prepare-1)
     + [play](#play-1)
     + [pause](#pause-1)
     + [resume](#resume)
@@ -40,6 +43,15 @@
   * [Adding an AdCompanionView](#adding-an-adcompanionview)
   * [Setting things up](#setting-things-up)
   * [Companion events](#companion-events)
+- [Video ads](#video-ads)
+  * [Adding an AdVideoView](#adding-an-advideoview)
+  * [Setup video support](#setup-video-support)
+  * [Subclassing AdVideoView](#subclassing-advideoview)
+  * [Video events](#video-events)
+  * [Viewability](#viewability)
+    + [Friendly obstructions](#friendly-obstructions)
+    + [Video player state](#video-player-state)
+  * [Playing video ads using your player](#playing-video-ads-using-your-player)
 - [Debugging AdswizzSDK](#debugging-adswizzsdk)
 - [Playing ads using your player](#playing-ads-using-your-player)
   * [MediaPlayerState protocol](#mediaplayerstate-protocol)
@@ -61,7 +73,15 @@
   * [Privacy](#privacy)
     + [GDPR](#gdpr)
     + [CCPA](#ccpa)
-- [AdswizzSDK Analytics](#adswizzsdk-analytics)  
+- [AdswizzSDK Analytics](#adswizzsdk-analytics)
+- [Open Measurement in AdswizzSDK](#open-measurement-in-adswizzsdk)
+  * [Video controls obstructions](#video-controls-obstructions)
+- [(Optional) Tracking permission request](#optional-tracking-permission-request)
+  * [TrackingPermissionController](#trackingpermissioncontroller)
+  * [TrackingPermissionConfiguration](#trackingpermissionconfiguration)
+      - [TrackingPermissionUIElement](#trackingpermissionuielement)
+  * [Behaviour](#behaviour)
+  * [Other considerations](#other-considerations)
 - [(Optional) Prepare your application for advanced targetability capabilities](#optional-prepare-your-application-for-advanced-targetability-capabilities)
   * [Privacy implications](#privacy-implications)
   * [Technical prerequisites](#technical-prerequisites)
@@ -71,6 +91,8 @@
   * [BasicAdStreamExample](#basicadstreamexample)
   * [BasicAdStreamExampleObjC](#basicadstreamexampleobjc)
   * [ExternalPlayerExample](#externalplayerexample)
+  * [BasicVideoAdExample](#basicvideoadexample)
+  * [BasicTrackingPermissionExample](#basictrackingpermissionexample)
 # **AdswizzWatchSDK for WatchOS - Integration guide**
 - [AdswizzWatchSDK](#adswizzwatchsdk)
   * [What is AdswizzWatchSDK](#what-is-adswizzwatchsdk)
@@ -164,14 +186,24 @@ In a server-side insertion scenario, it takes the pressure off your app by makin
 
 *   Xcode 12+
 *   Swift 5.0+ if the integration app uses Swift or Objective-C
-*   Framework binaries - either via CocoaPods or archive
+*   Framework binaries - either via CocoaPods 1.9.3+ or archive
 
+## Changelog
+
+Please check [here](changelog.md) the latest AdswizzSDK version and all the new changes & fixes it comes with. 
 
 ## Dependencies
 
-AdswizzSDK for iOS depends on two external libraries in order to support voice recognition in interactive voice ads, namely *Amazon’s AWSCore* and *Facebook’s SocketRocket*. *AWSCore* is a dependency used by the [AdswizzSDK Analytics](#adswizzsdk-analytics) too. <br>
-It also relies on *SwiftProtobuf* to handle the serialized communication with AdsWizz cloud services. 
-These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If choose the manual integration you will have to provide them at link time.
+AdswizzSDK.framework dependes on the following frameworks:
+*   AWSCore.framework
+*   SocketRocket.framework
+*   SwiftProtobuf.framework
+*   AdswizzSDKPrivacyData.framework (1.0.6)
+
+AdswizzSDK for iOS depends on two external libraries in order to support voice recognition in interactive voice ads, namely *Amazon’s AWSCore* and *Facebook’s SocketRocket*. *AWSCore* is a dependency used by the [AdswizzSDK Analytics](#adswizzsdk-analytics) too.<br>
+It also relies on *SwiftProtobuf* to handle the serialized communication with AdsWizz cloud services. <br>
+*AdswizzSDKPrivacyData* is an open source library which implements Privacy-Sensitive API that requires user permission. *AdswizzSDKPrivacyData* can be configured to exclude any sensitive API at built time.
+These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If you choose the manual integration you will have to provide them at link time.
 
 
 ## Adding the SDK to your Xcode project
@@ -182,33 +214,59 @@ These dependencies are automatically added if you choose to integrate the SDK us
     ```ruby
     pod 'AdswizzSDK', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git" 
     ```
-    Replace **_ADSWIZZ_GITHUB_TOKEN_** with token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for password enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library, Facebook’s SocketRocket and SwiftProtobuf. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
+    Replace **_ADSWIZZ_GITHUB_TOKEN_** with token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for password enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library, Facebook’s SocketRocket and SwiftProtobuf. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. This includes SwiftProtobuf.framework and AdswizzSDKPrivacyData.framework. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
+    
     ```ruby
     post_install do |installer|
-     installer.pods_project.targets.each do |target|
-         # propagate 'BUILD_LIBRARY_FOR_DISTRIBUTION' build setting
-         if target.name == "SwiftProtobuf"
-           target.build_configurations.each do |config|
-               xcconfig_path = config.base_configuration_reference.real_path
-               # read from xcconfig to build_settings dictionary
-               build_settings = Hash[*File.read(xcconfig_path).lines.map{|x| x.split(/\s*=\s*/, 2)}.flatten]
-               build_settings["BUILD_LIBRARY_FOR_DISTRIBUTION"] = 'YES'
-               # write build_settings dictionary to xcconfig
-               File.open(xcconfig_path, "w") do |file|
-                 build_settings.each{ |k, v|
-                   file.write("#{k} = #{v}")
-                 }
-               end
+       installer.pods_project.targets.each do |target|
+           if target.name == "SwiftProtobuf"
+             target.build_configurations.each do |config|
+               path = config.base_configuration_reference.real_path
+               update_xcconfig(path, { "BUILD_LIBRARY_FOR_DISTRIBUTION" => "YES" })
+             end
+           elsif target.name == "AdswizzSDKPermissions"
+             target.build_configurations.each do |config|
+              path = config.base_configuration_reference.real_path
+              update_xcconfig(path, { "BUILD_LIBRARY_FOR_DISTRIBUTION" => "YES"
+    # Exclude senstive API. Uncomment the line bellow and exclude what permission you don't want to add to your app.            
+    #                               , "SWIFT_ACTIVE_COMPILATION_CONDITIONS" => "NO_IDFA_ACCESS NO_SPEECH_ACCESS NO_CONTACTS_ACCESS NO_CALENDAR_ACCESS NO_CAMERA_ACCESS NO_LOCATION_ACCESS NO_MICROPHONE_ACCESS NO_MOTION_ACTIVITY_ACCESS"
+                                    })
+             end
            end
-         end
-     end
+       end
+    end
+
+    def update_xcconfig(path, new_values)
+      build_settings = Hash[*File.read(path).lines.map{|x| x.split(/\s*=\s*/, 2)}.flatten]
+      new_values.each { |k, v|
+        build_settings[k] = "#{v}\n"
+      }
+      File.open(path, "w") do |file|
+        build_settings.each{ |k, v|
+          file.write("#{k} = #{v}")
+        }
+      end
     end
     ```
 
-
 2. Manual
 
-    Unzip the AdswizzSDK archive, which contains AdswizzSDK.xcframework binary. Drop the AdswizzSDK.xcframework file in your project’s Frameworks directory. Make sure AdswizzSDK.xcframework is listed in the “Embedded Binaries” section of your target. Make sure to add AWSCore.framework, SocketRocket.framework and SwiftProtobuf.framework in your project as well. Be sure to have SwiftProtobuf.framework compiled with BUILD_LIBRARY_FOR_DISTRIBUTION = YES as AdswizzSDK.framework will need it.
+    Unzip the AdswizzSDK archive, which contains AdswizzSDK.xcframework binary. Drop the AdswizzSDK.xcframework file in your project’s Frameworks directory. Make sure AdswizzSDK.xcframework is listed in the **_Embedded Binaries_** section of your target. Make sure to add AWSCore.framework, SocketRocket.framework and SwiftProtobuf.framework in your project as well. Be sure to have SwiftProtobuf.framework compiled with **BUILD_LIBRARY_FOR_DISTRIBUTION = YES** as AdswizzSDK.framework will need it. <br>
+    AdswizzSDKPrivacyData.framework can be added as a submodule from https://github.com/adswizz/ad-sdk-ios-privacydata repo and selecting the appropriate tag. Next, you need to add AdswizzSDKPrivacyData.xcodeproj to your workspace or project. If you choose to add the xcodeproj from the repo you will need to add a step to make AdswizzSDKPrivacyData.xcodeproj compile. By design, AdswizzSDKPrivacyData.xcodeproj needs a **_CustomConfig.xcconfig_** in the AdswizzSDKPrivacyData project directory. This file is placed in .gitignore so you need to copy or create it every time you build or archive your scheme. To achive this, you can create a **_New Run Script Action_** in **your scheme's** **_Build_** section or **_Archive_** section.
+
+    1. If you don't want to create a custom xcconfig file add:
+    ```
+    "<YOUR_SUBMODULE_LOCATION>/AdswizzSDKPrivacyData/AdswizzSDKPrivacyData/CreateCustomConfig.sh"
+    ```
+    This will create an empty **_CustomConfig.xcconfig_** in submodule directory.
+
+    2. If you want to create a custom xcconfig file add:
+    ```
+    yes | cp -rf "<YOUR_LOCATION>/<CUSTOM_FILE>.xcconfig" "<YOUR_SUBMODULE_LOCATION>/AdswizzSDKPrivacyData/CustomConfig.xcconfig"
+    ```
+    In this example, <CUSTOM_FILE>.xcconfig is a xcconfig file kept in your repo, and you just copy it in the ad-sdk-ios-privacydata repo.
+
+    You can add the same step to the **_Archive_** section as well.
 
 ## Changes in your Info.pList file
 
@@ -225,16 +283,18 @@ After adding AdswizzSDK.xcframework to your application, you’ll also need to a
     3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**. Must be set only if you want to traffic voice ads.    
     <img src="img/aws.png" width="1000" />
     
-2. Settings for permissions(**required**):
-    1. Add **_NSCalendarsUsageDescription_** entry. There are interactive ads that, once acted upon, add events in the Calendar. For this, the SDK requires access to the Calendar.
-    2. Add **_NSContactsUsageDescription_** entry. As events are added to the Calendar, the user might be interested in inviting friends along. For this, the SDK requires access to the Contacts.
-    3. Add **_NSLocationWhenInUseUsageDescription_** entry. One of the best targeting criteria for ads is users’ location. The SDK only updates location when in the foreground. For this, the SDK requires access to Location - While the app is in use.
-    4. Add **_NSLocationAlwaysAndWhenInUseUsageDescription_** entry. To enhance the location-based targeting capability, the SDK can leverage the location information, when the app is running in background. For this, the SDK requires access to Location - Always.
-    5. Add **_NSMicrophoneUsageDescription_** entry. Interactive voice ads depend on the user being able to interact with the ad, through voice. For this, the SDK requires access to the Microphone.
-    6. Add **_NSSpeechRecognitionUsageDescription_** entry. Once the user interacts with an interactive voice ad, the SDK needs to convert voice into text, in order to comprehend the command. For this, the SDK will require access to SpeechKit.
-    7. Add **_NSPhotoLibraryUsageDescription_** entry. One of the actions users can perform on an interactive ad, is saving a coupon or a banner to the photo library. For this, the SDK requires access to the Photo Library.
-    <img src="img/InfoPList.png" width="1000" />
+2. Settings for permissions(**optional**):
+    1. Add **_NSCalendarsUsageDescription_** entry. There are interactive ads that, once acted upon, add events in the Calendar. For this, the SDK requires access to the Calendar. If you don't want to add this entry use **NO_CALENDAR_ACCESS** compilation switch for AdsiwzzSDKPrivacyData.framework either in the Podfile(if you use CocoaPods) or in the CustomConfig.xcconfig(manual installation).
+    2. Add **_NSContactsUsageDescription_** entry. As events are added to the Calendar, the user might be interested in inviting friends along. For this, the SDK requires access to the Contacts. For this, the SDK requires access to the Calendar. If you don't want to add this entry use **NO_CONTACTS_ACCESS** compilation switch for AdsiwzzSDKPrivacyData.framework either in the Podfile(if you use CocoaPods) or in the CustomConfig.xcconfig(manual installation).
+    3. Add **_NSLocationWhenInUseUsageDescription_** entry. One of the best targeting criteria for ads is users’ location. The SDK only updates location when in the foreground. For this, the SDK requires access to Location - While the app is in use. If you don't want to add this entry use **NO_LOCATION_ACCESS** compilation switch for AdsiwzzSDKPrivacyData.framework either in the Podfile(if you use CocoaPods) or in the CustomConfig.xcconfig(manual installation).
+    4. Add **_NSLocationAlwaysAndWhenInUseUsageDescription_** entry. To enhance the location-based targeting capability, the SDK can leverage the location information, when the app is running in background. For this, the SDK requires access to Location - Always. If you don't want to add this entry use **NO_LOCATION_ACCESS** compilation switch for AdsiwzzSDKPrivacyData.framework either in the Podfile(if you use CocoaPods) or in the CustomConfig.xcconfig(manual installation).
+    5. Add **_NSMicrophoneUsageDescription_** entry. Interactive voice ads depend on the user being able to interact with the ad, through voice. For this, the SDK requires access to the Microphone. If you don't want to add this entry use **NO_MICROPHONE_ACCESS** compilation switch for AdsiwzzSDKPrivacyData.framework either in the Podfile(if you use CocoaPods) or in the CustomConfig.xcconfig(manual installation).
+    6. Add **_NSSpeechRecognitionUsageDescription_** entry. Once the user interacts with an interactive voice ad, the SDK needs to convert voice into text, in order to comprehend the command. For this, the SDK will require access to SpeechKit. If you don't want to add this entry use **NO_SPEECH_ACCESS** compilation switch for AdsiwzzSDKPrivacyData.framework either in the Podfile(if you use CocoaPods) or in the CustomConfig.xcconfig(manual installation).
+    7. Add **_NSPhotoLibraryUsageDescription_** entry. One of the actions users can perform on an interactive ad, is saving a coupon or a banner to the photo library. For this, the SDK requires access to the Photo Library. If you don't want to add this entry use **NO_PHOTO_ACCESS** compilation switch for AdsiwzzSDKPrivacyData.framework either in the Podfile(if you use CocoaPods) or in the CustomConfig.xcconfig(manual installation).
+    8. Add **_NSMotionUsageDescription_** entry. For better targetting AdsWizz can use CMMotionActivityManager to determine what aaccitivity is the user engaged in. For this, the SDK requires ccess to the device’s motion data. If you don't want to add this entry use **NO_MOTION_ACTIVITY_ACCESS** compilation switch for AdsiwzzSDKPrivacyData.framework either in the Podfile(if you use CocoaPods) or in the CustomConfig.xcconfig(manual installation).
+    9. Add **_NSUserTrackingUsageDescription_** entry. If you want to use the AdswizzSDK tracking framework to assist you in asking users' consent for accessing IDFA, add this in your app's Info.plist. If you don't want to add this entry, use **NO_IDFA_ACCESS** compilation switch for AdsiwzzSDKPrivacyData.framework either in the Podfile (if you use CocoaPods) or in the CustomConfig.xcconfig(manual installation).
 
+    <img src="img/InfoPList.png" width="1000" />
 
 
 
@@ -354,6 +414,8 @@ You can fine tune it by using the other available quality levels such as **_.med
 
 **_AdManager_** is also capable of pre-caching the creatives assets for all of its ads before/while actually playing them. This is done by setting the appropriate **_AdCachePolicy_** on your instance of **_AdManagerSettings_**. By default the AdswizzSDK does not (pre-)cache the ads.
 
+Optionally, if you also want to support video rendering (in case of video ads), you will have to set an instance of **_AdVideoView_** to **_videoView_** property on your **_AdManagerSettings_** instance. It does not need to be visible at this point. The actual video rendering is synced with the video ad playback.
+
 Next, you need to call the _.prepare()_ method on the **_AdManager_** object. This will buffer the ads if you decide the play them with the internal player.
 Here is how it looks like.
 
@@ -372,6 +434,7 @@ func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
     //settings.assetQuality = .medium     // Optional, defaults to .high
     //settings.player = yourPlayer        // Optional
     //settings.addCachePolicy(.assets)    // Optional, by default the AdManager will not use its pre-caching capability
+    //settings.videoView = <AdVideoView instance> // Optional, defaults to nil
     adManager.adManagerSettings = settings
 
     adManager?.prepare()   // Start buffering the ads in the AdManager
@@ -555,7 +618,15 @@ settings.player = yourPlayer
 streamManager?.adStreamManagerSettings = settings
 ```
 
+## Precaching before playing
+This applies only when deciding to play a stream using the internal player. If you require a smooth transition between a user action to play a stream and the actual stream playing, you can call `prepare(with url: URL) throws` on your stream manager object ahead of `play(with url: URL) throws` and **_AdswizzSDK_** will make sure to buffer at most 10 seconds from your stream. You can call this function multiple times to refresh the buffer. This function is optional. Events from calling `prepare` will be received in `func adStreamManager(_ adstreamManager: AdStreamManager, stateChanged state: MediaPlayerStatus)`.
+
 ## AdswizzAdStreamManager operations
+
+### prepare
+
+When playing the stream with the internal player, call this to have a buffer ready when you call play. This is optional. Calling this while the stream is playing or pausing will have no effect. If you call this function events from the buffering stage, it will be availabe through **_AdStreamManagerDelegate_** within stateChanged function. Usually, the events received here will be **_buffering_**, **_bufferingFinished_** and **_readyToPlay_**. You won't be notified when all 10 seconds will be buffered but you can rely on **_readyToPlay_** state that **_AdswizzAdStreamManager_** can begin to play smoothly.
+
 ### play
 
 To start playing a stream, call this function from **_AdswizzAdStreamManager_** with an URL to a valid AIS server. 
@@ -563,8 +634,7 @@ You should call this function even if you are playing the stream with your own p
 
 ### pause
 
-To pause a stream that is played by the SDK internal player, call this function. If you are using your own player this will have no effect.
-
+To pause a stream that is played by the SDK internal player, call this function. If you are using your own player this will have no effect. If you are using the internal player, the stream will continue to buffer internally for some 60 seconds.
 
 ### resume
 
@@ -752,6 +822,188 @@ Once the request is made, if there is any companion banner associated with the a
 You can associate a delegate to your **_AdCompanionView_** object that conforms to the **_AdCompanionViewDelegate_** protocol. You will be notified when the ad loaded the companion view, if the companion view was displayed, or if it ended the display. If there was an error while loading the companion banner, you will be notified through this delegate. Also, you can decide whether or not to override click through target URL on the companion banner. 
 
 You can also deactivate companion view temporarily by setting the **_active_** member to false.
+
+# Video ads
+
+AdswizzSDK is capable of handling video content when an ad server delivers video ads. There are a couple of steps needed to make sure that your users are presented with the video content when playing video ads.
+
+## Adding an AdVideoView
+
+**_AdVideoView_** is an instance of **_UIView_** responsible for rendering video content during video ads playback. Just like companion views, a video view can be created either programatically or through storyboard/xib when you add a plain view. In case of a storyboard make sure to specify the **_AASDKAdVideoView_** ObjC class. 
+
+Once created, you have ownership over this view and you can add it to your hierarchy like any other UI component.
+
+## Setup video support
+
+The first step is to let the SDK know that you wish to render video content to your users when video ads are played. To do that, you'll need to pass an instance of **_AdVideoView_** when setting up Ad Manager (after it was obtained following an Ad Request) via **_AdManagerSettings_**. For more details see [Setup AdManager](#setup-admanager).
+
+At this point the video view instance doesn't have to be visible / added to your hierarchy yet. But remember that you own the video view instance and it is your responsability to keep track of.
+
+The next step is to decide when to present / dismiss the video view. Video rendering in **_AdVideoView_** is synced with the actual ad playback. This means that you can use the ad events from **_AdManagerDelegate_**. See an example below:
+
+```swift
+import AdswizzSDK
+
+class YourModelClass: AdManagerDelegate {
+   var adManager: AdManager?
+......
+func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
+    switch event.event {
+      case .readyForPlay:
+            // Check if current ad is video
+            if let ad = event.ad, ad.adType == .video {
+                // Now would be the time to show your AdVideoView instance
+                //...
+            }
+           adManager.play() //Start playing the next ad in the AdManager
+      case .didFinishPlaying:
+            // Check if current ad is video
+            if let ad = event.ad, ad.adType == .video {
+                // Now you should hide your AdVideoView instance
+                //...
+            }
+           // Current ad has finished playing
+      case .allAdsDidFinishPlaying:
+            break // All ads from the AdManager have finished
+      default:
+          break
+    }
+}
+......
+}
+```
+
+The **_AdVideoView_** will render video content during the video ad playback. After the video ad finished playing, the video view may be dismissed.
+You can only set one **_AdVideoView_** instance on an Ad Manager. But you can reuse the same video view instance for multiple Ad Managers if you wish so.
+
+## Subclassing AdVideoView
+
+**_AdVideoView_** can be subclassed and used just like any other **_UIView_** based component. However you should not temper with the private and internal subviews managed by the SDK. Nor should you disable user interaction on **_AdVideoView_** because by doing so you will prevent from correctly reporting click through or click trackings.
+
+
+# Video events
+
+There are no specific video events to respond to, however you can set a delegate to your **_AdVideoView_** instance that conforms to the **_AdVideoViewDelegate_** protocol. Just like companion views, you will be notified to decide whether or not to override click through target URL on the video view. 
+
+# Viewability
+
+Viewability enables AdswizzSDK to allow third party verification measurement for both audio and video ads. See [Open Measurement in AdswizzSDK](#open-measurement-in-adswizzsdk) for more details.
+
+## Friendly obstructions
+
+When there are any native elements which are part of the **_AdVideoView_** container, such as a skip button, some logo text, or other kind of overlay, you should register them as "friendly" obstructions to prevent them from counting towards coverage of the video ad during playback. This applies to any ancestor or peer views in the **_AdVideoView_** hierarchy and all subviews of this view will be automatically treated as part of the ad.
+
+After you identify such elements that should be marked as friendly, you can create an **_AdVideoFriendlyObstruction_** object by passing in the **_view_** which is causing the obstruction, a **_purpose_** (see `AdVideoFriendlyObstructionPurpose` enum for all possible cases) and an optional **_detailed reason_**. After that, just
+register the newly created obstruction object to your **_AdVideoView_** instance.
+
+
+```swift
+import UIKit
+import AdswizzSDK
+
+var videoView: AdVideoView?
+.....
+
+let closeButton = UIButton()
+videoView.addSubview(closeButton)
+.....
+
+let obstruction = AdVideoFriendlyObstruction(view: closeButton,
+                                          purpose: .closeAd,
+                                   detailedReason: "Close button")
+videoView.register(obstruction)
+
+```
+
+When you're done with them, these obstructions can be removed by calling:
+
+```swift
+videoView.unregisterAllFriendlyObstructions()
+```
+
+## Video player state
+
+Rounding up the viewability support, AdswizzSDK enables you to communicate your **_AdVideoView_** video player state by using the **_AdVideoState_** property. Set the state whenevar the video view transitions to one of the following:
+
+### normal
+The video view's default playback size.
+
+### expanded
+The video view has expanded from its original size.
+
+### collapsed
+The video view has been reduced from its original size. The video is still potentially visible.
+
+### fullscreen
+The video view has entered fullscreen mode.
+
+### minimized
+The video view is `collapsed` in such a way that the video is hidden. However the ad was not fully removed from the player environment. The video may or may not still be progressing in this state, and sound may be audible. Unlike the collapsed state where the video view is big enough to display it’s content, in the minimized state the video view is only big enough to offer a control that enables your user to redisplay the ad if desired.
+
+
+```swift
+import UIKit
+import AdswizzSDK
+
+// Default state is .normal.
+var videoView: AdVideoView?
+.....
+
+// When your video view transitions to another state (e.g fullscreen).
+// Inform AdswizzSDK for any state change for viewability purposes.
+videoView.state = .fullscreen
+
+```
+
+# Playing video ads using your player
+
+When you play video ads with your own player conforming to **_MediaPlayerState_**, it is your responsability to implement video rendering within **_AdVideoView_**. The recommended way is to implement your own **_UIView_** subclass with an **_AVPlayerLayer_** as backing layer, and add it below all other subviews from **_AdVideoView_**. Here is an example of how you may acccomplish this:
+
+
+```swift
+import UIKit
+import AVFoundation
+
+class PlayerView: UIView {
+    var player: AVPlayer? {
+        get {
+            return playerLayer.player
+        }
+        set {
+            playerLayer.player = newValue
+        }
+    }
+    
+    var playerLayer: AVPlayerLayer {
+        return layer as! AVPlayerLayer
+    }
+    
+    // Override UIView property
+    override static var layerClass: AnyClass {
+        return AVPlayerLayer.self
+    }
+}
+......
+
+class YourAdVideoView: AdVideoView {
+    lazy var renderingView: PlayerView = {
+        return PlayerView(frame: .zero)
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        // Make sure your rendering view is added below all other views managed by AdVideoView
+        insertSubview(playerView, at: 0)
+
+        // Setup constraints for rendering view to cover the entire parent view
+        // ...
+    }
+}
+
+```
+
+If you follow the approach above, remember to pass **_YourAdVideoView_** instance when setting up Ad Manager through **_AdManagerSettings_**.
 
 
 # Debugging AdswizzSDK
@@ -953,7 +1205,194 @@ class YourAnalyticsConnector: AnalyticsConnector {
 }
 ```
 
-Possibile events of interest for you might be those with the level set to **_error_**.
+Possible events of interest for you might be those with the level set to **_error_**.
+
+# Open Measurement in AdswizzSDK
+
+**_AdswizzSDK_** includes the [Open Measurement SDK](https://iabtechlab.com/standards/open-measurement-sdk/), an industry standard developed by the IAB and designed to enable third-party viewability and verification measurement for audio and video ads served through VAST servers. **_Open Measurement_** is enabled by default in AdswizzSDK and ads must be configured to traffic **_<AdVerifications>_** in their VAST. Additionally, refrain from covering the **_AdVideoView_** container with any overlays (transparent or opaque) since these are taken into account by the OM SDK, marked as obstructions and therefore affect viewability and reporting.
+For more info see [Viewability](#viewability) on how to register your overlays as "friendly" obstructions by using **_AdVideoFriendlyObstruction_** objects.
+
+## Video controls obstructions
+
+Video controls such as pause buttons or progress bars provide important playback information to your users. On mobile, it is common practice to render large, touch-friendly controls over the container which renders video content. When using **_AdswizzSDK_**, one way to show these controls is by adding them above the **_AdVideoView_** container. Usually, the controls are child elements of this view that covers (even partially) the underlying video player.
+When video ad viewability is calculated through the Open Measurement SDK, all views overlaying the video content are considered obstructions and reduce the viewability rate. If an overlay (even fully transparent) sits above the entire video ad view, it is possible for inventory to be declared completely unviewable.
+The Open Measurement SDK allows for video controls to be considered "friendly" obstructions that contribute to the user’s experience. Once registered as "friendly", these controls are excluded from ad viewability measurement.
+
+Here are some examples of elements that are appropriate to be registered as friendly obstructions:
+  * transparent overlays that might be used to capture user taps
+  * playback buttons
+    + pause
+    + play
+    + skip
+    + fullscreen
+    + minimize
+    + Cast/Airplay
+    + progress/seek
+  * other playback relevant controls
+
+Usually, elements like pop ups or dialogs should not be registered.
+
+# (Optional) Tracking permission request
+
+Since iOS 14, Apple introduced the new privacy framework **_AppTrackingTransparency_** which requires developers to request user's permission for the app to retrieve and use the identifier for advertisers (IDFA). AdswizzSDK can be used to achieve higher opt-in rates for accessing IDFA, and thus ensuring higher addressability for iOS SDK-enabled inventories. 
+
+## TrackingPermissionController
+
+To leverage Apple's **_AppTrackingTransparency_** framework and trigger a friendly consent alert, AdswizzSDK exposes a ready made **_UIViewController_** subclass named **_TrackingPermissionController_**. With this controller you can easily request the IDFA permission, which can be presented as-is or customized before presentation using a configuration object called **_TrackingPermissionConfiguration_**.
+
+The **_TrackingPermissionController_** manages the entire request permission flow and notifies its delegate of status changes as well as when any errors may occur.
+
+The presenting view controller has control over the flow and can dismiss the **_TrackingPermissionController_** programmatically at any given moment except when the actual IDFA permission is requested and the OS presented the system alert.
+
+The **_TrackingPermissionController_** is meant to be **_presented_** modally instead of pushed onto a **_UINavigationController_**. You can use your own custom animation when to present it and the **_TrackingPermissionController_** will dismiss itself by internally calling **_dismiss(animated:completion:)_** and depending on user's choices (e.g when user decides to "skip").
+
+Here is how you create and present a **_TrackingPermissionController_** instance:
+
+```swift
+class YourViewController: UIViewController {
+    var trackingController: TrackingPermissionController?
+......
+func showTrackingController() {
+
+
+    // First you should always check whether is appropriate to show the tracking controller.
+    // Might be that either:
+    // - user already granted permission to be tracked or
+    // - user was exposed to the tracking controller before but hasn't decided yet (the IDFA permission status is not determined) or
+    // - user declined permission
+    // 
+    // You can use `TrackingPermissionController`s `canPresentController()` static method which indicates if you should present the controller or not.
+    // `canPresentController()` returns false only if either: 
+    // - user already granted permission to be tracked.
+    // - user can't be asked because IDFA permission is restricted. Read more about AdswizzSDKPrivacyData.framework and how a permission ends up restricted.
+
+    // It will return true when either:
+    //
+    // - user was exposed to the tracking controller before but hasn't decided yet (the IDFA permission status is not determined) or
+    // - user declined permission (here the `TrackingPermissionController` checks if user changed its mind and guides it to Settings -> Privacy -> Tracking)
+
+    if !TrackingPermissionController.canPresentController() {
+        // The controller should not be presented. 
+        return
+    }
+
+    // Customize the title
+    let title = "Here goes a custom title"
+
+    // Customize the message. Optional. It defaults to a generic usage description.
+    let message = "Here you explain your users why you need to track them"
+
+    // Customize the content image. Optional. It defaults to a generic image.
+    let contentImage = UIImage(named: "yourAssetName")
+
+    // Customize the logo image. Optional. If left nil it won't be shown.
+    let headerImage = UIImage(named: "yourAssetName")
+
+    // A convenient initializer which returns a `TrackingPermissionController` instance
+    // and let's you configure all its customisable elements visible to your users.
+    let controller = TrackingPermissionController.trackingController(title: title,
+                                                                     message: message,
+                                                                     contentImage: contentImage,
+                                                                     headerImage: headerImage)
+    trackingController = controller // Keeping a reference is optional. It only becomes useful if you want to interrupt the flow and dismiss it programatically
+    trackingController.delegate = self // Optional. See below the delegate methods
+
+    present(controller, animated: true, completion: {
+        // do something after controller was presented
+        .....
+    })
+ }
+......
+
+extension YourViewController: TrackingPermissionControllerDelegate {
+
+    // This method gets called when the tracking permission dismissed itself. It marks the end of the tracking permission flow.
+    func tracking(_ controller: TrackingPermissionController, didFinishWith status: TrackingStatus) {
+        // You can check the returned `status`. See `TrackingStatus` enum for possible values.
+        // The controller was already dismissed at this point.
+    }
+    
+    // This method gets called when the tracking permission controllere encountered an error.
+    func tracking(_ controller: TrackingPermissionController, didFailed error: Error) {
+        // Handle error. The controller was already dismissed at this point.
+    }
+}
+```
+
+## TrackingPermissionConfiguration
+
+If you want to further customise the appearance and style of the **_TrackingPermissionController_** you can create a configuration object and pass it onto the controller's initializer.
+
+The **_TrackingPermissionConfiguration_** allows you to style **_TrackingPermissionUIElement_** objects. A **_TrackingPermissionUIElement_** configures a single customisable element component (Skip button, content tittle, etc.) with basic attributes like:
+  * content (String)
+  * color
+  * font
+
+Here is how you can create a configuration of your own:
+
+```swift
+class YourViewController: UIViewController {
+......
+func showTrackingController() {
+    if !TrackingPermissionController.canPresentController() {
+        // The controller should not be presented. 
+        return
+    }
+
+    // Customize title
+    let title = TrackingPermissionUIElement.Builder().with(content: "Your custom title").with(color: .black).with(font: .boldSystemFont(ofSize: 15)).build()
+
+    // Customize message
+    let message = TrackingPermissionUIElement.Builder().with(content: "Your message").with(color: .darkGray).with(font: .systemFont(ofSize: 12)).build()
+
+    // Customize `skip` button appearance and style
+    let skip = TrackingPermissionUIElement.Builder().with(content: "Not now").with(color: .blue).with(font: .boldSystemFont(ofSize: 12)).build()
+
+    // Customize main `action` button appearance and style
+    let action = TrackingPermissionUIElement.Builder().with(content: "Grant permission").with(color: .blue).with(font: .boldSystemFont(ofSize: 12)).build()
+
+    // Build the config
+    let headerImage = ..... // Optional. Pass nil if you want to hide it
+    let contentImage = ..... // Optional. Defaults to a generic image provided by AdswizzSDK
+    let backgroundColor = .systemBackground // Optional. Defaults to .white or .black (in Dark Mode)
+    let config = TrackingPermissionConfiguration.Builder()
+          .with(title: title)
+          .with(description: message)
+          .with(headerImage: headerImage)
+          .with(contentImage: contentImage)
+          .with(skip: skip)
+          .with(action: action)
+          .with(backgroundColor: backgroundColor)
+          .build()
+
+    // Initialize a `TrackingPermissionController` instance with `config`.
+    let controller = TrackingPermissionController(configuration: config)
+
+    ......
+
+    present(controller, animated: true, completion: {
+        // do something after controller was presented
+        .....
+    })
+ }
+......
+
+```
+
+## Behaviour
+
+The tracking request permission controller is able to cover two flows, depending on the IDFA permission status:
+  * `.notAsked`: It shows the main initial screen with a bottom right **_action_** button to proceed. This is the normal flow, where user can be presented with the OS alert for granting permission.
+  * `.denied`: It shows the main initial screen with a bottom stretched **_action_** button. This is a flow where your app wants another chance for the user to reconsider and grant permission via Settings → Privacy → App tracking
+
+If the IDFA permission is either `.granted` or `.cantAsk` the **_TrackingPermissionController_** will signal that it should not present the controller (via `canPresentController()` static method).
+
+## Other considerations
+
+The **_TrackingPermissionController_** internally was implemented with best practices in mind. Please note that:
+  * all internal labels (including button titles) adhere to the Apple’s **_dynamic type_** meaning that they should respond to changes in **_Settings → Accessibility → Display & Text Size → Larger Text_**.
+  * by default the **_TrackingPermissionController_** supports dark mode in its default configuration. If any colour/styling customisation is added, it is your app's responsibility to handle appearance changes by updating the configuration on the controller. Or by using adaptive colors and images (for header logo/content image).
+  * the **_TrackingPermissionController_** has support for autorotation by using the presenting controller’s **_shouldAutorotate()_** and **_supportedInterfaceOrientations()_** autorotation setup. If the parent controller allows autorotation, the **_TrackingPermissionController_** will rotate accordingly.
 
 # (Optional) Prepare your application for advanced targetability capabilities
 
@@ -1006,6 +1445,13 @@ The same sample from above fully written in Objective-C.
 
 This sample demonstrates how to implement your external player using _**MediaPlayerState**_ protocol in order for **_AdswizzSDK_** to properly work. Also, this sample shows how you could debug events in the SDK by using _**AdLogger**_ with a verbose level.
 
+## BasicVideoAdExample
+
+This sample shows a basic approach on how to handle video ads playback and rendering by using an instance of **_AdVideoView_**. It also covers viewability support by showcasing basic usage for "friendly" obstructions and video player states.
+
+## BasicTrackingPermissionExample
+
+This sample demonstrates basic usage for **_TrackingPermissionController_** in the default configuration. It also shows how to customize the logo element with Dark Mode support.
 
 # AdswizzWatchSDK
 

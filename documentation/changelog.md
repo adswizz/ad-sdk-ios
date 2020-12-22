@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.3.0] - 2020-12-22
+### Added
+- AdswizzSDK now dependes on **_AdswizzSDKPrivacyData framework_**, an open source project meant to remove Privacy-Sensitive API from AdswizzSDK binary
+- Compilation switches for AdswizzSDKPrivacyData to exclude API that might require entries in the app's Info.plist: NO_SPEECH_ACCESS, NO_CONTACTS_ACCESS, NO_CALENDAR_ACCESS, NO_CAMERA_ACCESS, NO_LOCATION_ACCESS, NO_MICROPHONE_ACCESS, NO_MOTION_ACTIVITY_ACCESS
+- Better targeting through access to CMMotionActivityManager. It can be deactivated through NO_MOTION_ACTIVITY_ACCESS compiler switch.
+- Stopping access to location updates, motion updates, recording updates, photo access, calendar access or contacts access even if the permission was granted by the user. This will give your app the ability to decide if AdswizzSDK can access these private data during runtime. New functions were added in AdswizzSDK: **_permissionStatus(for type: PermissionType)_** and **_setPermissionStatus(for type: PermissionType, status: Bool)_**
+- Added support for skippable ads, marked as so in VAST by **_skipoffset_** attribute. Ad will automatically be skippable if VAST specifies a **_skipoffset_** equal to 0.
+- Added **_skipOffset_** in **_AdData_** public interface to signal after how many seconds can the ad be skipped by the user.
+- New interactive format for voice with variable listening time.
+- Added video ads support for both internal and external players.
+- Added **_adType_** in **_AdData_** public interface to distinguish the type of current ad.
+- Added **_videoView_** in **_AdManagerSettings_** public interface to help setup video support.
+- Added **_AdVideoView_** public class to control rendering video content.
+- Added **_AdVideoModule_** internal module to handle video ads.
+- Added support for video ads click trackings, marked as so in VAST by **_VideoClicks_** node.
+- Better way to enrich an ad after VAST parsing by resolving **_adType_** and **_playerDuration_** through **_AdDataUpdater_** helper object.
+- Added a basic sample on how to setup and run video ads using an internal player.
+- Added support for AdswizzAdStreamManager to precache a stream a head of playing when using the internal player, using **_prepare(with url: URL) throws_** function.
+- Added a convenient controller to support iOS14+ IDFA permission request. AdswizzSDK exposes **_TrackingPermissionController_**, a customizable ready made **_UIViewController_** subclass container to be presented within publishers's app hierarchy. Helps acquiring the permission to access the identifier for advertisers.
+- Added a basic example on how to configure and present the **_TrackingPermissionController_**.
+
+### Changed
+- Integration document for AdswizzSDK.framework to better explain how you can add AdswizzSDKPrivacyData framework in your app, either through CococaPods or git submodule.
+
+
 ## [7.2.1] - 2020-10-26
 ### Fixed
 - Companion banners (**AdCompanionView** objects) behaviour change: firing one **creativeView** tracking event per ad when displaying multiple companion banners for the same ad.
@@ -53,16 +78,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - iOS 14 compliant method to verify access and read the IDFA value. 
 **N.B.: AdsWizz SDK will not show the request for permission dialogue, as the publisher is responsible for controlling and designing the user experience for obtaining the tracking consent. We encourage you to involve your product, UX/UI and engineering teams in the process of designing the best solution. It is very important that you ensure a high opt-in rate for the Tracking permission, as strong business value (higher CPMs) is dependent on being able to read the IDFA value.**
 
-### Changed
-- Now, AdswizzSDK is delivered as an xcframework, rather fat binary
-- Code is compiled with XCode 12 beta 3 with Swift 5.3
-- If you previously used AdswizzSDK.framework version 7.0.0 through 7.1.1 you need it to add a "New Run Script Phase" in order to strip down the simulator part from the AdswizzSDK.framework fat binary. You can remove it now as xcframework does all the work.
-
-## [7.1.1] - 2020-07-03
-### Fixed
-- Fixed **_adEvents_** formatted JSON (maxAds and maxDuration field names) for multiple zone request query item
-
-
 ## [7.1.2] - 2020-08-28
 ### Fixed
 - iOS 14 compliant method to verify access and read the IDFA value. 
@@ -75,7 +90,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [7.1.1] - 2020-07-03
 ### Fixed
-- Fixed **_adEvents_** formatted JSON (maxAds and maxDuration field names) for multiple zone request query item.    
+- Fixed **_adEvents_** formatted JSON (maxAds and maxDuration field names) for multiple zone request query item. 
 
 ## [7.1.0] - 2020-05-08
 ### Added
