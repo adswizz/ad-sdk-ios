@@ -12,31 +12,25 @@ The only audio-centric SDK to Drive Innovation & Differentiation in Audio moneti
 ## Dependecies
 AdswizzSDK.framework dependes on the following frameworks:
 * AWSCore.framework
-* SocketRocket.framework
-* SwiftProtobuf.framework
 * AdswizzSDKPrivacyData.framework (1.0.6)
 
-AdswizzSDKPrivacyData.framework is an open source library which implements Privacy-Sensitive API that requires user permission. AdswizzSDKPrivacyData.framework can be configured to exclude any sensitive API at built time.
+AdswizzSDKPrivacyData.framework is a source library which implements Privacy-Sensitive API that requires user permission. AdswizzSDKPrivacyData.framework can be configured to exclude any sensitive API at built time.
 
 ## Installation
 
 ### CocoaPods
 
-AdswizzSDK is delivered as an xcframework, so the best way to integrate it is through Cocoapods. The recommended version for Cocoapods is 1.9.3 or newer. If you already have a pod file, you just need to add the following line:
+AdswizzSDK is delivered as an xcframework, so the best way to integrate it is through Cocoapods. The recommended version for Cocoapods is 1.9.3 or newer. If you already have a pod file, you just need to add the following lines:
 ```ruby
-pod 'AdswizzSDK', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git" 
+pod 'AdswizzSDKPrivacyData', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios-privacydata.git"
+pod 'AdswizzSDK',            :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git" 
 ```
-Replace **_ADSWIZZ_GITHUB_TOKEN_** with token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for password enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library, Facebook’s SocketRocket and SwiftProtobuf. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. This includes SwiftProtobuf.framework and AdswizzSDKPrivacyData.framework. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
+Replace **_ADSWIZZ_GITHUB_TOKEN_** with token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for password enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. This includes AdswizzSDKPrivacyData.framework. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
 
 ```ruby
 post_install do |installer|
    installer.pods_project.targets.each do |target|
-       if target.name == "SwiftProtobuf"
-         target.build_configurations.each do |config|
-           path = config.base_configuration_reference.real_path
-           update_xcconfig(path, { "BUILD_LIBRARY_FOR_DISTRIBUTION" => "YES" })
-         end
-       elsif target.name == "AdswizzSDKPermissions"
+        if target.name == "AdswizzSDKPermissions"
          target.build_configurations.each do |config|
           path = config.base_configuration_reference.real_path
           update_xcconfig(path, { "BUILD_LIBRARY_FOR_DISTRIBUTION" => "YES"
@@ -78,8 +72,6 @@ AdswizzSDK also needs to link the following .frameworks:
 
 ```
 AWSCore.framework
-SocketRocket.framework
-SwiftProtobuf.framework
 AdswizzSDKPrivacyData.framework
 ```
 Make sure to add those in your project as well.

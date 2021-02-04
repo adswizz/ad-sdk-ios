@@ -36,6 +36,7 @@
 		AE5EBA4B2411491A00ECAEF7 /* ViewController+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA4A2411491A00ECAEF7 /* ViewController+Model.swift */; };
 		AE5EBA55241159C600ECAEF7 /* WatchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA54241159C600ECAEF7 /* WatchSupport.swift */; };
 		AE5EBA5824115A8700ECAEF7 /* WatchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA54241159C600ECAEF7 /* WatchSupport.swift */; };
+		AE6275BD25C19F2300B09304 /* ViewController+AdManagerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6275BC25C19F2300B09304 /* ViewController+AdManagerDatasource.swift */; };
 		DA13D029BB34ED5ABEF8C4F9 /* Pods_BasicAdRequestWatchExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C7DC646832265BBE5A790E /* Pods_BasicAdRequestWatchExample.framework */; };
 		DE4CC97599B57D0A8AEE9489 /* Pods_BasicAdRequestWatchExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97499487AF43593AF4EBC6BF /* Pods_BasicAdRequestWatchExampleTests.framework */; };
 		EC8CCEEA5732251ED2ED07B6 /* Pods_BasicAdRequestWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD62DC82F730638E56B811C /* Pods_BasicAdRequestWatch_Extension.framework */; };
@@ -141,6 +142,7 @@
 		AE5EBA482411457200ECAEF7 /* ViewControllerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerModel.swift; path = ../../BasicAdRequestExample/BasicAdRequestExample/ViewControllerModel.swift; sourceTree = "<group>"; };
 		AE5EBA4A2411491A00ECAEF7 /* ViewController+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Model.swift"; sourceTree = "<group>"; };
 		AE5EBA54241159C600ECAEF7 /* WatchSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSupport.swift; sourceTree = "<group>"; };
+		AE6275BC25C19F2300B09304 /* ViewController+AdManagerDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+AdManagerDatasource.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/ViewController+AdManagerDatasource.swift"; sourceTree = "<group>"; };
 		B8C7DC646832265BBE5A790E /* Pods_BasicAdRequestWatchExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicAdRequestWatchExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD62DC82F730638E56B811C /* Pods_BasicAdRequestWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicAdRequestWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC201034F0DF4D7E953E34D /* Pods-BasicAdRequestWatch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicAdRequestWatch Extension.debug.xcconfig"; path = "Target Support Files/Pods-BasicAdRequestWatch Extension/Pods-BasicAdRequestWatch Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				AE5EBA4A2411491A00ECAEF7 /* ViewController+Model.swift */,
 				AE5EBA2D240FBDDE00ECAEF7 /* ViewController+AdCompanionViewDelegate.swift */,
 				AE5EBA2F240FBDDF00ECAEF7 /* ViewController+AdManagerDelegate.swift */,
+				AE6275BC25C19F2300B09304 /* ViewController+AdManagerDatasource.swift */,
 				AE5EBA4424113C9900ECAEF7 /* ViewController+NowPlaying.swift */,
 				AE5EBA39240FE29A00ECAEF7 /* SessionDelegate.swift */,
 				AE5EBA4224113BBD00ECAEF7 /* NowPlayableMetadata.swift */,
@@ -316,7 +319,6 @@
 			buildConfigurationList = AE5EB9FA240FAB0C00ECAEF7 /* Build configuration list for PBXNativeTarget "BasicAdRequestWatchExample" */;
 			buildPhases = (
 				AEA96BE2451C8B51B011FEAE /* [CP] Check Pods Manifest.lock */,
-				A26C978F6342C71AB12551DD /* [CP] Prepare Artifacts */,
 				AE5EB9CC240FAB0A00ECAEF7 /* Sources */,
 				AE5EB9CD240FAB0A00ECAEF7 /* Frameworks */,
 				AE5EB9CE240FAB0A00ECAEF7 /* Resources */,
@@ -338,7 +340,6 @@
 			buildConfigurationList = AE5EB9FD240FAB0C00ECAEF7 /* Build configuration list for PBXNativeTarget "BasicAdRequestWatchExampleTests" */;
 			buildPhases = (
 				E45C252B15A9F5AC42DD9B01 /* [CP] Check Pods Manifest.lock */,
-				5BC2F1AC26710A4BAFC21C0F /* [CP] Prepare Artifacts */,
 				AE5EB9E2240FAB0C00ECAEF7 /* Sources */,
 				AE5EB9E3240FAB0C00ECAEF7 /* Frameworks */,
 				AE5EB9E4240FAB0C00ECAEF7 /* Resources */,
@@ -359,7 +360,6 @@
 			buildConfigurationList = AE5EBA00240FAB0C00ECAEF7 /* Build configuration list for PBXNativeTarget "BasicAdRequestWatchExampleUITests" */;
 			buildPhases = (
 				BFBF6767ABC681BFB7826577 /* [CP] Check Pods Manifest.lock */,
-				5FC525B744256BDC6101012B /* [CP] Prepare Artifacts */,
 				AE5EB9ED240FAB0C00ECAEF7 /* Sources */,
 				AE5EB9EE240FAB0C00ECAEF7 /* Frameworks */,
 				AE5EB9EF240FAB0C00ECAEF7 /* Resources */,
@@ -398,7 +398,6 @@
 			buildConfigurationList = AE5EBA23240FAB7100ECAEF7 /* Build configuration list for PBXNativeTarget "BasicAdRequestWatch Extension" */;
 			buildPhases = (
 				96107D538AA81DAFBCB2B42B /* [CP] Check Pods Manifest.lock */,
-				1CD307204AE831E88E1712A8 /* [CP] Prepare Artifacts */,
 				AE5EBA0D240FAB7000ECAEF7 /* Sources */,
 				AE5EBA0E240FAB7000ECAEF7 /* Frameworks */,
 				AE5EBA0F240FAB7000ECAEF7 /* Resources */,
@@ -527,23 +526,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleTests/Pods-BasicAdRequestWatchExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1CD307204AE831E88E1712A8 /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatch Extension/Pods-BasicAdRequestWatch Extension-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatch Extension/Pods-BasicAdRequestWatch Extension-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatch Extension/Pods-BasicAdRequestWatch Extension-artifacts.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4617B7848259A1AD8952C514 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -559,40 +541,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExample/Pods-BasicAdRequestWatchExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5BC2F1AC26710A4BAFC21C0F /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleTests/Pods-BasicAdRequestWatchExampleTests-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleTests/Pods-BasicAdRequestWatchExampleTests-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleTests/Pods-BasicAdRequestWatchExampleTests-artifacts.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5FC525B744256BDC6101012B /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleUITests/Pods-BasicAdRequestWatchExampleUITests-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleUITests/Pods-BasicAdRequestWatchExampleUITests-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExampleUITests/Pods-BasicAdRequestWatchExampleUITests-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		73901861FB3488F2032A771E /* [CP] Embed Pods Frameworks */ = {
@@ -632,23 +580,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A26C978F6342C71AB12551DD /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExample/Pods-BasicAdRequestWatchExample-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExample/Pods-BasicAdRequestWatchExample-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestWatchExample/Pods-BasicAdRequestWatchExample-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AEA96BE2451C8B51B011FEAE /* [CP] Check Pods Manifest.lock */ = {
@@ -744,6 +675,7 @@
 				AE5EBA34240FBDDF00ECAEF7 /* ViewController+AdManagerDelegate.swift in Sources */,
 				AE5EBA55241159C600ECAEF7 /* WatchSupport.swift in Sources */,
 				AE5EBA4B2411491A00ECAEF7 /* ViewController+Model.swift in Sources */,
+				AE6275BD25C19F2300B09304 /* ViewController+AdManagerDatasource.swift in Sources */,
 				AE5EBA4524113C9900ECAEF7 /* ViewController+NowPlaying.swift in Sources */,
 				AE5EBA30240FBDDF00ECAEF7 /* ViewController.swift in Sources */,
 				AE5EB9D4240FAB0A00ECAEF7 /* AppDelegate.swift in Sources */,

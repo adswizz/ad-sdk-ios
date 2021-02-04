@@ -271,6 +271,7 @@
             break;
         }
         case AASDKAdEventTypeDidFinishPlaying:
+        case AASDKAdEventTypeAdCompleted:
         case AASDKAdEventTypeAllAdsCompleted:
         {
             // Ad manager just finished playing (all) ad(s)

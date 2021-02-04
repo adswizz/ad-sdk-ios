@@ -43,6 +43,28 @@ class ViewController: UIViewController {
         
         return button
     }()
+    
+    // Shows the ad count
+    lazy var adCountLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clear
+        label.font = .boldSystemFont(ofSize: 17)
+        label.textColor = .black
+        label.textAlignment = .center
+        return label
+    }()
+    
+    // Shows the total ads duration
+    lazy var totalAdsDurationLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clear
+        label.font = .boldSystemFont(ofSize: 17)
+        label.textColor = .black
+        label.textAlignment = .center
+        return label
+    }()
 
     // Model for ads setup
     lazy var model: Model = {
@@ -62,6 +84,8 @@ class ViewController: UIViewController {
         title = "Video ads"
         
         view.addSubview(actionButton)
+        view.addSubview(adCountLabel)
+        view.addSubview(totalAdsDurationLabel)
         
         // Add action button constraints
         let heightConstraint = actionButton.heightAnchor.constraint(equalToConstant: actionButtonBaseHeight + view.safeAreaInsets.bottom)
@@ -70,8 +94,12 @@ class ViewController: UIViewController {
             actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            adCountLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            adCountLabel.bottomAnchor.constraint(equalTo: totalAdsDurationLabel.topAnchor, constant: -11),
+            totalAdsDurationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            totalAdsDurationLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -11),
             heightConstraint
-        ])        
+        ])
     }
     
     override func viewDidLayoutSubviews() {

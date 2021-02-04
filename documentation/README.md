@@ -19,6 +19,9 @@
     + [Precaching ads in AdManager](#precaching-ads-in-admanager)
     + [Start AdManager](#start-admanager)
   * [AdManager life cycle](#admanager-life-cycle)
+    + [AdManager properties](#admanager-properties)
+      - [adCount](#adcount)
+      - [totalAdsDuration](#totaladsduration)
     + [AdManager operations](#admanager-operations)
     + [AdManager protocol](#admanager-protocol)
       - [prepare](#prepare)
@@ -67,6 +70,7 @@
 - [AdswizzSDK general settings](#adswizzsdk-general-settings)
   * [Companion banner](#companion-banner)
     + [Extra exposure time for an AdCompanionView](#extra-exposure-time-for-an-adcompanionview)
+    + [Preferred resource type](#preferred-resource-type)
   * [Location](#location)
     + [Enable significant changes for location](#enable-significant-changes-for-location)
     + [Location accuracy](#location-accuracy)
@@ -93,6 +97,7 @@
   * [ExternalPlayerExample](#externalplayerexample)
   * [BasicVideoAdExample](#basicvideoadexample)
   * [BasicTrackingPermissionExample](#basictrackingpermissionexample)
+  * [BasicEmptyAdsExample](#basicemptyadsexample)
 # **AdswizzWatchSDK for WatchOS - Integration guide**
 - [AdswizzWatchSDK](#adswizzwatchsdk)
   * [What is AdswizzWatchSDK](#what-is-adswizzwatchsdk)
@@ -162,7 +167,7 @@ The following can be set as general AdswizzSDK parameters:
 
 ## Prerequisites for ‘Server-Side Insertion’
 
-In order to succesufully integrate the ‘Server-Side Insertion’ you will need to set/provide the following information for your **_AdswizzAdStreamManager_** object:
+In order to successfully integrate the ‘Server-Side Insertion’ you will need to set/provide the following information for your **_AdswizzAdStreamManager_** object:
 *  adServer = the name of Adserver used to insert ads from
 *  companionZones = (optional) identifier of zone to retrieve creatives to be displayed by the companion banner
 *  adStreamURL = URL of audio stream (pass it to **_AdswizzAdStreamManager_**'s play() method)
@@ -196,13 +201,10 @@ Please check [here](changelog.md) the latest AdswizzSDK version and all the new 
 
 AdswizzSDK.framework dependes on the following frameworks:
 *   AWSCore.framework
-*   SocketRocket.framework
-*   SwiftProtobuf.framework
 *   AdswizzSDKPrivacyData.framework (1.0.6)
 
-AdswizzSDK for iOS depends on two external libraries in order to support voice recognition in interactive voice ads, namely *Amazon’s AWSCore* and *Facebook’s SocketRocket*. *AWSCore* is a dependency used by the [AdswizzSDK Analytics](#adswizzsdk-analytics) too.<br>
-It also relies on *SwiftProtobuf* to handle the serialized communication with AdsWizz cloud services. <br>
-*AdswizzSDKPrivacyData* is an open source library which implements Privacy-Sensitive API that requires user permission. *AdswizzSDKPrivacyData* can be configured to exclude any sensitive API at built time.
+AdswizzSDK for iOS depends on one external library in order to support voice recognition in interactive voice ads, namely *Amazon’s AWSCore*. *AWSCore* is a dependency used by the [AdswizzSDK Analytics](#adswizzsdk-analytics) too.<br>
+*AdswizzSDKPrivacyData* is a source library which implements Privacy-Sensitive API that requires user permission. *AdswizzSDKPrivacyData* can be configured to exclude any sensitive API at built time.
 These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If you choose the manual integration you will have to provide them at link time.
 
 
@@ -210,21 +212,17 @@ These dependencies are automatically added if you choose to integrate the SDK us
 
 1. Using CocoaPods 
 
-    AdswizzSDK is delivered as an xcframework, so the best way to integrate it is through Cocoapods. The recommended version for Cocoapods is 1.9.3 or newer. If you already have a pod file, you just need to add the following line:
+    AdswizzSDK is delivered as an xcframework, so the best way to integrate it is through Cocoapods. The recommended version for Cocoapods is 1.9.3 or newer. If you already have a pod file, you just need to add the following lines:
     ```ruby
-    pod 'AdswizzSDK', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git" 
+    pod 'AdswizzSDKPrivacyData', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios-privacydata.git"
+    pod 'AdswizzSDK',            :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git" 
     ```
-    Replace **_ADSWIZZ_GITHUB_TOKEN_** with token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for password enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library, Facebook’s SocketRocket and SwiftProtobuf. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. This includes SwiftProtobuf.framework and AdswizzSDKPrivacyData.framework. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
+    Replace **_ADSWIZZ_GITHUB_TOKEN_** with token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for password enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. This includes AdswizzSDKPrivacyData.framework. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
     
     ```ruby
     post_install do |installer|
        installer.pods_project.targets.each do |target|
-           if target.name == "SwiftProtobuf"
-             target.build_configurations.each do |config|
-               path = config.base_configuration_reference.real_path
-               update_xcconfig(path, { "BUILD_LIBRARY_FOR_DISTRIBUTION" => "YES" })
-             end
-           elsif target.name == "AdswizzSDKPermissions"
+            if target.name == "AdswizzSDKPermissions"
              target.build_configurations.each do |config|
               path = config.base_configuration_reference.real_path
               update_xcconfig(path, { "BUILD_LIBRARY_FOR_DISTRIBUTION" => "YES"
@@ -251,8 +249,8 @@ These dependencies are automatically added if you choose to integrate the SDK us
 
 2. Manual
 
-    Unzip the AdswizzSDK archive, which contains AdswizzSDK.xcframework binary. Drop the AdswizzSDK.xcframework file in your project’s Frameworks directory. Make sure AdswizzSDK.xcframework is listed in the **_Embedded Binaries_** section of your target. Make sure to add AWSCore.framework, SocketRocket.framework and SwiftProtobuf.framework in your project as well. Be sure to have SwiftProtobuf.framework compiled with **BUILD_LIBRARY_FOR_DISTRIBUTION = YES** as AdswizzSDK.framework will need it. <br>
-    AdswizzSDKPrivacyData.framework can be added as a submodule from https://github.com/adswizz/ad-sdk-ios-privacydata repo and selecting the appropriate tag. Next, you need to add AdswizzSDKPrivacyData.xcodeproj to your workspace or project. If you choose to add the xcodeproj from the repo you will need to add a step to make AdswizzSDKPrivacyData.xcodeproj compile. By design, AdswizzSDKPrivacyData.xcodeproj needs a **_CustomConfig.xcconfig_** in the AdswizzSDKPrivacyData project directory. This file is placed in .gitignore so you need to copy or create it every time you build or archive your scheme. To achive this, you can create a **_New Run Script Action_** in **your scheme's** **_Build_** section or **_Archive_** section.
+    Unzip the AdswizzSDK archive, which contains AdswizzSDK.xcframework binary. Drop the AdswizzSDK.xcframework file in your project’s Frameworks directory. Make sure AdswizzSDK.xcframework is listed in the **_Embedded Binaries_** section of your target. Make sure to add AWSCore.framework in your project as well. <br>
+    AdswizzSDKPrivacyData.framework can be added as a submodule from https://github.com/adswizz/ad-sdk-ios-privacydata repo and selecting the appropriate tag. Next, you need to add AdswizzSDKPrivacyData.xcodeproj to your workspace or project. If you choose to add the xcodeproj from the repo you will need to add a step to make AdswizzSDKPrivacyData.xcodeproj compile. By design, AdswizzSDKPrivacyData.xcodeproj needs a **_CustomConfig.xcconfig_** in the AdswizzSDKPrivacyData project directory. This file is placed in .gitignore so you need to copy or create it every time you build or archive your scheme. To achieve this, you can create a **_New Run Script Action_** in **your scheme's** **_Build_** section or **_Archive_** section.
 
     1. If you don't want to create a custom xcconfig file add:
     ```
@@ -404,7 +402,14 @@ Subsequent to this request, the SDK will return an error if the call failed or a
 
 If the request to the AdsWizz Ad server was successful, the SDK will return an **_AdManager_** object which you will own. This will be the way the SDK will communicate events back to your application. 
 To get this communication channel open you need to set up a delegate for the **_AdManager_** that conforms to the **_AdManagerDelegate_** protocol. 
-The **_AdManager_** will call `func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)` whenever events of interest occur in the SDK. Please consult AdEventType enum for a list of possible events from the AdswizzSDK. If an error happens in the SDK while using this object, `func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)` will be called.
+The **_AdManager_** will call `func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)` whenever events of interest occur in the SDK. Please consult **_AdEventType_** enum for a list of possible events from the AdswizzSDK. If an error happens in the SDK while using this object, `func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)` will be called.
+
+The SDK is also able to request data in order for your application to benefit from additional customisation while working with the **_AdManager_** object. To be able to customise the behaviour you need to set up a datasource for the **_AdManager_** that conforms to the **_AdManagerDatasource_** protocol.
+Through the **_AdManagerDatasource_** protocol, when firing VAST tracking URLs, the SDK is currently able to ask for your additional custom tracking URLs which will be fired along using the same engine thus ensuring retryability and other improvements under the hood.
+The **_AdManagerDatasource_** protocol allows your integration to pass your own custom tracking URLs for the following use cases:
+* VAST events by calling `adManager(_ adManager: AdManager, ad: AdData, trackingEventUrls event: VastTrackingEvent) -> [URL]` method. It passes the **_VastTrackingEvent_** for which the SDK could fire your custom additional URLs. Check the `VastTrackingEvent` enum for possible values
+* VAST errors by calling `adManager(_ adManager: AdManager, ad: AdData, trackingErrorUrls errorCode: VastErrorCode) -> [URL]` method. It passes the **VastErrorCode** for which the SDK could fire your custom additional URLs. Check the `VastErrorCode` enum for possible values
+* Impressions by calling `adManagerImpressionUrls(_ adManager: AdManager, ad: AdData) -> [URL]` method
 
 ### Setup AdManager
 
@@ -429,6 +434,7 @@ func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
     ......
     self.adManager = adManager   // Keep a strong reference of this object
     adManager?.delegate = self   // Get notifications from the Ad SDK
+    adManager?.datasource = self // Further customise the Ad SDK
     
     let settings = AdManagerSettings()    // Not required
     //settings.assetQuality = .medium     // Optional, defaults to .high
@@ -448,11 +454,29 @@ func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
            adManager.play() //Start playing the next ad in the AdManager
       case .didFinishPlaying:
           break // Current ad has finished playing
-      case .allAdsDidFinishPlaying:
+      case .adCompleted:
+          break // Current ad is completed
+      case .allAdsCompleted:
             break // All ads from the AdManager have finished
       default:
           break
     }
+}
+......
+
+// Called when AdswizzSDK fires urls for VAST tracking events. See `VastTrackingEvent` enum for possible event values.
+func adManager(_ adManager: AdManager, ad: AdData, trackingEventUrls event: VastTrackingEvent) -> [URL] {
+    //return your custom tracking URLs for `event` which the SDK should fire along with VAST event tracking URLs
+}
+
+// Called when AdswizzSDK fires urls for VAST errors. See `VastErrorCode` enum for possible error values.
+func adManager(_ adManager: AdManager, ad: AdData, trackingErrorUrls errorCode: VastErrorCode) -> [URL] {
+    //return your custom tracking URLs for `errorCode` which the SDK should fire along with VAST error tracking URLs
+}
+
+// Called when AdswizzSDK fires urls for impression tracking.
+func adManagerImpressionUrls(_ adManager: AdManager, ad: AdData) -> [URL] {
+    //return your custom tracking URLs which the SDK should fire along with impression tracking URLs
 }
 ......
 }
@@ -506,7 +530,9 @@ func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
            adManager.play() //Start playing the next ad in the AdManager
       case .didFinishPlaying:
           break // Current ad has finished playing
-      case .allAdsDidFinishPlaying:
+      case .adCompleted:
+          break // Current ad is completed
+      case .allAdsCompleted:
             break // All ads from the AdManager have finished
       default:
           break
@@ -545,6 +571,18 @@ After requesting your first ad from the AdsWizz ad server, you are ready to play
 
 <img src="img/AdManagerState.png" width="1000" />
 
+### AdManager properties
+
+Once obtained, an **_AdManager_** object has a few properties which could prove usefull for your integration.
+
+#### adCount
+
+Represents the number of playable ads currently stored by the Ad manager object. `adCount` can safely be checked right after the **_AdManager_** object and before calling the **_prepare_**. A zero value means the Ad Manager will not play any ad.
+ 
+
+#### totalAdsDuration
+
+The total number of seconds for all playable ads currently stored by the **_AdManager_** object.
 
 ### AdManager operations
 
@@ -567,12 +605,12 @@ If you decided to let the SDK play the ads, you can call **_pause_** method when
 
 #### skipAd
 
-If you need to skip an ad, you can call this method to skip the current ad from the AdManager. This method applies even if you decided to take control of the ad playback. Your app will receive a **_didFinishPlaying_** event for the current ad, and if the AdManager has a new ad you will receive **_preparingForPlay_** for that one. If no ads are available, an **_allAdsDidFinishPlaying_** will be sent, signaling that all ads got processed in the AdManager.
+If you need to skip an ad, you can call this method to skip the current ad from the AdManager. This method applies even if you decided to take control of the ad playback. If current ad already started to play, your app will receive a **_didFinishPlaying_** event followed by an **_adCompleted_** event, and if the AdManager has a new ad you will receive **_preparingForPlay_** for that one. If no ads are available, an **_allAdsCompleted_** will be sent, signaling that all ads got processed in the AdManager.
 
 
 #### reset
 
-If you decided to skip all the upcoming ads in the **_AdManager_** object, you can call this method. For each ad you skip, your app will trigger **_didFinishPlaying_**, and a **_allAdsDidFinishPlaying_** event will be sent at the end. Looping through the ad again will need a call to **_prepare_** function.
+If you decided to skip all the upcoming ads in the **_AdManager_** object, you can call this method. For each ad you skip, your app will trigger **_adCompleted_**, and an **_allAdsCompleted_** event will be sent at the end. Looping through the ad again will need a call to **_prepare_** function.
 
 
 # Server-Side Insertion
@@ -619,6 +657,7 @@ streamManager?.adStreamManagerSettings = settings
 ```
 
 ## Precaching before playing
+
 This applies only when deciding to play a stream using the internal player. If you require a smooth transition between a user action to play a stream and the actual stream playing, you can call `prepare(with url: URL) throws` on your stream manager object ahead of `play(with url: URL) throws` and **_AdswizzSDK_** will make sure to buffer at most 10 seconds from your stream. You can call this function multiple times to refresh the buffer. This function is optional. Events from calling `prepare` will be received in `func adStreamManager(_ adstreamManager: AdStreamManager, stateChanged state: MediaPlayerStatus)`.
 
 ## AdswizzAdStreamManager operations
@@ -715,7 +754,7 @@ AdsWizz interactive ads require some permissions on your app. Please refer to th
 
 ## Voice enabled interactive ads
 
-AdsWizz SDK depends on a few external, third party libraries in order to deliver interactive voice ads (Amazon’s **AWSCore.framework** and Facebook’s **SocketRocket.framework**). 
+AdsWizz SDK depends on one external, third party library in order to deliver interactive voice ads (Amazon’s **AWSCore.framework**). 
 To properly set up the dependencies, you need to provide inside your Info.pList a string key called **_AdswizzSDKAWSIdentityPoolIdRegion_** with the value received from your AdsWizz Integration Manager. Failing to add this key will reduce the ability of voice detection while the app is in the background.
 
 
@@ -856,14 +895,14 @@ func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
                 //...
             }
            adManager.play() //Start playing the next ad in the AdManager
-      case .didFinishPlaying:
+      case .adCompleted:
             // Check if current ad is video
             if let ad = event.ad, ad.adType == .video {
                 // Now you should hide your AdVideoView instance
                 //...
             }
-           // Current ad has finished playing
-      case .allAdsDidFinishPlaying:
+            // Current ad has finished playing
+      case .allAdsCompleted:
             break // All ads from the AdManager have finished
       default:
           break
@@ -939,6 +978,7 @@ The video view has entered fullscreen mode.
 
 ### minimized
 The video view is `collapsed` in such a way that the video is hidden. However the ad was not fully removed from the player environment. The video may or may not still be progressing in this state, and sound may be audible. Unlike the collapsed state where the video view is big enough to display it’s content, in the minimized state the video view is only big enough to offer a control that enables your user to redisplay the ad if desired.
+Note that the video view will automatically handle app state changed by setting the video `state` to `minimized` while the app is in background. When the app becomes active again, the video view restores `state` to its previous value.
 
 
 ```swift
@@ -1132,6 +1172,21 @@ let adCompanionOptions = AdCompanionOptions()
 adCompanionOptions.extraExposureTime = 1.2 // these are seconds.
 // if you need the companion forever on the screen
 // adCompanionOptions.extraExposureTime = .greatestFiniteMagnitude
+AdswizzSDK.setAdCompanionOptions(adCompanionOptions)
+```
+
+### Preferred resource type
+
+You can instruct **_AdswizzSDK_** to select and load a particular resource type for the **_AdCompanionView_** instance(s) by setting the `preferredResourceType` property for your **_AdCompanionOptions_** config. It let's you set one of the following:
+* html - will select and load first valid html resource
+* iFrame - will select and load first valid iFrame resource
+* image - will select and load first valid static image resource
+
+By default, **_AdswizzSDK_** selects the first available resource while querying the `Companion` associated data. Additionally when no resource is found which matches the preferred type, it also defaults to the first found valid resource.
+
+```swift
+let adCompanionOptions = AdCompanionOptions()
+adCompanionOptions.preferredResourceType = .html // favor html resources
 AdswizzSDK.setAdCompanionOptions(adCompanionOptions)
 ```
 
@@ -1421,13 +1476,14 @@ Username: adswizz-sdk
 Password: your_access_token (provided by AdsWizz)
  ```
 
-The examples are structured as separate projects in the _**Examples.workspace**_. Note that the samples workspace uses Cocoapods to install AdswizzSDK and necessary dependencies. To succesufully build and run the samples you first need to run a `pod install` to make sure all the neccessary dependencies are downloaded and resolved properly.
-Next, open _**Examples.workspace**_ and run each sample individually by selecting the aproppriate target and click 'Run' in XCode.
+The examples are structured as separate projects in the **_Examples.workspace_**. Note that the samples workspace uses Cocoapods to install AdswizzSDK and necessary dependencies. To succesufully build and run the samples you first need to run a `pod install` to make sure all the neccessary dependencies are downloaded and resolved properly.
+Next, open **_Examples.workspace_** and run each sample individually by selecting the aproppriate target and click 'Run' in XCode.
 
 ## BasicAdRequestExample
 
-This sample demonstrates a basic client-side insertion scenario by showing how to create and customize an _**AdswizzAdRequest**_. It shows how to use it to create an _**AdRequestConnection**_ and finally request ads. Next, it demonstrates basic usage of an instance of _**AdManager**_ once it is obtained from the SDK. It also creates and displays an _**AdCompanionView**_ while playing ad(s).
-The sample attempts to simulate an app which plays its normal content and ocassionaly requests ads, pauses content, plays ads and finally resumes to normal content again. 
+This sample demonstrates a basic client-side insertion scenario by showing how to create and customize an **_AdswizzAdRequest_**. It shows how to use it to create an **_AdRequestConnection_** and finally request ads. Next, it demonstrates basic usage of an instance of **_AdManager_** once it is obtained from the SDK. It also creates and displays an **_AdCompanionView_** while playing ad(s).
+The sample attempts to simulate an app which plays its normal content and ocassionaly requests ads, pauses content, plays ads and finally resumes to normal content again.
+Additionally it shows a basic **_AdManagerDatasource_** protocol implementation for further customising the **_AdManager_** object.
 
 ## BasicAdRequestExampleObjC
 
@@ -1435,7 +1491,7 @@ The same sample from above fully written in Objective-C. It demonstrates how eve
 
 ## BasicAdStreamExample
 
-This sample demonstrates a basic server-side insertion scenario by showing how to create and customize an _**AdswizzAdStreamManager**_. It shows how to play/stop/pause/resume a live stream. It also creates and displays an _**AdCompanionView**_ during ad break(s).
+This sample demonstrates a basic server-side insertion scenario by showing how to create and customize an **_AdswizzAdStreamManager_**. It shows how to play/stop/pause/resume a live stream. It also creates and displays an **_AdCompanionView_** during ad break(s).
 
 ## BasicAdStreamExampleObjC
 
@@ -1443,7 +1499,7 @@ The same sample from above fully written in Objective-C.
 
 ## ExternalPlayerExample
 
-This sample demonstrates how to implement your external player using _**MediaPlayerState**_ protocol in order for **_AdswizzSDK_** to properly work. Also, this sample shows how you could debug events in the SDK by using _**AdLogger**_ with a verbose level.
+This sample demonstrates how to implement your external player using **_MediaPlayerState_** protocol in order for **_AdswizzSDK_** to properly work. Also, this sample shows how you could debug events in the SDK by using **_AdLogger_** with a verbose level.
 
 ## BasicVideoAdExample
 
@@ -1452,6 +1508,10 @@ This sample shows a basic approach on how to handle video ads playback and rende
 ## BasicTrackingPermissionExample
 
 This sample demonstrates basic usage for **_TrackingPermissionController_** in the default configuration. It also shows how to customize the logo element with Dark Mode support.
+
+## BasicEmptyAdsExample
+
+This sample shows how to handle cases when an **_AdRequestConnection_** delivers an Ad Manager object with no ads to play.
 
 # AdswizzWatchSDK
 

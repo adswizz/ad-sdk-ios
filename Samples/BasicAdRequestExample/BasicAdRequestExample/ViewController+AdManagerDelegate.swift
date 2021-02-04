@@ -68,7 +68,7 @@ extension ViewController: AdManagerDelegate {
                                                                  artwork: nil))
             }
             
-        case .didFinishPlaying, .allAdsCompleted:
+        case .didFinishPlaying, .adCompleted, .allAdsCompleted:
             // Ad manager just finished playing (all) ad(s)
             // Resume content
             playContent()

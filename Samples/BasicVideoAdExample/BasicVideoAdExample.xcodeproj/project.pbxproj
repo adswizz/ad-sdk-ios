@@ -182,7 +182,6 @@
 			buildConfigurationList = AE82D520254090B20067B74C /* Build configuration list for PBXNativeTarget "BasicVideoAdExample" */;
 			buildPhases = (
 				0D7EAB470AE6CF166C6D7E32 /* [CP] Check Pods Manifest.lock */,
-				F7BAABC174F37885C7C575A7 /* [CP] Prepare Artifacts */,
 				AE82D4F2254090AD0067B74C /* Sources */,
 				AE82D4F3254090AD0067B74C /* Frameworks */,
 				AE82D4F4254090AD0067B74C /* Resources */,
@@ -340,23 +339,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicVideoAdExample/Pods-BasicVideoAdExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F7BAABC174F37885C7C575A7 /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicVideoAdExample/Pods-BasicVideoAdExample-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicVideoAdExample/Pods-BasicVideoAdExample-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicVideoAdExample/Pods-BasicVideoAdExample-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

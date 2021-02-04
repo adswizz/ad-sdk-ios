@@ -33,8 +33,12 @@ extension ViewController: ModelAdDelegate {
         }
     }
     
+    func model(_ model: Model, didComplete adType: AdType) {
+    }
+    
     func modelDidCompleteAllAds(_ model: Model) {
         handleStop()
+        totalAdsDurationLabel.text = model.totalAdsDurationText
     }
     
     func model(_ model: Model, playHeadChanged playHead: TimeInterval, duration: TimeInterval) {
@@ -43,6 +47,11 @@ extension ViewController: ModelAdDelegate {
     func model(_ model: Model, skipStateChanged state: SkipState) {
         skipState = state
         videoView.updateSkipButton(with: state)
+    }
+    
+    func model(_ model: Model, adIndexChanged index: Int) {
+        adCountLabel.text = model.adCountText
+        totalAdsDurationLabel.text = model.totalAdsDurationText
     }
 }
 

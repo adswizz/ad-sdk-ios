@@ -21,6 +21,9 @@ extension Model: AdManagerDelegate {
             // Check the ad type to be able to differentiate as soon as possible what kind of ad plays next
             adDelegate?.model(self, didStartLoading: adType(for: event.ad))
             
+            // Advance ad index
+            currentAdIndex += 1
+
         case .readyForPlay:
             // Ad manager finished loading current ad
             // Before playing the ad you should pause your own content if any.
@@ -35,10 +38,17 @@ extension Model: AdManagerDelegate {
         case .didFinishPlaying:
             // Ad manager just finished playing current ad
             adDelegate?.model(self, didEndPlayback: adType(for: event.ad))
+            
+        case .adCompleted:
+            // Ad manager completed current ad
+            adDelegate?.model(self, didComplete: adType(for: event.ad))
         
         case .allAdsCompleted:
             // Ad manager just finished playing all ads
             adDelegate?.modelDidCompleteAllAds(self)
+            
+            // Reset ad index
+            currentAdIndex = 0
 
         default:
             break

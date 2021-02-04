@@ -36,6 +36,10 @@
     // This setting takes effect when the ad(s) finished playing.
     AASDKAdCompanionOptions *options = [AASDKAdCompanionOptions new];
     options.extraExposureTime = 5.0; // in seconds
+    // Set preferred resource type for companion banner and AdswizzSDK will attempt to match the desired resource.
+    // This setting takes effect when the ad(s) start playing and AdswizzSDK selects the media resource to render it for the created companion(s).
+    // Otherwise it defaults to first valid resource.
+    options.preferredResourceType = AASDKAdCompanionResourceTypeHtml; // default value is AASDKAdCompanionResourceTypeFirstResourceAvailable
     [AASDKAdswizzSDK setAdCompanionOptions:options];
     
     // You may want to pass the GDPR consent status if it applies to your app.

@@ -12,12 +12,12 @@ import SystemConfiguration.CaptiveNetwork
 import CoreLocation
 import CoreMotion
 import CoreTelephony
+import Dispatch
 import EventKitUI
 import Foundation
 import MessageUI
 import Speech
 import Swift
-import SwiftProtobuf
 import SystemConfiguration
 import UIKit
 import UserNotifications
@@ -331,6 +331,11 @@ extension AdCompanionView : WebKit.WKUIDelegate {
   @objc var companions: [Companion] { get }
   @objc var skipOffset: Foundation.NSNumber? { get }
 }
+extension AdData {
+  public var isEmpty: Swift.Bool {
+    get
+  }
+}
 @objc(AASDKAdType) public enum AdType : Swift.Int, Swift.CaseIterable {
   case audio
   case video
@@ -513,6 +518,44 @@ extension NSDictionary {
     get
   }
 }
+@objc(AASDKVastErrorCode) public enum VastErrorCode : Swift.Int {
+  case xmlParsingError = 100
+  case schemValidationError = 101
+  case responseNotSupported = 102
+  case trafficking = 200
+  case differentLinearity = 201
+  case differentDuration = 202
+  case differentSize = 203
+  case adCategoryNotProvided = 204
+  case inlineCategoryViolation = 205
+  case generalWrapper = 300
+  case timeOutInWrapper = 301
+  case limitInWrapper = 302
+  case noVASTResponeAfterWrapper = 303
+  case inlineWithNoAd = 304
+  case generalLinearError = 400
+  case fileNotFound = 401
+  case timeOutOfMediaFile = 402
+  case mediaFileNotSupported = 403
+  case mediaFileDisplay = 405
+  case noMezzanine = 406
+  case conditionalAdReejected = 408
+  case interactiveUnitNotExecuteed = 409
+  case verificationNotExecuted = 410
+  case mezzanineNotMatching = 411
+  case generalCompanionAdsError = 600
+  case companionBadDimensions = 601
+  case companionDisplay = 602
+  case unableToFetchCompanion = 603
+  case companionNotFound = 604
+  case undefined = 900
+  case generalVPAID = 901
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc(AASDKAdswizzSettingsKeys) public class AdswizzSettingsKeys : ObjectiveC.NSObject {
   @objc public static let AWSTranscriberIdentityPoolIdRegion: Swift.String
   @objc public static let InstallationId: Swift.String
@@ -619,10 +662,18 @@ extension AVAudioSession.Port : Swift.Codable {
   @objc func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)
   @objc optional func adManager(_ adManager: AdManager, ad: AdData, didChangedPlayHead playHead: Foundation.TimeInterval, adDuration duration: Foundation.TimeInterval)
 }
+@objc(AASDKAdManagerDatasource) public protocol AdManagerDatasource {
+  @objc optional func adManager(_ adManager: AdManager, ad: AdData, trackingEventUrls event: VastTrackingEvent) -> [Foundation.URL]
+  @objc optional func adManager(_ adManager: AdManager, ad: AdData, trackingErrorUrls errorCode: VastErrorCode) -> [Foundation.URL]
+  @objc optional func adManagerImpressionUrls(_ adManager: AdManager, ad: AdData) -> [Foundation.URL]
+}
 @objc(AASDKAdManager) public protocol AdManager {
   @objc var adManagerSettings: AdManagerSettings { get set }
   @objc weak var delegate: AdManagerDelegate? { get set }
+  @objc weak var datasource: AdManagerDatasource? { get set }
   @objc weak var interactiveDelegate: InteractiveAdManagerDelegate? { get set }
+  @objc var adCount: Swift.Int { get }
+  @objc var totalAdsDuration: Foundation.TimeInterval { get }
   @objc func prepare()
   @objc func play()
   @objc func pause()
@@ -677,6 +728,43 @@ extension AVAudioSession.Port : Swift.Codable {
   @objc var id: Swift.String? { get }
   @objc var renderingMode: CompanionRenderingMode { get }
   @objc var resource: CompanionResource { get }
+}
+@objc(AASDKVastTrackingEvent) public enum VastTrackingEvent : Swift.Int, Swift.CaseIterable {
+  case unknown
+  case mute
+  case unmute
+  case pause
+  case resume
+  case rewind
+  case skip
+  case playerExpand
+  case playerCollapse
+  case notUsed
+  case loaded
+  case start
+  case firstQuartile
+  case midpoint
+  case thirdQuartile
+  case complete
+  case progress
+  case closeLinear
+  case creativeView
+  case acceptInvitation
+  case adExpand
+  case adCollapse
+  case minimize
+  case close
+  case overlayViewDuration
+  case otherAdInteraction
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+  public typealias AllCases = [VastTrackingEvent]
+  public static var allCases: [VastTrackingEvent] {
+    get
+  }
 }
 @objc(AASDKAdVideoFriendlyObstructionPurpose) public enum AdVideoFriendlyObstructionPurpose : Swift.Int {
   case mediaControls
@@ -738,8 +826,30 @@ extension AdVideoFriendlyObstruction {
 extension AdStreamManager {
   @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
 }
+extension UnsafeMutableBufferPointer {
+}
+extension UnsafeMutableRawBufferPointer {
+}
+extension UnsafeMutableRawPointer {
+}
+@objc(AASDKAdCompanionResourceType) public enum AdCompanionResourceType : Swift.Int, Swift.CaseIterable {
+  case firstResourceAvailable
+  case image
+  case html
+  case iFrame
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+  public typealias AllCases = [AdCompanionResourceType]
+  public static var allCases: [AdCompanionResourceType] {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc(AASDKAdCompanionOptions) public class AdCompanionOptions : ObjectiveC.NSObject {
   @objc public var extraExposureTime: Swift.Double
+  @objc public var preferredResourceType: AdCompanionResourceType
   @objc override dynamic public init()
   @objc deinit
 }
@@ -762,6 +872,7 @@ extension AdStreamManager {
   case thirdQuartile
   case complete
   case didFinishPlaying
+  case adCompleted
   case allAdsCompleted
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
@@ -1030,6 +1141,12 @@ extension AdVideoAspect : Swift.RawRepresentable {}
 extension AdCachePolicy : Swift.Equatable {}
 extension AdCachePolicy : Swift.Hashable {}
 extension AdCachePolicy : Swift.RawRepresentable {}
+extension VastErrorCode : Swift.Equatable {}
+extension VastErrorCode : Swift.Hashable {}
+extension VastErrorCode : Swift.RawRepresentable {}
+extension VastTrackingEvent : Swift.Equatable {}
+extension VastTrackingEvent : Swift.Hashable {}
+extension VastTrackingEvent : Swift.RawRepresentable {}
 extension TrackingStatus : Swift.Equatable {}
 extension TrackingStatus : Swift.Hashable {}
 extension TrackingStatus : Swift.RawRepresentable {}
@@ -1050,6 +1167,9 @@ extension CompanionRenderingMode : Swift.RawRepresentable {}
 extension AdAssetState : Swift.Equatable {}
 extension AdAssetState : Swift.Hashable {}
 extension AdAssetState : Swift.RawRepresentable {}
+extension AdCompanionResourceType : Swift.Equatable {}
+extension AdCompanionResourceType : Swift.Hashable {}
+extension AdCompanionResourceType : Swift.RawRepresentable {}
 extension GDPRConsent : Swift.Equatable {}
 extension GDPRConsent : Swift.Hashable {}
 extension GDPRConsent : Swift.RawRepresentable {}

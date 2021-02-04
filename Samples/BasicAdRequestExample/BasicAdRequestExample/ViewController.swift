@@ -183,6 +183,7 @@ extension ViewController {
                     // Keep a strong ref to adManager
                     self.adManager = adManager
                     adManager?.delegate = self
+                    adManager?.datasource = self
                     
                     // Prepare
                     adManager?.prepare()

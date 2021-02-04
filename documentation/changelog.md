@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.3.1] - 2021-01-28
+### Added
+- New Remote detector for interactive ads.
+- New datasource protocol **_AdManagerDatasource_** to further customise the **_AdManager_** object
+- Two new properties on the **_AdManager_** object: `adCount` and `totalAdsDuration`
+- New ad event `adCompleted` which marks the end for a single ad's lifecycle
+- New `isEmpty()` helper method on **_AdData_**
+- New **_AdCompanionResourceType_** enum for companion resource selection
+- New `preferredCompanionResource` property for **_AdCompanionOptions_**
+
+### Removed
+- **_AdswizzSDK.framework_** dependency on **_SocketRocket.framework_**
+- **_AdswizzSDK.framework_** dependency on **_SwiftProtobuf.framework_**
+
+### Changed
+- **_didFinishPlaying_** ad event not fired anymore for ads which do not start playing via **_didStartPlaying_** (i.e empty ads). This change may break certain logic handling for the **_didFinishPlaying_** ad event with the newer versions of **_AdswizzSDK_**. One way to solve it would be to rely on the newly introduced **_adCompleted_** ad event which is guaranteed to be called when a a single ad finishes its lifecycle.
+- Two new enums are now public: `VastTrackingEvent` and `VastErrorCode`.
+- **_AdVideoView_** automatically handles app state changed by setting the video `state` to `minimized` while the app is in background
+
+### Fixed
+- a case where an ad lifecycle could get stuck during asset pre-caching when the asset url connection is refused or unreachable
+- companion banners loading html (including iFrames) resources while the app is in background
+
 ## [7.3.0] - 2020-12-22
 ### Added
 - AdswizzSDK now dependes on **_AdswizzSDKPrivacyData framework_**, an open source project meant to remove Privacy-Sensitive API from AdswizzSDK binary

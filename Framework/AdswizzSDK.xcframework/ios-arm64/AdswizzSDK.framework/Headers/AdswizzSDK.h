@@ -17,7 +17,6 @@ FOUNDATION_EXPORT const unsigned char AdswizzSDKVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <AdswizzSDK/PublicHeader.h>
 
 #import "XMLValidation.h"
-#import <SocketRocket/SRWebSocket.h>
 #import <zlib.h>
 #import "GZip.h"
 #import "OMIDImports.h"

@@ -16,6 +16,7 @@ project 'BasicAdRequestWatchExample/BasicAdRequestWatchExample.xcodeproj'
 project 'ExternalPlayerExample/ExternalPlayerExample.xcodeproj'
 project 'BasicVideoAdExample/BasicVideoAdExample.xcodeproj'
 project 'BasicTrackingPermissionExample/BasicTrackingPermissionExample.xcodeproj'
+project 'BasicEmptyAdsExample/BasicEmptyAdsExample.xcodeproj'
 
 target :BasicAdRequestExample do
   project 'BasicAdRequestExample/BasicAdRequestExample.xcodeproj'
@@ -113,14 +114,14 @@ target :BasicTrackingPermissionExample do
   common_pods
 end
 
+target :BasicEmptyAdsExample do
+  project 'BasicEmptyAdsExample/BasicEmptyAdsExample.xcodeproj'
+  common_pods
+end
+
  post_install do |installer|
      installer.pods_project.targets.each do |target|
-         if target.name == "SwiftProtobuf"
-           target.build_configurations.each do |config|
-             path = config.base_configuration_reference.real_path
-             update_xcconfig(path, { "BUILD_LIBRARY_FOR_DISTRIBUTION" => "YES" })
-           end
-         elsif target.name == "AdswizzSDKPrivacyData"
+          if target.name == "AdswizzSDKPrivacyData"
            target.build_configurations.each do |config|
             path = config.base_configuration_reference.real_path
             update_xcconfig(path, { "BUILD_LIBRARY_FOR_DISTRIBUTION" => "YES",

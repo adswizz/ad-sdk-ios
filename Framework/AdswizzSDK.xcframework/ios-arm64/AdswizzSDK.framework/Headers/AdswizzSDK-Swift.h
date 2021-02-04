@@ -236,6 +236,8 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAnalyticsCategory, "Level", open) {
 
 
 
+
+
 enum AASDKAdAssetState : NSInteger;
 @protocol AASDKAdAssetDelegate;
 
@@ -319,6 +321,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdCachePolicy, "AdCachePolicy", open) {
   AASDKAdCachePolicyAssets = 0,
 };
 
+enum AASDKAdCompanionResourceType : NSInteger;
 
 /// Ad companion options to configure it with
 SWIFT_CLASS_NAMED("AdCompanionOptions")
@@ -328,8 +331,24 @@ SWIFT_CLASS_NAMED("AdCompanionOptions")
 /// If <code>extraExposureTime</code> is Double.greatestFiniteMagnitude, then the sync-companion will be exposed forever or until the next sync-companion.
 /// If fallback companions are active and <code>extraExposureTime</code> is activated, then the fallback companions will be delayed.
 @property (nonatomic) NSTimeInterval extraExposureTime;
+/// Set the preferred resource type for the <code>AdCompanionView</code> instances to select and load when querying through the associated<code>Companion</code>data.
+/// When there is no preferred type or couldn’t find a resource which matches, it defaults to the first found valid resource.
+@property (nonatomic) enum AASDKAdCompanionResourceType preferredResourceType;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+/// The preferred resource type for <code>AdCompanionView</code> to load and display
+typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdCompanionResourceType, "AdCompanionResourceType", open) {
+/// Default.
+/// Let AdswizzSDK select and load first valid resource for <code>AdCompanionView</code> instances.
+  AASDKAdCompanionResourceTypeFirstResourceAvailable = 0,
+/// Select and load first valid static image resource.
+  AASDKAdCompanionResourceTypeImage = 1,
+/// Select and load first valid html resource.
+  AASDKAdCompanionResourceTypeHtml = 2,
+/// Select and load first valid iFrame resource.
+  AASDKAdCompanionResourceTypeIFrame = 3,
+};
 
 @protocol AASDKAdCompanionViewDelegate;
 @class NSCoder;
@@ -488,10 +507,12 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdEventType, "AdEventType", open) {
   AASDKAdEventTypeThirdQuartile = 7,
 /// Complete quartile of a liniar ad was reached
   AASDKAdEventTypeComplete = 8,
-/// Single ad has finished.
+/// Single ad has finished. Paired with .didStartPlaying event.
   AASDKAdEventTypeDidFinishPlaying = 9,
+/// Single ad completed.
+  AASDKAdEventTypeAdCompleted = 10,
 /// All ads managed by the ads manager have finished.
-  AASDKAdEventTypeAllAdsCompleted = 10,
+  AASDKAdEventTypeAllAdsCompleted = 11,
 };
 
 enum Level : NSInteger;
@@ -546,6 +567,7 @@ SWIFT_PROTOCOL_NAMED("AdLoggerDestination")
 
 @class AASDKAdManagerSettings;
 @protocol AASDKAdManagerDelegate;
+@protocol AASDKAdManagerDatasource;
 @protocol AASDKInteractiveAdManagerDelegate;
 
 /// The <code>AdManager</code> provides support while playing the ads
@@ -553,8 +575,17 @@ SWIFT_PROTOCOL_NAMED("AdManager")
 @protocol AASDKAdManager
 /// Ad manager settings object
 @property (nonatomic, strong) AASDKAdManagerSettings * _Nonnull adManagerSettings;
+/// Ad Manager delegate
 @property (nonatomic, weak) id <AASDKAdManagerDelegate> _Nullable delegate;
+/// Ad Manager datasource
+@property (nonatomic, weak) id <AASDKAdManagerDatasource> _Nullable datasource;
 @property (nonatomic, weak) id <AASDKInteractiveAdManagerDelegate> _Nullable interactiveDelegate;
+/// Returns the number of playable ads currently stored by the Ad manager object.
+/// <code>adCount</code> can safely be checked before obtaining the Ad Manager and before calling <code>prepare()</code>. A zero value means the Ad Manager will not play any ad.
+@property (nonatomic, readonly) NSInteger adCount;
+/// Returns the total number of seconds for all playable ads currently stored by the Ad manager object.
+/// <code>totalAdsDuration</code> can safely be checked before obtaining the Ad Manager and before calling <code>prepare()</code>.
+@property (nonatomic, readonly) NSTimeInterval totalAdsDuration;
 /// Prepare and load the ads
 - (void)prepare;
 /// Play ad when using the internal player
@@ -565,6 +596,41 @@ SWIFT_PROTOCOL_NAMED("AdManager")
 - (void)skipAd;
 /// Causes the ads manager to stop all the ads
 - (void)reset;
+@end
+
+enum AASDKVastTrackingEvent : NSInteger;
+enum AASDKVastErrorCode : NSInteger;
+
+/// @protocol
+/// The <code>AdManagerDatasource</code> protocol defines the methods used to provide the SDK with various data.
+SWIFT_PROTOCOL_NAMED("AdManagerDatasource")
+@protocol AASDKAdManagerDatasource
+@optional
+/// Called when the SDK is about to fire tracking URLs for a specific VAST tracking event.
+/// The SDK will receive your custom tracking URLs and fire them along with VAST URLs.
+/// \param adManager The AdManager that sent the event
+///
+/// \param ad Ad that is being played
+///
+/// \param event VAST tracking event for which to fire the urls
+///
+- (NSArray<NSURL *> * _Nonnull)adManager:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad trackingEventUrls:(enum AASDKVastTrackingEvent)event SWIFT_WARN_UNUSED_RESULT;
+/// Called when the SDK is about to fire tracking URLs for a specific VAST error.
+/// The SDK will receive your custom tracking URLs and fire them along.
+/// \param adManager The AdManager that sent the event
+///
+/// \param ad Ad that is being played
+///
+/// \param errorCode VAST error code for which to fire the urls
+///
+- (NSArray<NSURL *> * _Nonnull)adManager:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad trackingErrorUrls:(enum AASDKVastErrorCode)errorCode SWIFT_WARN_UNUSED_RESULT;
+/// Called when the SDK is about to fire the impression URLs.
+/// The SDK will receive your custom tracking URLs and fire them along.
+/// \param adManager The AdManager that sent the event
+///
+/// \param ad Ad that is being played
+///
+- (NSArray<NSURL *> * _Nonnull)adManagerImpressionUrls:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -866,6 +932,8 @@ SWIFT_CLASS_NAMED("AdVideoView")
 /// The video state for viewability purposes. See <code>AdVideoState</code> enum for possible values.
 /// Your <code>AdVideoView</code> instance will have to report state changes according to your specific usage.
 /// E.g whenevar your video view transitions to one of the <code>AdVideoState</code> options, you should update the state here.
+/// Also note that when your app transitions to background, the SDK will conveniently set to <code>minimized</code> state and restore
+/// it to the previously known value when app becomes active again.
 @property (nonatomic) enum AASDKAdVideoState state;
 /// Init
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -881,7 +949,6 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK))
 /// Registers a view that overlays or obstructs this container as “friendly” for viewability measurement purposes.
 /// See Open Measurement in AdswizzSDK for guidance on what is and what is not allowed to be registered.
@@ -891,6 +958,7 @@ SWIFT_CLASS_NAMED("AdVideoView")
 /// Unregisters all previously registered friendly obstructions.
 - (void)unregisterAllFriendlyObstructions;
 @end
+
 
 
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
@@ -1721,6 +1789,8 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 @end
 
 
+
+
 @interface AASDKTrackingPermissionController (SWIFT_EXTENSION(AdswizzSDK))
 /// Convenience method to quickly create a tracking permission controller with basic customizations.
 /// \param title A custom title for the controller. It defaults to a generic title.
@@ -1736,8 +1806,6 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 /// The controller with the designated configuration.
 + (AASDKTrackingPermissionController * _Nonnull)trackingControllerWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message contentImage:(UIImage * _Nullable)contentImage headerImage:(UIImage * _Nullable)headerImage SWIFT_WARN_UNUSED_RESULT;
 @end
-
-
 
 
 @class UIPresentationController;
@@ -1841,6 +1909,136 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKTrackingDismissReason, "TrackingStatus"
 
 
 
+
+
+/// The VAST error codes
+typedef SWIFT_ENUM_NAMED(NSInteger, AASDKVastErrorCode, "VastErrorCode", open) {
+/// XML parsing error.
+  AASDKVastErrorCodeXmlParsingError = 100,
+/// VAST schema validation error.
+  AASDKVastErrorCodeSchemValidationError = 101,
+/// VAST version of response not supported.
+  AASDKVastErrorCodeResponseNotSupported = 102,
+/// Trafficking error. Media player received an Ad type that it was not expecting and/or cannot play.
+  AASDKVastErrorCodeTrafficking = 200,
+/// Media player expecting different linearity.
+  AASDKVastErrorCodeDifferentLinearity = 201,
+/// Media player expecting different duration.
+  AASDKVastErrorCodeDifferentDuration = 202,
+/// Media player expecting different size.
+  AASDKVastErrorCodeDifferentSize = 203,
+/// Ad category was required but not provided.
+  AASDKVastErrorCodeAdCategoryNotProvided = 204,
+/// Inline Category violates Wrapper BlockedAdCategories (refer 3.19.2).
+  AASDKVastErrorCodeInlineCategoryViolation = 205,
+/// General Wrapper error.
+  AASDKVastErrorCodeGeneralWrapper = 300,
+/// Timeout of VAST URI provided in Wrapper element, or of VAST URI provided in a subsequent Wrapper element.
+/// (URI was either unavailable or reached a timeout as defined by the media player.)
+  AASDKVastErrorCodeTimeOutInWrapper = 301,
+/// Wrapper limit reached, as defined by the media player.
+/// Too many Wrapper responses have been received with no InLine response.
+  AASDKVastErrorCodeLimitInWrapper = 302,
+/// No VAST response after one or more Wrappers.
+  AASDKVastErrorCodeNoVASTResponeAfterWrapper = 303,
+/// InLine response returned ad unit that failed to result in ad display within defined time limit.
+  AASDKVastErrorCodeInlineWithNoAd = 304,
+/// General Linear error. Media player is unable to display the Linear Ad.
+  AASDKVastErrorCodeGeneralLinearError = 400,
+/// File not found. Unable to find Linear/MediaFile from URI.
+  AASDKVastErrorCodeFileNotFound = 401,
+/// Timeout of MediaFile URI.
+  AASDKVastErrorCodeTimeOutOfMediaFile = 402,
+/// Couldn’t find MediaFile that is supported by this media player, based on the attributes of the MediaFile element.
+  AASDKVastErrorCodeMediaFileNotSupported = 403,
+/// Problem displaying MediaFile. Media player found a MediaFile with supported type but couldn’t display it.
+/// MediaFile may include: unsupported codecs, different MIME type than MediaFile@type, unsupported delivery method, etc.
+  AASDKVastErrorCodeMediaFileDisplay = 405,
+/// Mezzanine was required but not provided. Ad not served.407Mezzanine is in the process of being downloaded for the first time.
+/// Download may take several hours. Ad will not be served until mezzanine is downloaded and transcoded.
+  AASDKVastErrorCodeNoMezzanine = 406,
+/// Conditional ad rejected. (deprecated along with conditionalAd)
+  AASDKVastErrorCodeConditionalAdReejected = 408,
+/// Interactive unit in the InteractiveCreativeFile node was not executed.
+  AASDKVastErrorCodeInteractiveUnitNotExecuteed = 409,
+/// Verification unit in the Verification node was not executed.
+  AASDKVastErrorCodeVerificationNotExecuted = 410,
+/// Mezzanine was provided as required, but file did not meet required specification. Ad not served.
+  AASDKVastErrorCodeMezzanineNotMatching = 411,
+/// General CompanionAds error.
+  AASDKVastErrorCodeGeneralCompanionAdsError = 600,
+/// Unable to display Companion because creative dimensions do not fit within Companion display area (i.e., no available space).
+  AASDKVastErrorCodeCompanionBadDimensions = 601,
+/// Unable to display required Companion.
+  AASDKVastErrorCodeCompanionDisplay = 602,
+/// Unable to fetch CompanionAds/Companion resource.
+  AASDKVastErrorCodeUnableToFetchCompanion = 603,
+/// Couldn’t find Companion resource with supported type.
+  AASDKVastErrorCodeCompanionNotFound = 604,
+/// Undefined Error.
+  AASDKVastErrorCodeUndefined = 900,
+/// General VPAID error.
+  AASDKVastErrorCodeGeneralVPAID = 901,
+};
+
+/// The VAST tracking event types
+typedef SWIFT_ENUM_NAMED(NSInteger, AASDKVastTrackingEvent, "VastTrackingEvent", open) {
+/// Unknown.
+  AASDKVastTrackingEventUnknown = 0,
+/// The ad creative was muted.
+  AASDKVastTrackingEventMute = 1,
+/// The ad creative was unmuted after it was previously muted.
+  AASDKVastTrackingEventUnmute = 2,
+/// The ad was stopped by being paused.
+  AASDKVastTrackingEventPause = 3,
+/// The ad was resumed after it was stopped or paused.
+  AASDKVastTrackingEventResume = 4,
+/// The ad accessed a previous point in the creative timeline.
+  AASDKVastTrackingEventRewind = 5,
+/// The ad was skipped.
+  AASDKVastTrackingEventSkip = 6,
+/// The player was expanded to a larger size.
+  AASDKVastTrackingEventPlayerExpand = 7,
+/// The player was reduced to a smaller size.
+  AASDKVastTrackingEventPlayerCollapse = 8,
+/// The ad was not and will not be played.
+  AASDKVastTrackingEventNotUsed = 9,
+/// The player considered that it has loaded and buffered the creative’s media and assets
+/// either fully or to the extent that it is ready to play the media.
+  AASDKVastTrackingEventLoaded = 10,
+/// The ad was loaded and playback began.
+  AASDKVastTrackingEventStart = 11,
+/// The ad played continuously for at least 25% of the total duration at normal speed.
+  AASDKVastTrackingEventFirstQuartile = 12,
+/// The ad played continuously for at least 50% of the total duration at normal speed.
+  AASDKVastTrackingEventMidpoint = 13,
+/// The ad played continuously for at least 75% of the total duration at normal speed.
+  AASDKVastTrackingEventThirdQuartile = 14,
+/// The ad was played to the end at normal speed so that 100% of the creative was played.
+  AASDKVastTrackingEventComplete = 15,
+/// The ad  played for a duration at normal speed that is equal to or greater than the value provided
+/// in an additional offset attribute for the <Tracking> element.
+  AASDKVastTrackingEventProgress = 16,
+/// The liniar ad unit was closed.
+  AASDKVastTrackingEventCloseLinear = 17,
+/// An individual creative portion of the ad was viewed.
+  AASDKVastTrackingEventCreativeView = 18,
+/// Streaming content was paused, which either expands the ad within the player’s viewable area or
+/// “takes-over” the streaming content area by launching an additional portion of the ad.
+  AASDKVastTrackingEventAcceptInvitation = 19,
+/// The ad was expanded to a greater dimension than its default.
+  AASDKVastTrackingEventAdExpand = 20,
+/// The ad was collapsed to its original dimension.
+  AASDKVastTrackingEventAdCollapse = 21,
+/// The ad was minimized to a smaller size than collapsed.
+  AASDKVastTrackingEventMinimize = 22,
+/// The ad was removed from player and cannot be re-displayed.
+  AASDKVastTrackingEventClose = 23,
+/// The time that the initial ad is displayed.
+  AASDKVastTrackingEventOverlayViewDuration = 24,
+/// An optional metric that can capture all other user interactions under one metric such as custom clicks.
+  AASDKVastTrackingEventOtherAdInteraction = 25,
+};
 
 
 

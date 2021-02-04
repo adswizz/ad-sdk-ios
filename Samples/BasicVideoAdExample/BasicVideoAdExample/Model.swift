@@ -20,11 +20,14 @@ protocol ModelAdDelegate: class {
     // playback ads
     func model(_ model: Model, didStartPlayback adType: AdType)
     func model(_ model: Model, didEndPlayback adType: AdType)
+    func model(_ model: Model, didComplete adType: AdType)
     func modelDidCompleteAllAds(_ model: Model)
     // playhead
     func model(_ model: Model, playHeadChanged playHead: TimeInterval, duration: TimeInterval)
     // skippable ads
     func model(_ model: Model, skipStateChanged state: SkipState)
+    // ad count progression
+    func model(_ model: Model, adIndexChanged index: Int)
 }
 
 protocol ModelAdDatasource: class {
@@ -39,10 +42,23 @@ class Model {
     let adServer: String = "demo.deliveryengine.adswizz.com"
     // Let's mock the skippOffset for an ad. Normally this value would be part of the AdData for an ad.
     let skipOffset: NSNumber = NSNumber(floatLiteral: 5)
+    var currentAdIndex = 0 {
+        didSet {
+            adDelegate?.model(self, adIndexChanged: currentAdIndex)
+        }
+    }
     
     weak var adDatasource: ModelAdDatasource?
     weak var adDelegate: ModelAdDelegate?
     
+    var adCountText: String {
+        return "\(currentAdIndex)/\(adManager?.adCount ?? 0) ads"
+    }
+
+    var totalAdsDurationText: String {
+        return "totalAdsDuration: \(adManager?.totalAdsDuration ?? 0) seconds"
+    }
+
     func requestAds() throws {
         // Cancel current connection if running
         adConnection?.cancel()

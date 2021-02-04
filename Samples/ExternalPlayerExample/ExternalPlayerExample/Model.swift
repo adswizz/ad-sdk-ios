@@ -88,7 +88,7 @@ extension Model: AdManagerDelegate {
             //let's mock the duration as we don't have it in out player
             player.play(adMedia, duration: 6.0)
             
-        case .didFinishPlaying, .allAdsCompleted:
+        case .didFinishPlaying, .adCompleted, .allAdsCompleted:
             // Cleanup
             self.adManager = nil
             
