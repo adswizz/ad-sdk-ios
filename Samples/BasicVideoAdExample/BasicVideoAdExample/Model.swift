@@ -120,3 +120,15 @@ class Model {
         adManager = nil
     }
 }
+
+extension AdManager {
+    /// The current number of playbable ads
+    var adCount: Int {
+        return ads.count
+    }
+
+    /// The total number of seconds for all playable ads
+    var totalAdsDuration: TimeInterval {
+        return ads.compactMap { $0.duration }.reduce(0, +)
+    }
+}

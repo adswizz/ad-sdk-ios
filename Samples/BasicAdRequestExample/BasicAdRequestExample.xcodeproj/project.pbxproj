@@ -207,6 +207,7 @@
 			buildConfigurationList = AE5193F423F3F7630083D87B /* Build configuration list for PBXNativeTarget "BasicAdRequestExample" */;
 			buildPhases = (
 				CFC2522587D21D45F3839D14 /* [CP] Check Pods Manifest.lock */,
+				A5E0700BBA0E2CA4F3026F01 /* [CP] Prepare Artifacts */,
 				AE5193C623F3F7600083D87B /* Sources */,
 				AE5193C723F3F7600083D87B /* Frameworks */,
 				AE5193C823F3F7600083D87B /* Resources */,
@@ -226,6 +227,7 @@
 			buildConfigurationList = AE5193F723F3F7630083D87B /* Build configuration list for PBXNativeTarget "BasicAdRequestExampleTests" */;
 			buildPhases = (
 				D4094E2F2358C45B821864E1 /* [CP] Check Pods Manifest.lock */,
+				167A0A1239E28D2C948BC58F /* [CP] Prepare Artifacts */,
 				AE5193DC23F3F7630083D87B /* Sources */,
 				AE5193DD23F3F7630083D87B /* Frameworks */,
 				AE5193DE23F3F7630083D87B /* Resources */,
@@ -246,6 +248,7 @@
 			buildConfigurationList = AE5193FA23F3F7630083D87B /* Build configuration list for PBXNativeTarget "BasicAdRequestExampleUITests" */;
 			buildPhases = (
 				B9A493164237EA82240502EC /* [CP] Check Pods Manifest.lock */,
+				94DAF2874C8DCD385D45E70D /* [CP] Prepare Artifacts */,
 				AE5193E723F3F7630083D87B /* Sources */,
 				AE5193E823F3F7630083D87B /* Frameworks */,
 				AE5193E923F3F7630083D87B /* Resources */,
@@ -333,6 +336,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		167A0A1239E28D2C948BC58F /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestExampleTests/Pods-BasicAdRequestExampleTests-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestExampleTests/Pods-BasicAdRequestExampleTests-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestExampleTests/Pods-BasicAdRequestExampleTests-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8C5C82505298D6F64D1A84B7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -348,6 +368,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestExampleUITests/Pods-BasicAdRequestExampleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94DAF2874C8DCD385D45E70D /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestExampleUITests/Pods-BasicAdRequestExampleUITests-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestExampleUITests/Pods-BasicAdRequestExampleUITests-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestExampleUITests/Pods-BasicAdRequestExampleUITests-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5E0700BBA0E2CA4F3026F01 /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestExample/Pods-BasicAdRequestExample-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestExample/Pods-BasicAdRequestExample-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdRequestExample/Pods-BasicAdRequestExample-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A8EC25166F115AB98F220BDE /* [CP] Embed Pods Frameworks */ = {

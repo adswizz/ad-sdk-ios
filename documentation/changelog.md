@@ -4,6 +4,50 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.4.0] - 2021-04-23
+### Added
+- Interopability with Google's PAL SDK through **_PALManagerProtocol_**
+- New public members in **_AdswizzSDK_**:
+    - `palManager` - relates to the PAL SDK 
+    - `omidPartner` - relates to the OM SDK
+    - `omidPartnerVersion` - relates to the OM SDK
+    - `omidVersion` - relates to the OM SDK
+    - `xpaid` - populated with the AudioGraph ID value corresponding to the active listener
+    - `disableDataCollection` to dynamically enable/disable data collector
+- New public members in **_AdManager_**:
+    - `analyticsCustomData` to dynamically set/update Analytics events's custom params
+    - `ads` - exposes the array of playable ads as served from VAST
+- New public members in **_AdData_**: 
+    - `adParameters` - exposes the AdParamaters VAST tag for an ad
+    - `extensions` -  exposes all the Extension VAST tags for an ad
+    - `creativeExtensions` - exposes all the CreativeExtension VAST tags for an ad
+    - `duration` - refers to the VAST duration for an ad
+- New public members in **_AdAsset_**: 
+    - `width` - refers to the VAST `width` component for a mediafile size
+    - `height` - refers to the VAST `height` component for a mediafile size
+- New **_AdAssetQuality_** option called `.auto`
+- New public member in **_AdswizzAdRequest_**.**_Builder_** called `analyticsCustomData` to set Analytics events's custom params
+- New public member in **_AnalyticsEvent_** called `customParams` for Host App to access the custom attributes 
+- Support for custom params in **_AnalyticsEvent_** through **_AnalyticsCustomData_** protocol
+- More **_AnalyticsEvent_** events have been logged during the ads lifecyle
+- More attributes have been added to the **_AnalyticsEvent_**
+- New public helper class called **_AdswizzSDKConfig_** to configure `AdswizzSDK.shared` instance
+- New public initialize method in **_AdswizzSDK_** called `AdswizzSDK.shared.initialize(with configuration: AdswizzSDKConfig)` to set **_installationId_** and **_playerId_** programmatically
+
+### Removed
+- **_active_** property on **_AdCompanionView_** because it became private and handled internally by the SDK
+- **_adCount_** property on **_AdManager_** because it can be accessed directly through the `ads` property
+- **_totalAdsDuration_** property on **_AdManager_** because it can be computed directly through the `ads` property
+
+### Changed
+- **_AdCompanionView_** will now render ads automatically when it becomes visible on screen. Otherwise it stays inactive
+- All error codes defined within the AdswizzSDK are now prefixed with 1000 i.e `201` became `1201`
+- **_installationId_** and **_playerId_** string settings are no longer mandatory in Info.plist unless they were set through **_AdswizzSDKConfig_** when AdswizzSDK is initialized
+
+### Fixed
+- a case where would fail to render video for an ad pod with multiple ads
+- rendering for dynamic creative optimization (DCO) ads
+
 ## [7.3.3] - 2021-03-04
 ### Added
 - Support for concatenated metadata during streaming

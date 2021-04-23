@@ -161,6 +161,7 @@
 			buildConfigurationList = AE4F9AB0256E45A900D2FCB2 /* Build configuration list for PBXNativeTarget "BasicTrackingPermissionExample" */;
 			buildPhases = (
 				240649BCD80C145FAB3798B8 /* [CP] Check Pods Manifest.lock */,
+				41595802FA588F8B4DC64031 /* [CP] Prepare Artifacts */,
 				AE4F9A82256E45A700D2FCB2 /* Sources */,
 				AE4F9A83256E45A700D2FCB2 /* Frameworks */,
 				AE4F9A84256E45A700D2FCB2 /* Resources */,
@@ -301,6 +302,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41595802FA588F8B4DC64031 /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicTrackingPermissionExample/Pods-BasicTrackingPermissionExample-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicTrackingPermissionExample/Pods-BasicTrackingPermissionExample-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicTrackingPermissionExample/Pods-BasicTrackingPermissionExample-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D408FE2593FA0EF9C85C1762 /* [CP] Embed Pods Frameworks */ = {

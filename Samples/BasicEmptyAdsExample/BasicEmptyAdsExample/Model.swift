@@ -55,7 +55,7 @@ class Model {
                 adManager?.delegate = self
                 
                 if let sself = self {
-                    sself.delegate?.model(sself, log: "Starting the adManager with adCount = \(adManager?.adCount ?? 0)")
+                    sself.delegate?.model(sself, log: "Starting the adManager with adCount = \(adManager?.ads.count ?? 0)")
                 }
                 
                 // Prepare

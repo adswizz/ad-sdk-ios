@@ -20,8 +20,8 @@
     + [Start AdManager](#start-admanager)
   * [AdManager life cycle](#admanager-life-cycle)
     + [AdManager properties](#admanager-properties)
-      - [adCount](#adcount)
-      - [totalAdsDuration](#totaladsduration)
+      - [ads](#ads)
+      - [analyticsCustomData](#analyticscustomdata)
     + [AdManager operations](#admanager-operations)
     + [AdManager protocol](#admanager-protocol)
       - [prepare](#prepare)
@@ -78,6 +78,9 @@
     + [GDPR](#gdpr)
     + [CCPA](#ccpa)
 - [AdswizzSDK Analytics](#adswizzsdk-analytics)
+  * [Customize AnalyticsEvent](#customize-analyticsevent)
+    + [Custom analytics data through AdRequest](#custom-analytics-data-through-adrequest)
+    + [Custom analytics data through Ad Manager](#custom-analytics-data-through-ad-manager)
 - [Open Measurement in AdswizzSDK](#open-measurement-in-adswizzsdk)
   * [Video controls obstructions](#video-controls-obstructions)
 - [(Optional) Tracking permission request](#optional-tracking-permission-request)
@@ -87,8 +90,11 @@
   * [Behaviour](#behaviour)
   * [Other considerations](#other-considerations)
 - [(Optional) Prepare your application for advanced targetability capabilities](#optional-prepare-your-application-for-advanced-targetability-capabilities)
+  * [Handle data collection](#handle-data-collection)
   * [Privacy implications](#privacy-implications)
   * [Technical prerequisites](#technical-prerequisites)
+- [(Optional) Interoperability with PAL SDK](#interoperability-with-pal-sdk)
+  * [What you need to do](#what-you-need-to-do)
 - [Sample projects](#sample-projects)
   * [BasicAdRequestExample](#basicadrequestexample)
   * [BasicAdRequestExampleObjC](#basicadrequestexampleobjc)
@@ -222,7 +228,7 @@ These dependencies are automatically added if you choose to integrate the SDK us
     ```ruby
     post_install do |installer|
        installer.pods_project.targets.each do |target|
-            if target.name == "AdswizzSDKPermissions"
+            if target.name == "AdswizzSDKPrivacyData"
              target.build_configurations.each do |config|
               path = config.base_configuration_reference.real_path
               update_xcconfig(path, { "BUILD_LIBRARY_FOR_DISTRIBUTION" => "YES"
@@ -268,15 +274,17 @@ These dependencies are automatically added if you choose to integrate the SDK us
 
 ## Changes in your Info.pList file
 
-After adding AdswizzSDK.xcframework to your application, you’ll also need to add some keys in the Info.pList. Let’s split these in 2 categories:
+After adding AdswizzSDK.xcframework to your application, unless you will pass the required settings programmatically when AdswizzSDK is initialized (**_installationId_** and **_playerId_**), you’ll also need to add some keys in the Info.pList. Let’s split these in 2 categories:
 
 
 1. Settings for the framework:
-    1. Add "**_AdswizzAdSDKInstallationId_**" as a string setting. This is a unique string provided by your AdsWizz Integration Manager. This setting **is mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
+    1. Add "**_AdswizzAdSDKInstallationId_**" as a string setting. This is a unique string provided by your AdsWizz Integration Manager. If not provided programmatically, this setting **is mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
     <img src="img/installationId.png" width="1000" />
+    More details at [SDK initialization and setup](#sdk-initialization-and-setup).
 
-    2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by an AdsWizz PIM. This setting **is mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
+    2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by your AdsWizz Integration Manager. If not provided programmatically, this setting **is mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
     <img src="img/playerId.png" width="1000" />
+    More details at [SDK initialization and setup](#sdk-initialization-and-setup).
 
     3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**. Must be set only if you want to traffic voice ads.    
     <img src="img/aws.png" width="1000" />
@@ -298,7 +306,13 @@ After adding AdswizzSDK.xcframework to your application, you’ll also need to a
 
 ## SDK initialization and setup
 
-In order to properly integrate AdswizzSDK in your app, you first need to configure the AdswizzSDK. The recommended place to do that is in your **_AppDelegate_** class on **_didFinishLaunchingWithOptions_** function. Here is a snippet of what this might look like:
+In order to properly integrate AdswizzSDK in your app, you first need to initialize the AdswizzSDK with an optional configuration.
+There are two mandatory string settings that allow AdswizzSDK to be initialized properly: **_installationId_** and **_playerId_**.
+You can either set them in your Info.plist file with **_AdswizzAdSDKInstallationId_** key and **_AdswizzAdSDKPlayerId_** respectively (see [Changes in your Info.pList file](#changes-in-your-infoplist-file)), or set them programmatically in which case the Info.plist values will be overridden.
+
+To programmatically set the **_installationId_** and **_playerId_** string settings you use a configuration object which is an instance of **_AdswizzSDKConfig_**.
+
+The recommended place to initialize the AdswizzSDK is in your **_AppDelegate_** class on **_didFinishLaunchingWithOptions_** function. Here is a snippet of what this might look like:
 
 
 ```swift
@@ -309,8 +323,11 @@ import AdswizzSDK
 class AppDelegate: UIResponder, UIApplicationDelegate {
 ......
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+  //the configuration object is optional, unless you want to override the Info.plist values
+  //or simply didn't add the string settings in your app's Info.plist
+  let config = AdswizzSDKConfig(playerId: "yourPlayerId", installationId: "yourInstallationId")
   do {
-     try AdswizzSDK.shared.initialize()
+     try AdswizzSDK.shared.initialize(with: config)
   } catch {
      print(error)
   }
@@ -321,7 +338,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 
 
-Your AdsWizz Integration Manager will provide you a unique SDK installation id which you need to add in your Info.pList under the **_AdswizzSDKInstallationId_** key. You are now ready for your first ad request in a client-side scenario, or playing a live stream in case of the server-side insertion approach.
+Your AdsWizz Integration Manager will provide you with unique SDK installation ids which you need to add in your Info.pList under the **_AdswizzSDKInstallationId_** key and **_AdswizzSDKPlayerId_** respectively. You are now ready for your first ad request in a client-side scenario, or playing a live stream in case of the server-side insertion approach.
 
 
 # Client-Side Insertion
@@ -402,7 +419,9 @@ Subsequent to this request, the SDK will return an error if the call failed or a
 
 If the request to the AdsWizz Ad server was successful, the SDK will return an **_AdManager_** object which you will own. This will be the way the SDK will communicate events back to your application. 
 To get this communication channel open you need to set up a delegate for the **_AdManager_** that conforms to the **_AdManagerDelegate_** protocol. 
-The **_AdManager_** will call `func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)` whenever events of interest occur in the SDK. Please consult **_AdEventType_** enum for a list of possible events from the AdswizzSDK. If an error happens in the SDK while using this object, `func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)` will be called.
+The **_AdManager_** will call `func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)` whenever events of interest occur in the SDK. Please consult **_AdEventType_** enum for a list of possible events from the AdswizzSDK. If an error happens in the SDK while using this object, `func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)` will be called. Here are a few cases when the **_AdManager_** will report an error:
+  * ad playback failed due to an internal player error
+  * calling `prepare()`, `play()` or `pause()` on the **_AdManager_** instance during a server side scenario (live streaming). More details at [AdStreamManagerDelegate protocol](#adstreammanagerdelegate-protocol) when the ad break starts
 
 The SDK is also able to request data in order for your application to benefit from additional customisation while working with the **_AdManager_** object. To be able to customise the behaviour you need to set up a datasource for the **_AdManager_** that conforms to the **_AdManagerDatasource_** protocol.
 Through the **_AdManagerDatasource_** protocol, when firing VAST tracking URLs, the SDK is currently able to ask for your additional custom tracking URLs which will be fired along using the same engine thus ensuring retryability and other improvements under the hood.
@@ -416,6 +435,7 @@ The **_AdManagerDatasource_** protocol allows your integration to pass your own 
 As a first step, an **_AdManager_** needs to be set up. This will be done by creating an **_AdManagerSettings_** object and pass it to your newly created **_AdManager_** instance. In this object you can specify if you want to play the ad with the SDK’s internal player or use a player of your choice that must conform to the **_MediaPlayerState_** protocol.
 Additionally, you can instruct **_AdManager_** which level of asset quality it should match from the available creatives for an ad. This can be done by setting the appropriate **_AdAssetQuality_** property on your instance of **_AdManagerSettings_**. By default the AdswizzSDK will attempt to select an ad asset which matches the **_.high_** quality.
 You can fine tune it by using the other available quality levels such as **_.medium_** or **_.low_**.
+Setting the quality level to **_.auto_** will let the SDK choose the best asset (in terms of performance and quality) by taking into account optimizations such as network connection (cellular/WiFi).
 
 **_AdManager_** is also capable of pre-caching the creatives assets for all of its ads before/while actually playing them. This is done by setting the appropriate **_AdCachePolicy_** on your instance of **_AdManagerSettings_**. By default the AdswizzSDK does not (pre-)cache the ads.
 
@@ -573,16 +593,38 @@ After requesting your first ad from the AdsWizz ad server, you are ready to play
 
 ### AdManager properties
 
-Once obtained, an **_AdManager_** object has a few properties which could prove usefull for your integration.
+Once obtained, an **_AdManager_** object has a few properties which could prove useful for your integration.
 
-#### adCount
+#### ads
 
-Represents the number of playable ads currently stored by the Ad manager object. `adCount` can safely be checked right after the **_AdManager_** object and before calling the **_prepare_**. A zero value means the Ad Manager will not play any ad.
- 
+Represents the collection of playable ads (received and parsed from the VAST XML) that are currently stored by the Ad Manager object. This collection can safely be accessed right after the **_AdManager_** object was obtained, before calling the **_prepare_** method or even during ad(s) playback. A zero count value means the Ad Manager will not play any ad.
 
-#### totalAdsDuration
+Based on the `ads` array, you can access or calculate other metrics such as:
 
-The total number of seconds for all playable ads currently stored by the **_AdManager_** object.
+- ads `count` with `adManager.ads.count`
+- total ads duration as the total number of seconds for all playable ads currently stored by the **_AdManager_** object i.e by using the following snippet:
+
+```swift
+import AdswizzSDK
+
+/// Extend AdManager to obtain potentially useful metrics using the `ads` array
+extension AdManager {
+    /// The current number of playbable ads
+    var adCount: Int {
+        return ads.count
+    }
+        
+    /// The total number of seconds for all playable ads
+    var totalAdsDuration: TimeInterval {
+        return ads.compactMap { $0.duration }.reduce(0, +)
+    }
+}
+
+```
+
+#### analyticsCustomData
+
+Set an object that conforms to **_AnalyticsCustomData_** protocol to provide key-value custom attributes to all **_AnalyticsEvent_** instances triggered by the AdswizzSDK for Analytics purposes. Read more at [AdswizzSDK Analytics](#adswizzsdk-analytics).
 
 ### AdManager operations
 
@@ -836,7 +878,7 @@ AdswizzSDK lets you configure companion banner(s) if your Integration Manager pr
 ## Adding an AdCompanionView
 
 Companion views can be added from storyboard/xib when you add a view. Just specify the **_AASDKAdCompanionView_** ObjC class. You can also add the view programmatically. 
-Once created, the SDK will keep track of all of your companion views and automatically fill them with ad related content as the ad is playing.
+Once created, the SDK will keep track of all of your companion views and automatically fill them with ad related content as the ad is playing. By default an **_AdCompanionView_** instance is inactive, meaning that as long as it's not visible on screen it won't load the content (during the ad break). You can "deactivate" companion view at any time temporarily by either hiding it, resizing it to .zero bounds or removing it from its superview(s). The SDK will automatically keep track of your companion state and stop or resume rendering.
 
 
 ## Setting things up
@@ -859,8 +901,6 @@ Once the request is made, if there is any companion banner associated with the a
 ## Companion events
 
 You can associate a delegate to your **_AdCompanionView_** object that conforms to the **_AdCompanionViewDelegate_** protocol. You will be notified when the ad loaded the companion view, if the companion view was displayed, or if it ended the display. If there was an error while loading the companion banner, you will be notified through this delegate. Also, you can decide whether or not to override click through target URL on the companion banner. 
-
-You can also deactivate companion view temporarily by setting the **_active_** member to false.
 
 # Video ads
 
@@ -1262,6 +1302,106 @@ class YourAnalyticsConnector: AnalyticsConnector {
 
 Possible events of interest for you might be those with the level set to **_error_**.
 
+## Customize AnalyticsEvent
+
+Additionally to being able to intercept and process Analytics events logged by AdswizzSDK through an **_AnalyticsConnector_** implementation, you can also add your own attributes associated wih all the **_AnalyticsEvent_** objects that are generated during the SDK's lifetime.
+AdswizzSDK is able to pass down your key-value collection of custom attributes/properties for all events generated from the moment it is initialized, through requesting ads and during ads playback.
+The exposed **_AnalyticsCustomData_** interface encapsulates any additional data you wish to pass for every **_AnalyticsEvent_**. Here is an example on how you might do that:
+
+```swift
+class YourCustomAnalyticsData {
+    private let internalParams: [String: String]?
+    //these represent your custom key-value collection
+    var params: [String : Any]? { //required by `AnalyticsCustomData` protocol
+        return internalParams
+    }
+    
+    init(params: [String: String]? = nil) {
+        self.internalParams = params
+    }
+}
+
+extension YourCustomAnalyticsData: AnalyticsCustomData {}
+
+```
+
+The params you provide into `YourCustomAnalyticsData` will be reflected in the **_customParams_** property of the **_AnalyticsEvent_** objects.
+To inject `YourCustomAnalyticsData` created above you need to pass it to AdswizzSDK using one of the approaches detailed below.
+
+### Custom analytics data through AdRequest
+
+You can instruct AdswizzSDK to track your custom analytics data by passing your object that implements **_AnalyticsCustomData_** to your **_AdRequest_** implementation or **_AdswizzAdRequest_** whichever you are using. Note that AdswizzSDK will keep a strong reference for your object that implements **_AnalyticsCustomData_**.
+
+Here is an example using a custom **_AdRequest_**:
+
+```swift
+class CustomAdRequest: AdRequest {
+    override var url: URL? {
+        return internalUrl
+    }
+    private let internalUrl: URL?
+    init(with url: URL?, analyticsCustomData: AnalyticsCustomData? = nil) {
+        internalUrl = url
+        super.init(analyticsCustomData: analyticsCustomData)
+    }
+}
+
+...
+
+let url: URL = <your URL here>
+let customData = YourCustomAnalyticsData(params: ["key": <value>])
+let adRequest = CustomAdRequest(with: url, analyticsCustomData: customData)
+
+do {
+    let connection = try AdRequestConnection(for: adRequest)
+    ...
+} catch {
+    print(error)
+}
+...
+
+```
+
+Here is an example using the **_AdswizzAdRequest_**:
+
+```swift
+var adRequest: AdswizzAdRequest!
+let customData = YourCustomAnalyticsData(params: ["key": <value>])
+do {
+      adRequest = try AdswizzAdRequest.Builder()
+              .with(server: "SERVER_PROVIDED_BY_PIM")
+              .with(zone: <zone>)
+              .with(analyticsCustomData: customData)
+              .build()
+} catch {
+     print(error)
+}
+...
+
+do {
+    let connection = try AdRequestConnection(for: adRequest)
+    ...
+} catch {
+    print(error)
+}
+...
+
+```
+
+### Custom analytics data through Ad Manager
+
+Another approach to pass `YourCustomAnalyticsData` is by using the **_analyticsCustomData_** property of the **_AdManager_** instance. Here you can update either the entire reference of the `YourCustomAnalyticsData` or alter only the `params` property. The AdswizzSDK will use the (updated) `params` to populate `customParams` property of any subsequent **_AnalyticsEvent_** triggered after your update.
+
+```swift
+var adManager: AdManager!
+let customData = YourCustomAnalyticsData(params: ["key": <value>])
+...
+
+adManager.analyticsCustomData = customData
+...
+
+```
+
 # Open Measurement in AdswizzSDK
 
 **_AdswizzSDK_** includes the [Open Measurement SDK](https://iabtechlab.com/standards/open-measurement-sdk/), an industry standard developed by the IAB and designed to enable third-party viewability and verification measurement for audio and video ads served through VAST servers. **_Open Measurement_** is enabled by default in AdswizzSDK and ads must be configured to traffic **_<AdVerifications>_** in their VAST. Additionally, refrain from covering the **_AdVideoView_** container with any overlays (transparent or opaque) since these are taken into account by the OM SDK, marked as obstructions and therefore affect viewability and reporting.
@@ -1451,6 +1591,12 @@ The **_TrackingPermissionController_** internally was implemented with best prac
 
 # (Optional) Prepare your application for advanced targetability capabilities
 
+## Handle data collection
+
+AdswizzSDK framework can provide several device information using a data collector module. You can choose to control data collection by toggling the **_disableDataCollection_** property on **_AdswizzSDK_** shared instance. Defaults to `false`.
+As best practice, your app should get user's preference and then honour that input to opt-in or opt-out by instructing **_AdswizzSDK_** to collect data or not.
+Ideally you would sync data collection consent with the GDPR/CCPA consent if it applies. e.g: if user declined its GDPR consent you should also set **_disableDataCollection_** to `true`.
+
 ## Privacy implications
 
 Please be advised that if you choose to enable the Raw Data Signal Collection, you will have to inform your customers that your application handles and processes personal anonymized data. <br>
@@ -1464,8 +1610,54 @@ Please be advised that if you choose to enable the Raw Data Signal Collection, y
 
 ## Technical prerequisites
 
-AdswizzSDK framework can provide several device information using a data collector module. As of iOS 13, WiFi data can only be retrieved if the app entitlements contains the `Access Wi-Fi Information` capability.
+As of iOS 13, WiFi data can only be retrieved if the app entitlements contains the `Access Wi-Fi Information` capability.
 In order to set it, go to your app's target, select Signing & Capabilities and add `Access Wi-Fi Information` capability by tapping the "+" button above.
+
+# (Optional) Interoperability with PAL SDK
+
+AdswizzSDK can work with Google's PAL SDK to access video demand from DV360. AdswizzSDK is not directly linked to PAL SDK but exposes a public API to facilitate the communication.
+
+## What you need to do
+First, you need to make sure PAL SDK's **_PALNonceManager_** class conforms to AdswizzSDK's **_PALManagerProtocol_** protocol:
+
+```swift
+import AdswizzSDK
+import ProgrammaticAccessLibrary
+
+//Make sure to conform to Adswizz's PALManagerProtocol
+extension NonceManager: PALManagerProtocol {    
+}
+```
+**_PALManagerProtocol_** protocol resembles **_PALNonceManager_** public class from PAL SDK's version 2.3.1.
+
+Next you need get a hold of PALNonceManager object from PAL SDK. While filling the data for a PALNonceRequest you might need(not mandatory) to add OMID specific data:
+
+```swift
+....
+        let request = NonceRequest()
+        request.omidPartnerName = AdswizzSDK.shared.omidPartner
+        request.omidPartnerVersion = AdswizzSDK.shared.omidPartnerVersion
+        request.omidVersion = AdswizzSDK.shared.omidVersion
+        
+        nonceLoader?.delegate = self
+        nonceLoader?.loadNonceManager(with: request)
+....
+```
+This can be retrieved from AdswizzSDK, as seen above.
+
+Once you get a **_PALNonceManager_** there is a final step to do: link AdswizzSDK with the **_PALNonceManager_** object. It is very important to keep a strong reference to the **_PALNonceManager_** object as AdswizzSDK is using a weak reference.
+
+```swift
+extension PALNonceManagerResolver: NonceLoaderDelegate {
+  func nonceLoader(_ nonceLoader: NonceLoader, with request: NonceRequest, didLoad nonceManager: NonceManager) {
+      self.nonceManager = nonceManager //keep the nonce manager in your app
+      AdswizzSDK.shared.palManager = nonceManager //link with AdswizzSDK
+  }
+
+  func nonceLoader(_ nonceLoader: NonceLoader, with request: NonceRequest, didFailWith error: Error) {
+  }
+}
+```
 
 # Sample projects
 

@@ -17,16 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Initialize AdswizzSDK.
-        // Note that AdswizzSDK expects the following in your app's info.plist:
+        // Note that unless AdswizzSDK was initialized programmatically with the config object, it expects the following in your app's info.plist:
         //  1. an installationId
         //  2. a playerId
         // More details in AdswizzSettingsKeys.
         do {
+            //optional, initialize AdswizzSDK by passing the playerId and installationId through the AdswizzSDKConfig object and override values in Info.plist (if needed)
+            //let config = AdswizzSDKConfig(playerId: "yourPlayerId", installationId: "yourInstallationId")
+            //try AdswizzSDK.shared.initialize(with: config)
             try AdswizzSDK.shared.initialize()
         } catch {
             print(error as NSError)
         }
-        
+
         // Set optional settings for AdswizzSDK.
         // You can set/change them at any time and the SDK will update accordingly.
         

@@ -16,6 +16,7 @@ import Dispatch
 import EventKitUI
 import Foundation
 import MessageUI
+import Network
 import Speech
 import Swift
 import SystemConfiguration
@@ -287,6 +288,13 @@ extension AdswizzAdStreamManager {
     @objc override dynamic public init()
   }
 }
+@objc(AASDKAdswizzSDKConfig) final public class AdswizzSDKConfig : ObjectiveC.NSObject {
+  @objc final public let playerId: Swift.String
+  @objc final public let installationId: Swift.String
+  @objc public init(playerId: Swift.String, installationId: Swift.String)
+  @objc deinit
+  @objc override dynamic public init()
+}
 extension UIUserInterfaceIdiom : Swift.Codable {
 }
 @objc(AASDKAdCompanionViewDelegate) public protocol AdCompanionViewDelegate {
@@ -299,7 +307,6 @@ extension UIUserInterfaceIdiom : Swift.Codable {
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdCompanionView) public class AdCompanionView : UIKit.UIView {
   @objc @IBOutlet weak public var delegate: AdCompanionViewDelegate?
-  @objc public var active: Swift.Bool
   @objc public var clickThrough: Foundation.URL? {
     @objc get
   }
@@ -307,6 +314,15 @@ extension UIUserInterfaceIdiom : Swift.Codable {
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc override dynamic public func awakeFromNib()
   @objc override dynamic public func layoutSubviews()
+  @objc override dynamic public func didMoveToSuperview()
+  @objc override dynamic public var alpha: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public var isHidden: Swift.Bool {
+    @objc get
+    @objc set
+  }
   @objc override dynamic public var intrinsicContentSize: CoreGraphics.CGSize {
     @objc get
   }
@@ -330,6 +346,10 @@ extension AdCompanionView : WebKit.WKUIDelegate {
   @objc var asset: AdAsset { get }
   @objc var companions: [Companion] { get }
   @objc var skipOffset: Foundation.NSNumber? { get }
+  @objc var duration: Foundation.TimeInterval { get }
+  @objc var extensions: [VastExtension] { get }
+  @objc var adParameters: VastAdParameters? { get }
+  @objc var creativeExtensions: [VastCreativeExtension] { get }
 }
 extension AdData {
   public var isEmpty: Swift.Bool {
@@ -508,6 +528,8 @@ extension NSDictionary {
   @objc var bitrate: Foundation.NSNumber? { get }
   @objc var minBitrate: Foundation.NSNumber? { get }
   @objc var maxBitrate: Foundation.NSNumber? { get }
+  @objc var width: Foundation.NSNumber { get }
+  @objc var height: Foundation.NSNumber { get }
   @objc var fileSize: Foundation.NSNumber? { get }
 }
 @objc(AASDKAdCachePolicy) public enum AdCachePolicy : Swift.Int {
@@ -649,6 +671,7 @@ extension TrackingPermissionController : UIKit.UIAdaptivePresentationControllerD
   case low
   case medium
   case high
+  case auto
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
@@ -672,8 +695,8 @@ extension AVAudioSession.Port : Swift.Codable {
   @objc weak var delegate: AdManagerDelegate? { get set }
   @objc weak var datasource: AdManagerDatasource? { get set }
   @objc weak var interactiveDelegate: InteractiveAdManagerDelegate? { get set }
-  @objc var adCount: Swift.Int { get }
-  @objc var totalAdsDuration: Foundation.TimeInterval { get }
+  @objc var ads: [AdData] { get }
+  @objc var analyticsCustomData: AnalyticsCustomData? { get set }
   @objc func prepare()
   @objc func play()
   @objc func pause()
@@ -811,11 +834,13 @@ extension AdVideoFriendlyObstruction {
     @objc public func with(referrer: Swift.String?) -> AdswizzAdRequest.Builder
     @objc public func with(server: Swift.String) -> AdswizzAdRequest.Builder
     @objc public func with(additionalCustomParameters: Swift.String?) -> AdswizzAdRequest.Builder
+    @objc public func with(analyticsCustomData: AnalyticsCustomData?) -> AdswizzAdRequest.Builder
     @objc public func build() throws -> AdswizzAdRequest
     @objc deinit
     @objc override dynamic public init()
   }
   @objc override dynamic public init()
+  @objc override public init(analyticsCustomData: AnalyticsCustomData? = super)
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdStreamManagerSettings) final public class AdStreamManagerSettings : ObjectiveC.NSObject {
@@ -904,6 +929,10 @@ extension UnsafeMutableRawPointer {
   @objc var category: Swift.String { get }
   @objc var level: AASDKAnalytics.Level { get }
   @objc var params: [Swift.String : Any]? { get }
+  @objc var customParams: [Swift.String : Any]? { get }
+}
+@objc(AASDKAnalyticsCustomData) public protocol AnalyticsCustomData {
+  @objc var params: [Swift.String : Any]? { get }
 }
 @objc(AASDKAnalyticsCollecting) public protocol AnalyticsCollecting {
   @objc func log(_ event: AnalyticsEvent, _ timestamp: Foundation.Date)
@@ -914,6 +943,18 @@ extension UnsafeMutableRawPointer {
   @objc func remove(_ connector: AnalyticsConnector)
 }
 @objc(AASDKAnalyticsConnector) public protocol AnalyticsConnector : AnyObject, AnalyticsCollecting {
+}
+@objc(AASDKVastExtension) public protocol VastExtension : ObjectiveC.NSObjectProtocol {
+  @objc var type: Swift.String? { get }
+  @objc var xmlString: Swift.String { get }
+}
+@objc(AASDKVastAdParameters) public protocol VastAdParameters : ObjectiveC.NSObjectProtocol {
+  @objc var xmlEncoded: Foundation.NSNumber? { get }
+  @objc var xmlString: Swift.String { get }
+}
+@objc(AASDKVastCreativeExtension) public protocol VastCreativeExtension : ObjectiveC.NSObjectProtocol {
+  @objc var type: Swift.String? { get }
+  @objc var xmlString: Swift.String { get }
 }
 extension AdLogger.Level : Swift.Comparable {
   public static func < (lhs: AdLogger.Level, rhs: AdLogger.Level) -> Swift.Bool
@@ -933,7 +974,23 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   @objc public var watchSession: WatchSession {
     @objc get
   }
-  @objc public func initialize() throws
+  @objc weak public var palManager: PALManagerProtocol? {
+    @objc get
+    @objc set
+  }
+  @objc public var omidPartner: Swift.String {
+    @objc get
+  }
+  @objc public var omidPartnerVersion: Swift.String {
+    @objc get
+  }
+  @objc public var omidVersion: Swift.String {
+    @objc get
+  }
+  @objc public var xpaid: Swift.String? {
+    @objc get
+  }
+  @objc public func initialize(with configuration: AdswizzSDKConfig? = nil) throws
   @objc public func uninitialize()
   @objc public static func setAdCompanionOptions(_ options: AdCompanionOptions)
   @objc public var gdprConsent: GDPRConsent {
@@ -957,6 +1014,10 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   }
   @objc public func permissionStatus(for type: PermissionType) -> Swift.Bool
   @objc public func setPermissionStatus(for type: PermissionType, status: Swift.Bool)
+  @objc public var disableDataCollection: Swift.Bool {
+    @objc get
+    @objc set
+  }
   @objc deinit
 }
 @objc(AASDKMediaPlayerStatus) public enum MediaPlayerStatus : Swift.Int {
@@ -1024,9 +1085,17 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   @objc var data: Foundation.Data? { get }
   @objc var mediaUrl: Swift.String? { get }
   @objc var mimeType: Swift.String? { get }
+  @objc var width: Swift.Int { get }
+  @objc var height: Swift.Int { get }
   @objc var expectedContentLength: Swift.Int64 { get }
   @objc var state: AdAssetState { get }
   @objc weak var delegate: AdAssetDelegate? { get set }
+}
+@objc(AASDKPALManagerProtocol) public protocol PALManagerProtocol : AnyObject {
+  @objc var nonce: Swift.String { get }
+  @objc var gestureRecognizer: UIKit.UIGestureRecognizer { get }
+  @objc func sendAdClick()
+  @objc func sendAdImpression()
 }
 @objc(AASDKAdVideoState) public enum AdVideoState : Swift.Int {
   case normal
@@ -1055,6 +1124,7 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
     get
   }
   @objc override dynamic public init()
+  @objc public init(analyticsCustomData: AnalyticsCustomData? = nil)
   @objc deinit
 }
 @objc(AASDKGDPROption) public enum GDPRConsent : Swift.Int, Swift.Codable {

@@ -164,6 +164,7 @@
 			buildConfigurationList = AEDD7CA925B8556800F2ED17 /* Build configuration list for PBXNativeTarget "BasicEmptyAdsExample" */;
 			buildPhases = (
 				DEC675DAA13A6C1515833695 /* [CP] Check Pods Manifest.lock */,
+				34DCE50B131DFC8CDEA2A899 /* [CP] Prepare Artifacts */,
 				AEDD7C7B25B8556500F2ED17 /* Sources */,
 				AEDD7C7C25B8556500F2ED17 /* Frameworks */,
 				AEDD7C7D25B8556500F2ED17 /* Resources */,
@@ -299,6 +300,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicEmptyAdsExample/Pods-BasicEmptyAdsExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		34DCE50B131DFC8CDEA2A899 /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicEmptyAdsExample/Pods-BasicEmptyAdsExample-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicEmptyAdsExample/Pods-BasicEmptyAdsExample-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicEmptyAdsExample/Pods-BasicEmptyAdsExample-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DEC675DAA13A6C1515833695 /* [CP] Check Pods Manifest.lock */ = {
