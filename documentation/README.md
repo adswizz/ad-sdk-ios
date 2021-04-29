@@ -1,3 +1,4 @@
+ [![AdsWizz](img/adswizz_logo.png)](https://www.adswizz.com) 
 # **AdswizzSDK for iOS - Integration guide**
 - [Before you start](#before-you-start)
   * [What is ‘Client-Side Insertion’](#what-is-client-side-insertion)
