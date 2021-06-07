@@ -250,6 +250,10 @@ SWIFT_PROTOCOL_NAMED("AdAsset")
 @property (nonatomic, readonly, copy) NSString * _Nullable mediaUrl;
 /// The asset’s creative type. For audio ads expect values to include, but not limited to “audio/mpeg” and “audio/aac”
 @property (nonatomic, readonly, copy) NSString * _Nullable mimeType;
+/// The asset’s creative width. For audio ads expect 0
+@property (nonatomic, readonly) NSInteger width;
+/// The asset’s creative height. For audio ads expect 0
+@property (nonatomic, readonly) NSInteger height;
 /// The asset’s expected data length in bytes
 @property (nonatomic, readonly) int64_t expectedContentLength;
 /// The asset’s status. Defaults to .initialized
@@ -297,6 +301,8 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdAssetQuality, "AdAssetQuality", open)
   AASDKAdAssetQualityMedium = 1,
 /// High-very high quality
   AASDKAdAssetQualityHigh = 2,
+/// Dynamic quality which is auto-set depending on network conditions and other criterias
+  AASDKAdAssetQualityAuto = 3,
 };
 
 /// The states for an <code>AdAsset</code> object
@@ -359,11 +365,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// An optional delegate object that receives state change notifications from an <code>AdCompanionView</code> instance.
 /// Typically this is an <code>UIViewController</code> instance. Be advised that this reference should be set to nil before deallocating the delegate.
 @property (nonatomic, weak) IBOutlet id <AASDKAdCompanionViewDelegate> _Nullable delegate;
-/// Toggle the companion view’s active state. Defaults to true.
-/// Set it to <code>false</code> when your companion view is not visible anymore or when you want to deactivate it temporarily.
-/// A deactivated companion view means that any requests are not performed anymore.
-/// Setting it to <code>true</code> will activate again the companion view.
-@property (nonatomic) BOOL active;
 /// Return the click through URL for this companion if the loaded resource is a static companion
 @property (nonatomic, readonly, copy) NSURL * _Nullable clickThrough;
 /// Init
@@ -372,18 +373,15 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 - (void)awakeFromNib;
 /// UIView
 - (void)layoutSubviews;
+- (void)didMoveToSuperview;
+@property (nonatomic) CGFloat alpha;
+@property (nonatomic, getter=isHidden) BOOL hidden;
 @property (nonatomic, readonly) CGSize intrinsicContentSize;
 - (void)updateConstraints;
 @end
 
 
 
-
-@class UIGestureRecognizer;
-
-@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
 
 @class WKWebView;
 @class WKWebViewConfiguration;
@@ -392,6 +390,12 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 @interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <WKUIDelegate>
 - (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UIGestureRecognizer;
+
+@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -450,6 +454,9 @@ SWIFT_PROTOCOL_NAMED("AdCompanionViewDelegate")
 enum AASDKAdType : NSInteger;
 @protocol AASDKCompanion;
 @class NSNumber;
+@protocol AASDKVastExtension;
+@protocol AASDKVastAdParameters;
+@protocol AASDKVastCreativeExtension;
 
 /// AdData public protocol
 SWIFT_PROTOCOL_NAMED("AdData")
@@ -464,6 +471,14 @@ SWIFT_PROTOCOL_NAMED("AdData")
 @property (nonatomic, readonly, copy) NSArray<id <AASDKCompanion>> * _Nonnull companions;
 /// Marks a timeinterval in seconds that an ad can be skipped
 @property (nonatomic, readonly, strong) NSNumber * _Nullable skipOffset;
+/// Vast ad duration in seconds. It might be -1 when missing.
+@property (nonatomic, readonly) NSTimeInterval duration;
+/// Ad extensions
+@property (nonatomic, readonly, copy) NSArray<id <AASDKVastExtension>> * _Nonnull extensions;
+/// Ad parameters
+@property (nonatomic, readonly, strong) id <AASDKVastAdParameters> _Nullable adParameters;
+/// Creative extensions
+@property (nonatomic, readonly, copy) NSArray<id <AASDKVastCreativeExtension>> * _Nonnull creativeExtensions;
 @end
 
 
@@ -569,6 +584,7 @@ SWIFT_PROTOCOL_NAMED("AdLoggerDestination")
 @protocol AASDKAdManagerDelegate;
 @protocol AASDKAdManagerDatasource;
 @protocol AASDKInteractiveAdManagerDelegate;
+@protocol AASDKAnalyticsCustomData;
 
 /// The <code>AdManager</code> provides support while playing the ads
 SWIFT_PROTOCOL_NAMED("AdManager")
@@ -580,12 +596,11 @@ SWIFT_PROTOCOL_NAMED("AdManager")
 /// Ad Manager datasource
 @property (nonatomic, weak) id <AASDKAdManagerDatasource> _Nullable datasource;
 @property (nonatomic, weak) id <AASDKInteractiveAdManagerDelegate> _Nullable interactiveDelegate;
-/// Returns the number of playable ads currently stored by the Ad manager object.
-/// <code>adCount</code> can safely be checked before obtaining the Ad Manager and before calling <code>prepare()</code>. A zero value means the Ad Manager will not play any ad.
-@property (nonatomic, readonly) NSInteger adCount;
-/// Returns the total number of seconds for all playable ads currently stored by the Ad manager object.
-/// <code>totalAdsDuration</code> can safely be checked before obtaining the Ad Manager and before calling <code>prepare()</code>.
-@property (nonatomic, readonly) NSTimeInterval totalAdsDuration;
+/// Returns the array of VAST playable ads currently stored by the Ad manager object. May be empty if no ads were fetched.
+/// <code>ads</code> can safely be accessed right after the Ad Manager was obtained, before calling <code>prepare()</code>, or even during ads playback. A zero count means the Ad Manager will not play any ad.
+@property (nonatomic, readonly, copy) NSArray<id <AASDKAdData>> * _Nonnull ads;
+/// Analytics interface for custom data which the SDK will use for all <code>AnalyticsEvent</code> entries related to ads lifecycle
+@property (nonatomic, strong) id <AASDKAnalyticsCustomData> _Nullable analyticsCustomData;
 /// Prepare and load the ads
 - (void)prepare;
 /// Play ad when using the internal player
@@ -705,7 +720,12 @@ SWIFT_CLASS_NAMED("AdManagerSettings")
 SWIFT_CLASS_NAMED("AdRequest")
 @interface AASDKAdRequest : NSObject
 @property (nonatomic, readonly, copy) NSURL * _Nullable url;
+/// Designated initializer for a plain <code>AdRequest</code>object.
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+/// Initialize a plain <code>AdRequest</code> with optional analytics custom data to be used by custom <code>AnalyticsConnector</code> objects.
+/// \param analyticsCustomData custom interface to pass in custom params when <code>AnalyticsEvent</code> entries are logged
+///
+- (nonnull instancetype)initWithAnalyticsCustomData:(id <AASDKAnalyticsCustomData> _Nullable)analyticsCustomData OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -730,6 +750,7 @@ SWIFT_CLASS_NAMED("AdRequestConnection")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 
@@ -997,6 +1018,7 @@ SWIFT_CLASS_NAMED("AdswizzAdRequest")
 @property (nonatomic, readonly, copy) NSURL * _Nullable url;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (nonnull instancetype)initWithAnalyticsCustomData:(id <AASDKAnalyticsCustomData> _Nullable)analyticsCustomData SWIFT_UNAVAILABLE;
 @end
 
 /// VAST version
@@ -1084,6 +1106,14 @@ SWIFT_CLASS_NAMED("Builder")
 /// returns:
 /// same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withAdditionalCustomParameters:(NSString * _Nullable)additionalCustomParameters SWIFT_WARN_UNUSED_RESULT;
+/// Set and pass custom analytics data used for all<code>AnalyticsEvent</code> entries. Optional.
+/// Must be set before calling <code>build()</code>.
+/// \param analyticsCustomData custom parameters appended to all<code>AnalyticsEvent</code> entries
+///
+///
+/// returns:
+/// same builder object
+- (AASDKAdswizzAdRequestBuilder * _Nonnull)withAnalyticsCustomData:(id <AASDKAnalyticsCustomData> _Nullable)analyticsCustomData SWIFT_WARN_UNUSED_RESULT;
 /// Builds an AdswizzAdRequest object
 ///
 /// throws:
@@ -1245,6 +1275,8 @@ SWIFT_CLASS_NAMED("Builder")
 
 @protocol AASDKAdswizzSDKDelegate;
 @protocol AASDKWatchSession;
+@protocol AASDKPALManagerProtocol;
+@class AASDKAdswizzSDKConfig;
 enum AASDKGDPROption : NSInteger;
 @protocol AASDKAnalyticsCollector;
 
@@ -1258,13 +1290,22 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 @property (nonatomic, weak) id <AASDKAdswizzSDKDelegate> _Nullable delegate;
 /// Watch session
 @property (nonatomic, readonly, strong) id <AASDKWatchSession> _Nonnull watchSession;
+/// Google’s PAL manager implementation
+@property (nonatomic, weak) id <AASDKPALManagerProtocol> _Nullable palManager;
+/// OMID Partner name used by AdswizzSDK
+@property (nonatomic, readonly, copy) NSString * _Nonnull omidPartner;
+/// OMID Partner version used by AdswizzSDK
+@property (nonatomic, readonly, copy) NSString * _Nonnull omidPartnerVersion;
+/// OMID  version used by AdswizzSDK
+@property (nonatomic, readonly, copy) NSString * _Nonnull omidVersion;
+@property (nonatomic, readonly, copy) NSString * _Nullable xpaid;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Initialize AdswizzSDK
 ///
 /// throws:
 /// throws if you are missing information in Info.pList
-- (BOOL)initializeAndReturnError:(NSError * _Nullable * _Nullable)error;
+- (BOOL)initializeWith:(AASDKAdswizzSDKConfig * _Nullable)configuration error:(NSError * _Nullable * _Nullable)error;
 /// Unitialize AdswizzSDK
 - (void)uninitialize;
 /// Set the ad companion options
@@ -1329,10 +1370,35 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 /// the SDK might use during it’s lifetime. Look bellow to see what happens when you put a permission status to false:
 ///
 - (void)setPermissionStatusFor:(enum PermissionType)type status:(BOOL)status;
+/// Enable/disable data collection for AdswizzSDK data collector. Defaults to <code>false</code>.
+/// Your app should get user’s preference and then honour that input to opt-in or opt-out by instructing AdswizzSDK to collect data or not.
+/// Ideally you would sync data collection consent with the GDPR/CCPA consent. e.g: if user declined its GDPR consent you should also set <code>disableDataCollection</code> to <code>true</code>.
+@property (nonatomic) BOOL disableDataCollection;
 @end
 
 
 
+
+
+
+/// Adswizz SDK configuration class.
+/// Can be used to initialize <code>AdswizzSDK</code> shared instance.
+SWIFT_CLASS_NAMED("AdswizzSDKConfig")
+@interface AASDKAdswizzSDKConfig : NSObject
+/// The <code>playerId</code> needed for AdswizzSDK initialization
+@property (nonatomic, readonly, copy) NSString * _Nonnull playerId;
+/// The <code>installationId</code> needed for AdswizzSDK initialization
+@property (nonatomic, readonly, copy) NSString * _Nonnull installationId;
+/// Creates a configuration object used to initialize the <code>AdswizzSDK</code> instance.
+/// Note that the <code>playerId</code> and <code>installationId</code> properties will override the correspond values from <code>AdswizzSettingsKeys</code> set in Info.plist.
+/// \param playerId a player id
+///
+/// \param installationId an installationId
+///
+- (nonnull instancetype)initWithPlayerId:(NSString * _Nonnull)playerId installationId:(NSString * _Nonnull)installationId OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 
@@ -1403,6 +1469,14 @@ SWIFT_PROTOCOL_NAMED("AnalyticsConnector")
 @end
 
 
+/// Analytics interface to customize <code>AnalyticsEvent</code> entries
+SWIFT_PROTOCOL_NAMED("AnalyticsCustomData")
+@protocol AASDKAnalyticsCustomData
+/// custom params will be attached to each <code>AnalyticsEvent</code> during ads lifecycle
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable params;
+@end
+
+
 /// AnalyticsEvent
 SWIFT_PROTOCOL_NAMED("AnalyticsEvent")
 @protocol AASDKAnalyticsEvent
@@ -1414,6 +1488,8 @@ SWIFT_PROTOCOL_NAMED("AnalyticsEvent")
 @property (nonatomic, readonly) enum AASDKAnalyticsCategory level;
 /// extra params attached to the event
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable params;
+/// custom params attached to the event passed from outside of the SDK
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable customParams;
 @end
 
 /// The U.S. Privacy consent
@@ -1561,6 +1637,10 @@ SWIFT_PROTOCOL_NAMED("MediaFile")
 @property (nonatomic, readonly, strong) NSNumber * _Nullable minBitrate;
 /// Maximum bitrates for audio files
 @property (nonatomic, readonly, strong) NSNumber * _Nullable maxBitrate;
+/// Required. The native width of the video file, in pixels. (0 for audio ads)
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull width;
+/// Required. The native height of the video file, in pixels. (0 for audio ads)
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull height;
 /// Helps eliminate the need to calculate the size based on bitrate and duration. Units - Bytes
 @property (nonatomic, readonly, strong) NSNumber * _Nullable fileSize;
 @end
@@ -1676,6 +1756,20 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKMediaPlayerStatus, "MediaPlayerStatus",
 
 
 
+
+
+/// PALManagerProtocol public protocol to interact with Google’s PAL SDK
+SWIFT_PROTOCOL_NAMED("PALManagerProtocol")
+@protocol AASDKPALManagerProtocol
+/// PAL nonce
+@property (nonatomic, readonly, copy) NSString * _Nonnull nonce;
+/// PAL gesture recognizer
+@property (nonatomic, readonly, strong) UIGestureRecognizer * _Nonnull gestureRecognizer;
+/// PAL send ad click
+- (void)sendAdClick;
+/// PAL send ad impression
+- (void)sendAdImpression;
+@end
 
 
 
@@ -1911,6 +2005,27 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKTrackingDismissReason, "TrackingStatus"
 
 
 
+
+
+/// VAST AdParameters
+SWIFT_PROTOCOL_NAMED("VastAdParameters")
+@protocol AASDKVastAdParameters <NSObject>
+/// Identifies whether the ad parameters are xml-encoded
+@property (nonatomic, readonly, strong) NSNumber * _Nullable xmlEncoded;
+/// Metadata for the ad.
+@property (nonatomic, readonly, copy) NSString * _Nonnull xmlString;
+@end
+
+
+/// VAST CreativeExtension
+SWIFT_PROTOCOL_NAMED("VastCreativeExtension")
+@protocol AASDKVastCreativeExtension <NSObject>
+/// The MIME type of any code that might be included in the extension.
+@property (nonatomic, readonly, copy) NSString * _Nullable type;
+/// Custom XML object
+@property (nonatomic, readonly, copy) NSString * _Nonnull xmlString;
+@end
+
 /// The VAST error codes
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKVastErrorCode, "VastErrorCode", open) {
 /// XML parsing error.
@@ -1980,6 +2095,16 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKVastErrorCode, "VastErrorCode", open) {
 /// General VPAID error.
   AASDKVastErrorCodeGeneralVPAID = 901,
 };
+
+
+/// VAST Extension
+SWIFT_PROTOCOL_NAMED("VastExtension")
+@protocol AASDKVastExtension <NSObject>
+/// The MIME type of any code that might be included in the extension.
+@property (nonatomic, readonly, copy) NSString * _Nullable type;
+/// Custom XML object
+@property (nonatomic, readonly, copy) NSString * _Nonnull xmlString;
+@end
 
 /// The VAST tracking event types
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKVastTrackingEvent, "VastTrackingEvent", open) {
