@@ -383,6 +383,12 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
+@class UIGestureRecognizer;
+
+@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class WKWebView;
 @class WKWebViewConfiguration;
 @class WKNavigationAction;
@@ -390,12 +396,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 @interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <WKUIDelegate>
 - (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@class UIGestureRecognizer;
-
-@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -900,10 +900,10 @@ SWIFT_CLASS_NAMED("AdVideoFriendlyObstruction")
 
 
 
-
 @interface AASDKAdVideoFriendlyObstruction (SWIFT_EXTENSION(AdswizzSDK))
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 /// A set of purposes for which an obstruction would be registered as “friendly”.
@@ -970,6 +970,7 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
+
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK))
 /// Registers a view that overlays or obstructs this container as “friendly” for viewability measurement purposes.
 /// See Open Measurement in AdswizzSDK for guidance on what is and what is not allowed to be registered.
@@ -986,7 +987,6 @@ SWIFT_CLASS_NAMED("AdVideoView")
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 
 /// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behaviour changes and events.
@@ -1556,6 +1556,8 @@ SWIFT_PROTOCOL_NAMED("CompanionResource")
 
 
 
+
+
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKGDPROption, "GDPRConsent", open) {
 /// GDPR rules don’t apply
   AASDKGDPROptionNotApplicable = 0,
@@ -1758,6 +1760,9 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKMediaPlayerStatus, "MediaPlayerStatus",
 
 
 
+
+
+
 /// PALManagerProtocol public protocol to interact with Google’s PAL SDK
 SWIFT_PROTOCOL_NAMED("PALManagerProtocol")
 @protocol AASDKPALManagerProtocol
@@ -1883,8 +1888,6 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 @end
 
 
-
-
 @interface AASDKTrackingPermissionController (SWIFT_EXTENSION(AdswizzSDK))
 /// Convenience method to quickly create a tracking permission controller with basic customizations.
 /// \param title A custom title for the controller. It defaults to a generic title.
@@ -1900,6 +1903,8 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 /// The controller with the designated configuration.
 + (AASDKTrackingPermissionController * _Nonnull)trackingControllerWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message contentImage:(UIImage * _Nullable)contentImage headerImage:(UIImage * _Nullable)headerImage SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 @class UIPresentationController;

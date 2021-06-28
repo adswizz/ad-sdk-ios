@@ -9,6 +9,8 @@ import AdswizzSDKPrivacyData
 import AudioToolbox
 import CoreTelephony.CTTelephonyNetworkInfo
 import SystemConfiguration.CaptiveNetwork
+import Combine
+import CoreData
 import CoreLocation
 import CoreMotion
 import CoreTelephony
@@ -51,6 +53,14 @@ import WebKit
   }
   @objc deinit
   @objc override dynamic public init()
+}
+final public class DefaultStatsNetworkSession {
+  final public let urlSession: Foundation.URLSession
+  public init(urlSession: Foundation.URLSession)
+  convenience public init()
+  @available(iOS 13.0, *)
+  final public func performDataRequest(_ request: Foundation.URLRequest, networkQoS: Dispatch.DispatchQoS.QoSClass) -> Combine.AnyPublisher<(Foundation.Data?, Foundation.URLResponse), Swift.Error>
+  @objc deinit
 }
 extension CGSize : Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
@@ -752,6 +762,23 @@ extension AVAudioSession.Port : Swift.Codable {
   @objc var renderingMode: CompanionRenderingMode { get }
   @objc var resource: CompanionResource { get }
 }
+public enum Environment {
+  public static let productIdentifier: Swift.String
+  public static let bundle: Foundation.Bundle
+}
+public enum StoreStrategy {
+  case inMemory
+  case disk
+  public static func == (a: StoreStrategy, b: StoreStrategy) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol BatchModelable {
+  var uuid: Foundation.UUID { get }
+  var createdAt: Foundation.Date { get }
+}
 @objc(AASDKVastTrackingEvent) public enum VastTrackingEvent : Swift.Int, Swift.CaseIterable {
   case unknown
   case mute
@@ -842,6 +869,12 @@ extension AdVideoFriendlyObstruction {
   @objc override dynamic public init()
   @objc override public init(analyticsCustomData: AnalyticsCustomData? = super)
   @objc deinit
+}
+public protocol Dispatcher {
+  func asyncDispatch(task: @escaping () -> Swift.Void)
+}
+extension DispatchQueue : Dispatcher {
+  public func asyncDispatch(task: @escaping () -> Swift.Void)
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdStreamManagerSettings) final public class AdStreamManagerSettings : ObjectiveC.NSObject {
   @objc weak final public var player: MediaPlayerState?
@@ -1234,6 +1267,8 @@ extension AdEventType : Swift.RawRepresentable {}
 extension CompanionRenderingMode : Swift.Equatable {}
 extension CompanionRenderingMode : Swift.Hashable {}
 extension CompanionRenderingMode : Swift.RawRepresentable {}
+extension StoreStrategy : Swift.Equatable {}
+extension StoreStrategy : Swift.Hashable {}
 extension AdAssetState : Swift.Equatable {}
 extension AdAssetState : Swift.Hashable {}
 extension AdAssetState : Swift.RawRepresentable {}
