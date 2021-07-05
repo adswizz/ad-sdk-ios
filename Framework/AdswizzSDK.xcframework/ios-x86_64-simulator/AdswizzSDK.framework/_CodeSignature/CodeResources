@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		j5bTn0wbtbuauDRFLA7HxmlAblM=
+		URp5+uRd3b6tqhYCjA9Vn1WYNK4=
 		</data>
 		<key>Headers/AdswizzSDK-Swift.h</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		9F3NtqMoNYlI2BwRd72E8uI4yk8=
+		2fIvZH4KpKgNyRv9HvZQOz3eBrQ=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		0lpIDl7MZjBeaHIgF+jyyeRVaF0=
+		0nWPsMeoe3sC7xfhUzyCyD/FHBg=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -98,7 +98,7 @@
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		0lpIDl7MZjBeaHIgF+jyyeRVaF0=
+		0nWPsMeoe3sC7xfhUzyCyD/FHBg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -131,7 +131,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			COli+20bulPK5fwigYS4KeYOFz3PeSWhvVt59c78KLo=
+			9RCtff+6QtvQdyhQt1vRm0DFrHr2I6GVbNY/K3VN4EE=
 			</data>
 		</dict>
 		<key>Headers/AdswizzSDK-Swift.h</key>
@@ -264,7 +264,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VJRQFYsV+2iFlqQuQxA8J1NvHi2c6aT5RWETnitVZlg=
+			Vj6cQgEqyO4Jccz8LSV8y/FgvVgpjNwl+kjfIVWwhNU=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64.swiftdoc</key>
@@ -285,7 +285,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VJRQFYsV+2iFlqQuQxA8J1NvHi2c6aT5RWETnitVZlg=
+			Vj6cQgEqyO4Jccz8LSV8y/FgvVgpjNwl+kjfIVWwhNU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
