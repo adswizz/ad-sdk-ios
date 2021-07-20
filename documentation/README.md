@@ -210,7 +210,7 @@ AdswizzSDK.framework dependes on the following frameworks:
 *   AWSCore.framework
 *   AdswizzSDKPrivacyData.framework (1.0.6)
 
-AdswizzSDK for iOS depends on one external library in order to support voice recognition in interactive voice ads, namely *Amazon’s AWSCore*. *AWSCore* is a dependency used by the [AdswizzSDK Analytics](#adswizzsdk-analytics) too.<br>
+AdswizzSDK for iOS depends on *Amazon’s AWSCore* as an external library in order to support trackability used by the [AdswizzSDK Analytics](#adswizzsdk-analytics).<br>
 *AdswizzSDKPrivacyData* is a source library which implements Privacy-Sensitive API that requires user permission. *AdswizzSDKPrivacyData* can be configured to exclude any sensitive API at built time.
 These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If you choose the manual integration you will have to provide them at link time.
 
@@ -279,16 +279,13 @@ After adding AdswizzSDK.xcframework to your application, unless you will pass th
 
 
 1. Settings for the framework:
-    1. Add "**_AdswizzAdSDKInstallationId_**" as a string setting. This is a unique string provided by your AdsWizz Integration Manager. If not provided programmatically, this setting **is mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
+    1. Add "**_AdswizzAdSDKInstallationId_**" as a string setting. This is a unique string provided by your AdsWizz Integration Manager. If not provided programmatically, this setting is **mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
     <img src="img/installationId.png" width="1000" />
     More details at [SDK initialization and setup](#sdk-initialization-and-setup).
 
-    2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by your AdsWizz Integration Manager. If not provided programmatically, this setting **is mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
+    2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by your AdsWizz Integration Manager. If not provided programmatically, this setting is **mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
     <img src="img/playerId.png" width="1000" />
     More details at [SDK initialization and setup](#sdk-initialization-and-setup).
-
-    3. Add "**_AdswizzAdSDKAWSIdentityPoolIdRegion_**" as a string setting. This string will be provided by your AdsWizz Integration Manager and should look like this: "aws_region:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx". This setting is **optional**. Must be set only if you want to traffic voice ads.    
-    <img src="img/aws.png" width="1000" />
     
 2. Settings for permissions(**optional**):
     1. Add **_NSCalendarsUsageDescription_** entry. There are interactive ads that, once acted upon, add events in the Calendar. For this, the SDK requires access to the Calendar. If you don't want to add this entry use **NO_CALENDAR_ACCESS** compilation switch for AdsiwzzSDKPrivacyData.framework either in the Podfile(if you use CocoaPods) or in the CustomConfig.xcconfig(manual installation).
@@ -403,6 +400,22 @@ do {
 ```
 Please note that the order you pass the zones is important, as the AdsWizz Ad Server will take that into account during ad selection.
 
+**Custom request parameters**
+
+You may use custom parameters (key-value pairs) in your **_AdswizzAdRequest_** objects, in order to send various information, such as the TCF v2 consent string, some publisher specific Ids, first-party targeting data, etc.
+Here is an example:
+
+```swift
+let adRequest = try AdswizzAdRequest.Builder()
+        ...
+        .with(additionalCustomParameters: "key1=URLEncodedValue1&key2=URLEncodedValue2&...")
+        ...
+```
+
+Note that it is your responsability to properly URL encode the custom parameters values as well as the keys themselves (if needed).
+Failing to do that would result in an error being thrown by the **_AdswizzAdRequest.Builder()_** when attempting to `build()` the request.
+
+**AdRequestConnection**
 
 Moving next, you need create an **_AdRequestConnection_** object and call requestAds with the ad request object.
 
@@ -797,8 +810,7 @@ AdsWizz interactive ads require some permissions on your app. Please refer to th
 
 ## Voice enabled interactive ads
 
-AdsWizz SDK depends on one external, third party library in order to deliver interactive voice ads (Amazon’s **AWSCore.framework**). 
-To properly set up the dependencies, you need to provide inside your Info.pList a string key called **_AdswizzSDKAWSIdentityPoolIdRegion_** with the value received from your AdsWizz Integration Manager. Failing to add this key will reduce the ability of voice detection while the app is in the background.
+AdsWizz SDK is able to deliver interactive voice ads with the ability of voice detection while the app is in the foreground.
 
 
 ## Handling voice recording

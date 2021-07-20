@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [7.5.2] - 2021-07-20
+### Added
+- New Analytics event `trigger-vast-error` triggered regardless of how many error trackers are fired
+- Support for `playerExpand` and `playerCollapse` VAST events for video ads using **_AdVideoView_**
+
+### Changed
+- Improved companion banner requests when playing a stream during ad break
+
+### Fixed
+- During a stream ad break, prevent companion banner requests to fire when companion metadata is missing
+
 ## [7.5.1] - 2021-07-05
 ### Changed
 - Improved Analytics dimensions reported for audio/video ads with companion banners
