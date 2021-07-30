@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [7.5.3] - 2021-07-30
+### Added
+- New **_AdManagerDatasource_** methods to trigger custom URLs when tracking clicks in **_AdCompanionView_** and **_AdVideoView_**
+    - `adManagerCompanionClickTrackingUrls(_ adManager: AdManager, ad: AdData, _ companion: Companion) -> [URL]`
+    - `adManagerVideoClickTrackingUrls(_ adManager: AdManager, ad: AdData) -> [URL]`
+- New Analytics event `trigger-vast-event` logged for **_notUsed_** and **_loaded_** VAST events
+
+### Fixed
+- Find and parse `adwData` value metadata in the entire raw string rather than just at the start
+- Cases where the companion banner would fail to load due to being inactive and because of app state changed
+
 ## [7.5.2] - 2021-07-20
 ### Added
 - New Analytics event `trigger-vast-error` triggered regardless of how many error trackers are fired

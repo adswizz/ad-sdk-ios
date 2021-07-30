@@ -374,6 +374,7 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// UIView
 - (void)layoutSubviews;
 - (void)didMoveToSuperview;
+- (void)didMoveToWindow;
 @property (nonatomic) CGFloat alpha;
 @property (nonatomic, getter=isHidden) BOOL hidden;
 @property (nonatomic, readonly) CGSize intrinsicContentSize;
@@ -646,6 +647,22 @@ SWIFT_PROTOCOL_NAMED("AdManagerDatasource")
 /// \param ad Ad that is being played
 ///
 - (NSArray<NSURL *> * _Nonnull)adManagerImpressionUrls:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad SWIFT_WARN_UNUSED_RESULT;
+/// Called when the SDK is about to fire the companion click trackings URLs.
+/// The SDK will receive your custom click tracking URLs and fire them along.
+/// \param adManager The AdManager that sent the event
+///
+/// \param ad Ad that is being played
+///
+/// \param companion Companion for which to fire the urls
+///
+- (NSArray<NSURL *> * _Nonnull)adManagerCompanionClickTrackingUrls:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad :(id <AASDKCompanion> _Nonnull)companion SWIFT_WARN_UNUSED_RESULT;
+/// Called when the SDK is about to fire the video click trackings URLs.
+/// The SDK will receive your custom click tracking URLs and fire them along.
+/// \param adManager The AdManager that sent the event
+///
+/// \param ad Ad that is being played
+///
+- (NSArray<NSURL *> * _Nonnull)adManagerVideoClickTrackingUrls:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

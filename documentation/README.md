@@ -667,6 +667,7 @@ If you need to skip an ad, you can call this method to skip the current ad from 
 #### reset
 
 If you decided to skip all the upcoming ads in the **_AdManager_** object, you can call this method. For each ad you skip, your app will trigger **_adCompleted_**, and an **_allAdsCompleted_** event will be sent at the end. Looping through the ad again will need a call to **_prepare_** function.
+However, it is not recommended for an AdManager to be reused after a `reset()` call especially if at least one or more ads have already been played. This recommendation helps to avoid/reduce impression deduplication for the same ads being played repeatedly.
 
 
 # Server-Side Insertion

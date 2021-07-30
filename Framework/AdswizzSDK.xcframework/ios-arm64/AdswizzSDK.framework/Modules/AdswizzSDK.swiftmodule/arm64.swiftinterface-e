@@ -325,6 +325,7 @@ extension UIUserInterfaceIdiom : Swift.Codable {
   @objc override dynamic public func awakeFromNib()
   @objc override dynamic public func layoutSubviews()
   @objc override dynamic public func didMoveToSuperview()
+  @objc override dynamic public func didMoveToWindow()
   @objc override dynamic public var alpha: CoreGraphics.CGFloat {
     @objc get
     @objc set
@@ -699,6 +700,8 @@ extension AVAudioSession.Port : Swift.Codable {
   @objc optional func adManager(_ adManager: AdswizzSDK.AdManager, ad: AdswizzSDK.AdData, trackingEventUrls event: AdswizzSDK.VastTrackingEvent) -> [Foundation.URL]
   @objc optional func adManager(_ adManager: AdswizzSDK.AdManager, ad: AdswizzSDK.AdData, trackingErrorUrls errorCode: AdswizzSDK.VastErrorCode) -> [Foundation.URL]
   @objc optional func adManagerImpressionUrls(_ adManager: AdswizzSDK.AdManager, ad: AdswizzSDK.AdData) -> [Foundation.URL]
+  @objc optional func adManagerCompanionClickTrackingUrls(_ adManager: AdswizzSDK.AdManager, ad: AdswizzSDK.AdData, _ companion: AdswizzSDK.Companion) -> [Foundation.URL]
+  @objc optional func adManagerVideoClickTrackingUrls(_ adManager: AdswizzSDK.AdManager, ad: AdswizzSDK.AdData) -> [Foundation.URL]
 }
 @objc(AASDKAdManager) public protocol AdManager {
   @objc var adManagerSettings: AdswizzSDK.AdManagerSettings { get set }
