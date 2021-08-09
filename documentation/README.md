@@ -443,6 +443,8 @@ The **_AdManagerDatasource_** protocol allows your integration to pass your own 
 * VAST events by calling `adManager(_ adManager: AdManager, ad: AdData, trackingEventUrls event: VastTrackingEvent) -> [URL]` method. It passes the **_VastTrackingEvent_** for which the SDK could fire your custom additional URLs. Check the `VastTrackingEvent` enum for possible values
 * VAST errors by calling `adManager(_ adManager: AdManager, ad: AdData, trackingErrorUrls errorCode: VastErrorCode) -> [URL]` method. It passes the **VastErrorCode** for which the SDK could fire your custom additional URLs. Check the `VastErrorCode` enum for possible values
 * Impressions by calling `adManagerImpressionUrls(_ adManager: AdManager, ad: AdData) -> [URL]` method
+* Companion banner click URLs by calling `adManagerCompanionClickTrackingUrls(_ adManager: AdManager, ad: AdData, _ companion: Companion) -> [URL]` method. It passes the VAST **_Companion_** object loaded by the current ad. When a companion banner is tapped, the SDK could fire your custom additional URLs.
+* Video view click URLs by calling `adManagerVideoClickTrackingUrls(_ adManager: AdManager, ad: AdData) -> [URL]` method. When the video view is tapped, the SDK could fire your custom additional URLs.
 
 ### Setup AdManager
 

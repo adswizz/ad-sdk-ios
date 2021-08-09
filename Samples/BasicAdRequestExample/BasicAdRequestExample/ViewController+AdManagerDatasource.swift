@@ -27,6 +27,16 @@ extension ViewController: AdManagerDatasource {
         print("ad manager: \(adManager) requested impressionUrls ad: \(ad.id ?? "unknown")")
         return generateTrackingUrls(for: "impression")
     }
+    
+    func adManagerCompanionClickTrackingUrls(_ adManager: AdManager, ad: AdData, _ companion: Companion) -> [URL] {
+        print("ad manager: \(adManager) requested companionClicksUrls ad: \(ad.id ?? "unknown")")
+        return generateTrackingUrls(for: "companionClicks")
+    }
+    
+    func adManagerVideoClickTrackingUrls(_ adManager: AdManager, ad: AdData) -> [URL] {
+        print("ad manager: \(adManager) requested videoClicksUrls ad: \(ad.id ?? "unknown")")
+        return generateTrackingUrls(for: "videoClicks")
+    }
 }
 
 //Helpers to generate custom tracking URLs

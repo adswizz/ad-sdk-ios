@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [7.5.4] - 2021-08-09
+### Changed
+- Improved logs when `noSpeechPermissionGranted` is triggered via **_AdswizzSDKPrivacyData_**
+- Improved `error` from `adManager(_: AdManager, didReceiveAd adData: AdData?, error: Error)` **_AdManager_** delegate by passing an Error instance for player errors instead of the generic `unknownMediaPlayerState`
+
+### Fixed
+- A syncing issue when loading companion banners with static resources (images) during app state changed and visibility toggle
+- Seek detection being incorrectly triggered for pause/resume actions during an ad playback
+
 ## [7.5.3] - 2021-07-30
 ### Added
 - New **_AdManagerDatasource_** methods to trigger custom URLs when tracking clicks in **_AdCompanionView_** and **_AdVideoView_**

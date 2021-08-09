@@ -670,8 +670,9 @@ SWIFT_PROTOCOL_NAMED("AdManagerDatasource")
 /// The <code>AdManagerDelegate</code> protocol defines the methods used to retrieve information about ad playback (impression, quartiles, etc).
 SWIFT_PROTOCOL_NAMED("AdManagerDelegate")
 @protocol AASDKAdManagerDelegate
-/// Called when there was an error playing the ad.
-/// Log the error and resume playing content.
+/// Called when there was an error playing the ad. Log the error and resume playing content.
+/// Note: evaluate the error by casting it to either <code>SDKError</code>or a specific <code>AVPlayer</code> error.
+/// (e.g by checking the <code>NSError</code> code such as <code>NSURLErrorTimedOut</code>, <code>NSURLErrorFileDoesNotExist</code>)
 /// \param adManager The AdManager that errored
 ///
 /// \param ad the ad which caused the error
