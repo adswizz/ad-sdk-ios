@@ -433,7 +433,9 @@ Subsequent to this request, the SDK will return an error if the call failed or a
 
 If the request to the AdsWizz Ad server was successful, the SDK will return an **_AdManager_** object which you will own. This will be the way the SDK will communicate events back to your application. 
 To get this communication channel open you need to set up a delegate for the **_AdManager_** that conforms to the **_AdManagerDelegate_** protocol. 
-The **_AdManager_** will call `func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)` whenever events of interest occur in the SDK. Please consult **_AdEventType_** enum for a list of possible events from the AdswizzSDK. If an error happens in the SDK while using this object, `func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)` will be called. Here are a few cases when the **_AdManager_** will report an error:
+The **_AdManager_** will call `func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)` whenever events of interest occur in the SDK. Please consult **_AdEventType_** enum for a list of possible events from the AdswizzSDK. If an error happens in the SDK while using this object, `func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)` will be called. The error can be handled by casting it to either `SDKError`or to a specific `AVPlayer` error (e.g by checking the `NSError` code such as `NSURLErrorTimedOut`, `NSURLErrorFileDoesNotExist`, etc.).
+
+Here are a few cases when the **_AdManager_** will report an error:
   * ad playback failed due to an internal player error
   * calling `prepare()`, `play()` or `pause()` on the **_AdManager_** instance during a server side scenario (live streaming). More details at [AdStreamManagerDelegate protocol](#adstreammanagerdelegate-protocol) when the ad break starts
 

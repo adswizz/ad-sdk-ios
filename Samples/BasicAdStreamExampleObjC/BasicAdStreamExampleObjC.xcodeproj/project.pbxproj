@@ -191,7 +191,6 @@
 			buildConfigurationList = AE5194D523F5446F0083D87B /* Build configuration list for PBXNativeTarget "BasicAdStreamExampleObjC" */;
 			buildPhases = (
 				AC105C7A716ADF5BD283C1DE /* [CP] Check Pods Manifest.lock */,
-				B588551CBC03720BFD5AD034 /* [CP] Prepare Artifacts */,
 				AE5194A223F5446D0083D87B /* Sources */,
 				AE5194A323F5446D0083D87B /* Frameworks */,
 				AE5194A423F5446D0083D87B /* Resources */,
@@ -211,7 +210,6 @@
 			buildConfigurationList = AE5194D823F5446F0083D87B /* Build configuration list for PBXNativeTarget "BasicAdStreamExampleObjCTests" */;
 			buildPhases = (
 				9E43E398263D34B9C81ACF19 /* [CP] Check Pods Manifest.lock */,
-				8BA042D4502669B85FBE613D /* [CP] Prepare Artifacts */,
 				AE5194BD23F5446F0083D87B /* Sources */,
 				AE5194BE23F5446F0083D87B /* Frameworks */,
 				AE5194BF23F5446F0083D87B /* Resources */,
@@ -232,7 +230,6 @@
 			buildConfigurationList = AE5194DB23F5446F0083D87B /* Build configuration list for PBXNativeTarget "BasicAdStreamExampleObjCUITests" */;
 			buildPhases = (
 				3E4529B4DFE3757306237CC4 /* [CP] Check Pods Manifest.lock */,
-				4ADC86F19B6664D66EA76A27 /* [CP] Prepare Artifacts */,
 				AE5194C823F5446F0083D87B /* Sources */,
 				AE5194C923F5446F0083D87B /* Frameworks */,
 				AE5194CA23F5446F0083D87B /* Resources */,
@@ -340,23 +337,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4ADC86F19B6664D66EA76A27 /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdStreamExampleObjCUITests/Pods-BasicAdStreamExampleObjCUITests-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdStreamExampleObjCUITests/Pods-BasicAdStreamExampleObjCUITests-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdStreamExampleObjCUITests/Pods-BasicAdStreamExampleObjCUITests-artifacts.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5819EEF91C0DB8505C9C98B1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,23 +352,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdStreamExampleObjC/Pods-BasicAdStreamExampleObjC-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8BA042D4502669B85FBE613D /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdStreamExampleObjCTests/Pods-BasicAdStreamExampleObjCTests-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdStreamExampleObjCTests/Pods-BasicAdStreamExampleObjCTests-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdStreamExampleObjCTests/Pods-BasicAdStreamExampleObjCTests-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9E43E398263D34B9C81ACF19 /* [CP] Check Pods Manifest.lock */ = {
@@ -450,23 +413,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B588551CBC03720BFD5AD034 /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdStreamExampleObjC/Pods-BasicAdStreamExampleObjC-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicAdStreamExampleObjC/Pods-BasicAdStreamExampleObjC-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicAdStreamExampleObjC/Pods-BasicAdStreamExampleObjC-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BC01B4185C9D8913E42A1A9D /* [CP] Embed Pods Frameworks */ = {

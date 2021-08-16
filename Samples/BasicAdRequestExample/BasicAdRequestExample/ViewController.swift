@@ -11,6 +11,10 @@ import AdswizzSDK
 import AVFoundation
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var playedTime: UILabel!
+    @IBOutlet var status: UILabel!
+    
     var adManager: AdManager?
     var adConnection: AdRequestConnection?
     
@@ -21,40 +25,7 @@ class ViewController: UIViewController {
         view.delegate = self
         return view
     }()
-    lazy var playedTime: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clear
-        label.adjustsFontForContentSizeCategory = true
-        label.adjustsFontSizeToFitWidth = true
-        label.textAlignment = NSTextAlignment.center
-        label.textColor = UIColor.black
-        label.font = UIFont(descriptor: UIFontDescriptor.init(), size: 20)
-        return label
-    }()
-    lazy var status: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clear
-        label.adjustsFontForContentSizeCategory = true
-        label.adjustsFontSizeToFitWidth = true
-        label.textAlignment = NSTextAlignment.center
-        label.textColor = UIColor.black
-        label.font = UIFont(descriptor: UIFontDescriptor.init(), size: 18)
-        label.alpha = 0
-        return label
-    }()
-    lazy var toolbar: UIToolbar = {
-       let toolbar = UIToolbar(frame: .zero)
-        toolbar.translatesAutoresizingMaskIntoConstraints = false
-        toolbar.barStyle = UIBarStyle.default
-        
-        let requestButton = UIBarButtonItem(title: "Request ads", style: .plain, target: self, action: #selector(requestAds))
-        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let skipButton = UIBarButtonItem(title: "Skip ad(s)", style: .plain, target: self, action: #selector(skipAds))
-        toolbar.items = [requestButton, spacer, skipButton]
-        return toolbar
-    }()
+    
     var audioPlayer = AVAudioPlayer()
     var isPlaying = false
     var timer:Timer!
@@ -63,26 +34,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Request ads"
-        
-        // Build UI
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        let window = delegate.window
-        var top: CGFloat = 0
-        var bottom: CGFloat = 0
-        if let window = window {
-            top = window.safeAreaTop
-            bottom = window.safeAreaBottom
-        }
-        
-        view.addSubview(status)
-        view.addSubview(toolbar)
-        view.addSubview(playedTime)
-        let views = ["time": playedTime, "status": status, "bar": toolbar]
-        let metrics = ["side": 20, "top": max(20, top), "bottom": bottom]
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-side-[time]-side-|", metrics: metrics, views: views as [String : Any]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-side-[status]-side-|", metrics: metrics, views: views as [String : Any]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-0-[bar]-0-|", metrics: metrics, views: views as [String : Any]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-top-[time]-[status]-(>=0)-[bar]-bottom-|", metrics: metrics, views: views as [String : Any]))
         
         // Prepare model
         model = build()
@@ -151,7 +102,12 @@ extension ViewController {
         playedTime.text = String(format: "%02d:%02d", minutes,seconds) as String
     }
     
-    @objc func requestAds() {
+    @IBAction func requestAds() {
+        
+        //stop and clean current adManager instance
+        adManager?.skipAd()
+        adManager = nil
+        
         guard
             let adServer = model?.adServer,
             let zoneId = model?.zoneId,
@@ -184,6 +140,7 @@ extension ViewController {
                     self.adManager = adManager
                     adManager?.delegate = self
                     adManager?.datasource = self
+                    adManager?.interactiveDelegate = self
                     
                     // Prepare
                     adManager?.prepare()
@@ -200,7 +157,7 @@ extension ViewController {
         }
     }
     
-    @objc func skipAds() {
+    @IBAction func skipAds() {
         adManager?.skipAd()
     }
 }
