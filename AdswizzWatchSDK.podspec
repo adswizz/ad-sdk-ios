@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "AdswizzWatchSDK"
-  s.version     = "7.5.5"
+  s.version     = "7.5.6"
   s.summary     = "Adswizz Watch SDK"
   s.description = <<-DESC
                   The only audio-centric SDK to Drive Innovation & Differentiation in Audio monetization
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = '6.1'
   s.swift_versions = ['5.3.2']
 
-s.source      = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "release/7.5.5" }
+s.source      = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "release/7.5.6" }
 
   s.vendored_frameworks = 'Framework/AdswizzWatchSDK.xcframework'
   s.requires_arc = true
