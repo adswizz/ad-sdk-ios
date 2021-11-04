@@ -15,7 +15,6 @@
 		AE4F9A96256E45A900D2FCB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4F9A94256E45A900D2FCB2 /* LaunchScreen.storyboard */; };
 		AE4F9AA1256E45A900D2FCB2 /* BasicTrackingPermissionExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F9AA0256E45A900D2FCB2 /* BasicTrackingPermissionExampleTests.swift */; };
 		AE4F9AAC256E45A900D2FCB2 /* BasicTrackingPermissionExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F9AAB256E45A900D2FCB2 /* BasicTrackingPermissionExampleUITests.swift */; };
-		B84529C0C37B9FE09EB2787C /* Pods_BasicTrackingPermissionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCFD7E84100FE8C1B47FF15 /* Pods_BasicTrackingPermissionExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5D3D0903C2418CD8957CE92B /* Pods-BasicTrackingPermissionExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicTrackingPermissionExample.debug.xcconfig"; path = "Target Support Files/Pods-BasicTrackingPermissionExample/Pods-BasicTrackingPermissionExample.debug.xcconfig"; sourceTree = "<group>"; };
-		7BCFD7E84100FE8C1B47FF15 /* Pods_BasicTrackingPermissionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicTrackingPermissionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4F9A86256E45A700D2FCB2 /* BasicTrackingPermissionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicTrackingPermissionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4F9A89256E45A700D2FCB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE4F9A8B256E45A700D2FCB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +49,6 @@
 		AE4F9AA7256E45A900D2FCB2 /* BasicTrackingPermissionExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasicTrackingPermissionExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4F9AAB256E45A900D2FCB2 /* BasicTrackingPermissionExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTrackingPermissionExampleUITests.swift; sourceTree = "<group>"; };
 		AE4F9AAD256E45A900D2FCB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E076D68F51BB3D7829DD64BF /* Pods-BasicTrackingPermissionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicTrackingPermissionExample.release.xcconfig"; path = "Target Support Files/Pods-BasicTrackingPermissionExample/Pods-BasicTrackingPermissionExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B84529C0C37B9FE09EB2787C /* Pods_BasicTrackingPermissionExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,19 +79,8 @@
 		8FC62AE2A44DF6A498F823C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7BCFD7E84100FE8C1B47FF15 /* Pods_BasicTrackingPermissionExample.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		AA318DE12518E40F33E86E4A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5D3D0903C2418CD8957CE92B /* Pods-BasicTrackingPermissionExample.debug.xcconfig */,
-				E076D68F51BB3D7829DD64BF /* Pods-BasicTrackingPermissionExample.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
 			sourceTree = "<group>";
 		};
 		AE4F9A7D256E45A700D2FCB2 = {
@@ -106,7 +90,6 @@
 				AE4F9A9F256E45A900D2FCB2 /* BasicTrackingPermissionExampleTests */,
 				AE4F9AAA256E45A900D2FCB2 /* BasicTrackingPermissionExampleUITests */,
 				AE4F9A87256E45A700D2FCB2 /* Products */,
-				AA318DE12518E40F33E86E4A /* Pods */,
 				8FC62AE2A44DF6A498F823C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -160,11 +143,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE4F9AB0256E45A900D2FCB2 /* Build configuration list for PBXNativeTarget "BasicTrackingPermissionExample" */;
 			buildPhases = (
-				240649BCD80C145FAB3798B8 /* [CP] Check Pods Manifest.lock */,
 				AE4F9A82256E45A700D2FCB2 /* Sources */,
 				AE4F9A83256E45A700D2FCB2 /* Frameworks */,
 				AE4F9A84256E45A700D2FCB2 /* Resources */,
-				D408FE2593FA0EF9C85C1762 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -279,48 +260,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		240649BCD80C145FAB3798B8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BasicTrackingPermissionExample-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D408FE2593FA0EF9C85C1762 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicTrackingPermissionExample/Pods-BasicTrackingPermissionExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicTrackingPermissionExample/Pods-BasicTrackingPermissionExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicTrackingPermissionExample/Pods-BasicTrackingPermissionExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE4F9A82256E45A700D2FCB2 /* Sources */ = {
@@ -502,7 +441,6 @@
 		};
 		AE4F9AB1256E45A900D2FCB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D3D0903C2418CD8957CE92B /* Pods-BasicTrackingPermissionExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -522,7 +460,6 @@
 		};
 		AE4F9AB2256E45A900D2FCB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E076D68F51BB3D7829DD64BF /* Pods-BasicTrackingPermissionExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -17,6 +17,7 @@ project 'ExternalPlayerExample/ExternalPlayerExample.xcodeproj'
 project 'BasicVideoAdExample/BasicVideoAdExample.xcodeproj'
 project 'BasicTrackingPermissionExample/BasicTrackingPermissionExample.xcodeproj'
 project 'BasicEmptyAdsExample/BasicEmptyAdsExample.xcodeproj'
+project 'BasicDVRRequestExample/BasicDVRRequestExample.xcodeproj'
 
 target :BasicAdRequestExample do
   project 'BasicAdRequestExample/BasicAdRequestExample.xcodeproj'
@@ -119,13 +120,18 @@ target :BasicEmptyAdsExample do
   common_pods
 end
 
+target :BasicDVRRequestExample do
+  project 'BasicDVRRequestExample/BasicDVRRequestExample.xcodeproj'
+  common_pods
+end
+
  post_install do |installer|
      installer.pods_project.targets.each do |target|
           if target.name == "AdswizzSDKPrivacyData"
            target.build_configurations.each do |config|
             path = config.base_configuration_reference.real_path
             update_xcconfig(path, { "BUILD_LIBRARY_FOR_DISTRIBUTION" => "YES",
-                                    "SWIFT_ACTIVE_COMPILATION_CONDITIONS" => "NO_SPEECH_ACCESS NO_CONTACTS_ACCESS NO_CALENDAR_ACCESS NO_CAMERA_ACCESS NO_LOCATION_ACCESS NO_MICROPHONE_ACCESS NO_MOTION_ACTIVITY_ACCESS"})
+                                    "SWIFT_ACTIVE_COMPILATION_CONDITIONS" => "NO_CONTACTS_ACCESS NO_CALENDAR_ACCESS NO_CAMERA_ACCESS NO_LOCATION_ACCESS NO_MOTION_ACTIVITY_ACCESS"})
            end
          end
      end

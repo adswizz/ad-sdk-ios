@@ -55,6 +55,73 @@ def update_xcconfig(path, new_values)
 end
 ```
 
+### Carthage
+
+AdswizzSDK can also be delivered using Carthage. The recommended version for carthage is 0.38.0 or newer. 
+
+#### Step 1: Cartfile
+
+Type in the following lines inside your Cartfile:
+
+```ruby
+binary "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/Adswizz.json"
+github "aws-amplify/aws-sdk-ios"
+github "https://github.com/adswizz/ad-sdk-ios-privacydata.git"
+```
+
+#### Step 2: Authentication
+
+Because AdswizzSDK is kept under a private repository, we need to provide an authentication mechanism to access it. We'll use .netrc for it. If you don't have a .netrc file under your home directory create one:
+
+```ruby
+touch ~/.netrc
+```
+
+and add the following 2 lines to it: 
+
+```ruby
+machine github.com login adswizz password ADSWIZZ_GITHUB_TOKEN
+machine raw.githubusercontent.com adswizz ADSWIZZ_GITHUB_USER password ADSWIZZ_GITHUB_TOKEN
+```
+
+Replace **_ADSWIZZ_GITHUB_TOKEN_** with your token received from AdsWizz. 
+
+#### Step 3: Custom Carthage run script
+
+We need to run a custom script for Carthage. On the same level as the `Cartfile` create a new file called `carthage.sh` and give it execution rights:
+
+```ruby
+touch carthage.sh
+chmod +x carthage.sh
+```
+
+And copy the following contents to in it:
+
+```ruby
+# !/usr/bin/env bash
+# carthage.sh
+# Usage example: ./carthage.sh build --platform iOS
+set -euo pipefail
+xcconfig=$(mktemp /tmp/static.xcconfig.XXXXXX)
+trap 'rm -f "$xcconfig"' INT TERM HUP EXIT
+# For Xcode 12 make sure EXCLUDED_ARCHS is set to arm architectures otherwise
+# the build will fail on lipo due to duplicate architectures.
+echo 'EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200 = arm64 arm64e armv7 armv7s armv6 armv8' >> $xcconfig
+echo 'EXCLUDED_ARCHS = $(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))' >> $xcconfig
+export XCODE_XCCONFIG_FILE="$xcconfig"
+carthage "$@"
+```
+
+#### Step 4: Run 
+
+We're now ready to install AdswizzSDK using Carthage. Run the following command and you're good to go: 
+
+```ruby
+./carthage.sh update --use-netrc
+```
+
+Notice that by using `./carthage.sh` we are running carthage from our own custom script. `--use-netrc` means we are using the authentication we set earlier inside the `.netrc` file.
+
 ### Manually
 
 If you prefer not to use any of the supported dependency managers above, you can integrate AdswizzSDK into your project manually.

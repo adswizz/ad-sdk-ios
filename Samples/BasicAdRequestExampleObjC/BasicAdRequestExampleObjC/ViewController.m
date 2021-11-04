@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 #import "UIWindow+SafeArea.h"
+#import "NSBundle+Version.h"
 
 #import <AdswizzSDK/AdswizzSDK.h>
 #import <AVFoundation/AVFoundation.h>
@@ -39,7 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Request ads";
+    self.title = [NSString stringWithFormat:@"%@ - AdsWizz SDK v%@", @"Request ads", [[NSBundle bundleForClass:[AASDKAdRequest class]] version]];
     
     // Toolbar
     self.toolbar = [UIToolbar new];

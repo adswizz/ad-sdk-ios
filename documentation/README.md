@@ -39,6 +39,7 @@
     + [resume](#resume)
     + [stop](#stop)
   * [AdStreamManagerDelegate protocol](#adstreammanagerdelegate-protocol)
+- [DVR for HLS](#dvr-for-hls)
 - [Interactive ads](#interactive-ads)
   * [Voice enabled interactive ads](#voice-enabled-interactive-ads)
   * [Handling voice recording](#handling-voice-recording)
@@ -211,8 +212,9 @@ AdswizzSDK.framework dependes on the following frameworks:
 *   AdswizzSDKPrivacyData.framework (1.0.6)
 
 AdswizzSDK for iOS depends on *Amazon’s AWSCore* as an external library in order to support trackability used by the [AdswizzSDK Analytics](#adswizzsdk-analytics).<br>
+
 *AdswizzSDKPrivacyData* is a source library which implements Privacy-Sensitive API that requires user permission. *AdswizzSDKPrivacyData* can be configured to exclude any sensitive API at built time.
-These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If you choose the manual integration you will have to provide them at link time.
+These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If you choose the Carthage or manual integration you will have to provide them at link time.
 
 
 ## Adding the SDK to your Xcode project
@@ -254,7 +256,74 @@ These dependencies are automatically added if you choose to integrate the SDK us
     end
     ```
 
-2. Manual
+2. Carthage
+
+    AdswizzSDK can also be delivered using Carthage. The recommended version for carthage is 0.38.0 or newer. 
+
+    1. Cartfile
+
+      Type in the following lines inside your Cartfile:
+
+    ```ruby
+    binary "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/Adswizz.json"
+    github "aws-amplify/aws-sdk-ios"
+    github "https://github.com/adswizz/ad-sdk-ios-privacydata.git"
+    ```
+
+    2. Authentication
+
+      Because AdswizzSDK is under a private repository, it needs an authentication mechanism to access it. We'll use .netrc for it. If you don't have a .netrc file under your home directory, go ahead and create one:
+
+    ```ruby
+    touch ~/.netrc
+    ```
+
+      and add the following inside: 
+
+    ```ruby
+    machine github.com login adswizz password ADSWIZZ_GITHUB_TOKEN
+    machine raw.githubusercontent.com adswizz ADSWIZZ_GITHUB_USER password ADSWIZZ_GITHUB_TOKEN
+    ```
+
+      Replace **_ADSWIZZ_GITHUB_TOKEN_** with your token received from AdsWizz. 
+
+    3. Custom Carthage run script
+
+      We need to run a custom script for Carthage. On the same level as with the Cartfile, create a new file and give it execution rights:
+
+    ```ruby
+    touch carthage.sh
+    chmod +x carthage.sh
+    ```
+
+      And copy the following contents to it:
+
+    ```ruby
+    # !/usr/bin/env bash
+    # carthage.sh
+    # Usage example: ./carthage.sh build --platform iOS
+    set -euo pipefail
+    xcconfig=$(mktemp /tmp/static.xcconfig.XXXXXX)
+    trap 'rm -f "$xcconfig"' INT TERM HUP EXIT
+    # For Xcode 12 make sure EXCLUDED_ARCHS is set to arm architectures otherwise
+    # the build will fail on lipo due to duplicate architectures.
+    echo 'EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200 = arm64 arm64e armv7 armv7s armv6 armv8' >> $xcconfig
+    echo 'EXCLUDED_ARCHS = $(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))' >> $xcconfig
+    export XCODE_XCCONFIG_FILE="$xcconfig"
+    carthage "$@"
+    ```
+
+    4. Run
+    
+      We're now ready to install AdswizzSDK with Carthage. Run the following command and you're good to go: 
+
+    ```ruby
+    ./carthage.sh update --use-netrc
+    ```
+
+      Notice that by using `./carthage.sh` we are running carthage from our own custom script. `--use-netrc` means we are using the authentication we set earlier inside the `.netrc` file.
+
+3. Manual
 
     Unzip the AdswizzSDK archive, which contains AdswizzSDK.xcframework binary. Drop the AdswizzSDK.xcframework file in your project’s Frameworks directory. Make sure AdswizzSDK.xcframework is listed in the **_Embedded Binaries_** section of your target. Make sure to add AWSCore.framework in your project as well. <br>
     AdswizzSDKPrivacyData.framework can be added as a submodule from https://github.com/adswizz/ad-sdk-ios-privacydata repo and selecting the appropriate tag. Next, you need to add AdswizzSDKPrivacyData.xcodeproj to your workspace or project. If you choose to add the xcodeproj from the repo you will need to add a step to make AdswizzSDKPrivacyData.xcodeproj compile. By design, AdswizzSDKPrivacyData.xcodeproj needs a **_CustomConfig.xcconfig_** in the AdswizzSDKPrivacyData project directory. This file is placed in .gitignore so you need to copy or create it every time you build or archive your scheme. To achieve this, you can create a **_New Run Script Action_** in **your scheme's** **_Build_** section or **_Archive_** section.
@@ -807,6 +876,62 @@ Here is a diagram of the AdswizzAdStreamManager state.
 
 <img src="img/AdswizzAdStreamManagerState.png" width="1000" />
 
+# DVR for HLS
+
+DVR for HLS is a functionality that allows streams configured for DVR to play from a previous position in time. This is achieved internally by storing a buffer with a specified length (2 hours, 10 hours etc.) which a server uses to deliver audio content from a specified unix time.
+
+Code wise, you have to attach a timestamp parameter to the `play` method and setup the current adstream object by adding the `dvr` capability. Just before the first play:
+
+[Step 1]
+```swift
+let settings = AdStreamManagerSettings()
+settings.addCapability(.dvr)
+streamManager?.adStreamManagerSettings = settings
+```
+
+Afterwards the stream must start playing as usual without specifying a timestamp. After the first chunk is delivered, an `AdStreamSession` is created internally which will be used transparently by the SDK to perform DVR operations. At this point in time the SDK will also deliver a `DVRMetadata` object via the `AdStreamDelegate` with information about the DVR buffer: a start time symbolising the first unix time in the buffer that can be played, an end time or latest which is very close to the current present time, and a length for the buffer, symbolising how much audio the server will store (1h, 6 h etc). Please note the buffer is configured externally, server-wise and can be stored on a different server than the one that serves the HLS stream.
+
+[Step 2]
+```swift
+try streamManager?.play(with: url)
+```
+
+Delegate method to receive metadata. Please note that this implementation is optional.
+```swift
+func adStreamManager(_ adstreamManager: AdStreamManager, didReceive dvrMetadata: DVRMetadata?) { 
+}
+```
+
+[Step 3]
+After playing the stream as usual, the server is now ready to deliver sound from the past. Just pass in an `NSNumber` with a unix timestamp in milliseconds and you're good to go:
+
+
+```swift
+try streamManager?.play(with: url, timestamp: NSNumber(value: timestamp))
+```
+
+After this call the user can issue another play with a different timestamp. 
+
+Currently DVR enabled streams do not support `prepare()` calls. Calling `prepare` on a DVR stream and afterwards play will result in an error. The DVR session has a limited lifespan(45 s or anything that is configured). Stopping a DVR enabled stream and afterwards calling play with a timestamp after this interval will play the stream from the latest time. 
+
+To get a new DVR session please start from [Step 2]. 
+
+Complete code example:
+
+```swift
+let settings = AdStreamManagerSettings()
+settings.addCapability(.dvr)
+streamManager?.adStreamManagerSettings = settings
+
+[...]
+
+try streamManager?.play(with: url)
+
+[...]
+// After play is called and some time has passed (the first chunk has been downloaded)
+// perform DVR 
+try streamManager?.play(with: url, timestamp: NSNumber(value: timestamp))
+```
 
 # Interactive ads
 
@@ -1607,7 +1732,7 @@ The **_TrackingPermissionController_** internally was implemented with best prac
   * by default the **_TrackingPermissionController_** supports dark mode in its default configuration. If any colour/styling customisation is added, it is your app's responsibility to handle appearance changes by updating the configuration on the controller. Or by using adaptive colors and images (for header logo/content image).
   * the **_TrackingPermissionController_** has support for autorotation by using the presenting controller’s **_shouldAutorotate()_** and **_supportedInterfaceOrientations()_** autorotation setup. If the parent controller allows autorotation, the **_TrackingPermissionController_** will rotate accordingly.
 
-# (Optional) Prepare your application for advanced targetability capabilities
+# Prepare your application for advanced targetability capabilities
 
 ## Handle data collection
 
@@ -1623,7 +1748,7 @@ Please be advised that if you choose to enable the Raw Data Signal Collection, y
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 | Data collected for <br>**_Device Targeting_** | Data collected for <br>**_Contextual Targeting_** | Data collected for <br>**_User Targeting_**|
 |:-----------------|:---------------------|:--------------|
-| * device name and locale <br>* screen brightness level<br>* audio volume level<br>* battery level and status (charging/not charging)<br>* bundle id<br>* operating system version and name | * bluetooth devices (currently connected and history)<br>* WiFi Status (true/false) and WiFi network name / SSID (if connected)<br>* network carrier name and country<br>* accelerometer, GPS and gyroscope data<br>* headphone jack status (plugged/unplugged)<br>* time zone information (in GMT format)<br>* daylight saving time status (true/false) | * idfa (identifierForAdvertising) status (enabled/disabled) and ID (if enabled) |
+| * device name and locale <br>* device type <br>* screen brightness level<br>* audio volume level<br>* battery level and status (charging/not charging)<br>* bundle id<br>* operating system version and name | * bluetooth devices (currently connected and history)<br>* WiFi Status (true/false) and WiFi network name / SSID (if connected)<br>* network carrier name and country<br>* accelerometer, GPS and gyroscope data<br>* headphone jack status (plugged/unplugged)<br>* time zone information (in GMT format)<br>* daylight saving time status (true/false) | * idfa (identifierForAdvertising) status (enabled/disabled) and ID (if enabled) |
 
 
 ## Technical prerequisites
@@ -1722,6 +1847,10 @@ This sample demonstrates basic usage for **_TrackingPermissionController_** in t
 ## BasicEmptyAdsExample
 
 This sample shows how to handle cases when an **_AdRequestConnection_** delivers an Ad Manager object with no ads to play.
+
+## BasicDVRRequestExample
+
+This sample shows how to perform DVR using  **_AdStreamManagerSettings_** to configure an **_AdswizzAdStreamManager_**  object. 
 
 # AdswizzWatchSDK
 

@@ -28,36 +28,6 @@ extension ViewController: AdManagerDelegate {
             
         case .didStartPlaying:
             // Ad manager started playing the ad(s)
-            // Show a companion ad which will automatically be synced with the ad
-            if let view = companionView, view.superview == nil {
-                self.view.addSubview(view)
-                let views = ["view": view]
-                self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-0-[view]-0-|", metrics: [:], views: views as [String : Any]))
-                self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0@900-[view]-0@900-|", metrics: [:], views: views as [String : Any]))
-                
-                let height = NSLayoutConstraint.init(item: view,
-                                                     attribute: .height,
-                                                     relatedBy: .equal,
-                                                     toItem: view,
-                                                     attribute: .width,
-                                                     multiplier: 1.0,
-                                                     constant: 0)
-                let centerX = NSLayoutConstraint.init(item: view,
-                                                      attribute: .centerX,
-                                                      relatedBy: .equal,
-                                                      toItem: self.view,
-                                                      attribute: .centerX,
-                                                      multiplier: 1.0,
-                                                      constant: 0)
-                let centerY = NSLayoutConstraint.init(item: view,
-                                                      attribute: .centerY,
-                                                      relatedBy: .equal,
-                                                      toItem: self.view,
-                                                      attribute: .centerY,
-                                                      multiplier: 1.0,
-                                                      constant: 0)
-                self.view.addConstraints([height, centerX, centerY])
-            }
             
             // Update Now Playing with a valid file URL and metadata
             if let firstFile = event.ad?.asset.mediaUrl, let firstFileURL = URL(string: firstFile) {

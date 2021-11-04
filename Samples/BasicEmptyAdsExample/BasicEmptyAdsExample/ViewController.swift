@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AdswizzSDK
 
 class ViewController: UIViewController {
 
@@ -23,7 +24,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Empty ads"
+        title = "Empty ads" + " - AdsWizz SDK v" + Bundle(for: AdswizzAdRequest.self).version
         
         view.addSubview(logView)
         NSLayoutConstraint.activate([

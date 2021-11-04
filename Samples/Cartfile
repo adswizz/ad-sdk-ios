@@ -1,0 +1,5 @@
+binary "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/AdswizzSDK.json"
+github "aws-amplify/aws-sdk-ios"
+github "https://github.com/adswizz/ad-sdk-ios-privacydata.git"
+
+

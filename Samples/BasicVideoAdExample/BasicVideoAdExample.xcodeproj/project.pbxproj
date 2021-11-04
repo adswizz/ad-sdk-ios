@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,7 +22,7 @@
 		AEDCCE0D2562E039000798DB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDCCE0C2562E039000798DB /* Model.swift */; };
 		AEDCCE562563080C000798DB /* ViewController+ModelAdDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDCCE552563080C000798DB /* ViewController+ModelAdDelegate.swift */; };
 		AEDCCE5B2563B7BF000798DB /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDCCE5A2563B7BF000798DB /* VideoView.swift */; };
-		B438766A1E2F4932D60B5FDF /* Pods_BasicVideoAdExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BB691FF330844EE03AFDBB /* Pods_BasicVideoAdExample.framework */; };
+		C240E852271F2FA500F76853 /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240E851271F2FA500F76853 /* Bundle+Version.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02BB691FF330844EE03AFDBB /* Pods_BasicVideoAdExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicVideoAdExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		38514F502C3C041A39D7AA68 /* Pods-BasicVideoAdExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicVideoAdExample.debug.xcconfig"; path = "Target Support Files/Pods-BasicVideoAdExample/Pods-BasicVideoAdExample.debug.xcconfig"; sourceTree = "<group>"; };
 		AE4F9A73256DA4E900D2FCB2 /* ViewController+VideoViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+VideoViewDelegate.swift"; sourceTree = "<group>"; };
 		AE4F9A78256E399100D2FCB2 /* ExpandedTouchAreaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTouchAreaButton.swift; sourceTree = "<group>"; };
 		AE82D4F6254090AD0067B74C /* BasicVideoAdExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicVideoAdExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +64,7 @@
 		AEDCCE0C2562E039000798DB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		AEDCCE552563080C000798DB /* ViewController+ModelAdDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ModelAdDelegate.swift"; sourceTree = "<group>"; };
 		AEDCCE5A2563B7BF000798DB /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
-		ECF4C86F206005A4D4658300 /* Pods-BasicVideoAdExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicVideoAdExample.release.xcconfig"; path = "Target Support Files/Pods-BasicVideoAdExample/Pods-BasicVideoAdExample.release.xcconfig"; sourceTree = "<group>"; };
+		C240E851271F2FA500F76853 /* Bundle+Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bundle+Version.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/Bundle+Version.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B438766A1E2F4932D60B5FDF /* Pods_BasicVideoAdExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +95,6 @@
 		125B61CBCA55BF44D61F7D49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				02BB691FF330844EE03AFDBB /* Pods_BasicVideoAdExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,7 +106,6 @@
 				AE82D50F254090B10067B74C /* BasicVideoAdExampleTests */,
 				AE82D51A254090B10067B74C /* BasicVideoAdExampleUITests */,
 				AE82D4F7254090AD0067B74C /* Products */,
-				FB250B54A020410326A82417 /* Pods */,
 				125B61CBCA55BF44D61F7D49 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -128,6 +123,7 @@
 		AE82D4F8254090AE0067B74C /* BasicVideoAdExample */ = {
 			isa = PBXGroup;
 			children = (
+				C240E851271F2FA500F76853 /* Bundle+Version.swift */,
 				AE82D4F9254090AE0067B74C /* AppDelegate.swift */,
 				AE82D4FB254090AE0067B74C /* SceneDelegate.swift */,
 				AE82D4FD254090AE0067B74C /* ViewController.swift */,
@@ -164,16 +160,6 @@
 			path = BasicVideoAdExampleUITests;
 			sourceTree = "<group>";
 		};
-		FB250B54A020410326A82417 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				38514F502C3C041A39D7AA68 /* Pods-BasicVideoAdExample.debug.xcconfig */,
-				ECF4C86F206005A4D4658300 /* Pods-BasicVideoAdExample.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -181,11 +167,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE82D520254090B20067B74C /* Build configuration list for PBXNativeTarget "BasicVideoAdExample" */;
 			buildPhases = (
-				0D7EAB470AE6CF166C6D7E32 /* [CP] Check Pods Manifest.lock */,
 				AE82D4F2254090AD0067B74C /* Sources */,
 				AE82D4F3254090AD0067B74C /* Frameworks */,
 				AE82D4F4254090AD0067B74C /* Resources */,
-				863B563FA59CC0DC8FBBC2A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -301,48 +285,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0D7EAB470AE6CF166C6D7E32 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BasicVideoAdExample-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		863B563FA59CC0DC8FBBC2A6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicVideoAdExample/Pods-BasicVideoAdExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicVideoAdExample/Pods-BasicVideoAdExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicVideoAdExample/Pods-BasicVideoAdExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		AE82D4F2254090AD0067B74C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -350,6 +292,7 @@
 			files = (
 				AEDCCE0D2562E039000798DB /* Model.swift in Sources */,
 				AE4F9A79256E399100D2FCB2 /* ExpandedTouchAreaButton.swift in Sources */,
+				C240E852271F2FA500F76853 /* Bundle+Version.swift in Sources */,
 				AE82D5D0254096860067B74C /* Model+AdManagerDelegate.swift in Sources */,
 				AE82D4FE254090AE0067B74C /* ViewController.swift in Sources */,
 				AEDCCE562563080C000798DB /* ViewController+ModelAdDelegate.swift in Sources */,
@@ -530,7 +473,6 @@
 		};
 		AE82D521254090B20067B74C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38514F502C3C041A39D7AA68 /* Pods-BasicVideoAdExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -550,7 +492,6 @@
 		};
 		AE82D522254090B20067B74C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECF4C86F206005A4D4658300 /* Pods-BasicVideoAdExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

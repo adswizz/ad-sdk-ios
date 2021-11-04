@@ -12,19 +12,17 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    @IBOutlet var adswizzSDKVersion: UILabel!
     @IBOutlet var playedTime: UILabel!
     @IBOutlet var status: UILabel!
+    @IBOutlet var modelName: UILabel!
+    @IBOutlet var adServer: UILabel!
+    @IBOutlet var zoneID: UILabel!
+    @IBOutlet var companionZones: UILabel!
+    @IBOutlet var modelDescription: UILabel!
     
     var adManager: AdManager?
     var adConnection: AdRequestConnection?
-    
-    lazy var companionView: AdCompanionView? = {
-        let view = AdCompanionView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.clear
-        view.delegate = self
-        return view
-    }()
     
     var audioPlayer = AVAudioPlayer()
     var isPlaying = false
@@ -33,10 +31,21 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Request ads"
+        title = "Request AdsWizz ads"
+        
+        adswizzSDKVersion.text = "AdsWizz SDK v" + Bundle(for: AdswizzAdRequest.self).version
         
         // Prepare model
-        model = build()
+        /// Check AdswizzSDKConfig.plist for all the values.
+        /// Possible values: "NormalAds", "InteractiveAds", "AskPermissionAds", "InteractiveVoiceAds"
+        model = buildFromConfigFile(scenarioName: "NormalAds")
+        
+        // Update UI with model values
+        modelName.text = model?.modelName
+        adServer.text = model?.adServer
+        zoneID.text = model?.zoneId
+        companionZones.text = model?.companionZones
+        modelDescription.text = model?.description
         
         // Prepare content playback
         let path = Bundle.main.path(forResource: "content_example", ofType: "mp3")!

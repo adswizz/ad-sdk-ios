@@ -29,9 +29,6 @@
       location = "group:BasicAdRequestExample/../ExternalPlayerExample/ExternalPlayerExample.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:ExternalPlayerExample/ExternalPlayerExample.xcodeproj">
+      location = "group:BasicDVRRequestExample/BasicDVRRequestExample.xcodeproj">
    </FileRef>
 </Workspace>

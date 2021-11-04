@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Video ads"
+        title = "Video ads"  + " - AdsWizz SDK v" + Bundle(for: AdswizzAdRequest.self).version
         
         view.addSubview(actionButton)
         view.addSubview(adCountLabel)

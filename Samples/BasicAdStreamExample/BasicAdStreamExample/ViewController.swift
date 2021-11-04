@@ -113,7 +113,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Ad streaming"
+        title = "Ad streaming" + " - AdsWizz SDK v" + Bundle(for: AdswizzAdRequest.self).version
         
         // Arrange buttons
         horizontalStackView.addArrangedSubview(playStopButton)

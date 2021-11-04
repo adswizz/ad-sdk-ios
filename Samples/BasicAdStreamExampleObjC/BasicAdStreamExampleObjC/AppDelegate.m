@@ -24,7 +24,7 @@
     //  2. a playerId
     // More details in AASDKAdswizzSettingsKeys.
     NSError *error = nil;
-    [AASDKAdswizzSDK.shared initializeAndReturnError:&error];
+    [AASDKAdswizzSDK.shared initializeWith:nil error:&error];
     if (error) {
         NSLog(@"%@", error);
     }

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Model.h"
+#import "NSBundle+Version.h"
 #import <AVFoundation/AVFoundation.h>
 
 // Private interface
@@ -41,7 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Ad streaming";
+    self.title = [NSString stringWithFormat:@"%@ - AdsWizz SDK v%@", @"Ad streaming", [[NSBundle bundleForClass:[AASDKAdRequest class]] version]];
     
     self.model = [Model new];
     self.model.adBreakDelegate = self;

@@ -402,7 +402,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
-
 @class WKNavigation;
 
 @interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <WKNavigationDelegate>
@@ -410,6 +409,7 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
+
 
 
 
@@ -774,6 +774,12 @@ SWIFT_CLASS_NAMED("AdRequestConnection")
 
 
 
+/// Types of stream capabilities
+typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdStreamCapabilities, "AdStreamCapability", open) {
+/// supports dvr
+  AASDKAdStreamCapabilitiesDvr = 0,
+};
+
 @protocol AASDKAdStreamManagerDelegate;
 @class AASDKAdStreamManagerSettings;
 
@@ -812,6 +818,7 @@ SWIFT_CLASS_NAMED("AdStreamManager")
 
 enum AASDKMediaPlayerStatus : NSInteger;
 @class AVMetadataItem;
+@class AASDKDVRMetadata;
 
 /// The <code>AdStreamManagerDelegate</code> protocol defines the methods used to retrieve information about ads and companion banners inserted server-side.
 SWIFT_PROTOCOL_NAMED("AdStreamManagerDelegate")
@@ -861,6 +868,13 @@ SWIFT_PROTOCOL_NAMED("AdStreamManagerDelegate")
 /// \param adstreamManager owner
 ///
 - (void)adStreamManagerPlayerShouldResume:(AASDKAdStreamManager * _Nonnull)adstreamManager;
+@optional
+/// Notify when adstream did download dvrMetadata
+/// \param adstreamManager owner
+///
+/// \param dvrMetadata metadata for stream
+///
+- (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager didReceive:(AASDKDVRMetadata * _Nullable)dvrMetadata;
 @end
 
 
@@ -869,6 +883,9 @@ SWIFT_CLASS_NAMED("AdStreamManagerSettings")
 @interface AASDKAdStreamManagerSettings : NSObject
 /// SDK user can provide a player where to play the stream
 @property (nonatomic, weak) id <AASDKMediaPlayerState> _Nullable player;
+/// Adds a capability for the stream
+/// By default no capabilities options will be used
+- (void)addCapability:(enum AASDKAdStreamCapabilities)capability;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -918,11 +935,12 @@ SWIFT_CLASS_NAMED("AdVideoFriendlyObstruction")
 
 
 
+
+
 @interface AASDKAdVideoFriendlyObstruction (SWIFT_EXTENSION(AdswizzSDK))
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) NSUInteger hash;
 @end
-
-
 
 /// A set of purposes for which an obstruction would be registered as “friendly”.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdVideoFriendlyObstructionPurpose, "AdVideoFriendlyObstructionPurpose", open) {
@@ -1000,11 +1018,11 @@ SWIFT_CLASS_NAMED("AdVideoView")
 @end
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 /// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behaviour changes and events.
@@ -1568,6 +1586,22 @@ SWIFT_PROTOCOL_NAMED("CompanionResource")
 @end
 
 
+/// Metadata for DVR enabled streams
+SWIFT_CLASS_NAMED("DVRMetadata")
+@interface AASDKDVRMetadata : NSObject
+/// Start UNIX timestamp for dvr stream
+@property (nonatomic) NSInteger start;
+/// Latest UNIX timestamp for dvr stream
+@property (nonatomic) NSInteger end;
+/// Length of DVR buffer
+@property (nonatomic) NSInteger length;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+
 
 
 
@@ -1906,6 +1940,8 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 @end
 
 
+
+
 @interface AASDKTrackingPermissionController (SWIFT_EXTENSION(AdswizzSDK))
 /// Convenience method to quickly create a tracking permission controller with basic customizations.
 /// \param title A custom title for the controller. It defaults to a generic title.
@@ -1921,8 +1957,6 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 /// The controller with the designated configuration.
 + (AASDKTrackingPermissionController * _Nonnull)trackingControllerWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message contentImage:(UIImage * _Nullable)contentImage headerImage:(UIImage * _Nullable)headerImage SWIFT_WARN_UNUSED_RESULT;
 @end
-
-
 
 
 @class UIPresentationController;
