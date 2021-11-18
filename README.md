@@ -117,7 +117,7 @@ carthage "$@"
 We're now ready to install AdswizzSDK using Carthage. Run the following command and you're good to go: 
 
 ```ruby
-./carthage.sh update --use-netrc
+./carthage.sh update --use-netrc --use-xcframeworks
 ```
 
 Notice that by using `./carthage.sh` we are running carthage from our own custom script. `--use-netrc` means we are using the authentication we set earlier inside the `.netrc` file.

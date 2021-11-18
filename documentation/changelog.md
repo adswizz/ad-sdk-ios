@@ -5,21 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.6.1] - 2021-11-18
+### Added
+- New sample project for a basic example of all AdswizzSDK UI components in a SwiftUI environment called **_BasicSwiftUIClientSideInsertion_**
+
+### Fixed
+- Carthage support
+- A case where a voice interactive ad with VLT would fail to download the coupon set in the ad's interactivity
+- Incorrect behaviour for AdManager that wouldn't trigger the **_unmute_** VAST tracking event when the ad would already start as muted
+
 ## [7.6.0] - 2021-11-04
 ### Added
-- DVR support for HLS streams in server side insertation
-- New public members in **_AdswizzAdStreamManager_**:
-    - **_play(with url: URL, timestamp: NSNumber)_** method related to DVR
-- New public members in **_AdStreamManager_**:
-    - **_hasDVR_** reflects if DVR is enabled or not
-- New public members in **_AdStreamManagerSettings_**:
-    - **_addCapability(_ capability: AdStreamCapability)_** adds a capability for the stream manager (e.g `dvr`)
-- New public enum:
-    - **_AdStreamCapability_** option relates to **_AdStreamManagerSettings_**
-- New public class **_DVRMetadata_** wih public members:
-    - **_start_** is the start UNIX timestamp for DVR stream
-    - **_end_** is the latest UNIX timestamp for DVR stream
-    - **_length_** is the length of DVR buffer
+- DVR support for HLS streams in server side insertion
+    - New public members in **_AdswizzAdStreamManager_**:
+        - **_play(with url: URL, timestamp: NSNumber)_** method related to DVR
+    - New public members in **_AdStreamManager_**:
+        - **_hasDVR_** reflects if DVR is enabled or not
+    - New public members in **_AdStreamManagerSettings_**:
+        - **_addCapability(_ capability: AdStreamCapability)_** adds a capability for the stream manager (e.g `dvr`)
+    - New public enum:
+        - **_AdStreamCapability_** option relates to **_AdStreamManagerSettings_**
+    - New public class **_DVRMetadata_** wih public members:
+        - **_start_** is the start UNIX timestamp for DVR stream
+        - **_end_** is the latest UNIX timestamp for DVR stream
+        - **_length_** is the length of DVR buffer
 - Generic intents (e.g generic skip action) specified at ZeroConfig level to be attached to voice ads interactivity
 - The ability to trigger `mute` / `unmute` tracking events for **_AdManager_** internal player by listening to system volume
 - Carthage support for AdswizzSDK integration (beta)

@@ -106,6 +106,8 @@
   * [BasicVideoAdExample](#basicvideoadexample)
   * [BasicTrackingPermissionExample](#basictrackingpermissionexample)
   * [BasicEmptyAdsExample](#basicemptyadsexample)
+  * [BasicDVRRequestExample](#basicdvrrequestexample)
+  * [BasicSwiftUIClientSideInsertion](#basicswiftuiclientsideinsertion)
 # **AdswizzWatchSDK for WatchOS - Integration guide**
 - [AdswizzWatchSDK](#adswizzwatchsdk)
   * [What is AdswizzWatchSDK](#what-is-adswizzwatchsdk)
@@ -318,7 +320,7 @@ These dependencies are automatically added if you choose to integrate the SDK us
       We're now ready to install AdswizzSDK with Carthage. Run the following command and you're good to go: 
 
     ```ruby
-    ./carthage.sh update --use-netrc
+    ./carthage.sh update --use-netrc --use-xcframeworks
     ```
 
       Notice that by using `./carthage.sh` we are running carthage from our own custom script. `--use-netrc` means we are using the authentication we set earlier inside the `.netrc` file.
@@ -1851,6 +1853,10 @@ This sample shows how to handle cases when an **_AdRequestConnection_** delivers
 ## BasicDVRRequestExample
 
 This sample shows how to perform DVR using  **_AdStreamManagerSettings_** to configure an **_AdswizzAdStreamManager_**  object. 
+
+## BasicSwiftUIClientSideInsertion
+
+This sample shows how to display all the different UI components from **_AdswizzSDK_** in a SwiftUI app. The app contains 4 tabs. The Banner tab displays an **_AdswizzAdCompanionView_**. The InApp Notification shows an ad that allows various interaction types like perform a call or go to a specific location on the map. It uses the same code as the previous tab with different zones for the ads. The Video tab shows a video ad. Last but not least, the Tracking Permissions tab demonstrates showing the built-in permissions UI component to get the user's consent for tracking.
 
 # AdswizzWatchSDK
 
