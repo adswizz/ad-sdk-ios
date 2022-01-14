@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.6.2] - 2022-01-14
+### Added
+- New public member in **_AdData_**: 
+    - `pricing` - exposes the VAST pricing info on real-time bidding systems for an ad
+- New public member in **_AdswizzAdRequest_**.**_Builder_**: 
+    - `userConsentV2` - sets a TCF v2 string as described by IAB's Transparency and Consent Framework (TCF)
+
+### Changed
+- Switched from OMSDK static library to a static framework (.xcframework) to support running on a M1 chip simulator machine
+- Modified the `AdswizzSDK.xcframework` to accommodate for proper arm64 and x86 simulator slices on M1 architecture
+
+### Fixed
+- Carthage support by pointing to the correct `Adswizz.json` in the Cartfile
+- A case where **_NetworkManager_** would crash for older Xcode versions when detecting a 5G cellular connection
+- Incorrect behaviour for **_AdManager_** that would fire the **_skip_** VAST tracking events for current ad when `reset()` is called, also correcting the `ad-manager-skip` Analytics event to only get logged when `skipAd()` gets called specifically
+
 ## [7.6.1] - 2021-11-18
 ### Added
 - New sample project for a basic example of all AdswizzSDK UI components in a SwiftUI environment called **_BasicSwiftUIClientSideInsertion_**

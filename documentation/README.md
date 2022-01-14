@@ -473,7 +473,7 @@ Please note that the order you pass the zones is important, as the AdsWizz Ad Se
 
 **Custom request parameters**
 
-You may use custom parameters (key-value pairs) in your **_AdswizzAdRequest_** objects, in order to send various information, such as the TCF v2 consent string, some publisher specific Ids, first-party targeting data, etc.
+You may use custom parameters (key-value pairs) in your **_AdswizzAdRequest_** objects, in order to send various information, such as some publisher specific Ids, first-party targeting data, etc.
 Here is an example:
 
 ```swift
@@ -485,6 +485,14 @@ let adRequest = try AdswizzAdRequest.Builder()
 
 Note that it is your responsability to properly URL encode the custom parameters values as well as the keys themselves (if needed).
 Failing to do that would result in an error being thrown by the **_AdswizzAdRequest.Builder()_** when attempting to `build()` the request.
+
+It's also worth noting that in your **_AdswizzAdRequest_** you may pass the TCF v2 consent string without the need of adding a custom parameter. Here is an example:
+```swift
+let adRequest = try AdswizzAdRequest.Builder()
+        ...
+        .with(userConsentV2: "yourTCFv2String")
+        ...
+```
 
 **AdRequestConnection**
 
