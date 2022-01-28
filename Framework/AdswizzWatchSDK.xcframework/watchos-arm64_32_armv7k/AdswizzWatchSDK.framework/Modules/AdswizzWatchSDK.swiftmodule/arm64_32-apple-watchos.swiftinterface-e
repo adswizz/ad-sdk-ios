@@ -9,7 +9,7 @@ import Swift
 import WatchConnectivity
 import WatchKit
 extension AdLogger.Level : Swift.Comparable {
-  public static func < (lhs: AdswizzWatchSDK.AdLogger.Level, rhs: AdswizzWatchSDK.AdLogger.Level) -> Swift.Bool
+  public static func < (lhs: AdLogger.Level, rhs: AdLogger.Level) -> Swift.Bool
 }
 extension AdLogger.Level : Swift.CustomStringConvertible {
   public var description: Swift.String {
@@ -19,8 +19,8 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
 extension AVAudioSession.Port : Swift.Codable {
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdswizzWatchSDK) public class AdswizzWatchSDK : ObjectiveC.NSObject {
-  @objc public static let shared: AdswizzWatchSDK.AdswizzWatchSDK
-  @objc public var watchSession: AdswizzWatchSDK.WatchSession {
+  @objc public static let shared: AdswizzWatchSDK
+  @objc public var watchSession: WatchSession {
     get
   }
   @objc public var runningInBackground: Swift.Bool {
@@ -37,7 +37,7 @@ extension AdswizzWatchSDK {
   @objc dynamic public func applicationDidEnterBackground()
 }
 @objc(AASDKAdLoggerDestination) public protocol AdLoggerDestination {
-  @objc func log(_ level: AdswizzWatchSDK.AdLogger.Level, functionName: Swift.String, fileName: Swift.String, lineNumber: Swift.Int, line: Swift.String)
+  @objc func log(_ level: AdLogger.Level, functionName: Swift.String, fileName: Swift.String, lineNumber: Swift.Int, line: Swift.String)
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdLogger) final public class AdLogger : ObjectiveC.NSObject {
   @objc public enum Level : Swift.Int {
@@ -52,9 +52,9 @@ extension AdswizzWatchSDK {
     }
     public init?(rawValue: Swift.Int)
   }
-  @objc public static let shared: AdswizzWatchSDK.AdLogger
-  @objc final public var level: AdswizzWatchSDK.AdLogger.Level
-  @objc final public var destination: AdswizzWatchSDK.AdLoggerDestination
+  @objc public static let shared: AdLogger
+  @objc final public var level: AdLogger.Level
+  @objc final public var destination: AdLoggerDestination
   @objc deinit
   @objc override dynamic public init()
 }
@@ -64,7 +64,7 @@ extension AdswizzWatchSDK {
 }
 @objc(AASDKWatchSession) public protocol WatchSession {
   @objc func receivedMessage(_ data: [Swift.String : Any])
-  @objc func setDelegate(_ delegate: AdswizzWatchSDK.WatchSessionDelegate)
+  @objc func setDelegate(_ delegate: WatchSessionDelegate)
 }
 extension Dictionary where Key == Swift.String {
   public var isAdswizzWatchData: Swift.Bool {
@@ -76,5 +76,5 @@ extension NSDictionary {
     @objc get
   }
 }
-extension AdswizzWatchSDK.AdLogger.Level : Swift.Hashable {}
-extension AdswizzWatchSDK.AdLogger.Level : Swift.RawRepresentable {}
+extension AdLogger.Level : Swift.Hashable {}
+extension AdLogger.Level : Swift.RawRepresentable {}

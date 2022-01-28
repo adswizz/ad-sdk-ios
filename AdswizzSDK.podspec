@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
   s.swift_versions = ['5.3.2']
 
-  s.source      = { :git => "git@gitlab.adswizz.com:sdk/ad-sdk-ios-develop.git", :branch => "prerelease/7.6.3" }
+s.source      = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "release/7.6.3" }
 
   s.vendored_frameworks = 'Framework/AdswizzSDK.xcframework'
   s.requires_arc = true
