@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
 // swift-module-flags: -target arm64-apple-watchos6.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AdswizzWatchSDK
 import AVFoundation
 @_exported import AdswizzWatchSDK
@@ -8,16 +8,15 @@ import Foundation
 import Swift
 import WatchConnectivity
 import WatchKit
-import _Concurrency
-extension AdswizzWatchSDK.AdLogger.Level : Swift.Comparable {
+extension AdLogger.Level : Swift.Comparable {
   public static func < (lhs: AdswizzWatchSDK.AdLogger.Level, rhs: AdswizzWatchSDK.AdLogger.Level) -> Swift.Bool
 }
-extension AdswizzWatchSDK.AdLogger.Level : Swift.CustomStringConvertible {
+extension AdLogger.Level : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
 }
-extension AVFAudio.AVAudioSession.Port : Swift.Codable {
+extension AVAudioSession.Port : Swift.Codable {
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdswizzWatchSDK) public class AdswizzWatchSDK : ObjectiveC.NSObject {
   @objc public static let shared: AdswizzWatchSDK.AdswizzWatchSDK
@@ -31,7 +30,7 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   @objc override dynamic public init()
   @objc deinit
 }
-extension AdswizzWatchSDK.AdswizzWatchSDK {
+extension AdswizzWatchSDK {
   @objc dynamic public func applicationDidBecomeActive()
   @objc dynamic public func applicationWillResignActive()
   @objc dynamic public func applicationWillEnterForeground()
@@ -47,19 +46,19 @@ extension AdswizzWatchSDK.AdswizzWatchSDK {
     case info
     case error
     case none
-    public init?(rawValue: Swift.Int)
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
     }
+    public init?(rawValue: Swift.Int)
   }
   @objc public static let shared: AdswizzWatchSDK.AdLogger
   @objc final public var level: AdswizzWatchSDK.AdLogger.Level
   @objc final public var destination: AdswizzWatchSDK.AdLoggerDestination
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
-@objc(AASDKWatchSessionDelegate) public protocol WatchSessionDelegate {
+@objc(AASDKWatchSessionDelegate) public protocol WatchSessionDelegate : AnyObject {
   @objc func sendMessage(_ data: [Swift.String : Any])
   @objc func updateApplicationContext(_ data: [Swift.String : Any])
 }
@@ -67,12 +66,12 @@ extension AdswizzWatchSDK.AdswizzWatchSDK {
   @objc func receivedMessage(_ data: [Swift.String : Any])
   @objc func setDelegate(_ delegate: AdswizzWatchSDK.WatchSessionDelegate)
 }
-extension Swift.Dictionary where Key == Swift.String {
+extension Dictionary where Key == Swift.String {
   public var isAdswizzWatchData: Swift.Bool {
     get
   }
 }
-extension Foundation.NSDictionary {
+extension NSDictionary {
   @objc dynamic public var isAdswizzWatchData: Swift.Bool {
     @objc get
   }

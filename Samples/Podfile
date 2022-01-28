@@ -5,7 +5,7 @@ use_frameworks!
 
 # common pods used in all example modules
 def common_pods
-pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
+pod 'AdswizzSDK', :git => "git@gitlab.adswizz.com:sdk/ad-sdk-ios-develop.git", :branch => "prerelease/7.6.3"
 end
 
 project 'BasicAdStreamExample/BasicAdStreamExample.xcodeproj'
@@ -53,7 +53,7 @@ end
 target 'BasicAdRequestWatch Extension' do
   platform :watchos, '6.1'
   project 'BasicAdRequestWatchExample/BasicAdRequestWatchExample.xcodeproj'
-pod 'AdswizzWatchSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
+pod 'AdswizzWatchSDK', :git => "git@gitlab.adswizz.com:sdk/ad-sdk-ios-develop.git", :branch => "prerelease/7.6.3"
 end
 
 target :BasicAdRequestExampleObjC do

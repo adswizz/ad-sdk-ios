@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.6.3] - 2022-01-28
+### Changed
+- **_AdswizzSDK_** binaries to be delivered with Xcode `12.4` (Swift version `5.3.2`) to maintain backwards compatibility
+
+### Fixed
+- `[IFA]` and `[LIMITADTRACKING]` VAST macros within a custom **_AdRequest_**
+
+
 ## [7.6.2] - 2022-01-14
 ### Added
 - New public member in **_AdData_**: 

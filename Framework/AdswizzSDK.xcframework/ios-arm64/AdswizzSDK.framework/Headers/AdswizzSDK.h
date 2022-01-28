@@ -19,4 +19,6 @@ FOUNDATION_EXPORT const unsigned char AdswizzSDKVersionString[];
 #import "XMLValidation.h"
 #import <zlib.h>
 #import "GZip.h"
+#ifdef OMSDK_INTERNAL
 #import "OMIDImports.h"
+#endif
