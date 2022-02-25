@@ -19,6 +19,7 @@
     + [Setup AdManager](#setup-admanager)
     + [Precaching ads in AdManager](#precaching-ads-in-admanager)
     + [Start AdManager](#start-admanager)
+    + [Handling AdManager with no ads](#handling-admanager-with-no-ads)
   * [AdManager life cycle](#admanager-life-cycle)
     + [AdManager properties](#admanager-properties)
       - [ads](#ads)
@@ -57,6 +58,24 @@
     + [Friendly obstructions](#friendly-obstructions)
     + [Video player state](#video-player-state)
   * [Playing video ads using your player](#playing-video-ads-using-your-player)
+- [Podcasts](#podcasts)
+  * [Getting started](#getting-started-1)
+  * [Precaching before playing](#precaching-before-playing-1)
+  * [Playback operations](#playback-operations)
+    + [prepare](#prepare-2)
+    + [play](#play-2)
+    + [pause](#pause-2)
+    + [resume](#resume-1)
+    + [stop](#stop-1)
+    + [seek](#seek)
+  * [Download operations](#download-operations)
+    + [start download](#start-download)
+    + [stop download](#stop-download)
+    + [remove](#remove)
+  * [AdPodcastManagerDelegate protocol](#adpodcastmanagerdelegate-protocol)
+  * [AdPodcastManagerDownloadDelegate protocol](#adpodcastmanagerdownloaddelegate-protocol)
+  * [AdswizzAdPodcastManager state diagram](#adswizzadpodcastmanager-state-diagram)
+  * [Remote Audio Data](#remote-audio-data)
 - [Debugging AdswizzSDK](#debugging-adswizzsdk)
 - [Playing ads using your player](#playing-ads-using-your-player)
   * [MediaPlayerState protocol](#mediaplayerstate-protocol)
@@ -79,6 +98,9 @@
   * [Privacy](#privacy)
     + [GDPR](#gdpr)
     + [CCPA](#ccpa)
+  * [Podcasts](#podcasts-1)
+    + [Enable background downloads](#enable-background-downloads)
+    + [Enable RAD](#enable-rad)
 - [AdswizzSDK Analytics](#adswizzsdk-analytics)
   * [Customize AnalyticsEvent](#customize-analyticsevent)
     + [Custom analytics data through AdRequest](#custom-analytics-data-through-adrequest)
@@ -284,7 +306,7 @@ These dependencies are automatically added if you choose to integrate the SDK us
 
     ```ruby
     machine github.com login adswizz password ADSWIZZ_GITHUB_TOKEN
-    machine raw.githubusercontent.com adswizz ADSWIZZ_GITHUB_USER password ADSWIZZ_GITHUB_TOKEN
+    machine raw.githubusercontent.com login adswizz password ADSWIZZ_GITHUB_TOKEN
     ```
 
       Replace **_ADSWIZZ_GITHUB_TOKEN_** with your token received from AdsWizz. 
@@ -434,7 +456,7 @@ do {
 
 _zoneId__ will be provided to you by your Adswizz Integration Manager.
 
-Note that `maxAds` and `maxDuration` properties are completely optional. Also, if you're using a single zone to configure the **_AdswizzAdRequest_** object, these properties will have no effect, so you can skip setting them.
+Note that `maxAds` and `maxDuration` properties are completely optional.
 
 ## Your first ad request
 
@@ -681,6 +703,47 @@ func adAsset(_ asset: AdAsset, downloadingFailedWith error: Error) {
 
 If you decided to use the SDK internal player, to actually start the **_AdManager_** rolling the ads you must call the _.play()_ method inside the **_AdManager_** object. 
 If you provide the player, then you only need to start playing the ad in your player and the AdswizzSDK will observe the **_MediaPlayerState_** interface and sense when the ad has finished. In this case, calling **_adManager.play()_** is not necessary.
+
+### Handling AdManager with no ads
+
+In some cases the **_AdManager_** you'll receive won't have any playable ads. In this case inspecting the `ads` property on the **_AdManager_** will return a zero count. Read more about this property at [AdManager properties](#admanager-properties) section. 
+A non playable ad is referred to as being an _empty ad_. The empty ads won't play any media, however your app still needs to instruct the **_AdManager_** to play them by calling the `play()` method as you would normally do to advance to the next ad like you have seen in the setup section at [Setup AdManager](#setup-admanager).
+
+Nevertheless here is a simplified setup that highlights handling an **_AdManager_** with no ads:
+
+```swift
+import AdswizzSDK
+
+class YourModelClass: AdManagerDelegate {
+   var adManager: AdManager?
+.....
+func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
+    ......
+    self.adManager = adManager   // Keep a strong reference of this object
+    adManager?.prepare()   // Start buffering the ads in the AdManager
+}
+......
+
+......
+func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
+    switch event.event {
+      case .readyForPlay:
+           //Start playing the next ad in the AdManager. 
+           //Notice that there is no need to check if the ad is empty or not.
+           //The SDK will handle it internally and send the appropriate AdEvents just like for a non empty ad.
+           adManager.play()
+      case .allAdsCompleted:
+            //All ads from the AdManager have finished.
+            //Here you can resume playing your content.
+            break 
+      default:
+          break
+    }
+}
+......
+}
+```
+Important: failing to call `play()` on an **_AdManager_** with no ads it will prevent AdswizzSDK to correctly track and fire opportunities for reporting purposes.
 
 ## AdManager life cycle
 
@@ -1238,6 +1301,215 @@ class YourAdVideoView: AdVideoView {
 
 If you follow the approach above, remember to pass **_YourAdVideoView_** instance when setting up Ad Manager through **_AdManagerSettings_**.
 
+# Podcasts
+
+Podcast apps that integrate AdswizzSDK will benefit from real-time reporting, companion display and interactive ads with formats such as ShakeMe and VoiceAds. Of course, these features are available only if the podcasts are delivered by AdsWizz's AIS. The setup uses an underlying functionality similar to Server Side Insertion as well as some Client Side Insertion familiar objects such as **_AdManager_**.
+
+## Getting started
+
+To get started, you need to create an **_AdswizzAdPodcastManager_** object.
+
+```swift
+import AdswizzSDK
+
+class YourModelClass: AdPodcastManagerDelegate, AdPodcastManagerDownloadDelegate {
+   var podcastManager: AdswizzAdPodcastManager?
+
+func prepareForPlay() {
+....
+do {
+    podcastManager = try AdswizzAdPodcastManager.Builder()
+        .with(adServer: "SERVER_PROVIDED_BY_INTEGRATION_MANAGER") //Mandatory
+        .with(httpProtocol: .https)                               //Optional: http or https protocol for the ad server. If not provided https will be chosen.
+        .with(companionZones: "COMPANION_PROVIDED_BY_INTEGRATION_MANAGER")  //Optional: companion zone provided by a Integration Manager
+        .build()
+} catch {
+    print(error)
+}
+...
+}
+
+```
+
+The **_AdswizzAdPodcastManager_** object can be configured with a companion zone that will be used in case the ad breaks do not define a companion zone in the AIS's Zero Config of the podcast.
+
+This is your only entry point to drive the podcast functionality further and typically your app would need a single **_AdswizzAdPodcastManager_** instance. Note that you should keep a strong reference to this object.
+Once the podcast manager object is constructed you need to set the delegate and decide whether or not you want to play the podcasts with your player or let the SDK do it for you:
+
+```swift
+podcastManager?.delegate = self
+```
+
+If you decide to play the podcasts with your player, you need to provide an **_AdPodcastManagerSettings_** object with the following code:
+
+
+```swift
+let settings = AdPodcastManagerSettings()
+settings.player = yourPlayer
+podcastManager?.adPodcastManagerSettings = settings
+```
+
+## Precaching before playing
+
+Only available when deciding to play a podcast using the internal player. If you require a smooth transition between a user action to play a podcast remotely and the actual podcast playing, you can call `prepare(with url: URL) throws` on your podcast manager object ahead of `play(with url: URL) throws` and **_AdswizzSDK_** will make sure to buffer at most 10 seconds from your podcast. You can call this function multiple times to refresh the buffer. This function is optional. Events from calling `prepare` will be received in `func adPodcastManager(_ adPodcastManager: AdPodcastManager, stateChanged state: MediaPlayerStatus)`.
+
+## Playback operations
+
+### prepare
+
+Similar to **_AdStreamManager_**, when playing the podcast with the internal player, calling this will prepare a buffer to be ready when `play(with url: URL)` is called. This is optional. Calling this while the podcast is playing or pausing will have no effect. 
+
+Specific events from the buffering state will be available through **_AdPodcastManagerDelegate_** via the `stateChanged` method. Expected events here will be `buffering`, `bufferingFinished` and `readyToPlay`. Your app won’t be notified when all default 10 seconds will be buffered but you can rely on `readyToPlay` state to make sure podcast will begin to play smoothly.
+
+Additionally, `prepare(with url: URL)` will also attempt to load and prepare for RAD metadata when using the internal player.
+
+### play
+
+Calling this method from **_AdswizzAdPodcastManager_** with an URL will begin playing either remotely or locally from a location on disk. This method should be called  even if the podcast is played with an external player, because the remote URL will be enhanced by the SDK with extra parameters that enable the delivery of ads from an Adswizz server. As a response, AdswizzSDK will call back func `adPodcastManager(_ adPodcastManager: AdPodcastManager, willStartPlaying url: URL)` with the newly formatted URL.
+
+Additionally, `play(with: URL)` will also perform two important operations if needed:
+
+* attempt to load and prepare for RAD metadata
+* attempt to generate and build an **_AdManager_** for handling ads
+
+### pause
+
+Calling this method will pause a podcast that is played by the SDK’s internal player. If an external player was used, this will have no effect. If an internal player is used, the podcast will continue to buffer internally for some 60 seconds.
+
+### resume
+
+Calling this method will resume a podcast that is played by the SDK’s internal player. For an external player this will have no effect.
+
+### stop
+
+Calling this method will stop a podcast that is played by the SDK’s internal player. For an external player this will have no effect.
+
+### seek
+
+Callng `seek(to time: TimeInterval)` will trigger a seek by setting the current playback time to the specified `time` parameter measured in seconds. For an external player this will have no effect. However, if you are using your own player, the SDK will automatically detect it and adjust the tracking for various events during playback such as quartile reporting.
+
+## Download operations
+
+**_AdswizzAdPodcastManager_** also exposes download functionality to be able to store and play podcasts from the `Library` local folder on the device.
+As best practice, downloading a podcast should continue to run even when your app is put in background. As per [Apple's Documentation](https://developer.apple.com/documentation/foundation/url_loading_system/downloading_files_in_the_background/), to enable this behaviour in your app all you need to do is to implement the following app delegate method:
+
+```swift
+
+func application(_ application: UIApplication,
+                 handleEventsForBackgroundURLSession identifier: String,
+                 completionHandler: @escaping () -> Void) {
+        AdswizzSDK.shared.backgroundSessionCompletionHandler = completionHandler
+}
+
+
+```
+Notice that `completionHandler` is passed to **_AdswizzSDK_** shared instance into a property called `backgroundSessionCompletionHandler`. You can find more information at [Enable background downloads](#enable-background-downloads).
+
+### start download
+
+To begin downloading a podcast, the `startDownloadPodcast(with url: URL, to location: URL)` method takes a remote URL to download from and a location file URL as destination to save the media file once the download is complete. Similar to `play(with url: URL)` method, the remote URL will be enhanced by **_AdswizzAdPodcastManager_** with extra parameters that enable the delivery of ads from an Adswizz server when the podcast will actually be played.
+
+### stop download
+
+Calling the `stopDownloadPodcast(at location: URL)` method cancels a previously started download operation for a podcast at its location file URL as destination on disk.
+
+### remove
+
+Calling `removePodcast(at location: URL)` method removes a previously downloaded podcast at its location file URL as destination on disk.
+
+## AdPodcastManagerDelegate protocol
+
+Playback and ad breaks related notifications sent from **_AdswizzAdPodcastManager_** to your app are implemented in the **_AdPodcastManagerDelegate_** interface.
+
+### func adPodcastManager(_ adPodcastManager: AdPodcastManager, willStartPlaying url: URL)
+
+After calling the play function in the **_AdswizzAdPodcastManager_** object, this delegate method will be called with the (remote) URL decorated with the extra parameters. Here, an external player can be instructed to start playing the podcast. If the SDK uses the internal player, no additional action is required at this step.
+
+```swift
+func adPodcastManager(_ adPodcastManager: AdPodcastManager, willStartPlaying url: URL) {
+  yourPlayer.play(url)
+}
+```
+### func adPodcastManager(_ adPodcastManager: AdPodcastManager, stateChanged state: MediaPlayerStatus)
+
+When the SDK's internal player or the external player state changes, your app will get notified in this function. The states here can be used to update UI accordingly.
+
+### func adPodcastManager(_ adPodcastManager: AdPodcastManager, playheadChanged playhead: TimeInterval, duration: TimeInterval)
+
+Every time the SDK internal player or the external player current playhead changes, your app will get notified in this function. The duration reflects the total expected podcast duration. This method can also be used to update UI accordingly.
+
+### func adPodcastManager(_ adPodcastManager: AdPodcastManager, didReceive manager: AdManager)
+
+After a podcast starts playing, your app can receive an **_AdManager_** object containing the ads fetched from the Adswizz server. This **_AdManager_** can be used the same way after getting it from an **_AdswizzAdRequest_**, except there is no need to keep a strong reference to the object. Here is how it might look in your app's integration:
+
+```swift
+func adPodcastManager(_ adPodcastManager: AdPodcastManager, didReceive manager: AdManager) {
+    //let settings = AdManagerSettings()
+    //settings.player = yourAdPlayer     // this step has no effect on this kind of AdManager because the ads are played with current podcast player
+    //manager.adManagerSettings = settings
+    manager?.delegate = self             // register for notifications on this AdManager
+    manager?.interactiveDelegate = self  // register for interactive ads notifications
+}
+```
+During podcast playing, the **_AdswizzAdPodcastManager_** listens to the current `playhead` property of the player and detects ad breaks in the podcast based on the associated playhead start positions of the ads stitched within the podcast.
+
+During an ad break, your app will receive updates on the status of the ad if the **_AdManagerDelegate_** or the **_InteractiveAdManagerDelegate_** protocol is implemented. When this **_AdManager_** object is received, the **_AdswizzAdPodcastManager_** handles the ad breaks internally. As a result, during the ad time, **_AdManager_** will not react to operations such as `play()` or `pause()` since the ad break is part of the podcast. However, the ad break can be `skipped` or `reset` the whole **_AdManager_** object. When the listener interacts with an ad (i.e. ShakeMe), in order to play an extension of the ad, it is expected other ads to be inserted in the **_AdManager_** container if the main ad is extended.
+
+### func adPodcastManagerPlayerShouldPause(_ adPodcastManager: AdPodcastManager) 
+
+When playing with an external player, the SDK might inform your app to pause the content from playing.
+
+### func adPodcastManagerPlayerShouldResume(_ adPodcastManager: AdPodcastManager)
+
+When playing with an external player, the SDK might inform your app to resume playing the content after being previously paused.
+
+### func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval)
+
+When playing with an external player, the SDK might inform your app to seek forward the content when an ad is skipped. When this gets called you should seek to the `time` relative to the podcast duration as suggested by the **_AdswizzAdPodcastManager_**.
+
+## AdPodcastManagerDownloadDelegate protocol
+
+Download related notifications sent from **_AdswizzAdPodcastManager_** to your app are implemented in the **_AdPodcastManagerDownloadDelegate_** interface.
+
+### func adPodcastManager(_ adPodcastManager: AdPodcastManager, didDownload bytesDownloaded: Int64, outOf bytesExpected: Int64, for asset: DownloadableAsset)
+
+This method gets called when a podcast has already started downloading and a chunk of data was received. It sends all the necessary data to compute a progress needed for any UI updates. It also encapsulates the asset being downloaded into a **_DownloadableAsset_** which is kept alive until the download finishes.
+
+The **_DownloadableAsset_** object provides info on the asset that being handled:
+* url - the remote URL that is downloading from
+* mimeType - the creative type e.g "audio/mp3"
+* expectedContentLength - should match bytesExpected in the progress callback
+* state - the current state e.g `downloading`, `ready`, `failed`
+* location - the local file URL path where the asset will be saved once download completes
+
+### func adPodcastManager(_ adPodcastManager: AdPodcastManager, didFinishDownload asset: DownloadableAsset)
+
+Called when the asset finished downloading all of its data.
+
+### func adPodcastManager(_ adPodcastManager: AdPodcastManager, didReceive error: Error, for asset: DownloadableAsset)
+
+Called when a network error occurred while trying to download the asset.
+
+## AdswizzAdPodcastManager state diagram
+
+<img src="img/AdswizzAdPodcastManagerState.png" width="1000" />
+
+## Remote Audio Data
+
+Podcasts come with _Remote Audio Data_ (RAD) support. Based on the industry standard by [NPR](https://rad.npr.org/), each podcast with RAD metadata will send events everytime its playhead crosses a certain point in time. 
+To enable RAD measurement for your podcasts, additional ZeroConfig configuration is needed. Contact your AdsWizz partner integration manager to setup your app's AdswizzSDK ZeroConfig instance.
+After this is in-place, as best practice you should present your users the option to opt-in or out for RAD measurement when playing podcasts. 
+
+This can be achieved with a single line of code:
+
+```swift
+AdswizzSDK.shared.disableRAD = false //or `true` if user opted out
+```       
+By default, when `AdswizzSDK` is initialized, `disableRAD` property is set to `false`, so RAD measurement is **enabled** by default.
+ 
+The `disableRAD` property is applied to all podcasts and can be updated on the fly. When RAD measurement is disabled, all current event uploads are cancelled and the local database is emptied.
+
+Disabling RAD data collection at the ZeroConfig level takes precedence over disabling it from code. If RAD is disabled in ZeroConfig, setting a new value to `disableRAD` property will be the same as setting this value to `false` everytime.
 
 # Debugging AdswizzSDK
 
@@ -1429,6 +1701,29 @@ AdswizzSDK.shared.ccpaConfig = AdswizzCCPAConfig.Builder()
 ```
 
 The default value for **_explicitNotice_**, **_optOut_** and **_lspa_** is **_notApplicable_**. Other possibile values are **_yes_** and **_no_**.
+
+## Podcasts
+
+### Enable background downloads
+
+By default, **_AdswizzSDK_** uses a background `URLSession` configuration to be able to perform podcast downloads even when your app is put in background.
+In this case the download is performed in another process. When the download finishes, the system resumes the app and calls the `UIApplicationDelegate` method `application(_:handleEventsForBackgroundURLSession:completionHandler:)`.
+
+This delegate method receives a completion handler as its final parameter. Just pass it to `AdswizzSDK` shared instance property called `backgroundSessionCompletionHandler`. Here's an example:
+
+```swift
+func application(_: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        AdswizzSDK.shared.backgroundSessionCompletionHandler = completionHandler
+}
+```
+
+### Enable RAD
+
+You can enable or disable Remote Audio Data measurement for your podcasts based on your user's consent. It can be configured like this:
+
+```swift
+AdswizzSDK.shared.disableRAD = false //or `true` if user opted out
+```
 
 # AdswizzSDK Analytics
 

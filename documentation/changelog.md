@@ -5,6 +5,42 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.0] - 2022-02-25
+### Added
+- Podcasts support
+    - New public class **_AdPodcastManager_**
+        - New public member `delegate` of type **_AdPodcastManagerDelegate_**
+        - New public member `adPodcastManagerSettings` of type **_AdPodcastManagerSettings_**
+        - New public method `prepare(with url: URL)`
+        - New public method `play(with url: URL)`
+        - New public method `stop()`
+        - New public method `pause()`
+        - New public method `resume()`
+        - New public method `seek(to time: TimeInterval)`
+    - New public class **_AdPodcastManagerSettings_**
+        - New public member `player` of type **_MediaPlayerState_**
+    - New public interface **_AdPodcastManagerDelegate_**
+    - New public interface **_DownloadableAsset_**
+        - New public member `url`
+        - New public member `mimeType`
+        - New public member `expectedContentLength`
+        - New public member `state` of type **_DownloadableAssetState_**
+        - New public member `location`
+    - New public class **_AdswizzAdPodcastManager_**
+        - New public class `Builder` to help create an `AdswizzAdPodcastManager` instance
+        - New public member `delegate` of type **_AdPodcastManagerDownloadDelegate_**
+        - New public method `startDownloadPodcast(with url: URL, to location: URL)`
+        - New public method `stopDownloadPodcast(at location: URL)`
+        - New public method `removePodcast(at location: URL)`
+    - New public interface **_AdPodcastManagerDownloadDelegate_**
+- New public members in **_AdswizzSDK_**:
+    - `backgroundSessionCompletionHandler` - relates to podcasts background downloads 
+    - `disableRAD` - relates to Remote Audio Data for podcasts
+
+### Changed
+- Carthage integration Cartfile content by pointing to `AdswizzSDK.json` instead of `Adswizz.json` 
+- OMSDK library updated to latest version 1.3.30
+
 ## [7.6.3] - 2022-01-28
 ### Changed
 - **_AdswizzSDK_** binaries to be delivered with Xcode `12.4` (Swift version `5.3.2`) to maintain backwards compatibility

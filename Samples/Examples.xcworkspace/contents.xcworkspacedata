@@ -34,4 +34,7 @@
    <FileRef
       location = "group:BasicSwiftUIClientSideInsertion/BasicSwiftUIClientSideInsertion.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:BasicPodcastExample/BasicPodcastExample.xcodeproj">
+   </FileRef>
 </Workspace>

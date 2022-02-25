@@ -6,7 +6,9 @@
 	<string>adswizz_iOS_native_v2</string>
 	<key>AdswizzAdSDKPlayerId</key>
 	<string>induction_player_1</string>
-    <key>NSUserTrackingUsageDescription</key>
-    <string>This allows us to deliver you personalized ads to improve your listening experience and keep our service free.</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This allows us to deliver you personalized ads to improve your listening experience and keep our service free.</string>
 </dict>
 </plist>

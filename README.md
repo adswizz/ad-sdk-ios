@@ -81,7 +81,7 @@ and add the following 2 lines to it:
 
 ```ruby
 machine github.com login adswizz password ADSWIZZ_GITHUB_TOKEN
-machine raw.githubusercontent.com adswizz ADSWIZZ_GITHUB_USER password ADSWIZZ_GITHUB_TOKEN
+machine raw.githubusercontent.com login adswizz password ADSWIZZ_GITHUB_TOKEN
 ```
 
 Replace **_ADSWIZZ_GITHUB_TOKEN_** with your token received from AdsWizz. 

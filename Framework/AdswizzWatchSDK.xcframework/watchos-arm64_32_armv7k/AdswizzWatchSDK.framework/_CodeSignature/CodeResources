@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/AdswizzWatchSDK-Swift.h</key>
 		<data>
-		92NYah8siR26bXqJqfliDdcmxvM=
+		c7bUBvkc25absYC5ZcK044mAo0I=
 		</data>
 		<key>Headers/AdswizzWatchSDK.h</key>
 		<data>
@@ -14,67 +14,67 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		HVzl/6Llro4kw/sF5zOTbtauWP0=
+		KTCXWfXKLeu8aim3JEWgEnOy1K4=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
-		47lo+qMt8qZnxOcDp62R+oPJntg=
+		nEpIbvpc/ZeFjTmwtfblN15ql3k=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm.swiftinterface</key>
 		<data>
-		Frhs8Jovsm9tvcy9Idm/sDxhIPg=
+		CIv/YaWOQaU6wfJmagXCIO8Ax6E=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		alPLaFPzKtl02MkY8RPVgWwbuDM=
+		AkhvGgIH6bIr4bL8wWxIKOm8oxI=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32-apple-watchos.swiftdoc</key>
 		<data>
-		vDqCWdNm+xIWOrs5wExFoJ1yDe0=
+		DbK5Vdejm3LVgmBbsF4GXpHJA6Q=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32-apple-watchos.swiftinterface</key>
 		<data>
-		8Ub03J10C9bZSI/S8Cw/ilF05SQ=
+		UZEcezIwMOPtQ5R8zKqdKgEsSQc=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32-apple-watchos.swiftmodule</key>
 		<data>
-		A4e34XvjzIle+pmUhE4otkhA1sY=
+		Dl32AjQmlup2exuER94rpglnGkc=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32.swiftdoc</key>
 		<data>
-		vDqCWdNm+xIWOrs5wExFoJ1yDe0=
+		DbK5Vdejm3LVgmBbsF4GXpHJA6Q=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32.swiftinterface</key>
 		<data>
-		8Ub03J10C9bZSI/S8Cw/ilF05SQ=
+		UZEcezIwMOPtQ5R8zKqdKgEsSQc=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32.swiftmodule</key>
 		<data>
-		A4e34XvjzIle+pmUhE4otkhA1sY=
+		Dl32AjQmlup2exuER94rpglnGkc=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k-apple-watchos.swiftdoc</key>
 		<data>
-		47lo+qMt8qZnxOcDp62R+oPJntg=
+		nEpIbvpc/ZeFjTmwtfblN15ql3k=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k-apple-watchos.swiftinterface</key>
 		<data>
-		Frhs8Jovsm9tvcy9Idm/sDxhIPg=
+		CIv/YaWOQaU6wfJmagXCIO8Ax6E=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k-apple-watchos.swiftmodule</key>
 		<data>
-		alPLaFPzKtl02MkY8RPVgWwbuDM=
+		AkhvGgIH6bIr4bL8wWxIKOm8oxI=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k.swiftdoc</key>
 		<data>
-		47lo+qMt8qZnxOcDp62R+oPJntg=
+		nEpIbvpc/ZeFjTmwtfblN15ql3k=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k.swiftinterface</key>
 		<data>
-		Frhs8Jovsm9tvcy9Idm/sDxhIPg=
+		CIv/YaWOQaU6wfJmagXCIO8Ax6E=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k.swiftmodule</key>
 		<data>
-		alPLaFPzKtl02MkY8RPVgWwbuDM=
+		AkhvGgIH6bIr4bL8wWxIKOm8oxI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -87,11 +87,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			92NYah8siR26bXqJqfliDdcmxvM=
+			c7bUBvkc25absYC5ZcK044mAo0I=
 			</data>
 			<key>hash2</key>
 			<data>
-			qjEJwWfzIWQWc2FYUgzgTvI4OgNhFvYbjNwqtRk/0bo=
+			AMhGW7HP6yzICgFDg53qHh/xVv1L5p6SXw7plmw4Zko=
 			</data>
 		</dict>
 		<key>Headers/AdswizzWatchSDK.h</key>
@@ -109,165 +109,165 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			47lo+qMt8qZnxOcDp62R+oPJntg=
+			nEpIbvpc/ZeFjTmwtfblN15ql3k=
 			</data>
 			<key>hash2</key>
 			<data>
-			4KoSsf/Un0U3koL5zttKyi4t41iLdVrgq1AvPqSOJr0=
+			BnGUgYW+oZyjTh059i6JA8ijA6jFfDn1XPttQb4FZxY=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Frhs8Jovsm9tvcy9Idm/sDxhIPg=
+			CIv/YaWOQaU6wfJmagXCIO8Ax6E=
 			</data>
 			<key>hash2</key>
 			<data>
-			kZu69fvZAqF4W0ZUBfqm4vmwjFese3VC/1Oq73zIYxY=
+			mc2jcDmmCh5+hj0RvrLojGFZOgQyE4rxXY1UQvmKY9c=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			alPLaFPzKtl02MkY8RPVgWwbuDM=
+			AkhvGgIH6bIr4bL8wWxIKOm8oxI=
 			</data>
 			<key>hash2</key>
 			<data>
-			OGgpgCtG7yaSkdsNnyOQULBoWBZa6hltPhRVV5IyW5U=
+			5W/fdX7b+1g8j6dx28JirXo+9W8B6HS78vNkcX0kFKA=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32-apple-watchos.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vDqCWdNm+xIWOrs5wExFoJ1yDe0=
+			DbK5Vdejm3LVgmBbsF4GXpHJA6Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			HL39nsM9Ehw+FGKikjPEvhZFsOzsie7Ab/sbMNBEaPA=
+			6oKk6ZJQhtPuGRUsHxkgDkj8hcBdLUMMWBhUAJsuvSw=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32-apple-watchos.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8Ub03J10C9bZSI/S8Cw/ilF05SQ=
+			UZEcezIwMOPtQ5R8zKqdKgEsSQc=
 			</data>
 			<key>hash2</key>
 			<data>
-			9SWJ8JXbdhHaL/wE1q8ZprcQ5+kZQfyuLSTeEGp1abI=
+			z5hgjOCqjovqm6jVpypVQwiZ09z+Lp/Sx6ZV7DG1TLc=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32-apple-watchos.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			A4e34XvjzIle+pmUhE4otkhA1sY=
+			Dl32AjQmlup2exuER94rpglnGkc=
 			</data>
 			<key>hash2</key>
 			<data>
-			DCc9BO6rAYqqGG8wdNpq6iWQX4xRoAMXuqoC9xuaErk=
+			SJ3nugW5yUSz4tem0q33+8aYDj3Lv1y2obq/ngmN14I=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vDqCWdNm+xIWOrs5wExFoJ1yDe0=
+			DbK5Vdejm3LVgmBbsF4GXpHJA6Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			HL39nsM9Ehw+FGKikjPEvhZFsOzsie7Ab/sbMNBEaPA=
+			6oKk6ZJQhtPuGRUsHxkgDkj8hcBdLUMMWBhUAJsuvSw=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8Ub03J10C9bZSI/S8Cw/ilF05SQ=
+			UZEcezIwMOPtQ5R8zKqdKgEsSQc=
 			</data>
 			<key>hash2</key>
 			<data>
-			9SWJ8JXbdhHaL/wE1q8ZprcQ5+kZQfyuLSTeEGp1abI=
+			z5hgjOCqjovqm6jVpypVQwiZ09z+Lp/Sx6ZV7DG1TLc=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			A4e34XvjzIle+pmUhE4otkhA1sY=
+			Dl32AjQmlup2exuER94rpglnGkc=
 			</data>
 			<key>hash2</key>
 			<data>
-			DCc9BO6rAYqqGG8wdNpq6iWQX4xRoAMXuqoC9xuaErk=
+			SJ3nugW5yUSz4tem0q33+8aYDj3Lv1y2obq/ngmN14I=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k-apple-watchos.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			47lo+qMt8qZnxOcDp62R+oPJntg=
+			nEpIbvpc/ZeFjTmwtfblN15ql3k=
 			</data>
 			<key>hash2</key>
 			<data>
-			4KoSsf/Un0U3koL5zttKyi4t41iLdVrgq1AvPqSOJr0=
+			BnGUgYW+oZyjTh059i6JA8ijA6jFfDn1XPttQb4FZxY=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k-apple-watchos.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Frhs8Jovsm9tvcy9Idm/sDxhIPg=
+			CIv/YaWOQaU6wfJmagXCIO8Ax6E=
 			</data>
 			<key>hash2</key>
 			<data>
-			kZu69fvZAqF4W0ZUBfqm4vmwjFese3VC/1Oq73zIYxY=
+			mc2jcDmmCh5+hj0RvrLojGFZOgQyE4rxXY1UQvmKY9c=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k-apple-watchos.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			alPLaFPzKtl02MkY8RPVgWwbuDM=
+			AkhvGgIH6bIr4bL8wWxIKOm8oxI=
 			</data>
 			<key>hash2</key>
 			<data>
-			OGgpgCtG7yaSkdsNnyOQULBoWBZa6hltPhRVV5IyW5U=
+			5W/fdX7b+1g8j6dx28JirXo+9W8B6HS78vNkcX0kFKA=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			47lo+qMt8qZnxOcDp62R+oPJntg=
+			nEpIbvpc/ZeFjTmwtfblN15ql3k=
 			</data>
 			<key>hash2</key>
 			<data>
-			4KoSsf/Un0U3koL5zttKyi4t41iLdVrgq1AvPqSOJr0=
+			BnGUgYW+oZyjTh059i6JA8ijA6jFfDn1XPttQb4FZxY=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Frhs8Jovsm9tvcy9Idm/sDxhIPg=
+			CIv/YaWOQaU6wfJmagXCIO8Ax6E=
 			</data>
 			<key>hash2</key>
 			<data>
-			kZu69fvZAqF4W0ZUBfqm4vmwjFese3VC/1Oq73zIYxY=
+			mc2jcDmmCh5+hj0RvrLojGFZOgQyE4rxXY1UQvmKY9c=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			alPLaFPzKtl02MkY8RPVgWwbuDM=
+			AkhvGgIH6bIr4bL8wWxIKOm8oxI=
 			</data>
 			<key>hash2</key>
 			<data>
-			OGgpgCtG7yaSkdsNnyOQULBoWBZa6hltPhRVV5IyW5U=
+			5W/fdX7b+1g8j6dx28JirXo+9W8B6HS78vNkcX0kFKA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

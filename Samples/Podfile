@@ -19,6 +19,7 @@ project 'BasicTrackingPermissionExample/BasicTrackingPermissionExample.xcodeproj
 project 'BasicEmptyAdsExample/BasicEmptyAdsExample.xcodeproj'
 project 'BasicDVRRequestExample/BasicDVRRequestExample.xcodeproj'
 project 'BasicSwiftUIClientSideInsertion/BasicSwiftUIClientSideInsertion.xcodeproj'
+project 'BasicPodcastExample/BasicPodcastExample'
 
 target :BasicAdRequestExample do
   project 'BasicAdRequestExample/BasicAdRequestExample.xcodeproj'
@@ -128,6 +129,11 @@ end
 
 target :BasicSwiftUIClientSideInsertion do
   project 'BasicSwiftUIClientSideInsertion/BasicSwiftUIClientSideInsertion.xcodeproj'
+  common_pods
+end
+
+target :BasicPodcastExample do
+  project 'BasicPodcastExample/BasicPodcastExample.xcodeproj'
   common_pods
 end
 
