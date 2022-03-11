@@ -9,8 +9,12 @@ import Foundation
 import AdswizzSDK
 
 extension ViewController: AdPodcastManagerDelegate {
+    func adPodcastManager(_ adPodcastManager: AdPodcastManager, didFailPlaying url: URL, error: Error) {
+        print("Failed to play podcast at \(url) with error \(error.localizedDescription)")
+    }
+    
     func adPodcastManager(_ adPodcastManager: AdPodcastManager, willStartPlaying url: URL) {
-        
+        print("Will play podcast at \(url)")
     }
     
     func adPodcastManager(_ adPodcastManager: AdPodcastManager, didReceive manager: AdManager) {
@@ -47,7 +51,7 @@ extension ViewController: AdPodcastManagerDelegate {
         
     }
     
-    func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval) {
+    func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval, completion: @escaping () -> Void) {
         
     }
 }

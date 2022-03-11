@@ -799,6 +799,14 @@ SWIFT_PROTOCOL_NAMED("AdPodcastManagerDelegate")
 /// \param url url where to play from
 ///
 - (void)adPodcastManager:(AASDKAdPodcastManager * _Nonnull)adPodcastManager willStartPlaying:(NSURL * _Nonnull)url;
+/// Notify when podcast encountered an error while attempting to play
+/// \param adPodcastManager owner
+///
+/// \param error the error that occured
+///
+/// \param url the podcast url that produced the error
+///
+- (void)adPodcastManager:(AASDKAdPodcastManager * _Nonnull)adPodcastManager didFailPlaying:(NSURL * _Nonnull)url error:(NSError * _Nonnull)error;
 /// Notify when podcast has loaded the ads and an <code>AdManager</code> was created to handle the ad breaks.
 /// Note that there is no need to keep a strong reference to the ad manager, however you can set a <code>delegate</code> and <code>interactiveDelegate</code> for specific AdManager events.
 /// \param adPodcastManager owner
@@ -832,11 +840,14 @@ SWIFT_PROTOCOL_NAMED("AdPodcastManagerDelegate")
 - (void)adPodcastManagerPlayerShouldResume:(AASDKAdPodcastManager * _Nonnull)adPodcastManager;
 /// Called when the podcast is played with an external player and the <code>AdswizzAdPodcastManager </code>detected a skip ad.
 /// When this gets called you should seek to the <code>time</code> relative to the podcast duration as suggested by the <code>AdswizzAdPodcastManager</code>.
+/// When your player completes the seek operation, call the specified completion block back to the SDK.
 /// \param adPodcastManager owner
 ///
 /// \param time the time to seek in seconds relative to the podcast duration
 ///
-- (void)adPodcastManagerPlayer:(AASDKAdPodcastManager * _Nonnull)adPodcastManager shouldSeekTo:(NSTimeInterval)time;
+/// \param completion the completion block back to the SDK once the seek operation completed
+///
+- (void)adPodcastManagerPlayer:(AASDKAdPodcastManager * _Nonnull)adPodcastManager shouldSeekTo:(NSTimeInterval)time completion:(void (^ _Nonnull)(void))completion;
 @end
 
 @protocol AASDKDownloadableAsset;
@@ -1386,7 +1397,6 @@ SWIFT_CLASS_NAMED("AdswizzAdStreamManager")
 @end
 
 
-
 @interface AASDKAdswizzAdStreamManager (SWIFT_EXTENSION(AdswizzSDK))
 @end
 
@@ -1424,6 +1434,7 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdStreamManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 
@@ -3315,6 +3326,14 @@ SWIFT_PROTOCOL_NAMED("AdPodcastManagerDelegate")
 /// \param url url where to play from
 ///
 - (void)adPodcastManager:(AASDKAdPodcastManager * _Nonnull)adPodcastManager willStartPlaying:(NSURL * _Nonnull)url;
+/// Notify when podcast encountered an error while attempting to play
+/// \param adPodcastManager owner
+///
+/// \param error the error that occured
+///
+/// \param url the podcast url that produced the error
+///
+- (void)adPodcastManager:(AASDKAdPodcastManager * _Nonnull)adPodcastManager didFailPlaying:(NSURL * _Nonnull)url error:(NSError * _Nonnull)error;
 /// Notify when podcast has loaded the ads and an <code>AdManager</code> was created to handle the ad breaks.
 /// Note that there is no need to keep a strong reference to the ad manager, however you can set a <code>delegate</code> and <code>interactiveDelegate</code> for specific AdManager events.
 /// \param adPodcastManager owner
@@ -3348,11 +3367,14 @@ SWIFT_PROTOCOL_NAMED("AdPodcastManagerDelegate")
 - (void)adPodcastManagerPlayerShouldResume:(AASDKAdPodcastManager * _Nonnull)adPodcastManager;
 /// Called when the podcast is played with an external player and the <code>AdswizzAdPodcastManager </code>detected a skip ad.
 /// When this gets called you should seek to the <code>time</code> relative to the podcast duration as suggested by the <code>AdswizzAdPodcastManager</code>.
+/// When your player completes the seek operation, call the specified completion block back to the SDK.
 /// \param adPodcastManager owner
 ///
 /// \param time the time to seek in seconds relative to the podcast duration
 ///
-- (void)adPodcastManagerPlayer:(AASDKAdPodcastManager * _Nonnull)adPodcastManager shouldSeekTo:(NSTimeInterval)time;
+/// \param completion the completion block back to the SDK once the seek operation completed
+///
+- (void)adPodcastManagerPlayer:(AASDKAdPodcastManager * _Nonnull)adPodcastManager shouldSeekTo:(NSTimeInterval)time completion:(void (^ _Nonnull)(void))completion;
 @end
 
 @protocol AASDKDownloadableAsset;
@@ -3902,7 +3924,6 @@ SWIFT_CLASS_NAMED("AdswizzAdStreamManager")
 @end
 
 
-
 @interface AASDKAdswizzAdStreamManager (SWIFT_EXTENSION(AdswizzSDK))
 @end
 
@@ -3940,6 +3961,7 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdStreamManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 

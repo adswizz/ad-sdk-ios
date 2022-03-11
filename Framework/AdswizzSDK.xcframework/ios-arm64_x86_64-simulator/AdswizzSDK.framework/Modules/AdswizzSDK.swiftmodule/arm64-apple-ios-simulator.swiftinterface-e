@@ -644,12 +644,13 @@ extension NSDictionary {
 }
 @objc(AASDKAdPodcastManagerDelegate) public protocol AdPodcastManagerDelegate {
   @objc func adPodcastManager(_ adPodcastManager: AdswizzSDK.AdPodcastManager, willStartPlaying url: Foundation.URL)
+  @objc func adPodcastManager(_ adPodcastManager: AdswizzSDK.AdPodcastManager, didFailPlaying url: Foundation.URL, error: Swift.Error)
   @objc func adPodcastManager(_ adPodcastManager: AdswizzSDK.AdPodcastManager, didReceive manager: AdswizzSDK.AdManager)
   @objc func adPodcastManager(_ adPodcastManager: AdswizzSDK.AdPodcastManager, stateChanged state: AdswizzSDK.MediaPlayerStatus)
   @objc func adPodcastManager(_ adPodcastManager: AdswizzSDK.AdPodcastManager, playheadChanged playhead: Foundation.TimeInterval, duration: Foundation.TimeInterval)
   @objc func adPodcastManagerPlayerShouldPause(_ adPodcastManager: AdswizzSDK.AdPodcastManager)
   @objc func adPodcastManagerPlayerShouldResume(_ adPodcastManager: AdswizzSDK.AdPodcastManager)
-  @objc func adPodcastManagerPlayer(_ adPodcastManager: AdswizzSDK.AdPodcastManager, shouldSeekTo time: Foundation.TimeInterval)
+  @objc func adPodcastManagerPlayer(_ adPodcastManager: AdswizzSDK.AdPodcastManager, shouldSeekTo time: Foundation.TimeInterval, completion: @escaping () -> Swift.Void)
 }
 @_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdZone) final public class AdswizzAdZone : ObjectiveC.NSObject {
   @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdZoneBuilder) public class Builder : ObjectiveC.NSObject {

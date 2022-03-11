@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.1] - 2022-03-11
+### Added
+- Podcasts support
+    - New public method in **_AdPodcastManagerDelegate_**
+        - `adPodcastManager(_ adPodcastManager: AdPodcastManager, didFailPlaying url: URL, error: Error)`
+
+### Changed
+- Delegate method `adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval)` changed to `adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval, completion: @escaping () -> Void)`. The implementation now requires calling the `completion` block back to the SDK when seek operation completes
+- `.allAdsCompleted` not triggered anymore by the `AdManager` handled by **_AdswizzAdPodcastManager_** since ads can be replayed due to backward seek operations
+
+### Fixed
+- Extra `start` quartile fired when last ad is skipped in a podcast
+- Impressions and quartiles not being triggered for ads that are replayed during podcast playback
+- A case where collector data would crash due to threading race conditions
+
 ## [7.7.0] - 2022-02-25
 ### Added
 - Podcasts support

@@ -75,6 +75,7 @@
   * [AdPodcastManagerDelegate protocol](#adpodcastmanagerdelegate-protocol)
   * [AdPodcastManagerDownloadDelegate protocol](#adpodcastmanagerdownloaddelegate-protocol)
   * [AdswizzAdPodcastManager state diagram](#adswizzadpodcastmanager-state-diagram)
+  * [Handling interactive ads during podcasts](#handling-interactive-ads-during-podcasts)
   * [Remote Audio Data](#remote-audio-data)
 - [Debugging AdswizzSDK](#debugging-adswizzsdk)
 - [Playing ads using your player](#playing-ads-using-your-player)
@@ -130,6 +131,7 @@
   * [BasicEmptyAdsExample](#basicemptyadsexample)
   * [BasicDVRRequestExample](#basicdvrrequestexample)
   * [BasicSwiftUIClientSideInsertion](#basicswiftuiclientsideinsertion)
+  * [BasicPodcastExample](#basicpodcastexample)
 # **AdswizzWatchSDK for WatchOS - Integration guide**
 - [AdswizzWatchSDK](#adswizzwatchsdk)
   * [What is AdswizzWatchSDK](#what-is-adswizzwatchsdk)
@@ -1365,12 +1367,15 @@ Additionally, `prepare(with url: URL)` will also attempt to load and prepare for
 
 ### play
 
-Calling this method from **_AdswizzAdPodcastManager_** with an URL will begin playing either remotely or locally from a location on disk. This method should be called  even if the podcast is played with an external player, because the remote URL will be enhanced by the SDK with extra parameters that enable the delivery of ads from an Adswizz server. As a response, AdswizzSDK will call back func `adPodcastManager(_ adPodcastManager: AdPodcastManager, willStartPlaying url: URL)` with the newly formatted URL.
+Calling this method from **_AdswizzAdPodcastManager_** with an URL will begin playing either remotely or locally from a location on disk. This method should be called  even if the podcast is played with an external player, because the remote URL will be enhanced by the SDK with extra parameters that enable the delivery of ads from an Adswizz server.
 
 Additionally, `play(with: URL)` will also perform two important operations if needed:
 
 * attempt to load and prepare for RAD metadata
 * attempt to generate and build an **_AdManager_** for handling ads
+
+As a response, if an error was encountered by performing the above operations, `AdswizzSDK` will call back func `adPodcastManager(_ adPodcastManager: AdPodcastManager, didFailPlaying url: URL, error: Error)`. The error will be related to the connection with the AIS server that hosts the podcast.
+However if **_AdswizzAdPodcastManager_** hasn't encountered any issue, it will call back func `adPodcastManager(_ adPodcastManager: AdPodcastManager, willStartPlaying url: URL)` with the newly formatted URL. At this point, **_AdswizzAdPodcastManager_** signaled that buffering/playback is about to start.
 
 ### pause
 
@@ -1430,6 +1435,12 @@ func adPodcastManager(_ adPodcastManager: AdPodcastManager, willStartPlaying url
   yourPlayer.play(url)
 }
 ```
+
+### func adPodcastManager(_ adPodcastManager: AdPodcastManager, didFailPlaying url: URL, error: Error)
+
+When play function is called in the **_AdswizzAdPodcastManager_** object, this delegate will be called back if the podcast manager was unable to communicate with the AIS server and failed to prepare and fetch the required `AdManager`. When this delegate method is called, the podcast will not start any buffering/playback.
+To attempt to play podcast with `url` again, your app needs to call `play` function in the **_AdswizzAdPodcastManager_** object.
+
 ### func adPodcastManager(_ adPodcastManager: AdPodcastManager, stateChanged state: MediaPlayerStatus)
 
 When the SDK's internal player or the external player state changes, your app will get notified in this function. The states here can be used to update UI accordingly.
@@ -1463,9 +1474,21 @@ When playing with an external player, the SDK might inform your app to pause the
 
 When playing with an external player, the SDK might inform your app to resume playing the content after being previously paused.
 
-### func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval)
+### func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval, completion: @escaping () -> Void)
 
 When playing with an external player, the SDK might inform your app to seek forward the content when an ad is skipped. When this gets called you should seek to the `time` relative to the podcast duration as suggested by the **_AdswizzAdPodcastManager_**.
+Note that when your player completes the seek operation, it is important that your app call the specified completion block back to the SDK. Here is an example where `player` is an external player (that implements `MediaPlayerState` interface) based on Apple's `AVPlayer`:
+
+```swift
+func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval, completion: @escaping () -> Void) {
+    player?.seek(to: CMTime(seconds: time, preferredTimescale: CMTimeScale(NSEC_PER_SEC)),
+                 toleranceBefore: CMTime.zero,
+                 toleranceAfter: CMTime.zero) { _ in
+        //when player has completed the seek operation, call the completion back to the SDK
+        completion()
+    }
+}
+```
 
 ## AdPodcastManagerDownloadDelegate protocol
 
@@ -1493,6 +1516,11 @@ Called when a network error occurred while trying to download the asset.
 ## AdswizzAdPodcastManager state diagram
 
 <img src="img/AdswizzAdPodcastManagerState.png" width="1000" />
+
+## Handling interactive ads during podcasts
+
+For more information on how to handle interactive ads such as ShakeMe and Voice Ads please refer to [Interactive ads](#interactive-ads) section.
+Note that the interactivity component of an ad requires fetching data from a remote service which may not be available for downloaded podcasts especially in a no internet connection scenario.
 
 ## Remote Audio Data
 
@@ -2160,6 +2188,10 @@ This sample shows how to perform DVR using  **_AdStreamManagerSettings_** to con
 ## BasicSwiftUIClientSideInsertion
 
 This sample shows how to display all the different UI components from **_AdswizzSDK_** in a SwiftUI app. The app contains 4 tabs. The Banner tab displays an **_AdswizzAdCompanionView_**. The InApp Notification shows an ad that allows various interaction types like perform a call or go to a specific location on the map. It uses the same code as the previous tab with different zones for the ads. The Video tab shows a video ad. Last but not least, the Tracking Permissions tab demonstrates showing the built-in permissions UI component to get the user's consent for tracking.
+
+## BasicPodcastExample
+
+This sample shows how your app might integrate the podcasting support from **_AdswizzSDK_** by using an **_AdswizzAdPodcastManager_**. It demonstrates how to download a podcast locally as well as playing it from disk or remotely.
 
 # AdswizzWatchSDK
 

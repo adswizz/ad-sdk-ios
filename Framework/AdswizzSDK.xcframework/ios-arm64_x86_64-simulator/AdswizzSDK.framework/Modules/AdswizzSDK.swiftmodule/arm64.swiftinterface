@@ -644,12 +644,13 @@ extension NSDictionary {
 }
 @objc(AASDKAdPodcastManagerDelegate) public protocol AdPodcastManagerDelegate {
   @objc func adPodcastManager(_ adPodcastManager: AdPodcastManager, willStartPlaying url: Foundation.URL)
+  @objc func adPodcastManager(_ adPodcastManager: AdPodcastManager, didFailPlaying url: Foundation.URL, error: Swift.Error)
   @objc func adPodcastManager(_ adPodcastManager: AdPodcastManager, didReceive manager: AdManager)
   @objc func adPodcastManager(_ adPodcastManager: AdPodcastManager, stateChanged state: MediaPlayerStatus)
   @objc func adPodcastManager(_ adPodcastManager: AdPodcastManager, playheadChanged playhead: Foundation.TimeInterval, duration: Foundation.TimeInterval)
   @objc func adPodcastManagerPlayerShouldPause(_ adPodcastManager: AdPodcastManager)
   @objc func adPodcastManagerPlayerShouldResume(_ adPodcastManager: AdPodcastManager)
-  @objc func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: Foundation.TimeInterval)
+  @objc func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: Foundation.TimeInterval, completion: @escaping () -> Swift.Void)
 }
 @_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdZone) final public class AdswizzAdZone : ObjectiveC.NSObject {
   @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdZoneBuilder) public class Builder : ObjectiveC.NSObject {
