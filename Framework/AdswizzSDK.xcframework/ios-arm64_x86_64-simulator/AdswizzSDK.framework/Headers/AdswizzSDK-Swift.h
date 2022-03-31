@@ -408,7 +408,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
-
 @class WKNavigation;
 
 @interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <WKNavigationDelegate>
@@ -416,6 +415,7 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
+
 
 
 
@@ -754,11 +754,6 @@ SWIFT_CLASS_NAMED("AdPodcastManager")
 @property (nonatomic, weak) id <AASDKAdPodcastManagerDelegate> _Nullable delegate;
 /// Ad podcast settings
 @property (nonatomic, strong) AASDKAdPodcastManagerSettings * _Nonnull adPodcastManagerSettings;
-/// Prepare a podcast for playing at <code>url</code>. It will affect the internal player which will start buffering.
-/// Not applicable for an external player.
-/// \param url podcast address
-///
-- (BOOL)prepareWith:(NSURL * _Nonnull)url error:(NSError * _Nullable * _Nullable)error;
 /// Start playing a podcast at <code>url</code>. Can be a local address (path) or http/https.
 /// \param url local or http/https address
 ///
@@ -779,7 +774,6 @@ SWIFT_CLASS_NAMED("AdPodcastManager")
 - (BOOL)seekTo:(NSTimeInterval)time error:(NSError * _Nullable * _Nullable)error;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -1174,11 +1168,11 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 /// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behaviour changes and events.
@@ -1213,12 +1207,12 @@ SWIFT_CLASS_NAMED("AdswizzAdPodcastManager")
 @property (nonatomic, readonly, copy) NSString * _Nullable companionZone;
 /// Delegate for events related to the podcast download
 @property (nonatomic, weak) id <AASDKAdPodcastManagerDownloadDelegate> _Nullable downloadDelegate;
-- (BOOL)prepareWith:(NSURL * _Nonnull)url error:(NSError * _Nullable * _Nullable)error;
 - (BOOL)playWith:(NSURL * _Nonnull)url error:(NSError * _Nullable * _Nullable)error;
 - (void)stop;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 @interface AASDKAdswizzAdPodcastManager (SWIFT_EXTENSION(AdswizzSDK))
@@ -1258,7 +1252,6 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdPodcastManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -1397,6 +1390,7 @@ SWIFT_CLASS_NAMED("AdswizzAdStreamManager")
 @end
 
 
+
 @interface AASDKAdswizzAdStreamManager (SWIFT_EXTENSION(AdswizzSDK))
 @end
 
@@ -1434,7 +1428,6 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdStreamManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -2062,6 +2055,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKMediaPlayerStatus, "MediaPlayerStatus",
 @interface NSDictionary<KeyType, ObjectType> (SWIFT_EXTENSION(AdswizzSDK))
 @property (nonatomic, readonly) BOOL isAdswizzWatchData;
 @end
+
 
 
 
@@ -2935,7 +2929,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
-
 @class WKNavigation;
 
 @interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <WKNavigationDelegate>
@@ -2943,6 +2936,7 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
+
 
 
 
@@ -3281,11 +3275,6 @@ SWIFT_CLASS_NAMED("AdPodcastManager")
 @property (nonatomic, weak) id <AASDKAdPodcastManagerDelegate> _Nullable delegate;
 /// Ad podcast settings
 @property (nonatomic, strong) AASDKAdPodcastManagerSettings * _Nonnull adPodcastManagerSettings;
-/// Prepare a podcast for playing at <code>url</code>. It will affect the internal player which will start buffering.
-/// Not applicable for an external player.
-/// \param url podcast address
-///
-- (BOOL)prepareWith:(NSURL * _Nonnull)url error:(NSError * _Nullable * _Nullable)error;
 /// Start playing a podcast at <code>url</code>. Can be a local address (path) or http/https.
 /// \param url local or http/https address
 ///
@@ -3306,7 +3295,6 @@ SWIFT_CLASS_NAMED("AdPodcastManager")
 - (BOOL)seekTo:(NSTimeInterval)time error:(NSError * _Nullable * _Nullable)error;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -3701,11 +3689,11 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 /// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behaviour changes and events.
@@ -3740,12 +3728,12 @@ SWIFT_CLASS_NAMED("AdswizzAdPodcastManager")
 @property (nonatomic, readonly, copy) NSString * _Nullable companionZone;
 /// Delegate for events related to the podcast download
 @property (nonatomic, weak) id <AASDKAdPodcastManagerDownloadDelegate> _Nullable downloadDelegate;
-- (BOOL)prepareWith:(NSURL * _Nonnull)url error:(NSError * _Nullable * _Nullable)error;
 - (BOOL)playWith:(NSURL * _Nonnull)url error:(NSError * _Nullable * _Nullable)error;
 - (void)stop;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 @interface AASDKAdswizzAdPodcastManager (SWIFT_EXTENSION(AdswizzSDK))
@@ -3785,7 +3773,6 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdPodcastManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -3924,6 +3911,7 @@ SWIFT_CLASS_NAMED("AdswizzAdStreamManager")
 @end
 
 
+
 @interface AASDKAdswizzAdStreamManager (SWIFT_EXTENSION(AdswizzSDK))
 @end
 
@@ -3961,7 +3949,6 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdStreamManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -4589,6 +4576,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKMediaPlayerStatus, "MediaPlayerStatus",
 @interface NSDictionary<KeyType, ObjectType> (SWIFT_EXTENSION(AdswizzSDK))
 @property (nonatomic, readonly) BOOL isAdswizzWatchData;
 @end
+
 
 
 

@@ -38,6 +38,8 @@ class Model {
     var isReadyToPlay: Bool {
         return state != .stopped
     }
+    var player = ExternalMediaPlayer()
+    var isUsingExternalPlayer = false
     
     func play() throws {
         guard let url = url else {
@@ -45,13 +47,25 @@ class Model {
         }
         
         try preparePlay()
+        
+        if isUsingExternalPlayer {
+            print("Playing with external player")
+            let settings = AdStreamManagerSettings()
+            settings.player = player
+            streamManager?.adStreamManagerSettings = settings
+        }
+        
         try streamManager?.play(with: url)
         state = .playing
         streamDelegate?.modelDidStartStreaming(self)
     }
     
     func stop(delegate: Bool = true) {
-        streamManager?.stop()
+        if isUsingExternalPlayer {
+            player.stop()
+        } else { // Calling stop for isUsingExternalPlayer doesn't have any effect, only needed for internal player
+            streamManager?.stop()
+        }
         streamManager?.delegate = nil
         streamManager = nil
         state = .stopped
@@ -61,13 +75,21 @@ class Model {
     }
 
     func pause() {
-        streamManager?.pause()
+        if isUsingExternalPlayer {
+            player.pause()
+        } else {
+            streamManager?.pause()
+        }
         state = .paused
         streamDelegate?.modelDidPauseStreaming(self)
     }
     
     func resume() {
-        streamManager?.resume()
+        if isUsingExternalPlayer {
+            player.resume()
+        } else {
+            streamManager?.resume()
+        }
         state = .playing
         streamDelegate?.modelDidResumeStreaming(self)
     }

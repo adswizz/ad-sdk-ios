@@ -10,6 +10,8 @@ import UIKit
 import AdswizzSDK
 
 class ViewController: UIViewController {
+    var extPlayerToggle: UISwitch?
+    
     var model: Model = {
         return Model()
     }()
@@ -110,6 +112,38 @@ class ViewController: UIViewController {
         stack.spacing = UIStackView.spacingUseSystem
         return stack
     }()
+    lazy var externalPlayerToggle: UISwitch = {
+        let toggle = UISwitch(frame: .zero)
+        toggle.translatesAutoresizingMaskIntoConstraints = false
+        toggle.addTarget(self, action: #selector(externalPlayerSwitchChanged), for: .valueChanged)
+        return toggle
+    }()
+    lazy var externalPlayerLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clear
+        label.adjustsFontForContentSizeCategory = true
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = NSTextAlignment.center
+        label.textColor = UIColor.black
+        label.font = UIFont(descriptor: UIFontDescriptor.init(), size: 18)
+        label.text = "Use external player"
+        return label
+    }()
+    lazy var togglePlayerStackView: UIStackView = {
+        self.extPlayerToggle = externalPlayerToggle
+        let stack = UIStackView(arrangedSubviews: [externalPlayerLabel, externalPlayerToggle])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.alignment = .center
+        stack.distribution = .fillProportionally
+        stack.spacing = UIStackView.spacingUseSystem
+        return stack
+    }()
+    
+    @objc func externalPlayerSwitchChanged(_ mySwitch: UISwitch) {
+        model.isUsingExternalPlayer = mySwitch.isOn
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,6 +158,7 @@ class ViewController: UIViewController {
         verticalStackView.addArrangedSubview(status)
         verticalStackView.addArrangedSubview(companionView)
         verticalStackView.addArrangedSubview(horizontalStackView)
+        verticalStackView.addArrangedSubview(togglePlayerStackView)
         view.addSubview(companionViewLabel)
         view.addSubview(verticalStackView)
         
@@ -146,11 +181,13 @@ extension ViewController {
         case .playing, .paused:
             model.stop()
             pauseResumeButton.isSelected = false
+            extPlayerToggle?.isUserInteractionEnabled = true
         case .stopped:
             do {
                 model.adBreakDelegate = self
                 model.streamDelegate = self
                 try model.play()
+                extPlayerToggle?.isUserInteractionEnabled = false
             } catch {
                 print("Failed to play ad stream. Reason = \(error)")
             }

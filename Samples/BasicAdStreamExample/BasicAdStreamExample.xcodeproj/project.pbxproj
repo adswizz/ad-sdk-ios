@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		645FDCF727F5D38000049000 /* ExternalMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645FDCF627F5D38000049000 /* ExternalMediaPlayer.swift */; };
 		AE51946023F42D8D0083D87B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51945F23F42D8D0083D87B /* AppDelegate.swift */; };
 		AE51946223F42D8D0083D87B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51946123F42D8D0083D87B /* SceneDelegate.swift */; };
 		AE51946423F42D8D0083D87B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51946323F42D8D0083D87B /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		645FDCF627F5D38000049000 /* ExternalMediaPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalMediaPlayer.swift; sourceTree = "<group>"; };
 		AE51945C23F42D8D0083D87B /* BasicAdStreamExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicAdStreamExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE51945F23F42D8D0083D87B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE51946123F42D8D0083D87B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		AE51945E23F42D8D0083D87B /* BasicAdStreamExample */ = {
 			isa = PBXGroup;
 			children = (
+				645FDCF627F5D38000049000 /* ExternalMediaPlayer.swift */,
 				C240E84F271F2EF800F76853 /* Bundle+Version.swift */,
 				AE51945F23F42D8D0083D87B /* AppDelegate.swift */,
 				AE51946123F42D8D0083D87B /* SceneDelegate.swift */,
@@ -289,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE51949623F44E120083D87B /* Model.swift in Sources */,
+				645FDCF727F5D38000049000 /* ExternalMediaPlayer.swift in Sources */,
 				AE51949423F448300083D87B /* Model+AdStreamManagerDelegate.swift in Sources */,
 				C240E850271F2EF900F76853 /* Bundle+Version.swift in Sources */,
 				AE51946423F42D8D0083D87B /* ViewController.swift in Sources */,

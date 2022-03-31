@@ -1279,7 +1279,6 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   @objc final public let objectId: Foundation.UUID
   @objc weak public var delegate: AdswizzSDK.AdPodcastManagerDelegate?
   @objc public var adPodcastManagerSettings: AdswizzSDK.AdPodcastManagerSettings
-  @objc open func prepare(with url: Foundation.URL) throws
   @objc open func play(with url: Foundation.URL) throws
   @objc open func stop()
   @objc open func pause()
@@ -1322,7 +1321,6 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   @objc final public let companionZone: Swift.String?
   @objc weak public var downloadDelegate: AdswizzSDK.AdPodcastManagerDownloadDelegate?
   @objc deinit
-  @objc override public func prepare(with url: Foundation.URL) throws
   @objc override public func play(with url: Foundation.URL) throws
   @objc override public func stop()
   public func startDownloadPodcast(with url: Foundation.URL, to location: Foundation.URL) throws

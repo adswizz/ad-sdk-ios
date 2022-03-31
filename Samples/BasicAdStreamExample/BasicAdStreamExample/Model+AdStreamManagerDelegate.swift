@@ -13,6 +13,9 @@ import AVFoundation
 extension Model: AdStreamManagerDelegate {
     func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: URL) {
         print("Received ad stream manager event: willStartPlaying -> \(url)")
+        if isUsingExternalPlayer {
+            player.play(with: url)
+        }
     }
     
     func adStreamManager(_ adstreamManager: AdStreamManager, adBreakStarted manager: AdManager) {

@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.2] - 2022-03-31
+### Added
+- Podcasts support
+    - Seek functionality during an ad
+- `BasicAdStreamExample` sample
+  - New external media player toggle which demonstrates the use of a custom player when implementing server side insertion
+
+### Removed
+- Public method `prepare(with url: URL)` from **_AdPodcastManager_** and precaching support
+
+### Fixed
+- Podcasts support
+    - Extra quartiles when pausing/resuming an ad
+    - Playback for podcasts when failing to build an **_AdManager_** (e.g no ads from server)
+    - Reading RAD metadata items used by **_AdswizzAdPodcastManager_**
+    - Downloading podcasts with wrong cookie header when communicating with AIS servers
+    - Audibility measurement for ads with VAST **_AdVerifications_**
+
 ## [7.7.1] - 2022-03-11
 ### Added
 - Podcasts support

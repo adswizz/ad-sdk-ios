@@ -60,9 +60,7 @@
   * [Playing video ads using your player](#playing-video-ads-using-your-player)
 - [Podcasts](#podcasts)
   * [Getting started](#getting-started-1)
-  * [Precaching before playing](#precaching-before-playing-1)
   * [Playback operations](#playback-operations)
-    + [prepare](#prepare-2)
     + [play](#play-2)
     + [pause](#pause-2)
     + [resume](#resume-1)
@@ -77,6 +75,7 @@
   * [AdswizzAdPodcastManager state diagram](#adswizzadpodcastmanager-state-diagram)
   * [Handling interactive ads during podcasts](#handling-interactive-ads-during-podcasts)
   * [Remote Audio Data](#remote-audio-data)
+    + [Handling RAD id3 metadata using your player](#handling-rad-id3-metadata-using-your-player)
 - [Debugging AdswizzSDK](#debugging-adswizzsdk)
 - [Playing ads using your player](#playing-ads-using-your-player)
   * [MediaPlayerState protocol](#mediaplayerstate-protocol)
@@ -1351,19 +1350,7 @@ settings.player = yourPlayer
 podcastManager?.adPodcastManagerSettings = settings
 ```
 
-## Precaching before playing
-
-Only available when deciding to play a podcast using the internal player. If you require a smooth transition between a user action to play a podcast remotely and the actual podcast playing, you can call `prepare(with url: URL) throws` on your podcast manager object ahead of `play(with url: URL) throws` and **_AdswizzSDK_** will make sure to buffer at most 10 seconds from your podcast. You can call this function multiple times to refresh the buffer. This function is optional. Events from calling `prepare` will be received in `func adPodcastManager(_ adPodcastManager: AdPodcastManager, stateChanged state: MediaPlayerStatus)`.
-
 ## Playback operations
-
-### prepare
-
-Similar to **_AdStreamManager_**, when playing the podcast with the internal player, calling this will prepare a buffer to be ready when `play(with url: URL)` is called. This is optional. Calling this while the podcast is playing or pausing will have no effect. 
-
-Specific events from the buffering state will be available through **_AdPodcastManagerDelegate_** via the `stateChanged` method. Expected events here will be `buffering`, `bufferingFinished` and `readyToPlay`. Your app won’t be notified when all default 10 seconds will be buffered but you can rely on `readyToPlay` state to make sure podcast will begin to play smoothly.
-
-Additionally, `prepare(with url: URL)` will also attempt to load and prepare for RAD metadata when using the internal player.
 
 ### play
 
@@ -1376,6 +1363,8 @@ Additionally, `play(with: URL)` will also perform two important operations if ne
 
 As a response, if an error was encountered by performing the above operations, `AdswizzSDK` will call back func `adPodcastManager(_ adPodcastManager: AdPodcastManager, didFailPlaying url: URL, error: Error)`. The error will be related to the connection with the AIS server that hosts the podcast.
 However if **_AdswizzAdPodcastManager_** hasn't encountered any issue, it will call back func `adPodcastManager(_ adPodcastManager: AdPodcastManager, willStartPlaying url: URL)` with the newly formatted URL. At this point, **_AdswizzAdPodcastManager_** signaled that buffering/playback is about to start.
+
+Note that when you start playing a podcast from either a local or remote URL, specific events from the buffering state will be available through **_AdPodcastManagerDelegate_** via the `func adPodcastManager(_ adPodcastManager: AdPodcastManager, stateChanged state: MediaPlayerStatus)` method. Expected events here will be `buffering`, `bufferingFinished` and `readyToPlay`.
 
 ### pause
 
@@ -1539,6 +1528,11 @@ The `disableRAD` property is applied to all podcasts and can be updated on the f
 
 Disabling RAD data collection at the ZeroConfig level takes precedence over disabling it from code. If RAD is disabled in ZeroConfig, setting a new value to `disableRAD` property will be the same as setting this value to `false` everytime.
 
+### Handling RAD id3 metadata using your player
+
+Remote Audio Data measurement is based on reading specific `id3` metadata formats from the podcast being played. The SDK is able to read these specific metadata formats when playing with the internal player.
+However, when playing podcasts using your own player you are responsable for passing the metadata items to the SDK. You can find more details at [MediaPlayerState protocol](#mediaplayerstate-protocol) and [metadataItem](#metadataitem) sections.
+
 # Debugging AdswizzSDK
 
 The SDK uses an internal logger called **_AdLogger_**. By default, the logging level is set to none, meaning that nothing gets logged. Should you need the SDK logging events, you can enable a different logging level; verbose is the one with the highest density, hence we do not recommend its use in production. 
@@ -1610,7 +1604,7 @@ For a good reporting of the quartile/progress events, your player should update 
 
 ### metadataItem
 
-If your player can read metadata from the media that is playing, it should report it through this member. While this is not required for a client-side insertion, it is mandatory to relay this data when you are in the server-side insertion scenario.
+If your player can read metadata from the media that is playing, it should report it through this member. While this is not required for a client-side insertion, it is mandatory to relay this data when you are in the server-side insertion scenario. It is also required if your player is used in a podcast context for reporting any id3 metadata formats to enable [Remote Audio Data](#remote-audio-data) measurement.
 
 
 ### playerStatus
@@ -2160,6 +2154,7 @@ The same sample from above fully written in Objective-C. It demonstrates how eve
 ## BasicAdStreamExample
 
 This sample demonstrates a basic server-side insertion scenario by showing how to create and customize an **_AdswizzAdStreamManager_**. It shows how to play/stop/pause/resume a live stream. It also creates and displays an **_AdCompanionView_** during ad break(s).
+Additionally it demonstrates how to use an `AVPlayer` wrapper called **_ExternalMediaPlayer_** as an external custom player with **_AdswizzAdStreamManager_**. The **_ExternalMediaPlayer_** conforms to **_MediaPlayerState_**.
 
 ## BasicAdStreamExampleObjC
 
