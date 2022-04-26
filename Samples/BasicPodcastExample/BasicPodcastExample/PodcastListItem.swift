@@ -22,7 +22,8 @@ protocol PodcastListItemDelegate: AnyObject {
 class PodcastListItem {
     let title: String
     let url: URL
-    let podcastManager: AdswizzAdPodcastManager?
+    private static var podcastManagerUnique: AdswizzAdPodcastManager?
+    var podcastManager: AdswizzAdPodcastManager? { PodcastListItem.podcastManagerUnique }
     let id: Int
     private var isDownloaded = false
     weak var delegate: AdPodcastManagerDelegate?
@@ -40,15 +41,21 @@ class PodcastListItem {
         self.title = title
         self.url = url
         
+        createPodcastInstanceIfNeeded()
+    }
+    
+    private func createPodcastInstanceIfNeeded() {
+        guard PodcastListItem.podcastManagerUnique == nil else { return }
+        
         do {
-            podcastManager = try AdswizzAdPodcastManager.Builder()
+            PodcastListItem.podcastManagerUnique = try AdswizzAdPodcastManager.Builder()
                     .with(adServer: "demo.deliveryengine.adswizz.com")
                     .with(httpProtocol: .http)
                     .with(companionZones: "") // optional, if no companion zone id is found in the vast file this id will be used instead
                     .build()
         } catch {
             print("Could not build podcastManager: \(error.localizedDescription)")
-            podcastManager = nil
+            PodcastListItem.podcastManagerUnique = nil
         }
     }
 
@@ -120,7 +127,9 @@ class PodcastListItem {
     }
     
     func seek(to: Float) {
-        try? podcastManager?.seek(to: TimeInterval(to))
+        try? podcastManager?.seek(to: TimeInterval(to)) {
+            //seek operation finished
+        }
     }
 }
 

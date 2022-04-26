@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.3] - 2022-04-26
+### Added
+- **_AdswizzAdRequest_** support
+    - New optional public parameter called **_duration_** which sets the maximum total duration of ads to be selected, in seconds
+- Podcasts support
+    - New query parameter called `playLive` with which a podcast URL is decorated when is streamed online
+
+### Changed
+- The default Remote Audio Data values in ZeroConfig setup
+- The seek signature method for **_AdswizzAdPodcastManager_** changed from `func seek(to time: TimeInterval) throws` to `func seek(to time: TimeInterval, completion: @escaping () -> Void) throws` by adding a completion handler when the internal player finishes the operation
+
+### Fixed
+- Internal player volume handling
+- A case where Remote Audio Data support would crash due to a threading issue with network manager usage
+- Improved seek behaviour in `BasicPodcastExample`
+
 ## [7.7.2] - 2022-03-31
 ### Added
 - Podcasts support

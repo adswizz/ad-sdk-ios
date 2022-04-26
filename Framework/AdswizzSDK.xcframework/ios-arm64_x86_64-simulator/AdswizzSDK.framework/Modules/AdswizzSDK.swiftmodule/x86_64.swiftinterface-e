@@ -918,6 +918,7 @@ extension AdVideoFriendlyObstruction {
     @objc public func with(vastVersion: AdswizzSDK.AdswizzAdRequest.VASTVersion) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(zone: AdswizzSDK.AdswizzAdZone) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(zones: [AdswizzSDK.AdswizzAdZone]) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc public func with(duration: Foundation.TimeInterval) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(zoneAlias: Swift.String) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(companionZones: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(tagsArray: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
@@ -1283,7 +1284,7 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   @objc open func stop()
   @objc open func pause()
   @objc open func resume()
-  @objc open func seek(to time: Foundation.TimeInterval) throws
+  @objc open func seek(to time: Foundation.TimeInterval, completion: @escaping () -> Swift.Void) throws
   @objc deinit
   @objc override dynamic public init()
 }

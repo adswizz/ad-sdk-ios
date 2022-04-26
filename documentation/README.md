@@ -494,6 +494,8 @@ do {
 ```
 Please note that the order you pass the zones is important, as the AdsWizz Ad Server will take that into account during ad selection.
 
+An optional parameter is `duration` which sets the maximum total duration of ads to be selected, in seconds. It can be used to fine tune the ad(s) delivery and request a specific total duration.
+
 **Custom request parameters**
 
 You may use custom parameters (key-value pairs) in your **_AdswizzAdRequest_** objects, in order to send various information, such as some publisher specific Ids, first-party targeting data, etc.
@@ -1380,7 +1382,7 @@ Calling this method will stop a podcast that is played by the SDK’s internal p
 
 ### seek
 
-Callng `seek(to time: TimeInterval)` will trigger a seek by setting the current playback time to the specified `time` parameter measured in seconds. For an external player this will have no effect. However, if you are using your own player, the SDK will automatically detect it and adjust the tracking for various events during playback such as quartile reporting.
+Callng `seek(to time: TimeInterval, completion: () -> Void) throws` will trigger a seek by setting the current playback time to the specified `time` parameter measured in seconds. Note that the completion handler is only called if the operation did not throw any error. For an external player this method will have no effect. However, if you are using your own player, the SDK will automatically detect it and adjust the tracking for various events during playback such as quartile reporting.
 
 ## Download operations
 

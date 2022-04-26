@@ -30,6 +30,7 @@ class SeekSlider: UISlider {
 }
 
 protocol SeekBarViewDelegate: AnyObject {
+    func seekBarView(_ view: SeekBarView, didChangeTracking value: Bool, at sliderValue: Float)
     func seekBarView(_ view: SeekBarView, didChangeSlider value: Float)
 }
 
@@ -71,10 +72,16 @@ class SeekBarView: UIView {
         }
         
         slider.addTarget(self, action: #selector(handleSliderChange), for: .valueChanged)
+        sliderHighlightedObserver = slider.observe(\SeekSlider.isTracking, options: [.old, .new]) { (_, change) in
+            if let newValue = change.newValue, let oldValue = change.oldValue, newValue != oldValue {
+                self.delegate?.seekBarView(self, didChangeTracking: newValue, at: slider.value)
+            }
+        }
         return slider
     }()
         
     weak var delegate: SeekBarViewDelegate?
+    private var sliderHighlightedObserver: NSKeyValueObservation?
     
     convenience init() {
         self.init(frame: .zero)

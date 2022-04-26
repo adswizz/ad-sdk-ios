@@ -763,13 +763,16 @@ SWIFT_CLASS_NAMED("AdPodcastManager")
 /// Resume the current podcast
 - (void)resume;
 /// Sets the current playback time to the specified <code>time</code> in seconds. Note that it is only available for the internal player.
-/// If you are using your own player, the SDK will automatically detect it and adjust the tracking for various events during playback.
+/// The <code>completion</code> block won’t get called if an error is thrown.
+/// If you are using your own player, the SDK will automatically detect the seek and adjust the tracking for various events during playback.
 /// \param time the time to which to seek in seconds
+///
+/// \param completion the completion block that signals the seek operation finished
 ///
 ///
 /// throws:
 /// Can throw an error if seek cannot be performed or not allowed (e.g for an external player)
-- (BOOL)seekTo:(NSTimeInterval)time error:(NSError * _Nullable * _Nullable)error;
+- (BOOL)seekTo:(NSTimeInterval)time error:(NSError * _Nullable * _Nullable)error completion:(void (^ _Nonnull)(void))completion;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1305,6 +1308,13 @@ SWIFT_CLASS_NAMED("Builder")
 /// returns:
 /// same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withZones:(NSArray<AASDKAdswizzAdZone *> * _Nonnull)zones SWIFT_WARN_UNUSED_RESULT;
+/// Set the maximum total duration of ads to be selected, in seconds. Optional.
+/// \param duration non-zero duration description in seconds
+///
+///
+/// returns:
+/// same builder object
+- (AASDKAdswizzAdRequestBuilder * _Nonnull)withDuration:(NSTimeInterval)duration SWIFT_WARN_UNUSED_RESULT;
 /// Set the zone alias referencing external zone. Optional.
 /// \param zoneAlias zoneAlias description
 ///
