@@ -18,6 +18,10 @@ extension Model: AdManagerDelegate {
         print("ad manager: \(adManager) triggered ad event: \(event.stringEvent)")
         
         switch event.event {
+        case .preparingForPlay:
+            // The companion information for current ad can be check early in the ad events succession
+            // by using the `hasCompanion` property on `AdData`
+            event.ad?.printCompanionInformation()
         case .readyForPlay:
             adManager.play() //necessary, if there is more than one ad in the manager
         case .didStartPlaying:
@@ -37,5 +41,15 @@ extension Model: InteractiveAdManagerDelegate {
     }
     
     func interactiveAdManager(_ adManager: AdManagerOwner, didReceiveAdEvent event: InteractiveAdEvent) {
+    }
+}
+
+extension AdData {
+    func printCompanionInformation() {
+        if hasCompanion {
+            print("[Companion] has information for AdId: \(id ?? "unknown")")
+        } else {
+            print("[Companion] <<none>>")
+        }
     }
 }

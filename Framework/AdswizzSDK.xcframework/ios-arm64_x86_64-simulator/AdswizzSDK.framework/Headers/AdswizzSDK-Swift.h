@@ -474,7 +474,8 @@ SWIFT_PROTOCOL_NAMED("AdData")
 @property (nonatomic, readonly) enum AASDKAdType adType;
 /// Asset data for the ad
 @property (nonatomic, readonly, strong) id <AASDKAdAsset> _Nonnull asset;
-/// Companions associtated with the ad
+/// Companions associated with the ad.
+/// May not be available when the ad is preparing/ready to play or has just started playing . Use <code>hasCompanion</code> instead to check for the presence of any companion data.
 @property (nonatomic, readonly, copy) NSArray<id <AASDKCompanion>> * _Nonnull companions;
 /// Marks a timeinterval in seconds that an ad can be skipped
 @property (nonatomic, readonly, strong) NSNumber * _Nullable skipOffset;
@@ -488,6 +489,9 @@ SWIFT_PROTOCOL_NAMED("AdData")
 @property (nonatomic, readonly, copy) NSArray<id <AASDKVastCreativeExtension>> * _Nonnull creativeExtensions;
 /// Vast pricing info for real-time bidding systems. Optional
 @property (nonatomic, readonly, strong) id <AASDKVastPricing> _Nullable pricing;
+/// Returns true if the ad has any companion banner information to display.
+/// This information is available early in the succession of ad events.
+@property (nonatomic, readonly) BOOL hasCompanion;
 @end
 
 
@@ -3005,7 +3009,8 @@ SWIFT_PROTOCOL_NAMED("AdData")
 @property (nonatomic, readonly) enum AASDKAdType adType;
 /// Asset data for the ad
 @property (nonatomic, readonly, strong) id <AASDKAdAsset> _Nonnull asset;
-/// Companions associtated with the ad
+/// Companions associated with the ad.
+/// May not be available when the ad is preparing/ready to play or has just started playing . Use <code>hasCompanion</code> instead to check for the presence of any companion data.
 @property (nonatomic, readonly, copy) NSArray<id <AASDKCompanion>> * _Nonnull companions;
 /// Marks a timeinterval in seconds that an ad can be skipped
 @property (nonatomic, readonly, strong) NSNumber * _Nullable skipOffset;
@@ -3019,6 +3024,9 @@ SWIFT_PROTOCOL_NAMED("AdData")
 @property (nonatomic, readonly, copy) NSArray<id <AASDKVastCreativeExtension>> * _Nonnull creativeExtensions;
 /// Vast pricing info for real-time bidding systems. Optional
 @property (nonatomic, readonly, strong) id <AASDKVastPricing> _Nullable pricing;
+/// Returns true if the ad has any companion banner information to display.
+/// This information is available early in the succession of ad events.
+@property (nonatomic, readonly) BOOL hasCompanion;
 @end
 
 

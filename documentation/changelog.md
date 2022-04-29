@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.4] - 2022-04-29
+### Added
+- New public member in **_AdData_**: 
+    - `hasCompanion` - checks if the ad has any companion banner information to display (can be checked early in the succession of ad events)
+
+### Changed
+- The default Remote Audio Data `enabled` field to `false` in ZeroConfig setup
+
+### Fixed
+- Minor formatting issue in Remote Audio Data request header
+
 ## [7.7.3] - 2022-04-26
 ### Added
 - **_AdswizzAdRequest_** support

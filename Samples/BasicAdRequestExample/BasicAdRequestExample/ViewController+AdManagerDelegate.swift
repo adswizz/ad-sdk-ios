@@ -18,6 +18,10 @@ extension ViewController: AdManagerDelegate {
         print("ad manager: \(adManager) triggered ad event: \(event.stringEvent)")
         
         switch event.event {
+        case .preparingForPlay:
+            // The companion information for current ad can be check early in the ad events succession
+            // by using the `hasCompanion` property on `AdData`
+            event.ad?.printCompanionInformation()
         case .readyForPlay:
             // Ad manager finished loading ad(s)
             // Before playing the ads you should pause your own content
@@ -48,6 +52,16 @@ extension ViewController: AdManagerDelegate {
             
         default:
             break
+        }
+    }
+}
+
+extension AdData {
+    func printCompanionInformation() {
+        if hasCompanion {
+            print("[Companion] has information for AdId: \(id ?? "unknown")")
+        } else {
+            print("[Companion] <<none>>")
         }
     }
 }

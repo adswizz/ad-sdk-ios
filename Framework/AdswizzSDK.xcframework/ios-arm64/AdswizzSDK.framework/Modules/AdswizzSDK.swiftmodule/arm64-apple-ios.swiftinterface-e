@@ -398,6 +398,7 @@ extension AdCompanionView : WebKit.WKUIDelegate {
   @objc var adParameters: AdswizzSDK.VastAdParameters? { get }
   @objc var creativeExtensions: [AdswizzSDK.VastCreativeExtension] { get }
   @objc var pricing: AdswizzSDK.VastPricing? { get }
+  @objc var hasCompanion: Swift.Bool { get }
 }
 extension AdData {
   public var isEmpty: Swift.Bool {
