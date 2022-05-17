@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.5] - 2022-05-16
+### Fixed
+- Integration Guide
+    - Improve Companion Banner setup section
+    - Update instructions on **_AdswizzSDKPrivacyData_** integration via Cocoapods (should point to the latest version - 1.0.6)
+- **_AdManagerDatasource_**
+    - `adManagerImpressionUrls(_ adManager: AdManager, ad: AdData) -> [URL]` no longer called on **_AdManager_** pause/resume scenario
+- Podcasting
+    - corrected `hasCompanion` property for podcast ad breaks
+    - Remote Audio Data
+        - A rare case where RAD would cause a crash when AdswizzSDK gets initialized (if enabled via ZeroConfig)
+
 ## [7.7.4] - 2022-04-29
 ### Added
 - New public member in **_AdData_**: 

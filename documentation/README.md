@@ -48,6 +48,9 @@
 - [Companion Banner](#companion-banner)
   * [Adding an AdCompanionView](#adding-an-adcompanionview)
   * [Setting things up](#setting-things-up)
+    + [Client side setup](#client-side-setup)
+    + [Server side setup](#server-side-setup)
+    + [Podcasts setup](#podcasts-setup)
   * [Companion events](#companion-events)
 - [Video ads](#video-ads)
   * [Adding an AdVideoView](#adding-an-advideoview)
@@ -248,7 +251,7 @@ These dependencies are automatically added if you choose to integrate the SDK us
 
     AdswizzSDK is delivered as an xcframework, so the best way to integrate it is through Cocoapods. The recommended version for Cocoapods is 1.9.3 or newer. If you already have a pod file, you just need to add the following lines:
     ```ruby
-    pod 'AdswizzSDKPrivacyData', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios-privacydata.git"
+    pod 'AdswizzSDKPrivacyData', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios-privacydata.git", :tag => '1.0.6'
     pod 'AdswizzSDK',            :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git" 
     ```
     Replace **_ADSWIZZ_GITHUB_TOKEN_** with token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for password enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. This includes AdswizzSDKPrivacyData.framework. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
@@ -455,7 +458,7 @@ do {
 }
 ```
 
-_zoneId__ will be provided to you by your Adswizz Integration Manager.
+_zoneId_ will be provided to you by your Adswizz Integration Manager.
 
 Note that `maxAds` and `maxDuration` properties are completely optional.
 
@@ -475,7 +478,7 @@ do {
 }
 ```
 
-The _Ad server__ will be provided to you by your Adswizz Integration Manager.
+The _Ad server_ will be provided to you by your Adswizz Integration Manager.
 If your specific use case involves dealing with multiple zones, your AdsWizz Integration Manager will provide you all the required zone ids. You will then be able to set and use multiple distinct and unique **_AdswizzAdZone_** objects. Here's an example of multiple zone request:
 
 ```swift
@@ -1102,19 +1105,42 @@ Once created, the SDK will keep track of all of your companion views and automat
 
 ## Setting things up
 
+The **_AdCompanionView_** instance(s) you create work the same across all types of integrations whether it is a client side, server side or podcasting scenario. However, the setup will differ depending on how you intend to use **_AdswizzSDK_**. Let's see the different ways on how you can prepare for your companion views to load the ad related content.
+
+### Client side setup
+
 When you create an **_AdswizzAdRequest_** object for the first time, you need to fill in the **_companionZones_** with the value provided by your Integration Manager.
 
-
 ```swift
+var zone: AdswizzAdZone!
+do {
+      zone = try AdswizzAdZone.Builder()
+          .with(zoneId: "ZONEID_PROVIDED_BY_PIM")         // mandatory
+          .with(maxAds: maximum_number_of_ads)            // optional
+          .with(maxDuration: maximum_duration_in_seconds) // optional
+          .build()
+} catch {
+     print(error)
+}
+
 adRequest = try AdswizzAdRequest.Builder()
               .with(server: "SERVER_PROVIDED_BY_INTEGRATION_MANAGER")
-              .with(zoneId: "ZONEID_PROVIDED_BY_INTEGRATION_MANAGER")
-              .with(companionZones: "COMPANION_PROVIDED_BY_INTEGRATION_MANAGER")
+              .with(zone: zone)
+              .with(companionZones: "COMPANION_PROVIDED_BY_INTEGRATION_MANAGER") //IMPORTANT: mandatory for loading content into AdCompanionView instances
               .build()
 ```
 
-
 Once the request is made, if there is any companion banner associated with the ad, it will be loaded into your **_AdCompanionView_** object.
+
+### Server side setup
+
+When you create your **_AdswizzAdStreamManager_**, you need to fill in the **_companionZones_** with the value provided by your Integration Manager.
+More details in the [Server-Side Insertion](#server-side-insertion) section.
+
+### Podcasts setup
+
+Similar to the server side scenario, when you create your **_AdswizzAdPodcastManager_**, you need to fill in the **_companionZones_** with the value provided by your Integration Manager.
+More details in the [Getting started](#getting-started-1) section for [Podcasts](#podcasts).
 
 
 ## Companion events
