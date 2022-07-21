@@ -36,6 +36,9 @@
 		AE5EBA55241159C600ECAEF7 /* WatchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA54241159C600ECAEF7 /* WatchSupport.swift */; };
 		AE5EBA5824115A8700ECAEF7 /* WatchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA54241159C600ECAEF7 /* WatchSupport.swift */; };
 		AE6275BD25C19F2300B09304 /* ViewController+AdManagerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6275BC25C19F2300B09304 /* ViewController+AdManagerDatasource.swift */; };
+		CC9A840E285B3640006AF21D /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9A840C285B3640006AF21D /* Bundle+Version.swift */; };
+		CC9A8413285B377E006AF21D /* ViewController+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9A8412285B377E006AF21D /* ViewController+Extra.swift */; };
+		CC9A8415285B3870006AF21D /* ViewController+InteractiveAdManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9A8414285B3870006AF21D /* ViewController+InteractiveAdManagerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +134,9 @@
 		AE5EBA4A2411491A00ECAEF7 /* ViewController+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Model.swift"; sourceTree = "<group>"; };
 		AE5EBA54241159C600ECAEF7 /* WatchSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSupport.swift; sourceTree = "<group>"; };
 		AE6275BC25C19F2300B09304 /* ViewController+AdManagerDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+AdManagerDatasource.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/ViewController+AdManagerDatasource.swift"; sourceTree = "<group>"; };
+		CC9A840C285B3640006AF21D /* Bundle+Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bundle+Version.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/Bundle+Version.swift"; sourceTree = "<group>"; };
+		CC9A8412285B377E006AF21D /* ViewController+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+Extra.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/ViewController+Extra.swift"; sourceTree = "<group>"; };
+		CC9A8414285B3870006AF21D /* ViewController+InteractiveAdManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+InteractiveAdManagerDelegate.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/ViewController+InteractiveAdManagerDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,9 @@
 		AE5EB9D2240FAB0A00ECAEF7 /* BasicAdRequestWatchExample */ = {
 			isa = PBXGroup;
 			children = (
+				CC9A8414285B3870006AF21D /* ViewController+InteractiveAdManagerDelegate.swift */,
+				CC9A8412285B377E006AF21D /* ViewController+Extra.swift */,
+				CC9A840C285B3640006AF21D /* Bundle+Version.swift */,
 				AE5EB9D3240FAB0A00ECAEF7 /* AppDelegate.swift */,
 				AE5EB9D5240FAB0A00ECAEF7 /* SceneDelegate.swift */,
 				AE5EBA2E240FBDDE00ECAEF7 /* content_example.mp3 */,
@@ -466,8 +475,10 @@
 			files = (
 				AE5EBA34240FBDDF00ECAEF7 /* ViewController+AdManagerDelegate.swift in Sources */,
 				AE5EBA55241159C600ECAEF7 /* WatchSupport.swift in Sources */,
+				CC9A840E285B3640006AF21D /* Bundle+Version.swift in Sources */,
 				AE5EBA4B2411491A00ECAEF7 /* ViewController+Model.swift in Sources */,
 				AE6275BD25C19F2300B09304 /* ViewController+AdManagerDatasource.swift in Sources */,
+				CC9A8413285B377E006AF21D /* ViewController+Extra.swift in Sources */,
 				AE5EBA4524113C9900ECAEF7 /* ViewController+NowPlaying.swift in Sources */,
 				AE5EBA30240FBDDF00ECAEF7 /* ViewController.swift in Sources */,
 				AE5EB9D4240FAB0A00ECAEF7 /* AppDelegate.swift in Sources */,
@@ -477,6 +488,7 @@
 				AE5EBA31240FBDDF00ECAEF7 /* UIWindow+SafeArea.swift in Sources */,
 				AE5EBA492411457200ECAEF7 /* ViewControllerModel.swift in Sources */,
 				AE5EBA3A240FE29A00ECAEF7 /* SessionDelegate.swift in Sources */,
+				CC9A8415285B3870006AF21D /* ViewController+InteractiveAdManagerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

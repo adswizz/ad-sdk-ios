@@ -27,7 +27,7 @@ struct TrackingPermissionsExampleView: View {
                 } label: {
                     Text("Tap for tracking permissions")
                         .padding()
-                        .background(Color(uiColor: UIColor.systemBlue))
+                        .background(UIColor.systemBlue.color)
                         .cornerRadius(25)
                         .foregroundColor(Color.white)
                 }

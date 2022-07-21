@@ -28,6 +28,7 @@
 		C234BA6426C6A66F00B406AB /* ViewController+InteractiveAdManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C234BA6326C6A66F00B406AB /* ViewController+InteractiveAdManagerDelegate.swift */; };
 		C240E84E271F2C1100F76853 /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240E84D271F2C1100F76853 /* Bundle+Version.swift */; };
 		C29AA46026E235E900F58782 /* AdswizzSDKConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = C29AA45F26E235E800F58782 /* AdswizzSDKConfig.plist */; };
+		CC9A8411285B3730006AF21D /* ViewController+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9A8410285B3730006AF21D /* ViewController+Extra.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		C234BA6326C6A66F00B406AB /* ViewController+InteractiveAdManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+InteractiveAdManagerDelegate.swift"; sourceTree = "<group>"; };
 		C240E84D271F2C1100F76853 /* Bundle+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Version.swift"; sourceTree = "<group>"; };
 		C29AA45F26E235E800F58782 /* AdswizzSDKConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AdswizzSDKConfig.plist; sourceTree = "<group>"; };
+		CC9A8410285B3730006AF21D /* ViewController+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Extra.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		AE5193CC23F3F7600083D87B /* BasicAdRequestExample */ = {
 			isa = PBXGroup;
 			children = (
+				CC9A8410285B3730006AF21D /* ViewController+Extra.swift */,
 				C29AA45F26E235E800F58782 /* AdswizzSDKConfig.plist */,
 				AE5EBA402411391100ECAEF7 /* NowPlayableMetadata.swift */,
 				AE5193CD23F3F7600083D87B /* AppDelegate.swift */,
@@ -314,6 +317,7 @@
 				AE51944723F410850083D87B /* ViewController.swift in Sources */,
 				AE51944523F40B020083D87B /* UIWindow+SafeArea.swift in Sources */,
 				AE5193CE23F3F7600083D87B /* AppDelegate.swift in Sources */,
+				CC9A8411285B3730006AF21D /* ViewController+Extra.swift in Sources */,
 				AE5EBA512411584A00ECAEF7 /* ViewController+NowPlaying.swift in Sources */,
 				C234BA6426C6A66F00B406AB /* ViewController+InteractiveAdManagerDelegate.swift in Sources */,
 				AE5EBA47241144FE00ECAEF7 /* ViewControllerModel.swift in Sources */,
