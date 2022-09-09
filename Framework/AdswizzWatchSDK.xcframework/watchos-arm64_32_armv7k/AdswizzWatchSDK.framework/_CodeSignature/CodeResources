@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/AdswizzWatchSDK-Swift.h</key>
 		<data>
-		c7bUBvkc25absYC5ZcK044mAo0I=
+		AJiO/ZJ0kR3FNZv2vS7JqkueaFo=
 		</data>
 		<key>Headers/AdswizzWatchSDK.h</key>
 		<data>
@@ -14,11 +14,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		vNsd+M8zDXcyfxGOsfkxei4fOnU=
+		TiOJvGR1xHeCCgDTkU+NOKfX0TU=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
-		nEpIbvpc/ZeFjTmwtfblN15ql3k=
+		yNIPrZoc75n8F7fbAo+ye8JqZfs=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm.swiftinterface</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32-apple-watchos.swiftdoc</key>
 		<data>
-		DbK5Vdejm3LVgmBbsF4GXpHJA6Q=
+		IF6/lKNMA9RbzN5IX+iEQ82CckM=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32-apple-watchos.swiftinterface</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32.swiftdoc</key>
 		<data>
-		DbK5Vdejm3LVgmBbsF4GXpHJA6Q=
+		IF6/lKNMA9RbzN5IX+iEQ82CckM=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32.swiftinterface</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k-apple-watchos.swiftdoc</key>
 		<data>
-		nEpIbvpc/ZeFjTmwtfblN15ql3k=
+		yNIPrZoc75n8F7fbAo+ye8JqZfs=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k-apple-watchos.swiftinterface</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k.swiftdoc</key>
 		<data>
-		nEpIbvpc/ZeFjTmwtfblN15ql3k=
+		yNIPrZoc75n8F7fbAo+ye8JqZfs=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k.swiftinterface</key>
 		<data>
@@ -87,11 +87,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			c7bUBvkc25absYC5ZcK044mAo0I=
+			AJiO/ZJ0kR3FNZv2vS7JqkueaFo=
 			</data>
 			<key>hash2</key>
 			<data>
-			AMhGW7HP6yzICgFDg53qHh/xVv1L5p6SXw7plmw4Zko=
+			UB1S0Cq3INTwGFbsx/8GKwQYAu72VuWXaIZ4uv0ol7g=
 			</data>
 		</dict>
 		<key>Headers/AdswizzWatchSDK.h</key>
@@ -109,11 +109,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nEpIbvpc/ZeFjTmwtfblN15ql3k=
+			yNIPrZoc75n8F7fbAo+ye8JqZfs=
 			</data>
 			<key>hash2</key>
 			<data>
-			BnGUgYW+oZyjTh059i6JA8ijA6jFfDn1XPttQb4FZxY=
+			nzvNA8w4o8LK58q7NIVtOxKTF9rOIc30iwQbmL9U6pE=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm.swiftinterface</key>
@@ -142,11 +142,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DbK5Vdejm3LVgmBbsF4GXpHJA6Q=
+			IF6/lKNMA9RbzN5IX+iEQ82CckM=
 			</data>
 			<key>hash2</key>
 			<data>
-			6oKk6ZJQhtPuGRUsHxkgDkj8hcBdLUMMWBhUAJsuvSw=
+			etrPlP+1EPkhzF6iTM3SVftGYnoMD7OpK0CRsLHRBUc=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32-apple-watchos.swiftinterface</key>
@@ -175,11 +175,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DbK5Vdejm3LVgmBbsF4GXpHJA6Q=
+			IF6/lKNMA9RbzN5IX+iEQ82CckM=
 			</data>
 			<key>hash2</key>
 			<data>
-			6oKk6ZJQhtPuGRUsHxkgDkj8hcBdLUMMWBhUAJsuvSw=
+			etrPlP+1EPkhzF6iTM3SVftGYnoMD7OpK0CRsLHRBUc=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64_32.swiftinterface</key>
@@ -208,11 +208,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nEpIbvpc/ZeFjTmwtfblN15ql3k=
+			yNIPrZoc75n8F7fbAo+ye8JqZfs=
 			</data>
 			<key>hash2</key>
 			<data>
-			BnGUgYW+oZyjTh059i6JA8ijA6jFfDn1XPttQb4FZxY=
+			nzvNA8w4o8LK58q7NIVtOxKTF9rOIc30iwQbmL9U6pE=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k-apple-watchos.swiftinterface</key>
@@ -241,11 +241,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nEpIbvpc/ZeFjTmwtfblN15ql3k=
+			yNIPrZoc75n8F7fbAo+ye8JqZfs=
 			</data>
 			<key>hash2</key>
 			<data>
-			BnGUgYW+oZyjTh059i6JA8ijA6jFfDn1XPttQb4FZxY=
+			nzvNA8w4o8LK58q7NIVtOxKTF9rOIc30iwQbmL9U6pE=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/armv7k.swiftinterface</key>

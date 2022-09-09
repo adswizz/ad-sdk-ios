@@ -279,6 +279,7 @@ public typealias AdManagerOwner = AdManager
   @objc weak final public var player: MediaPlayerState?
   @objc final public func addCachePolicy(_ policy: AdCachePolicy)
   @objc final public var assetQuality: AdAssetQuality
+  @objc final public var preferredMaxBitrate: Swift.UInt64
   @objc final public var videoView: AdVideoView?
   @objc override dynamic public init()
   @objc deinit
@@ -1070,27 +1071,6 @@ extension AdswizzAdPodcastManager {
   @objc var value: Foundation.NSNumber { get }
   @objc var model: Swift.String { get }
   @objc var currency: Swift.String { get }
-}
-public protocol EventUploaderEngineCleanupDelegate : AnyObject {
-  func willClean(events: [CoreData.NSManagedObject])
-}
-public protocol EventUploaderEngineCleanup : AnyObject {
-  func clean()
-  func nextCleanupDate() -> Foundation.Date
-  func resetLastCleanupToNow()
-}
-public class EventCleanup {
-  public init(cleanupInterval: Foundation.TimeInterval, identifier: Swift.String)
-  public func readLastCleanupDate()
-  public func writeLast(cleanupDate: Foundation.Date)
-  public func nextCleanupDate() -> Foundation.Date
-  public func resetLastCleanupToNow()
-  public func cleanupDate() -> Foundation.Date
-  @objc deinit
-}
-public class EventUploaderEngineCleanupScheduler {
-  public init(cleanup: EventUploaderEngineCleanup, accessQueue: Dispatch.DispatchQueue)
-  @objc deinit
 }
 extension AdLogger.Level : Swift.Comparable {
   public static func < (lhs: AdLogger.Level, rhs: AdLogger.Level) -> Swift.Bool

@@ -560,14 +560,16 @@ The **_AdManagerDatasource_** protocol allows your integration to pass your own 
 As a first step, an **_AdManager_** needs to be set up. This will be done by creating an **_AdManagerSettings_** object and pass it to your newly created **_AdManager_** instance. In this object you can specify if you want to play the ad with the SDK’s internal player or use a player of your choice that must conform to the **_MediaPlayerState_** protocol.
 Additionally, you can instruct **_AdManager_** which level of asset quality it should match from the available creatives for an ad. This can be done by setting the appropriate **_AdAssetQuality_** property on your instance of **_AdManagerSettings_**. By default the AdswizzSDK will attempt to select an ad asset which matches the **_.high_** quality.
 You can fine tune it by using the other available quality levels such as **_.medium_** or **_.low_**.
-Setting the quality level to **_.auto_** will let the SDK choose the best asset (in terms of performance and quality) by taking into account optimizations such as network connection (cellular/WiFi).
+Setting the quality level to **_.auto_** will let the SDK choose the best asset (in terms of performance and quality) by taking into account optimizations such as current network connection (cellular/WiFi).
+
+Another option to hint the **_AdManager_** as to which creative it should choose for an ad is to set the **_preferredMaxBitrate_** property on your instance of **_AdManagerSettings_**. By default it is set to 0 which means that the **_AdManager_** will choose a creative based on the **_AdAssetQuality_** property. Setting a non-zero value for **_preferredMaxBitrate_** property means that the **_AdManager_** will select the ad asset creative with the highest bitrate less than or equal to the given value. The given value is measured in bit/s. If no ad asset creative bitrate is less than or equal to the given value, the **_AdManager_** will select the one with the closest bitrate to the given value. Note that by setting a non-zero value, the **_AdManager_** will disregard any quality level you set via **_assetQuality_** property.
 
 **_AdManager_** is also capable of pre-caching the creatives assets for all of its ads before/while actually playing them. This is done by setting the appropriate **_AdCachePolicy_** on your instance of **_AdManagerSettings_**. By default the AdswizzSDK does not (pre-)cache the ads.
 
 Optionally, if you also want to support video rendering (in case of video ads), you will have to set an instance of **_AdVideoView_** to **_videoView_** property on your **_AdManagerSettings_** instance. It does not need to be visible at this point. The actual video rendering is synced with the video ad playback.
 
-Next, you need to call the _.prepare()_ method on the **_AdManager_** object. This will buffer the ads if you decide the play them with the internal player.
-Here is how it looks like.
+Next, you need to call the _.prepare()_ method on the **_AdManager_** object. This will buffer the ads if you decide to play them with the internal player.
+Here is how it looks like:
 
 ```swift
 import AdswizzSDK

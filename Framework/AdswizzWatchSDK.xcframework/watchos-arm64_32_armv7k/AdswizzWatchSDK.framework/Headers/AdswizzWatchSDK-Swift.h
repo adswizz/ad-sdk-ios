@@ -214,20 +214,20 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 enum Level : NSInteger;
 @protocol AASDKAdLoggerDestination;
 
-/// Main logger class for SDK
+/// Main logger class for <code>AdswizzSDK</code>. The destination output conforms to <code>AdLoggerDestination</code> protocol.
 SWIFT_CLASS_NAMED("AdLogger")
 @interface AASDKAdLogger : NSObject
-/// Shared instance for the logger
+/// Shared instance for the logger.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdLogger * _Nonnull shared;)
 + (AASDKAdLogger * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-/// Set the loglevel. By default is none.
+/// Set the log level. By default is <code>none</code>. See <code>Level</code> for possible values.
 @property (nonatomic) enum Level level;
-/// Set the destination for the logger. Default is NSLog.
+/// Set the destination for the logger. Default is <code>NSLog</code>.
 @property (nonatomic, strong) id <AASDKAdLoggerDestination> _Nonnull destination;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-/// Logger level
+/// The <code>AdLogger</code> level type.
 typedef SWIFT_ENUM(NSInteger, Level, open) {
 /// Vebose log level. This is the most verbose. Might print object content.
   LevelVerbose = 0,
@@ -237,7 +237,7 @@ typedef SWIFT_ENUM(NSInteger, Level, open) {
   LevelInfo = 2,
 /// Error log level. This is the most critical
   LevelError = 3,
-/// This logs nothing.
+/// This option doesn’t log anything.
   LevelNone = 4,
 };
 
@@ -246,10 +246,10 @@ typedef SWIFT_ENUM(NSInteger, Level, open) {
 @class NSString;
 @class NSNumber;
 
-/// Write a custom destination for the logger. Default destination is NSLog.
+/// Write a custom destination for the logger. Default destination is <code>NSLog</code>.
 SWIFT_PROTOCOL_NAMED("AdLoggerDestination")
 @protocol AASDKAdLoggerDestination
-/// Called when there is something to log from
+/// Called when there is something to log from.
 /// \param level log level
 ///
 /// \param functionName name of the function where the call occured
@@ -573,20 +573,20 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 enum Level : NSInteger;
 @protocol AASDKAdLoggerDestination;
 
-/// Main logger class for SDK
+/// Main logger class for <code>AdswizzSDK</code>. The destination output conforms to <code>AdLoggerDestination</code> protocol.
 SWIFT_CLASS_NAMED("AdLogger")
 @interface AASDKAdLogger : NSObject
-/// Shared instance for the logger
+/// Shared instance for the logger.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdLogger * _Nonnull shared;)
 + (AASDKAdLogger * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-/// Set the loglevel. By default is none.
+/// Set the log level. By default is <code>none</code>. See <code>Level</code> for possible values.
 @property (nonatomic) enum Level level;
-/// Set the destination for the logger. Default is NSLog.
+/// Set the destination for the logger. Default is <code>NSLog</code>.
 @property (nonatomic, strong) id <AASDKAdLoggerDestination> _Nonnull destination;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-/// Logger level
+/// The <code>AdLogger</code> level type.
 typedef SWIFT_ENUM(NSInteger, Level, open) {
 /// Vebose log level. This is the most verbose. Might print object content.
   LevelVerbose = 0,
@@ -596,7 +596,7 @@ typedef SWIFT_ENUM(NSInteger, Level, open) {
   LevelInfo = 2,
 /// Error log level. This is the most critical
   LevelError = 3,
-/// This logs nothing.
+/// This option doesn’t log anything.
   LevelNone = 4,
 };
 
@@ -605,10 +605,10 @@ typedef SWIFT_ENUM(NSInteger, Level, open) {
 @class NSString;
 @class NSNumber;
 
-/// Write a custom destination for the logger. Default destination is NSLog.
+/// Write a custom destination for the logger. Default destination is <code>NSLog</code>.
 SWIFT_PROTOCOL_NAMED("AdLoggerDestination")
 @protocol AASDKAdLoggerDestination
-/// Called when there is something to log from
+/// Called when there is something to log from.
 /// \param level log level
 ///
 /// \param functionName name of the function where the call occured
