@@ -14,7 +14,8 @@ extension Model: AdStreamManagerDelegate {
     func adStreamManager(_ adstreamManager: AdStreamManager, willStartPlaying url: URL) {
         print("Received ad stream manager event: willStartPlaying -> \(url)")
         if isUsingExternalPlayer {
-            player.play(with: url)
+            player.prepare(with: url)
+            player.play()
         }
     }
     
@@ -37,7 +38,7 @@ extension Model: AdStreamManagerDelegate {
     }
 
     func adStreamManager(_ adstreamManager: AdStreamManager, stateChanged state: MediaPlayerStatus) {
-        print("Received ad stream manager event: stateChanged -> \(state)")
+        print("Received ad stream manager event: stateChanged -> \(state.toString)")
     }
         
     func adStreamManager(_ adstreamManager: AdStreamManager, metadataChanged metadata: [AVMetadataItem]) {
@@ -54,5 +55,23 @@ extension Model: AdStreamManagerDelegate {
     
     func adStreamManagerPlayerShouldResume(_ adstreamManager: AdStreamManager) {
         print("Received ad stream manager event: playerShouldResume")
+    }
+}
+
+extension MediaPlayerStatus {
+    var toString: String {
+        switch self {
+        case .initialized: return "initialized"
+        case .buffering: return "buffering"
+        case .bufferingFinished: return "bufferingFinished"
+        case .readyToPlay: return "readyToPlay"
+        case .playing: return "playing"
+        case .paused: return "paused"
+        case .finished: return "finished"
+        case .failed: return "failed"
+        case .unknown: return "unknown"
+        @unknown default:
+            return "unknown"
+        }
     }
 }

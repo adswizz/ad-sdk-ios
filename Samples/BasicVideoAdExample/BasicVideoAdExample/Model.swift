@@ -14,7 +14,7 @@ enum SkipState {
     case active
 }
 
-protocol ModelAdDelegate: class {
+protocol ModelAdDelegate: AnyObject {
     // loading ads
     func model(_ model: Model, didStartLoading adType: AdType)
     // playback ads
@@ -30,15 +30,21 @@ protocol ModelAdDelegate: class {
     func model(_ model: Model, adIndexChanged index: Int)
 }
 
-protocol ModelAdDatasource: class {
+protocol ModelAdDatasource: AnyObject {
     func modelAdVideoViewProvider(_ model: Model) -> AdVideoView
+}
+
+protocol ModelAdExternalPlayer: AnyObject {
+    func shouldUseExternalPlayer(_ model: Model) -> Bool
+    func disableInteractionPlayer(_ value: Bool)
 }
 
 class Model {
     var adManager: AdManager?
     var adConnection: AdRequestConnection?
+    var externalPlayer = ExternalMediaPlayer()
     // These 2 zones should serve one video ad and one audio ad
-    let zoneIds: [String] = ["14756", "12561"]
+    let zoneIds: [String] = ["17161", "13381"]
     let adServer: String = "demo.deliveryengine.adswizz.com"
     // Let's mock the skippOffset for an ad. Normally this value would be part of the AdData for an ad.
     let skipOffset: NSNumber = NSNumber(floatLiteral: 5)
@@ -50,6 +56,7 @@ class Model {
     
     weak var adDatasource: ModelAdDatasource?
     weak var adDelegate: ModelAdDelegate?
+    weak var externalPlayerDelegate: ModelAdExternalPlayer?
     
     var adCountText: String {
         return "\(currentAdIndex)/\(adManager?.adCount ?? 0) ads"
@@ -59,6 +66,10 @@ class Model {
         return "totalAdsDuration: \(adManager?.totalAdsDuration ?? 0) seconds"
     }
 
+    var shouldUseExternalPlayer: Bool {
+        return externalPlayerDelegate?.shouldUseExternalPlayer(self) == true
+    }
+    
     func requestAds() throws {
         // Cancel current connection if running
         adConnection?.cancel()
@@ -95,6 +106,11 @@ class Model {
                 // Keep a strong ref to adManager
                 self?.adManager = adManager
                 adManager?.delegate = self
+                
+                if self?.shouldUseExternalPlayer == true {
+                    settings.player = self?.externalPlayer
+                }
+
                 adManager?.adManagerSettings = settings
                 
                 // Prepare

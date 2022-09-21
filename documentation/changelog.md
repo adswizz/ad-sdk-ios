@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.8] - 2022-09-21
+### Changed
+- Podcasting:
+    - the ability to disable client side reporting (impressions and quartile tracking urls)
+
+### Fixed
+- Improved all examples from Samples by refactoring the UI code to storyboards and to include external player usage
+
 ## [7.7.7] - 2022-09-09
 ### Added
 - New public member in **_AdManagerSettings_**: 

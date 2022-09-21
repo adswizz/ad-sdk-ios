@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		646B904D2887FA1B00AB92A3 /* ExternalMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B904C2887FA1B00AB92A3 /* ExternalMediaPlayer.swift */; };
+		646B904F2887FA4800AB92A3 /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B904E2887FA4800AB92A3 /* Bundle+Version.swift */; };
+		646B90552887FB7A00AB92A3 /* ViewController+InteractiveAdManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B90542887FB7A00AB92A3 /* ViewController+InteractiveAdManagerDelegate.swift */; };
+		646B90572888009A00AB92A3 /* AdswizzSDKConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 646B90562888009A00AB92A3 /* AdswizzSDKConfig.plist */; };
 		AE5EB9D4240FAB0A00ECAEF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EB9D3240FAB0A00ECAEF7 /* AppDelegate.swift */; };
 		AE5EB9D6240FAB0A00ECAEF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EB9D5240FAB0A00ECAEF7 /* SceneDelegate.swift */; };
 		AE5EB9DB240FAB0A00ECAEF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EB9D9240FAB0A00ECAEF7 /* Main.storyboard */; };
@@ -98,6 +102,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		646B904C2887FA1B00AB92A3 /* ExternalMediaPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExternalMediaPlayer.swift; path = ../../BasicAdStreamExample/BasicAdStreamExample/ExternalMediaPlayer.swift; sourceTree = "<group>"; };
+		646B904E2887FA4800AB92A3 /* Bundle+Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bundle+Version.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/Bundle+Version.swift"; sourceTree = "<group>"; };
+		646B90542887FB7A00AB92A3 /* ViewController+InteractiveAdManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+InteractiveAdManagerDelegate.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/ViewController+InteractiveAdManagerDelegate.swift"; sourceTree = "<group>"; };
+		646B90562888009A00AB92A3 /* AdswizzSDKConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AdswizzSDKConfig.plist; path = ../../BasicAdRequestExample/BasicAdRequestExample/AdswizzSDKConfig.plist; sourceTree = "<group>"; };
 		AE5EB9D0240FAB0A00ECAEF7 /* BasicAdRequestWatchExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicAdRequestWatchExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5EB9D3240FAB0A00ECAEF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE5EB9D5240FAB0A00ECAEF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,7 +221,7 @@
 		AE5EB9D2240FAB0A00ECAEF7 /* BasicAdRequestWatchExample */ = {
 			isa = PBXGroup;
 			children = (
-				CC9A8414285B3870006AF21D /* ViewController+InteractiveAdManagerDelegate.swift */,
+				646B90562888009A00AB92A3 /* AdswizzSDKConfig.plist */,
 				CC9A8412285B377E006AF21D /* ViewController+Extra.swift */,
 				CC9A840C285B3640006AF21D /* Bundle+Version.swift */,
 				AE5EB9D3240FAB0A00ECAEF7 /* AppDelegate.swift */,
@@ -226,8 +234,11 @@
 				AE5EBA2D240FBDDE00ECAEF7 /* ViewController+AdCompanionViewDelegate.swift */,
 				AE5EBA2F240FBDDF00ECAEF7 /* ViewController+AdManagerDelegate.swift */,
 				AE6275BC25C19F2300B09304 /* ViewController+AdManagerDatasource.swift */,
+				646B90542887FB7A00AB92A3 /* ViewController+InteractiveAdManagerDelegate.swift */,
 				AE5EBA4424113C9900ECAEF7 /* ViewController+NowPlaying.swift */,
 				AE5EBA39240FE29A00ECAEF7 /* SessionDelegate.swift */,
+				646B904E2887FA4800AB92A3 /* Bundle+Version.swift */,
+				646B904C2887FA1B00AB92A3 /* ExternalMediaPlayer.swift */,
 				AE5EBA4224113BBD00ECAEF7 /* NowPlayableMetadata.swift */,
 				AE5EBA54241159C600ECAEF7 /* WatchSupport.swift */,
 				AE5EB9D9240FAB0A00ECAEF7 /* Main.storyboard */,
@@ -429,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE5EB9E0240FAB0C00ECAEF7 /* LaunchScreen.storyboard in Resources */,
+				646B90572888009A00AB92A3 /* AdswizzSDKConfig.plist in Resources */,
 				AE5EB9DD240FAB0C00ECAEF7 /* Assets.xcassets in Resources */,
 				AE5EB9DB240FAB0A00ECAEF7 /* Main.storyboard in Resources */,
 				AE5EBA33240FBDDF00ECAEF7 /* content_example.mp3 in Resources */,
@@ -482,13 +494,15 @@
 				AE5EBA4524113C9900ECAEF7 /* ViewController+NowPlaying.swift in Sources */,
 				AE5EBA30240FBDDF00ECAEF7 /* ViewController.swift in Sources */,
 				AE5EB9D4240FAB0A00ECAEF7 /* AppDelegate.swift in Sources */,
+				646B904F2887FA4800AB92A3 /* Bundle+Version.swift in Sources */,
 				AE5EBA4324113BBD00ECAEF7 /* NowPlayableMetadata.swift in Sources */,
 				AE5EBA32240FBDDF00ECAEF7 /* ViewController+AdCompanionViewDelegate.swift in Sources */,
 				AE5EB9D6240FAB0A00ECAEF7 /* SceneDelegate.swift in Sources */,
+				646B904D2887FA1B00AB92A3 /* ExternalMediaPlayer.swift in Sources */,
 				AE5EBA31240FBDDF00ECAEF7 /* UIWindow+SafeArea.swift in Sources */,
 				AE5EBA492411457200ECAEF7 /* ViewControllerModel.swift in Sources */,
 				AE5EBA3A240FE29A00ECAEF7 /* SessionDelegate.swift in Sources */,
-				CC9A8415285B3870006AF21D /* ViewController+InteractiveAdManagerDelegate.swift in Sources */,
+				646B90552887FB7A00AB92A3 /* ViewController+InteractiveAdManagerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

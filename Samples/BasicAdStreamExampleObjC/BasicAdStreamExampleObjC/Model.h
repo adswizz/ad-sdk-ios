@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger, PlayerState) {
 
 @interface Model : NSObject
 
+@property(nonatomic, readwrite) BOOL isUsingExternalPlayer;
 @property(nonatomic, assign, readonly) PlayerState state;
 @property (nonatomic, weak) id <ModelStreamingDelegate> streamDelegate;
 @property (nonatomic, weak) id <ModelAdBreakDelegate> adBreakDelegate;

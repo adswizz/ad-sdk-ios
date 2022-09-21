@@ -16,8 +16,8 @@ struct BannerAdExampleView: View {
             
             AdswizzAdCompanionView()
                 .frame(maxWidth: 400, maxHeight: 400)
-                .background(Color.blue)
-                .cornerRadius(100)
+                .background(Color.blue.opacity(0.5))
+                .cornerRadius(10)
             
             Button {
                 if modelView.isPlaying {

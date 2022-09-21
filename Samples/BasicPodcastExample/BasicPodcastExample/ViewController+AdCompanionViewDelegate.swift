@@ -11,6 +11,7 @@ import AdswizzSDK
 extension ViewController: AdCompanionViewDelegate {
     func adCompanionViewWillLoad(_ adCompanionView: AdCompanionView) {
         print("Received companion event: willLoadAd")
+        companionViewLabel.isHidden = true
     }
     
     func adCompanionViewDidDisplay(_ adCompanionView: AdCompanionView) {
@@ -23,6 +24,7 @@ extension ViewController: AdCompanionViewDelegate {
     
     func adCompanionViewDidEndDisplay(_ adCompanionView: AdCompanionView) {
         print("Received companion event: didEndDisplay")
+        companionViewLabel.isHidden = false
     }
     
     func adCompanionView(_ adCompanionView: AdCompanionView, shouldOverrideCompanionClickThrough url: URL) -> Bool {

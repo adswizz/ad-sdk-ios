@@ -10,13 +10,13 @@
 #import "AppDelegate.h"
 #import "UIWindow+SafeArea.h"
 #import "NSBundle+Version.h"
+#import "ExternalMediaPlayerObjC.h"
 
 #import <AdswizzSDK/AdswizzSDK.h>
 #import <AVFoundation/AVFoundation.h>
 
 // Private interface
 @interface ViewController () <AASDKAdManagerDelegate, AASDKAdCompanionViewDelegate>
-
 // Ads
 @property (nonatomic, strong) id<AASDKAdManager> adManager;
 @property (nonatomic, strong) AASDKAdRequestConnection *adConnection;
@@ -25,12 +25,14 @@
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic) Boolean isPlaying;
+@property (nonatomic, strong) ExternalMediaPlayerObjC* externalPlayer;
 
 // Views
-@property (nonatomic, strong) UIToolbar *toolbar;
-@property (nonatomic, strong) UILabel *statusLabel;
-@property (nonatomic, strong) UILabel *playedTimeLabel;
-@property (nonatomic, strong) AASDKAdCompanionView *companionView;
+@property (nonatomic, strong) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, strong) IBOutlet UILabel *statusLabel;
+@property (nonatomic, strong) IBOutlet UILabel *playedTimeLabel;
+@property (nonatomic, strong) IBOutlet AASDKAdCompanionView *companionView;
+@property (nonatomic, strong) IBOutlet UISwitch* externalPlayerSwitch;
 
 @end
 
@@ -41,65 +43,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = [NSString stringWithFormat:@"%@ - AdsWizz SDK v%@", @"Request ads", [[NSBundle bundleForClass:[AASDKAdRequest class]] version]];
-    
-    // Toolbar
-    self.toolbar = [UIToolbar new];
-    self.toolbar.translatesAutoresizingMaskIntoConstraints = NO;
-    self.toolbar.barStyle = UIBarStyleDefault;
-    
-    UIBarButtonItem *requestAdsItem = [[UIBarButtonItem alloc] initWithTitle:@"Request ad(s)"
-                                                                       style:UIBarButtonItemStylePlain
-                                                                      target:self
-                                                                      action:@selector(requestAds)];
-    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                            target:nil
-                                                                            action: nil];
-    
-    UIBarButtonItem *skipAdsItem = [[UIBarButtonItem alloc] initWithTitle:@"Skip ad"
-                                                                    style:UIBarButtonItemStylePlain
-                                                                   target:self
-                                                                   action:@selector(skipAds)];
-    self.toolbar.items = @[requestAdsItem, spacer, skipAdsItem];
 
-    // Status
-    self.statusLabel = [UILabel new];
-    self.statusLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.statusLabel.backgroundColor = [UIColor clearColor];
-    self.statusLabel.font = [UIFont systemFontOfSize:18.0];
-    self.statusLabel.textColor = [UIColor blackColor];
-    self.statusLabel.textAlignment = NSTextAlignmentCenter;
-    self.statusLabel.adjustsFontForContentSizeCategory = YES;
-    self.statusLabel.adjustsFontSizeToFitWidth = YES;
-
-    // Played time
-    self.playedTimeLabel = [UILabel new];
-    self.playedTimeLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.playedTimeLabel.backgroundColor = [UIColor clearColor];
-    self.playedTimeLabel.font = [UIFont systemFontOfSize:20.0];
-    self.playedTimeLabel.textColor = [UIColor blackColor];
-    self.playedTimeLabel.textAlignment = NSTextAlignmentCenter;
-    self.playedTimeLabel.adjustsFontForContentSizeCategory = YES;
-    self.playedTimeLabel.adjustsFontSizeToFitWidth = YES;
-    
-    // Companion ad view
-    self.companionView = [AASDKAdCompanionView new];
-    self.companionView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.companionView.backgroundColor = [UIColor clearColor];
     self.companionView.delegate = self;
-    
-    [self.view addSubview:self.toolbar];
-    [self.view addSubview:self.statusLabel];
-    [self.view addSubview:self.playedTimeLabel];
-    
-    CGFloat top = [((AppDelegate *)([UIApplication sharedApplication].delegate)).window safeAreaTop];
-    CGFloat bottom = [((AppDelegate *)([UIApplication sharedApplication].delegate)).window safeAreaBottom];
-    NSDictionary *views = @{@"time": self.playedTimeLabel, @"status": self.statusLabel, @"bar": self.toolbar};
-    NSDictionary *metrics = @{@"side": @(20.0), @"top": @(MAX(20.0, top)), @"bottom": @(bottom)};
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-side-[time]-side-|" options:0 metrics:metrics views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-side-[status]-side-|" options:0 metrics:metrics views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[bar]-0-|" options:0 metrics:metrics views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-top-[time]-[status]-(>=0)-[bar]-bottom-|" options:0 metrics:metrics views:views]];
+    self.externalPlayer = [[ExternalMediaPlayerObjC alloc] init];
     
     // Prepare content playback
     NSString *path = [[NSBundle mainBundle] pathForResource:@"content_example" ofType:@"mp3"];
@@ -126,7 +72,11 @@
 
 #pragma mark - Ad(s) request
 
-- (void)requestAds {
+- (IBAction)switchValueChanged:(UISwitch*) toggle {
+    
+}
+
+- (IBAction)requestAds {
     NSError *error;
     AASDKAdswizzAdZone *adZone = [[[AASDKAdswizzAdZoneBuilder new] withZoneId:@"12561"] buildAndReturnError:&error];
     if (error) {
@@ -158,6 +108,11 @@
             self.adManager = manager;
             manager.delegate = self;
             
+            if (self.externalPlayerSwitch.isOn) {
+                AASDKAdManagerSettings* settings = [[AASDKAdManagerSettings alloc] init];
+                settings.player = self.externalPlayer;
+                manager.adManagerSettings = settings;
+            }
             // Prepare
             [manager prepare];
         }
@@ -165,7 +120,7 @@
     }];
 }
 
-- (void)skipAds {
+- (IBAction)skipAds {
     [self.adManager skipAd];
 }
 
@@ -226,8 +181,25 @@
     NSLog(@"ad manager: %@ -- triggered ad event: %@", adManager, event.stringEvent);
     
     switch (event.event) {
+        case AASDKAdEventTypePreparingForPlay:
+        {
+            if (self.externalPlayerSwitch.isOn) {
+                [self.externalPlayerSwitch setUserInteractionEnabled: NO];
+                [self pauseContent];
+                NSURL* url = [[NSURL alloc] initWithString: event.ad.asset.mediaUrl];
+                if (url != NULL) {
+                    [self.externalPlayer play: url];
+                }
+            }
+        }
+        break;
+            
         case AASDKAdEventTypeReadyForPlay:
         {
+            if (self.externalPlayerSwitch.isOn) {
+                return;
+            }
+            [self.externalPlayerSwitch setUserInteractionEnabled: NO];
             // Ad manager finished loading ad(s)
             // Before playing the ads you should pause your own content
             [self pauseContent];
@@ -238,37 +210,6 @@
         }
         case AASDKAdEventTypeDidStartPlaying:
         {
-            // Ad manager started playing the ad(s)
-            // Show a companion ad which will automatically be synced with the ad
-            [self.view addSubview:self.companionView];
-            
-            NSDictionary *views = @{@"view": self.companionView};
-            NSDictionary *metrics = @{};
-            [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[view]-0-|" options:0 metrics:metrics views:views]];
-            [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0@900-[view]-0@900-|" options:0 metrics:metrics views:views]];
-            
-            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.companionView
-                                                                      attribute:NSLayoutAttributeHeight
-                                                                      relatedBy:NSLayoutRelationEqual
-                                                                         toItem:self.companionView
-                                                                      attribute:NSLayoutAttributeWidth
-                                                                     multiplier:1.0
-                                                                       constant:0];
-            NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:self.companionView
-                                                                       attribute:NSLayoutAttributeCenterX
-                                                                       relatedBy:NSLayoutRelationEqual
-                                                                          toItem:self.view
-                                                                       attribute:NSLayoutAttributeCenterX
-                                                                      multiplier:1.0
-                                                                        constant:0];
-            NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:self.companionView
-                                                                       attribute:NSLayoutAttributeCenterY
-                                                                       relatedBy:NSLayoutRelationEqual
-                                                                          toItem:self.view
-                                                                       attribute:NSLayoutAttributeCenterY
-                                                                      multiplier:1.0
-                                                                        constant:0];
-            [self.view addConstraints:@[centerX, centerY, height]];
             break;
         }
         case AASDKAdEventTypeDidFinishPlaying:
@@ -281,6 +222,8 @@
             
             // Cleanup
             self.adManager = nil;
+            [self.externalPlayer stop];
+            [self.externalPlayerSwitch setUserInteractionEnabled: YES];
             break;
         }
         default:

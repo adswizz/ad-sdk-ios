@@ -9,12 +9,12 @@
 import Foundation
 import AdswizzSDK
 
-protocol ModelAdBreakDelegate: class {
+protocol ModelAdBreakDelegate: AnyObject {
     func modelDidStartAdBreak(_ model: Model)
     func modelDidEndAdBreak(_ model: Model)
 }
 
-protocol ModelStreamingDelegate: class {
+protocol ModelStreamingDelegate: AnyObject {
     func modelDidStartStreaming(_ model: Model)
     func modelDidStopStreaming(_ model: Model)
     func modelDidPauseStreaming(_ model: Model)
@@ -86,7 +86,7 @@ class Model {
     
     func resume() {
         if isUsingExternalPlayer {
-            player.resume()
+            player.play()
         } else {
             streamManager?.resume()
         }

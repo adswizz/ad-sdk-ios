@@ -24,92 +24,34 @@ class ViewController: UIViewController {
         return view
     }()
     
-    // Trigger request ads / stop ads button
-    lazy var actionButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor.clear
-        button.titleLabel?.font = .boldSystemFont(ofSize: 17)
-        button.setTitle("Request ads", for: .normal)
-        button.setTitle("Stop ads", for: .selected)
-        button.tintColor = .white
-        button.addTarget(self, action: #selector(actionButonTapped), for: .touchUpInside)
-        
-        let insets = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
-        button.setBackgroundImage(UIImage.from(color: UIColor.blue.withAlphaComponent(0.5)).resizableImage(withCapInsets: insets), for: .normal)
-        button.setBackgroundImage(UIImage.from(color: UIColor.blue.withAlphaComponent(0.4)).resizableImage(withCapInsets: insets), for: .highlighted)
-        button.contentVerticalAlignment = .top
-        button.titleEdgeInsets.top = 15
-        
-        return button
-    }()
-    
-    // Shows the ad count
-    lazy var adCountLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clear
-        label.font = .boldSystemFont(ofSize: 17)
-        label.textColor = .black
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // Shows the total ads duration
-    lazy var totalAdsDurationLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clear
-        label.font = .boldSystemFont(ofSize: 17)
-        label.textColor = .black
-        label.textAlignment = .center
-        return label
-    }()
+    @IBOutlet var actionButton: UIButton!
+    @IBOutlet var adCountLabel: UILabel!
+    @IBOutlet var totalAdsDurationLabel: UILabel!
+    @IBOutlet var externalPlayerSwitch: UISwitch!
 
     // Model for ads setup
     lazy var model: Model = {
         let model = Model()
         model.adDatasource = self
         model.adDelegate = self
+        model.externalPlayerDelegate = self
         return model
     }()
     
     // Internal
-    private let actionButtonBaseHeight: CGFloat = 54.0
-    private var actionButtonHeightConstraint: NSLayoutConstraint?
     var skipState: SkipState = .initial
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Video ads"  + " - AdsWizz SDK v" + Bundle(for: AdswizzAdRequest.self).version
-        
-        view.addSubview(actionButton)
-        view.addSubview(adCountLabel)
-        view.addSubview(totalAdsDurationLabel)
-        
-        // Add action button constraints
-        let heightConstraint = actionButton.heightAnchor.constraint(equalToConstant: actionButtonBaseHeight + view.safeAreaInsets.bottom)
-        actionButtonHeightConstraint = heightConstraint
-        NSLayoutConstraint.activate([
-            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            adCountLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            adCountLabel.bottomAnchor.constraint(equalTo: totalAdsDurationLabel.topAnchor, constant: -11),
-            totalAdsDurationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            totalAdsDurationLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -11),
-            heightConstraint
-        ])
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        actionButtonHeightConstraint?.constant = actionButtonBaseHeight + view.safeAreaInsets.bottom/2
+
+        actionButton.setTitle("Request ads", for: .normal)
+        actionButton.setTitle("Stop ads", for: .selected)
     }
 }
 
 extension ViewController {
-    @objc func actionButonTapped() {
+    @IBAction func actionButonTapped() {
         let selected = actionButton.isSelected
         if selected {
             model.stop()
@@ -122,6 +64,15 @@ extension ViewController {
             }
         }
         actionButton.isSelected = !selected
+    }
+}
+
+extension ViewController: ModelAdExternalPlayer {
+    func shouldUseExternalPlayer(_ model: Model) -> Bool {
+        return externalPlayerSwitch.isOn
+    }
+    func disableInteractionPlayer(_ value: Bool) {
+        externalPlayerSwitch.isUserInteractionEnabled = !value
     }
 }
 

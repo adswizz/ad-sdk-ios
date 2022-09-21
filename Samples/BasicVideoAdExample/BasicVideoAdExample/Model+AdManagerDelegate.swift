@@ -23,13 +23,30 @@ extension Model: AdManagerDelegate {
             
             // Advance ad index
             currentAdIndex += 1
-
+            
+            guard
+                let mediaFile = event.ad?.asset.mediaUrl,
+                let mediaFileURL = URL(string: mediaFile)
+                else {
+                     print("Could not build the url for ad media!")
+                     return
+                 }
+            self.externalPlayerDelegate?.disableInteractionPlayer(true)
+            if self.shouldUseExternalPlayer {
+                externalPlayer.prepare(with: mediaFileURL)
+            }
+            
         case .readyForPlay:
             // Ad manager finished loading current ad
             // Before playing the ad you should pause your own content if any.
             
-            // Start playing ad(s)
-            self.adManager?.play()
+            if self.shouldUseExternalPlayer {
+                externalPlayer.play()
+            } else {
+                self.externalPlayerDelegate?.disableInteractionPlayer(true)
+                // Start playing ad(s)
+                self.adManager?.play()
+            }
             
         case .didStartPlaying:
             // Ad manager started playing current ad
@@ -49,7 +66,8 @@ extension Model: AdManagerDelegate {
             
             // Reset ad index
             currentAdIndex = 0
-
+            externalPlayer.stop()
+            self.externalPlayerDelegate?.disableInteractionPlayer(false)
         default:
             break
         }

@@ -7,11 +7,14 @@
 //
 
 #import "Model.h"
+#import <AVFoundation/AVFoundation.h>
+#import "ExternalMediaPlayerObjC.h"
 
 @interface Model () <AASDKAdManagerDelegate, AASDKInteractiveAdManagerDelegate, AASDKAdStreamManagerDelegate>
 
 @property(nonatomic, strong) NSURL *url;
 @property(nonatomic, copy) NSString *adServer;
+@property(nonatomic, strong) ExternalMediaPlayerObjC *externalPlayer;
 @property(nonatomic, readwrite) PlayerState state;
 @property (nonatomic, strong) id<AASDKAdManager> adBreakManager;
 @property(nonatomic, strong) AASDKAdswizzAdStreamManager *streamManager;
@@ -23,6 +26,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.externalPlayer = [[ExternalMediaPlayerObjC alloc] init];
+        self.isUsingExternalPlayer = YES;
         self.state = PlayerStateStopped;
         self.adServer = @"demo.deliveryengine.adswizz.com";
         self.url = [NSURL URLWithString:@"http://sdk.mobile.streaming.adswizz.com:8500/shakeDemo"];
@@ -42,6 +47,13 @@
     
     BOOL canPlay = [self preparePlay];
     
+    if (self.isUsingExternalPlayer) {
+        NSLog(@"Playing with external player");
+        AASDKAdStreamManagerSettings* settings = [[AASDKAdStreamManagerSettings alloc] init];
+        settings.player = self.externalPlayer;
+        self.streamManager.adStreamManagerSettings = settings;
+    }
+    
     NSError *error = nil;
     [self.streamManager playWith:self.url error:&error];
     self.state = PlayerStatePlaying;
@@ -50,7 +62,11 @@
 }
 
 - (void)stop:(BOOL)callDelegate {
-    [self.streamManager stop];
+    if (self.isUsingExternalPlayer) {
+        [self.externalPlayer stop];
+    } else { // Calling stop for isUsingExternalPlayer doesn't have any effect, only needed for internal player
+        [self.streamManager stop];
+    }
     self.streamManager.delegate = nil;
     self.streamManager = nil;
     self.state = PlayerStateStopped;
@@ -60,13 +76,21 @@
 }
 
 - (void)pause {
-    [self.streamManager pause];
+    if (self.isUsingExternalPlayer) {
+        [self.externalPlayer pause];
+    } else { // Calling stop for isUsingExternalPlayer doesn't have any effect, only needed for internal player
+        [self.streamManager pause];
+    }
     self.state = PlayerStatePaused;
     [self.streamDelegate modelDidPauseStreaming:self];
 }
 
 - (void)resume {
-    [self.streamManager resume];
+    if (self.isUsingExternalPlayer) {
+        [self.externalPlayer pause];
+    } else { // Calling stop for isUsingExternalPlayer doesn't have any effect, only needed for internal player
+        [self.streamManager resume];
+    }
     self.state = PlayerStatePlaying;
     [self.streamDelegate modelDidResumeStreaming:self];
 }
@@ -132,6 +156,9 @@
 
 - (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager willStartPlaying:(NSURL * _Nonnull)url {
     NSLog(@"ad stream manager: %@ -- received willStartPlaying: %@", adstreamManager, url);
+    if (self.isUsingExternalPlayer) {
+        [self.externalPlayer play: url];
+    }
 }
 
 - (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager adBreakStarted:(id <AASDKAdManager> _Nonnull)manager {

@@ -17,8 +17,8 @@ struct InAppNotificationAdExampleView: View {
             
             AdswizzAdCompanionView()
                 .frame(maxWidth: 400, maxHeight: 400)
-                .background(Color.red)
-                .cornerRadius(100)
+                .background(Color.green.opacity(0.5))
+                .cornerRadius(10)
             
             Button {
                 if modelView.isPlaying {

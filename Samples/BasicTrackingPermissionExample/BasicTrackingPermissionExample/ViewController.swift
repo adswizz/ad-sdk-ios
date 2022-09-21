@@ -10,24 +10,15 @@ import AdswizzSDK
 
 class ViewController: UIViewController {
     var trackingController: TrackingPermissionController?
+    @IBOutlet var button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Show tracking controller", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 17)
-        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        
-        view.addSubview(button)
-        NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
     }
     
-    @objc func didTapButton() {
+    @IBAction func didTapButton() {
         if TrackingPermissionController.canPresentController() {
             trackingController = TrackingPermissionController.trackingController(title: "Tired of hearing irrelevant ads?", headerImage: customLogo)
             trackingController?.delegate = self

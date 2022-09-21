@@ -15,6 +15,10 @@ extension ViewController: AdPodcastManagerDelegate {
     
     func adPodcastManager(_ adPodcastManager: AdPodcastManager, willStartPlaying url: URL) {
         print("Will play podcast at \(url)")
+        if externalPlayerSwitch.isOn {
+            currentPodcastManager()?.prepareExternalPlayer(url: url)
+            currentPodcastManager()?.playExternalPlayer()
+        }
     }
     
     func adPodcastManager(_ adPodcastManager: AdPodcastManager, didReceive manager: AdManager) {
@@ -51,7 +55,10 @@ extension ViewController: AdPodcastManagerDelegate {
         
     }
     
+    //called when AdswizzSDK expects your player to skip the podcast playhead to the suggested `time`.
+    //this can happen if for example the ad was skipped so the playhead needs to seek forward.
+    //note that your player implementation needs to call the completion block back to the SDK after the seek operation is completed.
     func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval, completion: @escaping () -> Void) {
-        
+        currentPodcastManager()?.externalPlayerSeek(to: time, completion: completion)
     }
 }

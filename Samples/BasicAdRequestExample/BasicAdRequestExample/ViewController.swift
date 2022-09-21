@@ -20,10 +20,12 @@ class ViewController: UIViewController {
     @IBOutlet var zoneID: UILabel!
     @IBOutlet var companionZones: UILabel!
     @IBOutlet var modelDescription: UILabel!
+    @IBOutlet var externalPlayerSwitch: UISwitch!
     
     var adManager: AdManager?
     var adConnection: AdRequestConnection?
     
+    var externalPlayer = ExternalMediaPlayer()
     var audioPlayer = AVAudioPlayer()
     var isPlaying = false
     var timer:Timer!
@@ -141,24 +143,30 @@ extension ViewController {
                 .with(companionZones: companionZones)
                 .build()
             adConnection = try AdRequestConnection(for: adRequest)
-            adConnection?.requestAds { adManager, error in
+            adConnection?.requestAds { [weak self] adManager, error in
                 if let error = error {
                     print("Ad request connection failed to retrieve ads with error = \(error)")
                 } else {
                     // Keep a strong ref to adManager
-                    self.adManager = adManager
+                    self?.adManager = adManager
                     adManager?.delegate = self
                     adManager?.datasource = self
                     adManager?.interactiveDelegate = self
+                    
+                    if self?.externalPlayerSwitch.isOn == true {
+                        let settings = AdManagerSettings()
+                        settings.player = self?.externalPlayer
+                        adManager?.adManagerSettings = settings
+                    }
                     
                     // Prepare
                     adManager?.prepare()
                     
                     // Cleanup
-                    self.adConnection = nil
+                    self?.adConnection = nil
                     
                     // Send watch message
-                    self.model?.watchSupport?.sendMessage(.playingAds)
+                    self?.model?.watchSupport?.sendMessage(.playingAds)
                 }
             }
         } catch {

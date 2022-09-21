@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE32E4AD288B0657005F1D63 /* ExternalMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64961B9D2886DC5D0057FD29 /* ExternalMediaPlayer.swift */; };
 		AE5193CE23F3F7600083D87B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5193CD23F3F7600083D87B /* AppDelegate.swift */; };
 		AE5193D023F3F7600083D87B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5193CF23F3F7600083D87B /* SceneDelegate.swift */; };
 		AE5193D523F3F7600083D87B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5193D323F3F7600083D87B /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64961B9D2886DC5D0057FD29 /* ExternalMediaPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExternalMediaPlayer.swift; path = ../../BasicAdStreamExample/BasicAdStreamExample/ExternalMediaPlayer.swift; sourceTree = "<group>"; };
 		AE5193CA23F3F7600083D87B /* BasicAdRequestExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicAdRequestExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5193CD23F3F7600083D87B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE5193CF23F3F7600083D87B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				AE51944123F40B020083D87B /* UIWindow+SafeArea.swift */,
 				C240E84D271F2C1100F76853 /* Bundle+Version.swift */,
 				AE51944623F410850083D87B /* ViewController.swift */,
+				64961B9D2886DC5D0057FD29 /* ExternalMediaPlayer.swift */,
 				AE5EBA46241144FE00ECAEF7 /* ViewControllerModel.swift */,
 				AE5EBA4C24114A4600ECAEF7 /* ViewController+Model.swift */,
 				AE51943F23F40B020083D87B /* ViewController+AdManagerDelegate.swift */,
@@ -315,6 +318,7 @@
 				AE5EBA412411391100ECAEF7 /* NowPlayableMetadata.swift in Sources */,
 				C240E84E271F2C1100F76853 /* Bundle+Version.swift in Sources */,
 				AE51944723F410850083D87B /* ViewController.swift in Sources */,
+				AE32E4AD288B0657005F1D63 /* ExternalMediaPlayer.swift in Sources */,
 				AE51944523F40B020083D87B /* UIWindow+SafeArea.swift in Sources */,
 				AE5193CE23F3F7600083D87B /* AppDelegate.swift in Sources */,
 				CC9A8411285B3730006AF21D /* ViewController+Extra.swift in Sources */,

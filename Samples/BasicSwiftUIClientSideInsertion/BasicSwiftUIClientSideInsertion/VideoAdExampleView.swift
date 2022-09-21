@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct VideoAdExampleView: View {
-    @StateObject var modelView = ModelView(adType: .video, zoneIds:  ["14756"])
+    @StateObject var modelView = ModelView(adType: .video, zoneIds:  ["17161"])
  
     var body: some View {
         VStack {
@@ -16,8 +16,8 @@ struct VideoAdExampleView: View {
             VStack {
                 AdswizzVideoAdView(modelView: modelView)
             }.frame(maxWidth: 400, maxHeight: 400)
-                .background(Color.red)
-                .cornerRadius(100)
+                .background(Color.red.opacity(0.5))
+                .cornerRadius(10)
             Button {
                 if modelView.isPlaying {
                     modelView.stop()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64961BA22886F39E0057FD29 /* ExternalMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64961BA12886F39E0057FD29 /* ExternalMediaPlayer.swift */; };
 		AE4F9A74256DA4E900D2FCB2 /* ViewController+VideoViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F9A73256DA4E900D2FCB2 /* ViewController+VideoViewDelegate.swift */; };
 		AE4F9A79256E399100D2FCB2 /* ExpandedTouchAreaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F9A78256E399100D2FCB2 /* ExpandedTouchAreaButton.swift */; };
 		AE82D4FA254090AE0067B74C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82D4F9254090AE0067B74C /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64961BA12886F39E0057FD29 /* ExternalMediaPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExternalMediaPlayer.swift; path = ../../BasicAdStreamExample/BasicAdStreamExample/ExternalMediaPlayer.swift; sourceTree = "<group>"; };
 		AE4F9A73256DA4E900D2FCB2 /* ViewController+VideoViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+VideoViewDelegate.swift"; sourceTree = "<group>"; };
 		AE4F9A78256E399100D2FCB2 /* ExpandedTouchAreaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTouchAreaButton.swift; sourceTree = "<group>"; };
 		AE82D4F6254090AD0067B74C /* BasicVideoAdExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicVideoAdExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 				AEDCCE552563080C000798DB /* ViewController+ModelAdDelegate.swift */,
 				AE4F9A73256DA4E900D2FCB2 /* ViewController+VideoViewDelegate.swift */,
 				AEDCCE5A2563B7BF000798DB /* VideoView.swift */,
+				64961BA12886F39E0057FD29 /* ExternalMediaPlayer.swift */,
 				AEDCCE0C2562E039000798DB /* Model.swift */,
 				AE82D5CF254096860067B74C /* Model+AdManagerDelegate.swift */,
 				AEDCCDDD2562C8C9000798DB /* Model+AdVideoViewDelegate.swift */,
@@ -294,6 +297,7 @@
 				AE4F9A79256E399100D2FCB2 /* ExpandedTouchAreaButton.swift in Sources */,
 				C240E852271F2FA500F76853 /* Bundle+Version.swift in Sources */,
 				AE82D5D0254096860067B74C /* Model+AdManagerDelegate.swift in Sources */,
+				64961BA22886F39E0057FD29 /* ExternalMediaPlayer.swift in Sources */,
 				AE82D4FE254090AE0067B74C /* ViewController.swift in Sources */,
 				AEDCCE562563080C000798DB /* ViewController+ModelAdDelegate.swift in Sources */,
 				AEDCCE5B2563B7BF000798DB /* VideoView.swift in Sources */,

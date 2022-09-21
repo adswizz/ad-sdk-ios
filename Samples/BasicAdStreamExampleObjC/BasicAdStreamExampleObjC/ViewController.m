@@ -18,14 +18,13 @@
 @property (nonatomic, strong) Model *model;
 
 // Views
-@property (nonatomic, strong) UIStackView *horizontalStackView;
-@property (nonatomic, strong) UIStackView *verticalStackView;
-@property (nonatomic, strong) UILabel *statusLabel;
-@property (nonatomic, strong) UILabel *companionViewLabel;
-@property (nonatomic, strong) UIButton *playStopButton;
-@property (nonatomic, strong) UIButton *pauseResumeButton;
-@property (nonatomic, strong) UIButton *skipAdButton;
-@property (nonatomic, strong) AASDKAdCompanionView *companionView;
+@property (nonatomic, strong) IBOutlet UILabel *statusLabel;
+@property (nonatomic, strong) IBOutlet UILabel *companionViewLabel;
+@property (nonatomic, strong) IBOutlet UIButton *playStopButton;
+@property (nonatomic, strong) IBOutlet UIButton *pauseResumeButton;
+@property (nonatomic, strong) IBOutlet UIButton *skipAdButton;
+@property (nonatomic, strong) IBOutlet UISwitch *externalPlayerToggler;
+@property (nonatomic, strong) IBOutlet AASDKAdCompanionView *companionView;
 
 @end
 
@@ -47,120 +46,28 @@
     self.model = [Model new];
     self.model.adBreakDelegate = self;
     self.model.streamDelegate = self;
-
-    // Stack views
-    self.verticalStackView = [UIStackView new];
-    self.verticalStackView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.verticalStackView.axis = UILayoutConstraintAxisVertical;
-    self.verticalStackView.alignment = UIStackViewAlignmentFill;
-    self.verticalStackView.distribution = UIStackViewDistributionFill;
-    self.verticalStackView.spacing = UIStackViewSpacingUseSystem;
     
-    self.horizontalStackView = [UIStackView new];
-    self.horizontalStackView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.horizontalStackView.axis = UILayoutConstraintAxisHorizontal;
-    self.horizontalStackView.alignment = UIStackViewAlignmentFill;
-    self.horizontalStackView.distribution = UIStackViewDistributionFillEqually;
-    self.horizontalStackView.spacing = UIStackViewSpacingUseSystem;
-
-    // Action buttons
-    self.playStopButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.playStopButton.translatesAutoresizingMaskIntoConstraints = NO;
-    self.playStopButton.backgroundColor = [UIColor clearColor];
-    self.playStopButton.titleLabel.adjustsFontForContentSizeCategory = YES;
-    self.playStopButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-    self.playStopButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.playStopButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
-    [self.playStopButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.playStopButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self.playStopButton setTitle:@"Play stream" forState:UIControlStateNormal];
     [self.playStopButton setTitle:@"Stop stream" forState:UIControlStateSelected];
-    [self.playStopButton addTarget:self action:@selector(playStopStream:) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.pauseResumeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.pauseResumeButton.translatesAutoresizingMaskIntoConstraints = NO;
-    self.pauseResumeButton.backgroundColor = [UIColor clearColor];
-    self.pauseResumeButton.titleLabel.adjustsFontForContentSizeCategory = YES;
-    self.pauseResumeButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-    self.pauseResumeButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.pauseResumeButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
-    [self.pauseResumeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.pauseResumeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+
     [self.pauseResumeButton setTitle:@"Pause stream" forState:UIControlStateNormal];
     [self.pauseResumeButton setTitle:@"Resume stream" forState:UIControlStateSelected];
-    [self.pauseResumeButton addTarget:self action:@selector(pauseResumeStream:) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.skipAdButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.skipAdButton.translatesAutoresizingMaskIntoConstraints = NO;
-    self.skipAdButton.backgroundColor = [UIColor clearColor];
-    self.skipAdButton.titleLabel.adjustsFontForContentSizeCategory = YES;
-    self.skipAdButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-    self.skipAdButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.skipAdButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
-    [self.skipAdButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.skipAdButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [self.skipAdButton setTitle:@"Skip ad" forState:UIControlStateNormal];
-    [self.skipAdButton setTitle:@"Skip ad" forState:UIControlStateSelected];
+
     self.skipAdButton.selected = YES;
     self.skipAdButton.hidden = YES;
-    [self.skipAdButton addTarget:self action:@selector(skipAd:) forControlEvents:UIControlEventTouchUpInside];
 
-    // Status
-    self.statusLabel = [UILabel new];
-    self.statusLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.statusLabel.backgroundColor = [UIColor clearColor];
-    self.statusLabel.font = [UIFont systemFontOfSize:18.0];
-    self.statusLabel.textColor = [UIColor blackColor];
-    self.statusLabel.textAlignment = NSTextAlignmentCenter;
-    self.statusLabel.adjustsFontForContentSizeCategory = YES;
-    self.statusLabel.adjustsFontSizeToFitWidth = YES;
-    self.statusLabel.text = @"Tap 'Play stream' to start...";
-
-    // Companion view label
-    self.companionViewLabel = [UILabel new];
-    self.companionViewLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.companionViewLabel.backgroundColor = [UIColor clearColor];
-    self.companionViewLabel.font = [UIFont systemFontOfSize:12.0];
-    self.companionViewLabel.textColor = [UIColor blackColor];
-    self.companionViewLabel.textAlignment = NSTextAlignmentCenter;
-    self.companionViewLabel.adjustsFontForContentSizeCategory = YES;
-    self.companionViewLabel.adjustsFontSizeToFitWidth = YES;
-    self.companionViewLabel.text = @"Ad companion view";
-    
     // Companion ad view
-    self.companionView = [AASDKAdCompanionView new];
-    self.companionView.translatesAutoresizingMaskIntoConstraints = NO;
     self.companionView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.1];
     self.companionView.delegate = self;
-    
-    
-    // Arrange buttons
-    [self.horizontalStackView addArrangedSubview:self.playStopButton];
-    [self.horizontalStackView addArrangedSubview:self.skipAdButton];
-    [self.horizontalStackView addArrangedSubview:self.pauseResumeButton];
-    
-    // Arrange all content
-    [self.verticalStackView addArrangedSubview:self.statusLabel];
-    [self.verticalStackView addArrangedSubview:self.companionView];
-    [self.verticalStackView addArrangedSubview:self.horizontalStackView];
-
-    [self.view addSubview:self.companionViewLabel];
-    [self.view addSubview:self.verticalStackView];
-    
-    // Set constraints
-    [NSLayoutConstraint activateConstraints:@[
-        [self.companionViewLabel.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
-        [self.companionViewLabel.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor],
-        [self.companionView.heightAnchor constraintEqualToAnchor:self.companionView.widthAnchor],
-        [self.verticalStackView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
-        [self.verticalStackView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
-        [self.verticalStackView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor]
-    ]];    
 }
 
 #pragma mark - Actions
 
-- (void)playStopStream:(UIButton *)button {
+- (IBAction) externalPlayerSwitchChanged: (UISwitch *)mySwitch {
+    self.model.isUsingExternalPlayer = mySwitch.isOn;
+}
+
+- (IBAction)playStopStream:(UIButton *)button {
     switch (self.model.state) {
         case PlayerStatePlaying:
         case PlayerStatePaused:
@@ -183,7 +90,7 @@
     button.selected = self.model.state == PlayerStatePlaying;
 }
 
-- (void)pauseResumeStream:(UIButton *)button {
+- (IBAction)pauseResumeStream:(UIButton *)button {
     if (!self.model.isReadyToPlay) {
         return;
     }
@@ -205,7 +112,7 @@
     }
 }
 
-- (void)skipAd:(UIButton *)button {
+- (IBAction)skipAd:(UIButton *)button {
     [self.model skipAd];
 }
 

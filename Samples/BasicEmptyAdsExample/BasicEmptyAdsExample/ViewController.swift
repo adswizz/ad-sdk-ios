@@ -9,31 +9,16 @@ import UIKit
 import AdswizzSDK
 
 class ViewController: UIViewController {
-
     let model = Model()
-    
-    lazy var logView: UITextView = {
-        let view = UITextView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.font = .boldSystemFont(ofSize: 17)
-        view.textColor = .label
-        view.textAlignment = .left
-        view.isEditable = false
-        return view
-    }()
+    @IBOutlet var logView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Empty ads" + " - AdsWizz SDK v" + Bundle(for: AdswizzAdRequest.self).version
         
-        view.addSubview(logView)
-        NSLayoutConstraint.activate([
-            logView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            logView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            logView.topAnchor.constraint(equalTo: view.topAnchor),
-            logView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
+        logView.font = .boldSystemFont(ofSize: 17)
+        logView.textColor = .label
+
         // Request ads
         model.delegate = self
         do {

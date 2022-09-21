@@ -8,7 +8,7 @@
 import Foundation
 import AdswizzSDK
 
-protocol ModelDelegate: class {
+protocol ModelDelegate: AnyObject {
     func model(_ model: Model, log line: String)
 }
 

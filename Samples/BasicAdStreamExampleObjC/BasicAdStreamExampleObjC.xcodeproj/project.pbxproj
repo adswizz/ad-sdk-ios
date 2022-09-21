@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64199B5D28D35A9000E4EE1A /* ExternalMediaPlayerObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64199B5B28D35A9000E4EE1A /* ExternalMediaPlayerObjC.m */; };
+		6402BC1428D35C170004AA5C /* ExternalMediaPlayerObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64199B5B28D35A9000E4EE1A /* ExternalMediaPlayerObjC.m */; };
 		AE5194AB23F5446D0083D87B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5194AA23F5446D0083D87B /* AppDelegate.m */; };
 		AE5194AE23F5446D0083D87B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5194AD23F5446D0083D87B /* SceneDelegate.m */; };
 		AE5194B123F5446D0083D87B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5194B023F5446D0083D87B /* ViewController.m */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64199B5B28D35A9000E4EE1A /* ExternalMediaPlayerObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalMediaPlayerObjC.m; sourceTree = "<group>"; };
+		64199B5C28D35A9000E4EE1A /* ExternalMediaPlayerObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalMediaPlayerObjC.h; sourceTree = "<group>"; };
 		AE5194A623F5446D0083D87B /* BasicAdStreamExampleObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicAdStreamExampleObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5194A923F5446D0083D87B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AE5194AA23F5446D0083D87B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 		AE5194A823F5446D0083D87B /* BasicAdStreamExampleObjC */ = {
 			isa = PBXGroup;
 			children = (
+				64199B5C28D35A9000E4EE1A /* ExternalMediaPlayerObjC.h */,
+				64199B5B28D35A9000E4EE1A /* ExternalMediaPlayerObjC.m */,
 				C2D765D62720383D00767B5F /* NSBundle+Version.h */,
 				C2D765D52720383D00767B5F /* NSBundle+Version.m */,
 				AE5194A923F5446D0083D87B /* AppDelegate.h */,
@@ -289,6 +295,7 @@
 				C2D765D72720383D00767B5F /* NSBundle+Version.m in Sources */,
 				AE5194AB23F5446D0083D87B /* AppDelegate.m in Sources */,
 				AE5194BC23F5446F0083D87B /* main.m in Sources */,
+				6402BC1428D35C170004AA5C /* ExternalMediaPlayerObjC.m in Sources */,
 				AE5194AE23F5446D0083D87B /* SceneDelegate.m in Sources */,
 				AE5194E023F547350083D87B /* Model.m in Sources */,
 			);

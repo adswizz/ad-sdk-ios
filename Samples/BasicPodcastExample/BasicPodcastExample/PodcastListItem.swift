@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AVFoundation
 import UIKit
 import AdswizzSDK
 
@@ -28,6 +29,7 @@ class PodcastListItem {
     private var isDownloaded = false
     weak var delegate: AdPodcastManagerDelegate?
     weak var podcastItemDelegate: PodcastListItemDelegate?
+    var externalPlayer = ExternalMediaPlayer()
     
     private static var currentID = 0
     private static func getNextId() -> Int {
@@ -43,7 +45,7 @@ class PodcastListItem {
         
         createPodcastInstanceIfNeeded()
     }
-    
+    let player = ExternalMediaPlayer()
     private func createPodcastInstanceIfNeeded() {
         guard PodcastListItem.podcastManagerUnique == nil else { return }
         
@@ -88,21 +90,42 @@ class PodcastListItem {
         podcastItemDelegate?.stoppedDownload(id: id)
     }
     
-    func play() {
+    func prepareExternalPlayer(url: URL) {
+        externalPlayer.prepare(with: url)
+    }
+
+    func playExternalPlayer() {
+        externalPlayer.play()
+    }
+    
+    func pauseExternalPlayer() {
+        externalPlayer.pause()
+    }
+    
+    func stopExternalPlayer() {
+        externalPlayer.stop()
+    }
+    
+    func externalPlayerSeek(to: TimeInterval, completion: @escaping () -> Void) {
+        let seekTime = CMTime(value: Int64(to), timescale: 1)
+        externalPlayer.seek(to: seekTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero) { finished in
+            if finished {
+                //let the SDK know that your player finished the seek operation
+                completion()
+            }
+        }
+    }
+    
+    func play(shouldUseCustomPlayer: Bool) {
         podcastManager?.delegate = delegate
-        
-        let shouldUseCustomPlayer = false
         if shouldUseCustomPlayer {
-            /*
-            player = MyCustomPlayer() // Should implement MyCustomPlayer conforming to MediaPlayerState
             let settings = AdPodcastManagerSettings()
-            settings.player = player
-            podcastManager.adPodcastManagerSettings = settings
-            */
+            settings.player = externalPlayer
+            PodcastListItem.podcastManagerUnique?.adPodcastManagerSettings = settings
         } else  {
             let settings = podcastManager?.adPodcastManagerSettings ?? AdPodcastManagerSettings()
             settings.player = nil
-            podcastManager?.adPodcastManagerSettings = settings
+            PodcastListItem.podcastManagerUnique?.adPodcastManagerSettings = settings
         }
         
         AdswizzSDK.shared.disableRAD = true

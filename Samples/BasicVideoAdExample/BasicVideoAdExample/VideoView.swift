@@ -8,7 +8,7 @@
 import UIKit
 import AdswizzSDK
 
-protocol VideoViewDelegate: class {
+protocol VideoViewDelegate: AnyObject {
     func videoDidDoubleTap(_ view: VideoView)
     func video(_ view: VideoView, didTapSkip button: UIButton)
 }

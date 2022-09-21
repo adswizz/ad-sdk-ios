@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oNa-U8-niX">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oNa-U8-niX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,15 +33,118 @@
                     <view key="view" contentMode="scaleToFill" id="HYt-VB-WDt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="AeY-yl-1K3">
+                                <rect key="frame" x="20" y="82.5" width="374" height="609.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap 'Play stream' to start..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYg-oP-TXH" userLabel="StatusLabel">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Vq-Ir-Jau" userLabel="CompanionView" customClass="AASDKAdCompanionView">
+                                        <rect key="frame" x="0.0" y="51.5" width="374" height="374"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="3Vq-Ir-Jau" secondAttribute="height" id="CR7-zh-1mc"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Wi-gS-7Tj" userLabel="BottomButtons">
+                                        <rect key="frame" x="0.0" y="455.5" width="374" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DX-su-qBR">
+                                                <rect key="frame" x="0.0" y="16.5" width="118" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Play stream"/>
+                                                <connections>
+                                                    <action selector="playStopStream:" destination="gXQ-Z6-SGF" eventType="touchUpInside" id="4Xl-mk-wki"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bou-sz-CmO">
+                                                <rect key="frame" x="128" y="16.5" width="118" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Skp ad"/>
+                                                <connections>
+                                                    <action selector="skipAd:" destination="gXQ-Z6-SGF" eventType="touchUpInside" id="fCw-Bz-h7Z"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3w-Tj-y9M">
+                                                <rect key="frame" x="256" y="16.5" width="118" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Pause stream"/>
+                                                <connections>
+                                                    <action selector="pauseResumeStream:" destination="gXQ-Z6-SGF" eventType="touchUpInside" id="tfB-3O-WMC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="lHo-lB-0JL"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o02-lg-9cN">
+                                        <rect key="frame" x="0.0" y="549.5" width="374" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use external player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6X-jo-Px2">
+                                                <rect key="frame" x="64" y="19.5" width="146" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k4T-OQ-hBS">
+                                                <rect key="frame" x="232.5" y="14.5" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="externalPlayerSwitchChanged:" destination="gXQ-Z6-SGF" eventType="valueChanged" id="Swq-lL-I1l"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="CEc-yJ-MmY"/>
+                                            <constraint firstItem="k4T-OQ-hBS" firstAttribute="centerX" secondItem="o02-lg-9cN" secondAttribute="centerX" constant="70" id="W8P-bH-oOh"/>
+                                            <constraint firstItem="s6X-jo-Px2" firstAttribute="centerY" secondItem="o02-lg-9cN" secondAttribute="centerY" id="pAQ-iz-r6r"/>
+                                            <constraint firstItem="s6X-jo-Px2" firstAttribute="centerX" secondItem="o02-lg-9cN" secondAttribute="centerX" constant="-50" id="uLy-ky-Hax"/>
+                                            <constraint firstItem="k4T-OQ-hBS" firstAttribute="centerY" secondItem="o02-lg-9cN" secondAttribute="centerY" id="xJY-om-Bi9"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad companion view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgE-a9-gFw">
+                                <rect key="frame" x="152" y="313.5" width="110" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="LaN-On-Lnb"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AeY-yl-1K3" firstAttribute="centerY" secondItem="LaN-On-Lnb" secondAttribute="centerY" id="Emv-kd-TkX"/>
+                            <constraint firstItem="AeY-yl-1K3" firstAttribute="leading" secondItem="LaN-On-Lnb" secondAttribute="leading" constant="20" id="UGr-ba-Bla"/>
+                            <constraint firstItem="GgE-a9-gFw" firstAttribute="centerY" secondItem="3Vq-Ir-Jau" secondAttribute="centerY" id="UhL-9H-UOU"/>
+                            <constraint firstItem="LaN-On-Lnb" firstAttribute="trailing" secondItem="AeY-yl-1K3" secondAttribute="trailing" constant="20" id="fqS-SN-vK1"/>
+                            <constraint firstItem="GgE-a9-gFw" firstAttribute="centerX" secondItem="3Vq-Ir-Jau" secondAttribute="centerX" id="mKT-Yf-ucN"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="eEu-6J-iDd"/>
+                    <connections>
+                        <outlet property="companionView" destination="3Vq-Ir-Jau" id="jdI-dR-CAq"/>
+                        <outlet property="companionViewLabel" destination="GgE-a9-gFw" id="oiR-jQ-v8f"/>
+                        <outlet property="pauseResumeButton" destination="n3w-Tj-y9M" id="qdm-eQ-s1S"/>
+                        <outlet property="playStopButton" destination="3DX-su-qBR" id="jJX-j4-wiB"/>
+                        <outlet property="skipAdButton" destination="bou-sz-CmO" id="Mvv-e4-J7B"/>
+                        <outlet property="statusLabel" destination="GYg-oP-TXH" id="cTW-0D-zIC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BES-ZE-ux2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="46" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
