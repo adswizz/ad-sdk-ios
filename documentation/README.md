@@ -20,6 +20,7 @@
     + [Precaching ads in AdManager](#precaching-ads-in-admanager)
     + [Start AdManager](#start-admanager)
     + [Handling AdManager with no ads](#handling-admanager-with-no-ads)
+    + [(Advanced) Handling AdManager reporting for expected ads](#advanced-handling-admanager-reporting-for-expected-ads)
   * [AdManager life cycle](#admanager-life-cycle)
     + [AdManager properties](#admanager-properties)
       - [ads](#ads)
@@ -372,7 +373,7 @@ These dependencies are automatically added if you choose to integrate the SDK us
 
 ## Changes in your Info.pList file
 
-After adding AdswizzSDK.xcframework to your application, unless you will pass the required settings programmatically when AdswizzSDK is initialized (**_installationId_** and **_playerId_**), you’ll also need to add some keys in the Info.pList. Let’s split these in 2 categories:
+After adding AdswizzSDK.xcframework to your application, unless you will pass the required settings programmatically when AdswizzSDK is initialized (**_installationId_**, **_playerId_** and **_appStoreId_**), you’ll also need to add some keys in the Info.pList. Let’s split these in 2 categories:
 
 
 1. Settings for the framework:
@@ -382,6 +383,10 @@ After adding AdswizzSDK.xcframework to your application, unless you will pass th
 
     2. Add "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by your AdsWizz Integration Manager. If not provided programmatically, this setting is **mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
     <img src="img/playerId.png" width="1000" />
+    More details at [SDK initialization and setup](#sdk-initialization-and-setup).
+
+    3. (Optional) Add "**_AdswizzAdSDKAppStoreId_**" string setting. This value is an automatically generated ID assigned to your app in AppStore Connect. It can be found in your AppStore Connect page for your app under App Information -> General Information -> Apple ID. If not provided programmatically, this setting is **optional** and, if not set in your app’s Info.pList either, AdswizzSDK will not throw an error, however during initialization it will attempt to obtain the AppStoreId for your app using Apple's public lookup API call.
+    <img src="img/appStoreId.png" width="1000" />
     More details at [SDK initialization and setup](#sdk-initialization-and-setup).
     
 2. Settings for permissions(**optional**):
@@ -402,10 +407,12 @@ After adding AdswizzSDK.xcframework to your application, unless you will pass th
 ## SDK initialization and setup
 
 In order to properly integrate AdswizzSDK in your app, you first need to initialize the AdswizzSDK with an optional configuration.
-There are two mandatory string settings that allow AdswizzSDK to be initialized properly: **_installationId_** and **_playerId_**.
-You can either set them in your Info.plist file with **_AdswizzAdSDKInstallationId_** key and **_AdswizzAdSDKPlayerId_** respectively (see [Changes in your Info.pList file](#changes-in-your-infoplist-file)), or set them programmatically in which case the Info.plist values will be overridden.
+There are two mandatory string settings that allow AdswizzSDK to be initialized properly: **_installationId_** and **_playerId_**. 
+**_appStoreId_** is completely optional. If not provided, during initialization the SDK will attempt to fetch it remotely using Apple's lookup public API.
 
-To programmatically set the **_installationId_** and **_playerId_** string settings you use a configuration object which is an instance of **_AdswizzSDKConfig_**.
+You can either set them in your Info.plist file with **_AdswizzAdSDKInstallationId_** key, **_AdswizzAdSDKPlayerId_** and **_AdswizzAdSDKAppStoreId_** respectively (see [Changes in your Info.pList file](#changes-in-your-infoplist-file)), or set them programmatically in which case the Info.plist values will be overridden.
+
+To programmatically set the **_installationId_**, **_playerId_** and **_appStoreId_** string settings you use a configuration object which is an instance of **_AdswizzSDKConfig_**.
 
 The recommended place to initialize the AdswizzSDK is in your **_AppDelegate_** class on **_didFinishLaunchingWithOptions_** function. Here is a snippet of what this might look like:
 
@@ -420,7 +427,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
   //the configuration object is optional, unless you want to override the Info.plist values
   //or simply didn't add the string settings in your app's Info.plist
-  let config = AdswizzSDKConfig(playerId: "yourPlayerId", installationId: "yourInstallationId")
+  let config = AdswizzSDKConfig(playerId: "yourPlayerId", installationId: "yourInstallationId", appStoreId: "yourAppAppleID")
   do {
      try AdswizzSDK.shared.initialize(with: config)
   } catch {
@@ -433,7 +440,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 
 
-Your AdsWizz Integration Manager will provide you with unique SDK installation ids which you need to add in your Info.pList under the **_AdswizzSDKInstallationId_** key and **_AdswizzSDKPlayerId_** respectively. You are now ready for your first ad request in a client-side scenario, or playing a live stream in case of the server-side insertion approach.
+Your AdsWizz Integration Manager will provide you with unique SDK installation ids which you need to add in your Info.pList under the **_AdswizzSDKInstallationId_** key and **_AdswizzSDKPlayerId_** respectively. You are now ready for your first ad request in a client-side scenario, playing a live stream in case of the server-side insertion approach or playing podcasts.
 
 
 # Client-Side Insertion
@@ -521,6 +528,20 @@ let adRequest = try AdswizzAdRequest.Builder()
         .with(userConsentV2: "yourTCFv2String")
         ...
 ```
+
+**(Advanced) Enable expected ads reporting**
+
+You may enable the reporting on the number of expected ads by setting the `enableExpectedAdsReporting` to `true` in your **_AdswizzAdRequest_** objects. By default `enableExpectedAdsReporting` is `false`.
+
+Here is an example:
+```swift
+let adRequest = try AdswizzAdRequest.Builder()
+        ...
+        .with(enableExpectedAdsReporting: true)
+        ...
+```
+
+Read more about this behaviour at [(Advanced) Handling AdManager reporting for expected ads](#advanced-handling-admanager-reporting-for-expected-ads).
 
 **AdRequestConnection**
 
@@ -752,6 +773,25 @@ func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
 }
 ```
 Important: failing to call `play()` on an **_AdManager_** with no ads it will prevent AdswizzSDK to correctly track and fire opportunities for reporting purposes.
+
+### (Advanced) Handling AdManager reporting for expected ads
+
+Before requesting ads from the Adswizz server in a [Client-Side Insertion](#client-side-insertion) scenario, on the **_AdswizzAdRequest_** object you can enable **_AdManager_** reporting for the number of expected ads by setting the `enableExpectedAdsReporting` property to `true`. See [Your first ad request](#your-first-ad-request).
+
+When setting the `maxAds` value for an **_AdswizzAdZone_**, the Adswizz server will try to respond with that number of ads.
+However, when it cannot fulfill that request, by setting the `enableExpectedAdsReporting` to `true`, the SDK will calculate the difference between number of expected ads (totalMaxAds) and the number of ads from the response and it will determine how many _empty ads_ there are:
+```swift
+numberOfEmptyAds = totalMaxAds - adsFromResponse
+```
+
+Note that the `totalMaxAds` also takes into account zones which didn't configure a specific `maxAds` in which case every such zone will count as +1 towards the total number of expected ads.
+
+Read more about _empty ads_ at [Handling AdManager with no ads](#handling-admanager-with-no-ads).
+
+The `numberOfEmptyAds` computed above represents the number of _empty_ ads that will be appended to the ads container of the resulting **_AdManager_**. 
+For each _empty_ **_AdData_** the SDK will fire the error tracking urls via `adManager(_ adManager: AdManager, ad: AdData, trackingErrorUrls errorCode: VastErrorCode) -> [URL]` from `AdManagerDatasource`.
+
+Read more about `AdManagerDatasource` methods and behaviour at [Working with AdManager object](#working-with-admanager-object).
 
 ## AdManager life cycle
 

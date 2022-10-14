@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.9] - 2022-10-14
+### Added
+- AppStore Id support
+    - New public key in **_AdswizzSettingsKeys_**: 
+        - `AdswizzAdSDKAppStoreId` - new **_AdswizzSDK_** related setting in Info.plist for providing AppStore Connect Apple ID
+    - New public member in **_AdswizzSDKConfig_**: 
+        - `appStoreId` - optional value for initializing **_AdswizzSDK_** with publisher's AppStore Connect Apple ID
+- Enable reporting for expected ads
+    - New public member in **_AdswizzAdRequest_**.**_Builder_**:
+        - `enableExpectedAdsReporting` to enable **_AdManager_** reporting for expected ads
+
+### Changed
+- AppStore Id support:
+    - updated **_AdswizzSDKConfig_** initializer to also pass `appStoreId` value (optional)
+
 ## [7.7.8] - 2022-09-21
 ### Changed
 - Podcasting:

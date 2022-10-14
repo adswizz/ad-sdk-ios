@@ -912,6 +912,10 @@ SWIFT_CLASS_NAMED("AdPodcastManagerSettings")
 /// Use <code>AdswizzAdRequest</code> for a complete implementation that can be used to fetch ads from an Adswizz AdServer.
 SWIFT_CLASS_NAMED("AdRequest")
 @interface AASDKAdRequest : NSObject
+/// The expected number of ads returned by the <code>AdRequest</code> response.
+/// Defaults to 0 which means that there is no specific expectation. Read-only.
+@property (nonatomic, readonly) NSUInteger expectedAdsCount;
+/// The url for the AdRequest server call.
 @property (nonatomic, readonly, copy) NSURL * _Nullable url;
 /// Designated initializer for a plain <code>AdRequest</code>object.
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1185,7 +1189,6 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK))
 /// Registers a view that overlays or obstructs this container as “friendly” for viewability measurement purposes.
 /// See Open Measurement in AdswizzSDK for guidance on what is and what is not allowed to be registered.
@@ -1195,6 +1198,7 @@ SWIFT_CLASS_NAMED("AdVideoView")
 /// Unregisters all previously registered friendly obstructions.
 - (void)unregisterAllFriendlyObstructions;
 @end
+
 
 
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
@@ -1298,6 +1302,7 @@ SWIFT_CLASS_NAMED("Builder")
 SWIFT_CLASS_NAMED("AdswizzAdRequest")
 @interface AASDKAdswizzAdRequest : AASDKAdRequest
 @property (nonatomic, readonly, copy) NSURL * _Nullable url;
+@property (nonatomic, readonly) NSUInteger expectedAdsCount;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (nonnull instancetype)initWithAnalyticsCustomData:(id <AASDKAnalyticsCustomData> _Nullable)analyticsCustomData SWIFT_UNAVAILABLE;
@@ -1409,6 +1414,21 @@ SWIFT_CLASS_NAMED("Builder")
 /// returns:
 /// same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withUserConsentV2:(NSString * _Nullable)userConsentV2 SWIFT_WARN_UNUSED_RESULT;
+/// When setting the <code>maxAds</code> value for an <code>AdswizzAdZone</code>, the Adswizz server will try to respond with that number of ads.
+/// However, when it cannot fulfill that request, by setting the <code>enableExpectedAdsReporting</code> to true, the SDK will calculate the difference between
+/// number of expected ads (maxAds) and the number of ads from the response and it will determine how many empty ads there are:
+/// numberOfEmptyAds = totalMaxAds - adsFromResponse
+/// For each empty <code>AdData</code> the SDK will fire the error tracking urls via
+/// <code>adManager(_ adManager: AdManager, ad: AdData, trackingErrorUrls errorCode: VastErrorCode) -> [URL]</code>
+/// from <code>AdManagerDatasource</code>. By default <code>enableExpectedAdsReporting</code> is false.
+/// Note that the totalMaxAds it also takes into account zones which didn’t configure a specific <code>maxAds</code> in which case
+/// every such zone will count as +1 towards the total number of expected ads.
+/// \param enableExpectedAdsReporting whether or not the reporting for expected ads count is enabled or not
+///
+///
+/// returns:
+/// same builder object
+- (AASDKAdswizzAdRequestBuilder * _Nonnull)withEnableExpectedAdsReporting:(BOOL)enableExpectedAdsReporting SWIFT_WARN_UNUSED_RESULT;
 /// Builds an AdswizzAdRequest object
 ///
 /// throws:
@@ -1438,7 +1458,6 @@ SWIFT_CLASS_NAMED("AdswizzAdStreamManager")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 
 @interface AASDKAdswizzAdStreamManager (SWIFT_EXTENSION(AdswizzSDK))
@@ -1479,6 +1498,7 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdStreamManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 
@@ -1701,13 +1721,17 @@ SWIFT_CLASS_NAMED("AdswizzSDKConfig")
 @property (nonatomic, readonly, copy) NSString * _Nonnull playerId;
 /// The <code>installationId</code> needed for AdswizzSDK initialization
 @property (nonatomic, readonly, copy) NSString * _Nonnull installationId;
+/// The optional <code>appStoreId</code> used by <code>AdswizzSDK</code> at initialization
+@property (nonatomic, readonly, copy) NSString * _Nullable appStoreId;
 /// Creates a configuration object used to initialize the <code>AdswizzSDK</code> instance.
-/// Note that the <code>playerId</code> and <code>installationId</code> properties will override the correspond values from <code>AdswizzSettingsKeys</code> set in Info.plist.
+/// Note that the <code>playerId</code>, <code>installationId</code> and <code>appStoreId</code> properties will override the correspond values from <code>AdswizzSettingsKeys</code> set in Info.plist.
 /// \param playerId a player id
 ///
 /// \param installationId an installationId
 ///
-- (nonnull instancetype)initWithPlayerId:(NSString * _Nonnull)playerId installationId:(NSString * _Nonnull)installationId OBJC_DESIGNATED_INITIALIZER;
+/// \param appStoreId an App Store Id from App Store Connect (optional). Defaults to nil
+///
+- (nonnull instancetype)initWithPlayerId:(NSString * _Nonnull)playerId installationId:(NSString * _Nonnull)installationId appStoreId:(NSString * _Nullable)appStoreId OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1742,6 +1766,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// <code>AdswizzSDK</code> expects a player id in your Info.pList. This is a string.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull PlayerId;)
 + (NSString * _Nonnull)PlayerId SWIFT_WARN_UNUSED_RESULT;
+/// Optional AppStore id for your app in your Info.plist. This is a string.
+/// This value can be found in your App Store Connect page for your app under App Information -> General Information -> Apple ID.
+/// E.g: AdswizzAppStoreId = “123456789”
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AppStoreId;)
++ (NSString * _Nonnull)AppStoreId SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -2360,6 +2389,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKTrackingDismissReason, "TrackingStatus"
 /// The flow was ended by explicitly declining the permission to be tracked.
   AASDKTrackingDismissReasonDenied = 5,
 };
+
 
 
 

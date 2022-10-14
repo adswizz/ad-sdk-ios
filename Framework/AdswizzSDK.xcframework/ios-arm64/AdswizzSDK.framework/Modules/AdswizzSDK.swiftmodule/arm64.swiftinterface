@@ -333,7 +333,8 @@ extension AdswizzAdStreamManager {
 @objc(AASDKAdswizzSDKConfig) final public class AdswizzSDKConfig : ObjectiveC.NSObject {
   @objc final public let playerId: Swift.String
   @objc final public let installationId: Swift.String
-  @objc public init(playerId: Swift.String, installationId: Swift.String)
+  @objc final public let appStoreId: Swift.String?
+  @objc public init(playerId: Swift.String, installationId: Swift.String, appStoreId: Swift.String? = nil)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -641,6 +642,7 @@ extension NSDictionary {
   @objc public static let AWSTranscriberIdentityPoolIdRegion: Swift.String
   @objc public static let InstallationId: Swift.String
   @objc public static let PlayerId: Swift.String
+  @objc public static let AppStoreId: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
@@ -911,6 +913,9 @@ extension AdVideoFriendlyObstruction {
   @objc override final public var url: Foundation.URL? {
     @objc get
   }
+  @objc override final public var expectedAdsCount: Swift.UInt {
+    @objc get
+  }
   @objc(AASDKAdswizzAdRequestVASTVersion) public enum VASTVersion : Swift.Int {
     case v40
   }
@@ -929,6 +934,7 @@ extension AdVideoFriendlyObstruction {
     @objc public func with(additionalCustomParameters: Swift.String?) -> AdswizzAdRequest.Builder
     @objc public func with(analyticsCustomData: AnalyticsCustomData?) -> AdswizzAdRequest.Builder
     @objc public func with(userConsentV2: Swift.String?) -> AdswizzAdRequest.Builder
+    @objc public func with(enableExpectedAdsReporting: Swift.Bool) -> AdswizzAdRequest.Builder
     @objc public func build() throws -> AdswizzAdRequest
     @objc deinit
     @objc override dynamic public init()
@@ -1250,6 +1256,9 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AASDKAdRequest) open class AdRequest : ObjectiveC.NSObject {
+  @objc open var expectedAdsCount: Swift.UInt {
+    get
+  }
   @objc open var url: Foundation.URL? {
     get
   }
