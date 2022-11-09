@@ -64,7 +64,7 @@ AdswizzSDK can also be delivered using Carthage. The recommended version for car
 Type in the following lines inside your Cartfile:
 
 ```ruby
-binary "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/Adswizz.json"
+binary "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/AdswizzSDK.json"
 github "aws-amplify/aws-sdk-ios"
 github "https://github.com/adswizz/ad-sdk-ios-privacydata.git"
 ```

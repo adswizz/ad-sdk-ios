@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.11] - 2022-11-08
+### Added
+- User-Agent support:
+    - New internal option for **_AdswizzSDK_** to use a custom User-Agent when firing ad requests and tracking URLs to Adswizz server (configurable via ZeroConfig). The default value for the User-Agent has the web format
+
+### Changed
+- Session Id support:
+    - improved **_AdswizzSDK_** handling for the internal `sessionId` (configurable via ZeroConfig)
+- Integration Guide:
+    - improved structure and privacy/permissions coverage
+
 ## [7.7.10] - 2022-10-18
 ### Fixed
 - Enable reporting for expected ads
@@ -185,7 +196,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modified the `AdswizzSDK.xcframework` to accommodate for proper arm64 and x86 simulator slices on M1 architecture
 
 ### Fixed
-- Carthage support by pointing to the correct `Adswizz.json` in the Cartfile
+- Carthage support by pointing to the correct `AdswizzSDK.json` in the Cartfile
 - A case where **_NetworkManager_** would crash for older Xcode versions when detecting a 5G cellular connection
 - Incorrect behaviour for **_AdManager_** that would fire the **_skip_** VAST tracking events for current ad when `reset()` is called, also correcting the `ad-manager-skip` Analytics event to only get logged when `skipAd()` gets called specifically
 

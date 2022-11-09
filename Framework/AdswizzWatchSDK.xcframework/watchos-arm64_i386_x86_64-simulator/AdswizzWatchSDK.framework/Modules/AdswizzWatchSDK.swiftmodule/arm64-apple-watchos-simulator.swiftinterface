@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 // swift-module-flags: -target arm64-apple-watchos6.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AdswizzWatchSDK
 import AVFoundation
 @_exported import AdswizzWatchSDK
@@ -8,6 +8,7 @@ import Foundation
 import Swift
 import WatchConnectivity
 import WatchKit
+import _Concurrency
 extension AdLogger.Level : Swift.Comparable {
   public static func < (lhs: AdLogger.Level, rhs: AdLogger.Level) -> Swift.Bool
 }
@@ -16,7 +17,7 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
     get
   }
 }
-extension AVAudioSession.Port : Swift.Codable {
+extension AVFAudio.AVAudioSession.Port : Swift.Codable {
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdswizzWatchSDK) public class AdswizzWatchSDK : ObjectiveC.NSObject {
   @objc public static let shared: AdswizzWatchSDK
@@ -66,12 +67,12 @@ extension AdswizzWatchSDK {
   @objc func receivedMessage(_ data: [Swift.String : Any])
   @objc func setDelegate(_ delegate: WatchSessionDelegate)
 }
-extension Dictionary where Key == Swift.String {
+extension Swift.Dictionary where Key == Swift.String {
   public var isAdswizzWatchData: Swift.Bool {
     get
   }
 }
-extension NSDictionary {
+extension Foundation.NSDictionary {
   @objc dynamic public var isAdswizzWatchData: Swift.Bool {
     @objc get
   }
