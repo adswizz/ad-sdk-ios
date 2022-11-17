@@ -5,7 +5,7 @@ The only audio-centric SDK to Drive Innovation & Differentiation in Audio moneti
 ## Requirements
 
 * Xcode 11+ or newer
-* iOS 11.0+
+* iOS 12.0+
 * Swift 5.0+
 * CocoaPods 1.9.3+ (recommended)
 
@@ -30,7 +30,7 @@ Replace **_ADSWIZZ_GITHUB_TOKEN_** with token you received from AdsWizz. You can
 ```ruby
 post_install do |installer|
    installer.pods_project.targets.each do |target|
-        if target.name == "AdswizzSDKPermissions"
+        if target.name == "AdswizzSDKPrivacyData"
          target.build_configurations.each do |config|
           path = config.base_configuration_reference.real_path
           update_xcconfig(path, { "BUILD_LIBRARY_FOR_DISTRIBUTION" => "YES"

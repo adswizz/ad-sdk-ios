@@ -39,6 +39,7 @@
       - [play](#play)
       - [pause](#pause)
       - [skipAd](#skipad)
+      - [skipAd with error](#skipad-with-error)
       - [reset](#reset)
 - [Server-Side Insertion](#server-side-insertion)
   * [Precaching before playing](#precaching-before-playing)
@@ -720,6 +721,7 @@ Called when an error happens in the SDK while using the **_AdManager_**. The err
 
 Here are a few cases when the **_AdManager_** will report an error:
   * ad playback failed due to an internal player error
+  * ad was skipped with an explicit error. See [skipAd with error](#skipad-with-error) method from [AdManager protocol](#admanager-protocol) section
   * calling `prepare()`, `play()` or `pause()` on the **_AdManager_** instance during a server side scenario (live streaming). More details at [AdStreamManagerDelegate protocol](#adstreammanagerdelegate-protocol) when the ad break starts
 
 ### AdManagerDatasource protocol
@@ -948,8 +950,11 @@ If you decided to let the SDK play the ads, you can call **_pause_** method when
 
 #### skipAd
 
-If you need to skip an ad, you can call this method to skip the current ad from the AdManager. This method applies even if you decided to take control of the ad playback. If current ad already started to play, your app will receive a **_didFinishPlaying_** event followed by an **_adCompleted_** event, and if the AdManager has a new ad you will receive **_preparingForPlay_** for that one. If no ads are available, an **_allAdsCompleted_** will be sent, signaling that all ads got processed in the AdManager.
+If you need to skip an ad, you can call **_skipAd_** method to skip the current ad from the AdManager. This method applies even if you decided to take control of the ad playback. If current ad already started to play, your app will receive a **_didFinishPlaying_** event followed by an **_adCompleted_** event, and if the AdManager has a new ad you will receive **_preparingForPlay_** for that one. If no ads are available, an **_allAdsCompleted_** will be sent, signaling that all ads got processed in the AdManager.
 
+#### skipAd with error
+
+For a more advanced skip handling, you can call **_skipAd(with error: Error)_** method to skip the current ad from the AdManager. It follows the same behaviour as for the **_skipAd_** method above. However, by passing an `Error` parameter, the SDK will **not** fire any tracking URLs for `skip` VAST events, but instead it will fire the VAST error tracking URLs. Additionally, for the skipped ad it will also call `func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)` callback from [AdManagerDelegate protocol](#admanagerdelegate-protocol) with the same error used in **_skipAd(with error: Error)_**.
 
 #### reset
 

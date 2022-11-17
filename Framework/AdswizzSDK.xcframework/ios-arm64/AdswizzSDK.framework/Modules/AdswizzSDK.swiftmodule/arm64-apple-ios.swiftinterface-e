@@ -769,6 +769,7 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   @objc func play()
   @objc func pause()
   @objc func skipAd()
+  @objc func skipAd(with error: Swift.Error)
   @objc func reset()
 }
 @objc(AASDKAdRequestConnection) final public class AdRequestConnection : ObjectiveC.NSObject {
@@ -1213,7 +1214,8 @@ extension AdswizzSDK.AdLogger.Level : Swift.CustomStringConvertible {
   @objc var nonce: Swift.String { get }
   @objc var gestureRecognizer: UIKit.UIGestureRecognizer { get }
   @objc func sendAdClick()
-  @objc func sendAdImpression()
+  @objc func sendPlaybackStart()
+  @objc func sendPlaybackEnd()
 }
 @objc(AASDKAdVideoState) public enum AdVideoState : Swift.Int {
   case normal

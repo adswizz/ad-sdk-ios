@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.12] - 2022-11-17
+### Added
+- AdManager protocol:
+    - New public method in **_AdManager_** protocol:
+        - `skipAd(with error: Error)` for more flexibility on reporting especially for skippable ads
+- Interopability with Google's PAL SDK:
+    - New public methods in **_PALManagerProtocol_** to match the ProgrammaticAccessLibrary update to 2.5.2:
+        - `sendPlaybackStart()` - notifies Google ad servers that a video ad started playing
+        - `sendPlaybackEnd()` - notifies Google ad servers that a video ad did finish playing
+
+### Removed
+- Interopability with Google's PAL SDK:
+    - public method `sendAdImpression()` from **_PALManagerProtocol_**
+
+### Changed
+- Interopability with Google's PAL SDK:
+    - **_AdswizzSDK_** now updated its **_PALManagerProtocol_** and it matches the `NonceManager` from ProgrammaticAccessLibrary v2.5.2
+    - Note that these changes are not backwards compatible
+
 ## [7.7.11] - 2022-11-08
 ### Added
 - User-Agent support:

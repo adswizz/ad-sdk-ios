@@ -643,6 +643,9 @@ SWIFT_PROTOCOL_NAMED("AdManager")
 - (void)pause;
 /// If an ad break is currently playing or not, skip it and resume content or move to next ad
 - (void)skipAd;
+/// If an ad break is currently playing or not, skip it and resume content or move to next ad.
+/// Additionally, the <code>AdManager</code> will notify back the <code>error</code> via <code>AdManagerDelegate</code> error callback and fire VAST errors.
+- (void)skipAdWith:(NSError * _Nonnull)error;
 /// Causes the ads manager to stop all the ads
 - (void)reset;
 @end
@@ -2179,8 +2182,10 @@ SWIFT_PROTOCOL_NAMED("PALManagerProtocol")
 @property (nonatomic, readonly, strong) UIGestureRecognizer * _Nonnull gestureRecognizer;
 /// PAL send ad click
 - (void)sendAdClick;
-/// PAL send ad impression
-- (void)sendAdImpression;
+/// PAL send start playback for the given content playback session
+- (void)sendPlaybackStart;
+/// PAL send end playback for the given content playback session
+- (void)sendPlaybackEnd;
 @end
 
 
@@ -3271,6 +3276,9 @@ SWIFT_PROTOCOL_NAMED("AdManager")
 - (void)pause;
 /// If an ad break is currently playing or not, skip it and resume content or move to next ad
 - (void)skipAd;
+/// If an ad break is currently playing or not, skip it and resume content or move to next ad.
+/// Additionally, the <code>AdManager</code> will notify back the <code>error</code> via <code>AdManagerDelegate</code> error callback and fire VAST errors.
+- (void)skipAdWith:(NSError * _Nonnull)error;
 /// Causes the ads manager to stop all the ads
 - (void)reset;
 @end
@@ -4807,8 +4815,10 @@ SWIFT_PROTOCOL_NAMED("PALManagerProtocol")
 @property (nonatomic, readonly, strong) UIGestureRecognizer * _Nonnull gestureRecognizer;
 /// PAL send ad click
 - (void)sendAdClick;
-/// PAL send ad impression
-- (void)sendAdImpression;
+/// PAL send start playback for the given content playback session
+- (void)sendPlaybackStart;
+/// PAL send end playback for the given content playback session
+- (void)sendPlaybackEnd;
 @end
 
 
