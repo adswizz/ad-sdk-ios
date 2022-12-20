@@ -12,6 +12,7 @@ import SystemConfiguration.CaptiveNetwork
 import Combine
 import CommonCrypto
 import CoreData
+import CoreFoundation
 import CoreLocation
 import CoreMotion
 import CoreTelephony
