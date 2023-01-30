@@ -45,7 +45,7 @@ More details in the [Server-Side Insertion](/SDKiOS/ServerSideInsertion) section
 
 ### Podcasts setup
 
-Similar to the server-side scenario, when you create your **_AdswizzAdPodcastManager_**, you need to fill in the **_companionZones_** with the value provided by your Integration Manager. You can find more details in the [Getting started](/SDKiOS/GetStarted) section for [Podcasts](/SDKiOS/Podcasts).
+Similar to the server-side scenario, when you create your **_AdswizzAdPodcastManager_**, you need to fill in the **_companionZones_** with the value provided by your Integration Manager. You can find more details in the [Getting started](/SDKiOS/Podcasts#getting-started) section for [Podcasts](/SDKiOS/Podcasts).
 
 ## Companion events
 

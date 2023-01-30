@@ -417,7 +417,7 @@ extension AdManager {
 
 #### analyticsCustomData
 
-Set an object that conforms to the **_AnalyticsCustomData_** protocol to provide key-value custom attributes to all **_AnalyticsEvent_** instances triggered by the AdswizzSDK for Analytics purposes. Read more here: [AdswizzSDK Analytics](/SDKIOS/AdswizzAnalytics.md).
+Set an object that conforms to the **_AnalyticsCustomData_** protocol to provide key-value custom attributes to all **_AnalyticsEvent_** instances triggered by the AdswizzSDK for Analytics purposes. Read more here: [AdswizzSDK Analytics](/SDKiOS/AdswizzAnalytics).
 
 ### AdManager operations
 

@@ -1114,6 +1114,10 @@ extension AdswizzSDK.AdLogger.Level : Swift.CustomStringConvertible {
     @objc get
     @objc set
   }
+  @objc public var gppConsent: Swift.String? {
+    @objc get
+    @objc set
+  }
   @objc public var locationAccuracy: CoreLocation.CLLocationAccuracy {
     @objc get
     @objc set

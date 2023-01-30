@@ -226,7 +226,7 @@ SWIFT_CLASS_NAMED("AASDKAnalytics")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-/// The level type associated to a category for an <code>AnalyticsEvent</code>.
+/// The level type associated with a category for an <code>AnalyticsEvent</code>.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAnalyticsCategory, "Level", open) {
 /// Unspecified level.
   AASDKAnalyticsCategoryNone = 0,
@@ -256,19 +256,19 @@ enum AASDKAdAssetState : NSInteger;
 /// The <code>AdAsset</code> provides support during asset downloading / caching.
 SWIFT_PROTOCOL_NAMED("AdAsset")
 @protocol AASDKAdAsset
-/// The asset’s track data. Might be missing.
+/// The asset’s track data. May be missing.
 @property (nonatomic, readonly, copy) NSData * _Nullable data;
-/// The selected media file uri for the asset.
+/// The selected media file URI for the asset.
 @property (nonatomic, readonly, copy) NSString * _Nullable mediaUrl;
-/// The asset’s creative type. For audio ads expect values to include, but not limited to “audio/mpeg” and “audio/aac”.
+/// The asset’s creative type. For audio ads, expected values include, but are not limited to “audio/mpeg” and “audio/aac”.
 @property (nonatomic, readonly, copy) NSString * _Nullable mimeType;
-/// The asset’s creative width. For audio ads expect 0.
+/// The asset’s creative width. For audio ads, expect 0.
 @property (nonatomic, readonly) NSInteger width;
-/// The asset’s creative height. For audio ads expect 0.
+/// The asset’s creative height. For audio ads, expect 0.
 @property (nonatomic, readonly) NSInteger height;
 /// The asset’s expected data length in bytes.
 @property (nonatomic, readonly) int64_t expectedContentLength;
-/// The asset’s status. Defaults to .initialized. See <code>AdAssetState</code> for possible values.
+/// The asset’s status. The default is <code>.initialized</code>. See the <code>AdAssetState</code> for possible values.
 @property (nonatomic, readonly) enum AASDKAdAssetState state;
 /// Asset delegate. Optional.
 @property (nonatomic, weak) id <AASDKAdAssetDelegate> _Nullable delegate;
@@ -276,7 +276,7 @@ SWIFT_PROTOCOL_NAMED("AdAsset")
 
 
 /// Informs its delegate of <code>AdAsset</code> networking events. Optional.
-/// Can be used to track the status of an <code>AdAsset</code> during buferring / pre-caching if available.
+/// Can be used to track the status of an <code>AdAsset</code> during buffering / pre-caching, if available.
 SWIFT_PROTOCOL_NAMED("AdAssetDelegate")
 @protocol AASDKAdAssetDelegate
 @optional
@@ -292,12 +292,12 @@ SWIFT_PROTOCOL_NAMED("AdAssetDelegate")
 ///
 /// \param data downloaded data so far
 ///
-/// \param bytesDownloaded downloaded data progress in bytes
+/// \param bytesDownloaded downloaded data progress, in bytes
 ///
-/// \param bytesExpected expected data to download in bytes
+/// \param bytesExpected expected data to download, in bytes
 ///
 - (void)adAsset:(id <AASDKAdAsset> _Nonnull)asset didDownload:(NSData * _Nonnull)data bytesDownloaded:(int64_t)bytesDownloaded outOf:(int64_t)bytesExpected;
-/// Called when encountered an error during data’s download for the asset.
+/// Called when an error was encountered during data download for the asset.
 /// \param asset asset owner
 ///
 /// \param error the error
@@ -305,7 +305,7 @@ SWIFT_PROTOCOL_NAMED("AdAssetDelegate")
 - (void)adAsset:(id <AASDKAdAsset> _Nonnull)asset downloadingFailedWith:(NSError * _Nonnull)error;
 @end
 
-/// The <code>AdAssetQuality</code> provides quality options for which assets will be cached/played by Ad Manager
+/// The <code>AdAssetQuality</code> provides quality options for which assets will be cached/played by the <code>AdManager</code>.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdAssetQuality, "AdAssetQuality", open) {
 /// Low quality
   AASDKAdAssetQualityLow = 0,
@@ -313,13 +313,13 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdAssetQuality, "AdAssetQuality", open)
   AASDKAdAssetQualityMedium = 1,
 /// High-very high quality
   AASDKAdAssetQualityHigh = 2,
-/// Dynamic quality which is auto-set depending on network conditions and other criterias
+/// Dynamic quality, which is auto-set depending on network conditions and other criteria
   AASDKAdAssetQualityAuto = 3,
 };
 
 /// The states for an <code>AdAsset</code> object.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdAssetState, "AdAssetState", open) {
-/// The asset is an errored state.
+/// The asset is in an error state.
   AASDKAdAssetStateUnknown = 0,
 /// The asset has been scheduled for loading.
   AASDKAdAssetStateScheduled = 1,
@@ -345,12 +345,12 @@ enum AASDKAdCompanionResourceType : NSInteger;
 SWIFT_CLASS_NAMED("AdCompanionOptions")
 @interface AASDKAdCompanionOptions : NSObject
 /// Set how long the sync-banner is supposed to be visible after the ad playout.
-/// Default value is 0, which means the sync-companion is removed when the ad ends.
+/// The default value is 0, which means the sync-companion is removed when the ad ends.
 /// If <code>extraExposureTime</code> is Double.greatestFiniteMagnitude, then the sync-companion will be exposed forever or until the next sync-companion.
 /// If fallback companions are active and <code>extraExposureTime</code> is activated, then the fallback companions will be delayed.
 @property (nonatomic) NSTimeInterval extraExposureTime;
 /// Set the preferred resource type for the <code>AdCompanionView</code> instances to select and load when querying through the associated <code>Companion</code> data.
-/// When there is no preferred type or couldn’t find a resource which matches, it defaults to the first found valid resource.
+/// When there is no preferred type or no matching resource is found, it defaults to the first found valid resource.
 @property (nonatomic) enum AASDKAdCompanionResourceType preferredResourceType;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -358,13 +358,13 @@ SWIFT_CLASS_NAMED("AdCompanionOptions")
 /// The preferred resource type  to load and display in <code>AdCompanionView</code> instances.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdCompanionResourceType, "AdCompanionResourceType", open) {
 /// Default.
-/// Let <code>AdswizzSDK</code> select and load first valid resource for <code>AdCompanionView</code> instances.
+/// Let <code>AdswizzSDK</code> select and load the first valid resource for <code>AdCompanionView</code> instances.
   AASDKAdCompanionResourceTypeFirstResourceAvailable = 0,
-/// Select and load first valid static image resource.
+/// Select and load the first valid static image resource.
   AASDKAdCompanionResourceTypeImage = 1,
-/// Select and load first valid html resource.
+/// Select and load the first valid html resource.
   AASDKAdCompanionResourceTypeHtml = 2,
-/// Select and load first valid iFrame resource.
+/// Select and load the first valid iFrame resource.
   AASDKAdCompanionResourceTypeIFrame = 3,
 };
 
@@ -372,33 +372,33 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdCompanionResourceType, "AdCompanionRe
 @class NSURL;
 @class NSCoder;
 
-/// The view that displays companion ads. It is a <code>UIView</code> subclass that renders internally its web-based content.
+/// The view that displays companion ads. It is a <code>UIView</code> subclass that renders its web-based content internally.
 SWIFT_CLASS_NAMED("AdCompanionView")
 @interface AASDKAdCompanionView : UIView
 /// An optional delegate object that receives state change notifications from an <code>AdCompanionView</code> instance.
-/// Typically this is an <code>UIViewController</code> instance. Be advised that this reference should be set to nil before deallocating the delegate.
+/// Typically, this is an <code>UIViewController</code> instance. This reference should be set to nil before deallocating the delegate.
 @property (nonatomic, weak) IBOutlet id <AASDKAdCompanionViewDelegate> _Nullable delegate;
-/// Return the click through URL for this companion if the loaded resource is a static companion.
+/// Return the click-through URL for this companion if the loaded resource is a static companion.
 @property (nonatomic, readonly, copy) NSURL * _Nullable clickThrough;
-/// <code>UIView</code> initializer. Overrided by <code>AdswizzSDK</code>.
+/// <code>UIView</code> initializer. Overridden by <code>AdswizzSDK</code>.
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-/// <code>UIView</code> initializer. Overrided by <code>AdswizzSDK</code>.
+/// <code>UIView</code> initializer. Overridden by <code>AdswizzSDK</code>.
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-/// <code>UIView</code> initializer. Overrided by <code>AdswizzSDK</code>.
+/// <code>UIView</code> initializer. Overridden by <code>AdswizzSDK</code>.
 - (void)awakeFromNib;
-/// Overrided by <code>AdswizzSDK</code>.
+/// Overridden by <code>AdswizzSDK</code>.
 - (void)layoutSubviews;
-/// Overrided by <code>AdswizzSDK</code>.
+/// Overridden by <code>AdswizzSDK</code>.
 - (void)didMoveToSuperview;
-/// Overrided by <code>AdswizzSDK</code>.
+/// Overridden by <code>AdswizzSDK</code>.
 - (void)didMoveToWindow;
-/// Overrided by <code>AdswizzSDK</code>.
+/// Overridden by <code>AdswizzSDK</code>.
 @property (nonatomic) CGFloat alpha;
-/// Overrided by <code>AdswizzSDK</code>.
+/// Overridden by <code>AdswizzSDK</code>.
 @property (nonatomic, getter=isHidden) BOOL hidden;
-/// Overrided by <code>AdswizzSDK</code>.
+/// Overridden by <code>AdswizzSDK</code>.
 @property (nonatomic, readonly) CGSize intrinsicContentSize;
-/// Overrided by <code>AdswizzSDK</code>.
+/// Overridden by <code>AdswizzSDK</code>.
 - (void)updateConstraints;
 @end
 
@@ -445,33 +445,33 @@ SWIFT_PROTOCOL_NAMED("AdCompanionViewDelegate")
 @protocol AASDKAdCompanionViewDelegate
 @optional
 /// Called when the <code>AdCompanionView</code> is about to load its content.
-/// \param adCompanionView The <code>AdCompanionView</code> instance which triggers the ad request
+/// \param adCompanionView The <code>AdCompanionView</code> instance that triggers the ad request
 ///
 - (void)adCompanionViewWillLoad:(AASDKAdCompanionView * _Nonnull)adCompanionView;
-/// Called when the companion started to be displayed on screen.
-/// \param adCompanionView The <code>AdCompanionView</code> instance which displayed the ad content
+/// Called when the companion has started to be displayed on screen.
+/// \param adCompanionView The <code>AdCompanionView</code> instance that displayed the ad content
 ///
 - (void)adCompanionViewDidDisplay:(AASDKAdCompanionView * _Nonnull)adCompanionView;
-/// Called when an ad request failed. The failure is normally due to network connectivity.
-/// \param adCompanionView The <code>AdCompanionView</code> instance which failed to display
+/// Called when an ad request failed. Failure is normally due to network connectivity issues.
+/// \param adCompanionView The <code>AdCompanionView</code> instance that failed to display
 ///
 /// \param error The error received
 ///
 - (void)adCompanionView:(AASDKAdCompanionView * _Nonnull)adCompanionView didFailToDisplay:(NSError * _Nonnull)error;
 /// Called when the companion view ends displaying.
-/// \param adCompanionView The <code>AdCompanionView</code> instance which is ended display
+/// \param adCompanionView The <code>AdCompanionView</code> instance that ended displaying
 ///
 - (void)adCompanionViewDidEndDisplay:(AASDKAdCompanionView * _Nonnull)adCompanionView;
 /// Called immediately when a touch event is detected over the ad companion view.
-/// It gives your application a chance to override the default behaviour when a <code>clickThrough</code> event occurs.
-/// Return <code>true</code> if you want your application to handle the targetURL, otherwise return <code>false</code> in which case the targetURL will be opened in the external browser.
-/// \param adCompanionView The <code>AdCompanionView</code> instance which received the touch event
+/// It gives your application a chance to override the default behavior when a <code>clickThrough</code> event occurs.
+/// Return <code>true</code> if you want your application to handle the targetURL. Otherwise, return <code>false</code>, in which case the targetURL will be opened in the external browser.
+/// \param adCompanionView The <code>AdCompanionView</code> instance that received the touch event
 ///
-/// \param url The <code>URL</code> which was loaded by the <code>AdCompanionView</code>
+/// \param url The <code>URL</code> that was loaded by the <code>AdCompanionView</code>
 ///
 - (BOOL)adCompanionView:(AASDKAdCompanionView * _Nonnull)adCompanionView shouldOverrideCompanionClickThrough:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
-/// Called when the application is about to go to background as a result of a <code>clickThrough</code> event and the targetURL is opened in the external browser.
-/// \param adCompanionView The <code>AdCompanionView</code> instance which triggers the event
+/// Called when the application is about to go to the background as a result of a <code>clickThrough</code> event and the targetURL is opened in the external browser.
+/// \param adCompanionView The <code>AdCompanionView</code> instance that triggers the event
 ///
 - (void)adCompanionViewWillLeaveApplication:(AASDKAdCompanionView * _Nonnull)adCompanionView;
 @end
@@ -484,29 +484,29 @@ enum AASDKAdType : NSInteger;
 @protocol AASDKVastCreativeExtension;
 @protocol AASDKVastPricing;
 
-/// AdData public protocol
+/// The <code>AdData</code> protocol.
 SWIFT_PROTOCOL_NAMED("AdData")
 @protocol AASDKAdData
-/// Id for an ad. It might be missing.
+/// ID for an ad. It may be missing.
 @property (nonatomic, readonly, copy) NSString * _Nullable id;
-/// Type of vast ad. Defaults to .audio
+/// Type of VAST ad. The default is <code>.audio</code>.
 @property (nonatomic, readonly) enum AASDKAdType adType;
-/// Asset data for the ad
+/// Asset data for the ad.
 @property (nonatomic, readonly, strong) id <AASDKAdAsset> _Nonnull asset;
 /// Companions associated with the ad.
 /// May not be available when the ad is preparing/ready to play or has just started playing . Use <code>hasCompanion</code> instead to check for the presence of any companion data.
 @property (nonatomic, readonly, copy) NSArray<id <AASDKCompanion>> * _Nonnull companions;
-/// Marks a timeinterval in seconds that an ad can be skipped
+/// Marks a timeinterval in seconds that an ad can be skipped.
 @property (nonatomic, readonly, strong) NSNumber * _Nullable skipOffset;
-/// Vast ad duration in seconds. It might be -1 when missing.
+/// VAST ad duration in seconds. It may be -1 when it is missing.
 @property (nonatomic, readonly) NSTimeInterval duration;
-/// Ad extensions
+/// Ad extensions.
 @property (nonatomic, readonly, copy) NSArray<id <AASDKVastExtension>> * _Nonnull extensions;
-/// Ad parameters
+/// Ad parameters.
 @property (nonatomic, readonly, strong) id <AASDKVastAdParameters> _Nullable adParameters;
-/// Creative extensions
+/// Creative extensions.
 @property (nonatomic, readonly, copy) NSArray<id <AASDKVastCreativeExtension>> * _Nonnull creativeExtensions;
-/// Vast pricing info for real-time bidding systems. Optional
+/// VAST pricing info for real-time bidding systems. Optional.
 @property (nonatomic, readonly, strong) id <AASDKVastPricing> _Nullable pricing;
 /// Returns true if the ad has any companion banner information to display.
 /// This information is available early in the succession of ad events.
@@ -514,73 +514,73 @@ SWIFT_PROTOCOL_NAMED("AdData")
 @end
 
 
-/// Event protocol which describes basic data for an event
+/// The <code>Event</code> protocol describes basic data for an event.
 SWIFT_PROTOCOL_NAMED("Event")
 @protocol AASDKEvent <NSObject>
-/// Extra data for an event
+/// Extra data for an event.
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable extraAdData;
-/// Event type as a string
+/// Event type as a string.
 @property (nonatomic, readonly, copy) NSString * _Nonnull stringEvent;
 @end
 
 enum AASDKAdEventType : NSInteger;
 
-/// AdEvent protocol
+/// The <code>AdEvent</code> protocol.
 SWIFT_PROTOCOL_NAMED("AdEvent")
 @protocol AASDKAdEvent <AASDKEvent>
-/// Ad data
+/// Ad data.
 @property (nonatomic, readonly, strong) id <AASDKAdData> _Nullable ad;
-/// Type of the event.
+/// Event type.
 @property (nonatomic, readonly) enum AASDKAdEventType event;
 @end
 
-/// Different event types sent by the AdManager to its listners
+/// Different event types sent by the <code>AdManager</code> to its listeners
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdEventType, "AdEventType", open) {
 /// Default state.
   AASDKAdEventTypeUnknown = 0,
 /// An ad will start loading.
   AASDKAdEventTypePreparingForPlay = 1,
-/// Player playing the ad has finished loading(buffering). Usefull when playing ads with internal player.
+/// The player playing the ad has finished loading (buffering). Useful when playing ads with the internal player.
   AASDKAdEventTypeReadyForPlay = 2,
-/// Ad has started.
+/// An ad has started.
   AASDKAdEventTypeDidStartPlaying = 3,
-/// Ad paused.
+/// An ad is paused.
   AASDKAdEventTypeDidPausePlaying = 4,
-/// First quartile of a linear ad was reached.
+/// The first quartile of a linear ad has been reached.
   AASDKAdEventTypeFirstQuartile = 5,
-/// Midpoint of a linear ad was reached.
+/// The midpoint of a linear ad has been reached.
   AASDKAdEventTypeMidpoint = 6,
-/// Third quartile of a linear ad was reached.
+/// The third quartile of a linear ad has been reached.
   AASDKAdEventTypeThirdQuartile = 7,
-/// Complete quartile of a liniar ad was reached
+/// The complete quartile of a liniar ad has been reached.
   AASDKAdEventTypeComplete = 8,
-/// Single ad has finished. Paired with .didStartPlaying event.
+/// A single ad has finished. This is paired with the <code>.didStartPlaying</code> event.
   AASDKAdEventTypeDidFinishPlaying = 9,
 /// Single ad completed.
   AASDKAdEventTypeAdCompleted = 10,
-/// All ads managed by the ads manager have finished.
+/// All the ads managed by the ad manager have finished.
   AASDKAdEventTypeAllAdsCompleted = 11,
 };
 
 enum Level : NSInteger;
 @protocol AASDKAdLoggerDestination;
 
-/// Main logger class for <code>AdswizzSDK</code>. The destination output conforms to <code>AdLoggerDestination</code> protocol.
+/// Main logger class for <code>AdswizzSDK</code>. The destination output conforms to the <code>AdLoggerDestination</code> protocol.
 SWIFT_CLASS_NAMED("AdLogger")
 @interface AASDKAdLogger : NSObject
 /// Shared instance for the logger.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdLogger * _Nonnull shared;)
 + (AASDKAdLogger * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-/// Set the log level. By default is <code>none</code>. See <code>Level</code> for possible values.
+/// Set the log level. The default is <code>none</code>. See <code>Level</code> for possible values.
 @property (nonatomic) enum Level level;
-/// Set the destination for the logger. Default is <code>NSLog</code>.
+/// Set the destination for the logger. The default is <code>NSLog</code>.
 @property (nonatomic, strong) id <AASDKAdLoggerDestination> _Nonnull destination;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 /// The <code>AdLogger</code> level type.
 typedef SWIFT_ENUM(NSInteger, Level, open) {
-/// Vebose log level. This is the most verbose. Might print object content.
+/// Verbose log level. This is the most verbose. May print object content.
   LevelVerbose = 0,
 /// Debug log level.
   LevelDebug = 1,
@@ -595,13 +595,13 @@ typedef SWIFT_ENUM(NSInteger, Level, open) {
 
 
 
-/// Write a custom destination for the logger. Default destination is <code>NSLog</code>.
+/// Write a custom destination for the logger. The default destination is <code>NSLog</code>.
 SWIFT_PROTOCOL_NAMED("AdLoggerDestination")
 @protocol AASDKAdLoggerDestination
 /// Called when there is something to log from.
 /// \param level log level
 ///
-/// \param functionName name of the function where the call occured
+/// \param functionName name of the function where the call occurred
 ///
 /// \param fileName name of the file
 ///
@@ -618,7 +618,7 @@ SWIFT_PROTOCOL_NAMED("AdLoggerDestination")
 @protocol AASDKInteractiveAdManagerDelegate;
 @protocol AASDKAnalyticsCustomData;
 
-/// The <code>AdManager</code> provides support while playing the ads
+/// The <code>AdManager</code> provides support while playing the ads.
 SWIFT_PROTOCOL_NAMED("AdManager")
 @protocol AASDKAdManager
 /// Ad manager settings object
@@ -629,22 +629,22 @@ SWIFT_PROTOCOL_NAMED("AdManager")
 @property (nonatomic, weak) id <AASDKAdManagerDatasource> _Nullable datasource;
 @property (nonatomic, weak) id <AASDKInteractiveAdManagerDelegate> _Nullable interactiveDelegate;
 /// Returns the array of VAST playable ads currently stored by the Ad manager object. May be empty if no ads were fetched.
-/// <code>ads</code> can safely be accessed right after the Ad Manager was obtained, before calling <code>prepare()</code>, or even during ads playback. A zero count means the Ad Manager will not play any ad.
+/// <code>ads</code> can safely be accessed right after the Ad Manager has been obtained, before calling <code>prepare()</code>, or even during ad playback. A zero count means the Ad Manager will not play any ad.
 @property (nonatomic, readonly, copy) NSArray<id <AASDKAdData>> * _Nonnull ads;
-/// Analytics interface for custom data which the SDK will use for all <code>AnalyticsEvent</code> entries related to ads lifecycle
+/// Analytics interface for custom data that the AdswizzSDK will use for all <code>AnalyticsEvent</code> entries related to the ad lifecycle.
 @property (nonatomic, strong) id <AASDKAnalyticsCustomData> _Nullable analyticsCustomData;
-/// Prepare and load the ads
+/// Prepare and load the ads.
 - (void)prepare;
-/// Play ad when using the internal player
+/// Play an ad when using the internal player.
 - (void)play;
-/// Pauses ad when using the internal player
+/// Pause an ad when using the internal player.
 - (void)pause;
-/// If an ad break is currently playing or not, skip it and resume content or move to next ad
+/// Whether an ad break is currently playing or not, skip it and resume content or move to the next ad.
 - (void)skipAd;
-/// If an ad break is currently playing or not, skip it and resume content or move to next ad.
-/// Additionally, the <code>AdManager</code> will notify back the <code>error</code> via <code>AdManagerDelegate</code> error callback and fire VAST errors.
+/// Whether an ad break is currently playing or not, skip it and resume content or move to the next ad.
+/// Additionally, the <code>AdManager</code> will notify back the <code>error</code> via the <code>AdManagerDelegate</code> error callback and fire VAST errors.
 - (void)skipAdWith:(NSError * _Nonnull)error;
-/// Causes the ads manager to stop all the ads
+/// Causes the Ad manager to stop all the ads.
 - (void)reset;
 @end
 
@@ -660,41 +660,41 @@ SWIFT_PROTOCOL_NAMED("AdManagerDatasource")
 /// The SDK will receive your custom tracking URLs and fire them along with VAST URLs.
 /// \param adManager The AdManager that sent the event
 ///
-/// \param ad Ad that is being played
+/// \param ad The ad that is being played
 ///
-/// \param event VAST tracking event for which to fire the urls
+/// \param event The VAST tracking event for which to fire the URLs
 ///
 - (NSArray<NSURL *> * _Nonnull)adManager:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad trackingEventUrls:(enum AASDKVastTrackingEvent)event SWIFT_WARN_UNUSED_RESULT;
 /// Called when the SDK is about to fire tracking URLs for a specific VAST error.
 /// The SDK will receive your custom tracking URLs and fire them along.
 /// \param adManager The AdManager that sent the event
 ///
-/// \param ad Ad that is being played
+/// \param ad The ad that is being played
 ///
-/// \param errorCode VAST error code for which to fire the urls
+/// \param errorCode The VAST error code for which to fire the URLs
 ///
 - (NSArray<NSURL *> * _Nonnull)adManager:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad trackingErrorUrls:(enum AASDKVastErrorCode)errorCode SWIFT_WARN_UNUSED_RESULT;
 /// Called when the SDK is about to fire the impression URLs.
 /// The SDK will receive your custom tracking URLs and fire them along.
 /// \param adManager The AdManager that sent the event
 ///
-/// \param ad Ad that is being played
+/// \param ad The ad that is being played
 ///
 - (NSArray<NSURL *> * _Nonnull)adManagerImpressionUrls:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad SWIFT_WARN_UNUSED_RESULT;
-/// Called when the SDK is about to fire the companion click trackings URLs.
+/// Called when the SDK is about to fire the companion click tracking URLs.
 /// The SDK will receive your custom click tracking URLs and fire them along.
 /// \param adManager The AdManager that sent the event
 ///
-/// \param ad Ad that is being played
+/// \param ad The ad that is being played
 ///
-/// \param companion Companion for which to fire the urls
+/// \param companion The <code>Companion</code> for which to fire the URLs
 ///
 - (NSArray<NSURL *> * _Nonnull)adManagerCompanionClickTrackingUrls:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad :(id <AASDKCompanion> _Nonnull)companion SWIFT_WARN_UNUSED_RESULT;
-/// Called when the SDK is about to fire the video click trackings URLs.
+/// Called when the SDK is about to fire the video click tracking URLs.
 /// The SDK will receive your custom click tracking URLs and fire them along.
 /// \param adManager The AdManager that sent the event
 ///
-/// \param ad Ad that is being played
+/// \param ad The ad that is being played
 ///
 - (NSArray<NSURL *> * _Nonnull)adManagerVideoClickTrackingUrls:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -705,33 +705,33 @@ SWIFT_PROTOCOL_NAMED("AdManagerDatasource")
 SWIFT_PROTOCOL_NAMED("AdManagerDelegate")
 @protocol AASDKAdManagerDelegate
 /// Called when there was an error playing the ad. Log the error and resume playing content.
-/// Note: evaluate the error by casting it to either <code>SDKError</code>or a specific <code>AVPlayer</code> error.
+/// Note: evaluate the error by casting it to either <code>SDKError</code> or a specific <code>AVPlayer</code> error.
 /// (e.g by checking the <code>NSError</code> code such as <code>NSURLErrorTimedOut</code>, <code>NSURLErrorFileDoesNotExist</code>)
-/// \param adManager The AdManager that errored
+/// \param adManager The AdManager where the error originated
 ///
-/// \param ad the ad which caused the error
+/// \param ad The ad which caused the error
 ///
-/// \param error the error received
+/// \param error The error received
 ///
 - (void)adManager:(id <AASDKAdManager> _Nonnull)adManager didReceiveAd:(id <AASDKAdData> _Nullable)ad error:(NSError * _Nonnull)error;
-/// Called when there is an event with the current ad in the ad manager
+/// Called when there is an event in connection with the current ad in the ad manager.
 /// \param adManager The AdManager that sent the event
 ///
 /// \param event The event received
 ///
 - (void)adManager:(id <AASDKAdManager> _Nonnull)adManager didReceiveAdEvent:(id <AASDKAdEvent> _Nonnull)event;
 @optional
-/// Called when playhead for the internal player has changed on the current ad
-/// It will also be called when playHead positions itself on 0 or close to 0, immediatly after didStartPlaying’ event.
-/// Frequency of calling this function depends on how frequently the internal player is sending updates to the SDK. This usually happens at 1s interval but you can
-/// expect more frequent updates if the player considers necessary to do so.
+/// Called when the playhead for the internal player has changed on the current ad.
+/// It will also be called when the playhead positions itself on 0 or close to 0, immediately after the `.didStartPlaying’ event.
+/// The frequency of calling this function depends on how frequently the internal player is sending updates to the SDK. This usually happens at 1s intervals but you can
+/// expect more frequent updates if the player considers it necessary to do so.
 /// \param adManager The AdManager that sent the event
 ///
-/// \param ad Ad that is being played
+/// \param ad The ad that is being played
 ///
-/// \param playHead Current position of the play head. Should be in interval [0..duration].
+/// \param playHead The current position of the play head. Should be in the interval [0..duration].
 ///
-/// \param duration Total duration of the ad media as reported by the internal SDK player.
+/// \param duration The total duration of the ad media as reported by the internal SDK player.
 ///
 - (void)adManager:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad didChangedPlayHead:(NSTimeInterval)playHead adDuration:(NSTimeInterval)duration;
 @end
@@ -742,31 +742,31 @@ SWIFT_PROTOCOL_NAMED("AdManagerDelegate")
 /// The <code>AdManagerSettings</code> class provides settings to configure an instance of <code>AdManager</code>.
 SWIFT_CLASS_NAMED("AdManagerSettings")
 @interface AASDKAdManagerSettings : NSObject
-/// Player instance that might be provided from outside.
-/// If it is not set than <code>AdswizzSDK</code> will use an internal player to play the ad and your application will be notified when to pause/resume your content.
+/// Set the external player instance that conforms to the <code>MediaPlayerState</code> protocol.
+/// If it is not set, the <code>AdswizzSDK</code> will use an internal player to play the ad and your application will be notified when to pause/resume your content.
 @property (nonatomic, weak) id <AASDKMediaPlayerState> _Nullable player;
-/// Adds a cache option that might be provided from outside the SDK.
-/// By default no caching options will be used.
+/// Adds a cache option that may be provided from outside the SDK.
+/// By default, no caching options will be used.
 - (void)addCachePolicy:(enum AASDKAdCachePolicy)policy;
-/// Set an <code>AdAssetQuality</code>  option which will be used to load/play the asset that matches the level of quality.
-/// If the Ad Manager can’t find a match for the level you set it will use the next ‘best’ quality level if available. Defaults to <code>high</code>.
+/// Set an <code>AdAssetQuality</code> option that will be used to load/play the asset that matches the level of quality.
+/// If the <code>AdManager</code> can’t find a match for the level you set, it will use the next ‘best’ quality level if available. The default is <code>high</code>.
 @property (nonatomic) enum AASDKAdAssetQuality assetQuality;
-/// Set a maximum value for the threshold which will be used in selecting the ad asset creative with the highest bitrate less or equal to the given value.
-/// The given value is measured in bit/s. If no ad asset creative is less or equal to the given value, the Ad Manager will select the one with the closest bitrate to the given value.
-/// Note that by setting a non-zero value, the Ad Manager will disregard any quality level you set via <code>assetQuality</code>. Defaults to 0.
+/// Set a maximum value for the threshold that will be used in selecting the ad asset creative with the highest bitrate less than or equal to the given value.
+/// The given value is measured in bits/s. If no ad asset creative is less than or equal to the given value, the Ad Manager will select the one with the closest bitrate to the given value.
+/// Note that, by setting a non-zero value, the <code>AdManager</code> will disregard any quality level you set via <code>assetQuality</code>. The default is 0.
 @property (nonatomic) uint64_t preferredMaxBitrate;
-/// Set the video view which is responsable for rendering video ads.
-/// If it is not set than the SDK will still play the audio track of the video ad.
+/// Set the video view that is responsible for rendering video ads.
+/// If it is not set, the SDK will still play the audio track of the video ad.
 @property (nonatomic, strong) AASDKAdVideoView * _Nullable videoView;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
 @interface AASDKAdManagerSettings (SWIFT_EXTENSION(AdswizzSDK))
-/// Indicates if caching capabilities for creative assets are enabled or not.
+/// Indicates whether caching capabilities for creative assets are enabled or not.
 ///
 /// returns:
-/// <code>true</code> if cache option for assets is enabled, or <code>false</code> otherwise
+/// <code>true</code> if the cache option for assets is enabled, or <code>false</code> otherwise
 - (BOOL)isCachedAssetsEnabled SWIFT_WARN_UNUSED_RESULT;
 @end
 
@@ -777,11 +777,11 @@ SWIFT_CLASS_NAMED("AdManagerSettings")
 /// The <code>AdPodcastManager</code> supports playing a local or a streamed podcast either with the internal player or an external player.
 SWIFT_CLASS_NAMED("AdPodcastManager")
 @interface AASDKAdPodcastManager : NSObject
-/// An unique identifier for the object to be identifiable.
+/// A unique identifier for the object to be <code>identifiable</code>.
 @property (nonatomic, readonly, copy) NSUUID * _Nonnull objectId;
-/// Optional delegate for the ad manager podcast. See <code>AdPodcastManagerDelegate</code> for available callbacks.
+/// Optional delegate for the <code>AdPodcastManager</code>. See <code>AdPodcastManagerDelegate</code> for available callbacks.
 @property (nonatomic, weak) id <AASDKAdPodcastManagerDelegate> _Nullable delegate;
-/// The ad manager podcast settings.
+/// The <code>AdPodcastManager</code> settings.
 @property (nonatomic, strong) AASDKAdPodcastManagerSettings * _Nonnull adPodcastManagerSettings;
 /// Start playing a podcast at <code>url</code>. Can be a local address (path) or http/https.
 /// \param url local or http/https address
@@ -796,13 +796,13 @@ SWIFT_CLASS_NAMED("AdPodcastManager")
 /// Sets the current playback time to the specified <code>time</code> in seconds. Note that it is only available for the internal player.
 /// The <code>completion</code> block won’t get called if an error is thrown.
 /// If you are using your own player, the SDK will automatically detect the seek and adjust the tracking for various events during playback.
-/// \param time the time to which to seek in seconds
+/// \param time the time to which to seek, in seconds
 ///
-/// \param completion the completion block that signals the seek operation finished
+/// \param completion the completion block that signals the seek operation has finished
 ///
 ///
 /// throws:
-/// Can throw an error if seek cannot be performed or not allowed (e.g for an external player)
+/// Can throw an error if seek cannot be performed or is not allowed (e.g for an external player)
 - (BOOL)seekTo:(NSTimeInterval)time error:(NSError * _Nullable * _Nullable)error completion:(void (^ _Nonnull)(void))completion;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -819,34 +819,34 @@ enum AASDKMediaPlayerStatus : NSInteger;
 /// The <code>AdPodcastManagerDelegate</code> protocol defines the methods used to get information about ads and companion banners inserted during podcast playback.
 SWIFT_PROTOCOL_NAMED("AdPodcastManagerDelegate")
 @protocol AASDKAdPodcastManagerDelegate
-/// Notify when podcast is about to start playing
+/// Notifies when a podcast is about to start playing.
 /// \param adPodcastManager owner
 ///
 /// \param url url where to play from
 ///
 - (void)adPodcastManager:(AASDKAdPodcastManager * _Nonnull)adPodcastManager willStartPlaying:(NSURL * _Nonnull)url;
-/// Notify when podcast encountered an error while attempting to play
+/// Notifies when a podcast encountered an error while attempting to play.
 /// \param adPodcastManager owner
 ///
-/// \param error the error that occured
+/// \param error the error that occurred
 ///
-/// \param url the podcast url that produced the error
+/// \param url the podcast URL that produced the error
 ///
 - (void)adPodcastManager:(AASDKAdPodcastManager * _Nonnull)adPodcastManager didFailPlaying:(NSURL * _Nonnull)url error:(NSError * _Nonnull)error;
-/// Notify when podcast has loaded the ads and an <code>AdManager</code> was created to handle the ad breaks.
-/// Note that there is no need to keep a strong reference to the ad manager, however you can set a <code>delegate</code> and <code>interactiveDelegate</code> for specific AdManager events.
+/// Notifies when a podcast has loaded the ads and an <code>AdManager</code> has been created to handle the ad breaks.
+/// Note that there is no need to keep a strong reference to the ad manager, however, you can set a <code>delegate</code> and <code>interactiveDelegate</code> for specific <code>AdManager</code> events.
 /// \param adPodcastManager owner
 ///
 /// \param manager ad manager object that will handle the ad breaks
 ///
 - (void)adPodcastManager:(AASDKAdPodcastManager * _Nonnull)adPodcastManager didReceive:(id <AASDKAdManager> _Nonnull)manager;
-/// Notify of changes in the podcast player status
+/// Notifies of changes in the podcast player status.
 /// \param adPodcastManager owner
 ///
 /// \param state current state of the player playing the podcast
 ///
 - (void)adPodcastManager:(AASDKAdPodcastManager * _Nonnull)adPodcastManager stateChanged:(enum AASDKMediaPlayerStatus)state;
-/// Notify of changes in the podcast player playhead
+/// Notifies of changes in the podcast player playhead.
 /// \param adPodcastManager owner
 ///
 /// \param playhead current playhead of the player playing the podcast
@@ -854,24 +854,24 @@ SWIFT_PROTOCOL_NAMED("AdPodcastManagerDelegate")
 /// \param duration total duration of the current player playing the podcast
 ///
 - (void)adPodcastManager:(AASDKAdPodcastManager * _Nonnull)adPodcastManager playheadChanged:(NSTimeInterval)playhead duration:(NSTimeInterval)duration;
-/// Called when the podcast is played with an external player and the AdswizzAdPodcastManager decides to pause content
-/// When this gets called you should pause the podcast content
+/// Called when the podcast is played with an external player and the <code>AdswizzAdPodcastManager</code> decides to pause content.
+/// When this gets called. you should pause the podcast content.
 /// \param adPodcastManager owner
 ///
 - (void)adPodcastManagerPlayerShouldPause:(AASDKAdPodcastManager * _Nonnull)adPodcastManager;
-/// Called when the podcast is played with an external player and the AdswizzAdPodcastManager decides to resume content
-/// When this gets called you should resume the podcast content
+/// Called when the podcast is played with an external player and the <code>AdswizzAdPodcastManager</code> decides to resume content.
+/// When this gets called, you should resume the podcast content.
 /// \param adPodcastManager owner
 ///
 - (void)adPodcastManagerPlayerShouldResume:(AASDKAdPodcastManager * _Nonnull)adPodcastManager;
-/// Called when the podcast is played with an external player and the <code>AdswizzAdPodcastManager </code>detected a skip ad.
-/// When this gets called you should seek to the <code>time</code> relative to the podcast duration as suggested by the <code>AdswizzAdPodcastManager</code>.
+/// Called when the podcast is played with an external player and the <code>AdswizzAdPodcastManager </code>detects a skipped ad.
+/// When this gets called, you should seek to the <code>time</code> relative to the podcast duration as suggested by the <code>AdswizzAdPodcastManager</code>.
 /// When your player completes the seek operation, call the specified completion block back to the SDK.
 /// \param adPodcastManager owner
 ///
-/// \param time the time to seek in seconds relative to the podcast duration
+/// \param time the time to seek in seconds, relative to the podcast duration
 ///
-/// \param completion the completion block back to the SDK once the seek operation completed
+/// \param completion the completion block back to the SDK once the seek operation has completed
 ///
 - (void)adPodcastManagerPlayer:(AASDKAdPodcastManager * _Nonnull)adPodcastManager shouldSeekTo:(NSTimeInterval)time completion:(void (^ _Nonnull)(void))completion;
 @end
@@ -881,24 +881,24 @@ SWIFT_PROTOCOL_NAMED("AdPodcastManagerDelegate")
 /// The <code>AdPodcastManagerDownloadDelegate</code> protocol defines the methods used to get information during podcast downloads.
 SWIFT_PROTOCOL_NAMED("AdPodcastManagerDownloadDelegate")
 @protocol AASDKAdPodcastManagerDownloadDelegate
-/// Called when asset downloaded a chunk of its data
-/// \param adPodcastManager podcast manager
+/// Called when an asset has downloaded a chunk of its data.
+/// \param adPodcastManager the podcast manager
 ///
-/// \param bytesDownloaded total bytes downloaded so far
+/// \param bytesDownloaded the total bytes downloaded so far
 ///
-/// \param bytesExpected total bytes to download
+/// \param bytesExpected the total bytes to download
 ///
 /// \param asset the downloadable asset
 ///
 - (void)adPodcastManager:(AASDKAdPodcastManager * _Nonnull)adPodcastManager didDownload:(int64_t)bytesDownloaded outOf:(int64_t)bytesExpected for:(id <AASDKDownloadableAsset> _Nonnull)asset;
-/// Called when asset finished downloading all of its data
-/// \param adPodcastManager podcast manager
+/// Called when an asset has finished downloading all of its data.
+/// \param adPodcastManager the podcast manager
 ///
 /// \param asset the asset
 ///
 - (void)adPodcastManager:(AASDKAdPodcastManager * _Nonnull)adPodcastManager didFinishDownload:(id <AASDKDownloadableAsset> _Nonnull)asset;
-/// Called when asset encountered an error during download
-/// \param adPodcastManager podcast manager
+/// Called when an asset has encountered an error during download.
+/// \param adPodcastManager the podcast manager
 ///
 /// \param error the error received
 ///
@@ -911,21 +911,21 @@ SWIFT_PROTOCOL_NAMED("AdPodcastManagerDownloadDelegate")
 /// The <code>AdPodcastManagerSettings</code> class provides settings for the  Ad Podcast Manager.
 SWIFT_CLASS_NAMED("AdPodcastManagerSettings")
 @interface AASDKAdPodcastManagerSettings : NSObject
-/// Your application can provide a player to play the podcast, otherwise an internal player will be used.
-/// Your player will have to conform to <code>MediaPlayerState</code> protocol.
+/// Your application can provide a player to play the podcast; otherwise, an internal player will be used.
+/// Your player will have to conform to the <code>MediaPlayerState</code> protocol.
 @property (nonatomic, weak) id <AASDKMediaPlayerState> _Nullable player;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-/// The <code>AdRequest</code> is a base class that encapsulates the components of a request used to fetch ads from an AdServer.
-/// Use <code>AdswizzAdRequest</code> for a complete implementation that can be used to fetch ads from an Adswizz AdServer.
+/// The <code>AdRequest</code> is a base class that encapsulates the components of a request used to fetch ads from an ad server.
+/// Use <code>AdswizzAdRequest</code> for a complete implementation that can be used to fetch ads from an Adswizz ad server.
 SWIFT_CLASS_NAMED("AdRequest")
 @interface AASDKAdRequest : NSObject
 /// The expected number of ads returned by the <code>AdRequest</code> response.
 /// Defaults to 0 which means that there is no specific expectation. Read-only.
 @property (nonatomic, readonly) NSUInteger expectedAdsCount;
-/// The url for the AdRequest server call.
+/// The URL for the <code>AdRequest</code> server call.
 @property (nonatomic, readonly, copy) NSURL * _Nullable url;
 /// Designated initializer for a plain <code>AdRequest</code>object.
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -937,8 +937,8 @@ SWIFT_CLASS_NAMED("AdRequest")
 
 
 
-/// The <code>AdRequestConnection</code> represents a single connection to the AdsWizz AdServer.
-/// The ad(s) request settings are encapsulated in a reusable <code>AdRequest</code> object.
+/// The <code>AdRequestConnection</code> represents a single connection to the AdsWizz ad server.
+/// The ad request settings are encapsulated in a reusable <code>AdRequest</code> object.
 /// The <code>AdRequestConnection</code> object encapsulates the states of a single communication.
 /// E.g. starting/canceling/finishing a connection.
 SWIFT_CLASS_NAMED("AdRequestConnection")
@@ -948,8 +948,8 @@ SWIFT_CLASS_NAMED("AdRequestConnection")
 /// \param request the <code>AdRequest</code> object
 ///
 - (nullable instancetype)initFor:(AASDKAdRequest * _Nonnull)request error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-/// Request ads from the Adswizz Ad Server.
-/// \param completion A handler to call back when the ad(s) request completes or times out.
+/// Request ads from the Adswizz ad server.
+/// \param completion A handler to call back when the ad request completes or times out.
 ///
 - (void)requestAdsWithCompletion:(void (^ _Nonnull)(id <AASDKAdManager> _Nullable, NSError * _Nullable))completion;
 /// Cancel a request for ads.
@@ -963,25 +963,25 @@ SWIFT_CLASS_NAMED("AdRequestConnection")
 
 
 
-/// Types of stream capabilities
+/// Types of stream capabilities.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdStreamCapabilities, "AdStreamCapability", open) {
-/// supports dvr
+/// Supports DVR.
   AASDKAdStreamCapabilitiesDvr = 0,
 };
 
 @protocol AASDKAdStreamManagerDelegate;
 @class AASDKAdStreamManagerSettings;
 
-/// The <code>AdStreamManager</code> supports playing a stream either with the internal player or an external player.
+/// The <code>AdStreamManager</code> supports playing a stream with either the internal player or an external player.
 SWIFT_CLASS_NAMED("AdStreamManager")
 @interface AASDKAdStreamManager : NSObject
-/// Identifier for the <code>AdStreamManager</code> object as identifiable.
+/// Identifier for the <code>AdStreamManager</code> object as <code>identifiable</code>.
 @property (nonatomic, readonly, copy) NSUUID * _Nonnull objectId;
-/// Optional delegate for the ad stream manager. See <code>AdStreamManagerDelegate</code> interface for more details.
+/// Optional delegate for the ad stream manager. See the <code>AdStreamManagerDelegate</code> interface for more details.
 @property (nonatomic, weak) id <AASDKAdStreamManagerDelegate> _Nullable delegate;
 /// <code>AdStreamManager</code> settings. See <code>AdStreamManagerSettings</code> for possible options.
 @property (nonatomic, strong) AASDKAdStreamManagerSettings * _Nonnull adStreamManagerSettings;
-/// Prepare a stream for playing. It will affect the internal player which will start buffering.
+/// Prepare a stream for playing. It will affect the internal player, which will start buffering.
 /// \param url remote stream URL to buffer
 ///
 - (BOOL)prepareWith:(NSURL * _Nonnull)url error:(NSError * _Nullable * _Nullable)error;
@@ -1011,53 +1011,53 @@ SWIFT_CLASS_NAMED("AdStreamManager")
 /// The <code>AdStreamManagerDelegate</code> protocol defines the methods used to retrieve information about ads and companion banners inserted server-side.
 SWIFT_PROTOCOL_NAMED("AdStreamManagerDelegate")
 @protocol AASDKAdStreamManagerDelegate
-/// Notify when adstream is about to start playing
+/// Notifies when an ad stream is about to start playing.
 /// \param adstreamManager owner
 ///
-/// \param url url where to play from
+/// \param url the URL to play from
 ///
 - (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager willStartPlaying:(NSURL * _Nonnull)url;
-/// AdBreak was detected
+/// An ad break was detected.
 /// \param adstreamManager owner
 ///
-/// \param manager ad manager object that will handle the ad break
+/// \param manager the ad manager object that will handle the ad break
 ///
 - (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager adBreakStarted:(id <AASDKAdManager> _Nonnull)manager;
-/// Notify of changes in the ad stream manager
+/// Notifies of changes in the ad stream manager.
 /// \param adstreamManager owner
 ///
-/// \param state current state of the player playing the stream
+/// \param state the current state of the player playing the stream
 ///
 - (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager stateChanged:(enum AASDKMediaPlayerStatus)state;
-/// Ad break ended
+/// An ad break has ended.
 /// \param adstreamManager owner
 ///
-/// \param manager ad manager object that managed the ad break
+/// \param manager the ad manager object that managed the ad break
 ///
 - (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager adBreakEnded:(id <AASDKAdManager> _Nonnull)manager;
-/// Metadata changed in the player
+/// Metadata has changed in the player.
 /// \param adstreamManager owner
 ///
-/// \param metadata data changed
+/// \param metadata the data that changed
 ///
 - (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager metadataChanged:(NSArray<AVMetadataItem *> * _Nonnull)metadata;
-/// Ad stream is about to reconnect if the ad break was skipped
-/// or another ad was inserted in the adbreak and thus the stream has shifted
+/// The ad stream is about to reconnect if the ad break was skipped
+/// or another ad was inserted in the ad break, and thus the stream has shifted.
 /// \param adstreamManager owner
 ///
 - (void)adStreamManagerWillReconnect:(AASDKAdStreamManager * _Nonnull)adstreamManager;
-/// Called when the stream is played with an external player and the AdStreamManager decides to pause content
-/// When this gets called you should pause the stream content
+/// Called when the stream is played with an external player and the <code>AdStreamManager</code> decides to pause content.
+/// When this gets called, you should pause the stream content.
 /// \param adstreamManager owner
 ///
 - (void)adStreamManagerPlayerShouldPause:(AASDKAdStreamManager * _Nonnull)adstreamManager;
-/// Called when the stream is played with an external player and the AdStreamManager decides to resume content
-/// When this gets called you should resume the stream content
+/// Called when the stream is played with an external player and the <code>AdStreamManager</code> decides to resume content.
+/// When this gets called, you should resume the stream content.
 /// \param adstreamManager owner
 ///
 - (void)adStreamManagerPlayerShouldResume:(AASDKAdStreamManager * _Nonnull)adstreamManager;
 @optional
-/// Notify when adstream did download dvrMetadata
+/// Notifies when the ad stream has downloaded the DVR metadata.
 /// \param adstreamManager owner
 ///
 /// \param dvrMetadata metadata for stream
@@ -1069,32 +1069,32 @@ SWIFT_PROTOCOL_NAMED("AdStreamManagerDelegate")
 /// The <code>AdStreamManagerSettings</code> class provides settings for the Ad Stream Manager.
 SWIFT_CLASS_NAMED("AdStreamManagerSettings")
 @interface AASDKAdStreamManagerSettings : NSObject
-/// Your application can provide a player where to play the stream.
-/// Note thant your player must conform to <code>MediaPlayerState</code>.
+/// Your application can provide a player with which to play the stream.
+/// Note that your player must conform to the <code>MediaPlayerState</code> protocol.
 @property (nonatomic, weak) id <AASDKMediaPlayerState> _Nullable player;
 /// Adds a capability for the stream.
-/// By default no capabilities options will be used.
+/// By default, no capability options will be used.
 - (void)addCapability:(enum AASDKAdStreamCapabilities)capability;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 /// The <code>AdType</code> is VAST compliant and provides information on which kind of ad is currently handled by the <code>AdManager</code>.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdType, "AdType", open) {
-/// The ad has only audio track.
+/// The ad only has an audio track.
   AASDKAdTypeAudio = 0,
-/// The ad has a video track as well.
+/// The ad has a video track, as well.
   AASDKAdTypeVideo = 1,
-/// Hybrid.
+/// Hybrid ad.
   AASDKAdTypeHybrid = 2,
 };
 
-/// The rendering behaviour  for an <code>AdVideoView</code> object. Defaults to <code>aspectFit</code>
+/// The rendering behavior  for an <code>AdVideoView</code> object. The default is <code>aspectFit</code>.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdVideoAspect, "AdVideoAspect", open) {
-/// Preserve aspect ratio and fit within the video layer bounds.
+/// Preserve the aspect ratio and fit within the video layer bounds.
   AASDKAdVideoAspectAspectFit = 0,
-/// Preserve aspect ratio and fill the video layer bounds.
+/// Preserve the aspect ratio and fill the video layer bounds.
   AASDKAdVideoAspectAspectFill = 1,
-/// Stretch to fill video layer bounds.
+/// Stretch to fill the video layer bounds.
   AASDKAdVideoAspectFill = 2,
 };
 
@@ -1133,32 +1133,32 @@ SWIFT_CLASS_NAMED("AdVideoFriendlyObstruction")
 @property (nonatomic, readonly) NSUInteger hash;
 @end
 
-/// A set of purposes for which an obstruction would be registered as “friendly”.
+/// A set of purposes for which an obstruction can be registered as “friendly”.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdVideoFriendlyObstructionPurpose, "AdVideoFriendlyObstructionPurpose", open) {
 /// Video controls such as pause buttons or progress bars.
   AASDKAdVideoFriendlyObstructionPurposeMediaControls = 0,
-/// Controls such as close (X) or skip (which results in closing ad) buttons.
+/// Controls such as close (X) or skip (which results in closing the ad) buttons.
   AASDKAdVideoFriendlyObstructionPurposeCloseAd = 1,
-/// Views such as transparent overlays which are used to capture tap events on video view and then render the controls to users when tapped.
+/// Views such as transparent overlays that are used to capture tap events on the video view and then render the controls to users when tapped.
   AASDKAdVideoFriendlyObstructionPurposeNotVisible = 2,
-/// Other controls such as Cast/AirPlay, collapse or different relevant actions.
+/// Other controls such as Cast/AirPlay, collapse or various other relevant actions.
   AASDKAdVideoFriendlyObstructionPurposeOther = 3,
 };
 
-/// The video player state for an <code>AdVideoView</code> object for viewability purposes. Defaults to <code>normal</code>.
+/// The video player state for an <code>AdVideoView</code> object for viewability purposes. The default is <code>normal</code>.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdVideoState, "AdVideoState", open) {
 /// The video view’s default playback size.
   AASDKAdVideoStateNormal = 0,
-/// The video view has expanded from its original size.
+/// The video view has been expanded from its original size.
   AASDKAdVideoStateExpanded = 1,
 /// The video view has been reduced from its original size.
 /// The video is still potentially visible.
   AASDKAdVideoStateCollapsed = 2,
-/// The video view has entered fullscreen mode.
+/// The video view has entered full-screen mode.
   AASDKAdVideoStateFullscreen = 3,
-/// The video view is <code>collapsed</code> in such a way that the video is hidden. However the ad was not fully removed from the player environment.
+/// The video view is <code>collapsed</code> in such a way that the video is hidden. However, the ad has not been fully removed from the player environment.
 /// The video may or may not still be progressing in this state, and sound may be audible.
-/// Unlike the collapsed state where the video view is big enough to display it’s content, in the minimized state the video view
+/// Unlike the collapsed state, where the video view is big enough to display its content, in the minimized state the video view
 /// is only big enough to offer a control that enables your user to redisplay the ad if desired.
   AASDKAdVideoStateMinimized = 4,
 };
@@ -1166,33 +1166,33 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdVideoState, "AdVideoState", open) {
 @protocol AASDKAdVideoViewDelegate;
 
 /// The video view to render ads. It makes use of an internal <code>AVPlayerLayer</code> to be able to render video content on its own.
-/// Subclassing notes: <code>AdVideoView</code> can be sublcassed however one must ensure it does not alter the base behaviour and presentation
+/// Subclassing notes: <code>AdVideoView</code> can be subclassed; however, you must ensure it does not alter the base behaviour and presentation
 SWIFT_CLASS_NAMED("AdVideoView")
 @interface AASDKAdVideoView : UIView
 /// An optional delegate object that receives state change notifications from an <code>AdVideoView</code> instance.
-/// Typically this is an <code>UIViewController</code> instance. For best practice be advised that this reference should be set to nil before deallocating the delegate.
+/// Typically, this is an <code>UIViewController</code> instance. For best practice, this reference should be set to nil before deallocating the delegate.
 @property (nonatomic, weak) IBOutlet id <AASDKAdVideoViewDelegate> _Nullable delegate;
-/// The video aspect when used with internal player layer. Defaults to <code>aspectFit</code>.
-/// Note that if internal player is not used, this property has no effect and you are responsable for managing the render aspect.
+/// The video aspect when used with the internal player layer. The default is <code>aspectFit</code>.
+/// Note that, if the internal player is not used, this property has no effect and you are responsible for managing the render aspect.
 @property (nonatomic) IBInspectable enum AASDKAdVideoAspect aspect;
-/// Return the click through URL for this video view if the loaded ad provides it
+/// Returns the click-through URL for this video view if the loaded ad provides it
 @property (nonatomic, readonly, copy) NSURL * _Nullable clickThrough;
-/// The video state for viewability purposes. See <code>AdVideoState</code> enum for possible values.
+/// The video state for viewability purposes. See the <code>AdVideoState</code> enum for possible values.
 /// Your <code>AdVideoView</code> instance will have to report state changes according to your specific usage.
-/// E.g whenevar your video view transitions to one of the <code>AdVideoState</code> options, you should update the state here.
-/// Also note that when your app transitions to background, the SDK will conveniently set to <code>minimized</code> state and restore
-/// it to the previously known value when app becomes active again.
+/// E.g whenever your video view transitions to one of the <code>AdVideoState</code> options, you should update the state here.
+/// Also note that, when your app transitions to the background, the SDK will conveniently set it to the <code>minimized</code> state and restore
+/// it to the previously known value when the app becomes active again.
 @property (nonatomic) enum AASDKAdVideoState state;
-/// <code>UIView</code> Initializer. Overrided by <code>AdswizzSDK</code>.
+/// <code>UIView</code> Initializer. Overridden by <code>AdswizzSDK</code>.
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-/// <code>UIView</code> Initializer. Overrided by <code>AdswizzSDK</code>.
+/// <code>UIView</code> Initializer. Overridden by <code>AdswizzSDK</code>.
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-/// <code>UIView</code> Initializer. Overrided by <code>AdswizzSDK</code>.
+/// <code>UIView</code> Initializer. Overridden by <code>AdswizzSDK</code>.
 - (void)awakeFromNib;
-/// Call this method when you manually trigger the clickThrough URL (e.g you present a custom button in your interface and when tapped it will fire clickThrough as target URL).
-/// This way you inform AdswizzSDK that the associated clickTrackings should also be fired for third party measurement and reporting.
+/// Call this method when you manually trigger the clickThrough URL (e.g you present a custom button in your interface and, when tapped, it will fire clickThrough as the target URL).
+/// This way, you inform the AdswizzSDK that the associated clickTrackings should also be fired for third-party measurement and reporting.
 /// Note that you may want to implement <code>adVideoView(_ adVideoView: AdVideoView, shouldOverrideVideoClickThrough url: URL) -> Bool</code>
-/// and return <code>true</code> to let AdswizzSDK know that you’re responsible for handling the clickThrough.
+/// and return <code>true</code> to let the AdswizzSDK know that you’re responsible for handling the clickThrough.
 - (void)didHandleClickThrough;
 @end
 
@@ -1201,7 +1201,7 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK))
 /// Registers a view that overlays or obstructs this container as “friendly” for viewability measurement purposes.
-/// See Open Measurement in AdswizzSDK for guidance on what is and what is not allowed to be registered.
+/// See the Open Measurement in AdswizzSDK for guidance on what you are and what you are not allowed to register.
 /// \param friendlyObstruction an obstruction to be marked as “friendly” until unregistered.
 ///
 - (void)register:(AASDKAdVideoFriendlyObstruction * _Nonnull)friendlyObstruction;
@@ -1220,23 +1220,23 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
-/// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behaviour changes and events.
+/// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behavior changes and events.
 SWIFT_PROTOCOL_NAMED("AdVideoViewDelegate")
 @protocol AASDKAdVideoViewDelegate
 @optional
-/// Called immediately when a touch event is detected over the video view.
-/// Give the host application a chance to override the default behaviour when a
+/// Called immediately when a touch event is detected over the video view,
+/// giving the host application a chance to override the default behavior when a
 /// <code>clickThrough</code> event occurs.
-/// Return <code>true</code> if the host application wants to handle itself the targetURL
+/// Return <code>true</code> if the host application wants to handle itself the targetURL,
 /// otherwise return <code>false</code> and by default the targetURL will be opened in the external browser.
-/// \param adVideoView The <code>AdVideoView</code> instance which received the touch event
+/// \param adVideoView The <code>AdVideoView</code> instance that received the touch event
 ///
-/// \param url The <code>URL</code> which was loaded by the <code>AdVideoView</code>
+/// \param url The <code>URL</code> that was loaded by the <code>AdVideoView</code>
 ///
 - (BOOL)adVideoView:(AASDKAdVideoView * _Nonnull)adVideoView shouldOverrideVideoClickThrough:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 /// Called when the application is about to transition to background state as a result of
 /// a <code>clickThrough</code> event and the targetURL is opened in the external browser.
-/// \param adVideoView The <code>AdVideoView</code> instance which triggers the event
+/// \param adVideoView The <code>AdVideoView</code> instance that triggers the event
 ///
 - (void)adVideoViewWillLeaveApplication:(AASDKAdVideoView * _Nonnull)adVideoView;
 @end
@@ -1248,7 +1248,7 @@ SWIFT_CLASS_NAMED("AdswizzAdPodcastManager")
 @interface AASDKAdswizzAdPodcastManager : AASDKAdPodcastManager
 /// The HTTP/HTTPS protocol the <code>AdswizzAdPodcastManager</code> will use internally for retrieving the companion banner of an ad with display capabilities.
 @property (nonatomic, readonly) enum AASDKAdswizzAdRequestProtocol httpProtocol;
-/// The Ad Server that the <code>AdswizzAdPodcastManager</code> will use internally for retrieving the companion banner of an ad with display capabilities.
+/// The ad server that the <code>AdswizzAdPodcastManager</code> will use internally for retrieving the companion banner of an ad with display capabilities.
 @property (nonatomic, readonly, copy) NSString * _Nonnull adServer;
 /// The companion zoneId that the <code>AdswizzAdPodcastManager</code> will use internally for retrieving the companion banner of an ad with display capabilities.
 @property (nonatomic, readonly, copy) NSString * _Nullable companionZone;
@@ -1256,7 +1256,7 @@ SWIFT_CLASS_NAMED("AdswizzAdPodcastManager")
 @property (nonatomic, weak) id <AASDKAdPodcastManagerDownloadDelegate> _Nullable downloadDelegate;
 /// Play a podcast from a remote or local<code>url</code>.
 - (BOOL)playWith:(NSURL * _Nonnull)url error:(NSError * _Nullable * _Nullable)error;
-/// Stop current podcast.
+/// Stop the current podcast.
 - (void)stop;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -1271,26 +1271,26 @@ SWIFT_CLASS_NAMED("AdswizzAdPodcastManager")
 /// Builder to conveniently create an <code>AdswizzAdPodcastManager</code> instance.
 SWIFT_CLASS_NAMED("Builder")
 @interface AASDKAdswizzAdPodcastManagerBuilder : NSObject
-/// Set the Http protocol. Default is https.
+/// Set the HTTP protocol. The default is <code>.https</code>.
 /// \param httpProtocol http protocol
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdPodcastManagerBuilder * _Nonnull)withHttpProtocol:(enum AASDKAdswizzAdRequestProtocol)httpProtocol SWIFT_WARN_UNUSED_RESULT;
-/// Set the companion zone id. Optional.
+/// Set the companion zone ID. Optional.
 /// \param companionZones companionZones description
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdPodcastManagerBuilder * _Nonnull)withCompanionZones:(NSString * _Nonnull)companionZones SWIFT_WARN_UNUSED_RESULT;
-/// Set the Adswizz Ad Server. Mandatory.
+/// Set the Adswizz ad server. Mandatory.
 /// \param adServer Adswizz server
 ///
 ///
 /// returns:
-/// same builder object.
+/// the same builder object.
 - (AASDKAdswizzAdPodcastManagerBuilder * _Nonnull)withAdServer:(NSString * _Nonnull)adServer SWIFT_WARN_UNUSED_RESULT;
 /// Builds an <code>AdswizzAdPodcastManager</code> object.
 ///
@@ -1298,7 +1298,7 @@ SWIFT_CLASS_NAMED("Builder")
 /// a missing server address
 ///
 /// returns:
-/// a valid AdswizzAdPodcastManager object
+/// a valid <code>AdswizzAdPodcastManager</code> object
 - (AASDKAdswizzAdPodcastManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1328,85 +1328,85 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdswizzAdRequestVASTVersion, "VASTVersi
 /// Builder class for <code>AdRequest</code>.
 SWIFT_CLASS_NAMED("Builder")
 @interface AASDKAdswizzAdRequestBuilder : NSObject
-/// Http protocol. Default is https.
-/// \param httpProtocol http protocol
+/// The HTTP protocol. The default is <code>.https</code>.
+/// \param httpProtocol HTTP protocol
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withHttpProtocol:(enum AASDKAdswizzAdRequestProtocol)httpProtocol SWIFT_WARN_UNUSED_RESULT;
-/// Set vast version. Default is 4.0.
+/// Set VAST version. The default is 4.0.
 /// \param vastVersion vastVersion description
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withVastVersion:(enum AASDKAdswizzAdRequestVASTVersion)vastVersion SWIFT_WARN_UNUSED_RESULT;
 /// Set a single zone to the builder.
 /// \param zone a single zone description
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withZone:(AASDKAdswizzAdZone * _Nonnull)zone SWIFT_WARN_UNUSED_RESULT;
 /// Set one or more zones on which the request will be made. Mandatory.
-/// Note that the order of the zones will be used by Adswizz ad server during ad selection.
-/// In case of a single <code>AdswizzAdZone</code>consider using <code>with(zone:)</code> instead.
-/// \param zones zones description
+/// Note that the order of the zones will be used by the Adswizz ad server during ad selection.
+/// For a single <code>AdswizzAdZone</code>, consider using <code>with(zone:)</code> instead.
+/// \param zones zone descriptions
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withZones:(NSArray<AASDKAdswizzAdZone *> * _Nonnull)zones SWIFT_WARN_UNUSED_RESULT;
 /// Set the maximum total duration of ads to be selected, in seconds. Optional.
 /// \param duration non-zero duration description in seconds
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withDuration:(NSTimeInterval)duration SWIFT_WARN_UNUSED_RESULT;
-/// Set the zone alias referencing external zone. Optional.
+/// Set the zone alias referencing an external zone. Optional.
 /// \param zoneAlias zoneAlias description
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withZoneAlias:(NSString * _Nonnull)zoneAlias SWIFT_WARN_UNUSED_RESULT;
-/// Set the companion zone id. Optional.
+/// Set the companion zone ID. Optional.
 /// \param companionZones companionZones description
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withCompanionZones:(NSString * _Nullable)companionZones SWIFT_WARN_UNUSED_RESULT;
 /// Set the tags used for requesting the ads. Optional.
 /// \param tagsArray string with tags separated by comma
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withTagsArray:(NSString * _Nullable)tagsArray SWIFT_WARN_UNUSED_RESULT;
 /// Set a referrer. Optional.
 /// \param referrer referrer description
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withReferrer:(NSString * _Nullable)referrer SWIFT_WARN_UNUSED_RESULT;
-/// Set the Adswizz Ad Server. Mandatory.
+/// Set the Adswizz ad server. Mandatory.
 /// \param server Adswizz server
 ///
 ///
 /// returns:
-/// same builder object.
+/// the same builder object.
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withServer:(NSString * _Nonnull)server SWIFT_WARN_UNUSED_RESULT;
 /// Set and pass additional custom parameters to <code>AdswizzAdRequest</code>. Optional.
-/// Note that it should be only used at the recommendation of AdsWizz. All parameters must be URL encoded.
+/// Note that it should only be used at the recommendation of AdsWizz. All parameters must be URL encoded.
 /// \param additionalCustomParameters custom parameters with a suggested format of <code>key1=value1&key2=value2</code>
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withAdditionalCustomParameters:(NSString * _Nullable)additionalCustomParameters SWIFT_WARN_UNUSED_RESULT;
 /// Set and pass custom analytics data used for all<code>AnalyticsEvent</code> entries. Optional.
 /// Must be set before calling <code>build()</code>.
@@ -1414,55 +1414,55 @@ SWIFT_CLASS_NAMED("Builder")
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withAnalyticsCustomData:(id <AASDKAnalyticsCustomData> _Nullable)analyticsCustomData SWIFT_WARN_UNUSED_RESULT;
 /// Set a TCFv2 string as described by IAB’s Transparency and Consent Framework (TCF). Optional.
 /// \param userConsentV2 a valid TCFv2 string
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withUserConsentV2:(NSString * _Nullable)userConsentV2 SWIFT_WARN_UNUSED_RESULT;
 /// When setting the <code>maxAds</code> value for an <code>AdswizzAdZone</code>, the Adswizz server will try to respond with that number of ads.
-/// However, when it cannot fulfill that request, by setting the <code>enableExpectedAdsReporting</code> to true, the SDK will calculate the difference between
-/// number of expected ads (maxAds) and the number of ads from the response and it will determine how many empty ads there are:
+/// However, when it cannot fulfill that request, by setting <code>enableExpectedAdsReporting</code> to true, the SDK will calculate the difference between
+/// the number of expected ads (maxAds) and the number of ads from the response and it will determine how many empty ads there are:
 /// numberOfEmptyAds = totalMaxAds - adsFromResponse
-/// For each empty <code>AdData</code> the SDK will fire the error tracking urls via
+/// For each empty <code>AdData</code>, the SDK will fire the error tracking URLs via
 /// <code>adManager(_ adManager: AdManager, ad: AdData, trackingErrorUrls errorCode: VastErrorCode) -> [URL]</code>
-/// from <code>AdManagerDatasource</code>. By default <code>enableExpectedAdsReporting</code> is false.
-/// Note that the totalMaxAds it also takes into account zones which didn’t configure a specific <code>maxAds</code> in which case
+/// from <code>AdManagerDatasource</code>. By default, <code>enableExpectedAdsReporting</code> is set to false.
+/// Note that totalMaxAds also takes into account zones that didn’t configure a specific <code>maxAds</code>, in which case
 /// every such zone will count as +1 towards the total number of expected ads.
-/// \param enableExpectedAdsReporting whether or not the reporting for expected ads count is enabled or not
+/// \param enableExpectedAdsReporting whether or not reporting the expected ad count is enabled
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withEnableExpectedAdsReporting:(BOOL)enableExpectedAdsReporting SWIFT_WARN_UNUSED_RESULT;
-/// Builds an AdswizzAdRequest object
+/// Builds an <code>AdswizzAdRequest</code> object
 ///
 /// throws:
-/// a missing zone id error if it was not provided or a missing server address
+/// a missing zone ID error if it was not provided, or a server address is missing
 ///
 /// returns:
-/// a valid AdswizzAdRequest object
+/// a valid <code>AdswizzAdRequest</code> object
 - (AASDKAdswizzAdRequest * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
 
-/// An <code>AdswizzAdStreamManager</code> allows for <code>AdswizzSDK</code> to deliver streaming functionality.
+/// An <code>AdswizzAdStreamManager</code> enables the <code>AdswizzSDK</code> to deliver streaming functionality.
 SWIFT_CLASS_NAMED("AdswizzAdStreamManager")
 @interface AASDKAdswizzAdStreamManager : AASDKAdStreamManager
 /// The HTTP/HTTPS protocol the <code>AdswizzAdStreamManager</code> will use internally for retrieving the companion banner of an ad with display capabilities.
 @property (nonatomic, readonly) enum AASDKAdswizzAdRequestProtocol httpProtocol;
-/// The Ad Server that the <code>AdswizzAdStreamManager</code> will use internally for retrieving the companion banner of an ad with display capabilities.
+/// The ad server that the <code>AdswizzAdStreamManager</code> will use internally for retrieving the companion banner of an ad with display capabilities.
 @property (nonatomic, readonly, copy) NSString * _Nonnull adServer;
 /// The companion zoneId that the <code>AdswizzAdStreamManager</code> will use internally for retrieving the companion banner of an ad with display capabilities.
 @property (nonatomic, readonly, copy) NSString * _Nullable companionZone;
 /// Prepare the stream at <code>url</code> by starting buffering the internal player.
 - (BOOL)prepareWith:(NSURL * _Nonnull)url error:(NSError * _Nullable * _Nullable)error;
-/// Play stream at <code>url</code>.
+/// Play the stream at <code>url</code>.
 - (BOOL)playWith:(NSURL * _Nonnull)url error:(NSError * _Nullable * _Nullable)error;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -1477,26 +1477,26 @@ SWIFT_CLASS_NAMED("AdswizzAdStreamManager")
 /// Builder to conveniently create an <code>AdswizzAdStreamManager</code> instance.
 SWIFT_CLASS_NAMED("Builder")
 @interface AASDKAdswizzAdStreamManagerBuilder : NSObject
-/// Http protocol. Default is https.
-/// \param httpProtocol http protocol
+/// HTTP protocol. The default is <code>https</code>.
+/// \param httpProtocol HTTP protocol
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdStreamManagerBuilder * _Nonnull)withHttpProtocol:(enum AASDKAdswizzAdRequestProtocol)httpProtocol SWIFT_WARN_UNUSED_RESULT;
-/// Set the companion zone id. Optional.
+/// Set the companion zone ID. Optional.
 /// \param companionZones companionZones description
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdStreamManagerBuilder * _Nonnull)withCompanionZones:(NSString * _Nonnull)companionZones SWIFT_WARN_UNUSED_RESULT;
-/// Set the Adswizz Ad Server. Mandatory.
+/// Set the Adswizz ad server. Mandatory.
 /// \param adServer Adswizz server
 ///
 ///
 /// returns:
-/// same builder object.
+/// the same builder object
 - (AASDKAdswizzAdStreamManagerBuilder * _Nonnull)withAdServer:(NSString * _Nonnull)adServer SWIFT_WARN_UNUSED_RESULT;
 /// Builds an <code>AdswizzAdStreamManager</code> object.
 ///
@@ -1512,7 +1512,7 @@ SWIFT_CLASS_NAMED("Builder")
 
 
 
-/// The <code>AdswizzAdZone</code> object which specifies criterias for ad selection on Adswizz server.
+/// The <code>AdswizzAdZone</code> object specifies criteria for ad selection on an Adswizz server.
 /// Can be used  to configure an <code>AdswizzAdRequest</code> connection.
 SWIFT_CLASS_NAMED("AdswizzAdZone")
 @interface AASDKAdswizzAdZone : NSObject
@@ -1524,33 +1524,33 @@ SWIFT_CLASS_NAMED("AdswizzAdZone")
 /// Builder class for <code>AdswizzAdZone</code>.
 SWIFT_CLASS_NAMED("Builder")
 @interface AASDKAdswizzAdZoneBuilder : NSObject
-/// Set zone’s id for ad selection. Mandatory.
+/// Set the zone ID for ad selection. Mandatory.
 /// \param zoneId zoneId description
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdZoneBuilder * _Nonnull)withZoneId:(NSString * _Nonnull)zoneId SWIFT_WARN_UNUSED_RESULT;
-/// Set the maximum number of the requested ad-screen during ad selection. Optional.
+/// Set the maximum number of ads requested during ad selection. Optional.
 /// Accepts only non-zero and positive values.
 /// \param maxAds maximum number of ads description
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdZoneBuilder * _Nonnull)withMaxAds:(NSUInteger)maxAds SWIFT_WARN_UNUSED_RESULT;
-/// Set the maximum duration of the requested ad-screen during ad selection. Optional.
+/// Set the maximum duration of the ads during ad selection. Optional.
 /// Measured in seconds and only accepts non-zero and positive values.
 /// \param maxDuration maximum duration in seconds
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKAdswizzAdZoneBuilder * _Nonnull)withMaxDuration:(NSTimeInterval)maxDuration SWIFT_WARN_UNUSED_RESULT;
 /// Builds an <code>AdswizzAdZone</code> object.
 ///
 /// throws:
-/// a missing zone id error if it was not provided or empty
+/// a missing zone ID error if the ID was not provided or was empty
 ///
 /// returns:
 /// a valid <code>AdswizzAdZone</code> object
@@ -1572,23 +1572,23 @@ enum AASDKCCPAOption : NSInteger;
 /// Builder class to conveniently create an instance of <code>AdswizzCCPAConfig</code>
 SWIFT_CLASS_NAMED("Builder")
 @interface AASDKAdswizzCCPAConfigBuilder : NSObject
-/// Explicit notice for collecting consent. Return .yes if user was presented with the opt-out choice, .no otherwise.
-/// Defaults to .notApplicable
+/// Explicit notice for collecting consent. Return <code>.yes</code> if the user was presented with the opt-out choice, <code>.no</code> otherwise.
+/// The default is <code>.notApplicable</code>.
 /// \param explicitNotice explicit notice
 ///
 - (AASDKAdswizzCCPAConfigBuilder * _Nonnull)withExplicitNotice:(enum AASDKCCPAOption)explicitNotice SWIFT_WARN_UNUSED_RESULT;
-/// Has user opted-out of the sale of his personal information.
-/// Defaults to .notApplicable
+/// Whether the user has opted-out of the sale of their personal information.
+/// The default is <code>.notApplicable</code>.
 /// \param optOut opt-out choice consent
 ///
 - (AASDKAdswizzCCPAConfigBuilder * _Nonnull)withOptOut:(enum AASDKCCPAOption)optOut SWIFT_WARN_UNUSED_RESULT;
-/// Information should operate within the Limited Service Provider Agreement.
-/// Defaults to .notApplicable
-/// \param lspa lspa availability
+/// Whether information should operate within the Limited Service Provider Agreement.
+/// The default is <code>.notApplicable</code>.
+/// \param lspa LSPA availability
 ///
 - (AASDKAdswizzCCPAConfigBuilder * _Nonnull)withLspa:(enum AASDKCCPAOption)lspa SWIFT_WARN_UNUSED_RESULT;
 /// Builds an <code>AdswizzCCPAConfig</code> object.
-/// By default it creates a config object which refers to the user that it does not fall within a U.S. Privacy jurisdiction (e.g. CCPA).
+/// By default, it creates a config object that refers to a user who does not fall within a U.S. Privacy jurisdiction (e.g. CCPA).
 ///
 /// returns:
 /// a valid <code>AdswizzCCPAConfig</code> object
@@ -1598,7 +1598,7 @@ SWIFT_CLASS_NAMED("Builder")
 
 
 @interface AASDKAdswizzCCPAConfig (SWIFT_EXTENSION(AdswizzSDK))
-/// It allows proper <code>==</code> checks between <code>AdswizzCCPAConfig</code> instances
+/// Allows for proper <code>==</code> checks between <code>AdswizzCCPAConfig</code> instances
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @end
 
@@ -1646,14 +1646,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 /// Unitialize <code>AdswizzSDK</code>.
 - (void)uninitialize;
 /// Set the ad companion options.
-/// \param options update companion options
+/// \param options update the ad companion options
 ///
 + (void)setAdCompanionOptions:(AASDKAdCompanionOptions * _Nonnull)options;
-/// Set GDPR consent.
+/// Set the GDPR consent.
 @property (nonatomic) enum AASDKGDPROption gdprConsent;
-/// Set U.S. privacy consent config for the SDK.
+/// Set the U.S. privacy consent config for the SDK.
 @property (nonatomic, strong) AASDKAdswizzCCPAConfig * _Nonnull ccpaConfig;
-/// Set location accuracy.
+/// Set GPP. privacy consent  for the SDK.
+@property (nonatomic, copy) NSString * _Nullable gppConsent;
+/// Set the location accuracy.
 @property (nonatomic) CLLocationAccuracy locationAccuracy;
 /// Enable/disable location significant changes mode.
 @property (nonatomic) BOOL enableLocationSignificantChanges;
@@ -1664,56 +1666,56 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 ///
 ///
 /// returns:
-/// if <code>AdswizzSDK</code> can use or not the API guarded by this permission
+/// whether or not <code>AdswizzSDK</code> can use the API guarded by this permission
 - (BOOL)permissionStatusFor:(enum PermissionType)type SWIFT_WARN_UNUSED_RESULT;
 /// Set if the SDK can use the data exposed by this permission.
 /// <ul>
 ///   <li>
-///     location: SDK will not continue to process CLLocationManager updates
+///     location: the SDK will not continue to process CLLocationManager updates
 ///   </li>
 ///   <li>
-///     locationAdvanced: same as location. You can set which one you like.
+///     locationAdvanced: the same as location. You can set whichever you prefer.
 ///   </li>
 ///   <li>
-///     photo: SDK will not save any photos as a result of an interactive ad with download photo action
+///     photo: the SDK will not save any photos as a result of an interactive ad with the “download photo” action
 ///   </li>
 ///   <li>
-///     microphone: SDK will not start recording the user while in interactive voice ad. If this is set interactive voice ad will not happen.
+///     microphone: the SDK will not start recording the user during an interactive voice ad. If this is set, interactive voice ads will not be played.
 ///   </li>
 ///   <li>
-///     speech: SDK will not begin using speech transcriber during the interactive voice ad. If this is set interactive voice ad will not happen.
+///     speech: the SDK will not begin using the speech transcriber during an interactive voice ad. If this is set, interactive voice ads will not be played.
 ///   </li>
 ///   <li>
-///     calendar: SDK will not insert any events in the users calendar during an interactive ad with add to calendar action.
+///     calendar: the SDK will not insert any events in the user’s calendar during an interactive ad with the “add to calendar” action.
 ///   </li>
 ///   <li>
-///     camera: For future use. Currently the SDK doesn’t use any data from the camera.
+///     camera: For future use. Currently, the SDK doesn’t use any data from the camera.
 ///   </li>
 ///   <li>
-///     contacts: For future use. Currently the SDK doesn’t access the contacts.
+///     contacts: For future use. Currently, the SDK doesn’t access the contacts.
 ///   </li>
 ///   <li>
-///     idfa: Since iOS 14 the app needs to request permission from the user to track. If set to false, the SDK will not use the IDFA from the system.
+///     idfa: Since iOS 14, the app needs to request permission from the user to track. If set to false, the SDK will not use the IDFA from the system.
 ///   </li>
 ///   <li>
-///     motionActivity: SDK will not use any updates from CMMotionActivityManager
+///     motionActivity: the SDK will not use any updates from CMMotionActivityManager
 ///   </li>
 /// </ul>
-/// \param type permissionType as described in AdswizzSDKPrivacyData framework
+/// \param type permissionType as described in the AdswizzSDKPrivacyData framework
 ///
-/// \param status true if SDK is allowed to use the permission, false if the SDK is denied
-/// Disscussion: By default the SDK will use the API unlocked by each permission but you can limit SDK usage dynamically by setting this.
-/// AdswizzSDK will ensure that if the permission status is set to false the API guarded by the permission is not used, thus giving you granular control of what sensitive data
-/// the SDK might use during it’s lifetime. Look bellow to see what happens when you put a permission status to false:
+/// \param status if the SDK is allowed to use the permission, false if the SDK is denied
+/// Discussion: By default, the SDK will use the API unlocked by each permission, but you can limit SDK usage dynamically by setting this.
+/// The AdswizzSDK will ensure that, if the permission status is set to false, the API guarded by the permission is not used, thus giving you granular control over what sensitive data
+/// the SDK may use during its lifetime. To see what happens when you set a permission status to false, read the descriptions above.
 ///
 - (void)setPermissionStatusFor:(enum PermissionType)type status:(BOOL)status;
-/// Enable/disable data collection for AdswizzSDK data collector. Defaults to <code>false</code>.
-/// Your app should get user’s preference and then honour that input to opt-in or opt-out by instructing AdswizzSDK to collect data or not.
-/// Ideally you would sync data collection consent with the GDPR/CCPA consent. e.g: if user declined its GDPR consent you should also set <code>disableDataCollection</code> to <code>true</code>.
+/// Enable/disable data collection for the AdswizzSDK data collector. The default is <code>false</code>.
+/// Your app should get the user’s preference and then honor that input to opt-in or opt-out by instructing the AdswizzSDK to collect data or not.
+/// Ideally, you should sync the data collection consent with the GDPR/CCPA consent. e.g: if the user has declined its GDPR consent, you should also set <code>disableDataCollection</code> to <code>true</code>.
 @property (nonatomic) BOOL disableDataCollection;
-/// Enable/disable RAD (Remote Audio Data) for <code>AdswizzSDK</code> when playing podcasts. Defaults to <code>false</code>.
-/// Your app should get user’s preference and then honour that input to opt-in or opt-out by instructing <code>AdswizzSDK</code> to collect data or not.
-/// Ideally you would sync data collection consent with the GDPR/CCPA consent. e.g: if user declined its GDPR consent you should also set <code>disableRAD</code> to <code>true</code>.
+/// Enable/disable RAD (Remote Audio Data) for <code>AdswizzSDK</code> when playing podcasts. The default is <code>false</code>.
+/// Your app should get the user’s preference and then honor that input to opt-in or opt-out by instructing <code>AdswizzSDK</code> to collect data or not.
+/// Ideally, you should sync data collection consent with the GDPR/CCPA consent. e.g: if the user has declined its GDPR consent, you should also set <code>disableRAD</code> to <code>true</code>.
 @property (nonatomic) BOOL disableRAD;
 @end
 
@@ -1722,8 +1724,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 
 
 
-/// Adswizz SDK configuration class.
-/// Can be used to initialize <code>AdswizzSDK</code> shared instance.
+/// The <code>AdswizzSDK</code> configuration class.
+/// Can be used to initialize the <code>AdswizzSDK</code> shared instance.
 SWIFT_CLASS_NAMED("AdswizzSDKConfig")
 @interface AASDKAdswizzSDKConfig : NSObject
 /// The <code>playerId</code> needed for AdswizzSDK initialization
@@ -1733,12 +1735,12 @@ SWIFT_CLASS_NAMED("AdswizzSDKConfig")
 /// The optional <code>appStoreId</code> used by <code>AdswizzSDK</code> at initialization
 @property (nonatomic, readonly, copy) NSString * _Nullable appStoreId;
 /// Creates a configuration object used to initialize the <code>AdswizzSDK</code> instance.
-/// Note that the <code>playerId</code>, <code>installationId</code> and <code>appStoreId</code> properties will override the correspond values from <code>AdswizzSettingsKeys</code> set in Info.plist.
+/// Note that the <code>playerId</code>, <code>installationId</code> and <code>appStoreId</code> properties will override the corresponding values from <code>AdswizzSettingsKeys</code> set in Info.plist.
 /// \param playerId a player id
 ///
 /// \param installationId an installationId
 ///
-/// \param appStoreId an App Store Id from App Store Connect (optional). Defaults to nil
+/// \param appStoreId an App Store Id from App Store Connect (optional). The default is nil
 ///
 - (nonnull instancetype)initWithPlayerId:(NSString * _Nonnull)playerId installationId:(NSString * _Nonnull)installationId appStoreId:(NSString * _Nullable)appStoreId OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -1764,19 +1766,19 @@ SWIFT_PROTOCOL_NAMED("AdswizzSDKDelegate")
 /// <code>AdswizzSDK</code> namespace for constants.
 SWIFT_CLASS_NAMED("AdswizzSettingsKeys")
 @interface AASDKAdswizzSettingsKeys : NSObject
-/// Speech recognition uses Amazon Transcribe Service.
-/// Amazon Transcriber identity pool id region key name found in  your Info.pList. Content should be a string.
+/// Speech recognition uses the Amazon Transcribe Service.
+/// Amazon Transcriber identity pool ID region key name found in your Info.pList. Content should be a string.
 /// E.g.: AdswizzAdSDKAWSIdentityPoolIdRegion = “eu-west-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx”
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AWSTranscriberIdentityPoolIdRegion;)
 + (NSString * _Nonnull)AWSTranscriberIdentityPoolIdRegion SWIFT_WARN_UNUSED_RESULT;
-/// <code>AdswizzSDK</code> expects an installation id in your Info.pList. This is a string.
+/// <code>AdswizzSDK</code> expects an installation ID in your Info.pList. This is a string.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull InstallationId;)
 + (NSString * _Nonnull)InstallationId SWIFT_WARN_UNUSED_RESULT;
-/// <code>AdswizzSDK</code> expects a player id in your Info.pList. This is a string.
+/// <code>AdswizzSDK</code> expects a player ID in your Info.pList. This is a string.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull PlayerId;)
 + (NSString * _Nonnull)PlayerId SWIFT_WARN_UNUSED_RESULT;
-/// Optional AppStore id for your app in your Info.plist. This is a string.
-/// This value can be found in your App Store Connect page for your app under App Information -> General Information -> Apple ID.
+/// Optional AppStore ID for your app in your Info.plist. This is a string.
+/// This value can be found on the App Store Connect page for your app under App Information -> General Information -> Apple ID.
 /// E.g: AdswizzAppStoreId = “123456789”
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AppStoreId;)
 + (NSString * _Nonnull)AppStoreId SWIFT_WARN_UNUSED_RESULT;
@@ -1786,7 +1788,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @protocol AASDKAnalyticsEvent;
 @class NSDate;
 
-/// <code>AnalyticsCollecting</code> protocol defines an interface for collecting <code>AdswizzSDK</code> analytics data. All events will be received on a serial background queue.
+/// The <code>AnalyticsCollecting</code> protocol defines an interface for collecting <code>AdswizzSDK</code> analytics data. All events will be received on a serial background queue.
 /// Note that the <code>AnalyticsConnector</code> class conforms to <code>AnalyticsCollecting</code>.
 SWIFT_PROTOCOL_NAMED("AnalyticsCollecting")
 @protocol AASDKAnalyticsCollecting
@@ -1795,15 +1797,15 @@ SWIFT_PROTOCOL_NAMED("AnalyticsCollecting")
 ///
 - (void)log:(id <AASDKAnalyticsEvent> _Nonnull)event :(NSDate * _Nonnull)timestamp;
 /// Force a send to all connectors.
-/// When you recieve this call, the connector should try to flush all its stored event if <code>forced</code> is true.
-/// \param forced true if the action is to be required immediatly
+/// When you receive this call, the connector should try to flush all its stored events if <code>forced</code> is true.
+/// \param forced true if the action is required immediately
 ///
 - (void)sendWithForced:(BOOL)forced;
 @end
 
 @protocol AASDKAnalyticsConnector;
 
-/// <code>AnalyticsCollector</code> protocol defines the interface for <code>AdswizzSDK</code> to be able to add or remove instances of objects that conform to <code>AnalyticsConnector</code> protocol.
+/// The <code>AnalyticsCollector</code> protocol defines the interface for <code>AdswizzSDK</code> to be able to add or remove instances of objects that conform to the <code>AnalyticsConnector</code> protocol.
 SWIFT_PROTOCOL_NAMED("AnalyticsCollector")
 @protocol AASDKAnalyticsCollector
 /// Add a connector.
@@ -1817,7 +1819,7 @@ SWIFT_PROTOCOL_NAMED("AnalyticsCollector")
 @end
 
 
-/// <code>AnalyticsConnector</code> inherits AnalyticsCollecting for now.
+/// <code>AnalyticsConnector</code> inherits <code>AnalyticsCollecting</code> protocol.
 SWIFT_PROTOCOL_NAMED("AnalyticsConnector")
 @protocol AASDKAnalyticsConnector <AASDKAnalyticsCollecting>
 @end
@@ -1826,12 +1828,12 @@ SWIFT_PROTOCOL_NAMED("AnalyticsConnector")
 /// Analytics interface to customize <code>AnalyticsEvent</code> entries.
 SWIFT_PROTOCOL_NAMED("AnalyticsCustomData")
 @protocol AASDKAnalyticsCustomData
-/// Custom params will be attached to each <code>AnalyticsEvent</code> during the ads lifecycle. See the <code>customParams</code> property from <code>AnalyticsEvent</code>.
+/// Custom params will be attached to each <code>AnalyticsEvent</code> during the ad lifecycle. See the <code>customParams</code> property from <code>AnalyticsEvent</code>.
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable params;
 @end
 
 
-/// The <code>AnalyticsEvent</code> protocol which defines all properties for an event.
+/// The <code>AnalyticsEvent</code> protocol defines all properties for an event.
 SWIFT_PROTOCOL_NAMED("AnalyticsEvent")
 @protocol AASDKAnalyticsEvent
 /// Identifier value for the event - should be unique.
@@ -1842,17 +1844,17 @@ SWIFT_PROTOCOL_NAMED("AnalyticsEvent")
 @property (nonatomic, readonly) enum AASDKAnalyticsCategory level;
 /// Extra params attached to the event.
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable params;
-/// Custom params attached to the event which are passed from outside of the SDK.
+/// Custom params attached to the event that are passed from outside the SDK.
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable customParams;
 @end
 
-/// The U.S. Privacy consent
+/// The U.S. Privacy consent.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKCCPAOption, "CCPAConsent", open) {
 /// N consent choice
   AASDKCCPAOptionNo = 0,
 /// Y consent choice
   AASDKCCPAOptionYes = 1,
-/// Rules don’t apply
+/// The rules don’t apply
   AASDKCCPAOptionNotApplicable = 2,
 };
 
@@ -1886,7 +1888,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKCompanionRenderingMode, "CompanionRende
   AASDKCompanionRenderingModeDef = 0,
 /// End card.
   AASDKCompanionRenderingModeEndCard = 1,
-/// Concurent.
+/// Concurrent.
   AASDKCompanionRenderingModeConcurrent = 2,
 };
 
@@ -1899,19 +1901,19 @@ SWIFT_PROTOCOL_NAMED("CompanionResource")
 @property (nonatomic, readonly, copy) NSArray<id <AASDKCompanionStaticResource>> * _Nullable staticRes;
 /// iFrame resources.
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable iFrame;
-/// Html resources.
+/// HTML resources.
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable html;
 @end
 
 
-/// Metadata for DVR enabled streams
+/// Metadata for DVR-enabled streams
 SWIFT_CLASS_NAMED("DVRMetadata")
 @interface AASDKDVRMetadata : NSObject
-/// Start UNIX timestamp for dvr stream
+/// Start UNIX timestamp for the DVR stream
 @property (nonatomic) NSInteger start;
-/// Latest UNIX timestamp for dvr stream
+/// Latest UNIX timestamp for the DVR stream
 @property (nonatomic) NSInteger end;
-/// Length of DVR buffer
+/// Length of the DVR buffer
 @property (nonatomic) NSInteger length;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -1925,24 +1927,24 @@ SWIFT_CLASS_NAMED("DVRMetadata")
 
 enum AASDKDownloadableAssetState : NSInteger;
 
-/// The <code>AssetDownload</code> provides support during asset downloading / storage
+/// The <code>AssetDownload</code> provides support during asset downloading / storage.
 SWIFT_PROTOCOL_NAMED("DownloadableAsset")
 @protocol AASDKDownloadableAsset
-/// The file uri for the asset
+/// The file URI for the asset.
 @property (nonatomic, readonly, copy) NSURL * _Nonnull url;
-/// The asset’s creative type. For audio files expect values to include, but not limited to “audio/mpeg” and “audio/aac”
+/// The asset’s creative type. For audio files, expected values include, but are not limited to “audio/mpeg” and “audio/aac”.
 @property (nonatomic, readonly, copy) NSString * _Nullable mimeType;
-/// The asset’s expected data length in bytes
+/// The asset’s expected data length in bytes.
 @property (nonatomic, readonly) int64_t expectedContentLength;
-/// The asset’s status. Defaults to .initialized
+/// The asset’s status. The default is <code>.initialized</code>.
 @property (nonatomic, readonly) enum AASDKDownloadableAssetState state;
-/// The file path on disk where the asset should save its data
+/// The file path on disk where the asset should save its data.
 @property (nonatomic, readonly, copy) NSURL * _Nonnull location;
 @end
 
-/// The states for an <code>DownloadableAsset</code> object
+/// The states for a <code>DownloadableAsset</code> object.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKDownloadableAssetState, "DownloadableAssetState", open) {
-/// The asset is an errored state.
+/// The asset is in an error state.
   AASDKDownloadableAssetStateUnknown = 0,
 /// The asset has been created and is about to start loading.
   AASDKDownloadableAssetStateInitialized = 1,
@@ -1963,45 +1965,45 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKDownloadableAssetState, "DownloadableAs
 
 /// The GDPR privacy policy.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKGDPROption, "GDPRConsent", open) {
-/// GDPR rules don’t apply.
+/// The GDPR rules don’t apply.
   AASDKGDPROptionNotApplicable = 0,
-/// App didn’t asked for the user’s consent yet.
+/// The app hasn’t asked for the user’s consent yet.
   AASDKGDPROptionNotAsked = 1,
-/// User granted consent.
+/// The user has granted consent.
   AASDKGDPROptionGranted = 2,
-/// User denied consent.
+/// The user has denied consent.
   AASDKGDPROptionDenied = 3,
 };
 
-/// Ad request protocol.
+/// HTTP protocol.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdswizzAdRequestProtocol, "HTTPProtocol", open) {
-/// Http
+/// HTTP
   AASDKAdswizzAdRequestProtocolHttp = 0,
-/// Https
+/// HTTPS
   AASDKAdswizzAdRequestProtocolHttps = 1,
 };
 
 
 enum AASDKInteractiveAdEventType : NSInteger;
 
-/// InteractiveAdEvent protocol
+/// The <code>InteractiveAdEvent</code> protocol.
 SWIFT_PROTOCOL_NAMED("InteractiveAdEvent")
 @protocol AASDKInteractiveAdEvent <AASDKEvent>
-/// Ad data
+/// The ad data.
 @property (nonatomic, readonly, strong) id <AASDKAdData> _Nullable ad;
-/// Type of the event.
+/// The event type.
 @property (nonatomic, readonly) enum AASDKInteractiveAdEventType event;
 @end
 
-/// Different event types sent by the InteractiveAdManager to its listners
+/// Various event types sent by the <code>InteractiveAdManager</code> to its listeners.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKInteractiveAdEventType, "InteractiveAdEventType", open) {
 /// Unknown event, should not be triggered.
   AASDKInteractiveAdEventTypeUnknown = 0,
-/// Ad will be skipped as the detection method was triggered
+/// The ad will be skipped, as the detection method was triggered.
   AASDKInteractiveAdEventTypeWillBeSkipped = 1,
-/// Ad was skipped as the detection method was triggered
+/// The ad was skipped, as the detection method was triggered.
   AASDKInteractiveAdEventTypeSkipped = 2,
-/// Ad was extended as the detection method was triggered
+/// The ad was extended, as the detection method was triggered.
   AASDKInteractiveAdEventTypeExtended = 3,
 };
 
@@ -2010,8 +2012,8 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKInteractiveAdEventType, "InteractiveAdE
 /// The <code>InteractiveAdManagerDelegate</code> protocol defines the methods used to retrieve information about interactive ads.
 SWIFT_PROTOCOL_NAMED("InteractiveAdManagerDelegate")
 @protocol AASDKInteractiveAdManagerDelegate
-/// This callback is triggered immediately after the coupon was downloaded (the download of the coupon may be triggered by a shake event).
-/// Give the host application a chance to take over the control for presenting coupons
+/// This callback is triggered immediately after the coupon has been downloaded (the download of the coupon may be triggered by a shake event).
+/// It gives the host application a chance to take control over presenting coupons.
 /// This callback is always triggered on the main thread.
 /// \param adManager The AdManagerOwner that sent the event
 ///
@@ -2027,42 +2029,42 @@ SWIFT_PROTOCOL_NAMED("InteractiveAdManagerDelegate")
 @end
 
 
-/// MediaFile public protocol
+/// The <code>MediaFile</code> public protocol.
 SWIFT_PROTOCOL_NAMED("MediaFile")
 @protocol AASDKMediaFile
-/// Uri for the media file
+/// URI for the media file.
 @property (nonatomic, readonly, copy) NSString * _Nonnull uri;
 /// MIME type for the file container. Popular MIME types include, but are not limited to “video/mp4” for MP4,  “audio/mpeg” and “audio/aac” for audio ads.
 @property (nonatomic, readonly, copy) NSString * _Nonnull type;
-/// The codec used to encode the file which can take values as specified by RFC 4281: http://tools.ietf.org/html/rfc4281.
+/// The codec used to encode the file, which can take values as specified by RFC 4281: http://tools.ietf.org/html/rfc4281.
 @property (nonatomic, readonly, copy) NSString * _Nullable codec;
-/// An identifier for the media file as it is set in VAST response.
+/// An identifier for the media file as it is set in the VAST response.
 @property (nonatomic, readonly, copy) NSString * _Nullable id;
-/// For progressive load  audio, the bitrate value specifies the average bitrate for the media file
+/// For progressive load  audio, the bitrate value specifies the average bitrate for the media file.
 @property (nonatomic, readonly, strong) NSNumber * _Nullable bitrate;
-/// Minimum bitrates for audio files
+/// Minimum bitrates for audio files.
 @property (nonatomic, readonly, strong) NSNumber * _Nullable minBitrate;
-/// Maximum bitrates for audio files
+/// Maximum bitrates for audio files.
 @property (nonatomic, readonly, strong) NSNumber * _Nullable maxBitrate;
-/// Required. The native width of the video file, in pixels. (0 for audio ads)
+/// Required. The native width of the video file, in pixels. (0 for audio ads).
 @property (nonatomic, readonly, strong) NSNumber * _Nonnull width;
-/// Required. The native height of the video file, in pixels. (0 for audio ads)
+/// Required. The native height of the video file, in pixels. (0 for audio ads).
 @property (nonatomic, readonly, strong) NSNumber * _Nonnull height;
-/// Helps eliminate the need to calculate the size based on bitrate and duration. Units - Bytes
+/// Helps eliminate the need to calculate the size based on bitrate and duration. Measured in bytes.
 @property (nonatomic, readonly, strong) NSNumber * _Nullable fileSize;
 @end
 
 @class AASDKMediaPlayerStateInfo;
 
-/// Media player capabilities as described by IAB.
+/// Media player capabilities as described by the IAB.
 SWIFT_CLASS_NAMED("MediaPlayerCapability")
 @interface AASDKMediaPlayerCapability : NSObject
 /// <code>State</code> value. Read-only.
 @property (nonatomic, readonly, strong) AASDKMediaPlayerStateInfo * _Nullable state;
-/// Indicates user’s ability to skip the ad.
+/// Indicates the user’s ability to skip the ad.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKMediaPlayerCapability * _Nonnull skip;)
 + (AASDKMediaPlayerCapability * _Nonnull)skip SWIFT_WARN_UNUSED_RESULT;
-/// Indicates the user’s ability to mute/unmute audio.
+/// Indicates the user’s ability to mute/unmute the audio.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKMediaPlayerCapability * _Nonnull mute;)
 + (AASDKMediaPlayerCapability * _Nonnull)mute SWIFT_WARN_UNUSED_RESULT;
 /// Indicates the player’s ability to autoplay media with audio, also implies mautoplay.
@@ -2071,7 +2073,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKMediaPl
 /// Indicates the player’s ability to autoplay media when muted.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKMediaPlayerCapability * _Nonnull mautoplay;)
 + (AASDKMediaPlayerCapability * _Nonnull)mautoplay SWIFT_WARN_UNUSED_RESULT;
-/// Indicates the user’s ability to enter fullscreen.
+/// Indicates the user’s ability to enter full screen.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKMediaPlayerCapability * _Nonnull fullscreen;)
 + (AASDKMediaPlayerCapability * _Nonnull)fullscreen SWIFT_WARN_UNUSED_RESULT;
 /// Indicates the player’s ability to render NAI icons from VAST.
@@ -2082,7 +2084,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKMediaPl
 @end
 
 
-/// State generated by a player’s capability, as described by IAB.
+/// State generated by a player’s capability, as described by the IAB.
 SWIFT_CLASS_NAMED("State")
 @interface AASDKMediaPlayerStateInfo : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -2094,64 +2096,65 @@ SWIFT_CLASS_NAMED("State")
 SWIFT_PROTOCOL_NAMED("MediaPlayerState")
 @protocol AASDKMediaPlayerState <NSObject>
 /// Reflects the current playback time in seconds for the content.
-/// The property is key value observable from the SDK.
-/// NOTE:  Please be advise and considerate and update this at 1sec interval if possible.
-/// Make sure this returns the correct playbacktime, even though it is called between 2 updates.
-/// (e.g.: if currentPlayhead was set to 1 sec and than at 1.2 sec you call it again it should return 1.2)
-/// In order to notify at 1 sec interval and still return the correct playtime when randomly called use ‘keyPathsForValuesAffectingValue’.
+/// This property is key-value observable from the SDK.
+/// NOTE:  Please update this at 1sec intervals if possible.
+/// Make sure this returns the correct playbacktime, even when it is called between 2 updates.
+/// (e.g.: if currentPlayhead was set to 1 sec and then at 1.2 sec you call it again, it should return 1.2)
+/// In order to notify at 1 sec intervals and still return the correct playtime when randomly called, use ‘keyPathsForValuesAffectingValue’.
 @property (nonatomic, readonly) NSTimeInterval currentPlayhead;
-/// Media item total duration.
+/// The media item total duration.
 @property (nonatomic, readonly) NSTimeInterval currentDuration;
 /// Reflects the current status for a player.
-/// The property is key value observable from the SDK.
+/// This property is key-value observable from the SDK.
 @property (nonatomic, readonly) enum AASDKMediaPlayerStatus playerStatus;
 /// Reflects the last metadata from the player.
-/// The property is key value observable from the SDK.
+/// This property is key-value observable from the SDK.
 @property (nonatomic, readonly, copy) NSArray<AVMetadataItem *> * _Nullable metadataItem;
 @optional
-/// Mark if buffering got completed. This is optional.
+/// Mark if buffering completed. This is optional.
 @property (nonatomic, readonly) BOOL bufferingCompleted;
 @required
 /// Tells if the player continues buffering after it was paused.
 @property (nonatomic, readonly) BOOL isBufferingWhilePaused;
-/// Report volume for the player. This value should be between [0..1].
+/// Reports the volume for the player. This value should be between [0..1].
 /// A value of 0.0 indicates silence; a value of 1.0 (the default) indicates full audio volume for the player instance.
 @property (nonatomic, readonly) float volume;
-/// Targetability purpose.
-/// If the player failed to play the content this could report the last error, otherwise this should be nil.
+/// Used for targetability purposes.
+/// If the player failed to play the content this can report the last error, otherwise, this should be nil.
 @property (nonatomic, readonly) NSError * _Nullable lastError;
-/// Targetability purpose.
-/// A list of players capabilities.
+/// Used for targetability purposes.
+/// A list of player capabilities.
 @property (nonatomic, readonly, copy) NSSet<AASDKMediaPlayerCapability *> * _Nullable capabilities;
-/// Targetability purpose.
-/// A list of player states as described by IAB which will better help in targetability.
+/// Used for targetability purposes.
+/// A list of player states as described by the IAB, which will help achieve better targetability.
 @property (nonatomic, readonly, copy) NSSet<AASDKMediaPlayerStateInfo *> * _Nullable stateInfo;
 @end
 
 /// Media player status.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKMediaPlayerStatus, "MediaPlayerStatus", open) {
-/// Player state is unknown. Something has happen.
+/// The player state is unknown. Something has happened.
   AASDKMediaPlayerStatusUnknown = 0,
-/// Player is intialized but not playing and does not have an item to play. This should be the defualt state.
+/// The player is initialized, but not playing, and does not have an item to play. This should be the default state.
   AASDKMediaPlayerStatusInitialized = 1,
-/// Player is about to begin buffering.
+/// The player is about to begin buffering.
   AASDKMediaPlayerStatusBuffering = 2,
-/// Player has finished buffering.
+/// The player has finished buffering.
   AASDKMediaPlayerStatusBufferingFinished = 3,
-/// Player is ready to play the item, it has data buffered.
+/// The player is ready to play the item (it has data buffered).
   AASDKMediaPlayerStatusReadyToPlay = 4,
-/// Player is playing the item.
+/// The player is playing the item.
   AASDKMediaPlayerStatusPlaying = 5,
-/// Player has paused playing.
+/// The player has paused playing.
   AASDKMediaPlayerStatusPaused = 6,
-/// Player has finished the whole item. This would be the last state for an item.
+/// The player has finished the whole item. This should be the last state for an item.
   AASDKMediaPlayerStatusFinished = 7,
-/// Player failed to load the item.
+/// The player has failed to load the item.
   AASDKMediaPlayerStatusFailed = 8,
 };
 
 
 @interface NSDictionary<KeyType, ObjectType> (SWIFT_EXTENSION(AdswizzSDK))
+/// Returns <code>true</code> if the dictionary contains a key used by the SDK.
 @property (nonatomic, readonly) BOOL isAdswizzWatchData;
 @end
 
@@ -2191,7 +2194,7 @@ SWIFT_PROTOCOL_NAMED("PALManagerProtocol")
 /// Static resource protocol for a <code>Companion</code>.
 SWIFT_PROTOCOL_NAMED("StaticResource")
 @protocol AASDKCompanionStaticResource <NSObject>
-/// Uri for the resource.
+/// URI for the resource.
 @property (nonatomic, readonly, copy) NSString * _Nonnull uri;
 /// The creative type.
 @property (nonatomic, readonly, copy) NSString * _Nonnull creativeType;
@@ -2213,53 +2216,53 @@ SWIFT_CLASS_NAMED("TrackingPermissionConfiguration")
 SWIFT_CLASS_NAMED("Builder")
 @interface AASDKTrackingPermissionConfigurationBuilder : NSObject
 /// The title configuration.
-/// \param title configuration for title element
+/// \param title configuration for the title element
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKTrackingPermissionConfigurationBuilder * _Nonnull)withTitle:(AASDKTrackingPermissionUIElement * _Nonnull)title SWIFT_WARN_UNUSED_RESULT;
 /// The description configuration.
-/// \param description configuration for description element
+/// \param description configuration for the description element
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKTrackingPermissionConfigurationBuilder * _Nonnull)withDescription:(AASDKTrackingPermissionUIElement * _Nonnull)description SWIFT_WARN_UNUSED_RESULT;
-/// The skip button for header.
-/// \param skip configuration for skip element
+/// The skip button for the header.
+/// \param skip configuration for the skip element
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKTrackingPermissionConfigurationBuilder * _Nonnull)withSkip:(AASDKTrackingPermissionUIElement * _Nonnull)skip SWIFT_WARN_UNUSED_RESULT;
 /// The action button.
-/// \param action configuration for action element
+/// \param action configuration for the action element
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKTrackingPermissionConfigurationBuilder * _Nonnull)withAction:(AASDKTrackingPermissionUIElement * _Nonnull)action SWIFT_WARN_UNUSED_RESULT;
 /// Set the image for header.
 /// \param headerImage the top left header image
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKTrackingPermissionConfigurationBuilder * _Nonnull)withHeaderImage:(UIImage * _Nonnull)headerImage SWIFT_WARN_UNUSED_RESULT;
 /// Set the image for main content.
 /// \param contentImage the centered content image
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKTrackingPermissionConfigurationBuilder * _Nonnull)withContentImage:(UIImage * _Nonnull)contentImage SWIFT_WARN_UNUSED_RESULT;
 /// Set the background color for the tracking permission controller.
 /// \param backgroundColor the background color
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (AASDKTrackingPermissionConfigurationBuilder * _Nonnull)withBackgroundColor:(UIColor * _Nonnull)backgroundColor SWIFT_WARN_UNUSED_RESULT;
 /// Builds a <code>TrackingPermissionConfiguration</code> object.
 ///
@@ -2278,21 +2281,21 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 @interface AASDKTrackingPermissionController : UIViewController
 /// The controller’s default title. This property is not used and cannot be changed.
 @property (nonatomic, copy) NSString * _Nullable title;
-/// The controller’s default or custom configuration which includes visual styling and content.
+/// The controller’s default or custom configuration, which includes visual styling and content.
 @property (nonatomic, strong) AASDKTrackingPermissionConfiguration * _Nonnull configuration;
 /// The tracking permission delegate. Optional
 @property (nonatomic, weak) id <AASDKTrackingPermissionControllerDelegate> _Nullable delegate;
 /// Create a tracking permission controller with the default configuration and style.
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-/// Overrided by <code>TrackingPermissionController</code>.
+/// Overridden by <code>TrackingPermissionController</code>.
 - (void)viewDidLoad;
-/// Overrided by <code>TrackingPermissionController</code>.
+/// Overridden by <code>TrackingPermissionController</code>.
 - (void)viewDidLayoutSubviews;
-/// Overrided by <code>TrackingPermissionController</code>.
+/// Overridden by <code>TrackingPermissionController</code>.
 @property (nonatomic, readonly) UIStatusBarStyle preferredStatusBarStyle;
-/// Overrided by <code>TrackingPermissionController</code>.
+/// Overridden by <code>TrackingPermissionController</code>.
 @property (nonatomic, readonly) UIInterfaceOrientationMask supportedInterfaceOrientations;
-/// Overrided by <code>TrackingPermissionController</code>.
+/// Overridden by <code>TrackingPermissionController</code>.
 @property (nonatomic, readonly) BOOL shouldAutorotate;
 /// Dismiss the tracking permission controller.
 /// \param animated Whether to dismiss the alert animated.
@@ -2314,7 +2317,7 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 ///
 /// \param contentImage A custom content image for the controller. It defaults to a generic image.
 ///
-/// \param headerImage A custom header image for the controller. Optional. Pass nil to remove it. By default is not shown.
+/// \param headerImage A custom header image for the controller. Optional. Pass nil to remove it. By default, it is not shown.
 ///
 ///
 /// returns:
@@ -2326,20 +2329,20 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 @class UIPresentationController;
 
 @interface AASDKTrackingPermissionController (SWIFT_EXTENSION(AdswizzSDK)) <UIAdaptivePresentationControllerDelegate>
-/// Overrided by <code>TrackingPermissionController</code>.
+/// Overridden by <code>TrackingPermissionController</code>.
 - (void)presentationControllerDidDismiss:(UIPresentationController * _Nonnull)presentationController;
 @end
 
 
 enum AASDKTrackingDismissReason : NSInteger;
 
-/// The tracking permission controller delegate which informs about status changes.
+/// The tracking permission controller delegate informs about status changes.
 SWIFT_PROTOCOL_NAMED("TrackingPermissionControllerDelegate")
 @protocol AASDKTrackingPermissionControllerDelegate
-/// This method gets called when an instance of <code>TrackingPermissionController</code> ended the permission flow.
-/// It provides a <code>status</code> which you can check to handle different cases detailed in <code>TrackingStatus</code> enum.
+/// This method gets called when an instance of <code>TrackingPermissionController</code> has ended the permission flow.
+/// It provides a <code>status</code> that you can check to handle various cases detailed in  the <code>TrackingStatus</code> enum.
 - (void)tracking:(AASDKTrackingPermissionController * _Nonnull)controller didFinishWith:(enum AASDKTrackingDismissReason)status;
-/// This method gets called when the <code>TrackingPermissionController</code> encountered an error during the permission flow.
+/// This method gets called when the <code>TrackingPermissionController</code> has encountered an error during the permission flow.
 - (void)tracking:(AASDKTrackingPermissionController * _Nonnull)controller didFailed:(NSError * _Nonnull)error;
 @end
 
@@ -2353,39 +2356,39 @@ SWIFT_CLASS_NAMED("TrackingPermissionUIElement")
 
 @class UIFont;
 
-/// Builder class for AdRequest
+/// Builder class for a <code>TrackingPermissionUIElement</code> object.
 SWIFT_CLASS_NAMED("Builder")
 @interface TrackingPermissionTextElementBuilder : NSObject
 /// The text element font.
-/// \param font font for text element
+/// \param font font for the text element
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (TrackingPermissionTextElementBuilder * _Nonnull)withFont:(UIFont * _Nonnull)font SWIFT_WARN_UNUSED_RESULT;
 /// The text element color.
-/// \param color color for text element
+/// \param color color for the text element
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (TrackingPermissionTextElementBuilder * _Nonnull)withColor:(UIColor * _Nonnull)color SWIFT_WARN_UNUSED_RESULT;
 /// The text element content.
-/// \param content value for text element
+/// \param content value for the text element
 ///
 ///
 /// returns:
-/// same builder object
+/// the same builder object
 - (TrackingPermissionTextElementBuilder * _Nonnull)withContent:(NSString * _Nonnull)content SWIFT_WARN_UNUSED_RESULT;
-/// Builds a TrackingPermissionUIElement object
+/// Builds a <code>TrackingPermissionUIElement</code> object.
 ///
 /// returns:
-/// a valid TrackingPermissionUIElement object
+/// a valid <code>TrackingPermissionUIElement</code> object
 - (AASDKTrackingPermissionUIElement * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-/// The status on how <code>TrackingPermissionController</code> ended its flow.
+/// The end status for the <code>TrackingPermissionController</code> flow.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKTrackingDismissReason, "TrackingStatus", open) {
 /// The flow was interrupted by a manual / external dismiss.
   AASDKTrackingDismissReasonUnknown = 0,
@@ -2431,88 +2434,88 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKTrackingDismissReason, "TrackingStatus"
 
 
 
-/// VAST AdParameters
+/// VAST AdParameters.
 SWIFT_PROTOCOL_NAMED("VastAdParameters")
 @protocol AASDKVastAdParameters <NSObject>
-/// Identifies whether the ad parameters are xml-encoded
+/// Identifies whether the ad parameters are xml-encoded.
 @property (nonatomic, readonly, strong) NSNumber * _Nullable xmlEncoded;
-/// Metadata for the ad.
+/// The metadata for the ad.
 @property (nonatomic, readonly, copy) NSString * _Nonnull xmlString;
 @end
 
 
-/// VAST CreativeExtension
+/// VAST CreativeExtension.
 SWIFT_PROTOCOL_NAMED("VastCreativeExtension")
 @protocol AASDKVastCreativeExtension <NSObject>
-/// The MIME type of any code that might be included in the extension.
+/// The MIME type of any code that may be included in the extension.
 @property (nonatomic, readonly, copy) NSString * _Nullable type;
-/// Custom XML object
+/// The custom XML object.
 @property (nonatomic, readonly, copy) NSString * _Nonnull xmlString;
 @end
 
-/// The VAST error codes
+/// The VAST error codes.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKVastErrorCode, "VastErrorCode", open) {
 /// XML parsing error.
   AASDKVastErrorCodeXmlParsingError = 100,
 /// VAST schema validation error.
   AASDKVastErrorCodeSchemValidationError = 101,
-/// VAST version of response not supported.
+/// The VAST version of the response is not supported.
   AASDKVastErrorCodeResponseNotSupported = 102,
-/// Trafficking error. Media player received an Ad type that it was not expecting and/or cannot play.
+/// Trafficking error. The media player received an ad type that it was not expecting and/or cannot play.
   AASDKVastErrorCodeTrafficking = 200,
-/// Media player expecting different linearity.
+/// The media player was expecting a different linearity.
   AASDKVastErrorCodeDifferentLinearity = 201,
-/// Media player expecting different duration.
+/// The media player was expecting a different duration.
   AASDKVastErrorCodeDifferentDuration = 202,
-/// Media player expecting different size.
+/// The media player was expecting a different size.
   AASDKVastErrorCodeDifferentSize = 203,
-/// Ad category was required but not provided.
+/// The ad category was required, but not provided.
   AASDKVastErrorCodeAdCategoryNotProvided = 204,
-/// Inline Category violates Wrapper BlockedAdCategories (refer 3.19.2).
+/// The Inline Category violates Wrapper BlockedAdCategories (refer to 3.19.2).
   AASDKVastErrorCodeInlineCategoryViolation = 205,
 /// General Wrapper error.
   AASDKVastErrorCodeGeneralWrapper = 300,
-/// Timeout of VAST URI provided in Wrapper element, or of VAST URI provided in a subsequent Wrapper element.
-/// (URI was either unavailable or reached a timeout as defined by the media player.)
+/// Timeout of the VAST URI provided in the Wrapper element, or of VAST URI provided in a subsequent Wrapper element.
+/// (the URI was either unavailable or reached a timeout as defined by the media player).
   AASDKVastErrorCodeTimeOutInWrapper = 301,
 /// Wrapper limit reached, as defined by the media player.
 /// Too many Wrapper responses have been received with no InLine response.
   AASDKVastErrorCodeLimitInWrapper = 302,
 /// No VAST response after one or more Wrappers.
   AASDKVastErrorCodeNoVASTResponeAfterWrapper = 303,
-/// InLine response returned ad unit that failed to result in ad display within defined time limit.
+/// InLine response returned an ad unit that failed to result in ad display within the defined time limit.
   AASDKVastErrorCodeInlineWithNoAd = 304,
-/// General Linear error. Media player is unable to display the Linear Ad.
+/// General Linear error. The media player is unable to display the Linear Ad.
   AASDKVastErrorCodeGeneralLinearError = 400,
-/// File not found. Unable to find Linear/MediaFile from URI.
+/// File not found. Unable to find the Linear/MediaFile from URI.
   AASDKVastErrorCodeFileNotFound = 401,
-/// Timeout of MediaFile URI.
+/// Timeout of the MediaFile URI.
   AASDKVastErrorCodeTimeOutOfMediaFile = 402,
-/// Couldn’t find MediaFile that is supported by this media player, based on the attributes of the MediaFile element.
+/// Couldn’t find a MediaFile that is supported by this media player, based on the attributes of the MediaFile element.
   AASDKVastErrorCodeMediaFileNotSupported = 403,
-/// Problem displaying MediaFile. Media player found a MediaFile with supported type but couldn’t display it.
-/// MediaFile may include: unsupported codecs, different MIME type than MediaFile@type, unsupported delivery method, etc.
+/// Problem displaying the MediaFile. The media player found a MediaFile with a supported type but couldn’t display it.
+/// The MediaFile may include: unsupported codecs, a different MIME type than the MediaFile@type, unsupported delivery method, etc.
   AASDKVastErrorCodeMediaFileDisplay = 405,
-/// Mezzanine was required but not provided. Ad not served.407Mezzanine is in the process of being downloaded for the first time.
-/// Download may take several hours. Ad will not be served until mezzanine is downloaded and transcoded.
+/// A mezzanine was required but not provided. The ad has not been served.407 The mezzanine is in the process of being downloaded for the first time.
+/// The download may take several hours. The ad will not be served until the mezzanine has been downloaded and transcoded.
   AASDKVastErrorCodeNoMezzanine = 406,
-/// Conditional ad rejected. (deprecated along with conditionalAd)
+/// Conditional ad rejected (deprecated along with conditionalAd).
   AASDKVastErrorCodeConditionalAdReejected = 408,
-/// Interactive unit in the InteractiveCreativeFile node was not executed.
+/// The interactive unit in the InteractiveCreativeFile node was not executed.
   AASDKVastErrorCodeInteractiveUnitNotExecuteed = 409,
-/// Verification unit in the Verification node was not executed.
+/// The verification unit in the Verification node was not executed.
   AASDKVastErrorCodeVerificationNotExecuted = 410,
-/// Mezzanine was provided as required, but file did not meet required specification. Ad not served.
+/// The mezzanine was provided as required, but the file did not meet required specification. The ad has not been served.
   AASDKVastErrorCodeMezzanineNotMatching = 411,
 /// General CompanionAds error.
   AASDKVastErrorCodeGeneralCompanionAdsError = 600,
-/// Unable to display Companion because creative dimensions do not fit within Companion display area (i.e., no available space).
+/// Unable to display the Companion because the creative dimensions do not fit within the Companion display area (i.e., no available space).
   AASDKVastErrorCodeCompanionBadDimensions = 601,
-/// Unable to display required Companion.
+/// Unable to display the required Companion.
   AASDKVastErrorCodeCompanionDisplay = 602,
-/// Unable to fetch CompanionAds/Companion resource.
+/// Unable to fetch the CompanionAds/Companion resource.
   AASDKVastErrorCodeUnableToFetchCompanion = 603,
-/// Couldn’t find Companion resource with supported type.
+/// Couldn’t find a Companion resource with the supported type.
   AASDKVastErrorCodeCompanionNotFound = 604,
 /// Undefined Error.
   AASDKVastErrorCodeUndefined = 900,
@@ -2521,38 +2524,38 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKVastErrorCode, "VastErrorCode", open) {
 };
 
 
-/// VAST Extension
+/// VAST Extension.
 SWIFT_PROTOCOL_NAMED("VastExtension")
 @protocol AASDKVastExtension <NSObject>
-/// The MIME type of any code that might be included in the extension.
+/// The MIME type of any code that may be included in the extension.
 @property (nonatomic, readonly, copy) NSString * _Nullable type;
-/// Custom XML object
+/// The custom XML object.
 @property (nonatomic, readonly, copy) NSString * _Nonnull xmlString;
 @end
 
 
-/// VAST pricing
+/// VAST pricing.
 SWIFT_PROTOCOL_NAMED("VastPricing")
 @protocol AASDKVastPricing <NSObject>
-/// Represents a price (float value) that can be used in real-time bidding systems
+/// Represents a price (float value) that can be used in real-time bidding systems.
 @property (nonatomic, readonly, strong) NSNumber * _Nonnull value;
-/// Identifies the pricing model as one of: CPM, CPC, CPE, or CPV
+/// Identifies the pricing model as one of: CPM, CPC, CPE, or CPV.
 @property (nonatomic, readonly, copy) NSString * _Nonnull model;
 /// The three-letter ISO-4217 currency symbol that identifies the currency of the value provided (e.g. USD, GBP, etc.).
 @property (nonatomic, readonly, copy) NSString * _Nonnull currency;
 @end
 
-/// The VAST tracking event types
+/// The VAST tracking event types.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKVastTrackingEvent, "VastTrackingEvent", open) {
 /// Unknown.
   AASDKVastTrackingEventUnknown = 0,
 /// The ad creative was muted.
   AASDKVastTrackingEventMute = 1,
-/// The ad creative was unmuted after it was previously muted.
+/// The ad creative was unmuted after it had been previously muted.
   AASDKVastTrackingEventUnmute = 2,
 /// The ad was stopped by being paused.
   AASDKVastTrackingEventPause = 3,
-/// The ad was resumed after it was stopped or paused.
+/// The ad was resumed after it had been stopped or paused.
   AASDKVastTrackingEventResume = 4,
 /// The ad accessed a previous point in the creative timeline.
   AASDKVastTrackingEventRewind = 5,
@@ -2564,7 +2567,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKVastTrackingEvent, "VastTrackingEvent",
   AASDKVastTrackingEventPlayerCollapse = 8,
 /// The ad was not and will not be played.
   AASDKVastTrackingEventNotUsed = 9,
-/// The player considered that it has loaded and buffered the creative’s media and assets
+/// The player considers that it has loaded and buffered the creative’s media and assets
 /// either fully or to the extent that it is ready to play the media.
   AASDKVastTrackingEventLoaded = 10,
 /// The ad was loaded and playback began.
@@ -2580,12 +2583,12 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKVastTrackingEvent, "VastTrackingEvent",
 /// The ad  played for a duration at normal speed that is equal to or greater than the value provided
 /// in an additional offset attribute for the <Tracking> element.
   AASDKVastTrackingEventProgress = 16,
-/// The liniar ad unit was closed.
+/// The linear ad unit was closed.
   AASDKVastTrackingEventCloseLinear = 17,
 /// An individual creative portion of the ad was viewed.
   AASDKVastTrackingEventCreativeView = 18,
 /// Streaming content was paused, which either expands the ad within the player’s viewable area or
-/// “takes-over” the streaming content area by launching an additional portion of the ad.
+/// “takes over” the streaming content area by launching an additional portion of the ad.
   AASDKVastTrackingEventAcceptInvitation = 19,
 /// The ad was expanded to a greater dimension than its default.
   AASDKVastTrackingEventAdExpand = 20,
@@ -2593,11 +2596,11 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKVastTrackingEvent, "VastTrackingEvent",
   AASDKVastTrackingEventAdCollapse = 21,
 /// The ad was minimized to a smaller size than collapsed.
   AASDKVastTrackingEventMinimize = 22,
-/// The ad was removed from player and cannot be re-displayed.
+/// The ad was removed from the player and cannot be re-displayed.
   AASDKVastTrackingEventClose = 23,
 /// The time that the initial ad is displayed.
   AASDKVastTrackingEventOverlayViewDuration = 24,
-/// An optional metric that can capture all other user interactions under one metric such as custom clicks.
+/// An optional metric that can capture all other user interactions, such as custom clicks, under one metric.
   AASDKVastTrackingEventOtherAdInteraction = 25,
 };
 
@@ -2611,16 +2614,22 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKVastTrackingEvent, "VastTrackingEvent",
 
 @protocol AASDKWatchSessionDelegate;
 
+/// The <code>WatchSession</code> protocol defines the connection between your app and the SDK.
 SWIFT_PROTOCOL_NAMED("WatchSession")
 @protocol AASDKWatchSession
+/// Receives a message using a <code>Dictionary</code> format.
 - (void)receivedMessage:(NSDictionary<NSString *, id> * _Nonnull)data;
+/// Sets a new <code>WatchSessionDelegate</code>.
 - (void)setDelegate:(id <AASDKWatchSessionDelegate> _Nonnull)delegate;
 @end
 
 
+/// The <code>WatchSessionDelegate</code> delegate informs your app when the SDK delivers messages to the companion app.
 SWIFT_PROTOCOL_NAMED("WatchSessionDelegate")
 @protocol AASDKWatchSessionDelegate
+/// Sends a message using a <code>Dictionary</code> format.
 - (void)sendMessage:(NSDictionary<NSString *, id> * _Nonnull)data;
+/// Updates the app context using a <code>Dictionary</code> format.
 - (void)updateApplicationContext:(NSDictionary<NSString *, id> * _Nonnull)data;
 @end
 

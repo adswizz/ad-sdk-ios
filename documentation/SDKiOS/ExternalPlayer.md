@@ -1,6 +1,6 @@
 # Playing ads using your player
 
-Out-of-the box, the AdswizzSDK is configured to play the ad media using its internal player. This behavior also extends to playing streams or podcasts.
+Out of the box, the AdswizzSDK is configured to play the ad media using its internal player. This behavior also extends to playing streams or podcasts.
 
 ## Client side setup
 
@@ -42,11 +42,11 @@ class YourModelClass {
 
 ```
 
-See the [MediaPlayerState example](/SDKiOS/ExternalPlayer#mediaplayerstate-example) for a more detailed implementation for **_MediaPlayerState_** protocol.
+See the [MediaPlayerState example](/SDKiOS/ExternalPlayer#mediaplayerstate-example) for a more detailed implementation of the **_MediaPlayerState_** protocol.
 
 ## Server side setup
 
-In a [Server-Side Insertion](/SDKiOS/ServerSideInsertion) scenario, if you prefer playing the ads with your own player, you must configure the **_AdManager_** object received when an ad break is detected in your stream with a new **_AdManagerSettings_** object. Here you can provide the player, which must conform to the **_MediaPlayerState_** protocol.
+In a [Server-Side Insertion](/SDKiOS/ServerSideInsertion) scenario, if you prefer playing the ads with your own player, you must configure the **_AdManager_** object received when an ad break is detected in your stream with a new **_AdManagerSettings_** object. Here you can provide the player which must conform to the **_MediaPlayerState_** protocol.
 
 Here is what it could look like in your code:
 
@@ -96,10 +96,10 @@ See the [MediaPlayerState example](/SDKiOS/ExternalPlayer#mediaplayerstate-examp
 
 ## Podcasts setup
 
-In a [Podcasts](/SDKiOS/Podcasts) scenario, if you prefer playing the ads with your own player, you can do so by playing the entire podcast with your player because the ads are "stiched" into the podcast media file.
+In a [Podcasts](/SDKiOS/Podcasts) scenario, if you prefer playing the ads with your own player, you can do so by playing the entire podcast with your player because the ads are "stitched" into the podcast media file.
 Unlike playing live streams in a [Server-Side Insertion](/SDKiOS/ServerSideInsertion) scenario, after a podcast starts playing, even when your app receives an **_AdManager_** object containing the ads fetched from the Adswizz server, you cannot configure that **_AdManager_** object with a new **_AdManagerSettings_** object.
 
-Here is how what could look like in your code:
+Here is what it could look like in your code:
 
 ```swift
 class YourModelClass {
@@ -142,22 +142,22 @@ Let’s break down the **_MediaPlayerState_** protocol.
 
 ### currentDuration
 
-Your player needs to report the total duration of the media to the AdswizzSDK, as soon as possible. The media duration is required to compute quartile events or progress events in the SDK. If it is **not possible** to report the media duration, then **set it to 0**. If the SDK reads 0 from currentDuration, it will rely on the data in the VAST metadata to get the file duration. If the info is missing in the VAST metadata as well, the quartile/progress events will be triggered at the end of the media player in the correct order but not when they actually happened.
+Your player needs to report the total duration of the media to the AdswizzSDK, as soon as possible. The media duration is required to compute quartile events or progress events in the SDK. If it is **not possible** to report the media duration, then **set it to 0**. If the SDK reads 0 from currentDuration, it will rely on the VAST metadata to get the file duration. If the info is missing in the VAST metadata as well, the quartile/progress events will be triggered at the end of the media playback in the correct order but not when the events actually happened.
 
 
 ### currentPlayHead
 
-For a good reporting of the quartile/progress events, your player should update its current position throughout the entire ad duration. It is **highly recommended** that your player updates this value at an interval of **1 second**. Updating at a higher frequency (<1s) might incur performance issues. If your player skips forward or backward as the ad is playing, immediately update this member accordingly to reflect the action taken. This will affect the way quartile events are fired by the SDK.
+For accurate reporting of the quartile/progress events, your player should update its current position throughout the entire ad duration. It is **highly recommended** that your player updates this value at an interval of **1 second**. Updating at a higher frequency (<1s) might incur performance issues. If your player skips forward or backward as the ad is playing, immediately update this member accordingly to reflect the action taken. This will affect the way quartile events are fired by the SDK.
 
 
 ### metadataItem
 
-If your player can read metadata from the media that is playing, it should report it through this member. While this is not required for a client-side insertion, it is mandatory to relay this data when you are in the server-side insertion scenario. It is also required if your player is used in a podcast context for reporting any ID3 metadata formats to enable [Remote Audio Data](/SDKiOS/Podcasts#handling-rad-id3-metadata-using-your-player) measurement.
+If your player can read metadata from the media that is playing, it should report it through this member. While this is not required for client-side insertion, it is mandatory to relay this data when you are in a server-side insertion scenario. It is also required if your player is used in a podcast context for reporting any ID3 metadata formats to enable [Remote Audio Data](/SDKiOS/Podcasts#remote-audio-data) measurement.
 
 
 ### playerStatus
 
-While your player is playing the ad it should update this member so that the AdswizzSDK can start monitoring the status of the ad through your player. **Failing to update** this member accordingly will render **_AdManager_** incapable of generating normal events.
+While your player is playing the ad, it should update this member so that the AdswizzSDK can start monitoring the status of the ad through your player. **Failing to update** this member accordingly will render **_AdManager_** incapable of generating normal events.
 You should put your player in the **_initialized_** state upon receiving the ad URL from the **_AdManager_**, on the **_preparingForPlay_** event in the following function:
 
 ```swift
@@ -167,14 +167,14 @@ func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)
 If your player cannot load the ad URL, the player should report the **_failure_** state. You also need to set this state in case the error occurs during the ad playback, and the ad cannot be played anymore. 
 When you set **_failure_** or **_unknown_** as the state of your player, the SDK will terminate the current ad that was sent in **_preparingForPlay_**, and inform your app that the media player state is **_unknown_**. The AdManager will move to the next ad, if available.
 
-If your player is buffering data, you can report that to the SDK by setting the state to **_buffering_**. Once your player finishes buffering, you need to report **_bufferingFinished_**. Reporting **_buffering_** and **_bufferingFinished_** ensures that quartile/progress events are reported correctly and are not subject to network interruptions. Once your player is ready to play the ads (after buffering enough data), it can report a state of **_readyToPlay_**, meaning the player’s play method can be called. This state is optional and it resembles the AVPlayer currentItem readyToPlay status. If your player has started the ad playback, set the state to **_playing_**. If you pause the playback, set the state to **_pause_**. Similarly, **Resume** will change the state to **_playing_** again. When the player has finished playing the ad, set the state to **_finished_**.
+If your player is buffering data, you can report this to the SDK by setting the state to **_buffering_**. Once your player finishes buffering, you need to report **_bufferingFinished_**. Reporting **_buffering_** and **_bufferingFinished_** ensures that quartile/progress events are reported correctly and are not subject to network interruptions. Once your player is ready to play the ads (after buffering enough data), it can report a state of **_readyToPlay_**, meaning the player’s play method may be called. This state is optional and it resembles the AVPlayer currentItem readyToPlay status. If your player has started the ad playback, set the state to **_playing_**. If you pause the playback, set the state to **_pause_**. Similarly, **Resume** will change the state to **_playing_** again. When the player has finished playing the ad, set the state to **_finished_**.
 
 Here is a state machine for your player to implement.
 <img src="/img/MediaPlayerState.png" width="1000" />
 
 ### isBufferingWhilePaused
 
-If your player continues to buffer data after it was paused, set this property to true. When you are playing a stream, this is a good way to let the SDK decide whether to pick up from where it was paused or reconnect to the live stream again. 
+If your player continues to buffer data after it was paused, set this property to true. When you are playing a stream, this is a good way to let the SDK decide whether or not it should pick up from where it was paused or reconnect to the live stream again. 
 
 ### lastError
 
@@ -182,11 +182,11 @@ If your player encountered an error while playing an ad, report it in this prope
 
 ### capabilities
 
-If your player has specific capabilities (skip, mute, autoplay, autoplay when muted, fullscreen or it can display an icon), list them in this property. The SDK will relay this information to the ad server and will ultimately help achieve better targetability. If you are not interested in this feature, then set this property to nil.
+If your player has specific capabilities (skip, mute, autoplay, autoplay when muted, fullscreen or it can display an icon), list them in this property. The SDK will relay this information to the ad server, which will ultimately help achieve better targetability. If you are not interested in this feature, then set this property to nil.
 
 ### stateInfo
 
-This is a collection of IAB-specific states (skipped, muted, autoplayed, fullscreen) that your player can go through. Reporting these accordingly will help the SDK relay this information to the ad server and will ultimately help achieve for better targetability. If you are not interested in this feature, then set this property to nil.
+This is a collection of IAB-specific states (skipped, muted, autoplayed, fullscreen) that your player may go through. Reporting these accordingly will help the SDK relay this information to the ad server, and will ultimately help achieve for better targetability. If you are not interested in this feature, then set this property to nil.
 
 ### volume
 
@@ -194,7 +194,7 @@ If your player can update the volume of the media, update this property with a v
 
 ## MediaPlayerState example
 
-Assuming your player is a direct subclass or a wrapper for **_AVPlayer_**, here is an example of how can implement the **_MediaPlayerState_** protocol. It also highlights how your player should behave.
+Assuming your player is a direct subclass or a wrapper for **_AVPlayer_**, here is an example of how to implement the **_MediaPlayerState_** protocol. It also highlights how your player should behave.
 
 ```swift
 
@@ -321,7 +321,6 @@ extension YourPlayer {
 }
 
 ```
-Notice how your player class that implements **_MediaPlayerState_** protocol should inherit from **_NSObject_**, which is needed for the KVO mechanism in Swift.
+Notice how your player class that implements **_MediaPlayerState_** protocol should inherit from **_NSObject_** which is needed for the KVO mechanism in Swift.
 
-For a complete implementation, we strongly suggest that you consult [ExternalPlayerExample](/SDKiOS/SampleProjects#externalplayerexample) from [Sample projects](/SDKiOS/SampleProjects) and the `ExternalMediaPlayer.swift` source file.
-
+For a complete implementation, we strongly suggest to consult [ExternalPlayerExample](/SDKiOS/ExternalPlayer) from [Sample projects](/SDKiOS/SampleProjects) and the `ExternalMediaPlayer.swift` source file.

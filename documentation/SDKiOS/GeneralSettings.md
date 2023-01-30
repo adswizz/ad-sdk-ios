@@ -83,6 +83,17 @@ AdswizzSDK.shared.ccpaConfig = AdswizzCCPAConfig.Builder()
 
 The default value for **_explicitNotice_**, **_optOut_** and **_lspa_** is **_notApplicable_**. Other possibile values are **_yes_** and **_no_**.
 
+### GPP
+
+With the introduction of GPP standard from IAB, **_AdswizzSDK_** gives you the possibility to forward the gpp consent string accordingly.
+
+```swift
+AdswizzSDK.shared.gppConsent = "My GPP Consent String"
+
+```
+
+The default value for **gppConsent** is nil, which means this parameter won't be used by **_AdswizzSDK_**. The usage of the GPP consent string is similar to the TCF V2 consent string.
+
 ## Permissions
 
 The **_AdswizzSDKPrivacyData_** public source framework, which is delivered with the **_AdswizzSDK_** binaries, allows your app to request permissions in a unified and transparent manner. Your app can still request permissions without using the interface exposed by the **_AdswizzSDKPrivacyData_** framework. However, with transparency in mind, the **_AdswizzSDK_** uses **_AdswizzSDKPrivacyData_** to read the status for all permissions your app allows to use.

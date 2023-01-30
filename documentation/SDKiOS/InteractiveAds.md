@@ -25,7 +25,7 @@ The AdswizzSDK is able to deliver interactive voice ads with the ability of voic
 To be able to fetch and play voice ads, your app should first obtain the following user permissions:
 * **microphone** - used for voice recording
 * **speech** - used for the speech-to-text transcriber
-These permissions are **_mandatory_** to be able to properly render voice ads. See [Changes in your Info.pList file](#changes-in-your-infoplist-file) section for the necessary changes on these permissions in your app.
+These permissions are **_mandatory_** to be able to properly render voice ads. See [Changes in your Info.pList file](/SDKiOS/GetStarted#changes-in-your-infoplist-file) section for the necessary changes on these permissions in your app.
 
 ### Handling voice recording
 

@@ -221,22 +221,22 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 enum Level : NSInteger;
 @protocol AASDKAdLoggerDestination;
 
-/// Main logger class for <code>AdswizzSDK</code>. The destination output conforms to <code>AdLoggerDestination</code> protocol.
+/// Main logger class for <code>AdswizzSDK</code>. The destination output conforms to the <code>AdLoggerDestination</code> protocol.
 SWIFT_CLASS_NAMED("AdLogger")
 @interface AASDKAdLogger : NSObject
 /// Shared instance for the logger.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdLogger * _Nonnull shared;)
 + (AASDKAdLogger * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-/// Set the log level. By default is <code>none</code>. See <code>Level</code> for possible values.
+/// Set the log level. The default is <code>none</code>. See <code>Level</code> for possible values.
 @property (nonatomic) enum Level level;
-/// Set the destination for the logger. Default is <code>NSLog</code>.
+/// Set the destination for the logger. The default is <code>NSLog</code>.
 @property (nonatomic, strong) id <AASDKAdLoggerDestination> _Nonnull destination;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 /// The <code>AdLogger</code> level type.
 typedef SWIFT_ENUM(NSInteger, Level, open) {
-/// Vebose log level. This is the most verbose. Might print object content.
+/// Verbose log level. This is the most verbose. May print object content.
   LevelVerbose = 0,
 /// Debug log level.
   LevelDebug = 1,
@@ -252,13 +252,13 @@ typedef SWIFT_ENUM(NSInteger, Level, open) {
 
 @class NSString;
 
-/// Write a custom destination for the logger. Default destination is <code>NSLog</code>.
+/// Write a custom destination for the logger. The default destination is <code>NSLog</code>.
 SWIFT_PROTOCOL_NAMED("AdLoggerDestination")
 @protocol AASDKAdLoggerDestination
 /// Called when there is something to log from.
 /// \param level log level
 ///
-/// \param functionName name of the function where the call occured
+/// \param functionName name of the function where the call occurred
 ///
 /// \param fileName name of the file
 ///
@@ -309,6 +309,7 @@ SWIFT_CLASS("_TtC15AdswizzWatchSDK12DetectorBase")
 
 
 @interface NSDictionary<KeyType, ObjectType> (SWIFT_EXTENSION(AdswizzWatchSDK))
+/// Returns <code>true</code> if the dictionary contains a key used by the SDK.
 @property (nonatomic, readonly) BOOL isAdswizzWatchData;
 @end
 
@@ -345,16 +346,22 @@ SWIFT_CLASS("_TtC15AdswizzWatchSDK14SpeechDetector")
 
 @protocol AASDKWatchSessionDelegate;
 
+/// The <code>WatchSession</code> protocol defines the connection between your app and the SDK.
 SWIFT_PROTOCOL_NAMED("WatchSession")
 @protocol AASDKWatchSession
+/// Receives a message using a <code>Dictionary</code> format.
 - (void)receivedMessage:(NSDictionary<NSString *, id> * _Nonnull)data;
+/// Sets a new <code>WatchSessionDelegate</code>.
 - (void)setDelegate:(id <AASDKWatchSessionDelegate> _Nonnull)delegate;
 @end
 
 
+/// The <code>WatchSessionDelegate</code> delegate informs your app when the SDK delivers messages to the companion app.
 SWIFT_PROTOCOL_NAMED("WatchSessionDelegate")
 @protocol AASDKWatchSessionDelegate
+/// Sends a message using a <code>Dictionary</code> format.
 - (void)sendMessage:(NSDictionary<NSString *, id> * _Nonnull)data;
+/// Updates the app context using a <code>Dictionary</code> format.
 - (void)updateApplicationContext:(NSDictionary<NSString *, id> * _Nonnull)data;
 @end
 
@@ -586,22 +593,22 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 enum Level : NSInteger;
 @protocol AASDKAdLoggerDestination;
 
-/// Main logger class for <code>AdswizzSDK</code>. The destination output conforms to <code>AdLoggerDestination</code> protocol.
+/// Main logger class for <code>AdswizzSDK</code>. The destination output conforms to the <code>AdLoggerDestination</code> protocol.
 SWIFT_CLASS_NAMED("AdLogger")
 @interface AASDKAdLogger : NSObject
 /// Shared instance for the logger.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdLogger * _Nonnull shared;)
 + (AASDKAdLogger * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-/// Set the log level. By default is <code>none</code>. See <code>Level</code> for possible values.
+/// Set the log level. The default is <code>none</code>. See <code>Level</code> for possible values.
 @property (nonatomic) enum Level level;
-/// Set the destination for the logger. Default is <code>NSLog</code>.
+/// Set the destination for the logger. The default is <code>NSLog</code>.
 @property (nonatomic, strong) id <AASDKAdLoggerDestination> _Nonnull destination;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 /// The <code>AdLogger</code> level type.
 typedef SWIFT_ENUM(NSInteger, Level, open) {
-/// Vebose log level. This is the most verbose. Might print object content.
+/// Verbose log level. This is the most verbose. May print object content.
   LevelVerbose = 0,
 /// Debug log level.
   LevelDebug = 1,
@@ -617,13 +624,13 @@ typedef SWIFT_ENUM(NSInteger, Level, open) {
 
 @class NSString;
 
-/// Write a custom destination for the logger. Default destination is <code>NSLog</code>.
+/// Write a custom destination for the logger. The default destination is <code>NSLog</code>.
 SWIFT_PROTOCOL_NAMED("AdLoggerDestination")
 @protocol AASDKAdLoggerDestination
 /// Called when there is something to log from.
 /// \param level log level
 ///
-/// \param functionName name of the function where the call occured
+/// \param functionName name of the function where the call occurred
 ///
 /// \param fileName name of the file
 ///
@@ -674,6 +681,7 @@ SWIFT_CLASS("_TtC15AdswizzWatchSDK12DetectorBase")
 
 
 @interface NSDictionary<KeyType, ObjectType> (SWIFT_EXTENSION(AdswizzWatchSDK))
+/// Returns <code>true</code> if the dictionary contains a key used by the SDK.
 @property (nonatomic, readonly) BOOL isAdswizzWatchData;
 @end
 
@@ -710,16 +718,22 @@ SWIFT_CLASS("_TtC15AdswizzWatchSDK14SpeechDetector")
 
 @protocol AASDKWatchSessionDelegate;
 
+/// The <code>WatchSession</code> protocol defines the connection between your app and the SDK.
 SWIFT_PROTOCOL_NAMED("WatchSession")
 @protocol AASDKWatchSession
+/// Receives a message using a <code>Dictionary</code> format.
 - (void)receivedMessage:(NSDictionary<NSString *, id> * _Nonnull)data;
+/// Sets a new <code>WatchSessionDelegate</code>.
 - (void)setDelegate:(id <AASDKWatchSessionDelegate> _Nonnull)delegate;
 @end
 
 
+/// The <code>WatchSessionDelegate</code> delegate informs your app when the SDK delivers messages to the companion app.
 SWIFT_PROTOCOL_NAMED("WatchSessionDelegate")
 @protocol AASDKWatchSessionDelegate
+/// Sends a message using a <code>Dictionary</code> format.
 - (void)sendMessage:(NSDictionary<NSString *, id> * _Nonnull)data;
+/// Updates the app context using a <code>Dictionary</code> format.
 - (void)updateApplicationContext:(NSDictionary<NSString *, id> * _Nonnull)data;
 @end
 
@@ -951,22 +965,22 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 enum Level : NSInteger;
 @protocol AASDKAdLoggerDestination;
 
-/// Main logger class for <code>AdswizzSDK</code>. The destination output conforms to <code>AdLoggerDestination</code> protocol.
+/// Main logger class for <code>AdswizzSDK</code>. The destination output conforms to the <code>AdLoggerDestination</code> protocol.
 SWIFT_CLASS_NAMED("AdLogger")
 @interface AASDKAdLogger : NSObject
 /// Shared instance for the logger.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdLogger * _Nonnull shared;)
 + (AASDKAdLogger * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-/// Set the log level. By default is <code>none</code>. See <code>Level</code> for possible values.
+/// Set the log level. The default is <code>none</code>. See <code>Level</code> for possible values.
 @property (nonatomic) enum Level level;
-/// Set the destination for the logger. Default is <code>NSLog</code>.
+/// Set the destination for the logger. The default is <code>NSLog</code>.
 @property (nonatomic, strong) id <AASDKAdLoggerDestination> _Nonnull destination;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 /// The <code>AdLogger</code> level type.
 typedef SWIFT_ENUM(NSInteger, Level, open) {
-/// Vebose log level. This is the most verbose. Might print object content.
+/// Verbose log level. This is the most verbose. May print object content.
   LevelVerbose = 0,
 /// Debug log level.
   LevelDebug = 1,
@@ -982,13 +996,13 @@ typedef SWIFT_ENUM(NSInteger, Level, open) {
 
 @class NSString;
 
-/// Write a custom destination for the logger. Default destination is <code>NSLog</code>.
+/// Write a custom destination for the logger. The default destination is <code>NSLog</code>.
 SWIFT_PROTOCOL_NAMED("AdLoggerDestination")
 @protocol AASDKAdLoggerDestination
 /// Called when there is something to log from.
 /// \param level log level
 ///
-/// \param functionName name of the function where the call occured
+/// \param functionName name of the function where the call occurred
 ///
 /// \param fileName name of the file
 ///
@@ -1039,6 +1053,7 @@ SWIFT_CLASS("_TtC15AdswizzWatchSDK12DetectorBase")
 
 
 @interface NSDictionary<KeyType, ObjectType> (SWIFT_EXTENSION(AdswizzWatchSDK))
+/// Returns <code>true</code> if the dictionary contains a key used by the SDK.
 @property (nonatomic, readonly) BOOL isAdswizzWatchData;
 @end
 
@@ -1075,16 +1090,22 @@ SWIFT_CLASS("_TtC15AdswizzWatchSDK14SpeechDetector")
 
 @protocol AASDKWatchSessionDelegate;
 
+/// The <code>WatchSession</code> protocol defines the connection between your app and the SDK.
 SWIFT_PROTOCOL_NAMED("WatchSession")
 @protocol AASDKWatchSession
+/// Receives a message using a <code>Dictionary</code> format.
 - (void)receivedMessage:(NSDictionary<NSString *, id> * _Nonnull)data;
+/// Sets a new <code>WatchSessionDelegate</code>.
 - (void)setDelegate:(id <AASDKWatchSessionDelegate> _Nonnull)delegate;
 @end
 
 
+/// The <code>WatchSessionDelegate</code> delegate informs your app when the SDK delivers messages to the companion app.
 SWIFT_PROTOCOL_NAMED("WatchSessionDelegate")
 @protocol AASDKWatchSessionDelegate
+/// Sends a message using a <code>Dictionary</code> format.
 - (void)sendMessage:(NSDictionary<NSString *, id> * _Nonnull)data;
+/// Updates the app context using a <code>Dictionary</code> format.
 - (void)updateApplicationContext:(NSDictionary<NSString *, id> * _Nonnull)data;
 @end
 

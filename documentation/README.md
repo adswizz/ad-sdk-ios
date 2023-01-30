@@ -118,6 +118,7 @@
   * [Privacy](#privacy)
     + [GDPR](#gdpr)
     + [CCPA](#ccpa)
+    + [GPP](#gpp)
     + [Permissions](#permissions)
       - [Get status](#get-status)
       - [Disable permissions programmatically](#disable-permissions-programmatically)
@@ -2166,6 +2167,17 @@ AdswizzSDK.shared.ccpaConfig = AdswizzCCPAConfig.Builder()
 ```
 
 The default value for **_explicitNotice_**, **_optOut_** and **_lspa_** is **_notApplicable_**. Other possibile values are **_yes_** and **_no_**.
+
+### GPP
+
+With the introduction of GPP standard from IAB, **_AdswizzSDK_** gives you the possibility to forward the gpp consent string accordingly.
+
+```swift
+AdswizzSDK.shared.gppConsent = "My GPP Consent String"
+
+```
+
+The default value for **gppConsent** is nil, which means this parameter won't be used by **_AdswizzSDK_**. The usage of the GPP consent string is similar to the TCF V2 consent string.
 
 ### Permissions
 

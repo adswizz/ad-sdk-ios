@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.14] - 2023-01-30
+### Added
+- GPP consent:
+    - New public property in **_AdswizzSDK_** shared instance:
+        - `gppConsent` for passing a GPP consent string (as per IAB's new GPP privacy standard)
+- ZeroConfig:
+    - Add support for disabling pre-caching for ad assets in a Client Side Scenario type of integration
+
+### Changed
+- Client side scenario:
+    - Prevent unnecessary pre-caching for ads when playing with an external player
+
+### Fixed
+- Interactive Ads:
+    - A rare case for interactive ads to trigger their detected action twice
+- Ads pre-caching:
+    - A rare case that would crash the AdswizzSDK during ad assets pre-caching due to a race condition
+- Documentation:
+    - Improved the API docs and Integration Guide
+
 ## [7.7.13] - 2022-12-20
 ### Added
 - Interactive ads:
