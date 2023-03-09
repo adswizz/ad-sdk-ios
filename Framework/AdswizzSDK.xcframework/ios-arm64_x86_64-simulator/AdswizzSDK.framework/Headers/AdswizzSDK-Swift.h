@@ -346,9 +346,9 @@ enum AASDKAdCompanionResourceType : NSInteger;
 /// The options class to configure all <code>AdCompanionView</code> instances.
 SWIFT_CLASS_NAMED("AdCompanionOptions")
 @interface AASDKAdCompanionOptions : NSObject
-/// Set how long the sync-banner is supposed to be visible after the ad playout.
-/// The default value is 0, which means the sync-companion is removed when the ad ends.
-/// If <code>extraExposureTime</code> is Double.greatestFiniteMagnitude, then the sync-companion will be exposed forever or until the next sync-companion.
+/// Set how long the banner is supposed to keep its content visible after the ad is ended.
+/// The default value is 0, which means the companion content is removed when the ad ends.
+/// If <code>extraExposureTime</code> is Double.greatestFiniteMagnitude or negative, then the companion content will be exposed forever or until the next companion is ready to display its content.
 /// If fallback companions are active and <code>extraExposureTime</code> is activated, then the fallback companions will be delayed.
 @property (nonatomic) NSTimeInterval extraExposureTime;
 /// Set the preferred resource type for the <code>AdCompanionView</code> instances to select and load when querying through the associated <code>Companion</code> data.
@@ -2988,9 +2988,9 @@ enum AASDKAdCompanionResourceType : NSInteger;
 /// The options class to configure all <code>AdCompanionView</code> instances.
 SWIFT_CLASS_NAMED("AdCompanionOptions")
 @interface AASDKAdCompanionOptions : NSObject
-/// Set how long the sync-banner is supposed to be visible after the ad playout.
-/// The default value is 0, which means the sync-companion is removed when the ad ends.
-/// If <code>extraExposureTime</code> is Double.greatestFiniteMagnitude, then the sync-companion will be exposed forever or until the next sync-companion.
+/// Set how long the banner is supposed to keep its content visible after the ad is ended.
+/// The default value is 0, which means the companion content is removed when the ad ends.
+/// If <code>extraExposureTime</code> is Double.greatestFiniteMagnitude or negative, then the companion content will be exposed forever or until the next companion is ready to display its content.
 /// If fallback companions are active and <code>extraExposureTime</code> is activated, then the fallback companions will be delayed.
 @property (nonatomic) NSTimeInterval extraExposureTime;
 /// Set the preferred resource type for the <code>AdCompanionView</code> instances to select and load when querying through the associated <code>Companion</code> data.

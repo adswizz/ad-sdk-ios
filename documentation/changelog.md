@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.15] - 2023-03-09
+### Added
+- VAST macros support:
+    - [APIFRAMEWORKS] & [OMIDPARTNER] VAST Macros for OMSDK Audibility
+- Documentation:
+    - New section for React Native support (beta) in the Integration Guide
+
+### Changed
+- Companion banners:
+    - Removed delay when ending the display of a companion banner when the next ad in the ad pod doesn't have companion data or it is the last ad
+    - Handle negative values for `extraExposureTime` setting in `AdCompanionOptions` to behave just like in the case of Double.greatestFiniteMagnitude value
+
 ## [7.7.14] - 2023-01-30
 ### Added
 - GPP consent:

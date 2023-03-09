@@ -1,6 +1,7 @@
 # Companion banner support
 
 The AdswizzSDK lets you configure companion banner(s) if your Integration Manager provides you with a companion zone id.
+Additionally, you can find more details on how to customize the behaviour of companion banners in the [Companion banner](/SDKiOS/GeneralSettings#companion-banner) section from [AdswizzSDK general settings](/SDKiOS/GeneralSettings).
 
 
 ## Adding an AdCompanionView
