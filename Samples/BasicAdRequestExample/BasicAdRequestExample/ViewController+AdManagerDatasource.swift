@@ -19,7 +19,7 @@ extension ViewController: AdManagerDatasource {
     //Called when AdswizzSDK fires urls for VAST errors. See `VastErrorCode` enum for possible error values.
     func adManager(_ adManager: AdManager, ad: AdData, trackingErrorUrls errorCode: VastErrorCode) -> [URL] {
         print("ad manager: \(adManager) requested trackingErrorUrls ad: \(ad.id ?? "unknown") code: \(errorCode)")
-        return generateTrackingUrls(for: "error/\(errorCode)")
+        return generateTrackingUrls(for: "error/\(errorCode.rawValue)")
     }
     
     //Called when AdswizzSDK fires urls for impression tracking.

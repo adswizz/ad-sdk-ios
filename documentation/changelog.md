@@ -1,9 +1,18 @@
-[![AdsWizz](img/adswizz_logo.png)](https://www.adswizz.com) 
+[![AdsWizz](../img/adswizz_logo.png)](https://www.adswizz.com) 
 # Changelog
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [7.7.16] - 2023-04-06
+### Fixed
+- Interactive Ads:
+    - A case for voice ads on iOS16+ that rendered the audio only through the top speaker
+- Documentation:
+    - Update section for React Native support (beta) in the Integration Guide
+- Samples:
+    - Service update
 
 ## [7.7.15] - 2023-03-09
 ### Added

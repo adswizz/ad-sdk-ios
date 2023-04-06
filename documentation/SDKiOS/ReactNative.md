@@ -4,16 +4,16 @@ React Native generated projects need a few modifications in order to interface w
 
 ## Step 1
 
-Turn on dynamic linking. One way of doing this is to replace the line
+Turn on dynamic linking. One way of doing this is to replace the following line in the Podfile:
 
 ```bash
-import AdswizzSDK
+linkage = ENV['USE_FRAMEWORKS']
 ```
 
 with 
 
 ```bash
-linkage = ENV['USE_FRAMEWORKS']
+linkage = "dynamic"
 ```
 
 After this change, flipper must be disabled
@@ -65,7 +65,7 @@ def update_xcconfig(path, new_values)
 end
 ```
 
-##Step 3
+## Step 3
 
 Add the AdswizzSDK pod and run ```pod install``` in the terminal. Congratulations ! You have integrated the AdswizzSDK in a React Native project !
 
