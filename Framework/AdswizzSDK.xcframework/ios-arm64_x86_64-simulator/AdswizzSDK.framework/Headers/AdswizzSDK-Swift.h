@@ -916,6 +916,13 @@ SWIFT_CLASS_NAMED("AdPodcastManagerSettings")
 /// Your application can provide a player to play the podcast; otherwise, an internal player will be used.
 /// Your player will have to conform to the <code>MediaPlayerState</code> protocol.
 @property (nonatomic, weak) id <AASDKMediaPlayerState> _Nullable player;
+/// The podcast metadata from the Adswizz AIS (Ads Insertion Server) may contain encoded information about the ad breaks including
+/// an ad direct selection URL which the SDK fires and obtains a VAST compliant response to extract additional ad related information.
+/// If enabled, <code>automaticallySecureConnectionForAdURL</code> will make sure that any such direct selection URL will use <code>HTTPS</code>
+/// protocol to avoid any additional whitelisting.
+/// If disabled, <code>automaticallySecureConnectionForAdURL</code> will have no effect.
+/// Defaults to <code>true</code>.
+@property (nonatomic) BOOL automaticallySecureConnectionForAdURL;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1074,6 +1081,13 @@ SWIFT_CLASS_NAMED("AdStreamManagerSettings")
 /// Your application can provide a player with which to play the stream.
 /// Note that your player must conform to the <code>MediaPlayerState</code> protocol.
 @property (nonatomic, weak) id <AASDKMediaPlayerState> _Nullable player;
+/// The stream metadata from the Adswizz AIS (Ads Insertion Server) may contain encoded information about the ad breaks including
+/// an ad direct selection URL which the SDK fires and obtains a VAST compliant response to extract additional ad breaks related information.
+/// If enabled, <code>automaticallySecureConnectionForAdURL</code> will make sure that any such direct selection URL will use <code>HTTPS</code>
+/// protocol to avoid any additional whitelisting.
+/// If disabled, <code>automaticallySecureConnectionForAdURL</code> will have no effect.
+/// Defaults to <code>true</code>.
+@property (nonatomic) BOOL automaticallySecureConnectionForAdURL;
 /// Adds a capability for the stream.
 /// By default, no capability options will be used.
 - (void)addCapability:(enum AASDKAdStreamCapabilities)capability;
@@ -3558,6 +3572,13 @@ SWIFT_CLASS_NAMED("AdPodcastManagerSettings")
 /// Your application can provide a player to play the podcast; otherwise, an internal player will be used.
 /// Your player will have to conform to the <code>MediaPlayerState</code> protocol.
 @property (nonatomic, weak) id <AASDKMediaPlayerState> _Nullable player;
+/// The podcast metadata from the Adswizz AIS (Ads Insertion Server) may contain encoded information about the ad breaks including
+/// an ad direct selection URL which the SDK fires and obtains a VAST compliant response to extract additional ad related information.
+/// If enabled, <code>automaticallySecureConnectionForAdURL</code> will make sure that any such direct selection URL will use <code>HTTPS</code>
+/// protocol to avoid any additional whitelisting.
+/// If disabled, <code>automaticallySecureConnectionForAdURL</code> will have no effect.
+/// Defaults to <code>true</code>.
+@property (nonatomic) BOOL automaticallySecureConnectionForAdURL;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -3716,6 +3737,13 @@ SWIFT_CLASS_NAMED("AdStreamManagerSettings")
 /// Your application can provide a player with which to play the stream.
 /// Note that your player must conform to the <code>MediaPlayerState</code> protocol.
 @property (nonatomic, weak) id <AASDKMediaPlayerState> _Nullable player;
+/// The stream metadata from the Adswizz AIS (Ads Insertion Server) may contain encoded information about the ad breaks including
+/// an ad direct selection URL which the SDK fires and obtains a VAST compliant response to extract additional ad breaks related information.
+/// If enabled, <code>automaticallySecureConnectionForAdURL</code> will make sure that any such direct selection URL will use <code>HTTPS</code>
+/// protocol to avoid any additional whitelisting.
+/// If disabled, <code>automaticallySecureConnectionForAdURL</code> will have no effect.
+/// Defaults to <code>true</code>.
+@property (nonatomic) BOOL automaticallySecureConnectionForAdURL;
 /// Adds a capability for the stream.
 /// By default, no capability options will be used.
 - (void)addCapability:(enum AASDKAdStreamCapabilities)capability;

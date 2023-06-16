@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.7.17] - 2023-06-16
+### Added
+- Server side scenario:
+    - New public property in **_AdStreamManagerSettings_** class:
+        - `automaticallySecureConnectionForAdURL` for securing internal requests from stream metadata performed by **_AdswizzAdStreamManager_**. The default value is `true`
+- Podcasts:
+    - New public property in **_AdPodcastManagerSettings_** class:
+        - `automaticallySecureConnectionForAdURL` for securing internal requests from podcast metadata performed by **_AdswizzAdPodcastManager_**. The default value is `true`
+
+### Changed
+- Documentation:
+    - Migrate the Integration Guide to the new `docs.sdk.devel.adswizz.com` platform for improved integration experience
+- Carthage support:
+    - Update the `carthage.sh` script to add support for custom .xcconfig file used to configure the **_AdswizzSDKPrivacyData_** permission flags
+
+### Fixed
+- Interactive Ads:
+    - A rare case for voice ads that fail to start the voice detection
+
 ## [7.7.16] - 2023-04-06
 ### Fixed
 - Interactive Ads:

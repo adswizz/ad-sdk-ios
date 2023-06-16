@@ -7,11 +7,11 @@ To better understand these ads from a technical perspective, you can view them a
 
 Given that interactive ads are delivered the same way as normal audio/video ads, regardless of the integration scenario you are aiming for in your app, handling such ads does not require any specific setup other than what is expected for normal audio ads.
 
-For example, in a [Client-Side Insertion](/SDKiOS/ClientSideInsertion) scenario, playing an interactive ad is still managed via an instance of **_AdManager_**. Your app will receive the same familiar events defined in the **_AdEventType_** enum for the ad's lifecycle.
-In a [Server-Side Insertion](/SDKiOS/ServerSideInsertion) scenario, when an ad break is detected in your stream, you will still get an **_AdManager_** object containing the current running interactive ad.
-In a [Podcasts](/SDKiOS/Podcasts) scenario, after a podcast starts playing, your app can still receive an **_AdManager_** object containing the (interactive) ads fetched from the Adswizz server.
+For example, in a [Client-Side Insertion](/iOS/SDKiOS/ClientSideInsertion) scenario, playing an interactive ad is still managed via an instance of **_AdManager_**. Your app will receive the same familiar events defined in the **_AdEventType_** enum for the ad's lifecycle.
+In a [Server-Side Insertion](/iOS/SDKiOS/ServerSideInsertion) scenario, when an ad break is detected in your stream, you will still get an **_AdManager_** object containing the current running interactive ad.
+In a [Podcasts](/iOS/SDKiOS/Podcasts) scenario, after a podcast starts playing, your app can still receive an **_AdManager_** object containing the (interactive) ads fetched from the Adswizz server.
 
-However, interactive ads may require specific permissions on your app, depending on the type of action performed as a result of a positive user intent (successful shake or voice detection). Please refer to the [Changes in your Info.pList file](/SDKiOS/GetStarted#changes-in-your-infoplist-file) section to operate the necessary changes on your app's permissions.
+However, interactive ads may require specific permissions on your app, depending on the type of action performed as a result of a positive user intent (successful shake or voice detection). Please refer to the [Changes in your Info.pList file](/iOS/SDKiOS/GetStarted#changes-in-your-infoplist-file) section to operate the necessary changes on your app's permissions.
 
 Next, let's explore the two main types of interactive ads supported by AdswizzSDK.
 
@@ -25,7 +25,7 @@ The AdswizzSDK is able to deliver interactive voice ads with the ability of voic
 To be able to fetch and play voice ads, your app should first obtain the following user permissions:
 * **microphone** - used for voice recording
 * **speech** - used for the speech-to-text transcriber
-These permissions are **_mandatory_** to be able to properly render voice ads. See [Changes in your Info.pList file](/SDKiOS/GetStarted#changes-in-your-infoplist-file) section for the necessary changes on these permissions in your app.
+These permissions are **_mandatory_** to be able to properly render voice ads. See [Changes in your Info.pList file](/iOS/SDKiOS/GetStarted#changes-in-your-infoplist-file) section for the necessary changes on these permissions in your app.
 
 ### Handling voice recording
 

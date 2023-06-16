@@ -385,6 +385,7 @@ extension AdCompanionView : WebKit.WKUIDelegate {
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdPodcastManagerSettings) final public class AdPodcastManagerSettings : ObjectiveC.NSObject {
   @objc weak final public var player: MediaPlayerState?
+  @objc final public var automaticallySecureConnectionForAdURL: Swift.Bool
   @objc override dynamic public init()
   @objc deinit
 }
@@ -944,6 +945,7 @@ extension Dispatch.DispatchQueue : Dispatcher {
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdStreamManagerSettings) final public class AdStreamManagerSettings : ObjectiveC.NSObject {
   @objc weak final public var player: MediaPlayerState?
+  @objc final public var automaticallySecureConnectionForAdURL: Swift.Bool
   @objc final public func addCapability(_ capability: AdStreamCapability)
   @objc override dynamic public init()
   @objc deinit

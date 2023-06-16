@@ -2,7 +2,7 @@
 
 Podcast apps that integrate the AdswizzSDK will benefit from real-time reporting, companion display and interactive ads with formats such as ShakeMe and VoiceAds. Of course, these features are available only if the podcasts are delivered by AdsWizz's AIS. The setup uses an underlying functionality similar to Server-Side Insertion, as well as some familiar Client-Side Insertion objects such as **_AdManager_**.
 
-## Getting started
+## Build AdswizzAdPodcastManager
 
 To get started, you need to create an **_AdswizzAdPodcastManager_** object.
 
@@ -31,14 +31,21 @@ do {
 The **_AdswizzAdPodcastManager_** object can be configured with a companion zone that will be used in case the ad breaks do not define a companion zone in the AIS Zero Config of the podcast.
 
 This is your only entry point to drive the podcast functionality further; typically your app will need a single **_AdswizzAdPodcastManager_** instance. Note that you should keep a strong reference to this object.
-Once the podcast manager object is constructed, you need to set the delegate and decide whether or not you want to play the podcasts with your player or let the SDK do it for you:
+
+Next, in order to receive callbacks from the podcast manager you need to set the delegate defined in [AdPodcastManagerDelegate](#adpodcastmanagerdelegate-protocol) protocol:
 
 ```swift
 podcastManager?.delegate = self
 ```
 
-If you decide to play the podcasts with your player, you need to provide an **_AdPodcastManagerSettings_** object with the following code:
+## Setup AdswizzAdPodcastManager
 
+Once the podcast manager object is constructed, you can further customize your **_AdswizzAdPodcastManager_** object by using the **_AdPodcastManagerSettings_** class. Here is a breakdown for the available settings.
+
+### player
+
+The `player` property instructs the **_AdswizzAdPodcastManager_** object to play the podcast with your player or use an internal player.
+If you decide to play the podcast with your player, you need to provide a **_MediaPlayerState_** object with the following code:
 
 ```swift
 let settings = AdPodcastManagerSettings()
@@ -46,7 +53,21 @@ settings.player = yourPlayer
 podcastManager?.adPodcastManagerSettings = settings
 ```
 
-See the [MediaPlayerState example](/SDKiOS/ExternalPlayer#mediaplayerstate-example) for a more detailed implementation of the **_MediaPlayerState_** protocol.
+See the [MediaPlayerState example](/iOS/SDKiOS/ExternalPlayer#mediaplayerstate-example) for a more detailed implementation of the **_MediaPlayerState_** protocol.
+
+### automaticallySecureConnectionForAdURL
+
+Enables secure connections when **_AdswizzAdPodcastManager_** object fires additional internal requests. The default value is `true`.
+Here is an example on how to instruct the **_AdswizzAdPodcastManager_** object to secure or not its internal requests:
+
+```swift
+let settings = AdPodcastManagerSettings()
+settings.automaticallySecureConnectionForAdURL = false // Optional; true by default
+podcastManager?.adPodcastManagerSettings = settings
+```
+
+> The **_AdswizzAdPodcastManager_** object will always attempt to use a secured connection (HTTPS protocol) when firing internal requests for fetching additional ad breaks related information from the podcast metadata.
+> This approach avoids the need for whitelisting these requests in your application.
 
 ## Playback operations
 
@@ -95,7 +116,7 @@ func application(_ application: UIApplication,
 
 
 ```
-Notice that `completionHandler` is passed to **_AdswizzSDK_** shared instance into a property called `backgroundSessionCompletionHandler`. You can find more information here: [Enable background downloads](/SDKiOS/GeneralSettings#enable-background-downloads).
+Notice that `completionHandler` is passed to **_AdswizzSDK_** shared instance into a property called `backgroundSessionCompletionHandler`. You can find more information here: [Enable background downloads](/iOS/SDKiOS/GeneralSettings#enable-background-downloads).
 
 ### start download
 
@@ -206,7 +227,7 @@ Called when a network error occurred while trying to download the asset.
 
 ## Handling interactive ads during podcasts
 
-For more information on how to handle interactive ads such as ShakeMe and Voice Ads please refer to the [Interactive ads](/SDKiOS/InteractiveAds#interactive-ads) section.
+For more information on how to handle interactive ads such as ShakeMe and Voice Ads please refer to the [Interactive ads](/iOS/SDKiOS/InteractiveAds#interactive-ads) section.
 Note that the interactivity component of an ad requires fetching data from a remote service that may not be available for downloaded podcasts especially when there is no internet connection.
 
 ## Remote Audio Data
@@ -229,5 +250,5 @@ Disabling RAD data collection at the ZeroConfig level takes precedence over disa
 ### Handling RAD id3 metadata using your player
 
 Remote Audio Data measurement is based on reading specific `id3` metadata formats from the podcast being played. The SDK is able to read these specific metadata formats when playing with the internal player.
-However, when playing podcasts using your own player, you are responsable for passing the metadata items to the SDK. You can find more details in the [MediaPlayerState protocol](/SDKiOS/ExternalPlayer#mediaplayerstate-protocol) and [metadataItem](/SDKiOS/ExternalPlayer#metadataitem) sections.
+However, when playing podcasts using your own player, you are responsable for passing the metadata items to the SDK. You can find more details in the [MediaPlayerState protocol](/iOS/SDKiOS/ExternalPlayer#mediaplayerstate-protocol) and [metadataItem](/iOS/SDKiOS/ExternalPlayer#metadataitem) sections.
 

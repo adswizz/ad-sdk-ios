@@ -4,7 +4,7 @@ Out of the box, the AdswizzSDK is configured to play the ad media using its inte
 
 ## Client side setup
 
-In a [Client-Side Insertion](/SDKiOS/ClientSideInsertion) scenario, if you prefer playing the ads with your own player, you must configure the **_AdManager_** object received after an **_AdConnectionRequest_** with a new **_AdManagerSettings_** object. Here you can provide the player, which must conform to the **_MediaPlayerState_** protocol. Through this protocol, the AdswizzSDK uses the KVO pattern to detect changes in your player. You can also check the [AdManager life cycle](/SDKiOS/ClientSideInsertion#admanager-life-cycle) diagram (right one) to see what is expected from your player, so that the **_AdManger_** can function properly.
+In a [Client-Side Insertion](/iOS/SDKiOS/ClientSideInsertion) scenario, if you prefer playing the ads with your own player, you must configure the **_AdManager_** object received after an **_AdConnectionRequest_** with a new **_AdManagerSettings_** object. Here you can provide the player, which must conform to the **_MediaPlayerState_** protocol. Through this protocol, the AdswizzSDK uses the KVO pattern to detect changes in your player. You can also check the [AdManager life cycle](/iOS/SDKiOS/ClientSideInsertion#admanager-life-cycle) diagram (right one) to see what is expected from your player, so that the **_AdManger_** can function properly.
 
 Here is how you set up your own player:
 
@@ -42,11 +42,11 @@ class YourModelClass {
 
 ```
 
-See the [MediaPlayerState example](/SDKiOS/ExternalPlayer#mediaplayerstate-example) for a more detailed implementation of the **_MediaPlayerState_** protocol.
+See the [MediaPlayerState example](/iOS/SDKiOS/ExternalPlayer#mediaplayerstate-example) for a more detailed implementation of the **_MediaPlayerState_** protocol.
 
 ## Server side setup
 
-In a [Server-Side Insertion](/SDKiOS/ServerSideInsertion) scenario, if you prefer playing the ads with your own player, you must configure the **_AdManager_** object received when an ad break is detected in your stream with a new **_AdManagerSettings_** object. Here you can provide the player which must conform to the **_MediaPlayerState_** protocol.
+In a [Server-Side Insertion](/iOS/SDKiOS/ServerSideInsertion) scenario, if you prefer playing the ads with your own player, you must configure the **_AdManager_** object received when an ad break is detected in your stream with a new **_AdManagerSettings_** object. Here you can provide the player which must conform to the **_MediaPlayerState_** protocol.
 
 Here is what it could look like in your code:
 
@@ -92,12 +92,12 @@ extension YourModelClass: AdStreamManagerDelegate
 
 ```
 
-See the [MediaPlayerState example](/SDKiOS/ExternalPlayer#mediaplayerstate-example) for a more detailed implementation for **_MediaPlayerState_** protocol.
+See the [MediaPlayerState example](/iOS/SDKiOS/ExternalPlayer#mediaplayerstate-example) for a more detailed implementation for **_MediaPlayerState_** protocol.
 
 ## Podcasts setup
 
-In a [Podcasts](/SDKiOS/Podcasts) scenario, if you prefer playing the ads with your own player, you can do so by playing the entire podcast with your player because the ads are "stitched" into the podcast media file.
-Unlike playing live streams in a [Server-Side Insertion](/SDKiOS/ServerSideInsertion) scenario, after a podcast starts playing, even when your app receives an **_AdManager_** object containing the ads fetched from the Adswizz server, you cannot configure that **_AdManager_** object with a new **_AdManagerSettings_** object.
+In a [Podcasts](/iOS/SDKiOS/Podcasts) scenario, if you prefer playing the ads with your own player, you can do so by playing the entire podcast with your player because the ads are "stitched" into the podcast media file.
+Unlike playing live streams in a [Server-Side Insertion](/iOS/SDKiOS/ServerSideInsertion) scenario, after a podcast starts playing, even when your app receives an **_AdManager_** object containing the ads fetched from the Adswizz server, you cannot configure that **_AdManager_** object with a new **_AdManagerSettings_** object.
 
 Here is what it could look like in your code:
 
@@ -134,7 +134,7 @@ class YourModelClass {
 
 ```
 
-See the [MediaPlayerState example](/SDKiOS/ExternalPlayer#mediaplayerstate-example) for a more detailed implementation for **_MediaPlayerState_** protocol.
+See the [MediaPlayerState example](/iOS/SDKiOS/ExternalPlayer#mediaplayerstate-example) for a more detailed implementation for **_MediaPlayerState_** protocol.
 
 ## MediaPlayerState protocol
 
@@ -152,7 +152,7 @@ For accurate reporting of the quartile/progress events, your player should updat
 
 ### metadataItem
 
-If your player can read metadata from the media that is playing, it should report it through this member. While this is not required for client-side insertion, it is mandatory to relay this data when you are in a server-side insertion scenario. It is also required if your player is used in a podcast context for reporting any ID3 metadata formats to enable [Remote Audio Data](/SDKiOS/Podcasts#remote-audio-data) measurement.
+If your player can read metadata from the media that is playing, it should report it through this member. While this is not required for client-side insertion, it is mandatory to relay this data when you are in a server-side insertion scenario. It is also required if your player is used in a podcast context for reporting any ID3 metadata formats to enable [Remote Audio Data](/iOS/SDKiOS/Podcasts#remote-audio-data) measurement.
 
 
 ### playerStatus
@@ -323,4 +323,4 @@ extension YourPlayer {
 ```
 Notice how your player class that implements **_MediaPlayerState_** protocol should inherit from **_NSObject_** which is needed for the KVO mechanism in Swift.
 
-For a complete implementation, we strongly suggest to consult [ExternalPlayerExample](/SDKiOS/ExternalPlayer) from [Sample projects](/SDKiOS/SampleProjects) and the `ExternalMediaPlayer.swift` source file.
+For a complete implementation, we strongly suggest to consult [ExternalPlayerExample](/iOS/SDKiOS/ExternalPlayer) from [Sample projects](/iOS/SDKiOS/SampleProjects) and the `ExternalMediaPlayer.swift` source file.

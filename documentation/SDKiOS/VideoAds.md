@@ -10,7 +10,7 @@ Once created, you have ownership over this view and you can add it to your hiera
 
 ## Setup video support
 
-The first step is to let the SDK know that you wish to render video content when video ads are played. To do that, you'll need to pass an instance of **_AdVideoView_** when setting up Ad Manager (after it was obtained following an Ad Request) via **_AdManagerSettings_**. For more details see [Setup AdManager](/SDKiOS/ClientSideInsertion#setup-admanager).
+The first step is to let the SDK know that you wish to render video content when video ads are played. To do that, you'll need to pass an instance of **_AdVideoView_** when setting up Ad Manager (after it was obtained following an Ad Request) via **_AdManagerSettings_**. For more details see [Setup AdManager](/iOS/SDKiOS/ClientSideInsertion#setup-admanager).
 
 The video view instance doesn't have to be visible / added to your hierarchy at this point, but remember that you own the video view instance and it is your responsibility to keep track of it.
 
@@ -62,7 +62,7 @@ There are no specific video events to respond to; however, you can set a delegat
 
 # Viewability
 
-Viewability enables the AdswizzSDK to allow third-party verification measurement for both audio and video ads. See [Open Measurement in AdswizzSDK](/SDKiOS/OpenMeasurement) for more details.
+Viewability enables the AdswizzSDK to allow third-party verification measurement for both audio and video ads. See [Open Measurement in AdswizzSDK](/iOS/SDKiOS/OpenMeasurement) for more details.
 
 ## Friendly obstructions
 
@@ -180,4 +180,4 @@ class YourAdVideoView: AdVideoView {
 ```
 
 If you follow the approach above, remember to pass the **_YourAdVideoView_** instance when setting up **_AdManager_** through **_AdManagerSettings_**.
-See [Playing ads using your player](/SDKiOS/ExternalPlayer#playing-ads-using-your-player) for more details on how to conform to **_MediaPlayerState_** protocol.
+See [Playing ads using your player](/iOS/SDKiOS/ExternalPlayer#playing-ads-using-your-player) for more details on how to conform to **_MediaPlayerState_** protocol.

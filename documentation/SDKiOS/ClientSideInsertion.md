@@ -212,7 +212,7 @@ Called when an error happens in the SDK while using the **_AdManager_**. The err
 Here are a few cases when the **_AdManager_** will report an error:
   * ad playback failed due to an internal player error
   * ad was skipped with an explicit error. See [skipAd with error](#skipad-with-error) method from [AdManager protocol](#admanager-protocol) section
-  * calling `prepare()`, `play()` or `pause()` on the **_AdManager_** instance during a server side scenario (live streaming). More details at [AdStreamManagerDelegate protocol](/SDKiOS/ServerSideInsertion) when the ad break starts
+  * calling `prepare()`, `play()` or `pause()` on the **_AdManager_** instance during a server side scenario (live streaming). More details at [AdStreamManagerDelegate protocol](/iOS/SDKiOS/ServerSideInsertion) when the ad break starts
 
 ### AdManagerDatasource protocol
 
@@ -417,7 +417,7 @@ extension AdManager {
 
 #### analyticsCustomData
 
-Set an object that conforms to the **_AnalyticsCustomData_** protocol to provide key-value custom attributes to all **_AnalyticsEvent_** instances triggered by the AdswizzSDK for Analytics purposes. Read more here: [AdswizzSDK Analytics](/SDKiOS/AdswizzAnalytics).
+Set an object that conforms to the **_AnalyticsCustomData_** protocol to provide key-value custom attributes to all **_AnalyticsEvent_** instances triggered by the AdswizzSDK for Analytics purposes. Read more here: [AdswizzSDK Analytics](/iOS/SDKiOS/AdswizzAnalytics).
 
 ### AdManager operations
 

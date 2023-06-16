@@ -36,7 +36,7 @@ By default, the **_AdswizzSDK_** will attempt to collect location updates using 
 * ZeroConfig `location` setting is enabled. Note that this setting is enabled by default. To disable this setting in your app's AdswizzSDK ZeroConfig instance, contact your AdsWizz partner integration manager.
 * location permission is granted by your app
 
-You can also prevent the **_AdswizzSDK_** from collecting location updates by setting **_false_** for the `.location` permission type status via the `setPermissionStatus(for type: PermissionType, status: Bool)` method in the AdswizzSDK shared instance. See [Disable permissions programmatically](/SDKiOS/GeneralSettings#disable-permissions-programmatically) in the [Privacy](/SDKiOS/GeneralSettings#privacy) section below.
+You can also prevent the **_AdswizzSDK_** from collecting location updates by setting **_false_** for the `.location` permission type status via the `setPermissionStatus(for type: PermissionType, status: Bool)` method in the AdswizzSDK shared instance. See [Disable permissions programmatically](/iOS/SDKiOS/GeneralSettings#disable-permissions-programmatically) in the [Privacy](/iOS/SDKiOS/GeneralSettings#privacy) section below.
 
 ### Enable significant changes for location
 

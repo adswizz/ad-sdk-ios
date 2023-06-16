@@ -3,6 +3,7 @@
 The AdswizzSDK handles interactive ad insertions, while playing HLS or ICY live streams from Ad Insertion Servers. This is possible by reading the player's metadata for specific AdsWizz data and converting it to AdsWizz interactive formats or companion banners.
 To get started, you need to create an **_AdswizzAdStreamManager_** object with a URL pointing to the ad server your Integration Manager provided you with.
 
+## Build AdswizzAdStreamManager
 
 ```swift
 import AdswizzSDK
@@ -26,14 +27,21 @@ do {
 
 ```
 At this point the **_AdswizzAdStreamManager_** object can be configured with a companion zone that will be used in case the ad break defines a companion zone in the metadata but the reference to its location is missing in the stream metadata.
-Once the stream object is constructed you need to set the delegate and decide whether or not you want to play the stream with your player or let the SDK do it for you:
+
+Next, in order to receive callbacks from the stream manager you need to set the delegate defined in [AdStreamManagerDelegate](#adstreammanagerdelegate-protocol) protocol:
 
 ```swift
-streamManager?.delegate = self
+streamManager?.delegate = self // Where `self` is an object that conforms to `AdStreamManagerDelegate`
 ```
 
-If you decide to play the stream with your player, you need to provide a **_MediaPlayerState_** object with the following code:
+## Setup AdswizzAdStreamManager
 
+You can further customize your **_AdswizzAdStreamManager_** object by using the **_AdStreamManagerSettings_** class. Here is a breakdown for the available settings.
+
+### player
+
+The `player` property instructs the **_AdswizzAdStreamManager_** object to play the stream with your player or use an internal player.
+If you decide to play the stream with your player, you need to provide a **_MediaPlayerState_** object with the following code:
 
 ```swift
 let settings = AdStreamManagerSettings()
@@ -41,7 +49,37 @@ settings.player = yourPlayer
 streamManager?.adStreamManagerSettings = settings
 ```
 
-See the [MediaPlayerState example](/SDKiOS/ExternalPlayer#mediaplayerstate-example) for a more detailed implementation of the **_MediaPlayerState_** protocol.
+See the [MediaPlayerState example](/iOS/SDKiOS/ExternalPlayer#mediaplayerstate-example) for a more detailed implementation of the **_MediaPlayerState_** protocol.
+
+### capabilities
+
+This property bundles various capabilities that the **_AdswizzAdStreamManager_** object should use or enable.
+
+#### dvr
+
+Enables the DVR capability for HLS streams.
+
+```swift
+let settings = AdStreamManagerSettings()
+settings.addCapability(.dvr) // Enables DVR
+streamManager?.adStreamManagerSettings = settings
+```
+
+See the [DVR for HLS](#dvr-for-hls) section below for more details.
+
+### automaticallySecureConnectionForAdURL
+
+Enables secure connections when **_AdswizzAdStreamManager_** object fires additional internal requests. The default value is `true`.
+Here is an example on how to instruct the **_AdswizzAdStreamManager_** object to secure or not its internal requests:
+
+```swift
+let settings = AdStreamManagerSettings()
+settings.automaticallySecureConnectionForAdURL = false // Optional; true by default
+streamManager?.adStreamManagerSettings = settings
+```
+
+> The **_AdswizzAdStreamManager_** object will always attempt to use a secured connection (HTTPS protocol) when firing internal requests for fetching additional ad breaks related information from the stream metadata.
+> This approach avoids the need for whitelisting these requests in your application.
 
 ## Precaching before playing
 

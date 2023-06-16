@@ -1,7 +1,7 @@
 # Open Measurement in AdswizzSDK
 
 The **_AdswizzSDK_** includes the [Open Measurement SDK](https://iabtechlab.com/standards/open-measurement-sdk/), an industry standard developed by the IAB and designed to enable third-party viewability and verification measurement for audio and video ads served through VAST servers. **_Open Measurement_** is enabled by default in the AdswizzSDK and ads must be configured to traffic the **_<AdVerifications>_** node in their VAST container. Additionally, refrain from covering the **_AdVideoView_** container with any overlays (transparent or opaque), since these are taken into account by the OM SDK, and marked as obstructions, thus affecting viewability and reporting.
-For more info on how to register your overlays as "friendly" obstructions by using **_AdVideoFriendlyObstruction_** objects, see [Viewability](/SDKiOS/VideoAds#viewability).
+For more info on how to register your overlays as "friendly" obstructions by using **_AdVideoFriendlyObstruction_** objects, see [Viewability](/iOS/SDKiOS/VideoAds#viewability).
 
 ## Video controls as obstructions
 
