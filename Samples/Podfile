@@ -20,6 +20,7 @@ project 'BasicEmptyAdsExample/BasicEmptyAdsExample.xcodeproj'
 project 'BasicDVRRequestExample/BasicDVRRequestExample.xcodeproj'
 project 'BasicSwiftUIClientSideInsertion/BasicSwiftUIClientSideInsertion.xcodeproj'
 project 'BasicPodcastExample/BasicPodcastExample'
+project 'BasicAnalyticsExample/BasicAnalyticsExample'
 
 target :BasicAdRequestExample do
   project 'BasicAdRequestExample/BasicAdRequestExample.xcodeproj'
@@ -135,6 +136,12 @@ end
 target :BasicPodcastExample do
   project 'BasicPodcastExample/BasicPodcastExample.xcodeproj'
   common_pods
+end
+
+target :BasicAnalyticsExample do
+  project 'BasicAnalyticsExample/BasicAnalyticsExample.xcodeproj'
+  common_pods
+pod 'AdswizzSDKPinpointAnalytics', :git => "https://github.com/adswizz/ad-sdk-ios.git"
 end
 
  post_install do |installer|

@@ -5,6 +5,43 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.8.0] - 2023-08-03
+### Added
+- Analytics:
+    - SDK support for AWSPinpoint service in the form of **_AdswizzSDKPinpointAnalytics.xcframework_** capable of logging and sending Analytics events to the Amazon servers
+    - New public data class in **_AdswizzSDKPinpointAnalytics_** framework:
+        - `AdswizzPinpointConfiguration` for configuring the AWS Pinpoint connector
+    - New public properties in **_AdswizzPinpointConfiguration_** class:
+        - `region` for defining an `AWSRegionType`
+        - `projectId` for configuring the AWS Pinpoint service
+        - `identityPoolId` for configuring the AWS Pinpoint service
+        - `batchSize` for configuring the size of a single batch when packaging events to AWS servers
+        - `minimumSendInterval` for configuring the time interval between sending batches of events to AWS servers
+    - New public `AnalyticsConnector` implementation class in **_AdswizzSDKPinpointAnalytics_** framework:
+        - `AdswizzPinpointConnector` for communication between `AdswizzSDK` and the AWS Pinpoint API
+    - New public properties in **_AdswizzPinpointConnector_** class:
+        - `configuration` for the AWSPinpoint connector initialization
+- Documentation:
+    - New section in Integration Guide to document the new **_AdswizzSDKPinpointAnalytics_** framework
+    - New section in Integration Guide to document the migration process to the **_AdswizzSDK_** v7.8.0 and later
+- Integration dependencies:
+    - New automatic dependency for **_AdswizzSDKCore_** framework via Cocoapods and Carthage
+- Samples:
+    - New example project named `BasicAnalyticsExample` that shows how to implement an `AnalyticsConnector` and how to use the **_AdswizzSDKPinpointAnalytics_** framework
+
+### Changed
+- Analytics:
+    - Public access to the `AnalyticsCollector` in **_AdswizzSDK_** has been removed and replaced by the following APIs:
+        - `add(connector: AnalyticsConnector)` method
+        - `remove(connector: AnalyticsConnector)` method (e.g `AdswizzSDK.shared.remove(connector: <AnalyticsConnector>)`)
+- Integration dependencies:
+    - Amazon's `AWSCore` external library dependency is no longer required to link against the **_AdswizzSDK_** framework
+    - The **_AdswizzSDK_** binary is compiled and updated to link with the **_AdswizzSDKCore_** dependency
+
+### Fixed
+- Documentation:
+    - Small corrections to the `Integration Guide` keeping the docs up-to-date
+
 ## [7.7.17] - 2023-06-16
 ### Added
 - Server side scenario:

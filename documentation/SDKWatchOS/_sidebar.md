@@ -1,6 +1,6 @@
 <!-- docs/iOS/SDKWatchOS/_sidebar.md -->
 
-- Adswizz SDK iOS
+- AdswizzSDK iOS
 
     - [Before you start](iOS/SDKiOS/BeforeYouStart.md)
     - [Get started](iOS/SDKiOS/GetStarted.md)
@@ -21,7 +21,7 @@
     - [Sample Projects](iOS/SDKiOS/SampleProjects.md)
     - [React Native Support](iOS/SDKiOS/ReactNative.md)
 
-- Adswizz SDK WatchOS
+- AdswizzSDK WatchOS
 
     - [Adswizz Watch OS SDK](iOS/SDKWatchOS/AdswizzWatchSDK.md)
     - [Integrating Adswizz Watch SDK](iOS/SDKWatchOS/IntegratingAdswizzWatchSDK.md)
@@ -29,8 +29,22 @@
     - [Privacy](iOS/SDKWatchOS/Privacy.md)
     - [Sample Projects](iOS/SDKWatchOS/SampleProjects.md)
 
+- AdswizzSDK Pinpoint Analytics
+
+    - [AdswizzSDK Pinpoint Analytics](iOS/SDKPinpointAnalytics/AdswizzSDKPinpointAnalytics.md)
+    - [Integrating AdswizzSDK Pinpoint Analytics](iOS/SDKPinpointAnalytics/IntegratingAdswizzSDKPinpointAnalytics.md)
+    - [Privacy](iOS/SDKPinpointAnalytics/Privacy.md)
+    - [Sample Projects](iOS/SDKPinpointAnalytics/SampleProjects.md)
+
+- Migrations
+
+    - [How to migrate to AdswizzSDK v7.8.0+](iOS/SDKMigrations/v7_8_0.md)
+
 - Changelog
     - [Changelog](iOS/CHANGELOG.md)
 
 - API Docs
-    - <a id="ios_api_url" href="" target="_blank" rel="noopener" title="API Docs"><img src="img/doc.text.png" data-origin="img/doc.text.png" alt="Code" style="text-color:red">  API Docs</a>
+    <ul>
+        <li class="linkListItem"><a id="ios_api_url" href="" target="_blank" rel="noopener" title="API Docs"><img src="img/doc.text.png" data-origin="img/doc.text.png" alt="Code" style="text-color:red">  API Docs</a></li>
+    </ul>
+

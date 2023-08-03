@@ -6,6 +6,6 @@ framework module AdswizzSDK {
 }
 
 module AdswizzSDK.Swift {
-    header "AdswizzSDK-Swift.h"
-    requires objc
+  header "AdswizzSDK-Swift.h"
+  requires objc
 }

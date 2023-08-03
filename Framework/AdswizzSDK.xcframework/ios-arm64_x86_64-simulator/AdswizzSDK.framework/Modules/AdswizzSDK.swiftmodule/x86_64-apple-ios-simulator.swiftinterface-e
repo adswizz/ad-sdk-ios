@@ -1,10 +1,11 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
 // swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AdswizzSDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
-import AWSCore
 import AdSupport
 @_exported import AdswizzSDK
+import AdswizzSDKCore
 import AdswizzSDKPrivacyData
 import AudioToolbox
 import CoreTelephony.CTTelephonyNetworkInfo
@@ -29,6 +30,7 @@ import UserNotifications
 import WatchConnectivity
 import WebKit
 import _Concurrency
+import _StringProcessing
 @_hasMissingDesignatedInitializers @objc(AASDKTrackingPermissionUIElement) final public class TrackingPermissionUIElement : ObjectiveC.NSObject {
   @_inheritsConvenienceInitializers @objc(TrackingPermissionTextElementBuilder) public class Builder : ObjectiveC.NSObject {
     @objc public func with(font: UIKit.UIFont) -> AdswizzSDK.TrackingPermissionUIElement.Builder
@@ -63,7 +65,7 @@ final public class DefaultStatsNetworkSession {
   final public func performDataRequest(_ request: Foundation.URLRequest, networkQoS: Dispatch.DispatchQoS.QoSClass) -> Combine.AnyPublisher<(Foundation.Data?, Foundation.URLResponse), Swift.Error>
   @objc deinit
 }
-extension CoreGraphics.CGSize : Swift.Hashable {
+extension CoreFoundation.CGSize : Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
@@ -352,22 +354,22 @@ extension UIKit.UIUserInterfaceIdiom : Swift.Codable {
   @objc @_Concurrency.MainActor(unsafe) public var clickThrough: Foundation.URL? {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func didMoveToSuperview()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func didMoveToWindow()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var alpha: CoreGraphics.CGFloat {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var alpha: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
   }
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var isHidden: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+    @objc get
+    @objc set
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: CoreGraphics.CGSize {
-    @_Concurrency.MainActor(unsafe) @objc get
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: CoreFoundation.CGSize {
+    @objc get
   }
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateConstraints()
   @objc deinit
@@ -539,9 +541,9 @@ extension Swift.Bool : AdswizzSDK.XMLElementDeserializable, AdswizzSDK.XMLAttrib
     @objc get
     @objc set
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
   @objc deinit
   @objc @_Concurrency.MainActor(unsafe) public func didHandleClickThrough()
 }
@@ -685,8 +687,8 @@ extension Foundation.NSDictionary {
 }
 @objc(AASDKTrackingPermissionController) @_Concurrency.MainActor(unsafe) final public class TrackingPermissionController : UIKit.UIViewController {
   @_Concurrency.MainActor(unsafe) @objc final override public var title: Swift.String? {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+    @objc get
+    @objc set
   }
   @objc @_Concurrency.MainActor(unsafe) final public var configuration: AdswizzSDK.TrackingPermissionConfiguration {
     @objc get
@@ -698,13 +700,13 @@ extension Foundation.NSDictionary {
   @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLayoutSubviews()
   @_Concurrency.MainActor(unsafe) @objc override final public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
-    @_Concurrency.MainActor(unsafe) @objc get
+    @objc get
   }
   @_Concurrency.MainActor(unsafe) @objc override final public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
-    @_Concurrency.MainActor(unsafe) @objc get
+    @objc get
   }
   @_Concurrency.MainActor(unsafe) @objc override final public var shouldAutorotate: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
+    @objc get
   }
   @_Concurrency.MainActor(unsafe) @objc override final public func dismiss(animated: Swift.Bool = true, completion: (() -> Swift.Void)? = nil)
   @_Concurrency.MainActor(unsafe) public static func canPresentController() -> Swift.Bool
@@ -712,28 +714,6 @@ extension Foundation.NSDictionary {
 }
 extension AdswizzSDK.TrackingPermissionController : UIKit.UIAdaptivePresentationControllerDelegate {
   @_Concurrency.MainActor(unsafe) @objc final public func presentationControllerDidDismiss(_ presentationController: UIKit.UIPresentationController)
-}
-@objc(AASDKAdLoggerDestination) public protocol AdLoggerDestination {
-  @objc func log(_ level: AdswizzSDK.AdLogger.Level, functionName: Swift.String, fileName: Swift.String, lineNumber: Swift.Int, line: Swift.String)
-}
-@_inheritsConvenienceInitializers @objc(AASDKAdLogger) final public class AdLogger : ObjectiveC.NSObject {
-  @objc public enum Level : Swift.Int {
-    case verbose
-    case debug
-    case info
-    case error
-    case none
-    public init?(rawValue: Swift.Int)
-    public typealias RawValue = Swift.Int
-    public var rawValue: Swift.Int {
-      get
-    }
-  }
-  @objc public static let shared: AdswizzSDK.AdLogger
-  @objc final public var level: AdswizzSDK.AdLogger.Level
-  @objc final public var destination: AdswizzSDK.AdLoggerDestination
-  @objc override dynamic public init()
-  @objc deinit
 }
 @objc(AASDKAdAssetQuality) public enum AdAssetQuality : Swift.Int {
   case low
@@ -766,7 +746,7 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   @objc weak var datasource: AdswizzSDK.AdManagerDatasource? { get set }
   @objc weak var interactiveDelegate: AdswizzSDK.InteractiveAdManagerDelegate? { get set }
   @objc var ads: [AdswizzSDK.AdData] { get }
-  @objc var analyticsCustomData: AdswizzSDK.AnalyticsCustomData? { get set }
+  @objc var analyticsCustomData: AdswizzSDKCore.AnalyticsCustomData? { get set }
   @objc func prepare()
   @objc func play()
   @objc func pause()
@@ -928,7 +908,7 @@ extension AdswizzSDK.AdVideoFriendlyObstruction {
     @objc public func with(referrer: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(server: Swift.String) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(additionalCustomParameters: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(analyticsCustomData: AdswizzSDK.AnalyticsCustomData?) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc public func with(analyticsCustomData: AdswizzSDKCore.AnalyticsCustomData?) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(userConsentV2: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(enableExpectedAdsReporting: Swift.Bool) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func build() throws -> AdswizzSDK.AdswizzAdRequest
@@ -1015,41 +995,6 @@ extension AdswizzSDK.AdswizzAdPodcastManager {
     get
   }
 }
-@_inheritsConvenienceInitializers @objc(AASDKAnalytics) final public class AASDKAnalytics : ObjectiveC.NSObject {
-  @objc(AASDKAnalyticsCategory) public enum Level : Swift.Int, Swift.Codable, Swift.Comparable {
-    case none
-    case error
-    case info
-    public static func < (a: AdswizzSDK.AASDKAnalytics.Level, b: AdswizzSDK.AASDKAnalytics.Level) -> Swift.Bool
-    public init?(rawValue: Swift.Int)
-    public typealias RawValue = Swift.Int
-    public var rawValue: Swift.Int {
-      get
-    }
-  }
-  @objc override dynamic public init()
-  @objc deinit
-}
-@objc(AASDKAnalyticsEvent) public protocol AnalyticsEvent {
-  @objc var id: Swift.String { get }
-  @objc var category: Swift.String { get }
-  @objc var level: AdswizzSDK.AASDKAnalytics.Level { get }
-  @objc var params: [Swift.String : Any]? { get }
-  @objc var customParams: [Swift.String : Any]? { get }
-}
-@objc(AASDKAnalyticsCustomData) public protocol AnalyticsCustomData {
-  @objc var params: [Swift.String : Any]? { get }
-}
-@objc(AASDKAnalyticsCollecting) public protocol AnalyticsCollecting {
-  @objc func log(_ event: AdswizzSDK.AnalyticsEvent, _ timestamp: Foundation.Date)
-  @objc func send(forced: Swift.Bool)
-}
-@objc(AASDKAnalyticsCollector) public protocol AnalyticsCollector {
-  @objc func add(_ connector: AdswizzSDK.AnalyticsConnector)
-  @objc func remove(_ connector: AdswizzSDK.AnalyticsConnector)
-}
-@objc(AASDKAnalyticsConnector) public protocol AnalyticsConnector : AdswizzSDK.AnalyticsCollecting {
-}
 @objc(AASDKVastExtension) public protocol VastExtension : ObjectiveC.NSObjectProtocol {
   @objc var type: Swift.String? { get }
   @objc var xmlString: Swift.String { get }
@@ -1067,10 +1012,10 @@ extension AdswizzSDK.AdswizzAdPodcastManager {
   @objc var model: Swift.String { get }
   @objc var currency: Swift.String { get }
 }
-extension AdswizzSDK.AdLogger.Level : Swift.Comparable {
-  public static func < (lhs: AdswizzSDK.AdLogger.Level, rhs: AdswizzSDK.AdLogger.Level) -> Swift.Bool
+extension AdswizzSDKCore.AdLogger.Level : Swift.Comparable {
+  public static func < (lhs: AdswizzSDKCore.AdLogger.Level, rhs: AdswizzSDKCore.AdLogger.Level) -> Swift.Bool
 }
-extension AdswizzSDK.AdLogger.Level : Swift.CustomStringConvertible {
+extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -1128,9 +1073,8 @@ extension AdswizzSDK.AdLogger.Level : Swift.CustomStringConvertible {
     @objc get
     @objc set
   }
-  @objc public var analytics: AdswizzSDK.AnalyticsCollector {
-    @objc get
-  }
+  @objc public func add(connector: AdswizzSDKCore.AnalyticsConnector)
+  @objc public func remove(connector: AdswizzSDKCore.AnalyticsConnector)
   @objc public func permissionStatus(for type: AdswizzSDKPrivacyData.PermissionType) -> Swift.Bool
   @objc public func setPermissionStatus(for type: AdswizzSDKPrivacyData.PermissionType, status: Swift.Bool)
   @objc public var disableDataCollection: Swift.Bool {
@@ -1254,7 +1198,7 @@ extension AdswizzSDK.AdLogger.Level : Swift.CustomStringConvertible {
     get
   }
   @objc override dynamic public init()
-  @objc public init(analyticsCustomData: AdswizzSDK.AnalyticsCustomData? = nil)
+  @objc public init(analyticsCustomData: AdswizzSDKCore.AnalyticsCustomData? = nil)
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdPodcastManager) open class AdPodcastManager : ObjectiveC.NSObject {
@@ -1349,8 +1293,6 @@ extension AdswizzSDK.AdVideoState : Swift.RawRepresentable {}
 extension AdswizzSDK.AdStreamCapability : Swift.Equatable {}
 extension AdswizzSDK.AdStreamCapability : Swift.Hashable {}
 extension AdswizzSDK.AdStreamCapability : Swift.RawRepresentable {}
-extension AdswizzSDK.AASDKAnalytics.Level : Swift.Hashable {}
-extension AdswizzSDK.AASDKAnalytics.Level : Swift.RawRepresentable {}
 extension AdswizzSDK.DownloadableAssetState : Swift.Equatable {}
 extension AdswizzSDK.DownloadableAssetState : Swift.Hashable {}
 extension AdswizzSDK.DownloadableAssetState : Swift.RawRepresentable {}
@@ -1382,8 +1324,6 @@ extension AdswizzSDK.VastTrackingEvent : Swift.RawRepresentable {}
 extension AdswizzSDK.TrackingStatus : Swift.Equatable {}
 extension AdswizzSDK.TrackingStatus : Swift.Hashable {}
 extension AdswizzSDK.TrackingStatus : Swift.RawRepresentable {}
-extension AdswizzSDK.AdLogger.Level : Swift.Hashable {}
-extension AdswizzSDK.AdLogger.Level : Swift.RawRepresentable {}
 extension AdswizzSDK.AdAssetQuality : Swift.Equatable {}
 extension AdswizzSDK.AdAssetQuality : Swift.Hashable {}
 extension AdswizzSDK.AdAssetQuality : Swift.RawRepresentable {}

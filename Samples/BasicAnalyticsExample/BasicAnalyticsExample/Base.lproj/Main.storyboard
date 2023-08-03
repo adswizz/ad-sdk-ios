@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DKc-uo-UIL">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Nlf-QH-Ddh">
+            <objects>
+                <navigationController id="DKc-uo-UIL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SQi-Pz-ffg">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xEc-h0-RFX" kind="relationship" relationship="rootViewController" id="jJo-Ai-Eju"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KYV-M9-7d1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1644" y="-70"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="S3E-Bf-OIr">
+            <objects>
+                <viewController id="xEc-h0-RFX" customClass="ViewController" customModule="BasicAnalyticsExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Vd-kv-9mN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fUR-mM-VyA">
+                                <rect key="frame" x="20" y="123" width="353" height="695"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="obd-3m-to6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="obd-3m-to6" firstAttribute="bottom" secondItem="fUR-mM-VyA" secondAttribute="bottom" id="B09-Vm-zzr"/>
+                            <constraint firstItem="fUR-mM-VyA" firstAttribute="leading" secondItem="obd-3m-to6" secondAttribute="leading" constant="20" id="GJv-C1-fvh"/>
+                            <constraint firstItem="obd-3m-to6" firstAttribute="trailing" secondItem="fUR-mM-VyA" secondAttribute="trailing" constant="20" id="meX-iq-G2o"/>
+                            <constraint firstItem="fUR-mM-VyA" firstAttribute="top" secondItem="obd-3m-to6" secondAttribute="top" constant="20" id="pqc-AC-x11"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ell-Iw-I1R"/>
+                    <connections>
+                        <outlet property="logView" destination="fUR-mM-VyA" id="8A3-gC-0ou"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A67-fG-Onh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-840" y="-70"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

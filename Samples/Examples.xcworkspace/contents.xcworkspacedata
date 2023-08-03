@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:BasicAnalyticsExample/BasicAnalyticsExample.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:BasicEmptyAdsExample/BasicEmptyAdsExample.xcodeproj">
    </FileRef>
    <FileRef

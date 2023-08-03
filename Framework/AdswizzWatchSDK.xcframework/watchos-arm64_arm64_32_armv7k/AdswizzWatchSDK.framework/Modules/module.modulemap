@@ -1,0 +1,11 @@
+framework module AdswizzWatchSDK {
+  umbrella header "AdswizzWatchSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module AdswizzWatchSDK.Swift {
+  header "AdswizzWatchSDK-Swift.h"
+  requires objc
+}

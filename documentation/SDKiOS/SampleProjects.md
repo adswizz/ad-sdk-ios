@@ -57,3 +57,9 @@ This sample shows how to display all the various UI components from the **_Adswi
 
 This sample shows how your app can integrate the **_AdswizzSDK_** podcasting support by using an **_AdswizzAdPodcastManager_**. It demonstrates how to download a podcast locally, as well as playing it from disk or remotely.
 
+## BasicAnalyticsExample
+
+This sample demonstrates how to use **_AdswizzSDKPinpointAnalytics_** in your application.
+It shows how to create an **_AdswizzPinpointConnector_** and add it to AdswizzSDK's pool of connectors. The example simply requests an ad from the Adswizz servers, plays the ad and prints all the Analytics events that the **_AdswizzSDK_** logs.
+
+The example also demonstrates a basic implementation of an **_AnalyticsConnector_** interface to be able to intercept and print events.

@@ -15,18 +15,15 @@ In a server-side insertion scenario, it takes the pressure off your app by makin
 
 ## Changelog
 
-Please check [here](/CHANGELOG.md) the latest AdswizzSDK version and all new changes & fixes it comes with. 
+Please check [here](iOS/CHANGELOG.md) the latest AdswizzSDK version and all new changes & fixes it comes with. 
 
 ## Dependencies
 
-AdswizzSDK.framework dependes on the following frameworks:
-*   AWSCore.framework
-*   AdswizzSDKPrivacyData.framework (1.0.6)
-
-The AdswizzSDK for iOS depends on *Amazon’s AWSCore* as an external library in order to support trackability used by the [AdswizzSDK Analytics](/iOS/SDKiOS/AdswizzAnalytics).<br>
+AdswizzSDK.framework depends on the following framework:
+* AdswizzSDKPrivacyData.framework (1.0.6)
 
 *AdswizzSDKPrivacyData* is a source library which implements Privacy-Sensitive API which requires user permission. *AdswizzSDKPrivacyData* can be configured to exclude any sensitive API at build time.
-These dependencies are automatically added if you choose to integrate the SDK using CocoaPods. If you choose the Carthage or manual integration you will have to provide them at link time.
+This dependency is automatically added if you choose to integrate the SDK using CocoaPods. If you choose the Carthage or manual integration you will have to provide it at link time.
 
 
 ## Adding the SDK to your Xcode project
@@ -38,7 +35,7 @@ These dependencies are automatically added if you choose to integrate the SDK us
     pod 'AdswizzSDKPrivacyData', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios-privacydata.git", :tag => '1.0.6'
     pod 'AdswizzSDK',            :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git" 
     ```
-    Replace **_ADSWIZZ_GITHUB_TOKEN_** with the token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for a password, enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library. Since the AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. This includes the AdswizzSDKPrivacyData.framework. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
+    Replace **_ADSWIZZ_GITHUB_TOKEN_** with the token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for a password, enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. Since the AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. This includes the AdswizzSDKPrivacyData.framework. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
     
     ```ruby
     post_install do |installer|
@@ -81,6 +78,8 @@ These dependencies are automatically added if you choose to integrate the SDK us
     github "aws-amplify/aws-sdk-ios"
     github "https://github.com/adswizz/ad-sdk-ios-privacydata.git"
     ```
+    > **Note**
+    > The `github "aws-amplify/aws-sdk-ios"` line is only needed if you also consider integrating **_AdswizzSDKPinpointAnalytics_**. For more details, please visit the [Integrating AdswizzSDK Pinpoint Analytics](iOS/SDKPinpointAnalytics/IntegratingAdswizzSDKPinpointAnalytics) section. 
 
     2. Authentication
 
@@ -168,7 +167,7 @@ These dependencies are automatically added if you choose to integrate the SDK us
 
 3. Manual
 
-    Unzip the AdswizzSDK archive, which contains the AdswizzSDK.xcframework binary. Drop the AdswizzSDK.xcframework file in your project’s Frameworks directory. Make sure that AdswizzSDK.xcframework is listed in the **_Embedded Binaries_** section of your target. Make sure to add AWSCore.framework in your project as well. <br>
+    Unzip the AdswizzSDK archive, which contains the AdswizzSDK.xcframework binary. Drop the AdswizzSDK.xcframework file in your project’s Frameworks directory. Make sure that AdswizzSDK.xcframework is listed in the **_Embedded Binaries_** section of your target.<br>
     AdswizzSDKPrivacyData.framework can be added as a submodule from the https://github.com/adswizz/ad-sdk-ios-privacydata repo selecting the appropriate tag. Next, you need to add AdswizzSDKPrivacyData.xcodeproj to your workspace or project. If you choose to add the xcodeproj from the repo you will need to add a step to make AdswizzSDKPrivacyData.xcodeproj compile. By design, AdswizzSDKPrivacyData.xcodeproj needs a **_CustomConfig.xcconfig_** in the AdswizzSDKPrivacyData project directory. This file is placed in .gitignore so you need to copy or create it every time you build or archive your scheme. To achieve this, you can create a **_New Run Script Action_** in **your scheme's** **_Build_** section or **_Archive_** section.
 
     1. If you don't want to create a custom xcconfig file add:

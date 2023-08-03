@@ -1,0 +1,4 @@
+framework module AdswizzSDKCore {
+  header "AdswizzSDKCore-Swift.h"
+  requires objc
+}

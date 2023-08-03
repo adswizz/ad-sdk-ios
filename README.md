@@ -4,28 +4,30 @@ The only audio-centric SDK to Drive Innovation & Differentiation in Audio moneti
 
 ## Requirements
 
-* Xcode 11+ or newer
+* Xcode 12+ or newer
 * iOS 12.0+
-* Swift 5.0+
+* Swift 5.6+
 * CocoaPods 1.9.3+ (recommended)
 
-## Dependecies
-AdswizzSDK.framework dependes on the following frameworks:
-* AWSCore.framework
+## Dependencies
+AdswizzSDK.framework depends on the following frameworks:
 * AdswizzSDKPrivacyData.framework (1.0.6)
 
-AdswizzSDKPrivacyData.framework is a source library which implements Privacy-Sensitive API that requires user permission. AdswizzSDKPrivacyData.framework can be configured to exclude any sensitive API at built time.
+`AdswizzSDKPrivacyData.framework` is a source library which implements Privacy-Sensitive API that requires user permission. AdswizzSDKPrivacyData.framework can be configured to exclude any sensitive API at built time.
+
+> **Note**
+> `AWSCore.framework` became an optional dependency for **_AdswizzSDK_**. For more details, visit the documentation for **_AdswizzSDKPinpointAnalytics_** and the migration docs to **7.8.0 and later**.
 
 ## Installation
 
-### CocoaPods
+### Cocoapods
 
-AdswizzSDK is delivered as an xcframework, so the best way to integrate it is through Cocoapods. The recommended version for Cocoapods is 1.9.3 or newer. If you already have a pod file, you just need to add the following lines:
+**_AdswizzSDK_** is delivered as an xcframework, so the best way to integrate it is through Cocoapods. The recommended version for Cocoapods is 1.9.3 or newer. If you already have a pod file, you just need to add the following lines:
 ```ruby
 pod 'AdswizzSDKPrivacyData', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios-privacydata.git", :tag => '1.0.6'
 pod 'AdswizzSDK',            :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git" 
 ```
-Replace **_ADSWIZZ_GITHUB_TOKEN_** with token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for password enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. These dependencies include Amazon’s AWSCore library. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. This includes AdswizzSDKPrivacyData.framework. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
+Replace **_ADSWIZZ_GITHUB_TOKEN_** with token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for password enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. Since AdswizzSDK.framework is built using BUILD_LIBRARY_FOR_DISTRIBUTION = YES, all Swift dependencies must be built the same way. This includes AdswizzSDKPrivacyData.framework. As a [workaround](https://github.com/CocoaPods/CocoaPods/issues/9232), you need to add a post_install hook in your Podfile:
 
 ```ruby
 post_install do |installer|
@@ -57,7 +59,7 @@ end
 
 ### Carthage
 
-AdswizzSDK can also be delivered using Carthage. The recommended version for carthage is 0.38.0 or newer. 
+**_AdswizzSDK_** can also be installed using Carthage. The recommended version for carthage is 0.38.0 or newer. 
 
 #### Step 1: Cartfile
 
@@ -65,9 +67,11 @@ Type in the following lines inside your Cartfile:
 
 ```ruby
 binary "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/AdswizzSDK.json"
-github "aws-amplify/aws-sdk-ios"
 github "https://github.com/adswizz/ad-sdk-ios-privacydata.git"
 ```
+
+> **Note**
+> Same as for the Cocoapods installation, the `AWSCore` external library is not required anymore. Thus, the line `github "aws-amplify/aws-sdk-ios"` from your Cartfile can be removed.
 
 #### Step 2: Authentication
 
@@ -136,9 +140,9 @@ And copy the following contents to in it:
 
 #### Step 4: Run 
 
-We're now ready to install the AdswizzSDK with Carthage. As a last step we need to specify a file that contains all the flags needed to compile the AdswizzSDKPrivacyData Framework. 
+We're now ready to install the **_AdswizzSDK_** with Carthage. As a last step we need to specify a file that contains all the flags needed to compile the AdswizzSDKPrivacyData Framework. 
 This file can look like:
-   
+
 ```swift
 SWIFT_ACTIVE_COMPILATION_CONDITIONS=NO_CALENDAR_ACCESS NO_CAMERA_ACCESS NO_LOCATION_ACCESS NO_MOTION_ACTIVITY_ACCESS
 ```
@@ -152,7 +156,7 @@ Notice that by using `./carthage.sh` we are running carthage from our own custom
 
 ### Manually
 
-If you prefer not to use any of the supported dependency managers above, you can integrate AdswizzSDK into your project manually.
+If you prefer not to use any of the supported dependency managers above, you can integrate **_AdswizzSDK_** into your project manually.
 
 #### Embedded Framework
 
@@ -160,17 +164,19 @@ Unzip the content of the DropBox link. The unzipped content should contain the f
 
 ```
 AdswizzSDK.xcframework binary
+AdswizzSDKCore.xcframework binary
+AdswizzWatchSDK.xcframework binary
+AdswizzSDKPinpointAnalytics.xcframework binary
 ```
 
-Drop the AdswizzSDK.xcframework file in your project Frameworks directory. Make sure AdswizzSDK.xcframework is present in the “Embedded Binaries” section in your target.
-AdswizzSDK also needs to link the following .frameworks:
+Drop the **_AdswizzSDK.xcframework_** and **_AdswizzSDKCore.xcframework_** packages in your project `Frameworks` group/folder. Make sure **_AdswizzSDK.xcframework_** and **_AdswizzSDKCore.xcframework_** are present in the “Embedded Binaries” section in your target.
+**_AdswizzSDK_** also needs to link the following .framework:
 
 ```
-AWSCore.framework
 AdswizzSDKPrivacyData.framework
 ```
-Make sure to add those in your project as well.
-AdswizzSDKPrivacyData.framework can be added as a submodule from https://github.com/adswizz/ad-sdk-ios-privacydata repo and selecting the appropriate tag. Next, you need to add AdswizzSDKPrivacyData.xcodeproj to your workspace or project. If you choose to add the xcodeproj from the repo you will need to add a step to make AdswizzSDKPrivacyData.xcodeproj compile. By design, AdswizzSDKPrivacyData.xcodeproj needs a **_CustomConfig.xcconfig_** in the AdswizzSDKPrivacyData project directory. This file is placed in .gitignore so you need to copy or create it every time you build or archive your scheme. To achive this you can create a **_New Run Script Action_** in your scheme's **_Build_** section or **_Archive_** section.
+Make sure to add it in your project as well.
+**_AdswizzSDKPrivacyData.framework_** can be added as a submodule from https://github.com/adswizz/ad-sdk-ios-privacydata repo and selecting the appropriate tag. Next, you need to add **_AdswizzSDKPrivacyData.xcodeproj_** to your workspace or project. If you choose to add the xcodeproj from the repo you will need to add a step to make **_AdswizzSDKPrivacyData.xcodeproj_** compile. By design, **_AdswizzSDKPrivacyData.xcodeproj_** needs a **_CustomConfig.xcconfig_** in the **_AdswizzSDKPrivacyData_** project directory. This file is placed in .gitignore so you need to copy or create it every time you build or archive your scheme. To achive this you can create a **_New Run Script Action_** in your scheme's **_Build_** section or **_Archive_** section.
 
 1. If you don't want to create a custom xcconfig file add:
 ```
