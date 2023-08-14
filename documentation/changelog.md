@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.8.1] - 2023-08-14
+### Changed
+- Manage `Airplay` support:
+    - Internal player (`AVPlayer` wrapper) now disables the external playback mode by internally setting `allowExternalPlayback` to `false`
+### Fixed
+- Raw data signals:
+    - Service release that fixes the internal data collectors in order to prevent crashing the application due to an asynchronous issue
+
 ## [7.8.0] - 2023-08-03
 ### Added
 - Analytics:

@@ -1702,6 +1702,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "SWXMLHashOptions",
         "printedName": "SWXMLHashOptions",
@@ -8290,6 +8300,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "CoreLocation",
         "printedName": "CoreLocation",
         "declKind": "Import",
@@ -14325,6 +14345,23 @@
       },
       {
         "kind": "Import",
+        "name": "AdswizzSDKPrivacyData",
+        "printedName": "AdswizzSDKPrivacyData",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -17814,6 +17851,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "CoreData",
         "printedName": "CoreData",
         "declKind": "Import",
@@ -19974,6 +20021,23 @@
         "kind": "Import",
         "name": "AVFoundation",
         "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
         "declKind": "Import",
         "moduleName": "AdswizzSDK"
       },
@@ -25093,6 +25157,16 @@
         "printedName": "AdswizzSDKCore",
         "declKind": "Import",
         "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
       },
       {
         "kind": "Import",
@@ -32594,6 +32668,23 @@
       },
       {
         "kind": "Import",
+        "name": "AdswizzSDKCore",
+        "printedName": "AdswizzSDKCore",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "AdswizzSDKPrivacyData",
         "printedName": "AdswizzSDKPrivacyData",
         "declKind": "Import",
@@ -32625,6 +32716,16 @@
         "printedName": "AdswizzSDKCore",
         "declKind": "Import",
         "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
       },
       {
         "kind": "Import",
@@ -35552,6 +35653,23 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
       },
       {
         "kind": "Import",
@@ -48209,6 +48327,13 @@
       "value": "\"device\""
     },
     {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/SelfDeclaredCollector.swift",
+      "kind": "StringLiteral",
+      "offset": 447,
+      "length": 23,
+      "value": "\"SelfDeclaredCollector\""
+    },
+    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Tracking Permission\/TrackingPermissionConfiguration.swift",
       "kind": "StringLiteral",
       "offset": 340,
@@ -48624,9 +48749,16 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/TrackingCollector.swift",
       "kind": "FloatLiteral",
-      "offset": 478,
+      "offset": 427,
       "length": 3,
       "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/TrackingCollector.swift",
+      "kind": "StringLiteral",
+      "offset": 868,
+      "length": 19,
+      "value": "\"TrackingCollector\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/SWXMLHash\/Source\/SWXMLHash.swift",
@@ -49908,6 +50040,13 @@
       "offset": 12256,
       "length": 11,
       "value": "\"minimized\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/WatchProfileCollector.swift",
+      "kind": "StringLiteral",
+      "offset": 556,
+      "length": 23,
+      "value": "\"WatchProfileCollector\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/DVRMetadataRequest\/DVRMetadataFetcher.swift",
@@ -52547,6 +52686,27 @@
       "offset": 2330,
       "length": 8,
       "value": "\"volume\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/PollingCollectorData.swift",
+      "kind": "Array",
+      "offset": 546,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/PollingCollectorData.swift",
+      "kind": "StringLiteral",
+      "offset": 704,
+      "length": 22,
+      "value": "\"PollingCollectorData\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/PollingCollectorData.swift",
+      "kind": "StringLiteral",
+      "offset": 277,
+      "length": 20,
+      "value": "\"AdswizzSDK.PollingCollectorData\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCompanionAd\/AdswizzCompanionAd\/Analytics\/Analytics+CompanionAdAttributes.swift",
@@ -55426,6 +55586,13 @@
       "value": "\"AdswizzSDK.AdCompanionManager\""
     },
     {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/ProfileCollector.swift",
+      "kind": "StringLiteral",
+      "offset": 498,
+      "length": 18,
+      "value": "\"ProfileCollector\""
+    },
+    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Analytics\/Analytics+InteractiveAdAttributes.swift",
       "kind": "StringLiteral",
       "offset": 334,
@@ -56541,7 +56708,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/Collector.swift",
       "kind": "StringLiteral",
-      "offset": 1780,
+      "offset": 1370,
       "length": 13,
       "value": "\"AdswizzSDK.CollectorBase\""
     },
@@ -63343,6 +63510,13 @@
       "value": "\"nanos\""
     },
     {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/ProfileCollectorData.swift",
+      "kind": "StringLiteral",
+      "offset": 484,
+      "length": 22,
+      "value": "\"ProfileCollectorData\""
+    },
+    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdAssetImpl.swift",
       "kind": "Array",
       "offset": 5092,
@@ -65291,21 +65465,21 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/DataCollectorManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1065,
+      "offset": 1105,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/DataCollectorManager.swift",
       "kind": "FloatLiteral",
-      "offset": 1110,
+      "offset": 1150,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/DataCollectorManager.swift",
       "kind": "FloatLiteral",
-      "offset": 1160,
+      "offset": 1200,
       "length": 5,
       "value": "120.0"
     },
@@ -65980,6 +66154,13 @@
       "offset": 1009,
       "length": 22,
       "value": "\"AdswizzSDK.AdPlayerItemLoaderImpl\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/TrackingCollectorData.swift",
+      "kind": "FloatLiteral",
+      "offset": 473,
+      "length": 3,
+      "value": "0.0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/mercury-analytic-plugin-ios\/MercuryAnalytics-Plugin\/MercuryAnalytics-Plugin\/MercuryProtocols\/v2-protocol.pb.swift",
@@ -66950,16 +67131,9 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/PollingCollector.swift",
       "kind": "BooleanLiteral",
-      "offset": 1304,
+      "offset": 890,
       "length": 5,
       "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/PollingCollector.swift",
-      "kind": "Array",
-      "offset": 1726,
-      "length": 2,
-      "value": "[]"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Helpers\/MotionActivityManagerWrapper+Internal.swift",
@@ -73591,6 +73765,13 @@
       "value": "false"
     },
     {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdPlayer.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3547,
+      "length": 4,
+      "value": "true"
+    },
+    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/CoreDataStorage.swift",
       "kind": "StringLiteral",
       "offset": 942,
@@ -74426,7 +74607,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/DataCollectorModule.swift",
       "kind": "BooleanLiteral",
-      "offset": 1446,
+      "offset": 1448,
       "length": 5,
       "value": "false"
     }
