@@ -63,3 +63,8 @@ This sample demonstrates how to use **_AdswizzSDKPinpointAnalytics_** in your ap
 It shows how to create an **_AdswizzPinpointConnector_** and add it to AdswizzSDK's pool of connectors. The example simply requests an ad from the Adswizz servers, plays the ad and prints all the Analytics events that the **_AdswizzSDK_** logs.
 
 The example also demonstrates a basic implementation of an **_AnalyticsConnector_** interface to be able to intercept and print events.
+
+## AdvancedPodcastExample
+
+Similar to the [BasicPodcastExample](#basicpodcastexample), this sample also shows how your app can integrate the **_AdswizzSDK_** podcasting support, but by using a playlist model in a more complex scenario. This sample project creates a playlist with multiple playlist items and each item encapsulates an **_AdswizzAdPodcastManager_** instance to play the associated podcast URL. It also implements support for audio (interactive) ads and companion banners for the podcast ad breaks.
+

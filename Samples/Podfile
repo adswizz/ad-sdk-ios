@@ -138,6 +138,12 @@ target :BasicPodcastExample do
   common_pods
 end
 
+target :AdvancedPodcastExample do
+  project 'AdvancedPodcastExample/AdvancedPodcastExample.xcodeproj'
+  common_pods
+  pod 'XCGLogger'
+end
+
 target :BasicAnalyticsExample do
   project 'BasicAnalyticsExample/BasicAnalyticsExample.xcodeproj'
   common_pods

@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.8.2] - 2023-11-14
+### Added
+- Client side scenario:
+    - New public property in **_AdManagerSettings_** class:
+        - `timeoutIntervalBeforeStalling` for defining an optional timeout interval measured in seconds if the internal player should detect stalling automatically when the **_AdManager_** plays the ads. By default, this behaviour is disabled and it can be enabled by setting a non-zero value (the recommended value is 3 seconds or more)
+        
+- Samples:
+    - New example project named `AdvancedPodcastExample` that shows how to implement a playlist model using the `AdswizzAdPodcastManager` in a structured scenario
+
+### Changed
+- Documentation:
+    - Update `Integration Guide` with the added changes above
+
+### Fixed
+- Client side scenario:
+    - Service release that fixes the pre-caching mechanism for ads in order to prevent a rare crash due to an asynchronous issue
+- Raw data signals:
+    - Service release that fixes the internal data collectors in order to prevent crashing the application due to an asynchronous issue
+
 ## [7.8.1] - 2023-08-14
 ### Changed
 - Manage `Airplay` support:

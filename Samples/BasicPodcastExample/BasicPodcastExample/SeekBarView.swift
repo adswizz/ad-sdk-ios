@@ -1,6 +1,6 @@
 //
 //  SeekBarView.swift
-//  Artemis
+//  BasicPodcastExample
 //
 //  Created by Teodor Cristea on 01.11.2021.
 //  Copyright © 2021 AdsWizz. All rights reserved.

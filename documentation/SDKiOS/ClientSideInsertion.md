@@ -129,6 +129,8 @@ Another option to hint to the **_AdManager_** which creative it should choose fo
 
 Optionally, if you also want to support video rendering (in case of video ads), you will have to set an instance of **_AdVideoView_** to the **_videoView_** property on your **_AdManagerSettings_** instance. It does not need to be visible at this point. The actual video rendering is synced with the video ad playback.
 
+To further customize the behaviour of the internal player, you can also set the **_timeoutIntervalBeforeStalling_** property on your instance of **_AdManagerSettings_**. This represents an optional timeout interval measured in seconds if the internal player should detect stalling automatically when the **_AdManager_** plays the ads. By default, this property is 0 which means that detecting stalling automatically is disabled. Enable it by setting a value greater than 0. Note that the recommended value is 3 seconds or more in order to minimize triggering the stalled error too early.
+
 Next, you need to call the _.prepare()_ method on the **_AdManager_** object. This will buffer the ads if you decide to play them with the internal player.
 Here is what it looks like:
 
@@ -150,6 +152,7 @@ func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
     //settings.player = yourPlayer        // Optional
     //settings.addCachePolicy(.assets)    // Optional, by default the AdManager will not use its pre-caching capability
     //settings.videoView = <AdVideoView instance> // Optional, defaults to nil
+    //settings.timeoutIntervalBeforeStalling = 4 // Optional, defaults to 0 and it only applies to the internal player. Measured in seconds
     adManager.adManagerSettings = settings
 
     adManager?.prepare()   // Start buffering the ads in the AdManager

@@ -283,6 +283,7 @@ public typealias AdManagerOwner = AdManager
   @objc final public var assetQuality: AdAssetQuality
   @objc final public var preferredMaxBitrate: Swift.UInt64
   @objc final public var videoView: AdVideoView?
+  @objc final public var timeoutIntervalBeforeStalling: Swift.Double
   @objc override dynamic public init()
   @objc deinit
 }

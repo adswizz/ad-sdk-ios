@@ -1,0 +1,34 @@
+{
+    "podcasts" : [
+        {
+            "id" : "1",
+            "title" : "QueenBohemian",
+            "author" : "author1",
+            "url": "http://sdk.mobile.streaming.adswizz.com:8501/podcast_RAD_QueenBohemian.mp3"
+        },
+        {
+            "id" : "2",
+            "title" : "DUO",
+            "author" : "author2",
+            "url": "http://sdk.mobile.streaming.adswizz.com:8501/podcast_DUO_1.mp3"
+        },
+        {
+            "id" : "3",
+            "title" : "LARGE",
+            "author" : "author3",
+            "url": "http://sdk.mobile.streaming.adswizz.com:8501/podcast_LARGE_large.mp3"
+        },
+        {
+            "id" : "4",
+            "title" : "NPR",
+            "author" : "author4",
+            "url": "http://sdk.mobile.streaming.adswizz.com:8501/podcast_RAD_npr.mp3"
+        },
+        {
+            "id" : "5",
+            "title" : "ALPHA",
+            "author" : "author5",
+            "url": "http://sdk.mobile.streaming.adswizz.com:8501/podcast_alpha_1st.mp3"
+        }]
+}
+
