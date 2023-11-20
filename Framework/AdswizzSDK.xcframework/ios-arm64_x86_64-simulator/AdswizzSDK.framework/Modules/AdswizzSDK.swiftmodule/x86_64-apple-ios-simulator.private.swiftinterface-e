@@ -1051,25 +1051,36 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc public var xpaid: Swift.String? {
     @objc get
   }
-  @objc public func initialize(with configuration: AdswizzSDK.AdswizzSDKConfig? = nil) throws
+  @objc public var consent: AdswizzSDK.AdswizzPrivacyConsent {
+    @objc get
+  }
+  @objc public var location: AdswizzSDK.AdswizzLocationConfig {
+    @objc get
+  }
+  @objc public func initialize(with configuration: AdswizzSDK.AdswizzSDKConfig? = nil, completion: AdswizzSDK.AdswizzSDKInitCompletion? = nil) throws
   @objc public func uninitialize()
   @objc public static func setAdCompanionOptions(_ options: AdswizzSDK.AdCompanionOptions)
+  @available(*, deprecated, renamed: "consent.gdpr", message: "Please use the GDPR consent with the new privacy consent API")
   @objc public var gdprConsent: AdswizzSDK.GDPRConsent {
     @objc get
     @objc set
   }
+  @available(*, deprecated, renamed: "consent.ccpa", message: "Please use the CCPA config consent with the new privacy consent API")
   @objc public var ccpaConfig: AdswizzSDK.AdswizzCCPAConfig {
     @objc get
     @objc set
   }
+  @available(*, deprecated, renamed: "consent.gpp", message: "Please use the GPP consent with the new privacy consent API")
   @objc public var gppConsent: Swift.String? {
     @objc get
     @objc set
   }
+  @available(*, deprecated, renamed: "location.accuracy", message: "Please use the accuracy property with the new location API")
   @objc public var locationAccuracy: CoreLocation.CLLocationAccuracy {
     @objc get
     @objc set
   }
+  @available(*, deprecated, renamed: "location.enableSignificantChanges", message: "Please use the enableSignificantChanges property with the new location API")
   @objc public var enableLocationSignificantChanges: Swift.Bool {
     @objc get
     @objc set
@@ -1242,6 +1253,18 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc deinit
   @objc override dynamic public init()
 }
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AASDKAdswizzLocationConfig) final public class AdswizzLocationConfig : ObjectiveC.NSObject {
+  @objc final public var accuracy: CoreLocation.CLLocationAccuracy {
+    @objc get
+    @objc set
+  }
+  @objc final public var enableSignificantChanges: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+public typealias AdswizzSDKInitCompletion = () -> ()
 @_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdPodcastManager) public class AdswizzAdPodcastManager : AdswizzSDK.AdPodcastManager {
   @objc final public let httpProtocol: AdswizzSDK.HTTPProtocol
   @objc final public let adServer: Swift.String
@@ -1284,6 +1307,16 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
 }
 extension AdswizzSDK.AdswizzCCPAConfig {
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AASDKAdswizzPrivacyConsent) final public class AdswizzPrivacyConsent : ObjectiveC.NSObject {
+  @objc final public var gdpr: AdswizzSDK.GDPRConsent
+  @objc final public var ccpa: AdswizzSDK.AdswizzCCPAConfig
+  @objc final public var gpp: Swift.String?
+  @objc final public var gpc: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc deinit
 }
 extension AdswizzSDK.InteractiveAdEventType : Swift.Equatable {}
 extension AdswizzSDK.InteractiveAdEventType : Swift.Hashable {}

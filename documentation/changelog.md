@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.8.3] - 2023-11-20
+### Added
+- AdswizzSDK shared instance:
+    - New public parameter for **_AdswizzSDK.shared.initialize()_** method:
+        - async `completion` block for the **_AdswizzSDK_** initialization method
+- General settings:
+    - New consent option:
+        - added support for setting `gpc` consent (Global Privacy Control) via `AdswizzSDK.shared.consent.gpc` call
+
+### Changed
+- General settings:
+    - Deprecated access to set the GDPR consent, CCPA config, GPP consent and location options. Set all types of consent and location settings via more natural API e.g `AdswizzSDK.shared.consent.gdpr`, `AdswizzSDK.shared.location.accuracy`, etc
+- Documentation:
+    - Update `Integration Guide` with the added changes above
+
+### Fixed
+- Improvements:
+    - Service release that improves the **_AdswizzSDK_** startup time (initialization) and memory footprint
+
 ## [7.8.2] - 2023-11-14
 ### Added
 - Client side scenario:

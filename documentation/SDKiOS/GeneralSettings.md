@@ -94,6 +94,17 @@ AdswizzSDK.shared.gppConsent = "My GPP Consent String"
 
 The default value for **gppConsent** is nil, which means this parameter won't be used by **_AdswizzSDK_**. The usage of the GPP consent string is similar to the TCF V2 consent string.
 
+### GPC
+
+**_AdswizzSDK_** is GPC compliant (Global Privacy Control). As a result, the **_AdswizzSDK_** will decorate URLs that connect to Adswizz services accordingly, to reflect the desired GPC consent. To modify the GPC consent, you need to configure it like this:
+
+```swift
+AdswizzSDK.shared.consent.gpc = true //or false
+
+```
+
+Default value for the **gpc** consent is `false`.
+
 ## Permissions
 
 The **_AdswizzSDKPrivacyData_** public source framework, which is delivered with the **_AdswizzSDK_** binaries, allows your app to request permissions in a unified and transparent manner. Your app can still request permissions without using the interface exposed by the **_AdswizzSDKPrivacyData_** framework. However, with transparency in mind, the **_AdswizzSDK_** uses **_AdswizzSDKPrivacyData_** to read the status for all permissions your app allows to use.

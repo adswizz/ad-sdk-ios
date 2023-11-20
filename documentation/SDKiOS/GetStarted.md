@@ -224,6 +224,8 @@ You can either set them in your Info.plist file with the **_AdswizzAdSDKInstalla
 
 To programmatically set the **_installationId_**, **_playerId_** and **_appStoreId_** string settings you use a configuration object which is an instance of **_AdswizzSDKConfig_**.
 
+Note that there is also a `completion` block available for the `initialize()` method. It is optional but it indicates precisely when the **_AdswizzSDK_** has completed the initialization. The `completion` block is always called on the main thread.
+
 The recommended place to initialize the AdswizzSDK is in your **_AppDelegate_** class on **_didFinishLaunchingWithOptions_** function. Here is a snippet of what this might look like:
 
 
@@ -239,7 +241,9 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
   //or simply didn't add the string settings in your app's Info.plist
   let config = AdswizzSDKConfig(playerId: "yourPlayerId", installationId: "yourInstallationId", appStoreId: "yourAppAppleID")
   do {
-     try AdswizzSDK.shared.initialize(with: config)
+     try AdswizzSDK.shared.initialize(with: config, completion: { [weak self] in //completion block is optional
+        print("AdswizzSDK is initialized")
+     })
   } catch {
      print(error)
   }

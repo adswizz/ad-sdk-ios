@@ -426,13 +426,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
-@class UIGestureRecognizer;
-
-@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
-/// <code>AdCompanionView</code> conformance to <code>UIGestureRecognizerDelegate</code>.
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class WKWebView;
 @class WKWebViewConfiguration;
 @class WKNavigationAction;
@@ -442,6 +435,14 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// <code>AdCompanionView</code> conformance to <code>WKUIDelegate</code>.
 - (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
 @end
+
+@class UIGestureRecognizer;
+
+@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
+/// <code>AdCompanionView</code> conformance to <code>UIGestureRecognizerDelegate</code>.
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+@end
+
 
 
 
@@ -456,7 +457,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// <code>AdCompanionView</code> conformance to <code>WKNavigationDelegate</code>.
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
-
 
 
 
@@ -1189,7 +1189,6 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK))
 /// Registers a view that overlays or obstructs this container as “friendly” for viewability measurement purposes.
 /// See the Open Measurement in AdswizzSDK for guidance on what you are and what you are not allowed to register.
@@ -1201,13 +1200,14 @@ SWIFT_CLASS_NAMED("AdVideoView")
 @end
 
 
+
+
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 
 /// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behavior changes and events.
@@ -1253,6 +1253,7 @@ SWIFT_CLASS_NAMED("AdswizzAdPodcastManager")
 @end
 
 
+
 @interface AASDKAdswizzAdPodcastManager (SWIFT_EXTENSION(AdswizzSDK))
 @end
 
@@ -1291,7 +1292,6 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdPodcastManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -1594,11 +1594,43 @@ SWIFT_CLASS_NAMED("Builder")
 
 
 
+
+/// The <code>AdswizzSDK</code> location configuration class.
+/// Can be used to access and set the supported location options from the <code>AdswizzSDK</code> shared instance.
+SWIFT_CLASS_NAMED("AdswizzLocationConfig")
+@interface AASDKAdswizzLocationConfig : NSObject
+/// The location accuracy level in meters. Defaults to <code>kCLLocationAccuracyKilometer</code>.
+@property (nonatomic) CLLocationAccuracy accuracy;
+/// Enable location significant changes only for location services used by <code>AdswizzSDK</code>. Defaults to false.
+@property (nonatomic) BOOL enableSignificantChanges;
+/// Internal
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+enum AASDKGDPROption : NSInteger;
+
+/// The <code>AdswizzSDK</code> privacy consent configuration class.
+/// Can be used to access and set the supported consent types from the <code>AdswizzSDK</code> shared instance.
+SWIFT_CLASS_NAMED("AdswizzPrivacyConsent")
+@interface AASDKAdswizzPrivacyConsent : NSObject
+/// The <code>gdpr</code> consent. Defaults to <code>.notApplicable</code>.
+@property (nonatomic) enum AASDKGDPROption gdpr;
+/// The U.S <code>ccpa</code> consent. Defaults to <code>.notApplicable</code>.
+@property (nonatomic, strong) AASDKAdswizzCCPAConfig * _Nonnull ccpa;
+/// The <code>gpp</code> consent. Defaults to <code>nil</code>.
+@property (nonatomic, copy) NSString * _Nullable gpp;
+/// The <code>gpc</code> (Global Privacy Consent) consent. Defaults to <code>false</code>.
+@property (nonatomic) BOOL gpc;
+/// Internal
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @protocol AASDKAdswizzSDKDelegate;
 @protocol AASDKWatchSession;
 @protocol AASDKPALManagerProtocol;
 @class AASDKAdswizzSDKConfig;
-enum AASDKGDPROption : NSInteger;
 @protocol AASDKAnalyticsConnector;
 
 /// <code>AdswizzSDK</code> main entry point.
@@ -1625,6 +1657,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 @property (nonatomic, readonly, copy) NSString * _Nonnull omidVersion;
 /// Internal identifier used by <code>AdswizzSDK</code>. Read-only.
 @property (nonatomic, readonly, copy) NSString * _Nullable xpaid;
+/// Access and set the supported privacy consent options
+@property (nonatomic, readonly, strong) AASDKAdswizzPrivacyConsent * _Nonnull consent;
+/// Access and set the supported location options
+@property (nonatomic, readonly, strong) AASDKAdswizzLocationConfig * _Nonnull location;
 /// <code>AdswizzSDK</code> initializer.
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -1632,7 +1668,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 ///
 /// throws:
 /// throws if you are missing information in Info.pList or the <code>configuration</code> is nil.
-- (BOOL)initializeWith:(AASDKAdswizzSDKConfig * _Nullable)configuration error:(NSError * _Nullable * _Nullable)error;
+- (BOOL)initializeWith:(AASDKAdswizzSDKConfig * _Nullable)configuration error:(NSError * _Nullable * _Nullable)error completion:(void (^ _Nullable)(void))completion;
 /// Unitialize <code>AdswizzSDK</code>.
 - (void)uninitialize;
 /// Set the ad companion options.
@@ -1640,15 +1676,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 ///
 + (void)setAdCompanionOptions:(AASDKAdCompanionOptions * _Nonnull)options;
 /// Set the GDPR consent.
-@property (nonatomic) enum AASDKGDPROption gdprConsent;
+@property (nonatomic) enum AASDKGDPROption gdprConsent SWIFT_DEPRECATED_MSG("Please use the GDPR consent with the new privacy consent API", "consent.gdpr");
 /// Set the U.S. privacy consent config for the SDK.
-@property (nonatomic, strong) AASDKAdswizzCCPAConfig * _Nonnull ccpaConfig;
-/// Set GPP. privacy consent  for the SDK.
-@property (nonatomic, copy) NSString * _Nullable gppConsent;
+@property (nonatomic, strong) AASDKAdswizzCCPAConfig * _Nonnull ccpaConfig SWIFT_DEPRECATED_MSG("Please use the CCPA config consent with the new privacy consent API", "consent.ccpa");
+/// Set the GPP privacy consent for the SDK.
+@property (nonatomic, copy) NSString * _Nullable gppConsent SWIFT_DEPRECATED_MSG("Please use the GPP consent with the new privacy consent API", "consent.gpp");
 /// Set the location accuracy.
-@property (nonatomic) CLLocationAccuracy locationAccuracy;
+@property (nonatomic) CLLocationAccuracy locationAccuracy SWIFT_DEPRECATED_MSG("Please use the accuracy property with the new location API", "location.accuracy");
 /// Enable/disable location significant changes mode.
-@property (nonatomic) BOOL enableLocationSignificantChanges;
+@property (nonatomic) BOOL enableLocationSignificantChanges SWIFT_DEPRECATED_MSG("Please use the enableSignificantChanges property with the new location API", "location.enableSignificantChanges");
 /// Add  an <code>AnalyticsConnector</code> to <code>AdswizzSDK</code> to log events to the <code>connector</code>.
 /// \param connector the connector to add
 ///
@@ -2239,8 +2275,6 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 @end
 
 
-
-
 @interface AASDKTrackingPermissionController (SWIFT_EXTENSION(AdswizzSDK))
 /// Convenience method to quickly create a tracking permission controller with basic customizations.
 /// \param title A custom title for the controller. It defaults to a generic title.
@@ -2256,6 +2290,8 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 /// The controller with the designated configuration.
 + (AASDKTrackingPermissionController * _Nonnull)trackingControllerWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message contentImage:(UIImage * _Nullable)contentImage headerImage:(UIImage * _Nullable)headerImage SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 @class UIPresentationController;
