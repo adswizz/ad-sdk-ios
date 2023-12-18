@@ -24,11 +24,13 @@
     //  2. a playerId
     // More details in AASDKAdswizzSettingsKeys.
     NSError *error = nil;
-    [AASDKAdswizzSDK.shared initializeWith:nil error:&error];
-    if (error) {
-        NSLog(@"%@", error);
-    }
-    
+ 
+    [AASDKAdswizzSDK.shared initializeWith:nil error:&error completion:^{
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
+
     // Set optional settings for AASDKAdswizzSDK.
     // You can set/change them at any time and the SDK will update accordingly.
     

@@ -598,9 +598,19 @@ extension Foundation.NSDictionary {
   @objc public var start: Swift.Int
   @objc public var end: Swift.Int
   @objc public var length: Swift.Int
+  @objc public var metadata: [AdswizzSDK.DVRMetadata.MetadataItem]
   required public init(from decoder: Swift.Decoder) throws
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
+}
+extension AdswizzSDK.DVRMetadata {
+  @objc public class MetadataItem : ObjectiveC.NSObject, Swift.Codable {
+    @objc public var timestamp: Swift.Int
+    @objc public var content: Swift.String
+    required public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: Swift.Encoder) throws
+    @objc deinit
+  }
 }
 @objc(AASDKVastErrorCode) public enum VastErrorCode : Swift.Int {
   case xmlParsingError = 100
@@ -1199,6 +1209,8 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc override public func prepare(with url: Foundation.URL) throws
   @objc override public func play(with url: Foundation.URL) throws
   public func play(with url: Foundation.URL, timestamp: Foundation.NSNumber) throws
+  public func loadDVRMetadata(completion: ((AdswizzSDK.DVRMetadata?) -> ())? = nil)
+  public func cancelLoadingDVRMetadata()
   override public func didReceive(metadata: [AVFoundation.AVMetadataItem])
   @objc deinit
 }

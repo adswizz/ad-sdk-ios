@@ -1874,6 +1874,7 @@ SWIFT_PROTOCOL_NAMED("CompanionResource")
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable html;
 @end
 
+@class MetadataItem;
 
 /// Metadata for DVR-enabled streams
 SWIFT_CLASS_NAMED("DVRMetadata")
@@ -1884,11 +1885,28 @@ SWIFT_CLASS_NAMED("DVRMetadata")
 @property (nonatomic) NSInteger end;
 /// Length of the DVR buffer
 @property (nonatomic) NSInteger length;
+/// The list of metadata for the DVR stream
+@property (nonatomic, copy) NSArray<MetadataItem *> * _Nonnull metadata;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
+
+@interface AASDKDVRMetadata (SWIFT_EXTENSION(AdswizzSDK))
+@end
+
+
+/// Defines a metadata item from the <code>metadata</code> array in <code>DVRMetadata</code> data class.
+SWIFT_CLASS("_TtCC10AdswizzSDK11DVRMetadata12MetadataItem")
+@interface MetadataItem : NSObject
+/// The UNIX timestamp for the metadata
+@property (nonatomic) NSInteger timestamp;
+/// The metadata content
+@property (nonatomic, copy) NSString * _Nonnull content;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 
@@ -4485,6 +4503,7 @@ SWIFT_PROTOCOL_NAMED("CompanionResource")
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable html;
 @end
 
+@class MetadataItem;
 
 /// Metadata for DVR-enabled streams
 SWIFT_CLASS_NAMED("DVRMetadata")
@@ -4495,11 +4514,28 @@ SWIFT_CLASS_NAMED("DVRMetadata")
 @property (nonatomic) NSInteger end;
 /// Length of the DVR buffer
 @property (nonatomic) NSInteger length;
+/// The list of metadata for the DVR stream
+@property (nonatomic, copy) NSArray<MetadataItem *> * _Nonnull metadata;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
+
+@interface AASDKDVRMetadata (SWIFT_EXTENSION(AdswizzSDK))
+@end
+
+
+/// Defines a metadata item from the <code>metadata</code> array in <code>DVRMetadata</code> data class.
+SWIFT_CLASS("_TtCC10AdswizzSDK11DVRMetadata12MetadataItem")
+@interface MetadataItem : NSObject
+/// The UNIX timestamp for the metadata
+@property (nonatomic) NSInteger timestamp;
+/// The metadata content
+@property (nonatomic, copy) NSString * _Nonnull content;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 
