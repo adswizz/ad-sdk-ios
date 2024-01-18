@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.8.5] - 2024-01-18
+### Added
+- AdswizzSDKPrivacyData:
+    - Update to version `1.0.7`:
+        - Fixes a rare case where the internal `CLLocationManager` would enter a deadlock when accessing the `authorizationStatus` property
+        - Adds support to the new calendar permissions in iOS 17
+- VAST:
+    - New public member in **_AdData_**: 
+        - `advertiser` - exposes the VAST advertiser node (a string that provides the name of the advertiser as defined by the ad serving party)
+
+### Changed
+- AdswizzSDK versioning:
+    - **_AdswizzSDK_** internal versioning changed to prevent issues introduced by the "Manage Version and Build Number" feature in XCode 13+
+
+### Fixed
+- AdswizzSDK initialization:
+    - Service release that fixes the `completion` block for the **_AdswizzSDK.shared.initialize()_** initialization method not being called after an `uninitialize()` call
+
 ## [7.8.4] - 2023-12-18
 ### Changed
 - Open Measurement SDK:

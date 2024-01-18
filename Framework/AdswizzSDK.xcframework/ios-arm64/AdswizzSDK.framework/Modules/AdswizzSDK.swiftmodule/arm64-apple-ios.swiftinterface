@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AdswizzSDK
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
@@ -403,6 +403,7 @@ extension AdCompanionView : WebKit.WKUIDelegate {
   @objc var adParameters: VastAdParameters? { get }
   @objc var creativeExtensions: [VastCreativeExtension] { get }
   @objc var pricing: VastPricing? { get }
+  @objc var advertiser: VastAdvertiser? { get }
   @objc var hasCompanion: Swift.Bool { get }
 }
 extension AdData {
@@ -1022,6 +1023,10 @@ extension AdswizzAdPodcastManager {
   @objc var value: Foundation.NSNumber { get }
   @objc var model: Swift.String { get }
   @objc var currency: Swift.String { get }
+}
+@objc(AASDKVastAdvertiser) public protocol VastAdvertiser : ObjectiveC.NSObjectProtocol {
+  @objc var id: Swift.String? { get }
+  @objc var content: Swift.String { get }
 }
 extension AdswizzSDKCore.AdLogger.Level : Swift.Comparable {
   public static func < (lhs: AdswizzSDKCore.AdLogger.Level, rhs: AdswizzSDKCore.AdLogger.Level) -> Swift.Bool
