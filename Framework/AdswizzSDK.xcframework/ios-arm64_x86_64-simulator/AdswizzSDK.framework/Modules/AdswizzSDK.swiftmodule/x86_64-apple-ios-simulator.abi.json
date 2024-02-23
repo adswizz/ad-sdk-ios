@@ -6568,13 +6568,115 @@
             "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdManagerSettings(im)addCachePolicy:",
             "mangledName": "$s10AdswizzSDK17AdManagerSettingsC14addCachePolicyyyAA0cgH0OF",
             "moduleName": "AdswizzSDK",
+            "deprecated": true,
             "declAttributes": [
               "Final",
               "AccessControl",
               "ObjC",
+              "Available",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "adCachePolicy",
+            "printedName": "adCachePolicy",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdCachePolicyConfiguration",
+                "printedName": "AdswizzSDK.AdCachePolicyConfiguration",
+                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdCachePolicyConfiguration"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdManagerSettings(py)adCachePolicy",
+            "mangledName": "$s10AdswizzSDK17AdManagerSettingsC13adCachePolicyAA0cgH13ConfigurationCvp",
+            "moduleName": "AdswizzSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdCachePolicyConfiguration",
+                    "printedName": "AdswizzSDK.AdCachePolicyConfiguration",
+                    "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdCachePolicyConfiguration"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdManagerSettings(im)adCachePolicy",
+                "mangledName": "$s10AdswizzSDK17AdManagerSettingsC13adCachePolicyAA0cgH13ConfigurationCvg",
+                "moduleName": "AdswizzSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdCachePolicyConfiguration",
+                    "printedName": "AdswizzSDK.AdCachePolicyConfiguration",
+                    "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdCachePolicyConfiguration"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdManagerSettings(im)setAdCachePolicy:",
+                "mangledName": "$s10AdswizzSDK17AdManagerSettingsC13adCachePolicyAA0cgH13ConfigurationCvs",
+                "moduleName": "AdswizzSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdswizzSDK17AdManagerSettingsC13adCachePolicyAA0cgH13ConfigurationCvM",
+                "mangledName": "$s10AdswizzSDK17AdManagerSettingsC13adCachePolicyAA0cgH13ConfigurationCvM",
+                "moduleName": "AdswizzSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
           },
           {
             "kind": "Var",
@@ -14461,6 +14563,406 @@
             ],
             "usr": "s:SY",
             "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AdCachePolicyConfiguration",
+        "printedName": "AdCachePolicyConfiguration",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "cachePolicy",
+            "printedName": "cachePolicy",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Set",
+                "printedName": "Swift.Set<AdswizzSDK.AdCachePolicy>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdCachePolicy",
+                    "printedName": "AdswizzSDK.AdCachePolicy",
+                    "usr": "c:@M@AdswizzSDK@E@AASDKAdCachePolicy"
+                  }
+                ],
+                "usr": "s:Sh"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AdswizzSDK26AdCachePolicyConfigurationC05cacheE0ShyAA0cdE0OGvp",
+            "mangledName": "$s10AdswizzSDK26AdCachePolicyConfigurationC05cacheE0ShyAA0cdE0OGvp",
+            "moduleName": "AdswizzSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Set",
+                    "printedName": "Swift.Set<AdswizzSDK.AdCachePolicy>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AdCachePolicy",
+                        "printedName": "AdswizzSDK.AdCachePolicy",
+                        "usr": "c:@M@AdswizzSDK@E@AASDKAdCachePolicy"
+                      }
+                    ],
+                    "usr": "s:Sh"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdswizzSDK26AdCachePolicyConfigurationC05cacheE0ShyAA0cdE0OGvg",
+                "mangledName": "$s10AdswizzSDK26AdCachePolicyConfigurationC05cacheE0ShyAA0cdE0OGvg",
+                "moduleName": "AdswizzSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "timeoutIntervalForResources",
+            "printedName": "timeoutIntervalForResources",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AdswizzSDK26AdCachePolicyConfigurationC27timeoutIntervalForResourcesSdvp",
+            "mangledName": "$s10AdswizzSDK26AdCachePolicyConfigurationC27timeoutIntervalForResourcesSdvp",
+            "moduleName": "AdswizzSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdswizzSDK26AdCachePolicyConfigurationC27timeoutIntervalForResourcesSdvg",
+                "mangledName": "$s10AdswizzSDK26AdCachePolicyConfigurationC27timeoutIntervalForResourcesSdvg",
+                "moduleName": "AdswizzSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "Builder",
+            "printedName": "Builder",
+            "children": [
+              {
+                "kind": "Function",
+                "name": "with",
+                "printedName": "with(cachePolicy:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "AdswizzSDK.AdCachePolicyConfiguration.Builder",
+                    "usr": "s:10AdswizzSDK26AdCachePolicyConfigurationC7BuilderC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdCachePolicy",
+                    "printedName": "AdswizzSDK.AdCachePolicy",
+                    "usr": "c:@M@AdswizzSDK@E@AASDKAdCachePolicy"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:10AdswizzSDK26AdCachePolicyConfigurationC7BuilderC4with05cacheE0AeA0cdE0O_tF",
+                "mangledName": "$s10AdswizzSDK26AdCachePolicyConfigurationC7BuilderC4with05cacheE0AeA0cdE0O_tF",
+                "moduleName": "AdswizzSDK",
+                "objc_name": "withCachePolicy:",
+                "declAttributes": [
+                  "Final",
+                  "AccessControl",
+                  "ObjC",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "with",
+                "printedName": "with(timeoutIntervalForResources:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "AdswizzSDK.AdCachePolicyConfiguration.Builder",
+                    "usr": "s:10AdswizzSDK26AdCachePolicyConfigurationC7BuilderC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:10AdswizzSDK26AdCachePolicyConfigurationC7BuilderC4with27timeoutIntervalForResourcesAESd_tF",
+                "mangledName": "$s10AdswizzSDK26AdCachePolicyConfigurationC7BuilderC4with27timeoutIntervalForResourcesAESd_tF",
+                "moduleName": "AdswizzSDK",
+                "objc_name": "withTimeoutIntervalForResources:",
+                "declAttributes": [
+                  "Final",
+                  "AccessControl",
+                  "ObjC",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "build",
+                "printedName": "build()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdCachePolicyConfiguration",
+                    "printedName": "AdswizzSDK.AdCachePolicyConfiguration",
+                    "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdCachePolicyConfiguration"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:10AdswizzSDK26AdCachePolicyConfigurationC7BuilderC5buildACyF",
+                "mangledName": "$s10AdswizzSDK26AdCachePolicyConfigurationC7BuilderC5buildACyF",
+                "moduleName": "AdswizzSDK",
+                "declAttributes": [
+                  "Final",
+                  "AccessControl",
+                  "ObjC",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "AdswizzSDK.AdCachePolicyConfiguration.Builder",
+                    "usr": "s:10AdswizzSDK26AdCachePolicyConfigurationC7BuilderC"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:10AdswizzSDK26AdCachePolicyConfigurationC7BuilderCAEycfc",
+                "mangledName": "$s10AdswizzSDK26AdCachePolicyConfigurationC7BuilderCAEycfc",
+                "moduleName": "AdswizzSDK",
+                "overriding": true,
+                "implicit": true,
+                "objc_name": "init",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC",
+                  "Override"
+                ],
+                "init_kind": "Designated"
+              }
+            ],
+            "declKind": "Class",
+            "usr": "s:10AdswizzSDK26AdCachePolicyConfigurationC7BuilderC",
+            "mangledName": "$s10AdswizzSDK26AdCachePolicyConfigurationC7BuilderC",
+            "moduleName": "AdswizzSDK",
+            "objc_name": "AASDKAdCachePolicyConfigurationBuilder",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "superclassUsr": "c:objc(cs)NSObject",
+            "inheritsConvenienceInitializers": true,
+            "superclassNames": [
+              "ObjectiveC.NSObject"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CVarArg",
+                "printedName": "CVarArg",
+                "usr": "s:s7CVarArgP",
+                "mangledName": "$ss7CVarArgP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "_KeyValueCodingAndObservingPublishing",
+                "printedName": "_KeyValueCodingAndObservingPublishing",
+                "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+                "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "_KeyValueCodingAndObserving",
+                "printedName": "_KeyValueCodingAndObserving",
+                "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+                "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CustomStringConvertible",
+                "printedName": "CustomStringConvertible",
+                "usr": "s:s23CustomStringConvertibleP",
+                "mangledName": "$ss23CustomStringConvertibleP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CustomDebugStringConvertible",
+                "printedName": "CustomDebugStringConvertible",
+                "usr": "s:s28CustomDebugStringConvertibleP",
+                "mangledName": "$ss28CustomDebugStringConvertibleP"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdCachePolicyConfiguration",
+                "printedName": "AdswizzSDK.AdCachePolicyConfiguration",
+                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdCachePolicyConfiguration"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdCachePolicyConfiguration(im)init",
+            "mangledName": "$s10AdswizzSDK26AdCachePolicyConfigurationCACycfc",
+            "moduleName": "AdswizzSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdCachePolicyConfiguration",
+        "mangledName": "$s10AdswizzSDK26AdCachePolicyConfigurationC",
+        "moduleName": "AdswizzSDK",
+        "objc_name": "AASDKAdCachePolicyConfiguration",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
         ]
       },
@@ -28746,6 +29248,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -32453,6 +32965,51 @@
                 "declKind": "Accessor",
                 "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdswizzSDK(im)xpaid",
                 "mangledName": "$s10AdswizzSDKAAC5xpaidSSSgvg",
+                "moduleName": "AdswizzSDK",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sdkVersion",
+            "printedName": "sdkVersion",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdswizzSDK(py)sdkVersion",
+            "mangledName": "$s10AdswizzSDKAAC10sdkVersionSSvp",
+            "moduleName": "AdswizzSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdswizzSDK(im)sdkVersion",
+                "mangledName": "$s10AdswizzSDKAAC10sdkVersionSSvg",
                 "moduleName": "AdswizzSDK",
                 "declAttributes": [
                   "ObjC"
@@ -36423,6 +36980,71 @@
                 "declKind": "Accessor",
                 "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdAsset(im)state",
                 "mangledName": "$s10AdswizzSDK7AdAssetP5stateAA0cD5StateOvg",
+                "moduleName": "AdswizzSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdAsset>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdAsset>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "lastError",
+            "printedName": "lastError",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Error?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdAsset(py)lastError",
+            "mangledName": "$s10AdswizzSDK7AdAssetP9lastErrors0F0_pSgvp",
+            "moduleName": "AdswizzSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Error?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdAsset(im)lastError",
+                "mangledName": "$s10AdswizzSDK7AdAssetP9lastErrors0F0_pSgvg",
                 "moduleName": "AdswizzSDK",
                 "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdAsset>",
                 "sugared_genericSig": "<Self where Self : AdswizzSDK.AdAsset>",
@@ -51819,49 +52441,49 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 11774,
+      "offset": 11766,
       "length": 14,
       "value": "\"backgrounded\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 11855,
+      "offset": 11847,
       "length": 14,
       "value": "\"foregrounded\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 11959,
+      "offset": 11951,
       "length": 8,
       "value": "\"normal\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 12031,
+      "offset": 12023,
       "length": 11,
       "value": "\"collapsed\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 12105,
+      "offset": 12097,
       "length": 10,
       "value": "\"expanded\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 12180,
+      "offset": 12172,
       "length": 12,
       "value": "\"fullscreen\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 12256,
+      "offset": 12248,
       "length": 11,
       "value": "\"minimized\""
     },
@@ -52029,14 +52651,14 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdManagerSettings.swift",
       "kind": "IntegerLiteral",
-      "offset": 1803,
+      "offset": 2274,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdManagerSettings.swift",
       "kind": "IntegerLiteral",
-      "offset": 2498,
+      "offset": 2969,
       "length": 1,
       "value": "0"
     },
@@ -52477,7 +53099,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/AssetManager+Internal.swift",
       "kind": "BooleanLiteral",
-      "offset": 8794,
+      "offset": 8827,
       "length": 5,
       "value": "false"
     },
@@ -53380,7 +54002,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdPlayerItem.swift",
       "kind": "StringLiteral",
-      "offset": 2296,
+      "offset": 2352,
       "length": 12,
       "value": "\"downloader\""
     },
@@ -54316,6 +54938,27 @@
       "value": "\"collector\""
     },
     {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdCachePolicy.swift",
+      "kind": "Array",
+      "offset": 1123,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdCachePolicy.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1182,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdCachePolicy.swift",
+      "kind": "StringLiteral",
+      "offset": 534,
+      "length": 26,
+      "value": "\"AdswizzSDK.AdCachePolicyConfiguration\""
+    },
+    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/mercury-analytic-plugin-ios\/MercuryAnalytics-Plugin\/MercuryAnalytics-Plugin\/MercuryConstants.swift",
       "kind": "IntegerLiteral",
       "offset": 266,
@@ -54570,7 +55213,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdManagerImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 34565,
+      "offset": 36021,
       "length": 5,
       "value": "false"
     },
@@ -54808,184 +55451,9 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
       "kind": "IntegerLiteral",
-      "offset": 215,
+      "offset": 1074,
       "length": 4,
-      "value": "1100"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 237,
-      "length": 4,
-      "value": "1101"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 266,
-      "length": 4,
-      "value": "1102"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 300,
-      "length": 4,
-      "value": "1103"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 331,
-      "length": 4,
-      "value": "1104"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 363,
-      "length": 4,
-      "value": "1105"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 397,
-      "length": 4,
-      "value": "1106"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 420,
-      "length": 4,
-      "value": "1107"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 452,
-      "length": 4,
-      "value": "1108"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 486,
-      "length": 4,
-      "value": "1109"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 526,
-      "length": 4,
-      "value": "1110"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 560,
-      "length": 4,
-      "value": "1111"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 593,
-      "length": 4,
-      "value": "1112"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 623,
-      "length": 4,
-      "value": "1113"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 655,
-      "length": 4,
-      "value": "1114"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 680,
-      "length": 4,
-      "value": "1115"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 715,
-      "length": 4,
-      "value": "1116"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 752,
-      "length": 4,
-      "value": "1117"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 790,
-      "length": 4,
-      "value": "1118"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 823,
-      "length": 4,
-      "value": "1119"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 853,
-      "length": 4,
-      "value": "1120"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 887,
-      "length": 4,
-      "value": "1121"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 925,
-      "length": 4,
-      "value": "1122"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 968,
-      "length": 4,
-      "value": "1123"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1002,
-      "length": 4,
-      "value": "1124"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1032,
-      "length": 4,
-      "value": "1125"
+      "value": "1126"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
@@ -55168,6 +55636,202 @@
       "offset": 1032,
       "length": 4,
       "value": "1125"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1074,
+      "length": 4,
+      "value": "1126"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 215,
+      "length": 4,
+      "value": "1100"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 237,
+      "length": 4,
+      "value": "1101"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 266,
+      "length": 4,
+      "value": "1102"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 300,
+      "length": 4,
+      "value": "1103"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 331,
+      "length": 4,
+      "value": "1104"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 363,
+      "length": 4,
+      "value": "1105"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 397,
+      "length": 4,
+      "value": "1106"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 420,
+      "length": 4,
+      "value": "1107"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 452,
+      "length": 4,
+      "value": "1108"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 486,
+      "length": 4,
+      "value": "1109"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 526,
+      "length": 4,
+      "value": "1110"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 560,
+      "length": 4,
+      "value": "1111"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 593,
+      "length": 4,
+      "value": "1112"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 623,
+      "length": 4,
+      "value": "1113"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 655,
+      "length": 4,
+      "value": "1114"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 680,
+      "length": 4,
+      "value": "1115"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 715,
+      "length": 4,
+      "value": "1116"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 752,
+      "length": 4,
+      "value": "1117"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 790,
+      "length": 4,
+      "value": "1118"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 823,
+      "length": 4,
+      "value": "1119"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 853,
+      "length": 4,
+      "value": "1120"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 887,
+      "length": 4,
+      "value": "1121"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 925,
+      "length": 4,
+      "value": "1122"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 968,
+      "length": 4,
+      "value": "1123"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1002,
+      "length": 4,
+      "value": "1124"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1032,
+      "length": 4,
+      "value": "1125"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NSError+SDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1074,
+      "length": 4,
+      "value": "1126"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/AdswizzAdStreamManager+Internal.swift",
@@ -56257,14 +56921,14 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/AssetOperation.swift",
       "kind": "IntegerLiteral",
-      "offset": 902,
+      "offset": 940,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/AssetOperation.swift",
       "kind": "StringLiteral",
-      "offset": 970,
+      "offset": 1008,
       "length": 40,
       "value": "\"AssetManager.URLSession.operationQueue\""
     },
@@ -65476,7 +66140,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdAssetImpl.swift",
       "kind": "Array",
-      "offset": 5098,
+      "offset": 5164,
       "length": 2,
       "value": "[]"
     },
@@ -66029,14 +66693,14 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/ExtendedAdData.swift",
       "kind": "IntegerLiteral",
-      "offset": 4019,
+      "offset": 4055,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/ExtendedAdData.swift",
       "kind": "IntegerLiteral",
-      "offset": 4047,
+      "offset": 4083,
       "length": 1,
       "value": "0"
     },
@@ -66284,6 +66948,13 @@
       "offset": 298,
       "length": 5,
       "value": "\";,:\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/Protocols\/Public\/Modules\/SDKVersionSource.swift",
+      "kind": "StringLiteral",
+      "offset": 258,
+      "length": 7,
+      "value": "\"7.8.6\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
@@ -66568,7 +67239,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/Asset+Internal.swift",
       "kind": "BooleanLiteral",
-      "offset": 1026,
+      "offset": 1071,
       "length": 4,
       "value": "true"
     },
@@ -68122,7 +68793,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdPlayerItemLoader.swift",
       "kind": "StringLiteral",
-      "offset": 1009,
+      "offset": 1656,
       "length": 22,
       "value": "\"AdswizzSDK.AdPlayerItemLoaderImpl\""
     },
@@ -71328,14 +71999,14 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdCore.swift",
       "kind": "StringLiteral",
-      "offset": 3429,
+      "offset": 3477,
       "length": 9,
       "value": "\"unknown\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdCore.swift",
       "kind": "StringLiteral",
-      "offset": 3465,
+      "offset": 3513,
       "length": 3,
       "value": "\"0\""
     },
@@ -75206,49 +75877,49 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdData+Fake.swift",
       "kind": "IntegerLiteral",
-      "offset": 388,
+      "offset": 429,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdData+Fake.swift",
       "kind": "IntegerLiteral",
-      "offset": 420,
+      "offset": 461,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdData+Fake.swift",
       "kind": "IntegerLiteral",
-      "offset": 453,
+      "offset": 494,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdData+Fake.swift",
       "kind": "StringLiteral",
-      "offset": 824,
+      "offset": 865,
       "length": 12,
       "value": "\"audio\/mpeg\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdData+Fake.swift",
       "kind": "IntegerLiteral",
-      "offset": 1126,
+      "offset": 1167,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdData+Fake.swift",
       "kind": "IntegerLiteral",
-      "offset": 1171,
+      "offset": 1212,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdData+Fake.swift",
       "kind": "StringLiteral",
-      "offset": 1318,
+      "offset": 1359,
       "length": 2,
       "value": "\"\""
     },
@@ -76060,30 +76731,37 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AssetManager.swift",
       "kind": "Array",
-      "offset": 3045,
+      "offset": 3155,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AssetManager.swift",
       "kind": "Array",
-      "offset": 3158,
+      "offset": 3268,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AssetManager.swift",
       "kind": "StringLiteral",
-      "offset": 3206,
+      "offset": 3316,
       "length": 14,
       "value": "\"AssetManager\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AssetManager.swift",
       "kind": "StringLiteral",
-      "offset": 3264,
+      "offset": 3374,
       "length": 12,
       "value": "\"CacheQueue\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AssetManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3543,
+      "length": 1,
+      "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/Common.pb.swift",
@@ -76602,13 +77280,6 @@
       "offset": 1214,
       "length": 14,
       "value": "\"CFBundleName\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AppVersionSupport.swift",
-      "kind": "StringLiteral",
-      "offset": 2145,
-      "length": 7,
-      "value": "\"7.8.5\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdswizzCCPAConfig.swift",

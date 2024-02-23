@@ -595,6 +595,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDKPinpointAnalytics",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "AWSCore",
         "printedName": "AWSCore",
         "declKind": "Import",
@@ -3298,6 +3308,13 @@
       "value": "\"AdswizzSDKPinpointAnalytics.AWSPinpointService\""
     },
     {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/Protocols\/Public\/Modules\/SDKVersionSource.swift",
+      "kind": "StringLiteral",
+      "offset": 258,
+      "length": 7,
+      "value": "\"7.8.6\""
+    },
+    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSPinpointResponses.swift",
       "kind": "StringLiteral",
       "offset": 332,
@@ -4486,13 +4503,6 @@
       "offset": 1214,
       "length": 14,
       "value": "\"CFBundleName\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/.gen\/AdswizzSDKPinpointAnalytics\/AppVersionSupport.swift",
-      "kind": "StringLiteral",
-      "offset": 2145,
-      "length": 7,
-      "value": "\"7.8.5\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/.gen\/AdswizzSDKPinpointAnalytics\/Double+Extra.swift",

@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.8.6] - 2024-02-23
+### Added
+- Client side scenario:
+    - New public property in **_AdManagerSettings_** class:
+        - `adCachePolicy` for passing an **_AdCachePolicyConfiguration_** instance and enable pre-caching on the **_AdManager_** for which the **_AdManagerSettings_** instance will be applied. Note that this is the recommended way to enable pre-caching for the ads creatives managed by the **_AdManager_**
+    - New public properties in **_AdCachePolicyConfiguration_** class:
+        - `cachePolicy` list for adding `AdCachePolicy` options
+        - `timeoutIntervalForResources` for defining an optional timeout interval measured in seconds for the data requests during pre-caching. If not set, a default value will be used, please consult the documentation for Client Side Insertion scenario
+        - New public class `Builder` to help create an **_AdCachePolicyConfiguration_** instance with the properties from above
+- AdswizzSDK versioning:
+    - New public member in **_AdswizzSDK_** shared instance: 
+        - `sdkVersion` - conveniently exposes the **_AdswizzSDK_** version as string e.g "7.8.6"
+
+### Changed
+- AdManagerSettings:
+    - The `addCachePolicy(_ policy: AdCachePolicy)` method is now deprecated. Please use the new `adCachePolicy` property to enable pre-caching by passing an **_AdCachePolicyConfiguration_** instance
+
+### Fixed
+- AdManager pre-caching:
+    - Service release that finetunes and improves the error handling during pre-caching for ads creatives. See the `timeoutIntervalForResources` property on **_AdCachePolicyConfiguration_** class
+- Integration Guide:
+    - Improved documentation regarding supported ad events (such as `preparingForPlay`, `readyForPlay`, etc.) defining the lifecycle of ads managed by an **_AdManager_** instance
+
 ## [7.8.5] - 2024-01-18
 ### Added
 - AdswizzSDKPrivacyData:

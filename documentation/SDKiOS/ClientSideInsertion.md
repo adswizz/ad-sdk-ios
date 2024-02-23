@@ -125,7 +125,11 @@ Setting the quality level to **_.auto_** will let the SDK choose the best asset 
 
 Another option to hint to the **_AdManager_** which creative it should choose for an ad is to set the **_preferredMaxBitrate_** property on your instance of **_AdManagerSettings_**. By default it is set to 0 which means that the **_AdManager_** will choose a creative based on the **_AdAssetQuality_** property. Setting a non-zero value for the **_preferredMaxBitrate_** property means that the **_AdManager_** will select the ad asset creative with the highest bitrate less than or equal to the given value. The given value is measured in bits per second. If no ad asset creative bitrate is less than or equal to the given value, the **_AdManager_** will select the one with the closest bitrate to the given value. Note that by setting a non-zero value, the **_AdManager_** will disregard any quality level you set via the **_assetQuality_** property.
 
-**_AdManager_** is also capable of pre-caching the creative assets for all of its ads before/while playing them. This is done by setting the appropriate **_AdCachePolicy_** on your instance of **_AdManagerSettings_**. By default the AdswizzSDK does not (pre-)cache the ads.
+**_AdManager_** is also capable of pre-caching the creative assets for all of its ads before/while playing them. Here is how you enable pre-caching:
+* create an **_AdCachePolicyConfiguration_** instance using its `Builder` 
+* set the appropriate **_AdCachePolicy_** and optionally a `timeoutIntervalForResources` value on your instance of **_AdCachePolicyConfiguration_**. The `timeoutIntervalForResources` default value is 8 seconds
+* set the **_AdCachePolicyConfiguration_** instance on your **_AdManagerSettings_** instance 
+Note that by default, the **_AdManager_** does not (pre-)cache the creatives for ads.
 
 Optionally, if you also want to support video rendering (in case of video ads), you will have to set an instance of **_AdVideoView_** to the **_videoView_** property on your **_AdManagerSettings_** instance. It does not need to be visible at this point. The actual video rendering is synced with the video ad playback.
 
@@ -150,7 +154,9 @@ func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
     //settings.assetQuality = .medium     // Optional, defaults to .high
     //settings.preferredMaxBitrate = 3200 // Optional, defaults to 0. If non-zero it will replace the assetQuality value if set
     //settings.player = yourPlayer        // Optional
-    //settings.addCachePolicy(.assets)    // Optional, by default the AdManager will not use its pre-caching capability
+    //settings.addCachePolicy(.assets)    // Deprecated since v7.8.6. Use the `adCachePolicy` property instead
+    //let cachePolicy = AdCachePolicyConfiguration.Builder().with(cachePolicy: .assets).with(timeoutIntervalForResources: 10).build()
+    //settings.adCachePolicy = cachePolicy //Optional, by default the AdManager will not use its pre-caching capability
     //settings.videoView = <AdVideoView instance> // Optional, defaults to nil
     //settings.timeoutIntervalBeforeStalling = 4 // Optional, defaults to 0 and it only applies to the internal player. Measured in seconds
     adManager.adManagerSettings = settings
@@ -206,7 +212,7 @@ To get a communication channel open with your app (model) you need to set up a d
 
 #### func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)
 
-The **_AdManager_** will call this method whenever events of interest occur in the SDK. Please consult the **_AdEventType_** enum for a list of possible events from the AdswizzSDK. 
+The **_AdManager_** will call this method when an ad event has been triggered. Please consult the **_AdEventType_** enum for a list of possible events from the AdswizzSDK. For more details, please visit the [Ad events explained](#ad-events-explained) section below.
 
 #### func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)
 
@@ -243,10 +249,68 @@ Called when the **_AdManager_** is about to trigger companion banner click URLs.
 
 Called when the **_AdManager_** is about to trigger video view click URLs. When the video view is tapped, the SDK can fire your custom additional URLs.
 
+### Ad events explained
+
+Once you've obtained an **_AdManager_** instance, set the delegate and called `prepare()`, that **_AdManager_** instance will communicate back to your application through the **_AdManagerDelegate_** protocol. 
+
+The `func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)` delegate method informs your application that the current ad triggered an event of interest.
+Through the **_AdEvent_** interface, the following information can be accessed:
+  * **_ad_**: the ad `AdData` for which the event was triggered
+  * **_event_**: the actual event `AdEventType` that was triggered
+
+#### AdEvent types
+Remember that, regardless if pre-caching is enabled or not, an **_AdManager_** handles and plays ads sequentially starting with the first ad until the last ad (including "empty" ads). Hence, the order of the events is predictable to be able to consistently adhere to a state machine model.
+Next, let's explore the types of events that the **_AdManager_**  can trigger by inspecting the **_AdEventType_** enum.
+
+##### preparingForPlay
+
+The **_preparingForPlay_** event signals that the current ad will start loading its creative. You can expect that the **_preparingForPlay_** event to be triggered for each ad managed by the **_AdManager_** (including "empty" ads). This event marks the beginning of the current ad creative lifecycle and that the internal player will start buffering.
+
+##### readyForPlay
+
+The **_readyForPlay_** event is triggered when the player playing the ad has finished loading (buffering) the creative and has enough buffer likely to keep up. Useful when playing ads with the internal player so that you can instruct the **_AdManager_** to start playing by calling the `play()` method. 
+Note that this event does not guarantee that it will play without buffering mid ad if network conditions change.
+
+##### didStartPlaying
+
+The **_didStartPlaying_** event signals that the current ad started playing its creative.
+
+##### didPausePlaying
+
+The **_didPausePlaying_** event signals that the current ad was paused. Upon resuming the ad, the **_didStartPlaying_** event will be triggered.
+
+##### firstQuartile
+
+The **_firstQuartile_** event signals that the current ad reached the first quartile from the VAST linear node.
+
+##### midpoint
+
+The **_midpoint_** event signals that the current ad reached its midpoint from the VAST linear node.
+
+##### thirdQuartile
+
+The **_thirdQuartile_** event signals that the current ad reached the third quartile from the VAST linear node.
+
+##### complete
+
+The **_complete_** event signals that the current ad reached the complete quartile from the VAST linear node.
+
+##### didFinishPlaying
+
+The **_didFinishPlaying_** event signals that the current ad has finished playing its creative. Note that this event is not triggered if the **_didStartPlaying_** event has not been previously triggered as well.
+
+##### adCompleted
+
+The **_adCompleted_** event signals that the current ad has finished. It does not guarantee that it played or not. It simply means that the **_AdManager_** is done with this ad. You can expect that the **_adCompleted_** event to be triggered for each ad started (i.e that received the **_preparingForPlay_** event) by the **_AdManager_**, including for "empty" ads.
+
+##### allAdsCompleted
+
+The **_allAdsCompleted_** event signals that the **_AdManager_** has finished all the ads. After **_allAdsCompleted_** event is received, the **_AdManager_** is no longer able to play any ad. To reuse the **_AdManager_** after this point (although not recommended), you would need to first call the [reset()](#reset) method described in the [AdManager protocol](#admanager-protocol) section, and call `prepare()` again.
+
 ### Precaching ads in AdManager
 
-Pre-caching the media (creative) assets will enable your app to serve audio ads in poor network conditions or possibly without a network connection. This will improve the user experience because an ad can play instantly, and prevent buffering mid ad.
-The AdswizzSDK offers the capability of a caching--like experience, by expanding the size of the buffer to allow for essentially buffering the entire media asset for each ad managed by **_AdManager_**.
+Pre-caching the media (creative) assets will enable your app to serve audio ads in poor network conditions or even possibly without a network connection. This will improve the user experience because an ad can play instantly and prevent buffering mid ad.
+The **_AdManager_** offers the capability of a caching-like experience, by expanding the size of the buffer to allow for essentially buffering the entire media asset for each ad. Note that pre-caching is only available if you are relying on the internal player. With your own player, it won't have any effect.
 
 You can access the underlaying **_asset_** property of an **_ad_**'s data, which provides additional information for that particular media asset. 
 This **_AdAsset_** interface makes it easy to get access to the following information:
@@ -258,7 +322,11 @@ This **_AdAsset_** interface makes it easy to get access to the following inform
   * **_delegate_**: asset delegate. Optional. If set, it will notify your app with asset progress during loading
 
 If you enabled the **_.assets_** cache option through your **_AdManagerSettings_** instance, after you set it on the **_AdManager_** object, calling _.prepare()_ on **_AdManager_** instance will trigger the pre-caching mechanism.
-To take full advantage of this behavior we recommend that you call _.prepare()_ in advance, before playing the ads with either the internal player or your own. This allows the AdswizzSDK to download and store the media assets for _all_ of its ads and maximizes effectiveness. However, you are not required to adhere to this strategy.
+Optionally, you can finetune the pre-caching behavior by specifying an appropriate value for the `timeoutIntervalForResources` property set on the **_AdCachePolicyConfiguration_**. However, keep in mind that setting a low value can lead to a premature timeout error. The default value is 8 seconds.
+
+Using the timeout, it allows the **_AdManager_** to react faster and prevent potentially longer delays due to the default `URLSession` timeout for requests (which is approximately 60 seconds or more).
+
+To take full advantage of this behavior we recommend that you call _.prepare()_ in advance, before playing the ads with the internal player. This allows the **_AdManager_** to download and store the media assets for _all_ of its ads and maximizes effectiveness. However, you are not required to adhere to this strategy.
 
 Here is what it looks like with the pre-caching enabled.
 
@@ -271,11 +339,12 @@ class YourModelClass: AdManagerDelegate, AdAssetDelegate {
 func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
     ......
     self.adManager = adManager   // Keep a strong reference of this object
-    adManager?.delegate = self   // Get notifications from the Ad SDK
+    adManager?.delegate = self   // Get notifications from the AdManager
     
     let settings = AdManagerSettings()
-    //settings.player = yourPlayer      // Optional
-    settings.addCachePolicy(.assets)    // Instruct the AdManager to trigger the pre-caching mechanism
+    //let cachePolicy = AdCachePolicyConfiguration.Builder().with(cachePolicy: .assets).with(timeoutIntervalForResources: 10).build()
+    //settings.adCachePolicy = cachePolicy  // Instruct the AdManager to use the pre-caching mechanism
+
     adManager.adManagerSettings = settings
 
     adManager?.prepare()   // Start pre-caching the ads in the AdManager
@@ -283,6 +352,7 @@ func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
 ......
 
 ......
+// AdManagerDelegate
 func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
     switch event.event {
       case .preparingForPlay:
@@ -299,9 +369,14 @@ func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
           break
     }
 }
+func adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error) {
+    //Called when AdManager encountered an error while playing or pre-caching the creative for the ad
+    //Don't rely only on the AdEvents, this callback can be called at any time during the ad creative lifecyle and usually gives you a better context on the failure
+}
 ......
 
 ......
+// AdAssetDelegate
 func adAsset(_ asset: AdAsset, didFinishDownloadingData data: Data) {
     //At this point the asset data is fully downloaded
     //...
@@ -351,7 +426,9 @@ func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
            adManager.play()
       case .allAdsCompleted:
             //All ads from the AdManager have finished.
-            //Here you can resume playing your content.
+            //The AdManager can now be discarded.
+            //self.adManager.delegate = nil //Optional
+            //self.adManager = nil //Optional
             break 
       default:
           break

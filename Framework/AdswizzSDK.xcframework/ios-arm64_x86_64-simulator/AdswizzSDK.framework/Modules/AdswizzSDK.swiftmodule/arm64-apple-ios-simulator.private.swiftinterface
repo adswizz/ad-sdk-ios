@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
 // swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AdswizzSDK
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
@@ -279,7 +279,9 @@ public typealias AdManagerOwner = AdManager
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdManagerSettings) final public class AdManagerSettings : ObjectiveC.NSObject {
   @objc weak final public var player: MediaPlayerState?
+  @available(*, deprecated, message: "Please use the AdCachePolicyConfiguration to set and enable caching assets for the AdManager")
   @objc final public func addCachePolicy(_ policy: AdCachePolicy)
+  @objc final public var adCachePolicy: AdCachePolicyConfiguration
   @objc final public var assetQuality: AdAssetQuality
   @objc final public var preferredMaxBitrate: Swift.UInt64
   @objc final public var videoView: AdVideoView?
@@ -594,6 +596,18 @@ extension Foundation.NSDictionary {
   public var rawValue: Swift.Int {
     get
   }
+}
+@_hasMissingDesignatedInitializers @objc(AASDKAdCachePolicyConfiguration) final public class AdCachePolicyConfiguration : ObjectiveC.NSObject {
+  final public let cachePolicy: Swift.Set<AdCachePolicy>
+  final public let timeoutIntervalForResources: Foundation.TimeInterval
+  @_inheritsConvenienceInitializers @objc(AASDKAdCachePolicyConfigurationBuilder) final public class Builder : ObjectiveC.NSObject {
+    @objc final public func with(cachePolicy policy: AdCachePolicy) -> AdCachePolicyConfiguration.Builder
+    @objc final public func with(timeoutIntervalForResources: Foundation.TimeInterval) -> AdCachePolicyConfiguration.Builder
+    @objc final public func build() -> AdCachePolicyConfiguration
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
 }
 @objc(AASDKDVRMetadata) public class DVRMetadata : ObjectiveC.NSObject, Swift.Codable {
   @objc public var start: Swift.Int
@@ -1066,6 +1080,9 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc public var xpaid: Swift.String? {
     @objc get
   }
+  @objc public var sdkVersion: Swift.String {
+    @objc get
+  }
   @objc public var consent: AdswizzPrivacyConsent {
     @objc get
   }
@@ -1181,6 +1198,7 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc var height: Swift.Int { get }
   @objc var expectedContentLength: Swift.Int64 { get }
   @objc var state: AdAssetState { get }
+  @objc var lastError: Swift.Error? { get }
   @objc weak var delegate: AdAssetDelegate? { get set }
 }
 @objc(AASDKAdPodcastManagerDownloadDelegate) public protocol AdPodcastManagerDownloadDelegate {
