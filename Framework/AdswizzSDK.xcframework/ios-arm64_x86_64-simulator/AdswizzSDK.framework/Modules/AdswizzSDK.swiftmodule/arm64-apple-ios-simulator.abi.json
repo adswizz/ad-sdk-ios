@@ -18912,6 +18912,13 @@
       },
       {
         "kind": "Import",
+        "name": "AdswizzSDKCore",
+        "printedName": "AdswizzSDKCore",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -53099,7 +53106,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/AssetManager+Internal.swift",
       "kind": "BooleanLiteral",
-      "offset": 8827,
+      "offset": 9003,
       "length": 5,
       "value": "false"
     },
@@ -55213,7 +55220,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdManagerImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 36021,
+      "offset": 36138,
       "length": 5,
       "value": "false"
     },
@@ -56921,14 +56928,14 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/AssetOperation.swift",
       "kind": "IntegerLiteral",
-      "offset": 940,
+      "offset": 1052,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/AssetOperation.swift",
       "kind": "StringLiteral",
-      "offset": 1008,
+      "offset": 1120,
       "length": 40,
       "value": "\"AssetManager.URLSession.operationQueue\""
     },
@@ -66954,7 +66961,7 @@
       "kind": "StringLiteral",
       "offset": 258,
       "length": 7,
-      "value": "\"7.8.6\""
+      "value": "\"7.8.7\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",

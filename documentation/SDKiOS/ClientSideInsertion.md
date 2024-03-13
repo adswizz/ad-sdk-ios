@@ -396,6 +396,10 @@ func adAsset(_ asset: AdAsset, downloadingFailedWith error: Error) {
 }
 ```
 
+If you want to know more on how the **_AdManager_** handles pre-caching behind the scenes, have a look at the diagram below.
+
+<img src="../img/AdManagerPrecachingDiagram.jpg" width="1000" />
+
 ### Handling AdManager with no ads
 
 In some cases the **_AdManager_** you'll receive won't have any playable ads. In this case inspecting the `ads` property on the **_AdManager_** will return a zero count. Read more about this property in the [AdManager properties](#admanager-properties) section. 
