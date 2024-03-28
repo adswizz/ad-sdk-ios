@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.8.8] - 2024-03-28
+### Removed
+- AdAsset:
+    - public property `data` from **_AdAsset_** public protocol
+
+### Changed
+- AdAssetDelegate:
+    - The `@objc optional func adAsset(_ asset: AdAsset, didFinishDownloadingData data: Data)` method signature has been changed to `@objc optional func adAssetDidFinishDownloadingData(_ asset: AdAsset)`. Hence the `data` parameter has been removed
+    - The `@objc optional func adAsset(_ asset: AdAsset, didDownload data: Data, bytesDownloaded: Int64, outOf bytesExpected: Int64)` method signature has been changed to `@objc optional func adAsset(_ asset: AdAsset, didDownloadDataWith bytesDownloaded: Int64, outOf bytesExpected: Int64)`. Hence the `data` parameter has been removed
+
+### Fixed
+- AdManager pre-caching:
+    - Fixed a rare crash during assets pre-caching due to memory fragmentation while downloading data slices from network
+- Companion banners:
+    - Fixed URL behavior on iOS 17+ which prevented companion banners to be displayed when attempting to load HTML based resources
+
 ## [7.8.7] - 2024-03-13
 ### Fixed
 - AdManager VAST events:

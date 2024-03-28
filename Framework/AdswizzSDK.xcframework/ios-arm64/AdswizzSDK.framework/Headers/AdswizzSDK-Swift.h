@@ -269,7 +269,6 @@ using UInt = size_t;
 
 
 
-@class NSData;
 @class NSString;
 enum AASDKAdAssetState : NSInteger;
 @protocol AASDKAdAssetDelegate;
@@ -277,8 +276,6 @@ enum AASDKAdAssetState : NSInteger;
 /// The <code>AdAsset</code> provides support during asset downloading / caching.
 SWIFT_PROTOCOL_NAMED("AdAsset")
 @protocol AASDKAdAsset
-/// The asset’s track data. May be missing.
-@property (nonatomic, readonly, copy) NSData * _Nullable data;
 /// The selected media file URI for the asset.
 @property (nonatomic, readonly, copy) NSString * _Nullable mediaUrl;
 /// The asset’s creative type. For audio ads, expected values include, but are not limited to “audio/mpeg” and “audio/aac”.
@@ -306,20 +303,16 @@ SWIFT_PROTOCOL_NAMED("AdAssetDelegate")
 /// Called when the asset data is fully downloaded.
 /// \param asset asset owner
 ///
-/// \param data downloaded data
-///
-- (void)adAsset:(id <AASDKAdAsset> _Nonnull)asset didFinishDownloadingData:(NSData * _Nonnull)data;
+- (void)adAssetDidFinishDownloadingData:(id <AASDKAdAsset> _Nonnull)asset;
 /// Called when a new slice of data has been downloaded for the asset.
 /// Progress can be calculated as a 0…1 range e.g <code>bytesDownloaded</code>/ <code>bytesExpected</code>
 /// \param asset asset owner
 ///
-/// \param data downloaded data so far
-///
-/// \param bytesDownloaded downloaded data progress, in bytes
+/// \param bytesDownloaded downloaded data progress so far, in bytes
 ///
 /// \param bytesExpected expected data to download, in bytes
 ///
-- (void)adAsset:(id <AASDKAdAsset> _Nonnull)asset didDownload:(NSData * _Nonnull)data bytesDownloaded:(int64_t)bytesDownloaded outOf:(int64_t)bytesExpected;
+- (void)adAsset:(id <AASDKAdAsset> _Nonnull)asset didDownloadDataWith:(int64_t)bytesDownloaded outOf:(int64_t)bytesExpected;
 /// Called when an error was encountered during data download for the asset.
 /// \param asset asset owner
 ///
@@ -2041,6 +2034,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKInteractiveAdEventType, "InteractiveAdE
   AASDKInteractiveAdEventTypeExtended = 3,
 };
 
+@class NSData;
 
 /// @protocol
 /// The <code>InteractiveAdManagerDelegate</code> protocol defines the methods used to retrieve information about interactive ads.

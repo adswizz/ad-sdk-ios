@@ -36085,8 +36085,8 @@
         "children": [
           {
             "kind": "Function",
-            "name": "adAsset",
-            "printedName": "adAsset(_:didFinishDownloadingData:)",
+            "name": "adAssetDidFinishDownloadingData",
+            "printedName": "adAssetDidFinishDownloadingData(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -36098,17 +36098,11 @@
                 "name": "AdAsset",
                 "printedName": "AdswizzSDK.AdAsset",
                 "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdAsset"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Data",
-                "printedName": "Foundation.Data",
-                "usr": "s:10Foundation4DataV"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdAssetDelegate(im)adAsset:didFinishDownloadingData:",
-            "mangledName": "$s10AdswizzSDK15AdAssetDelegateP02adD0_24didFinishDownloadingDatayAA0cD0_p_10Foundation0J0VtF",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdAssetDelegate(im)adAssetDidFinishDownloadingData:",
+            "mangledName": "$s10AdswizzSDK15AdAssetDelegateP02adD24DidFinishDownloadingDatayyAA0cD0_pF",
             "moduleName": "AdswizzSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdAssetDelegate>",
             "sugared_genericSig": "<Self where Self : AdswizzSDK.AdAssetDelegate>",
@@ -36124,7 +36118,7 @@
           {
             "kind": "Function",
             "name": "adAsset",
-            "printedName": "adAsset(_:didDownload:bytesDownloaded:outOf:)",
+            "printedName": "adAsset(_:didDownloadDataWith:outOf:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -36136,12 +36130,6 @@
                 "name": "AdAsset",
                 "printedName": "AdswizzSDK.AdAsset",
                 "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdAsset"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Data",
-                "printedName": "Foundation.Data",
-                "usr": "s:10Foundation4DataV"
               },
               {
                 "kind": "TypeNominal",
@@ -36157,8 +36145,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdAssetDelegate(im)adAsset:didDownload:bytesDownloaded:outOf:",
-            "mangledName": "$s10AdswizzSDK15AdAssetDelegateP02adD0_11didDownload15bytesDownloaded5outOfyAA0cD0_p_10Foundation4DataVs5Int64VAMtF",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdAssetDelegate(im)adAsset:didDownloadDataWith:outOf:",
+            "mangledName": "$s10AdswizzSDK15AdAssetDelegateP02adD0_19didDownloadDataWith5outOfyAA0cD0_p_s5Int64VAItF",
             "moduleName": "AdswizzSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdAssetDelegate>",
             "sugared_genericSig": "<Self where Self : AdswizzSDK.AdAssetDelegate>",
@@ -36608,71 +36596,6 @@
         "name": "AdAsset",
         "printedName": "AdAsset",
         "children": [
-          {
-            "kind": "Var",
-            "name": "data",
-            "printedName": "data",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.Data?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Data",
-                    "printedName": "Foundation.Data",
-                    "usr": "s:10Foundation4DataV"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdAsset(py)data",
-            "mangledName": "$s10AdswizzSDK7AdAssetP4data10Foundation4DataVSgvp",
-            "moduleName": "AdswizzSDK",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Foundation.Data?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Data",
-                        "printedName": "Foundation.Data",
-                        "usr": "s:10Foundation4DataV"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdAsset(im)data",
-                "mangledName": "$s10AdswizzSDK7AdAssetP4data10Foundation4DataVSgvg",
-                "moduleName": "AdswizzSDK",
-                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdAsset>",
-                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdAsset>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
           {
             "kind": "Var",
             "name": "mediaUrl",
@@ -53106,7 +53029,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/AssetManager+Internal.swift",
       "kind": "BooleanLiteral",
-      "offset": 9003,
+      "offset": 8666,
       "length": 5,
       "value": "false"
     },
@@ -56928,21 +56851,28 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/AssetOperation.swift",
       "kind": "IntegerLiteral",
-      "offset": 1052,
+      "offset": 1486,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/AssetOperation.swift",
       "kind": "StringLiteral",
-      "offset": 1120,
+      "offset": 1554,
       "length": 40,
       "value": "\"AssetManager.URLSession.operationQueue\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/AssetOperation.swift",
       "kind": "StringLiteral",
-      "offset": 252,
+      "offset": 1927,
+      "length": 37,
+      "value": "\"AssetOperation.default.serial.queue\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/AssetOperation.swift",
+      "kind": "StringLiteral",
+      "offset": 713,
       "length": 14,
       "value": "\"AdswizzSDK.AssetOperation\""
     },
@@ -66961,7 +66891,7 @@
       "kind": "StringLiteral",
       "offset": 258,
       "length": 7,
-      "value": "\"7.8.7\""
+      "value": "\"7.8.8\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
@@ -67238,15 +67168,8 @@
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/Asset+Internal.swift",
-      "kind": "StringLiteral",
-      "offset": 291,
-      "length": 19,
-      "value": "\"AssetImpl.barrier\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Assets\/Asset+Internal.swift",
       "kind": "BooleanLiteral",
-      "offset": 1071,
+      "offset": 897,
       "length": 4,
       "value": "true"
     },
@@ -68730,70 +68653,70 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdAsset.swift",
       "kind": "IntegerLiteral",
-      "offset": 1630,
+      "offset": 1545,
       "length": 9,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdAsset.swift",
       "kind": "IntegerLiteral",
-      "offset": 1715,
+      "offset": 1630,
       "length": 11,
       "value": "2"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdAsset.swift",
       "kind": "IntegerLiteral",
-      "offset": 1775,
+      "offset": 1690,
       "length": 7,
       "value": "3"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdAsset.swift",
       "kind": "IntegerLiteral",
-      "offset": 1833,
+      "offset": 1748,
       "length": 5,
       "value": "4"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdAsset.swift",
       "kind": "IntegerLiteral",
-      "offset": 1903,
+      "offset": 1818,
       "length": 6,
       "value": "5"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdAsset.swift",
       "kind": "IntegerLiteral",
-      "offset": 1630,
+      "offset": 1545,
       "length": 9,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdAsset.swift",
       "kind": "IntegerLiteral",
-      "offset": 1715,
+      "offset": 1630,
       "length": 11,
       "value": "2"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdAsset.swift",
       "kind": "IntegerLiteral",
-      "offset": 1775,
+      "offset": 1690,
       "length": 7,
       "value": "3"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdAsset.swift",
       "kind": "IntegerLiteral",
-      "offset": 1833,
+      "offset": 1748,
       "length": 5,
       "value": "4"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/Public\/AdAsset.swift",
       "kind": "IntegerLiteral",
-      "offset": 1903,
+      "offset": 1818,
       "length": 6,
       "value": "5"
     },
@@ -76752,21 +76675,21 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AssetManager.swift",
       "kind": "StringLiteral",
-      "offset": 3316,
-      "length": 14,
-      "value": "\"AssetManager\""
+      "offset": 3313,
+      "length": 26,
+      "value": "\"AssetManager.asset.queue\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AssetManager.swift",
       "kind": "StringLiteral",
-      "offset": 3374,
-      "length": 12,
-      "value": "\"CacheQueue\""
+      "offset": 3457,
+      "length": 30,
+      "value": "\"AssetManager.operation.queue\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AssetManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 3543,
+      "offset": 3698,
       "length": 1,
       "value": "0"
     },

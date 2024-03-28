@@ -1173,8 +1173,8 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc var stateInfo: Swift.Set<AdswizzSDK.MediaPlayerCapability.State>? { get }
 }
 @objc(AASDKAdAssetDelegate) public protocol AdAssetDelegate {
-  @objc optional func adAsset(_ asset: AdswizzSDK.AdAsset, didFinishDownloadingData data: Foundation.Data)
-  @objc optional func adAsset(_ asset: AdswizzSDK.AdAsset, didDownload data: Foundation.Data, bytesDownloaded: Swift.Int64, outOf bytesExpected: Swift.Int64)
+  @objc optional func adAssetDidFinishDownloadingData(_ asset: AdswizzSDK.AdAsset)
+  @objc optional func adAsset(_ asset: AdswizzSDK.AdAsset, didDownloadDataWith bytesDownloaded: Swift.Int64, outOf bytesExpected: Swift.Int64)
   @objc optional func adAsset(_ asset: AdswizzSDK.AdAsset, downloadingFailedWith error: Swift.Error)
 }
 @objc(AASDKAdAssetState) public enum AdAssetState : Swift.Int {
@@ -1191,7 +1191,6 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   }
 }
 @objc(AASDKAdAsset) public protocol AdAsset {
-  @objc var data: Foundation.Data? { get }
   @objc var mediaUrl: Swift.String? { get }
   @objc var mimeType: Swift.String? { get }
   @objc var width: Swift.Int { get }
