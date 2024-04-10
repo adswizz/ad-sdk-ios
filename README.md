@@ -4,10 +4,10 @@ The only audio-centric SDK to Drive Innovation & Differentiation in Audio moneti
 
 ## Requirements
 
-* Xcode 12+ or newer
-* iOS 12.0+
-* Swift 5.6+
-* CocoaPods 1.9.3+ (recommended)
+* Xcode 15.2+ or newer
+* iOS 13.0+
+* Swift 5.9+
+* CocoaPods 1.13.0+ (recommended)
 
 ## Dependencies
 AdswizzSDK.framework depends on the following frameworks:

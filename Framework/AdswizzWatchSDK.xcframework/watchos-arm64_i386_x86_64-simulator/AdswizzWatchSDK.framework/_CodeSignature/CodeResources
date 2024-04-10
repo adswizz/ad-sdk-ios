@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/AdswizzWatchSDK-Swift.h</key>
 		<data>
-		ruj20FrtjKrVXxBUEQrf2QPk/Jo=
+		Fw/2Q9tjm1NZBftq1BOawFGFJo4=
 		</data>
 		<key>Headers/AdswizzWatchSDK.h</key>
 		<data>
@@ -14,71 +14,71 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ixFVzv6lJfNG/e0LsTM6FaFY3fk=
+		pKts9xitP1eXF6Pa+1LRXi+WdaQ=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos-simulator.abi.json</key>
 		<data>
-		8s1AEB/hTsSuCf8LSn2FvRM/k7A=
+		tkDX4iDiswBgIFFeJkg2IVVtm2I=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos-simulator.private.swiftinterface</key>
 		<data>
-		64dFwld2c350kdgHacKGhG4AhrE=
+		W7Js0CV52ArPVFEUw3oZJcwg2Wk=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos-simulator.swiftdoc</key>
 		<data>
-		sgygSeSv7+NqSQV3fR7xHw/r0HU=
+		69f4/kZxuzTGaYS0si++cFcSrXM=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos-simulator.swiftinterface</key>
 		<data>
-		64dFwld2c350kdgHacKGhG4AhrE=
+		W7Js0CV52ArPVFEUw3oZJcwg2Wk=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos-simulator.swiftmodule</key>
 		<data>
-		W0rKUy5SWHUC40z4Bp3vGK0isJw=
+		5Ov/XjyhdL8YsAq3rU1bjI3Td6w=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/i386-apple-watchos-simulator.abi.json</key>
 		<data>
-		8s1AEB/hTsSuCf8LSn2FvRM/k7A=
+		tkDX4iDiswBgIFFeJkg2IVVtm2I=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/i386-apple-watchos-simulator.private.swiftinterface</key>
 		<data>
-		JAoEWUfd1iWCAF92gwAdAAH39dY=
+		hZX/NVe1P119Z1ncvrF7qiTWDAM=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/i386-apple-watchos-simulator.swiftdoc</key>
 		<data>
-		6KvoROO4piSbdU14gMhHVUJiV0g=
+		nvd0+23hH0jqZHmZnmlfAoRACmc=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/i386-apple-watchos-simulator.swiftinterface</key>
 		<data>
-		JAoEWUfd1iWCAF92gwAdAAH39dY=
+		hZX/NVe1P119Z1ncvrF7qiTWDAM=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/i386-apple-watchos-simulator.swiftmodule</key>
 		<data>
-		Rqc/H7faamv2222lMa7ykXYCP+w=
+		4AvcRci5Ykw8pq702tViOe6NFF0=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/x86_64-apple-watchos-simulator.abi.json</key>
 		<data>
-		8s1AEB/hTsSuCf8LSn2FvRM/k7A=
+		tkDX4iDiswBgIFFeJkg2IVVtm2I=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/x86_64-apple-watchos-simulator.private.swiftinterface</key>
 		<data>
-		1PzrK/JjtGav3tF/nAwPN3kgKKQ=
+		IgMAL/YcOh+7pN/zFZFCydvk6PE=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/x86_64-apple-watchos-simulator.swiftdoc</key>
 		<data>
-		EuKCjYRqZl0rDXaeabA/CMjxXPQ=
+		/Ys7afyuaIS9Bn8YNLEM/J5pP2Y=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/x86_64-apple-watchos-simulator.swiftinterface</key>
 		<data>
-		1PzrK/JjtGav3tF/nAwPN3kgKKQ=
+		IgMAL/YcOh+7pN/zFZFCydvk6PE=
 		</data>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/x86_64-apple-watchos-simulator.swiftmodule</key>
 		<data>
-		kPnNySZb6PDBTw1a6Ca4C8r329g=
+		SGtiyTXa/0FPGVjGDszYEmymaOs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		OAHdibxisB7WAVleqjL0u8pBmeQ=
+		nBeIilR+m6JV5QscNpbLrY6RUpA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -87,7 +87,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2HPWkEL2tWlTVb3vxP68OlRFtNWhSsxPA0ftNuCh6i0=
+			ZKnoy0HzBGNp7x/Z8KiEusSKy8cBH8JDW1f/vOByR84=
 			</data>
 		</dict>
 		<key>Headers/AdswizzWatchSDK.h</key>
@@ -101,112 +101,112 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IpPszG31ZXrncRnIGiyusmyX1qXG6mKP1q/M0JtVq60=
+			TxAhIAvE7XKwYDuHWU2knbQo6yaoZPpJp/hWWtM7P00=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YZUSZHkroZRHxHzUg0Hx9Vw3V+vhTWKe8lPZEK+JEmE=
+			yB3UT58cDrFPZEhXPSeuGArC9WtEEAmzyqftlfNA4qQ=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rhnoTGlezuEmacxkU0ncAjtuSxhQnQIq/dLpbRegnOA=
+			mFweF7MSwIc/flUhODnK0G2nXioVNOO3TnV0Cfbl6Es=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YZUSZHkroZRHxHzUg0Hx9Vw3V+vhTWKe8lPZEK+JEmE=
+			yB3UT58cDrFPZEhXPSeuGArC9WtEEAmzyqftlfNA4qQ=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0icuCnrBiZrhyIDbJvBIW6I32ytrRqX2GWfF36qh5b0=
+			WZZcYU+s0r9KZDsJpRav9qmySGyVEz0vZTXQDEjIZq4=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/i386-apple-watchos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IpPszG31ZXrncRnIGiyusmyX1qXG6mKP1q/M0JtVq60=
+			TxAhIAvE7XKwYDuHWU2knbQo6yaoZPpJp/hWWtM7P00=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/i386-apple-watchos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xaAGcxHO/0CIY4s4Ab40VchHjgMlSasFe3JcCUhrgz8=
+			HRS3ULD8jYjWRvvZ81c6cGvxT5+01ODIjTv4givCvVg=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/i386-apple-watchos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ez0SR+qy7IIJjVGQTuvxPJfV1tSG0SSW+uSoi+TZXTo=
+			Fto4MJDKLs+3zo3Ix7iasYJtExSCPGG6UY0gztVKD2Q=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/i386-apple-watchos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xaAGcxHO/0CIY4s4Ab40VchHjgMlSasFe3JcCUhrgz8=
+			HRS3ULD8jYjWRvvZ81c6cGvxT5+01ODIjTv4givCvVg=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/i386-apple-watchos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+08z4PIj0klbKQeXabea1EzSq4pbQU003VBAz6m/vYU=
+			HtHR8FvwdM9cjSOtPagb8LRP4AkynOYzRCP4jNLimag=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/x86_64-apple-watchos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IpPszG31ZXrncRnIGiyusmyX1qXG6mKP1q/M0JtVq60=
+			TxAhIAvE7XKwYDuHWU2knbQo6yaoZPpJp/hWWtM7P00=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/x86_64-apple-watchos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			H2XdmiTZt1X36zXCS9pIgBAD//n7IFczBuEJ4vJwFGY=
+			PBw4opuzXpYUNP7XX66O8faBW4O9EqIKVrUAKOwFvqg=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/x86_64-apple-watchos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			brlSfPT0P7+jIgxSAOCfNDYHGLLT8muWpw1orSzosJw=
+			k31PEFZanUFXHxpomcUxjHxPCDCxyx5qJ9gX3LSofdw=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/x86_64-apple-watchos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			H2XdmiTZt1X36zXCS9pIgBAD//n7IFczBuEJ4vJwFGY=
+			PBw4opuzXpYUNP7XX66O8faBW4O9EqIKVrUAKOwFvqg=
 			</data>
 		</dict>
 		<key>Modules/AdswizzWatchSDK.swiftmodule/x86_64-apple-watchos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			D/6ALiiUOeW81JLElmgqXpBdJdYo+JrIBDRTAdNJDVs=
+			/8XhANUT1x8U9glObXsu3xumjDvUUYEZipPO+j5tkq8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hP9tuAgDY64peX/aUNDtKzrWyDYIJUA260m0UiWPP4A=
+			gSRzmLWpRIoYOjheW0xwtZAzjwd5bjE2BOfNQ7TXdcE=
 			</data>
 		</dict>
 	</dict>

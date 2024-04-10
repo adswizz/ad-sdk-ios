@@ -1,7 +1,7 @@
 framework module AdswizzSDK {
   umbrella header "AdswizzSDK.h"
-
   export *
+
   module * { export * }
 }
 

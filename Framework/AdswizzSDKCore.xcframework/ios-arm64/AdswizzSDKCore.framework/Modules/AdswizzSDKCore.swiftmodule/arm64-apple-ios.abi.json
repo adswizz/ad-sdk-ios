@@ -1866,6 +1866,104 @@
   },
   "ConstValues": [
     {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 364,
+      "length": 13,
+      "value": "\"[\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 374,
+      "length": 1,
+      "value": "\"] \""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 451,
+      "length": 9,
+      "value": "\"[main] \""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 588,
+      "length": 18,
+      "value": "\"[\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 603,
+      "length": 1,
+      "value": "\"] \""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 734,
+      "length": 17,
+      "value": "\"[\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 748,
+      "length": 1,
+      "value": "\"] \""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 823,
+      "length": 7,
+      "value": "\"[%p] \""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 899,
+      "length": 87,
+      "value": "\"[\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 944,
+      "length": 1,
+      "value": "\":\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 958,
+      "length": 1,
+      "value": "\"] \""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 975,
+      "length": 1,
+      "value": "\" > \""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 985,
+      "length": 1,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
+      "kind": "StringLiteral",
+      "offset": 1074,
+      "length": 4,
+      "value": "\"%@\""
+    },
+    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/Public\/AdLogger.swift",
       "kind": "IntegerLiteral",
       "offset": 1098,

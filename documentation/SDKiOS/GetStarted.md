@@ -9,9 +9,9 @@ In a server-side insertion scenario, it takes the pressure off your app by makin
 
 ## Prerequisites
 
-*   Xcode 12+
-*   Swift 5.0+ if the integration app uses Swift or Objective-C
-*   Framework binaries - either via CocoaPods 1.9.3+, Carthage or archive (manual integration)
+*   Xcode 15.2+
+*   Swift 5.9+ if the integration app uses Swift or Objective-C
+*   Framework binaries - either via CocoaPods 1.13.0+, Carthage or archive (manual integration)
 
 ## Changelog
 

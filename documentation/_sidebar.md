@@ -36,6 +36,12 @@
     - [Privacy](iOS/SDKPinpointAnalytics/Privacy.md)
     - [Sample Projects](iOS/SDKPinpointAnalytics/SampleProjects.md)
 
+- Privacy
+
+    - [Privacy Manifest](iOS/SDKPrivacy/PrivacyManifest.md)
+    - [Data Usage Policy](iOS/SDKPrivacy/DataUsagePolicy.md)
+    - [Code Signing](iOS/SDKPrivacy/CodeSigning.md)
+
 - Migrations
 
     - [How to migrate to AdswizzSDK v7.8.0+](iOS/SDKMigrations/v7_8_0.md)

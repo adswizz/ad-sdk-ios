@@ -1,4 +1,4 @@
-<!-- docs/iOS/SDKPinpointAnalytics/_sidebar.md -->
+<!-- docs/iOS/_sidebar.md -->
 
 - AdswizzSDK iOS
 
@@ -35,6 +35,12 @@
     - [Integrating AdswizzSDK Pinpoint Analytics](iOS/SDKPinpointAnalytics/IntegratingAdswizzSDKPinpointAnalytics.md)
     - [Privacy](iOS/SDKPinpointAnalytics/Privacy.md)
     - [Sample Projects](iOS/SDKPinpointAnalytics/SampleProjects.md)
+
+- Privacy
+
+    - [Privacy Manifest](iOS/SDKPrivacy/PrivacyManifest.md)
+    - [Data Usage Policy](iOS/SDKPrivacy/DataUsagePolicy.md)
+    - [Code Signing](iOS/SDKPrivacy/CodeSigning.md)
 
 - Migrations
 

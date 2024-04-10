@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.9.0] - 2024-04-10
+### Added
+- Privacy:
+    - New support for the **Privacy Manifest**, an Apple standardized file that outlines the **_AdswizzSDK_** privacy practices. The following binary frameworks are now shipped with their own Privacy Manifest file:
+        * `AdswizzSDK`
+        * `AdswizzWatchSDK`
+        * `AdswizzSDKPinpointAnalytics`
+- Integration Guide:
+    - New "Privacy" section describing the [Privacy Manifest](iOS/SDKPrivacy/PrivacyManifest.md) support, [Data Usage Policy](iOS/SDKPrivacy/DataUsagePolicy.md) and [Code Signing](iOS/SDKPrivacy/CodeSigning.md) for **_AdswizzSDK_**
+
+### Changed
+- XCframework:
+    - **_AdswizzSDK_** binary frameworks are compiled with Xcode version `15.2` (adds support for Swift version `5.9.2`)
+- Integration Guide:
+    - Updated documentation for the new Swift supported version
+
 ## [7.8.8] - 2024-03-28
 ### Removed
 - AdAsset:

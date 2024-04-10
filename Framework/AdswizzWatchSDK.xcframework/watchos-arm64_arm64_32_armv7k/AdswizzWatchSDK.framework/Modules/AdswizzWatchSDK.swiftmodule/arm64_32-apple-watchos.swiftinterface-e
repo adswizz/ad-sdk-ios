@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target arm64_32-apple-watchos6.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AdswizzWatchSDK
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
@@ -11,6 +11,7 @@ import WatchConnectivity
 import WatchKit
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 extension AdswizzWatchSDK.AdLogger.Level : Swift.Comparable {
   public static func < (lhs: AdswizzWatchSDK.AdLogger.Level, rhs: AdswizzWatchSDK.AdLogger.Level) -> Swift.Bool
 }
@@ -37,7 +38,7 @@ extension AdswizzWatchSDK.AdLogger.Level : Swift.CustomStringConvertible {
   }
   @objc public static let shared: AdswizzWatchSDK.AdLogger
   @objc final public var level: AdswizzWatchSDK.AdLogger.Level
-  @objc final public var destination: AdswizzWatchSDK.AdLoggerDestination
+  @objc final public var destination: any AdswizzWatchSDK.AdLoggerDestination
   @objc override dynamic public init()
   @objc deinit
 }
@@ -45,7 +46,7 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdswizzWatchSDK) public class AdswizzWatchSDK : ObjectiveC.NSObject {
   @objc public static let shared: AdswizzWatchSDK.AdswizzWatchSDK
-  @objc public var watchSession: AdswizzWatchSDK.WatchSession {
+  @objc public var watchSession: any AdswizzWatchSDK.WatchSession {
     get
   }
   @objc public var runningInBackground: Swift.Bool {
@@ -67,7 +68,7 @@ extension AdswizzWatchSDK.AdswizzWatchSDK {
 }
 @objc(AASDKWatchSession) public protocol WatchSession {
   @objc func receivedMessage(_ data: [Swift.String : Any])
-  @objc func setDelegate(_ delegate: AdswizzWatchSDK.WatchSessionDelegate)
+  @objc func setDelegate(_ delegate: any AdswizzWatchSDK.WatchSessionDelegate)
 }
 extension Swift.Dictionary where Key == Swift.String {
   public var isAdswizzWatchData: Swift.Bool {
