@@ -531,6 +531,25 @@ For a more advanced skip handling, you can call **_skipAd(with error: Error)_** 
 
 #### reset
 
-If you decided to skip all the upcoming ads in the **_AdManager_** object, you can call this method. For each ad you skip, your app will trigger **_adCompleted_**, and an **_allAdsCompleted_** event will be sent at the end. Looping through the ad again will need a call to the **_prepare_** function.
+If you decided to skip all the upcoming ads in the **_AdManager_** object, you can call this method. For each ad you skip, your app will trigger **_adCompleted_**, and an **_allAdsCompleted_** event will be sent at the end. Looping through the ads again will need a call to the **_prepare_** function.
 However, it is not recommended for an AdManager to be reused after a `reset()` call, especially if at least one or more ads have already been played. This recommendation helps to avoid/reduce impression duplication for the same ads being played repeatedly.
+
+## AdManager best practices
+
+After you obtain an **_AdManager_** instance object and call `prepare()`, that **_AdManager_** starts its lifecycle to render the ad(s) and begins to communicate to its delegate via [AdManagerDelegate protocol](#admanagerdelegate-protocol). The communication is based on [Ad events](#ad-events-explained) and your model should listen for any such incoming signals and act accordingly.
+
+Here are a few things to consider when working with the **_AdManager_**:
+* your application is not required to process all the states for the current ad in the **_AdManager_** via the `adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent)` method. Setting a `delegate` on the **_AdManager_** instance is completely optional, however, keep in mind that this is your only communication channel with the **_AdManager_**.
+* in some cases, the **_AdManager_** may inform your app that an error occured via the `adManager(_ adManager: AdManager, didReceiveAd ad: AdData?, error: Error)` delegate method from [AdManagerDelegate protocol](#admanagerdelegate-protocol). It is considered best practice to implement this method so that your application is well aware of any such error. However, when an error is received, we do not recommend the following:
+    - manually stop or release the reference to the **_AdManager_** unless it is a hard requirement in your application bussiness logic. To clear the **_AdManager_** reference, it is best to wait for the [.allAdsCompleted](#alladscompleted) ad event which signals that the **_AdManager_** has finished all the ads. This way, the **_AdManager_** is able to finish its lifecycle properly and that all edge cases are correctly handled (e.g any pending [empty ads](#handling-admanager-with-no-ads))
+    - skip the current ad for which the error was received. If there are more ads to be played, the **_AdManager_** will automatically advance to the next ad by sending the [.preparingForPlay](#preparingforplay) ad event.
+* wait for the [.allAdsCompleted](#alladscompleted) ad event to clear and deallocate the **_AdManager_**, typically by setting it to `nil`.
+* when you are done with the **_AdManager_** and before deallocate-ing it, calling [reset()](#reset) is optional. Consider [reset()](#reset) as an "invalidation" before setting the reference to nil. See the code snippet below:
+    ```swift
+    import AdswizzSDK
+
+    ...
+    self.adManager.reset() //optional
+    self.adManager = nil
+    ```
 

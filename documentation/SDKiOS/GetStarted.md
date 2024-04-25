@@ -148,7 +148,7 @@ This dependency is automatically added if you choose to integrate the SDK using 
 
     4. Run
     
-      We're now ready to install the AdswizzSDK with Carthage. As a last step we need to specify a file that contains all the flags needed to compile the AdswizzSDKPrivacyData Framework. 
+      We're now ready to install the AdswizzSDK with Carthage. As a last step we need to specify a file (named below `CustomConfig.xcconfig` ) that contains all the flags needed to compile the AdswizzSDKPrivacyData Framework. 
       This file can look like:
       
        ```swift
@@ -164,6 +164,9 @@ This dependency is automatically added if you choose to integrate the SDK using 
     ```
 
       Notice that by using `./carthage.sh` we are running carthage from our own custom script.
+
+    4. Project Setup
+    Carthage requires that the needed frameworks be linked manually to the project. After completing Step 4, drag and drop to copy the `AdswizzSDK.xcframework`, `AdswizzSDKCore.xcframework`, `AdswizzSDKPrivacyData.xcframework` packages into your application Frameworks group. Be sure to link and embed the `AdswizzSDK.xcframework`, `AdswizzSDKCore.xcframework`, `AdswizzSDKPrivacyData.xcframework` binaries.
 
 3. Manual
 

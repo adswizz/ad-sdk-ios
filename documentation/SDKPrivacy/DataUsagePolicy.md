@@ -10,12 +10,11 @@ Apple requires app developers to provide the data usage policy of the app when t
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:25%">Data type</th>
-    <th style="width:25%">AdswizzSDK library</th>
+    <th style="width:35%">Data type</th>
+    <th style="width:35%">AdswizzSDK library</th>
     <th style="width:20%">Purpose</th>
     <th style="width:10%">Linked to<br>Identity</th>
     <th style="width:7%">Tracking</th>
-    <th style="width:20%">Provided by<br>Publisher App</th>
   </tr>
 </thead>
 <tbody>
@@ -25,7 +24,6 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
@@ -33,161 +31,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-</tbody>
-</table>
-
-### User Content
-
-<table style="width:100%">
-<thead>
-  <tr>
-    <th style="width:25%">Data type</th>
-    <th style="width:25%">AdswizzSDK library</th>
-    <th style="width:20%">Purpose</th>
-    <th style="width:10%">Linked to<br>Identity</th>
-    <th style="width:7%">Tracking</th>
-    <th style="width:20%">Provided by<br>Publisher App</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><b>Photos or Videos</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>App Functionality</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>✅</td>
-  </tr>
-  <tr>
-    <td><b>Audio Data</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>App Functionality</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>✅</td>
-  </tr>
-</tbody>
-</table>
-
-### Health and Fitness
-
-<table style="width:100%">
-<thead>
-  <tr>
-    <th style="width:25%">Data type</th>
-    <th style="width:25%">AdswizzSDK library</th>
-    <th style="width:20%">Purpose</th>
-    <th style="width:10%">Linked to<br>Identity</th>
-    <th style="width:7%">Tracking</th>
-    <th style="width:20%">Provided by<br>Publisher App</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><b>Fitness</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>Third-Party Advertising</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>✅</td>
-  </tr>
-</tbody>
-</table>
-
-### Location
-
-<table style="width:100%">
-<thead>
-  <tr>
-    <th style="width:25%">Data type</th>
-    <th style="width:25%">AdswizzSDK library</th>
-    <th style="width:20%">Purpose</th>
-    <th style="width:10%">Linked to<br>Identity</th>
-    <th style="width:7%">Tracking</th>
-    <th style="width:20%">Provided by<br>Publisher App</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><b>Precise location</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>Third-Party Advertising</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>✅</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDKPinpointAnalytics</td>
-    <td>Analytics</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>✅</td>
-  </tr>
-  <tr>
-    <td><b>Coarse location</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>Third-Party Advertising</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>✅</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDKPinpointAnalytics</td>
-    <td>Analytics</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>✅</td>
   </tr>
 </tbody>
@@ -198,12 +47,11 @@ Apple requires app developers to provide the data usage policy of the app when t
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:25%">Data type</th>
-    <th style="width:25%">AdswizzSDK library</th>
+    <th style="width:35%">Data type</th>
+    <th style="width:35%">AdswizzSDK library</th>
     <th style="width:20%">Purpose</th>
     <th style="width:10%">Linked to<br>Identity</th>
     <th style="width:7%">Tracking</th>
-    <th style="width:20%">Provided by<br>Publisher App</th>
   </tr>
 </thead>
 <tbody>
@@ -213,7 +61,6 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
@@ -221,14 +68,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
     <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -237,14 +82,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -253,7 +96,6 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
@@ -261,14 +103,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
     <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -277,7 +117,6 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
@@ -285,14 +124,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
     <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -301,14 +138,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -317,7 +152,6 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
@@ -325,14 +159,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
     <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -341,7 +173,6 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
@@ -349,14 +180,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
     <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -365,14 +194,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -381,14 +208,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -397,14 +222,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -413,14 +236,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -429,222 +250,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDKPinpointAnalytics</td>
     <td>Analytics</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td><b>Location (latitude)</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>Third-Party Advertising</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDKPinpointAnalytics</td>
-    <td>Analytics</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td><b>Location (longitude)</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>Third-Party Advertising</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDKPinpointAnalytics</td>
-    <td>Analytics</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td><b>Location (altitude)</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>Third-Party Advertising</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td><b>Location (speed)</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>Third-Party Advertising</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td><b>Location (accuracy)</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>Third-Party Advertising</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td><b>Location (PostalCode)</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDKPinpointAnalytics</td>
-    <td>Analytics</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td><b>Location (City)</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDKPinpointAnalytics</td>
-    <td>Analytics</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td><b>Location (Region)</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDKPinpointAnalytics</td>
-    <td>Analytics</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td><b>Location (Country)</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDKPinpointAnalytics</td>
-    <td>Analytics</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td><b>Motion (rotation)</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>Third-Party Advertising</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td><b>Motion (acceleration)</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>Third-Party Advertising</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
-    <td id=centeredRow>❌</td>
-  </tr>
-  <tr>
-    <td><b>Motion (confidence)</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>AdswizzSDK</td>
-    <td>Third-Party Advertising</td>
-    <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -653,14 +264,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDK</td>
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -669,14 +278,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDK</td>
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -685,14 +292,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDK</td>
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -701,14 +306,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDK</td>
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -717,14 +320,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDK</td>
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -733,14 +334,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDK</td>
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -749,14 +348,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDK</td>
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -765,14 +362,12 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
   </tr>
   <tr>
     <td></td>
     <td>AdswizzSDK</td>
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
-    <td id=centeredRow>❌</td>
     <td id=centeredRow>❌</td>
   </tr>
   <tr>
@@ -781,6 +376,39 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td></td>
     <td></td>
     <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDK</td>
+    <td>Third-Party Advertising</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+</tbody>
+</table>
+
+### Other Data collected under specific conditions
+
+`AdswizzSDK` and `AdswizzSDKPinpointAnalytics` frameworks can collect additional data if the conditions are met:
+* Additional permissions are granted such as Motion Activity or Location
+* The `DataCollector` (Listening Context) feature is enabled via ZeroConfig and programmatically if needed. For more info, please Contact your Adswizz Technical Account
+
+<table style="width:100%">
+<thead>
+  <tr>
+    <th style="width:35%">Data type</th>
+    <th style="width:35%">AdswizzSDK library</th>
+    <th style="width:20%">Purpose</th>
+    <th style="width:10%">Linked to<br>Identity</th>
+    <th style="width:7%">Tracking</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><b>Location (latitude)</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td></td>
   </tr>
   <tr>
@@ -789,6 +417,173 @@ Apple requires app developers to provide the data usage policy of the app when t
     <td>Third-Party Advertising</td>
     <td id=centeredRow>✅</td>
     <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDKPinpointAnalytics</td>
+    <td>Analytics</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td><b>Location (longitude)</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDK</td>
+    <td>Third-Party Advertising</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDKPinpointAnalytics</td>
+    <td>Analytics</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td><b>Location (altitude)</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDK</td>
+    <td>Third-Party Advertising</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td><b>Location (speed)</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDK</td>
+    <td>Third-Party Advertising</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td><b>Location (accuracy)</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDK</td>
+    <td>Third-Party Advertising</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td><b>Location (PostalCode)</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDKPinpointAnalytics</td>
+    <td>Analytics</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td><b>Location (City)</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDKPinpointAnalytics</td>
+    <td>Analytics</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td><b>Location (Region)</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDKPinpointAnalytics</td>
+    <td>Analytics</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td><b>Location (Country)</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDKPinpointAnalytics</td>
+    <td>Analytics</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td><b>Motion (rotation)</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDK</td>
+    <td>Third-Party Advertising</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td><b>Motion (acceleration)</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDK</td>
+    <td>Third-Party Advertising</td>
+    <td id=centeredRow>✅</td>
+    <td id=centeredRow>❌</td>
+  </tr>
+  <tr>
+    <td><b>Motion (confidence)</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AdswizzSDK</td>
+    <td>Third-Party Advertising</td>
+    <td id=centeredRow>✅</td>
     <td id=centeredRow>❌</td>
   </tr>
 </tbody>
@@ -798,6 +593,8 @@ Apple requires app developers to provide the data usage policy of the app when t
 
 **_AdswizzSDK_** library suite does not fall under the following categories provided by Apple and therefore no data is currently collected for:
 
+* Health and fitness
+* User content
 * Body
 * Surroundings
 * Diagnostics

@@ -45,6 +45,7 @@
 - Migrations
 
     - [How to migrate to AdswizzSDK v7.8.0+](iOS/SDKMigrations/v7_8_0.md)
+    - [How to migrate to AdswizzSDK v7.9.0+](iOS/SDKMigrations/v7_9_0.md)
 
 - Changelog
     - [Changelog](iOS/CHANGELOG.md)

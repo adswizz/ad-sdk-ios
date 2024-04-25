@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.9.1] - 2024-04-25
+### Added
+- Integration Guide:
+    - New guide on [How to migrate to AdswizzSDK v7.9.0+](iOS/SDKMigrations/v7_9_0.md)
+    - New section on [AdManager best practices](iOS/SDKiOS/ClientSideInsertion#admanager-best-practices) in the [Client Side Insertion](iOS/SDKiOS/ClientSideInsertion) scenario
+
+### Changed
+- Privacy:
+    - Updated the `PrivacyInfo.xcprivacy` content for **_AdswizzSDK_** binary frameworks under privacy guidelines (`AdswizzSDK`, `AdswizzWatchSDK` and `AdswizzSDKPinpointAnalytics`)
+- Integration Guide:
+    - Updated the "Privacy" section on [Data Usage Policy](iOS/SDKPrivacy/DataUsagePolicy.md)
+
 ## [7.9.0] - 2024-04-10
 ### Added
 - Privacy:
