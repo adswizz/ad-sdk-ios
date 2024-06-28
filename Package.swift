@@ -27,23 +27,23 @@ let package = Package(
         ),
         .binaryTarget(
             name: "AdswizzSDK",
-            url: "https://api.github.com/repos/adswizz/ad-sdk-ios/releases/assets/176228093.zip",
-            checksum: "3186183c1aea42f8ccd7a07235106afd0e669e15c84834c0ae4280fd9292e55a"
+            url: "https://api.github.com/repos/adswizz/ad-sdk-ios/releases/assets/176540806.zip",
+            checksum: "50da3c93a10497610554d5ccaa7b70a77d8bbea25187ea84a69a0d809c82829b"
         ),
         .binaryTarget(
             name: "AdswizzSDKCore",
-            url: "https://api.github.com/repos/adswizz/ad-sdk-ios/releases/assets/176228104.zip",
-            checksum: "664c3984faf676c8ae5a49cbabd95721ddc46a55750504e54536cf6cee1799c8"
+            url: "https://api.github.com/repos/adswizz/ad-sdk-ios/releases/assets/176540844.zip",
+            checksum: "fdc1df712785ea32b776345d2c4eff99b3234f20f25286866ab262b8629c4074"
         ),
         .binaryTarget(
             name: "AdswizzWatchSDK",
-            url: "https://api.github.com/repos/adswizz/ad-sdk-ios/releases/assets/176228129.zip",
-            checksum: "26c64c32449bda113fa8d326ef50a6cc2305e5df68964527fc4ba4df3df0b948"
+            url: "https://api.github.com/repos/adswizz/ad-sdk-ios/releases/assets/176540850.zip",
+            checksum: "d89ea73ffc9e5b2480944d90a8c020cb12eb3d1c1b77a0417ac69a80f2f672fd"
         ),
         .binaryTarget(
             name: "AdswizzSDKPinpointAnalytics",
-            url: "https://api.github.com/repos/adswizz/ad-sdk-ios/releases/assets/176228120.zip",
-            checksum: "039f96ea060979527443f8999c5b34f87b02a08a5e55e9b43eccd67046cd3d2c"
+            url: "https://api.github.com/repos/adswizz/ad-sdk-ios/releases/assets/176540849.zip",
+            checksum: "07c3fe4ed54d23fca1906d489b7aad6d3f8288217f66ed2caf92603230d38860"
         ),
     ]
 )
