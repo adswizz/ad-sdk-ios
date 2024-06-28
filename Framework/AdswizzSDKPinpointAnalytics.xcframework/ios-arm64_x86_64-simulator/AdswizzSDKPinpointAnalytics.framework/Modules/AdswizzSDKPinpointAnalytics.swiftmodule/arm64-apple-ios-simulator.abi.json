@@ -3958,7 +3958,7 @@
       "kind": "StringLiteral",
       "offset": 258,
       "length": 7,
-      "value": "\"7.9.2\""
+      "value": "\"7.9.1\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSPinpointResponses.swift",
@@ -5678,7 +5678,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/.gen\/AdswizzSDKPinpointAnalytics\/URL+Builder.swift",
       "kind": "BooleanLiteral",
-      "offset": 1110,
+      "offset": 1102,
       "length": 5,
       "value": "false"
     },
