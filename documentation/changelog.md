@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.9.2] - 2024-06-28
+### Added
+- Dependency manager support:
+    - Add Swift Package Manager support for integrating **_AdswizzSDK_** and its dependencies. For more details, please visit the [Get started](iOS/SDKiOS/GetStarted#adding-the-sdk-to-your-xcode-project) section from the Integration Guide on iOS
+- VAST macros support:
+    - [STOREID] VAST Macro for AppStore ID
+- Integration Guide:
+    - New section which describes the **_AdswizzSDK_** integration with [Swift Package Manager](OS/SDKiOS/GetStarted#swift-package-manager)
+
+### Fixed
+- Interactive ads:
+    - Service release that fixes a rare case for interactive ads to trigger their detected actions twice (calendar / e-mail)
+
 ## [7.9.1] - 2024-04-25
 ### Added
 - Integration Guide:
