@@ -7,7 +7,6 @@ The only audio-centric SDK to Drive Innovation & Differentiation in Audio moneti
 * Xcode 15.2+ or newer
 * iOS 13.0+
 * Swift 5.9+
-* CocoaPods 1.13.0+ (recommended)
 
 ## Dependencies
 AdswizzSDK.framework depends on the following frameworks:
@@ -20,9 +19,85 @@ AdswizzSDK.framework depends on the following frameworks:
 
 ## Installation
 
+### Swift Package Manager
+
+To be able to install **_AdswizzSDK_** using Swift Package Manager, please follow the steps detailed below.
+
+#### Authentication
+
+**_AdswizzSDK_** is delivered as an .xcframework from a private Github repository, and as a result, Swift Package Manager needs to be instructed to checkout the binary files using a Github token. You can obtain a token from your AdsWizz partner integration manager. 
+
+Since Xcode 13.3, Swift Package Manager has official support for binary frameworks which are vended from a private Github release. For more details, you can read the discussions on the official [thread](https://forums.swift.org/t/spm-support-basic-auth-for-non-git-binary-dependency-hosts/37878) which started in June 2020.
+
+Next, let's set up the Swift Package Manager authentication mechanism. Please choose one of the authentication methods below.
+
+##### .netrc
+
+The `.netrc` file format is commonly used for the automatic authentication of HTTP requests and usually placed in the user’s home directory (`~/.netrc`). Learn more about netrc by reading the [gnu documentation](https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html).
+
+To use the `.netrc` authentication, make sure you have it under your home directory. If you don't have a .netrc file, go ahead and create one:
+
+```ruby
+touch ~/.netrc
+```
+...and add the following inside:
+
+```ruby
+machine github.com login adswizz password ADSWIZZ_GITHUB_TOKEN
+```
+
+Replace **_ADSWIZZ_GITHUB_TOKEN_** with your token received from AdsWizz.
+
+##### Apple's Keychain
+
+Even though `.netrc` is a great solution which works on Mac and also on Linux, if the integration is done exclusively on Mac (and most **_AdswizzSDK_** integrators do) then your application can leverage Apple's Keychain as alternative. Instead of creating an entry in the `~/.netrc` file, create an internet password instead containing:
+- Keychain Item Name: `api.github.com`
+- Account Name: GitHub user name
+- Password: The personal access token supplied by your Adswizz Technical Account Manager
+
+Xcode (SPM) will read from your Keychain once the permission is granted. Such a dialogue may come up during package resolution.
+<img src="../img/xcode_keychain_access.png" width="500" />
+
+Once you've completed the authentication setup by choosing one of the methods above, let's add the **_AdswizzSDK_** Swift package and its dependencies.
+
+#### Package installation
+
+1. Swift Package Manager is distributed with Xcode. To start adding the **_AdswizzSDK_** to your iOS project, open your project in Xcode and select File > Add Package Dependencies... or select your project in the "Project Navigator" panel, navigate to the "Package Dependencies" tab and click the "+" button. Xcode will open the "Add Package Dependency" dialog.
+
+2. Enter the following URL for the **_AdswizzSDK_** for iOS Swift Package Manager GitHub repo into the search bar:
+```ruby
+https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios
+```
+Replace ADSWIZZ_GITHUB_TOKEN with the token you received from AdsWizz.
+3. You'll see the repository rules for which version of the **_AdswizzSDK_** you want Swift Package Manager to install. Choose the `Up to Next Major Version` as it will use the latest compatible version of the dependency that can be detected from the main branch. Select which project you want Swift Package Manager to add the **_AdswizzSDK_**, then click "Add Package".
+4. Choose which of the libraries you want added to your project target. Always select the **_AdswizzSDK_** product. The remaining library products to install are optional (depending on your application needs), but they all rely on **_AdswizzSDK_** main binary framework.
+
+Select all that are appropriate, then click "Add Package(s)" for Xcode to resolve the package(s) and link them into your project.
+Next, let's also add the **_AdswizzSDK_** mandatory dependency.
+
+#### AdswizzSDKPrivacyData dependency
+
+**_AdswizzSDKPrivacyData_** is a helper framework for **_AdswizzSDK_** on iOS, that has all the Privacy-Sensitive API required by **_AdswizzSDK.xcframework_**. **_AdswizzSDKPrivacyData_**'s purpose is to facilitate the interoperability with **_AdswizzSDK_** and to allow your app to manage sensitive APIs (such as permission APIs) without adding unwanted permission usage decription strings in the app's Info.plist manifest. It is a transparent way to communicate to **_AdswizzSDK_** all your app-specific Privacy needs and constraints.
+
+**_AdswizzSDK_** distributed through Swift Package Manager relies on the **_AdswizzSDKPrivacyDataCore.xcframework_** as mandatory dependency. 
+Install it via Swift Package Manager, by repeating the installation steps 1 - 4 from above, but this time enter the following URL for the **_AdswizzSDKPrivacyData_** Swift Package Manager GitHub repo into the search bar:
+```ruby
+https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios-privacydata-core
+```
+Same as before, replace ADSWIZZ_GITHUB_TOKEN with the same token you used for the **_AdswizzSDK_** Swift package.
+Again, you'll see the dependency rules for which version of the **_AdswizzSDKPrivacyData_** you want Swift Package Manager to install. Choose `Branch` and use the latest version on the `main` branch.
+For **_AdswizzSDKPrivacyData_** you will be presented with a list of libraries you want added to your project target. Always select the **_AdswizzSDKPrivacyDataCore_** product.
+The other products are optional and you can opt-in and select the ones matching the permissions your app is using. 
+> For example, if your app asks for the tracking permission, you should select the **_AdswizzSDKPrivacyDataIDFA_** product and link it to your project's target. This enables **_AdswizzSDK_** to access the ATT framework and use the IDFA identifier for listening context and better targeting. 
+Another example, if you plan to leverage AdsWizz's interactive audio ad formats, **_AdswizzSDK_** will need access to the microphone and speech permissions so you should also include the **_AdswizzSDKPrivacyDataMicrophone_** and **_AdswizzSDKPrivacyDataSpeech_** products into your project's target.
+
+#### AWSCore dependency
+
+The AWSCore dependency is not needed if you only install **_AdswizzSDK_** (and optionally **_AdswizzWatchSDK_**). However, if you also chose to install and link your project against **_AdswizzSDKPinpointAnalytics_** framework, you'll also need to install the [AWSCore Swift Package](https://github.com/aws-amplify/aws-sdk-ios) dependency from aws-amplify.
+
 ### Cocoapods
 
-**_AdswizzSDK_** is delivered as an xcframework, so the best way to integrate it is through Cocoapods. The recommended version for Cocoapods is 1.9.3 or newer. If you already have a pod file, you just need to add the following lines:
+**_AdswizzSDK_** is delivered as an xcframework, and it can easily be integrated through Cocoapods. The recommended version for Cocoapods is 1.13.0 or newer. If you already have a pod file, you just need to add the following lines:
 ```ruby
 pod 'AdswizzSDKPrivacyData', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios-privacydata.git", :tag => '1.0.7'
 pod 'AdswizzSDK',            :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git" 
