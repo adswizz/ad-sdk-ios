@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - VAST macros support:
     - [STOREID] VAST Macro for AppStore ID
 - Integration Guide:
-    - New section which describes the **_AdswizzSDK_** integration with [Swift Package Manager](OS/SDKiOS/GetStarted#swift-package-manager)
+    - New section which describes the **_AdswizzSDK_** integration with [Swift Package Manager](iOS/SDKiOS/GetStarted#swift-package-manager)
 
 ### Fixed
 - Interactive ads:

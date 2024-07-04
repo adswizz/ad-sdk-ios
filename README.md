@@ -43,7 +43,7 @@ touch ~/.netrc
 ...and add the following inside:
 
 ```ruby
-machine github.com login adswizz password ADSWIZZ_GITHUB_TOKEN
+machine api.github.com login adswizz password ADSWIZZ_GITHUB_TOKEN
 ```
 
 Replace **_ADSWIZZ_GITHUB_TOKEN_** with your token received from AdsWizz.
@@ -55,9 +55,7 @@ Even though `.netrc` is a great solution which works on Mac and also on Linux, i
 - Account Name: GitHub user name
 - Password: The personal access token supplied by your Adswizz Technical Account Manager
 
-Xcode (SPM) will read from your Keychain once the permission is granted. Such a dialogue may come up during package resolution.
-<img src="../img/xcode_keychain_access.png" width="500" />
-
+Xcode (SPM) will read from your Keychain once the permission is granted.
 Once you've completed the authentication setup by choosing one of the methods above, let's add the **_AdswizzSDK_** Swift package and its dependencies.
 
 #### Package installation

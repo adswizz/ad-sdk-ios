@@ -62,7 +62,7 @@ touch ~/.netrc
 ...and add the following inside:
 
 ```ruby
-machine github.com login adswizz password ADSWIZZ_GITHUB_TOKEN
+machine api.github.com login adswizz password ADSWIZZ_GITHUB_TOKEN
 ```
 
 Replace **_ADSWIZZ_GITHUB_TOKEN_** with your token received from AdsWizz.
@@ -113,6 +113,45 @@ Another example, if you plan to leverage AdsWizz's interactive audio ad formats,
 #### AWSCore dependency
 
 The AWSCore dependency is not needed if you only install **_AdswizzSDK_** (and optionally **_AdswizzWatchSDK_**). However, if you also chose to install and link your project against **_AdswizzSDKPinpointAnalytics_** framework, you'll also need to install the [AWSCore Swift Package](https://github.com/aws-amplify/aws-sdk-ios) dependency from aws-amplify.
+
+#### Troubleshooting
+
+Although Swift Package Manager is a convenient way to integrate third party libraries such as **_AdswizzSDK_** and its dependencies, you may encounter issues during package resolution due to Xcode or SPM errors. Here are a few suggestions on how to mitigate such errors.
+
+##### Clear Swift Manager Caches
+
+Swift Package Manager attempts to cache the packages you add to your project. On your Mac, navigate to the following folder in your user directory:
+```bash
+~/Library/Caches/org.swift.swiftpm/repositories
+~/Library/org.swift.swiftpm
+```
+...and delete all the `ad-sdk-ios-xxxxxxxx` and/or `ad-sdk-ios-privacydata-core-xxxxxxxx` folders.
+
+For good measure, also navigate to the following folder:
+```bash
+~/Library/org.swift.swiftpm/security/fingerprints
+```
+...and delete all the `ad-sdk-ios-xxxxxxxx` and/or `ad-sdk-ios-privacydata-core-xxxxxxxx` JSON files.
+
+This should remove all traces of **_AdswizzSDK_** and its dependency packages, and you can try to install them again by following the [Installation](#installation) steps from above.
+
+Alternatively, you can run the following commands to clear the *entire Swift Package Manager cache* on macOS:
+```bash
+rm -rf ~/Library/Caches/org.swift.swiftpm
+rm -rf ~/Library/org.swift.swiftpm
+```
+> Note that running the commands above will delete the entire cache used by Swift Package Manager for all your packages and may take a while to restore them by using Xcode options such as `Reset Package Caches`, `Resolve Package Versions` and `Update to Latest Package Versions`. 
+
+##### Clear Derived Data
+
+Another option is to delete the entry for your project from `Derived Data`. Xcode keeps its packages in:
+```bash
+~/Library/Developer/Xcode/DerivedData/your-project/SourcePackages/checkouts/
+```
+
+##### Xcode options
+
+Restore **_AdswizzSDK_** and its dependency packages by using Xcode options such as `Reset Package Caches`, `Resolve Package Versions` and `Update to Latest Package Versions`. Read more on the [SPM documentation](https://github.com/swiftlang/swift-package-manager/blob/main/Documentation/Usage.md).
 
 ### CocoaPods
 
