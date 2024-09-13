@@ -118,9 +118,19 @@ The AWSCore dependency is not needed if you only install **_AdswizzSDK_** (and o
 
 Although Swift Package Manager is a convenient way to integrate third party libraries such as **_AdswizzSDK_** and its dependencies, you may encounter issues during package resolution due to Xcode or SPM errors. Here are a few suggestions on how to mitigate such errors.
 
-##### Clear Swift Manager Caches
+##### Clear Caches
 
-Swift Package Manager attempts to cache the packages you add to your project. On your Mac, navigate to the following folder in your user directory:
+If you want to reinstall the **_AdswizzSDK_** Swift packages or something went wrong during package resolution, we strongly recommend to follow the steps bellow. 
+
+###### 1. (Optional) Remove existing package dependencies
+
+If your project already contains faulty **_AdswizzSDK_** package dependencies (there are Swift Package Manager related errors in your `Issues Navigator` panel from Xcode), make sure to remove them by selecting your project in the `Project Navigator` panel, navigate to the "Package Dependencies" tab and click the "-" button.  
+
+###### 2. Clear Swift Package Manager Caches
+
+> We recommend to always `quit` Xcode (right-click on the Xcode app icon and select "Quit") before you attempt to clear the caches.
+
+Swift Package Manager attempts to cache the packages you add to your project. On your Mac, navigate to the following folders in your user directory:
 ```bash
 ~/Library/Caches/org.swift.swiftpm/repositories
 ~/Library/org.swift.swiftpm
@@ -133,21 +143,38 @@ For good measure, also navigate to the following folder:
 ```
 ...and delete all the `ad-sdk-ios-xxxxxxxx` and/or `ad-sdk-ios-privacydata-core-xxxxxxxx` JSON files.
 
-This should remove all traces of **_AdswizzSDK_** and its dependency packages, and you can try to install them again by following the [Installation](#installation) steps from above.
+And finally, navigate to:
+```bash
+~/Library/Caches/org.swift.swiftpm/artifacts
+```
+...and delete all the `https___api_github_com_repos_adswizz_ad_sdk_ios_releases_assets_xxxxxxxxx_zip` entries.
+
+<div class="container" style="max-width: 500px;">
+  <img src="img/swift-package-manager-clear-caches-1.png" alt="~/Library/Caches/org.swift.swiftpm/" class="image">
+  <div class="overlay">~/Library/Caches/org.swift.swiftpm/</div>
+</div>
+
+<div class="container"style="max-width: 500px;">
+  <img src="img/swift-package-manager-clear-caches-2.png" alt="~/Library/org.swift.swiftpm/security/fingerprints" class="image">
+  <div class="overlay">~/Library/org.swift.swiftpm/security/fingerprints</div>
+</div>
+<br clear="left"/>
 
 Alternatively, you can run the following commands to clear the *entire Swift Package Manager cache* on macOS:
 ```bash
 rm -rf ~/Library/Caches/org.swift.swiftpm
 rm -rf ~/Library/org.swift.swiftpm
 ```
-> Note that running the commands above will delete the entire cache used by Swift Package Manager for all your packages and may take a while to restore them by using Xcode options such as `Reset Package Caches`, `Resolve Package Versions` and `Update to Latest Package Versions`. 
+> Note that running the commands from above will delete the entire cache used by Swift Package Manager for all your packages and may take a while to restore them by using Xcode options such as `Reset Package Caches`, `Resolve Package Versions` and `Update to Latest Package Versions`. 
 
-##### Clear Derived Data
+###### 3. Clear Derived Data
 
-Another option is to delete the entry for your project from `Derived Data`. Xcode keeps its packages in:
+Delete the entry for your project from `Derived Data` because Xcode also keeps its packages in:
 ```bash
 ~/Library/Developer/Xcode/DerivedData/your-project/SourcePackages/checkouts/
 ```
+
+This should remove all traces of **_AdswizzSDK_** and its dependency packages, and you can try to install them again by following the [Installation](#installation) steps from above.
 
 ##### Xcode options
 
@@ -263,7 +290,7 @@ Copy the following contents to it:
 	carthage update --no-build --use-netrc # checkout
 
 	cp -f $customConfigFilename "Carthage/Checkouts/ad-sdk-ios-privacydata/AdswizzSDKPrivacyData/CustomConfig.xcconfig"
-	echo -e "" > "Carthage/Checkouts/ad-sdk-ios-privacydata/AdswizzSDKPrivacyData/AdswizzSDKPrivacyData/CreateCustomConfig.sh"
+	echo "" > "Carthage/Checkouts/ad-sdk-ios-privacydata/AdswizzSDKPrivacyData/AdswizzSDKPrivacyData/CreateCustomConfig.sh"
 
 	carthage build --use-netrc --use-xcframeworks
 ```

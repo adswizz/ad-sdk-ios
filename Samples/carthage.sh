@@ -29,6 +29,6 @@ export XCODE_XCCONFIG_FILE="$xcconfig"
 carthage update --no-build --use-netrc # checkout
 
 cp -f $customConfigFilename "Carthage/Checkouts/ad-sdk-ios-privacydata/AdswizzSDKPrivacyData/CustomConfig.xcconfig"
-echo -e "" > "Carthage/Checkouts/ad-sdk-ios-privacydata/AdswizzSDKPrivacyData/AdswizzSDKPrivacyData/CreateCustomConfig.sh"
+echo "" > "Carthage/Checkouts/ad-sdk-ios-privacydata/AdswizzSDKPrivacyData/AdswizzSDKPrivacyData/CreateCustomConfig.sh"
 
 carthage build --use-netrc --use-xcframeworks

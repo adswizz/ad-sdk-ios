@@ -21,14 +21,17 @@ class ModelView: ObservableObject {
     private let companionZone: String?
     private let adType: AdType
     private var adManagerDelegate: AdManagerDelegate?
-    var videoView: AdVideoView?
+    var videoView: AdVideoView? = nil
     @Published var isPlaying: Bool
+    @Published var hasCompanionView: Bool
+    
     
     init(adType: AdType, zoneIds: [String], companionZone: String? = nil) {
         self.adType = adType
         self.zoneIds = zoneIds
         self.companionZone = companionZone
         self.isPlaying = false
+        self.hasCompanionView = false
     }
     
     func requestAds() {
@@ -58,18 +61,16 @@ class ModelView: ObservableObject {
                     self?.adManager = adManager
                     adManager?.delegate = self
                     
-                    if self?.adType == .video {
+                    if let self = self, let adManager = self.adManager, self.adType == .video {
+                      // create the video view for the Ad break
+                        self.videoView = AdVideoView()
+                        
                         // Pass the video view
                         let settings = AdManagerSettings()
-                        if let videoView = self?.videoView {
-                            settings.videoView = videoView
-                        }
-                        // Keep a strong ref to adManager
-                        self?.adManager = adManager
-                        adManager?.delegate = self
-                        adManager?.adManagerSettings = settings
+                        settings.videoView = self.videoView
+                        adManager.adManagerSettings = settings
                     }
-                    
+
                     // Prepare
                     adManager?.prepare()
 
@@ -96,7 +97,7 @@ class ModelView: ObservableObject {
         adManager?.delegate = nil
         adManager = nil
     }
-    
+        
     private func bannerAdRequest(zones: [AdswizzAdZone], companionZone: String?) throws -> AdRequest {
         var builder = AdswizzAdRequest.Builder()
             .with(server: adServer)
@@ -126,13 +127,17 @@ extension ModelView: AdManagerDelegate {
         switch event.event {
         case .readyForPlay:
             isPlaying = true
+            hasCompanionView = event.ad?.hasCompanion ?? false
             // Start playing ad(s)
-            self.adManager?.play()
+            
+            adManager.play()
 
         case .allAdsCompleted:
             // Cleanup
             self.adManager = nil
             isPlaying = false
+            hasCompanionView = false
+            videoView = nil
         default:
             break
         }

@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.9.3] - 2024-09-13
+### Added
+- Integration Guide:
+    - New section on [Companion banners best practices](iOS/SDKiOS/CompanionBanner#companion-best-practices) when working with the [AdCompanionView](iOS/SDKiOS/CompanionBanner#adding-an-adcompanionview) component
+
+### Fixed
+- Analytics:
+    - Service release
+- Integration Guide:
+    - Minor fix in the `carthage.sh` script for [Carthage integrations](iOS/SDKiOS/GetStarted#custom-carthage-run-script) when the script is executed in the `zsh` interactive shell instead of `bash` 
+- Samples:
+    - Updated the [BasicSwiftUIClientSideInsertion](iOS/SDKiOS/SampleProjects#basicswiftuiclientsideinsertion) sample which improves handling for UI components such as `AdCompanionView` and `AdVideoView` in a SwiftUI app
+
 ## [7.9.2] - 2024-06-28
 ### Added
 - Dependency manager support:
