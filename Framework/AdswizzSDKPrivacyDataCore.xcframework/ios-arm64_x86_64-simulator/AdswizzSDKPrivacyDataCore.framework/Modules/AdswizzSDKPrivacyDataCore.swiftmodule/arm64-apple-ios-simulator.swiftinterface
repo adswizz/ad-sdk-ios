@@ -1,0 +1,153 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name AdswizzSDKPrivacyDataCore
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+@_exported import AdswizzSDKPrivacyDataCore
+import Foundation
+import Speech
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@objc public class RequestResult : ObjectiveC.NSObject {
+  @objc public var success: AdswizzSDKPrivacyDataCore.PermissionValue {
+    get
+  }
+  @objc public var failure: (any Swift.Error)? {
+    get
+  }
+  public init(success: AdswizzSDKPrivacyDataCore.PermissionValue, failure: (any Swift.Error)? = nil)
+  @objc deinit
+}
+extension AdswizzSDKPrivacyDataCore.RequestResult {
+  public var result: Swift.Result<AdswizzSDKPrivacyDataCore.PermissionValue, any Swift.Error> {
+    get
+  }
+}
+public typealias RequestCompletion = (_ result: AdswizzSDKPrivacyDataCore.RequestResult) -> Swift.Void
+@objc public protocol RequesterProtocol {
+  @objc var authorizationStatus: AdswizzSDKPrivacyDataCore.PermissionValue { get }
+  @objc(request:) func request(completion: @escaping AdswizzSDKPrivacyDataCore.RequestCompletion)
+}
+@objc public enum PermissionValue : Swift.Int {
+  case granted
+  case denied
+  case notAsked
+  case cantAsk
+  public var stringRepresentation: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum PermissionType : Swift.Int {
+  case location
+  case locationAdvanced
+  case photo
+  case microphone
+  case speech
+  case calendar
+  case calendarAdvanced
+  case contacts
+  case camera
+  case idfa
+  case motionActivity
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension AdswizzSDKPrivacyDataCore.PermissionType {
+  public static let all: [AdswizzSDKPrivacyDataCore.PermissionType]
+}
+@objc public protocol AdswizzSDKPermissions {
+  @objc func authorizationStatus(for permission: AdswizzSDKPrivacyDataCore.PermissionType) -> AdswizzSDKPrivacyDataCore.PermissionValue
+  @objc func request(permission type: AdswizzSDKPrivacyDataCore.PermissionType, completion: @escaping AdswizzSDKPrivacyDataCore.RequestCompletion)
+}
+@objc public protocol AdswizzSDKFactory {
+  @objc func buildActivityManager() -> (any AdswizzSDKPrivacyDataCore.MotionActivityManager)?
+  @objc func buildSpeechRecognizer(locale: Foundation.Locale) -> (any AdswizzSDKPrivacyDataCore.SpeechRecognizer)?
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class AdswizzSDKPrivacyData : ObjectiveC.NSObject {
+  @objc public static let shared: AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData
+  @objc deinit
+}
+extension AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData : AdswizzSDKPrivacyDataCore.AdswizzSDKPermissions {
+  @objc dynamic public func request(permission type: AdswizzSDKPrivacyDataCore.PermissionType, completion: @escaping AdswizzSDKPrivacyDataCore.RequestCompletion)
+  @objc dynamic public func authorizationStatus(for permission: AdswizzSDKPrivacyDataCore.PermissionType) -> AdswizzSDKPrivacyDataCore.PermissionValue
+}
+extension AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData : AdswizzSDKPrivacyDataCore.AdswizzSDKFactory {
+  @objc dynamic public func buildActivityManager() -> (any AdswizzSDKPrivacyDataCore.MotionActivityManager)?
+  @objc dynamic public func buildSpeechRecognizer(locale: Foundation.Locale) -> (any AdswizzSDKPrivacyDataCore.SpeechRecognizer)?
+}
+@objc public enum MotionActivityConfidence : Swift.Int {
+  case low = 0
+  case medium
+  case high
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol MotionActivity {
+  @objc var activityConfidence: AdswizzSDKPrivacyDataCore.MotionActivityConfidence { get }
+  @objc var startDate: Foundation.Date { get }
+  @objc var unknown: Swift.Bool { get }
+  @objc var stationary: Swift.Bool { get }
+  @objc var walking: Swift.Bool { get }
+  @objc var running: Swift.Bool { get }
+  @objc var automotive: Swift.Bool { get }
+  @objc var cycling: Swift.Bool { get }
+}
+@objc public protocol MotionActivityManager {
+  @objc func startActivity(to queue: Foundation.OperationQueue, withHandler handler: @escaping ((any AdswizzSDKPrivacyDataCore.MotionActivity)?) -> ())
+  @objc func stopActivity()
+}
+@objc public protocol SpeechRecognizer {
+  @objc init?(locale: Foundation.Locale)
+  @objc func recognitionTask(with request: Speech.SFSpeechRecognitionRequest, resultHandler: @escaping (Speech.SFSpeechRecognitionResult?, (any Swift.Error)?) -> Swift.Void) -> Speech.SFSpeechRecognitionTask
+}
+@objc public enum LocationUsageType : Swift.Int {
+  case whenInUse
+  case always
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol LocationRequesterProtocol : AdswizzSDKPrivacyDataCore.RequesterProtocol {
+  @objc init(type: AdswizzSDKPrivacyDataCore.LocationUsageType)
+}
+@objc public enum CalendarAccessType : Swift.Int {
+  case writeOnly
+  case full
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol CalendarRequesterProtocol : AdswizzSDKPrivacyDataCore.RequesterProtocol {
+  @objc init(type: AdswizzSDKPrivacyDataCore.CalendarAccessType)
+}
+extension AdswizzSDKPrivacyDataCore.PermissionType : Swift.Equatable {}
+extension AdswizzSDKPrivacyDataCore.PermissionType : Swift.Hashable {}
+extension AdswizzSDKPrivacyDataCore.PermissionType : Swift.RawRepresentable {}
+extension AdswizzSDKPrivacyDataCore.PermissionValue : Swift.Equatable {}
+extension AdswizzSDKPrivacyDataCore.PermissionValue : Swift.Hashable {}
+extension AdswizzSDKPrivacyDataCore.PermissionValue : Swift.RawRepresentable {}
+extension AdswizzSDKPrivacyDataCore.MotionActivityConfidence : Swift.Equatable {}
+extension AdswizzSDKPrivacyDataCore.MotionActivityConfidence : Swift.Hashable {}
+extension AdswizzSDKPrivacyDataCore.MotionActivityConfidence : Swift.RawRepresentable {}
+extension AdswizzSDKPrivacyDataCore.LocationUsageType : Swift.Equatable {}
+extension AdswizzSDKPrivacyDataCore.LocationUsageType : Swift.Hashable {}
+extension AdswizzSDKPrivacyDataCore.LocationUsageType : Swift.RawRepresentable {}
+extension AdswizzSDKPrivacyDataCore.CalendarAccessType : Swift.Equatable {}
+extension AdswizzSDKPrivacyDataCore.CalendarAccessType : Swift.Hashable {}
+extension AdswizzSDKPrivacyDataCore.CalendarAccessType : Swift.RawRepresentable {}

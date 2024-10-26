@@ -14,6 +14,33 @@ let package = Package(
         .library(
             name: "AdswizzSDKPinpointAnalytics",
             targets: ["AdswizzSDKPinpointAnalytics"]),
+        .library(
+            name: "AdswizzSDKPrivacyDataCalendar",
+            targets: ["AdswizzSDKPrivacyDataCalendar"]),
+        .library(
+            name: "AdswizzSDKPrivacyDataCamera",
+            targets: ["AdswizzSDKPrivacyDataCamera"]),
+        .library(
+            name: "AdswizzSDKPrivacyDataContacts",
+            targets: ["AdswizzSDKPrivacyDataContacts"]),
+        .library(
+            name: "AdswizzSDKPrivacyDataIDFA",
+            targets: ["AdswizzSDKPrivacyDataIDFA"]),
+        .library(
+            name: "AdswizzSDKPrivacyDataLocation",
+            targets: ["AdswizzSDKPrivacyDataLocation"]),
+        .library(
+            name: "AdswizzSDKPrivacyDataMicrophone",
+            targets: ["AdswizzSDKPrivacyDataMicrophone"]),
+        .library(
+            name: "AdswizzSDKPrivacyDataMotion",
+            targets: ["AdswizzSDKPrivacyDataMotion"]),
+        .library(
+            name: "AdswizzSDKPrivacyDataPhotos",
+            targets: ["AdswizzSDKPrivacyDataPhotos"]),
+        .library(
+            name: "AdswizzSDKPrivacyDataSpeech",
+            targets: ["AdswizzSDKPrivacyDataSpeech"]),
     ],
     dependencies: [],
     targets: [
@@ -27,23 +54,68 @@ let package = Package(
         ),
         .binaryTarget(
             name: "AdswizzSDK",
-            url: "https://api.github.com/repos/adswizz/ad-sdk-ios/releases/assets/192925777.zip",
-            checksum: "7114e711acd7e11dbacc25e99427637ae27056cc076529d437e5d66504850a0d"
+            path: "Framework/AdswizzSDK.xcframework"
         ),
         .binaryTarget(
             name: "AdswizzSDKCore",
-            url: "https://api.github.com/repos/adswizz/ad-sdk-ios/releases/assets/192925782.zip",
-            checksum: "6ac224c31bb6637c2226015ba65aa8fad73f8f786d9c643a14d118f2d2c49883"
+            path: "Framework/AdswizzSDKCore.xcframework"
         ),
         .binaryTarget(
             name: "AdswizzWatchSDK",
-            url: "https://api.github.com/repos/adswizz/ad-sdk-ios/releases/assets/192925784.zip",
-            checksum: "df9c853ed973f896b5ea4877048188745e1d26d233005a68a1a20bd0a32edd46"
+            path: "Framework/AdswizzWatchSDK.xcframework"
         ),
         .binaryTarget(
             name: "AdswizzSDKPinpointAnalytics",
-            url: "https://api.github.com/repos/adswizz/ad-sdk-ios/releases/assets/192925783.zip",
-            checksum: "9390f805b2dc789c7e557f21ae40b00657efbb9cd8116bf08ed50265423e41e4"
+            path: "Framework/AdswizzSDKPinpointAnalytics.xcframework"
         ),
+        .binaryTarget(
+            name: "AdswizzSDKPrivacyDataCore",
+            path: "Framework/AdswizzSDKPrivacyDataCore.xcframework"
+        ),
+        .target(
+            name: "AdswizzSDKPrivacyDataCalendar",
+            dependencies: [.target(name: "AdswizzSDKPrivacyDataCore")],
+            path: "AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataCalendar"
+        ),
+        .target(
+            name: "AdswizzSDKPrivacyDataCamera",
+            dependencies: [.target(name: "AdswizzSDKPrivacyDataCore")],
+            path: "AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataCamera"
+        ),
+        .target(
+            name: "AdswizzSDKPrivacyDataContacts",
+            dependencies: [.target(name: "AdswizzSDKPrivacyDataCore")],
+            path: "AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataContacts"
+        ),
+        .target(
+            name: "AdswizzSDKPrivacyDataIDFA",
+            dependencies: [.target(name: "AdswizzSDKPrivacyDataCore")],
+            path: "AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataIDFA"
+        ),
+        .target(
+            name: "AdswizzSDKPrivacyDataLocation",
+            dependencies: [.target(name: "AdswizzSDKPrivacyDataCore")],
+            path: "AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataLocation"
+        ),
+        .target(
+            name: "AdswizzSDKPrivacyDataMicrophone",
+            dependencies: [.target(name: "AdswizzSDKPrivacyDataCore")],
+            path: "AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataMicrophone"
+        ),
+        .target(
+            name: "AdswizzSDKPrivacyDataMotion",
+            dependencies: [.target(name: "AdswizzSDKPrivacyDataCore")],
+            path: "AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataMotion"
+        ),
+        .target(
+            name: "AdswizzSDKPrivacyDataPhotos",
+            dependencies: [.target(name: "AdswizzSDKPrivacyDataCore")],
+            path: "AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataPhotos"
+        ),
+        .target(
+            name: "AdswizzSDKPrivacyDataSpeech",
+            dependencies: [.target(name: "AdswizzSDKPrivacyDataCore")],
+            path: "AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataSpeech"
+        )
     ]
 )

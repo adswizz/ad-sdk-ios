@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		AEB79BE32C0483E600385E1F /* ReleaseAdswizzSDKPrivacyDataCore */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AEB79BE62C0483E600385E1F /* Build configuration list for PBXAggregateTarget "ReleaseAdswizzSDKPrivacyDataCore" */;
+			buildPhases = (
+				AEB79BE72C0485A000385E1F /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = ReleaseAdswizzSDKPrivacyDataCore;
+			productName = ReleaseAdswizzSDKPrivacyDataCore;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		AE3B2F8D2BFE02FB00EA40CE /* AdswizzSDKPrivacyDataCore.h in Headers */ = {isa = PBXBuildFile; fileRef = AE3B2F8C2BFE02FB00EA40CE /* AdswizzSDKPrivacyDataCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE3B2F952BFE042400EA40CE /* AdswizzSDKPrivacyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3B2F932BFE042400EA40CE /* AdswizzSDKPrivacyData.swift */; };
+		AE3B2FB92BFE1E4600EA40CE /* RequesterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3B2FB82BFE1E4600EA40CE /* RequesterProtocol.swift */; };
+		AE3B2FBF2BFE1F4400EA40CE /* PermissionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3B2FBE2BFE1F4400EA40CE /* PermissionsRequest.swift */; };
+		AEE65ABC2C076A72004FC945 /* NSError+PrivacyDataErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE65ABB2C076A72004FC945 /* NSError+PrivacyDataErrors.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AE3B2F892BFE02FB00EA40CE /* AdswizzSDKPrivacyDataCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdswizzSDKPrivacyDataCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE3B2F8C2BFE02FB00EA40CE /* AdswizzSDKPrivacyDataCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdswizzSDKPrivacyDataCore.h; sourceTree = "<group>"; };
+		AE3B2F932BFE042400EA40CE /* AdswizzSDKPrivacyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdswizzSDKPrivacyData.swift; sourceTree = "<group>"; };
+		AE3B2F942BFE042400EA40CE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE3B2FB82BFE1E4600EA40CE /* RequesterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequesterProtocol.swift; sourceTree = "<group>"; };
+		AE3B2FBE2BFE1F4400EA40CE /* PermissionsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionsRequest.swift; sourceTree = "<group>"; };
+		AEE65ABB2C076A72004FC945 /* NSError+PrivacyDataErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+PrivacyDataErrors.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE3B2F862BFE02FB00EA40CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE3B2F7F2BFE02FA00EA40CE = {
+			isa = PBXGroup;
+			children = (
+				AE3B2F8B2BFE02FB00EA40CE /* AdswizzSDKPrivacyDataCore */,
+				AE3B2F8A2BFE02FB00EA40CE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE3B2F8A2BFE02FB00EA40CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE3B2F892BFE02FB00EA40CE /* AdswizzSDKPrivacyDataCore.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE3B2F8B2BFE02FB00EA40CE /* AdswizzSDKPrivacyDataCore */ = {
+			isa = PBXGroup;
+			children = (
+				AE3B2F932BFE042400EA40CE /* AdswizzSDKPrivacyData.swift */,
+				AE3B2FB82BFE1E4600EA40CE /* RequesterProtocol.swift */,
+				AE3B2FBE2BFE1F4400EA40CE /* PermissionsRequest.swift */,
+				AEE65ABB2C076A72004FC945 /* NSError+PrivacyDataErrors.swift */,
+				AE3B2F942BFE042400EA40CE /* Info.plist */,
+				AE3B2F8C2BFE02FB00EA40CE /* AdswizzSDKPrivacyDataCore.h */,
+			);
+			path = AdswizzSDKPrivacyDataCore;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AE3B2F842BFE02FB00EA40CE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE3B2F8D2BFE02FB00EA40CE /* AdswizzSDKPrivacyDataCore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AE3B2F882BFE02FB00EA40CE /* AdswizzSDKPrivacyDataCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE3B2F902BFE02FB00EA40CE /* Build configuration list for PBXNativeTarget "AdswizzSDKPrivacyDataCore" */;
+			buildPhases = (
+				AE3B2F842BFE02FB00EA40CE /* Headers */,
+				AE3B2F852BFE02FB00EA40CE /* Sources */,
+				AE3B2F862BFE02FB00EA40CE /* Frameworks */,
+				AE3B2F872BFE02FB00EA40CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdswizzSDKPrivacyDataCore;
+			productName = AdswizzSDKPrivacyDataCore;
+			productReference = AE3B2F892BFE02FB00EA40CE /* AdswizzSDKPrivacyDataCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE3B2F802BFE02FA00EA40CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1520;
+				ORGANIZATIONNAME = AdsWizz;
+				TargetAttributes = {
+					AE3B2F882BFE02FB00EA40CE = {
+						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
+					};
+					AEB79BE32C0483E600385E1F = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = AE3B2F832BFE02FA00EA40CE /* Build configuration list for PBXProject "AdswizzSDKPrivacyDataCore" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE3B2F7F2BFE02FA00EA40CE;
+			productRefGroup = AE3B2F8A2BFE02FB00EA40CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE3B2F882BFE02FB00EA40CE /* AdswizzSDKPrivacyDataCore */,
+				AEB79BE32C0483E600385E1F /* ReleaseAdswizzSDKPrivacyDataCore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE3B2F872BFE02FB00EA40CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AEB79BE72C0485A000385E1F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\nWORKSPACE_NAME=\"AdswizzSDKPrivacyDataKit\"\nFRAMEWORK_NAME=\"AdswizzSDKPrivacyDataCore\"\nBUILD_DIR=\"../../build\"\n\n[! -d \"$BUILD_DIR\"] || mkdir -p \"$BUILD_DIR\"\nOUTPUT_DIR=\"${BUILD_DIR}/${FRAMEWORK_NAME}\"\nrm -rf \"$OUTPUT_DIR\"\nmkdir -p \"$OUTPUT_DIR\"\n\nfunction build {\n    env FROM_IDE=false \\\n    xcodebuild archive -workspace \"../${WORKSPACE_NAME}.xcworkspace\" \\\n               -scheme ${FRAMEWORK_NAME} \\\n               -destination \"$1\" \\\n               -configuration ${CONFIGURATION} clean archive \\\n               OBJROOT=\"${OBJROOT}/DependantBuilds\" \\\n               -archivePath \"$2\" \\\n               SKIP_INSTALL=NO\n}\n\nSIM_DIR=\"$TEMP_DIR/${FRAMEWORK_NAME}.iOS-simulator.xcarchive\"\nDEVICE_DIR=\"$TEMP_DIR/${FRAMEWORK_NAME}.iOS.xcarchive\"\nbuild \"generic/platform=iOS Simulator\" $SIM_DIR\nbuild \"generic/platform=iOS\" $DEVICE_DIR\n\nDEVICE_DSYM=\"$DEVICE_DIR/dSYMs/${FRAMEWORK_NAME}.framework.dSYM\"\nSIM_DSYM=\"$SIM_DIR/dSYMs/${FRAMEWORK_NAME}.framework.dSYM\"\n\nxcodebuild -create-xcframework \\\n           -framework \"$DEVICE_DIR/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework\" \\\n           -debug-symbols $DEVICE_DSYM \\\n           -framework \"$SIM_DIR/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework\" \\\n           -debug-symbols $SIM_DSYM \\\n           -output       \"${BUILD_DIR}/${FRAMEWORK_NAME}/${FRAMEWORK_NAME}.xcframework\"\n\n# add digital signature\ncodesign --timestamp -v --sign \"Apple Distribution: ADSWIZZ SA (C3N4BPH864)\" \"${BUILD_DIR}/${FRAMEWORK_NAME}/${FRAMEWORK_NAME}.xcframework\"\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE3B2F852BFE02FB00EA40CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE3B2FB92BFE1E4600EA40CE /* RequesterProtocol.swift in Sources */,
+				AE3B2FBF2BFE1F4400EA40CE /* PermissionsRequest.swift in Sources */,
+				AE3B2F952BFE042400EA40CE /* AdswizzSDKPrivacyData.swift in Sources */,
+				AEE65ABC2C076A72004FC945 /* NSError+PrivacyDataErrors.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AE3B2F8E2BFE02FB00EA40CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AE3B2F8F2BFE02FB00EA40CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AE3B2F912BFE02FB00EA40CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = C3N4BPH864;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adswizz.AdswizzSDKPrivacyDataCore;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AE3B2F922BFE02FB00EA40CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = C3N4BPH864;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adswizz.AdswizzSDKPrivacyDataCore;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AEB79BE42C0483E600385E1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C3N4BPH864;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AEB79BE52C0483E600385E1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C3N4BPH864;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE3B2F832BFE02FA00EA40CE /* Build configuration list for PBXProject "AdswizzSDKPrivacyDataCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE3B2F8E2BFE02FB00EA40CE /* Debug */,
+				AE3B2F8F2BFE02FB00EA40CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE3B2F902BFE02FB00EA40CE /* Build configuration list for PBXNativeTarget "AdswizzSDKPrivacyDataCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE3B2F912BFE02FB00EA40CE /* Debug */,
+				AE3B2F922BFE02FB00EA40CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEB79BE62C0483E600385E1F /* Build configuration list for PBXAggregateTarget "ReleaseAdswizzSDKPrivacyDataCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEB79BE42C0483E600385E1F /* Debug */,
+				AEB79BE52C0483E600385E1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE3B2F802BFE02FA00EA40CE /* Project object */;
+}

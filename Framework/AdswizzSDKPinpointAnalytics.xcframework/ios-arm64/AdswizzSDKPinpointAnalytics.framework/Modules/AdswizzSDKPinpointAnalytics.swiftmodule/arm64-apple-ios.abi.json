@@ -3957,8 +3957,8 @@
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/Protocols\/Public\/Modules\/SDKVersionSource.swift",
       "kind": "StringLiteral",
       "offset": 258,
-      "length": 7,
-      "value": "\"7.9.3\""
+      "length": 8,
+      "value": "\"7.10.0\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSPinpointResponses.swift",

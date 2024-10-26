@@ -1,0 +1,4338 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RequestResult",
+        "printedName": "RequestResult",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "success",
+            "printedName": "success",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionValue",
+                "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)RequestResult(py)success",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore13RequestResultC7successAA15PermissionValueOvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "isOpen": true,
+            "declAttributes": [
+              "HasStorage",
+              "SetterAccess",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionValue",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)RequestResult(im)success",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore13RequestResultC7successAA15PermissionValueOvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "failure",
+            "printedName": "failure",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Error?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)RequestResult(py)failure",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore13RequestResultC7failures5Error_pSgvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "SetterAccess",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Error?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)RequestResult(im)failure",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore13RequestResultC7failures5Error_pSgvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(success:failure:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RequestResult",
+                "printedName": "AdswizzSDKPrivacyDataCore.RequestResult",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)RequestResult"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionValue",
+                "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Error?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:25AdswizzSDKPrivacyDataCore13RequestResultC7success7failureAcA15PermissionValueO_s5Error_pSgtcfc",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore13RequestResultC7success7failureAcA15PermissionValueO_s5Error_pSgtcfc",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RequestResult",
+                "printedName": "AdswizzSDKPrivacyDataCore.RequestResult",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)RequestResult"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)RequestResult(im)init",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore13RequestResultCACycfc",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "result",
+            "printedName": "result",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<AdswizzSDKPrivacyDataCore.PermissionValue, Swift.Error>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionValue",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore13RequestResultC6results0F0OyAA15PermissionValueOs5Error_pGvp",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore13RequestResultC6results0F0OyAA15PermissionValueOs5Error_pGvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "isOpen": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<AdswizzSDKPrivacyDataCore.PermissionValue, Swift.Error>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionValue",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore13RequestResultC6results0F0OyAA15PermissionValueOs5Error_pGvg",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore13RequestResultC6results0F0OyAA15PermissionValueOs5Error_pGvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "isOpen": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)RequestResult",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore13RequestResultC",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RequesterProtocol",
+        "printedName": "RequesterProtocol",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "authorizationStatus",
+            "printedName": "authorizationStatus",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionValue",
+                "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)RequesterProtocol(py)authorizationStatus",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore17RequesterProtocolP19authorizationStatusAA15PermissionValueOvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionValue",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)RequesterProtocol(im)authorizationStatus",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore17RequesterProtocolP19authorizationStatusAA15PermissionValueOvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.RequesterProtocol>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.RequesterProtocol>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "request",
+            "printedName": "request(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.RequestResult) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestResult",
+                    "printedName": "AdswizzSDKPrivacyDataCore.RequestResult",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)RequestResult"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)RequesterProtocol(im)request:",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore17RequesterProtocolP7request10completionyyAA13RequestResultCc_tF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.RequesterProtocol>",
+            "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.RequesterProtocol>",
+            "protocolReq": true,
+            "objc_name": "request:",
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)RequesterProtocol",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore17RequesterProtocolP",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Speech",
+        "printedName": "Speech",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDKPrivacyDataCore"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PermissionValue",
+        "printedName": "PermissionValue",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "granted",
+            "printedName": "granted",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionValue.Type) -> AdswizzSDKPrivacyDataCore.PermissionValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionValue",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionValue",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue@PermissionValueGranted",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore15PermissionValueO7grantedyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "denied",
+            "printedName": "denied",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionValue.Type) -> AdswizzSDKPrivacyDataCore.PermissionValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionValue",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionValue",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue@PermissionValueDenied",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore15PermissionValueO6deniedyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "notAsked",
+            "printedName": "notAsked",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionValue.Type) -> AdswizzSDKPrivacyDataCore.PermissionValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionValue",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionValue",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue@PermissionValueNotAsked",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore15PermissionValueO8notAskedyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "cantAsk",
+            "printedName": "cantAsk",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionValue.Type) -> AdswizzSDKPrivacyDataCore.PermissionValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionValue",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionValue",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue@PermissionValueCantAsk",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore15PermissionValueO7cantAskyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Var",
+            "name": "stringRepresentation",
+            "printedName": "stringRepresentation",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore15PermissionValueO20stringRepresentationSSvp",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore15PermissionValueO20stringRepresentationSSvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore15PermissionValueO20stringRepresentationSSvg",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore15PermissionValueO20stringRepresentationSSvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionValue",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:25AdswizzSDKPrivacyDataCore15PermissionValueO03rawF0ACSgSi_tcfc",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore15PermissionValueO03rawF0ACSgSi_tcfc",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore15PermissionValueO03rawF0Sivp",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore15PermissionValueO03rawF0Sivp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore15PermissionValueO03rawF0Sivg",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore15PermissionValueO03rawF0Sivg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore15PermissionValueO",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PermissionType",
+        "printedName": "PermissionType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "location",
+            "printedName": "location",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionType.Type) -> AdswizzSDKPrivacyDataCore.PermissionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType@PermissionTypeLocation",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO8locationyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "locationAdvanced",
+            "printedName": "locationAdvanced",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionType.Type) -> AdswizzSDKPrivacyDataCore.PermissionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType@PermissionTypeLocationAdvanced",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO16locationAdvancedyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "photo",
+            "printedName": "photo",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionType.Type) -> AdswizzSDKPrivacyDataCore.PermissionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType@PermissionTypePhoto",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO5photoyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "microphone",
+            "printedName": "microphone",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionType.Type) -> AdswizzSDKPrivacyDataCore.PermissionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType@PermissionTypeMicrophone",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO10microphoneyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Var",
+            "name": "speech",
+            "printedName": "speech",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionType.Type) -> AdswizzSDKPrivacyDataCore.PermissionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType@PermissionTypeSpeech",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO6speechyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 4
+          },
+          {
+            "kind": "Var",
+            "name": "calendar",
+            "printedName": "calendar",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionType.Type) -> AdswizzSDKPrivacyDataCore.PermissionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType@PermissionTypeCalendar",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO8calendaryA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 5
+          },
+          {
+            "kind": "Var",
+            "name": "calendarAdvanced",
+            "printedName": "calendarAdvanced",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionType.Type) -> AdswizzSDKPrivacyDataCore.PermissionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType@PermissionTypeCalendarAdvanced",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO16calendarAdvancedyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 6
+          },
+          {
+            "kind": "Var",
+            "name": "contacts",
+            "printedName": "contacts",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionType.Type) -> AdswizzSDKPrivacyDataCore.PermissionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType@PermissionTypeContacts",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO8contactsyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 7
+          },
+          {
+            "kind": "Var",
+            "name": "camera",
+            "printedName": "camera",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionType.Type) -> AdswizzSDKPrivacyDataCore.PermissionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType@PermissionTypeCamera",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO6camerayA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 8
+          },
+          {
+            "kind": "Var",
+            "name": "idfa",
+            "printedName": "idfa",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionType.Type) -> AdswizzSDKPrivacyDataCore.PermissionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType@PermissionTypeIdfa",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO4idfayA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 9
+          },
+          {
+            "kind": "Var",
+            "name": "motionActivity",
+            "printedName": "motionActivity",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.PermissionType.Type) -> AdswizzSDKPrivacyDataCore.PermissionType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType@PermissionTypeMotionActivity",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO14motionActivityyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 10
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdswizzSDKPrivacyDataCore.PermissionType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:25AdswizzSDKPrivacyDataCore14PermissionTypeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO8rawValueACSgSi_tcfc",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore14PermissionTypeO8rawValueSivp",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO8rawValueSivp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore14PermissionTypeO8rawValueSivg",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO8rawValueSivg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "requester",
+            "printedName": "requester",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdswizzSDKPrivacyDataCore.RequesterProtocol?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequesterProtocol",
+                    "printedName": "AdswizzSDKPrivacyDataCore.RequesterProtocol",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)RequesterProtocol"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore14PermissionTypeO9requesterAA17RequesterProtocol_pSgvp",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO9requesterAA17RequesterProtocol_pSgvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "AdswizzSDKPrivacyDataCore.RequesterProtocol?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RequesterProtocol",
+                        "printedName": "AdswizzSDKPrivacyDataCore.RequesterProtocol",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)RequesterProtocol"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore14PermissionTypeO9requesterAA17RequesterProtocol_pSgvg",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO9requesterAA17RequesterProtocol_pSgvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "all",
+            "printedName": "all",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AdswizzSDKPrivacyDataCore.PermissionType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore14PermissionTypeO3allSayACGvpZ",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO3allSayACGvpZ",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[AdswizzSDKPrivacyDataCore.PermissionType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore14PermissionTypeO3allSayACGvgZ",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO3allSayACGvgZ",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "static": true,
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AdswizzSDKPermissions",
+        "printedName": "AdswizzSDKPermissions",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "authorizationStatus",
+            "printedName": "authorizationStatus(for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionValue",
+                "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionType",
+                "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)AdswizzSDKPermissions(im)authorizationStatusFor:",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0A14SDKPermissionsP19authorizationStatus3forAA15PermissionValueOAA0I4TypeO_tF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.AdswizzSDKPermissions>",
+            "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.AdswizzSDKPermissions>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "request",
+            "printedName": "request(permission:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionType",
+                "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.RequestResult) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestResult",
+                    "printedName": "AdswizzSDKPrivacyDataCore.RequestResult",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)RequestResult"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)AdswizzSDKPermissions(im)requestWithPermission:completion:",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0A14SDKPermissionsP7request10permission10completionyAA14PermissionTypeO_yAA13RequestResultCctF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.AdswizzSDKPermissions>",
+            "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.AdswizzSDKPermissions>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)AdswizzSDKPermissions",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore0A14SDKPermissionsP",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AdswizzSDKFactory",
+        "printedName": "AdswizzSDKFactory",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "buildActivityManager",
+            "printedName": "buildActivityManager()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityManager?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MotionActivityManager",
+                    "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityManager",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivityManager"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)AdswizzSDKFactory(im)buildActivityManager",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0A10SDKFactoryP20buildActivityManagerAA06MotiongH0_pSgyF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.AdswizzSDKFactory>",
+            "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.AdswizzSDKFactory>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "buildSpeechRecognizer",
+            "printedName": "buildSpeechRecognizer(locale:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdswizzSDKPrivacyDataCore.SpeechRecognizer?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SpeechRecognizer",
+                    "printedName": "AdswizzSDKPrivacyDataCore.SpeechRecognizer",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)SpeechRecognizer"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Locale",
+                "printedName": "Foundation.Locale",
+                "usr": "s:10Foundation6LocaleV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)AdswizzSDKFactory(im)buildSpeechRecognizerWithLocale:",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0A10SDKFactoryP21buildSpeechRecognizer6localeAA0gH0_pSg10Foundation6LocaleV_tF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.AdswizzSDKFactory>",
+            "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.AdswizzSDKFactory>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)AdswizzSDKFactory",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore0A10SDKFactoryP",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AdswizzSDKPrivacyData",
+        "printedName": "AdswizzSDKPrivacyData",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdswizzSDKPrivacyData",
+                "printedName": "AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)AdswizzSDKPrivacyData"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)AdswizzSDKPrivacyData(cpy)shared",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0abC0C6sharedACvpZ",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdswizzSDKPrivacyData",
+                    "printedName": "AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)AdswizzSDKPrivacyData"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)AdswizzSDKPrivacyData(cm)shared",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore0abC0C6sharedACvgZ",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "requesters",
+            "printedName": "requesters",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[AdswizzSDKPrivacyDataCore.PermissionType : AdswizzSDKPrivacyDataCore.RequesterProtocol]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequesterProtocol",
+                    "printedName": "AdswizzSDKPrivacyDataCore.RequesterProtocol",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)RequesterProtocol"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore0abC0C10requestersSDyAA14PermissionTypeOAA17RequesterProtocol_pGvp",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0abC0C10requestersSDyAA14PermissionTypeOAA17RequesterProtocol_pGvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "Final",
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[AdswizzSDKPrivacyDataCore.PermissionType : AdswizzSDKPrivacyDataCore.RequesterProtocol]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RequesterProtocol",
+                        "printedName": "AdswizzSDKPrivacyDataCore.RequesterProtocol",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)RequesterProtocol"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore0abC0C10requestersSDyAA14PermissionTypeOAA17RequesterProtocol_pGvg",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore0abC0C10requestersSDyAA14PermissionTypeOAA17RequesterProtocol_pGvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdswizzSDKPrivacyData",
+                "printedName": "AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)AdswizzSDKPrivacyData"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)AdswizzSDKPrivacyData(im)init",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0abC0CACycfc",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "overriding": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "request",
+            "printedName": "request(permission:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionType",
+                "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.RequestResult) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestResult",
+                    "printedName": "AdswizzSDKPrivacyDataCore.RequestResult",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)RequestResult"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@AdswizzSDKPrivacyDataCore@objc(cs)AdswizzSDKPrivacyData(im)requestWithPermission:completion:",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0abC0C7request10permission10completionyAA14PermissionTypeO_yAA13RequestResultCctF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "isOpen": true,
+            "objc_name": "requestWithPermission:completion:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "authorizationStatus",
+            "printedName": "authorizationStatus(for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionValue",
+                "printedName": "AdswizzSDKPrivacyDataCore.PermissionValue",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionValue"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PermissionType",
+                "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@AdswizzSDKPrivacyDataCore@objc(cs)AdswizzSDKPrivacyData(im)authorizationStatusFor:",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0abC0C19authorizationStatus3forAA15PermissionValueOAA0H4TypeO_tF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "isOpen": true,
+            "objc_name": "authorizationStatusFor:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "buildActivityManager",
+            "printedName": "buildActivityManager()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityManager?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MotionActivityManager",
+                    "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityManager",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivityManager"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@AdswizzSDKPrivacyDataCore@objc(cs)AdswizzSDKPrivacyData(im)buildActivityManager",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0abC0C20buildActivityManagerAA06MotionfG0_pSgyF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "isOpen": true,
+            "objc_name": "buildActivityManager",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "buildSpeechRecognizer",
+            "printedName": "buildSpeechRecognizer(locale:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdswizzSDKPrivacyDataCore.SpeechRecognizer?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SpeechRecognizer",
+                    "printedName": "AdswizzSDKPrivacyDataCore.SpeechRecognizer",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)SpeechRecognizer"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Locale",
+                "printedName": "Foundation.Locale",
+                "usr": "s:10Foundation6LocaleV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@AdswizzSDKPrivacyDataCore@objc(cs)AdswizzSDKPrivacyData(im)buildSpeechRecognizerWithLocale:",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0abC0C21buildSpeechRecognizer6localeAA0fG0_pSg10Foundation6LocaleV_tF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "isOpen": true,
+            "objc_name": "buildSpeechRecognizerWithLocale:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(cs)AdswizzSDKPrivacyData",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore0abC0C",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "AdswizzSDKPermissions",
+            "printedName": "AdswizzSDKPermissions",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)AdswizzSDKPermissions",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0A14SDKPermissionsP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AdswizzSDKFactory",
+            "printedName": "AdswizzSDKFactory",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)AdswizzSDKFactory",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0A10SDKFactoryP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MotionActivityConfidence",
+        "printedName": "MotionActivityConfidence",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "low",
+            "printedName": "low",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.MotionActivityConfidence.Type) -> AdswizzSDKPrivacyDataCore.MotionActivityConfidence",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MotionActivityConfidence",
+                    "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MotionActivityConfidence",
+                        "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence@MotionActivityConfidenceLow",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore24MotionActivityConfidenceO3lowyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "medium",
+            "printedName": "medium",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.MotionActivityConfidence.Type) -> AdswizzSDKPrivacyDataCore.MotionActivityConfidence",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MotionActivityConfidence",
+                    "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MotionActivityConfidence",
+                        "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence@MotionActivityConfidenceMedium",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore24MotionActivityConfidenceO6mediumyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "high",
+            "printedName": "high",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.MotionActivityConfidence.Type) -> AdswizzSDKPrivacyDataCore.MotionActivityConfidence",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MotionActivityConfidence",
+                    "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MotionActivityConfidence",
+                        "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence@MotionActivityConfidenceHigh",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore24MotionActivityConfidenceO4highyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MotionActivityConfidence",
+                    "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:25AdswizzSDKPrivacyDataCore24MotionActivityConfidenceO8rawValueACSgSi_tcfc",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore24MotionActivityConfidenceO8rawValueACSgSi_tcfc",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore24MotionActivityConfidenceO8rawValueSivp",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore24MotionActivityConfidenceO8rawValueSivp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore24MotionActivityConfidenceO8rawValueSivg",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore24MotionActivityConfidenceO8rawValueSivg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore24MotionActivityConfidenceO",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MotionActivity",
+        "printedName": "MotionActivity",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "activityConfidence",
+            "printedName": "activityConfidence",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MotionActivityConfidence",
+                "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(py)activityConfidence",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP18activityConfidenceAA0efH0Ovp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MotionActivityConfidence",
+                    "printedName": "AdswizzSDKPrivacyDataCore.MotionActivityConfidence",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@MotionActivityConfidence"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(im)activityConfidence",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP18activityConfidenceAA0efH0Ovg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "startDate",
+            "printedName": "startDate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(py)startDate",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP9startDate10Foundation0H0Vvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(im)startDate",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP9startDate10Foundation0H0Vvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "unknown",
+            "printedName": "unknown",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(py)unknown",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP7unknownSbvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(im)unknown",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP7unknownSbvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "stationary",
+            "printedName": "stationary",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(py)stationary",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP10stationarySbvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(im)stationary",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP10stationarySbvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "walking",
+            "printedName": "walking",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(py)walking",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP7walkingSbvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(im)walking",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP7walkingSbvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "running",
+            "printedName": "running",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(py)running",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP7runningSbvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(im)running",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP7runningSbvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "automotive",
+            "printedName": "automotive",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(py)automotive",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP10automotiveSbvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(im)automotive",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP10automotiveSbvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "cycling",
+            "printedName": "cycling",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(py)cycling",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP7cyclingSbvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity(im)cycling",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP7cyclingSbvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.MotionActivity>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore14MotionActivityP",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MotionActivityManager",
+        "printedName": "MotionActivityManager",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "startActivity",
+            "printedName": "startActivity(to:withHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OperationQueue",
+                "printedName": "Foundation.OperationQueue",
+                "usr": "c:objc(cs)NSOperationQueue"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.MotionActivity?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "AdswizzSDKPrivacyDataCore.MotionActivity?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MotionActivity",
+                        "printedName": "AdswizzSDKPrivacyDataCore.MotionActivity",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivity"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivityManager(im)startActivityTo:withHandler:",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore21MotionActivityManagerP05startF02to11withHandlerySo16NSOperationQueueC_yAA0eF0_pSgctF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.MotionActivityManager>",
+            "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.MotionActivityManager>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stopActivity",
+            "printedName": "stopActivity()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivityManager(im)stopActivity",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore21MotionActivityManagerP04stopF0yyF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.MotionActivityManager>",
+            "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.MotionActivityManager>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)MotionActivityManager",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore21MotionActivityManagerP",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SpeechRecognizer",
+        "printedName": "SpeechRecognizer",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(locale:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_0_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Locale",
+                "printedName": "Foundation.Locale",
+                "usr": "s:10Foundation6LocaleV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)SpeechRecognizer(im)initWithLocale:",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore16SpeechRecognizerP6localexSg10Foundation6LocaleV_tcfc",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.SpeechRecognizer>",
+            "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.SpeechRecognizer>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "recognitionTask",
+            "printedName": "recognitionTask(with:resultHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SFSpeechRecognitionTask",
+                "printedName": "Speech.SFSpeechRecognitionTask",
+                "usr": "c:objc(cs)SFSpeechRecognitionTask"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SFSpeechRecognitionRequest",
+                "printedName": "Speech.SFSpeechRecognitionRequest",
+                "usr": "c:objc(cs)SFSpeechRecognitionRequest"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Speech.SFSpeechRecognitionResult?, Swift.Error?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Speech.SFSpeechRecognitionResult?, Swift.Error?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Speech.SFSpeechRecognitionResult?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "SFSpeechRecognitionResult",
+                            "printedName": "Speech.SFSpeechRecognitionResult",
+                            "usr": "c:objc(cs)SFSpeechRecognitionResult"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Error?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)SpeechRecognizer(im)recognitionTaskWith:resultHandler:",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore16SpeechRecognizerP15recognitionTask4with13resultHandlerSo019SFSpeechRecognitionH0CSo0lM7RequestC_ySo0lM6ResultCSg_s5Error_pSgtctF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.SpeechRecognizer>",
+            "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.SpeechRecognizer>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)SpeechRecognizer",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore16SpeechRecognizerP",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "LocationUsageType",
+        "printedName": "LocationUsageType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "whenInUse",
+            "printedName": "whenInUse",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.LocationUsageType.Type) -> AdswizzSDKPrivacyDataCore.LocationUsageType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LocationUsageType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.LocationUsageType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@LocationUsageType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.LocationUsageType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LocationUsageType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.LocationUsageType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@LocationUsageType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@LocationUsageType@LocationUsageTypeWhenInUse",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore17LocationUsageTypeO9whenInUseyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "always",
+            "printedName": "always",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.LocationUsageType.Type) -> AdswizzSDKPrivacyDataCore.LocationUsageType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LocationUsageType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.LocationUsageType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@LocationUsageType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.LocationUsageType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LocationUsageType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.LocationUsageType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@LocationUsageType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@LocationUsageType@LocationUsageTypeAlways",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore17LocationUsageTypeO6alwaysyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdswizzSDKPrivacyDataCore.LocationUsageType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LocationUsageType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.LocationUsageType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@LocationUsageType"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:25AdswizzSDKPrivacyDataCore17LocationUsageTypeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore17LocationUsageTypeO8rawValueACSgSi_tcfc",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore17LocationUsageTypeO8rawValueSivp",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore17LocationUsageTypeO8rawValueSivp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore17LocationUsageTypeO8rawValueSivg",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore17LocationUsageTypeO8rawValueSivg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@LocationUsageType",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore17LocationUsageTypeO",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "LocationRequesterProtocol",
+        "printedName": "LocationRequesterProtocol",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(type:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LocationUsageType",
+                "printedName": "AdswizzSDKPrivacyDataCore.LocationUsageType",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@LocationUsageType"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)LocationRequesterProtocol(im)initWithType:",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore25LocationRequesterProtocolP4typexAA0E9UsageTypeO_tcfc",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.LocationRequesterProtocol>",
+            "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.LocationRequesterProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)LocationRequesterProtocol",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore25LocationRequesterProtocolP",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "genericSig": "<τ_0_0 : AdswizzSDKPrivacyDataCore.RequesterProtocol>",
+        "sugared_genericSig": "<Self : AdswizzSDKPrivacyDataCore.RequesterProtocol>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "RequesterProtocol",
+            "printedName": "RequesterProtocol",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)RequesterProtocol",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore17RequesterProtocolP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CalendarAccessType",
+        "printedName": "CalendarAccessType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "writeOnly",
+            "printedName": "writeOnly",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.CalendarAccessType.Type) -> AdswizzSDKPrivacyDataCore.CalendarAccessType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CalendarAccessType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.CalendarAccessType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@CalendarAccessType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.CalendarAccessType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CalendarAccessType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.CalendarAccessType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@CalendarAccessType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@CalendarAccessType@CalendarAccessTypeWriteOnly",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore18CalendarAccessTypeO9writeOnlyyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "full",
+            "printedName": "full",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.CalendarAccessType.Type) -> AdswizzSDKPrivacyDataCore.CalendarAccessType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CalendarAccessType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.CalendarAccessType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@CalendarAccessType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.CalendarAccessType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CalendarAccessType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.CalendarAccessType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@CalendarAccessType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@CalendarAccessType@CalendarAccessTypeFull",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore18CalendarAccessTypeO4fullyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdswizzSDKPrivacyDataCore.CalendarAccessType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CalendarAccessType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.CalendarAccessType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@CalendarAccessType"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:25AdswizzSDKPrivacyDataCore18CalendarAccessTypeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore18CalendarAccessTypeO8rawValueACSgSi_tcfc",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore18CalendarAccessTypeO8rawValueSivp",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore18CalendarAccessTypeO8rawValueSivp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore18CalendarAccessTypeO8rawValueSivg",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore18CalendarAccessTypeO8rawValueSivg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@CalendarAccessType",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore18CalendarAccessTypeO",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CalendarRequesterProtocol",
+        "printedName": "CalendarRequesterProtocol",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(type:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CalendarAccessType",
+                "printedName": "AdswizzSDKPrivacyDataCore.CalendarAccessType",
+                "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@CalendarAccessType"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)CalendarRequesterProtocol(im)initWithType:",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore25CalendarRequesterProtocolP4typexAA0E10AccessTypeO_tcfc",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKPrivacyDataCore.CalendarRequesterProtocol>",
+            "sugared_genericSig": "<Self where Self : AdswizzSDKPrivacyDataCore.CalendarRequesterProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)CalendarRequesterProtocol",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore25CalendarRequesterProtocolP",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "genericSig": "<τ_0_0 : AdswizzSDKPrivacyDataCore.RequesterProtocol>",
+        "sugared_genericSig": "<Self : AdswizzSDKPrivacyDataCore.RequesterProtocol>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "RequesterProtocol",
+            "printedName": "RequesterProtocol",
+            "usr": "c:@M@AdswizzSDKPrivacyDataCore@objc(pl)RequesterProtocol",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore17RequesterProtocolP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AdswizzPrivacyDataError",
+        "printedName": "AdswizzPrivacyDataError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "unknownResult",
+            "printedName": "unknownResult",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdswizzSDKPrivacyDataCore.AdswizzPrivacyDataError.Type) -> AdswizzSDKPrivacyDataCore.AdswizzPrivacyDataError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdswizzPrivacyDataError",
+                    "printedName": "AdswizzSDKPrivacyDataCore.AdswizzPrivacyDataError",
+                    "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdswizzSDKPrivacyDataCore.AdswizzPrivacyDataError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AdswizzPrivacyDataError",
+                        "printedName": "AdswizzSDKPrivacyDataCore.AdswizzPrivacyDataError",
+                        "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO13unknownResultyA2CmF",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO13unknownResultyA2CmF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdswizzSDKPrivacyDataCore.AdswizzPrivacyDataError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdswizzPrivacyDataError",
+                    "printedName": "AdswizzSDKPrivacyDataCore.AdswizzPrivacyDataError",
+                    "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO8rawValueACSgSi_tcfc",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO8rawValueACSgSi_tcfc",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO8rawValueSivp",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO8rawValueSivp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO8rawValueSivg",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO8rawValueSivg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "errorDomain",
+            "printedName": "errorDomain",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO11errorDomainSSvpZ",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO11errorDomainSSvpZ",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "static": true,
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO11errorDomainSSvgZ",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO11errorDomainSSvgZ",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "errorCode",
+            "printedName": "errorCode",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO9errorCodeSivp",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO9errorCodeSivp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO9errorCodeSivg",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO9errorCodeSivg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "errorDescription",
+            "printedName": "errorDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO16errorDescriptionSSSgvp",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO16errorDescriptionSSSgvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO16errorDescriptionSSSgvg",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO16errorDescriptionSSSgvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "error",
+            "printedName": "error(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Error",
+                "printedName": "Swift.Error",
+                "usr": "s:s5ErrorP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO5errorys0F0_pSSSgF",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO5errorys0F0_pSSSgF",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO",
+        "mangledName": "$s25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO",
+        "moduleName": "AdswizzSDKPrivacyDataCore",
+        "enumRawTypeName": "Int",
+        "isEnumExhaustive": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomNSError",
+            "printedName": "CustomNSError",
+            "usr": "s:10Foundation13CustomNSErrorP",
+            "mangledName": "$s10Foundation13CustomNSErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LocalizedError",
+            "printedName": "LocalizedError",
+            "usr": "s:10Foundation14LocalizedErrorP",
+            "mangledName": "$s10Foundation14LocalizedErrorP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NSError",
+        "printedName": "NSError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "privacyDataError",
+            "printedName": "privacyDataError",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdswizzSDKPrivacyDataCore.AdswizzPrivacyDataError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdswizzPrivacyDataError",
+                    "printedName": "AdswizzSDKPrivacyDataCore.AdswizzPrivacyDataError",
+                    "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So7NSErrorC25AdswizzSDKPrivacyDataCoreE07privacyD5ErrorAC0b7PrivacydG0OSgvp",
+            "mangledName": "$sSo7NSErrorC25AdswizzSDKPrivacyDataCoreE07privacyD5ErrorAC0b7PrivacydG0OSgvp",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "isOpen": true,
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "AdswizzSDKPrivacyDataCore.AdswizzPrivacyDataError?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AdswizzPrivacyDataError",
+                        "printedName": "AdswizzSDKPrivacyDataCore.AdswizzPrivacyDataError",
+                        "usr": "s:25AdswizzSDKPrivacyDataCore0a7PrivacyC5ErrorO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So7NSErrorC25AdswizzSDKPrivacyDataCoreE07privacyD5ErrorAC0b7PrivacydG0OSgvg",
+                "mangledName": "$sSo7NSErrorC25AdswizzSDKPrivacyDataCoreE07privacyD5ErrorAC0b7PrivacydG0OSgvg",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "isOpen": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)NSError",
+        "moduleName": "Foundation",
+        "isOpen": true,
+        "objc_name": "NSError",
+        "declAttributes": [
+          "ObjC",
+          "SynthesizedProtocol",
+          "NonSendable",
+          "Sendable",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/RequesterProtocol.swift",
+      "kind": "StringLiteral",
+      "offset": 326,
+      "length": 13,
+      "value": "\"AdswizzSDKPrivacyDataCore.RequestResult\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 377,
+      "length": 6,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 430,
+      "length": 8,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 594,
+      "length": 7,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 377,
+      "length": 6,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 430,
+      "length": 8,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 594,
+      "length": 7,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1132,
+      "length": 16,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1174,
+      "length": 5,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1209,
+      "length": 10,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1245,
+      "length": 6,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1292,
+      "length": 8,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1352,
+      "length": 16,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1396,
+      "length": 8,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1430,
+      "length": 6,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1497,
+      "length": 4,
+      "value": "9"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1527,
+      "length": 14,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1132,
+      "length": 16,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1174,
+      "length": 5,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1209,
+      "length": 10,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1245,
+      "length": 6,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1292,
+      "length": 8,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1352,
+      "length": 16,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1396,
+      "length": 8,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1430,
+      "length": 6,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1497,
+      "length": 4,
+      "value": "9"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1527,
+      "length": 14,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4698,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4709,
+      "length": 6,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4725,
+      "length": 4,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4698,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4709,
+      "length": 6,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4725,
+      "length": 4,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5741,
+      "length": 6,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5741,
+      "length": 6,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6036,
+      "length": 4,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6036,
+      "length": 4,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/NSError+PrivacyDataErrors.swift",
+      "kind": "IntegerLiteral",
+      "offset": 258,
+      "length": 4,
+      "value": "9100"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/NSError+PrivacyDataErrors.swift",
+      "kind": "IntegerLiteral",
+      "offset": 258,
+      "length": 4,
+      "value": "9100"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/NSError+PrivacyDataErrors.swift",
+      "kind": "IntegerLiteral",
+      "offset": 258,
+      "length": 4,
+      "value": "9100"
+    }
+  ]
+}

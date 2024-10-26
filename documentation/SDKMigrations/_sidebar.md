@@ -21,6 +21,11 @@
     - [Sample Projects](iOS/SDKiOS/SampleProjects.md)
     - [React Native Support](iOS/SDKiOS/ReactNative.md)
 
+- AdswizzSDK Privacy Data Kit
+
+    - [AdswizzSDK PrivacyData Kit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit.md)
+    - [Integrating AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit.md)
+
 - AdswizzSDK WatchOS
 
     - [Adswizz Watch OS SDK](iOS/SDKWatchOS/AdswizzWatchSDK.md)
@@ -46,6 +51,7 @@
 
     - [How to migrate to AdswizzSDK v7.8.0+](iOS/SDKMigrations/v7_8_0.md)
     - [How to migrate to AdswizzSDK v7.9.0+](iOS/SDKMigrations/v7_9_0.md)
+    - [How to migrate to AdswizzSDK v7.10.0+](iOS/SDKMigrations/v7_10_0.md)
 
 - Changelog
     - [Changelog](iOS/CHANGELOG.md)

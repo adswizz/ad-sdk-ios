@@ -6,7 +6,6 @@ import AVFoundation
 import AdSupport
 @_exported import AdswizzSDK
 import AdswizzSDKCore
-import AdswizzSDKPrivacyData
 import AudioToolbox
 import CoreTelephony.CTTelephonyNetworkInfo
 import SystemConfiguration.CaptiveNetwork
@@ -345,7 +344,34 @@ extension AdswizzSDK.AdswizzAdStreamManager {
   @objc public init(playerId: Swift.String, installationId: Swift.String, appStoreId: Swift.String? = nil)
   @objc deinit
 }
-extension UIKit.UIUserInterfaceIdiom : Swift.Codable {
+@objc public enum AdswizzPermissionValue : Swift.Int {
+  case granted
+  case denied
+  case notAsked
+  case cantAsk
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum AdswizzPermissionType : Swift.Int {
+  case location
+  case locationAdvanced
+  case photo
+  case microphone
+  case speech
+  case calendar
+  case calendarAdvanced
+  case contacts
+  case camera
+  case idfa
+  case motionActivity
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @objc(AASDKAdCompanionViewDelegate) public protocol AdCompanionViewDelegate {
   @objc optional func adCompanionViewWillLoad(_ adCompanionView: AdswizzSDK.AdCompanionView)
@@ -886,6 +912,8 @@ public protocol BatchModelable {
     get
   }
 }
+extension UIKit.UIUserInterfaceIdiom : Swift.Codable {
+}
 @objc(AASDKAdVideoFriendlyObstructionPurpose) public enum AdVideoFriendlyObstructionPurpose : Swift.Int {
   case mediaControls
   case closeAd
@@ -1122,8 +1150,8 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   }
   @objc public func add(connector: any AdswizzSDKCore.AnalyticsConnector)
   @objc public func remove(connector: any AdswizzSDKCore.AnalyticsConnector)
-  @objc public func permissionStatus(for type: AdswizzSDKPrivacyData.PermissionType) -> Swift.Bool
-  @objc public func setPermissionStatus(for type: AdswizzSDKPrivacyData.PermissionType, status: Swift.Bool)
+  @objc public func permissionStatus(for type: AdswizzSDK.AdswizzPermissionType) -> Swift.Bool
+  @objc public func setPermissionStatus(for type: AdswizzSDK.AdswizzPermissionType, status: Swift.Bool)
   @objc public var disableDataCollection: Swift.Bool {
     @objc get
     @objc set
@@ -1371,6 +1399,12 @@ extension AdswizzSDK.AdswizzAdRequest.VASTVersion : Swift.Equatable {}
 extension AdswizzSDK.AdswizzAdRequest.VASTVersion : Swift.Hashable {}
 extension AdswizzSDK.HTTPProtocol : Swift.Equatable {}
 extension AdswizzSDK.HTTPProtocol : Swift.Hashable {}
+extension AdswizzSDK.AdswizzPermissionValue : Swift.Equatable {}
+extension AdswizzSDK.AdswizzPermissionValue : Swift.Hashable {}
+extension AdswizzSDK.AdswizzPermissionValue : Swift.RawRepresentable {}
+extension AdswizzSDK.AdswizzPermissionType : Swift.Equatable {}
+extension AdswizzSDK.AdswizzPermissionType : Swift.Hashable {}
+extension AdswizzSDK.AdswizzPermissionType : Swift.RawRepresentable {}
 extension AdswizzSDK.AdVideoFriendlyObstructionPurpose : Swift.Equatable {}
 extension AdswizzSDK.AdVideoFriendlyObstructionPurpose : Swift.Hashable {}
 extension AdswizzSDK.AdVideoFriendlyObstructionPurpose : Swift.RawRepresentable {}

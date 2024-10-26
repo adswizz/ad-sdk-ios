@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:AdswizzSDKPrivacyDataCamera/AdswizzSDKPrivacyDataCamera.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AdswizzSDKPrivacyDataContacts/AdswizzSDKPrivacyDataContacts.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AdswizzSDKPrivacyDataCalendar/AdswizzSDKPrivacyDataCalendar.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AdswizzSDKPrivacyDataLocation/AdswizzSDKPrivacyDataLocation.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AdswizzSDKPrivacyDataMotion/AdswizzSDKPrivacyDataMotion.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AdswizzSDKPrivacyDataMicrophone/AdswizzSDKPrivacyDataMicrophone.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AdswizzSDKPrivacyDataSpeech/AdswizzSDKPrivacyDataSpeech.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AdswizzSDKPrivacyDataPhotos/AdswizzSDKPrivacyDataPhotos.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AdswizzSDKPrivacyDataIDFA/AdswizzSDKPrivacyDataIDFA.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:AdswizzSDKPrivacyDataCore/AdswizzSDKPrivacyDataCore.xcodeproj">
+   </FileRef>
+</Workspace>

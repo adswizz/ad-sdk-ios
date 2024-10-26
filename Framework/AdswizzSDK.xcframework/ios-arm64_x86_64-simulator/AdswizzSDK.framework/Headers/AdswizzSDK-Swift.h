@@ -277,7 +277,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
-@import AdswizzSDKPrivacyData;
 @import CoreFoundation;
 @import CoreLocation;
 @import Foundation;
@@ -1275,6 +1274,7 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
+
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK))
 /// Registers a view that overlays or obstructs this container as “friendly” for viewability measurement purposes.
 /// See the Open Measurement in AdswizzSDK for guidance on what you are and what you are not allowed to register.
@@ -1286,14 +1286,13 @@ SWIFT_CLASS_NAMED("AdVideoView")
 @end
 
 
-
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 /// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behavior changes and events.
@@ -1545,6 +1544,7 @@ SWIFT_CLASS_NAMED("AdswizzAdStreamManager")
 @end
 
 
+
 @interface AASDKAdswizzAdStreamManager (SWIFT_EXTENSION(AdswizzSDK))
 @end
 
@@ -1583,7 +1583,6 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdStreamManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -1694,6 +1693,55 @@ SWIFT_CLASS_NAMED("AdswizzLocationConfig")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+/// Supported types of permissions that might be requested.
+typedef SWIFT_ENUM(NSInteger, AdswizzPermissionType, open) {
+/// Location - when in use.
+  AdswizzPermissionTypeLocation = 0,
+/// Location - when always.
+  AdswizzPermissionTypeLocationAdvanced = 1,
+/// Photos.
+  AdswizzPermissionTypePhoto = 2,
+/// Microphone.
+  AdswizzPermissionTypeMicrophone = 3,
+/// Speech.
+  AdswizzPermissionTypeSpeech = 4,
+/// Calendar - write only.
+  AdswizzPermissionTypeCalendar = 5,
+/// Calendar - full access (iOS 17+).
+  AdswizzPermissionTypeCalendarAdvanced = 6,
+/// Contacts.
+  AdswizzPermissionTypeContacts = 7,
+/// Camera.
+  AdswizzPermissionTypeCamera = 8,
+/// Tracking as defined per the ATT framework.
+  AdswizzPermissionTypeIdfa = 9,
+/// Motion.
+  AdswizzPermissionTypeMotionActivity = 10,
+};
+
+/// Supported types of permission values.
+typedef SWIFT_ENUM(NSInteger, AdswizzPermissionValue, open) {
+/// Permission is granted.
+  AdswizzPermissionValueGranted = 0,
+/// Permission is denied.
+  AdswizzPermissionValueDenied = 1,
+/// Permission was not asked yet.
+  AdswizzPermissionValueNotAsked = 2,
+/// Permission can’t be asked:
+/// <ul>
+///   <li>
+///     either because the usage string is missing in app’s Info.plist
+///   </li>
+///   <li>
+///     or the access to the permission is restricted programmatically (see AdswizzSDK.shared <code>setPermissionStatus(for type:status:)</code>method)
+///   </li>
+///   <li>
+///     or the <code>AdswizzSDKPrivacyDataCore</code> framework and the permission module were not found at runtime
+///   </li>
+/// </ul>
+  AdswizzPermissionValueCantAsk = 3,
+};
+
 enum AASDKGDPROption : NSInteger;
 
 /// The <code>AdswizzSDK</code> privacy consent configuration class.
@@ -1787,7 +1835,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 ///
 /// returns:
 /// whether or not <code>AdswizzSDK</code> can use the API guarded by this permission
-- (BOOL)permissionStatusFor:(enum PermissionType)type SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)permissionStatusFor:(enum AdswizzPermissionType)type SWIFT_WARN_UNUSED_RESULT;
 /// Set if the SDK can use the data exposed by this permission.
 /// <ul>
 ///   <li>
@@ -1828,7 +1876,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 /// The AdswizzSDK will ensure that, if the permission status is set to false, the API guarded by the permission is not used, thus giving you granular control over what sensitive data
 /// the SDK may use during its lifetime. To see what happens when you set a permission status to false, read the descriptions above.
 ///
-- (void)setPermissionStatusFor:(enum PermissionType)type status:(BOOL)status;
+- (void)setPermissionStatusFor:(enum AdswizzPermissionType)type status:(BOOL)status;
 /// Enable/disable data collection for the AdswizzSDK data collector. The default is <code>false</code>.
 /// Your app should get the user’s preference and then honor that input to opt-in or opt-out by instructing the AdswizzSDK to collect data or not.
 /// Ideally, you should sync the data collection consent with the GDPR/CCPA consent. e.g: if the user has declined its GDPR consent, you should also set <code>disableDataCollection</code> to <code>true</code>.
@@ -3008,7 +3056,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
-@import AdswizzSDKPrivacyData;
 @import CoreFoundation;
 @import CoreLocation;
 @import Foundation;
@@ -4006,6 +4053,7 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
+
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK))
 /// Registers a view that overlays or obstructs this container as “friendly” for viewability measurement purposes.
 /// See the Open Measurement in AdswizzSDK for guidance on what you are and what you are not allowed to register.
@@ -4017,14 +4065,13 @@ SWIFT_CLASS_NAMED("AdVideoView")
 @end
 
 
-
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 /// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behavior changes and events.
@@ -4276,6 +4323,7 @@ SWIFT_CLASS_NAMED("AdswizzAdStreamManager")
 @end
 
 
+
 @interface AASDKAdswizzAdStreamManager (SWIFT_EXTENSION(AdswizzSDK))
 @end
 
@@ -4314,7 +4362,6 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdStreamManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -4425,6 +4472,55 @@ SWIFT_CLASS_NAMED("AdswizzLocationConfig")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+/// Supported types of permissions that might be requested.
+typedef SWIFT_ENUM(NSInteger, AdswizzPermissionType, open) {
+/// Location - when in use.
+  AdswizzPermissionTypeLocation = 0,
+/// Location - when always.
+  AdswizzPermissionTypeLocationAdvanced = 1,
+/// Photos.
+  AdswizzPermissionTypePhoto = 2,
+/// Microphone.
+  AdswizzPermissionTypeMicrophone = 3,
+/// Speech.
+  AdswizzPermissionTypeSpeech = 4,
+/// Calendar - write only.
+  AdswizzPermissionTypeCalendar = 5,
+/// Calendar - full access (iOS 17+).
+  AdswizzPermissionTypeCalendarAdvanced = 6,
+/// Contacts.
+  AdswizzPermissionTypeContacts = 7,
+/// Camera.
+  AdswizzPermissionTypeCamera = 8,
+/// Tracking as defined per the ATT framework.
+  AdswizzPermissionTypeIdfa = 9,
+/// Motion.
+  AdswizzPermissionTypeMotionActivity = 10,
+};
+
+/// Supported types of permission values.
+typedef SWIFT_ENUM(NSInteger, AdswizzPermissionValue, open) {
+/// Permission is granted.
+  AdswizzPermissionValueGranted = 0,
+/// Permission is denied.
+  AdswizzPermissionValueDenied = 1,
+/// Permission was not asked yet.
+  AdswizzPermissionValueNotAsked = 2,
+/// Permission can’t be asked:
+/// <ul>
+///   <li>
+///     either because the usage string is missing in app’s Info.plist
+///   </li>
+///   <li>
+///     or the access to the permission is restricted programmatically (see AdswizzSDK.shared <code>setPermissionStatus(for type:status:)</code>method)
+///   </li>
+///   <li>
+///     or the <code>AdswizzSDKPrivacyDataCore</code> framework and the permission module were not found at runtime
+///   </li>
+/// </ul>
+  AdswizzPermissionValueCantAsk = 3,
+};
+
 enum AASDKGDPROption : NSInteger;
 
 /// The <code>AdswizzSDK</code> privacy consent configuration class.
@@ -4518,7 +4614,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 ///
 /// returns:
 /// whether or not <code>AdswizzSDK</code> can use the API guarded by this permission
-- (BOOL)permissionStatusFor:(enum PermissionType)type SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)permissionStatusFor:(enum AdswizzPermissionType)type SWIFT_WARN_UNUSED_RESULT;
 /// Set if the SDK can use the data exposed by this permission.
 /// <ul>
 ///   <li>
@@ -4559,7 +4655,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 /// The AdswizzSDK will ensure that, if the permission status is set to false, the API guarded by the permission is not used, thus giving you granular control over what sensitive data
 /// the SDK may use during its lifetime. To see what happens when you set a permission status to false, read the descriptions above.
 ///
-- (void)setPermissionStatusFor:(enum PermissionType)type status:(BOOL)status;
+- (void)setPermissionStatusFor:(enum AdswizzPermissionType)type status:(BOOL)status;
 /// Enable/disable data collection for the AdswizzSDK data collector. The default is <code>false</code>.
 /// Your app should get the user’s preference and then honor that input to opt-in or opt-out by instructing the AdswizzSDK to collect data or not.
 /// Ideally, you should sync the data collection consent with the GDPR/CCPA consent. e.g: if the user has declined its GDPR consent, you should also set <code>disableDataCollection</code> to <code>true</code>.

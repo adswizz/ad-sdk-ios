@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.10.0] - 2024-10-25
+### Added
+- AdswizzSDKPrivacyDataKit
+    - Add support for [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) optional framework suite
+- Integration Guide:
+    - New section on [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) overview and how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit) optional permission [components](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit#structure)
+    - New guide on [How to migrate to AdswizzSDK v7.10.0+](iOS/SDKMigrations/v7_10_0.md)
+
+### Removed
+- AdswizzSDKPrivacyData mandatory dependency:
+    - Removed support for **_AdswizzSDKPrivacyData.framework_**. Replaced by [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit)
+
+### Changed
+- Integration Guide:
+    - Updated the [Get Started](iOS/SDKiOS/GetStarted) section and the [integration guide](iOS/SDKiOS/GetStarted#adding-the-sdk-to-your-xcode-project)
+
 ## [7.9.3] - 2024-09-13
 ### Added
 - Integration Guide:

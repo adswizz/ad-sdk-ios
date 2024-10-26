@@ -20,3 +20,4 @@ FOUNDATION_EXPORT const unsigned char AdswizzSDKVersionString[];
 #import <zlib.h>
 #import "GZip.h"
 #import "OMIDImports.h"
+#import "AdswizzPrivacyDataInterop.h"
