@@ -12,6 +12,10 @@ The **_AdswizzSDK_** was carefully crafted with user privacy in mind. This also 
 
 For more information on **_AdswizzSDKPrivacyData_**, we strongly suggest that you consult [Get started](/iOS/SDKiOS/GetStarted) for how **_AdswizzSDKPrivacyData_** operates, as well as the [Permissions](/iOS/SDKiOS/GeneralSettings#permissions) chapter from the **_AdswizzSDK_** [Privacy](/iOS/SDKiOS/GeneralSettings#privacy) section.
 
+> Important! <br>
+With the release of **_AdswizzSDK_** `v7.10.0`, *AdswizzSDKPrivacyData* source based framework has been replaced by the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) optional framework suite. Although **_AdswizzSDKPrivacyDataCore_** and the other dependant components are optional and **_AdswizzSDK_** can function without them, **we strongly recommend you to install AdswizzSDKPrivacyDataCore and AdswizzSDKPrivacyDataIDFA components from AdswizzSDKPrivacyDataKit**, otherwise **_AdswizzSDK_** won't be able to access Apple's IDFA (Identifier For Advertisers). As a result, **_AdswizzSDK_** won't be able to deliver personalised ads to your audience (in case your users grant the system tracking permission).
+More details in the `v7.10.0` [migration guide](iOS/SDKMigrations/v7_10_0).
+
 ### User privacy (AppTrackingTransparency)
 
 Starting with iOS 14, Apple fundamentally changed the way the Identifier For Advertisers (IDFA) value can be accessed. Part of the App Tracking Transparency framework, the process implies a 2-steps approach:

@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = '6.1'
   s.swift_versions = ['5.9.2']
 
-s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "" }
+s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "7.10.0" }
 
   s.vendored_frameworks = 'Framework/AdswizzWatchSDK.xcframework'
   s.requires_arc = true

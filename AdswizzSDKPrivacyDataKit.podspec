@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '12.0'
   s.swift_versions = ['5.9.2']
 
-s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "" }
+s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "7.10.0" }
   s.requires_arc = true
 
   # The default subspec which will be installed automatically.

@@ -21,6 +21,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Integration Guide:
     - Updated the [Get Started](iOS/SDKiOS/GetStarted) section and the [integration guide](iOS/SDKiOS/GetStarted#adding-the-sdk-to-your-xcode-project)
 
+### Fixed
+- Raw data signals:
+    - Service release that fixes the internal data collectors in order to prevent crashing the application due to an asynchronous issue
+- Integration Guide:
+    - Improved [Companion banners best practices](iOS/SDKiOS/CompanionBanner#companion-best-practices) section when working with the [AdCompanionView](iOS/SDKiOS/CompanionBanner#adding-an-adcompanionview) component
+
 ## [7.9.3] - 2024-09-13
 ### Added
 - Integration Guide:
