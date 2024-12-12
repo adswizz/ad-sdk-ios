@@ -21,7 +21,9 @@ extension PermissionType {
         
         switch self {
         case .location: return buildLocationRequesterImpl(type: .whenInUse)
+#if !os(tvOS)
         case .locationAdvanced: return buildLocationRequesterImpl(type: .always)
+#endif
         case .calendar: return buildCalendarRequesterImpl(type: .writeOnly)
         case .calendarAdvanced: return buildCalendarRequesterImpl(type: .full)
         default:
@@ -76,7 +78,10 @@ extension PermissionType {
         case .photo: return "PhotoRequester"
         case .speech: return "SpeechRequester"
         case .microphone: return "MicrophoneRequester"
-        case .location, .locationAdvanced: return "LocationRequester"
+        case .location: return "LocationRequester"
+#if !os(tvOS)
+        case .locationAdvanced: return "LocationRequester"
+#endif
         case .calendar, .calendarAdvanced: return "CalendarRequester"
         case .motionActivity: return "MotionActivityRequester"
         case .contacts: return "ContactsRequester"
@@ -91,7 +96,10 @@ extension PermissionType {
         case .photo: return "AdswizzSDKPrivacyDataPhotos"
         case .speech: return "AdswizzSDKPrivacyDataSpeech"
         case .microphone: return "AdswizzSDKPrivacyDataMicrophone"
-        case .location, .locationAdvanced: return "AdswizzSDKPrivacyDataLocation"
+        case .location: return "AdswizzSDKPrivacyDataLocation"
+#if !os(tvOS)
+        case .locationAdvanced: return "AdswizzSDKPrivacyDataLocation"
+#endif
         case .calendar, .calendarAdvanced: return "AdswizzSDKPrivacyDataCalendar"
         case .motionActivity: return "AdswizzSDKPrivacyDataMotion"
         case .contacts: return "AdswizzSDKPrivacyDataContacts"
@@ -108,7 +116,9 @@ extension PermissionType {
     private var usage: String {
         switch self {
         case .location: return "NSLocationWhenInUseUsageDescription"
+#if !os(tvOS)
         case .locationAdvanced: return "NSLocationAlwaysUsageDescription"
+#endif
         case .photo: return "NSPhotoLibraryUsageDescription"
         case .microphone: return "NSMicrophoneUsageDescription"
         case .speech: return "NSSpeechRecognitionUsageDescription"

@@ -18,43 +18,43 @@
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		T1WLM78lBCWQnRCE0sVq583r0dI=
+		zrxH2iv2pVoKP8eyDp+Gz94s+uY=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		wy5YTuIygwk2MXothpoqR+iBPGI=
+		mAtchGHAFQW4TBYjEbSk66Qx8bU=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Y9w37fxlUBXwMz18LNrI3t4pHwg=
+		uJssoQoC2471NpaeVxYXOn0FJf0=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		wy5YTuIygwk2MXothpoqR+iBPGI=
+		mAtchGHAFQW4TBYjEbSk66Qx8bU=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		HcXM13KtKD1YuMqW5pe4ANRs0Oo=
+		wm5QDKjMVdzr1qYz/eNhY0nB3qk=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		T1WLM78lBCWQnRCE0sVq583r0dI=
+		zrxH2iv2pVoKP8eyDp+Gz94s+uY=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		jLU3xPQYHg2gq3DtkKBPq0V9lkw=
+		IQwEuZ+XF0aZVIz+0dr4bPe0xP4=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		LhK5mkUWNf9dCBBDvokPut2SuVg=
+		fBOayeWtyaFcAeGEA3DgLucH49w=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		jLU3xPQYHg2gq3DtkKBPq0V9lkw=
+		IQwEuZ+XF0aZVIz+0dr4bPe0xP4=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		aURwPVzUJx3Ng0jT/nqee0eGy8I=
+		i6G5s3eSOxBgBv/rps5at1OPYuI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -81,70 +81,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SpnzSNUtiQwu7cm9RkS6UHgvBtmKosPqr7tQAeaSbfc=
+			yqNhEVKnZ0b9fn4xFumpL2v8xNgbPQL1UqEmyWQ5cS4=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GU9pn0u3Px6E5L42LxPvPC7KE2G2qOjNLrL0MgKPyeA=
+			VHVHN8ujIcLxI1UDnNHbo/6XJnsOQ5oZ4LFuXMOIiGE=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			W0RIOWWO+/k0zksImQibpNrhLSohQCTSU96I9mDmW1M=
+			Zd0tYdU2/UY7Jy9XdAQvABj9PsjxIsH/lkHkd9QDtfk=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GU9pn0u3Px6E5L42LxPvPC7KE2G2qOjNLrL0MgKPyeA=
+			VHVHN8ujIcLxI1UDnNHbo/6XJnsOQ5oZ4LFuXMOIiGE=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/1iaXJJM6IlBP3WLKyeoLmKodjGYdCgM8D64k3ieybc=
+			QF4fl82ciWCYU2DVvYUFOlbrkiKtrVN9ufcfbYYOGwc=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SpnzSNUtiQwu7cm9RkS6UHgvBtmKosPqr7tQAeaSbfc=
+			yqNhEVKnZ0b9fn4xFumpL2v8xNgbPQL1UqEmyWQ5cS4=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dHhmrayQr+ydMjhXXy9bXqT0hjf/OY44AqEkYY/ujAU=
+			t9LYv+qE2vsQh4o86jcRlMFedHY0MJMW7+/I0ZHEYfw=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			e54po7PxycGlU7smaHsyMrxikcuGu4WPG9xZZktt98I=
+			Jdq1xCYITdtkuzDiKkDfQ/tz2BPqeIZQBYVrYMODc88=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dHhmrayQr+ydMjhXXy9bXqT0hjf/OY44AqEkYY/ujAU=
+			t9LYv+qE2vsQh4o86jcRlMFedHY0MJMW7+/I0ZHEYfw=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			STjFIXFdV9LkF68OHSMbhTPDoPw9TvacFTghY8jRCbQ=
+			N1ZDfINxwwtImxkDC9cjTrCCuLjTU2sLF/2D71UU4Uc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

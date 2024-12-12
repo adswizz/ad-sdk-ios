@@ -19,17 +19,26 @@ import AVFoundation
 ///
 @objc class CameraRequester: NSObject, RequesterProtocol {
     var authorizationStatus: PermissionValue {
-        return PermissionValue(from: AVCaptureDevice.authorizationStatus(for: .video))
+        if #available(tvOS 17.0, *) {
+            return PermissionValue(from: AVCaptureDevice.authorizationStatus(for: .video))
+        } else {
+            return .cantAsk
+        }
     }
     
     func request(completion: @escaping RequestCompletion) {
-        AVCaptureDevice.requestAccess(for: .video) { granted in
-            completion(RequestResult(success: granted ? .granted : .denied))
+        if #available(tvOS 17.0, *) {
+            AVCaptureDevice.requestAccess(for: .video) { granted in
+                completion(RequestResult(success: granted ? .granted : .denied))
+            }
+        } else {
+            completion(RequestResult(success: .cantAsk))
         }
     }
 }
 
 extension PermissionValue {
+    @available(tvOS 17.0, *)
     init(from status: AVAuthorizationStatus) {
         switch status {
         case .notDetermined: self = .notAsked

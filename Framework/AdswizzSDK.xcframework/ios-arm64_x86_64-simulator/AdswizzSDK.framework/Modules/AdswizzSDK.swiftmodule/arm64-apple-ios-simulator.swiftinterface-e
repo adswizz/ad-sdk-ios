@@ -63,7 +63,7 @@ final public class DefaultStatsNetworkSession {
   final public let urlSession: Foundation.URLSession
   public init(urlSession: Foundation.URLSession)
   convenience public init()
-  @available(iOS 13.0, *)
+  @available(iOS 13.0, tvOS 13.0, *)
   final public func performDataRequest(_ request: Foundation.URLRequest, networkQoS: Dispatch.DispatchQoS.QoSClass) -> Combine.AnyPublisher<(Foundation.Data?, Foundation.URLResponse), any Swift.Error>
   @objc deinit
 }
@@ -355,7 +355,7 @@ extension AdswizzSDK.AdswizzAdStreamManager {
     get
   }
 }
-@objc public enum AdswizzPermissionType : Swift.Int {
+@objc public enum AdswizzPermissionType : Swift.Int, Swift.CaseIterable {
   case location
   case locationAdvanced
   case photo
@@ -368,7 +368,11 @@ extension AdswizzSDK.AdswizzAdStreamManager {
   case idfa
   case motionActivity
   public init?(rawValue: Swift.Int)
+  public typealias AllCases = [AdswizzSDK.AdswizzPermissionType]
   public typealias RawValue = Swift.Int
+  public static var allCases: [AdswizzSDK.AdswizzPermissionType] {
+    get
+  }
   public var rawValue: Swift.Int {
     get
   }

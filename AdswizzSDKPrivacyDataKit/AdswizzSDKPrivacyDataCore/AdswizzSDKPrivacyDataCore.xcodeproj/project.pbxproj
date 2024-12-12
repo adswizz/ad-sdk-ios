@@ -174,7 +174,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\nWORKSPACE_NAME=\"AdswizzSDKPrivacyDataKit\"\nFRAMEWORK_NAME=\"AdswizzSDKPrivacyDataCore\"\nBUILD_DIR=\"../../build\"\n\n[! -d \"$BUILD_DIR\"] || mkdir -p \"$BUILD_DIR\"\nOUTPUT_DIR=\"${BUILD_DIR}/${FRAMEWORK_NAME}\"\nrm -rf \"$OUTPUT_DIR\"\nmkdir -p \"$OUTPUT_DIR\"\n\nfunction build {\n    env FROM_IDE=false \\\n    xcodebuild archive -workspace \"../${WORKSPACE_NAME}.xcworkspace\" \\\n               -scheme ${FRAMEWORK_NAME} \\\n               -destination \"$1\" \\\n               -configuration ${CONFIGURATION} clean archive \\\n               OBJROOT=\"${OBJROOT}/DependantBuilds\" \\\n               -archivePath \"$2\" \\\n               SKIP_INSTALL=NO\n}\n\nSIM_DIR=\"$TEMP_DIR/${FRAMEWORK_NAME}.iOS-simulator.xcarchive\"\nDEVICE_DIR=\"$TEMP_DIR/${FRAMEWORK_NAME}.iOS.xcarchive\"\nbuild \"generic/platform=iOS Simulator\" $SIM_DIR\nbuild \"generic/platform=iOS\" $DEVICE_DIR\n\nDEVICE_DSYM=\"$DEVICE_DIR/dSYMs/${FRAMEWORK_NAME}.framework.dSYM\"\nSIM_DSYM=\"$SIM_DIR/dSYMs/${FRAMEWORK_NAME}.framework.dSYM\"\n\nxcodebuild -create-xcframework \\\n           -framework \"$DEVICE_DIR/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework\" \\\n           -debug-symbols $DEVICE_DSYM \\\n           -framework \"$SIM_DIR/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework\" \\\n           -debug-symbols $SIM_DSYM \\\n           -output       \"${BUILD_DIR}/${FRAMEWORK_NAME}/${FRAMEWORK_NAME}.xcframework\"\n\n# add digital signature\ncodesign --timestamp -v --sign \"Apple Distribution: ADSWIZZ SA (C3N4BPH864)\" \"${BUILD_DIR}/${FRAMEWORK_NAME}/${FRAMEWORK_NAME}.xcframework\"\n\n";
+			shellScript = "#!/bin/sh\nWORKSPACE_NAME=\"AdswizzSDKPrivacyDataKit\"\nFRAMEWORK_NAME=\"AdswizzSDKPrivacyDataCore\"\nBUILD_DIR=\"../../build\"\n\n[! -d \"$BUILD_DIR\"] || mkdir -p \"$BUILD_DIR\"\nOUTPUT_DIR=\"${BUILD_DIR}/${FRAMEWORK_NAME}\"\nrm -rf \"$OUTPUT_DIR\"\nmkdir -p \"$OUTPUT_DIR\"\n\nfunction build {\n    env FROM_IDE=false \\\n    xcodebuild archive -workspace \"../${WORKSPACE_NAME}.xcworkspace\" \\\n               -scheme ${FRAMEWORK_NAME} \\\n               -destination \"$1\" \\\n               -configuration ${CONFIGURATION} clean archive \\\n               OBJROOT=\"${OBJROOT}/DependantBuilds\" \\\n               -archivePath \"$2\" \\\n               SKIP_INSTALL=NO\n}\n\n# iOS Build\nSIM_DIR=\"$TEMP_DIR/${FRAMEWORK_NAME}.iOS-simulator.xcarchive\"\nDEVICE_DIR=\"$TEMP_DIR/${FRAMEWORK_NAME}.iOS.xcarchive\"\nbuild \"generic/platform=iOS Simulator\" $SIM_DIR\nbuild \"generic/platform=iOS\" $DEVICE_DIR\n\n# tvOS Build\nTVOS_SIM_DIR=\"$TEMP_DIR/${FRAMEWORK_NAME}.tvOS-simulator.xcarchive\"\nTVOS_DEVICE_DIR=\"$TEMP_DIR/${FRAMEWORK_NAME}.tvOS.xcarchive\"\nbuild \"generic/platform=tvOS Simulator\" $TVOS_SIM_DIR\nbuild \"generic/platform=tvOS\" $TVOS_DEVICE_DIR\n\nDEVICE_DSYM=\"$DEVICE_DIR/dSYMs/${FRAMEWORK_NAME}.framework.dSYM\"\nSIM_DSYM=\"$SIM_DIR/dSYMs/${FRAMEWORK_NAME}.framework.dSYM\"\n\nTVOS_DEVICE_DSYM=\"$TVOS_DEVICE_DIR/dSYMs/${FRAMEWORK_NAME}.framework.dSYM\"\nTVOS_SIM_DSYM=\"$TVOS_SIM_DIR/dSYMs/${FRAMEWORK_NAME}.framework.dSYM\"\n\nxcodebuild -create-xcframework \\\n           -framework \"$DEVICE_DIR/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework\" \\\n           -debug-symbols $DEVICE_DSYM \\\n           -framework \"$SIM_DIR/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework\" \\\n           -debug-symbols $SIM_DSYM \\\n           -framework \"$TVOS_DEVICE_DIR/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework\" \\\n           -debug-symbols $TVOS_DEVICE_DSYM \\\n           -framework \"$TVOS_SIM_DIR/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework\" \\\n           -debug-symbols $TVOS_SIM_DSYM \\\n           -output       \"${BUILD_DIR}/${FRAMEWORK_NAME}/${FRAMEWORK_NAME}.xcframework\"\n\n# add digital signature\ncodesign --timestamp -v --sign \"Apple Distribution: ADSWIZZ SA (C3N4BPH864)\" \"${BUILD_DIR}/${FRAMEWORK_NAME}/${FRAMEWORK_NAME}.xcframework\"\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -349,10 +349,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adswizz.AdswizzSDKPrivacyDataCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -385,9 +388,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adswizz.AdswizzSDKPrivacyDataCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};

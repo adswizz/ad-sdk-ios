@@ -37,7 +37,9 @@ import CoreLocation
         defer { lock.unlock() }
         lock.lock()
         switch locationUsage {
+#if !os(tvOS)
         case .always: return PermissionValue(from: LocationAlwaysStatus(for: currentStatus))
+#endif
         case .whenInUse: return PermissionValue(from: LocationWhenInUseStatus(for: currentStatus))
         @unknown default:
             return .cantAsk
@@ -57,11 +59,11 @@ extension LocationRequester: CLLocationManagerDelegate {
         //update the current status if needed
         lock.lock()
 #if canImport(AppTrackingTransparency)
-    if #available(iOS 14.0, *) {
-        currentStatus = manager.authorizationStatus
-    } else {
-        currentStatus = .denied
-    }
+        if #available(iOS 14.0, tvOS 14.0, *) {
+            currentStatus = manager.authorizationStatus
+        } else {
+            currentStatus = .denied
+        }
 #else
         currentStatus = CLLocationManager.authorizationStatus()
 #endif
@@ -75,7 +77,9 @@ extension LocationRequester: CLLocationManagerDelegate {
 
         switch locationUsage {
         case .whenInUse: completion?(RequestResult(success: PermissionValue(from: LocationWhenInUseStatus(for: currentStatus))))
+#if !os(tvOS)
         case .always: completion?(RequestResult(success: PermissionValue(from: LocationAlwaysStatus(for: currentStatus))))
+#endif
         @unknown default:
             completion?(RequestResult(success: .cantAsk))
         }
@@ -100,6 +104,7 @@ private extension LocationRequester {
                 cleanUp()
                 completion(RequestResult(success: .cantAsk))
             }
+#if !os(tvOS)
         case .always:
             if currentStatus == .notDetermined || currentStatus == .authorizedWhenInUse {
                 locationManager.requestAlwaysAuthorization()
@@ -107,6 +112,7 @@ private extension LocationRequester {
                 cleanUp()
                 completion(RequestResult(success: PermissionValue(from: LocationAlwaysStatus(for: currentStatus))))
             }
+#endif
         @unknown default:
             completion(RequestResult(success: .cantAsk))
         }

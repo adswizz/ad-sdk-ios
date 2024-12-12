@@ -29,7 +29,7 @@ import AppTrackingTransparency
     
     func request(completion: @escaping RequestCompletion) {
         #if canImport(AppTrackingTransparency)
-            if #available(iOS 14, *) {
+            if #available(iOS 14, tvOS 14, *) {
                 ATTrackingManager.requestTrackingAuthorization { status in
                     completion(RequestResult(success: PermissionValue(from: IDFAPemissionStatus(from: status))))
                 }
@@ -51,7 +51,7 @@ enum IDFAPemissionStatus: String {
 
 #if canImport(AppTrackingTransparency)
 extension IDFAPemissionStatus {
-    @available(iOS 14, *)
+    @available(iOS 14, tvOS 14, *)
     init(from status: ATTrackingManager.AuthorizationStatus) {
         switch status {
         case .restricted: self = .restricted
@@ -66,7 +66,7 @@ extension IDFAPemissionStatus {
 
 extension IDFAPemissionStatus {
     static var current: IDFAPemissionStatus {
-        if #available(iOS 14, *) {
+        if #available(iOS 14, tvOS 14, *) {
             return IDFAPemissionStatus(from: ATTrackingManager.trackingAuthorizationStatus)
         } else {
             return ASIdentifierManager.shared().isAdvertisingTrackingEnabled ? .authorized : .denied

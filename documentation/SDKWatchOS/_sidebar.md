@@ -33,6 +33,14 @@
     - [Debugging](iOS/SDKWatchOS/DebuggingWatchSDK.md)
     - [Privacy](iOS/SDKWatchOS/Privacy.md)
     - [Sample Projects](iOS/SDKWatchOS/SampleProjects.md)
+    
+- AdswizzSDK tvOS
+
+    - [Adswizz tvOS SDK](iOS/SDKTVOS/AdswizzTVOSSDK.md)
+    - [Limitations](iOS/SDKTVOS/Limitations.md)
+    - [Debugging](iOS/SDKTVOS/DebuggingTVOSSDK.md)
+    - [Privacy](iOS/SDKTVOS/Privacy.md)
+    - [Sample Projects](iOS/SDKTVOS/SampleProjects.md)
 
 - AdswizzSDK Pinpoint Analytics
 

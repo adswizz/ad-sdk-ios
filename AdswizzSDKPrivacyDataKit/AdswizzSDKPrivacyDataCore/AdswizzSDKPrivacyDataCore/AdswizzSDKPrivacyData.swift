@@ -7,7 +7,9 @@
 //
 
 import Foundation
+#if !os(tvOS)
 import Speech
+#endif
 
 /// Supported types of permission values.
 @objc public enum PermissionValue: Int {
@@ -32,11 +34,13 @@ import Speech
 }
 
 /// Supported types of permissions that might be requested.
-@objc public enum PermissionType: Int {
+@objc public enum PermissionType: Int, CaseIterable {
     /// Location - when in use.
     case location
+#if !os(tvOS)
     /// Location - when always.
     case locationAdvanced
+#endif
     /// Photos.
     case photo
     /// Microphone.
@@ -55,11 +59,6 @@ import Speech
     case idfa
     /// Motion.
     case motionActivity
-}
-
-extension PermissionType {
-    /// All types bundled in a collection.
-    public static let all: [PermissionType] = [.location, .locationAdvanced, .photo, .microphone, .speech, .camera, .calendar, .calendarAdvanced, .contacts, .idfa, .motionActivity]
 }
 
 /// AdswizzSDKPermissions - Access and request permissions
@@ -84,7 +83,7 @@ extension PermissionType {
     let requesters: [PermissionType: RequesterProtocol]
     
     override init() {
-        let permissions: [(PermissionType, RequesterProtocol)] = PermissionType.all.compactMap {
+        let permissions: [(PermissionType, RequesterProtocol)] = PermissionType.allCases.compactMap {
             if let requester = $0.requester {
                 return ($0, requester)
             } else {
@@ -166,14 +165,18 @@ extension AdswizzSDKPrivacyData: AdswizzSDKFactory {
 /// SFSpeechRecognizer wrapper.
 @objc public protocol SpeechRecognizer: AnyObject {
     init?(locale: Locale)
+#if !os(tvOS)
     func recognitionTask(with request: SFSpeechRecognitionRequest, resultHandler: @escaping (SFSpeechRecognitionResult?, Error?) -> Void) -> SFSpeechRecognitionTask
+#endif
 }
 
 //MARK: - Location
 /// Location usage type.
 @objc public enum LocationUsageType: Int {
     case whenInUse
+#if !os(tvOS)
     case always
+#endif
 }
 
 /// `LocationRequesterProtocol` based on `RequesterProtocol`.

@@ -1361,6 +1361,63 @@
           },
           {
             "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AdswizzSDKPrivacyDataCore.PermissionType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PermissionType",
+                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25AdswizzSDKPrivacyDataCore14PermissionTypeO8allCasesSayACGvpZ",
+            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO8allCasesSayACGvpZ",
+            "moduleName": "AdswizzSDKPrivacyDataCore",
+            "static": true,
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[AdswizzSDKPrivacyDataCore.PermissionType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25AdswizzSDKPrivacyDataCore14PermissionTypeO8allCasesSayACGvgZ",
+                "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO8allCasesSayACGvgZ",
+                "moduleName": "AdswizzSDKPrivacyDataCore",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "requester",
             "printedName": "requester",
             "children": [
@@ -1416,72 +1473,6 @@
                 "accessorKind": "get"
               }
             ]
-          },
-          {
-            "kind": "Var",
-            "name": "all",
-            "printedName": "all",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[AdswizzSDKPrivacyDataCore.PermissionType]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "PermissionType",
-                    "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
-                    "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:25AdswizzSDKPrivacyDataCore14PermissionTypeO3allSayACGvpZ",
-            "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO3allSayACGvpZ",
-            "moduleName": "AdswizzSDKPrivacyDataCore",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "isFromExtension": true,
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[AdswizzSDKPrivacyDataCore.PermissionType]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PermissionType",
-                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
-                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
-                      }
-                    ],
-                    "usr": "s:Sa"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:25AdswizzSDKPrivacyDataCore14PermissionTypeO3allSayACGvgZ",
-                "mangledName": "$s25AdswizzSDKPrivacyDataCore14PermissionTypeO3allSayACGvgZ",
-                "moduleName": "AdswizzSDKPrivacyDataCore",
-                "static": true,
-                "implicit": true,
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
           }
         ],
         "declKind": "Enum",
@@ -1530,6 +1521,36 @@
             ],
             "usr": "s:SY",
             "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[AdswizzSDKPrivacyDataCore.PermissionType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PermissionType",
+                        "printedName": "AdswizzSDKPrivacyDataCore.PermissionType",
+                        "usr": "c:@M@AdswizzSDKPrivacyDataCore@E@PermissionType"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
           }
         ]
       },
@@ -4064,252 +4085,252 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 377,
+      "offset": 398,
       "length": 6,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 430,
+      "offset": 451,
       "length": 8,
       "value": "2"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 594,
+      "offset": 615,
       "length": 7,
       "value": "3"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 377,
+      "offset": 398,
       "length": 6,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 430,
+      "offset": 451,
       "length": 8,
       "value": "2"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 594,
+      "offset": 615,
       "length": 7,
       "value": "3"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1132,
+      "offset": 1181,
       "length": 16,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1174,
+      "offset": 1230,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1209,
+      "offset": 1265,
       "length": 10,
       "value": "3"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1245,
+      "offset": 1301,
       "length": 6,
       "value": "4"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1292,
+      "offset": 1348,
       "length": 8,
       "value": "5"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1352,
+      "offset": 1408,
       "length": 16,
       "value": "6"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1396,
+      "offset": 1452,
       "length": 8,
       "value": "7"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1430,
+      "offset": 1486,
       "length": 6,
       "value": "8"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1497,
+      "offset": 1553,
       "length": 4,
       "value": "9"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1527,
+      "offset": 1583,
       "length": 14,
       "value": "10"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1132,
+      "offset": 1181,
       "length": 16,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1174,
+      "offset": 1230,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1209,
+      "offset": 1265,
       "length": 10,
       "value": "3"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1245,
+      "offset": 1301,
       "length": 6,
       "value": "4"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1292,
+      "offset": 1348,
       "length": 8,
       "value": "5"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1352,
+      "offset": 1408,
       "length": 16,
       "value": "6"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1396,
+      "offset": 1452,
       "length": 8,
       "value": "7"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1430,
+      "offset": 1486,
       "length": 6,
       "value": "8"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1497,
+      "offset": 1553,
       "length": 4,
       "value": "9"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 1527,
+      "offset": 1583,
       "length": 14,
       "value": "10"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 4698,
+      "offset": 4505,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 4709,
+      "offset": 4516,
       "length": 6,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 4725,
+      "offset": 4532,
       "length": 4,
       "value": "2"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 4698,
+      "offset": 4505,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 4709,
+      "offset": 4516,
       "length": 6,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 4725,
+      "offset": 4532,
       "length": 4,
       "value": "2"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 5741,
+      "offset": 5583,
       "length": 6,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 5741,
+      "offset": 5583,
       "length": 6,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 6036,
+      "offset": 5885,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPrivacyDataKit\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyDataCore\/AdswizzSDKPrivacyData.swift",
       "kind": "IntegerLiteral",
-      "offset": 6036,
+      "offset": 5885,
       "length": 4,
       "value": "1"
     },

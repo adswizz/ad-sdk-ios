@@ -816,8 +816,8 @@ SWIFT_CLASS_NAMED("AdManagerSettings")
 /// Set the video view that is responsible for rendering video ads.
 /// If it is not set, the SDK will still play the audio track of the video ad.
 @property (nonatomic, strong) AASDKAdVideoView * _Nullable videoView;
-/// Set an optional timeout interval measured in seconds if the internal player should detect stalling automatically when the AdManager plays the ads. By default, this property is 0 which means that detecting stalling automatically is disabled. Enable it by setting a value greater than 0.
-/// Note that the recommended value is 3 seconds or more in order to minimize triggering the stalled error too early.
+/// Set an optional timeout interval measured in seconds if the internal player should detect stalling automatically when the AdManager plays the ads. By default, this property is 0 which means that detecting stalling automatically is disabled.
+/// Enable it by setting a value greater than or equal to 3. Note that the recommended value is 3 seconds or more in order to minimize triggering the stalled error too early.
 @property (nonatomic) NSTimeInterval timeoutIntervalBeforeStalling;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end

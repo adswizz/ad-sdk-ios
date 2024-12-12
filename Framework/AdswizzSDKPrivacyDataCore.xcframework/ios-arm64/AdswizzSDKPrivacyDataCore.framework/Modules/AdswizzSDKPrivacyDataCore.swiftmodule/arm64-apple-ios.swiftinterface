@@ -43,7 +43,7 @@ public typealias RequestCompletion = (_ result: AdswizzSDKPrivacyDataCore.Reques
     get
   }
 }
-@objc public enum PermissionType : Swift.Int {
+@objc public enum PermissionType : Swift.Int, Swift.CaseIterable {
   case location
   case locationAdvanced
   case photo
@@ -56,13 +56,14 @@ public typealias RequestCompletion = (_ result: AdswizzSDKPrivacyDataCore.Reques
   case idfa
   case motionActivity
   public init?(rawValue: Swift.Int)
+  public typealias AllCases = [AdswizzSDKPrivacyDataCore.PermissionType]
   public typealias RawValue = Swift.Int
+  public static var allCases: [AdswizzSDKPrivacyDataCore.PermissionType] {
+    get
+  }
   public var rawValue: Swift.Int {
     get
   }
-}
-extension AdswizzSDKPrivacyDataCore.PermissionType {
-  public static let all: [AdswizzSDKPrivacyDataCore.PermissionType]
 }
 @objc public protocol AdswizzSDKPermissions {
   @objc func authorizationStatus(for permission: AdswizzSDKPrivacyDataCore.PermissionType) -> AdswizzSDKPrivacyDataCore.PermissionValue

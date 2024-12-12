@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "AdswizzSDKPrivacyDataKit"
-  s.version     = "7.10.0"
+  s.version     = "7.10.1"
   s.summary     = "Optional helper kit framework which provides transparent support for Privacy-Sensitive Data API"
   s.description = <<-DESC
                   The solution for iOS App rejection on AppStore due to lack of string description in app's Info.plist.
@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
   }
   s.author      = { "AdsWizz, Inc" => "sdk@adswizz.com" }
 
-  s.platform    = :ios
   s.ios.deployment_target = '12.0'
+  s.tvos.deployment_target = '12.0'
   s.swift_versions = ['5.9.2']
 
-s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "7.10.0" }
+s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "7.10.1" }
   s.requires_arc = true
 
   # The default subspec which will be installed automatically.
@@ -50,6 +50,7 @@ s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "7.10.
 
   # AdswizzSDKPrivacyDataSpeech
   s.subspec 'Speech' do |speech|
+     speech.platform = :ios
      speech.source_files = 'AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataSpeech/**/*.{swift, h}'
      speech.dependency 'AdswizzSDKPrivacyDataKit/Core'
   end
@@ -68,18 +69,21 @@ s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "7.10.
 
   # AdswizzSDKPrivacyDataCalendar
   s.subspec 'Calendar' do |calendar|
+     calendar.platform = :ios
      calendar.source_files = 'AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataCalendar/**/*.{swift, h}'
      calendar.dependency 'AdswizzSDKPrivacyDataKit/Core'
   end
 
   # AdswizzSDKPrivacyDataMotion
   s.subspec 'Motion' do |motion|
+     motion.platform = :ios
      motion.source_files = 'AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataMotion/**/*.{swift, h}'
      motion.dependency 'AdswizzSDKPrivacyDataKit/Core'
   end
 
   # AdswizzSDKPrivacyDataContacts
   s.subspec 'Contacts' do |contact|
+     contact.platform = :ios
      contact.source_files = 'AdswizzSDKPrivacyDataKit/AdswizzSDKPrivacyDataContacts/**/*.{swift, h}'
      contact.dependency 'AdswizzSDKPrivacyDataKit/Core'
   end

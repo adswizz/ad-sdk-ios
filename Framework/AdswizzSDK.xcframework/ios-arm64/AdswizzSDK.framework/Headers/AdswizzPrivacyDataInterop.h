@@ -15,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_CLOSED_ENUM(NSUInteger, AdswizzPermissionTypeObjC) {
     /// System permissions
     location,           // when in use
+#if !TARGET_OS_TV
     locationAdvanced,   // always
+#endif
     photo,              // photo library
     microphone,         // microphone
     speech,             // speech recognition

@@ -1,0 +1,11 @@
+framework module AdswizzSDKPrivacyDataCore {
+  umbrella header "AdswizzSDKPrivacyDataCore.h"
+  export *
+
+  module * { export * }
+}
+
+module AdswizzSDKPrivacyDataCore.Swift {
+  header "AdswizzSDKPrivacyDataCore-Swift.h"
+  requires objc
+}

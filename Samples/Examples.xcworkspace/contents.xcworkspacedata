@@ -43,4 +43,7 @@
    <FileRef
       location = "group:BasicPodcastExample/BasicPodcastExample.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:BasicTVOSExample/BasicTVOSExample.xcodeproj">
+   </FileRef>
 </Workspace>
