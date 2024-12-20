@@ -68,3 +68,7 @@ The example also demonstrates a basic implementation of an **_AnalyticsConnector
 
 Similar to the [BasicPodcastExample](#basicpodcastexample), this sample also shows how your app can integrate the **_AdswizzSDK_** podcasting support, but by using a playlist model in a more complex scenario. This sample project creates a playlist with multiple playlist items and each item encapsulates an **_AdswizzAdPodcastManager_** instance to play the associated podcast URL. It also implements support for audio (interactive) ads and companion banners for the podcast ad breaks.
 
+## AdvancedHLSInterstitialExample
+
+This sample shows how your app can integrate **_AdswizzSDK_** and how to benefit from the built-in HLS interstitials support. It demonstrates how to schedule and play `AVPlayerInterstitialEvent` (each driven by an associated **_AdManager_**) while playing a HLS stream as primary content.
+

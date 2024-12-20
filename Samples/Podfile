@@ -20,6 +20,7 @@ project 'BasicEmptyAdsExample/BasicEmptyAdsExample.xcodeproj'
 project 'BasicDVRRequestExample/BasicDVRRequestExample.xcodeproj'
 project 'BasicSwiftUIClientSideInsertion/BasicSwiftUIClientSideInsertion.xcodeproj'
 project 'BasicTVOSExample/BasicTVOSExample.xcodeproj'
+project 'AdvancedHLSInterstitialExample/AdvancedHLSInterstitialExample.xcodeproj'
 project 'BasicPodcastExample/BasicPodcastExample'
 project 'BasicAnalyticsExample/BasicAnalyticsExample'
 
@@ -137,6 +138,11 @@ end
 target :BasicTVOSExample do
   platform :tvos, '12.0'
   project 'BasicTVOSExample/BasicTVOSExample.xcodeproj'
+  common_pods
+end
+
+target :AdvancedHLSInterstitialExample do
+  project 'AdvancedHLSInterstitialExample/AdvancedHLSInterstitialExample.xcodeproj'
   common_pods
 end
 

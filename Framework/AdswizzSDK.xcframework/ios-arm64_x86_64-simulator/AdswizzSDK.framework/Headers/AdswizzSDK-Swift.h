@@ -315,6 +315,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
 @class NSString;
 enum AASDKAdAssetState : NSInteger;
 @protocol AASDKAdAssetDelegate;
@@ -664,6 +665,17 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdEventType, "AdEventType", open) {
   AASDKAdEventTypeAllAdsCompleted = 11,
 };
 
+@class AVQueuePlayer;
+
+/// The <code>AdInterstitialEventMonitor</code> interface provides native support while playing ads from <code>AdManager</code> when paired with the insterstitial player provided by an instance of <code>AVPlayerInterstitialEventMonitor</code> or <code>AVPlayerInterstitialEventController</code> available from iOS 15+.
+/// It is designed to add interoperability between the <code>AdManager</code> it is set on and the native <code>AVPlayerInterstitialEventController</code> for scheduling and monitoring HLS interstitial events.
+/// Read more about <code>AVPlayerInterstitialEventController</code> at https://developer.apple.com/documentation/avfoundation/avplayerinterstitialeventcontroller
+SWIFT_PROTOCOL_NAMED("AdInterstitialEventMonitor")
+@protocol AASDKAdInterstitialEventMonitor
+/// The native player (provided by the <code>AVPlayerInterstitialEventController</code>) which plays the ads during an <code>AVPlayerInterstitialEvent</code>.
+@property (nonatomic, readonly, strong) AVQueuePlayer * _Nonnull interstitialPlayer;
+@end
+
 
 
 @class AASDKAdManagerSettings;
@@ -819,6 +831,10 @@ SWIFT_CLASS_NAMED("AdManagerSettings")
 /// Set an optional timeout interval measured in seconds if the internal player should detect stalling automatically when the AdManager plays the ads. By default, this property is 0 which means that detecting stalling automatically is disabled.
 /// Enable it by setting a value greater than or equal to 3. Note that the recommended value is 3 seconds or more in order to minimize triggering the stalled error too early.
 @property (nonatomic) NSTimeInterval timeoutIntervalBeforeStalling;
+/// Set the interstitial event monitor that provides support for playing the ads during a HLS interstitial event (ad break).
+/// This will instruct the <code>AdManager</code> to sync the ads playback (which were previously set as template items) with the <code>interstitialPlayer</code> when the interstitial event is triggered.
+/// If you have your own custom implementation for HLS interstitials, use the <code>player</code> property instead (and set your interstitial player as external player instance that conforms to the <code>MediaPlayerState</code> protocol).
+@property (nonatomic, weak) id <AASDKAdInterstitialEventMonitor> _Nullable adInterstitialEventMonitor;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1274,7 +1290,6 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK))
 /// Registers a view that overlays or obstructs this container as “friendly” for viewability measurement purposes.
 /// See the Open Measurement in AdswizzSDK for guidance on what you are and what you are not allowed to register.
@@ -1284,6 +1299,7 @@ SWIFT_CLASS_NAMED("AdVideoView")
 /// Unregisters all previously registered friendly obstructions.
 - (void)unregisterAllFriendlyObstructions;
 @end
+
 
 
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
@@ -2431,7 +2447,6 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 
 
 
-
 @interface AASDKTrackingPermissionController (SWIFT_EXTENSION(AdswizzSDK))
 /// Convenience method to quickly create a tracking permission controller with basic customizations.
 /// \param title A custom title for the controller. It defaults to a generic title.
@@ -2447,6 +2462,7 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 /// The controller with the designated configuration.
 + (AASDKTrackingPermissionController * _Nonnull)trackingControllerWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message contentImage:(UIImage * _Nullable)contentImage headerImage:(UIImage * _Nullable)headerImage SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 @class UIPresentationController;
@@ -3094,6 +3110,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
 @class NSString;
 enum AASDKAdAssetState : NSInteger;
 @protocol AASDKAdAssetDelegate;
@@ -3443,6 +3460,17 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdEventType, "AdEventType", open) {
   AASDKAdEventTypeAllAdsCompleted = 11,
 };
 
+@class AVQueuePlayer;
+
+/// The <code>AdInterstitialEventMonitor</code> interface provides native support while playing ads from <code>AdManager</code> when paired with the insterstitial player provided by an instance of <code>AVPlayerInterstitialEventMonitor</code> or <code>AVPlayerInterstitialEventController</code> available from iOS 15+.
+/// It is designed to add interoperability between the <code>AdManager</code> it is set on and the native <code>AVPlayerInterstitialEventController</code> for scheduling and monitoring HLS interstitial events.
+/// Read more about <code>AVPlayerInterstitialEventController</code> at https://developer.apple.com/documentation/avfoundation/avplayerinterstitialeventcontroller
+SWIFT_PROTOCOL_NAMED("AdInterstitialEventMonitor")
+@protocol AASDKAdInterstitialEventMonitor
+/// The native player (provided by the <code>AVPlayerInterstitialEventController</code>) which plays the ads during an <code>AVPlayerInterstitialEvent</code>.
+@property (nonatomic, readonly, strong) AVQueuePlayer * _Nonnull interstitialPlayer;
+@end
+
 
 
 @class AASDKAdManagerSettings;
@@ -3598,6 +3626,10 @@ SWIFT_CLASS_NAMED("AdManagerSettings")
 /// Set an optional timeout interval measured in seconds if the internal player should detect stalling automatically when the AdManager plays the ads. By default, this property is 0 which means that detecting stalling automatically is disabled.
 /// Enable it by setting a value greater than or equal to 3. Note that the recommended value is 3 seconds or more in order to minimize triggering the stalled error too early.
 @property (nonatomic) NSTimeInterval timeoutIntervalBeforeStalling;
+/// Set the interstitial event monitor that provides support for playing the ads during a HLS interstitial event (ad break).
+/// This will instruct the <code>AdManager</code> to sync the ads playback (which were previously set as template items) with the <code>interstitialPlayer</code> when the interstitial event is triggered.
+/// If you have your own custom implementation for HLS interstitials, use the <code>player</code> property instead (and set your interstitial player as external player instance that conforms to the <code>MediaPlayerState</code> protocol).
+@property (nonatomic, weak) id <AASDKAdInterstitialEventMonitor> _Nullable adInterstitialEventMonitor;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -4053,7 +4085,6 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK))
 /// Registers a view that overlays or obstructs this container as “friendly” for viewability measurement purposes.
 /// See the Open Measurement in AdswizzSDK for guidance on what you are and what you are not allowed to register.
@@ -4063,6 +4094,7 @@ SWIFT_CLASS_NAMED("AdVideoView")
 /// Unregisters all previously registered friendly obstructions.
 - (void)unregisterAllFriendlyObstructions;
 @end
+
 
 
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
@@ -5210,7 +5242,6 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 
 
 
-
 @interface AASDKTrackingPermissionController (SWIFT_EXTENSION(AdswizzSDK))
 /// Convenience method to quickly create a tracking permission controller with basic customizations.
 /// \param title A custom title for the controller. It defaults to a generic title.
@@ -5226,6 +5257,7 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 /// The controller with the designated configuration.
 + (AASDKTrackingPermissionController * _Nonnull)trackingControllerWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message contentImage:(UIImage * _Nullable)contentImage headerImage:(UIImage * _Nullable)headerImage SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 @class UIPresentationController;

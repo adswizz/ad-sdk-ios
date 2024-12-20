@@ -7,6 +7,7 @@
     - [Client Side Insertion](iOS/SDKiOS/ClientSideInsertion.md)
     - [Server Side Insertion](iOS/SDKiOS/ServerSideInsertion.md)
     - [Podcasts](iOS/SDKiOS/Podcasts.md)
+    - [HLS Interstitials](iOS/SDKiOS/HLSInterstitials.md)
     - [Companion Banner](iOS/SDKiOS/CompanionBanner.md)
     - [Interactive Ads](iOS/SDKiOS/InteractiveAds.md)
     - [Video ads](iOS/SDKiOS/VideoAds.md)

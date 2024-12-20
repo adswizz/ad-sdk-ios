@@ -279,6 +279,7 @@ public typealias AdManagerOwner = AdswizzSDK.AdManager
   @objc final public var preferredMaxBitrate: Swift.UInt64
   @objc final public var videoView: AdswizzSDK.AdVideoView?
   @objc final public var timeoutIntervalBeforeStalling: Swift.Double
+  @objc weak final public var adInterstitialEventMonitor: (any AdswizzSDK.AdInterstitialEventMonitor)?
   @objc override dynamic public init()
   @objc deinit
 }
@@ -625,6 +626,9 @@ extension AdswizzSDK.DVRMetadata {
   public var rawValue: Swift.Int {
     get
   }
+}
+@objc(AASDKAdInterstitialEventMonitor) public protocol AdInterstitialEventMonitor {
+  @objc var interstitialPlayer: AVFoundation.AVQueuePlayer { get }
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdswizzSettingsKeys) public class AdswizzSettingsKeys : ObjectiveC.NSObject {
   @objc public static let AWSTranscriberIdentityPoolIdRegion: Swift.String
