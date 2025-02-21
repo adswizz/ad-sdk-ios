@@ -5,6 +5,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.11.0] - 2025-02-21
+### Added
+- AdswizzAdRequest:
+    - SDK support for requesting "shim" ads
+    - New public classes **_AdswizzShimZone_** and **_AdswizzShimZone.Builder_** to create and set a "shim" zone on the **_AdswizzAdRequest_**
+        - New public methods in **_AdswizzShimZone.Builder_**:
+            - `with(zoneId: String)` sets the zone identifier
+            - `with(zoneAlias: String)` sets the zone identifier (alternative to `zoneId`)
+            - `with(maxDeadAir: TimeInterval)` sets a "dead air" tolerance to fulfill the duration requirement
+            - `build()` creates an instance of **_AdswizzShimZone_**
+    - New public method in **_AdswizzAdZone.Builder_**:
+        - `with(zoneAlias: String)` sets the zone identifier (alternative to the existing `zoneId`)
+    - New public method in **_AdswizzAdRequest.Builder_**:
+        - `with(shim: AdswizzShimZone)` sets a shim zone on the **_AdswizzAdRequest.Builder_**
+- AdManager:
+    - SDK support for HLS interstitials livestream ad-replacement scenario
+    - New public interface **_AdManagerInterstitialEventDatasource_** to be able to replace a VAST MediaFile uri and match it in the `AVPlayerItem` associated to an `AVPlayerInterstitialEvent`
+        - New public optional method `func adManager(_ adManager: AdManager, interstitialMediaFileURL ad: AdData) -> URL?` to provide the SDK an alternative MediaFile uri
+    - New public property in **_AdManager_** protocol:
+        - `interstitialDatasource` to communicate with objects that conform to **_AdManagerInterstitialEventDatasource_**
+- Integration Guide:
+    - New section on [AdManagerInterstitialEventDatasource](iOS/SDKiOS/ClientSideInsertion#admanagerinterstitialeventdatasource-protocol) protocol and [AdswizzShimZone](iOS/SDKiOS/ClientSideInsertion#shim-zone) support
+
+### Fixed
+- AdswizzSDK tvOS:
+    - Add missing `tvOS` as supported platform for some of the internal modules. This fixes a binary issue on AppStore submission for .ipa archives that integrate AdswizzSDK for tvOS
+
 ## [7.10.2] - 2024-12-20
 ### Added
 - HLS interstitials:

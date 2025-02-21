@@ -723,6 +723,7 @@ extension AdswizzSDK.DVRMetadata {
 @_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdZone) final public class AdswizzAdZone : ObjectiveC.NSObject {
   @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdZoneBuilder) public class Builder : ObjectiveC.NSObject {
     @objc public func with(zoneId: Swift.String) -> AdswizzSDK.AdswizzAdZone.Builder
+    @objc public func with(zoneAlias: Swift.String) -> AdswizzSDK.AdswizzAdZone.Builder
     @objc public func with(maxAds: Swift.UInt) -> AdswizzSDK.AdswizzAdZone.Builder
     @objc public func with(maxDuration: Foundation.TimeInterval) -> AdswizzSDK.AdswizzAdZone.Builder
     @objc public func build() throws -> AdswizzSDK.AdswizzAdZone
@@ -803,10 +804,14 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   @objc optional func adManagerCompanionClickTrackingUrls(_ adManager: any AdswizzSDK.AdManager, ad: any AdswizzSDK.AdData, _ companion: any AdswizzSDK.Companion) -> [Foundation.URL]
   @objc optional func adManagerVideoClickTrackingUrls(_ adManager: any AdswizzSDK.AdManager, ad: any AdswizzSDK.AdData) -> [Foundation.URL]
 }
+@objc(AASDKAdManagerInterstitialEventDatasource) public protocol AdManagerInterstitialEventDatasource {
+  @objc optional func adManager(_ adManager: any AdswizzSDK.AdManager, interstitialMediaFileURL ad: any AdswizzSDK.AdData) -> Foundation.URL?
+}
 @objc(AASDKAdManager) public protocol AdManager {
   @objc var adManagerSettings: AdswizzSDK.AdManagerSettings { get set }
   @objc weak var delegate: (any AdswizzSDK.AdManagerDelegate)? { get set }
   @objc weak var datasource: (any AdswizzSDK.AdManagerDatasource)? { get set }
+  @objc weak var interstitialDatasource: (any AdswizzSDK.AdManagerInterstitialEventDatasource)? { get set }
   @objc weak var interactiveDelegate: (any AdswizzSDK.InteractiveAdManagerDelegate)? { get set }
   @objc var ads: [any AdswizzSDK.AdData] { get }
   @objc var analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)? { get set }
@@ -828,6 +833,17 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   @objc public init(for request: AdswizzSDK.AdRequest) throws
   @objc final public func requestAds(completion: @escaping AdswizzSDK.AdRequestConnection.AdsRequestCompletion)
   @objc final public func cancel()
+}
+@_hasMissingDesignatedInitializers @objc(AASDKAdswizzShimZone) final public class AdswizzShimZone : ObjectiveC.NSObject {
+  @_inheritsConvenienceInitializers @objc(AASDKAdswizzShimZoneBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc public func with(zoneId: Swift.String) -> AdswizzSDK.AdswizzShimZone.Builder
+    @objc public func with(zoneAlias: Swift.String) -> AdswizzSDK.AdswizzShimZone.Builder
+    @objc public func with(maxDeadAir: Foundation.TimeInterval) -> AdswizzSDK.AdswizzShimZone.Builder
+    @objc public func build() throws -> AdswizzSDK.AdswizzShimZone
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
 }
 @objc(AASDKAdStreamManagerDelegate) public protocol AdStreamManagerDelegate {
   @objc func adStreamManager(_ adstreamManager: AdswizzSDK.AdStreamManager, willStartPlaying url: Foundation.URL)
@@ -966,6 +982,7 @@ extension AdswizzSDK.AdVideoFriendlyObstruction {
     @objc public func with(vastVersion: AdswizzSDK.AdswizzAdRequest.VASTVersion) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(zone: AdswizzSDK.AdswizzAdZone) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(zones: [AdswizzSDK.AdswizzAdZone]) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc public func with(shim: AdswizzSDK.AdswizzShimZone) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(duration: Foundation.TimeInterval) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(zoneAlias: Swift.String) -> AdswizzSDK.AdswizzAdRequest.Builder
     @objc public func with(companionZones: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder

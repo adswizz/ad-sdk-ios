@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "AdswizzSDKPinpointAnalytics"
-  s.version     = "7.10.2"
+  s.version     = "7.11.0"
   s.summary     = "Pinpoint Analytics SDK to be linked to AdswizzSDK"
   s.description = <<-DESC
                   The AdswizzSDKPinpointAnalytics framework adds support for the AWS Pinpoint service and links it to the AdswizzSDK Analytics
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '12.0'
   s.swift_versions = ['5.9.2']
 
-s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "7.10.2" }
+s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "7.11.0" }
 
   s.vendored_frameworks = 'Framework/AdswizzSDKPinpointAnalytics.xcframework'
   s.requires_arc = true

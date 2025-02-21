@@ -555,6 +555,7 @@ SWIFT_PROTOCOL_NAMED("AdInterstitialEventMonitor")
 @class AASDKAdManagerSettings;
 @protocol AASDKAdManagerDelegate;
 @protocol AASDKAdManagerDatasource;
+@protocol AASDKAdManagerInterstitialEventDatasource;
 @protocol AASDKAnalyticsCustomData;
 
 /// The <code>AdManager</code> provides support while playing the ads.
@@ -566,6 +567,8 @@ SWIFT_PROTOCOL_NAMED("AdManager")
 @property (nonatomic, weak) id <AASDKAdManagerDelegate> _Nullable delegate;
 /// Ad Manager datasource
 @property (nonatomic, weak) id <AASDKAdManagerDatasource> _Nullable datasource;
+/// Ad Manager interstitial event datasource
+@property (nonatomic, weak) id <AASDKAdManagerInterstitialEventDatasource> _Nullable interstitialDatasource;
 /// Returns the array of VAST playable ads currently stored by the Ad manager object. May be empty if no ads were fetched.
 /// <code>ads</code> can safely be accessed right after the Ad Manager has been obtained, before calling <code>prepare()</code>, or even during ad playback. A zero count means the Ad Manager will not play any ad.
 @property (nonatomic, readonly, copy) NSArray<id <AASDKAdData>> * _Nonnull ads;
@@ -673,6 +676,28 @@ SWIFT_PROTOCOL_NAMED("AdManagerDelegate")
 /// \param duration The total duration of the ad media as reported by the internal SDK player.
 ///
 - (void)adManager:(id <AASDKAdManager> _Nonnull)adManager ad:(id <AASDKAdData> _Nonnull)ad didChangedPlayHead:(NSTimeInterval)playHead adDuration:(NSTimeInterval)duration;
+@end
+
+
+/// @protocol
+/// The <code>AdManagerInterstitialEventDatasource</code> protocol defines the methods used to provide AdswizzSDK with various data during a livestream ad replacement.
+SWIFT_PROTOCOL_NAMED("AdManagerInterstitialEventDatasource")
+@protocol AASDKAdManagerInterstitialEventDatasource
+@optional
+/// Called when the <code>AdManager</code> is preparing all ads during the <code>.prepare()</code> call and the <code>AdManagerSettings</code> contains an <code>adInterstitialEventMonitor</code> reference.
+/// Use it for the livestream ad-replacement scenario to customize the mediafile URL for each ad in the ad pod during the associated <code>AVPlayerInterstitialEvent</code>.
+/// For each ad in the ad pod, the <code>AdManager</code> will receive your (custom) media file URLs and use them internally to identify and match the appropriate <code>AVPlayerItem</code>instances handled by the <code>interstitialPlayer</code> (AVQueuePlayer). Therefore, you should pass the URL which was used to build the associated <code>AVPlayerItem</code> before passing them as templateItems when building the  <code>AVPlayerInterstitialEvent</code>.
+/// By default, the <code>AdManager</code> expects that the <code>AVPlayerItem</code>s use and load the MediaFiles from the VAST response.
+/// Implementing this method is not required, e.g if your scheduled <code>AVPlayerInterstitialEvent</code> uses the ad’s MediaFiles from the VAST response.
+/// <em>Important</em>: Note that the <code>AdManager</code>will <em>not observe</em> the <code>AVPlayerItem</code>s  from the <code>interstitialPlayer</code> (AVQueuePlayer) if it detects a mismatch between the URL you provide here and the URL used to create the <code>AVPlayerItem</code> itself. In this case, the <code>AdManager</code> <em>will not initiate any tracking and will not emit any Ad Events</em> for the respective <code>AdData</code>.
+/// \param adManager The AdManager that sent the event
+///
+/// \param ad The AdData for which the event was sent
+///
+///
+/// returns:
+/// the URL which was used in the template AVPlayerItem when the AVPlayerInterstitialEvent is constructed
+- (NSURL * _Nullable)adManager:(id <AASDKAdManager> _Nonnull)adManager interstitialMediaFileURL:(id <AASDKAdData> _Nonnull)ad SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @protocol AASDKMediaPlayerState;
@@ -1165,7 +1190,6 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK))
 /// Registers a view that overlays or obstructs this container as “friendly” for viewability measurement purposes.
 /// See the Open Measurement in AdswizzSDK for guidance on what you are and what you are not allowed to register.
@@ -1176,6 +1200,8 @@ SWIFT_CLASS_NAMED("AdVideoView")
 - (void)unregisterAllFriendlyObstructions;
 @end
 
+
+
 @class UIGestureRecognizer;
 
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
@@ -1184,7 +1210,6 @@ SWIFT_CLASS_NAMED("AdVideoView")
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 
 /// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behavior changes and events.
@@ -1230,6 +1255,7 @@ SWIFT_CLASS_NAMED("AdswizzAdPodcastManager")
 @end
 
 
+
 @interface AASDKAdswizzAdPodcastManager (SWIFT_EXTENSION(AdswizzSDK))
 @end
 
@@ -1273,7 +1299,6 @@ SWIFT_CLASS_NAMED("Builder")
 
 
 
-
 /// The <code>AdswizzAdRequest</code> connection to an Adswizz Ad Server.
 SWIFT_CLASS_NAMED("AdswizzAdRequest")
 @interface AASDKAdswizzAdRequest : AASDKAdRequest
@@ -1291,6 +1316,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdswizzAdRequestVASTVersion, "VASTVersi
 };
 
 @class AASDKAdswizzAdZone;
+@class AASDKAdswizzShimZone;
 
 /// Builder class for <code>AdRequest</code>.
 SWIFT_CLASS_NAMED("Builder")
@@ -1325,6 +1351,15 @@ SWIFT_CLASS_NAMED("Builder")
 /// returns:
 /// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withZones:(NSArray<AASDKAdswizzAdZone *> * _Nonnull)zones SWIFT_WARN_UNUSED_RESULT;
+/// Set the configuration for “shim” ads. Optional.
+/// By specifying an <code>AdswizzShimZone</code>, the request will append the shims configuration to the list of zones and instruct the Adswizz AdServer to pad the adpod as necesarry to fulfill the <em>duration</em> requirement.
+/// e.g For livestream ad replacement use-case, the total <em>duration</em> of returned ads in the ad pod should be at least the requested size, not less. “shim” ads are used to pad as needed and to fill up any gaps in <em>duration</em>.
+/// \param shim configuration for the “shim” ads
+///
+///
+/// returns:
+/// the same builder object
+- (AASDKAdswizzAdRequestBuilder * _Nonnull)withShim:(AASDKAdswizzShimZone * _Nonnull)shim SWIFT_WARN_UNUSED_RESULT;
 /// Set the maximum total duration of ads to be selected, in seconds. Optional.
 /// \param duration non-zero duration description in seconds
 ///
@@ -1491,13 +1526,22 @@ SWIFT_CLASS_NAMED("AdswizzAdZone")
 /// Builder class for <code>AdswizzAdZone</code>.
 SWIFT_CLASS_NAMED("Builder")
 @interface AASDKAdswizzAdZoneBuilder : NSObject
-/// Set the zone ID for ad selection. Mandatory.
-/// \param zoneId zoneId description
+/// Set the zone ID for ad selection. Mandatory if <code>zoneAlias</code> is not set.
+/// Note that <code>zoneId</code> and <code>zoneAlias</code> are mutually exclusive. Please set one or the other, not both.
+/// \param zoneId the zone identifier
 ///
 ///
 /// returns:
 /// the same builder object
 - (AASDKAdswizzAdZoneBuilder * _Nonnull)withZoneId:(NSString * _Nonnull)zoneId SWIFT_WARN_UNUSED_RESULT;
+/// Set an alternative zone identifier for ad selection. Mandatory if <code>zoneId</code> is not set.
+/// Note that <code>zoneId</code> and <code>zoneAlias</code> are mutually exclusive. Please set one or the other, not both.
+/// \param zoneId the alternative zone identifier
+///
+///
+/// returns:
+/// the same builder object
+- (AASDKAdswizzAdZoneBuilder * _Nonnull)withZoneAlias:(NSString * _Nonnull)zoneAlias SWIFT_WARN_UNUSED_RESULT;
 /// Set the maximum number of ads requested during ad selection. Optional.
 /// Accepts only non-zero and positive values.
 /// \param maxAds maximum number of ads description
@@ -1830,6 +1874,57 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)AppStoreId SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
+/// The <code>AdswizzShimZone</code> object specifies criteria for “shim” ads selection from Adswizz AdServer.
+/// Can be used  to configure an <code>AdswizzAdRequest</code> to specify ad fillers that will satisfy the total ad pod <em>duration</em> requirement (the duration of returned ads should be at least the requested size).
+SWIFT_CLASS_NAMED("AdswizzShimZone")
+@interface AASDKAdswizzShimZone : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// Builder class for <code>AdswizzShimZone</code>.
+SWIFT_CLASS_NAMED("Builder")
+@interface AASDKAdswizzShimZoneBuilder : NSObject
+/// Set the zone ID for “shim” ads selection. Mandatory if <code>zoneAlias</code> is not set.
+/// Note that <code>zoneId</code> and <code>zoneAlias</code> are mutually exclusive. Please set one or the other, not both.
+/// \param zoneId identifies a pool of ads on the Adswizz AdServer
+///
+///
+/// returns:
+/// the same builder object
+- (AASDKAdswizzShimZoneBuilder * _Nonnull)withZoneId:(NSString * _Nonnull)zoneId SWIFT_WARN_UNUSED_RESULT;
+/// Set an alternative zone identifier for ad selection. Mandatory if <code>zoneId</code> is not set.
+/// Note that <code>zoneId</code> and <code>zoneAlias</code> are mutually exclusive. Please set one or the other, not both.
+/// \param zoneId the alternative zone identifier
+///
+///
+/// returns:
+/// the same builder object
+- (AASDKAdswizzShimZoneBuilder * _Nonnull)withZoneAlias:(NSString * _Nonnull)zoneAlias SWIFT_WARN_UNUSED_RESULT;
+/// Set the acceptable duration for “dead air” to fulfill the duration requirement. Optional.
+/// This parameter specifies if the Adswizz AdServer should continue the selection for the “shims” ads, depending on the remaining duration.
+/// e.g situations where the total duration of returned ads is (almost) filled with ads from the other non-shims zones so the “shim” ad(s) become(s) unnecessary and some “dead air” is acceptable.
+/// Measured in seconds and only accepts non-zero and positive values.
+/// \param maxDeadAir tolerance amount in seconds towards the duration fulfilment
+///
+///
+/// returns:
+/// the same builder object
+- (AASDKAdswizzShimZoneBuilder * _Nonnull)withMaxDeadAir:(NSTimeInterval)maxDeadAir SWIFT_WARN_UNUSED_RESULT;
+/// Builds an <code>AdswizzShimZone</code> object.
+///
+/// throws:
+/// a missing zone ID error if the ID was not provided or was empty
+///
+/// returns:
+/// a valid <code>AdswizzShimZone</code> object
+- (AASDKAdswizzShimZone * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 /// The U.S. Privacy consent.
 typedef SWIFT_ENUM_NAMED(NSInteger, AASDKCCPAOption, "CCPAConsent", open) {
@@ -2291,6 +2386,7 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 
 
 
+
 @interface AASDKTrackingPermissionController (SWIFT_EXTENSION(AdswizzSDK))
 /// Convenience method to quickly create a tracking permission controller with basic customizations.
 /// \param title A custom title for the controller. It defaults to a generic title.
@@ -2306,7 +2402,6 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 /// The controller with the designated configuration.
 + (AASDKTrackingPermissionController * _Nonnull)trackingControllerWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message contentImage:(UIImage * _Nullable)contentImage headerImage:(UIImage * _Nullable)headerImage SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 @class UIPresentationController;
 

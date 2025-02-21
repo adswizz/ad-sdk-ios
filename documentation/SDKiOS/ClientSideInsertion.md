@@ -11,7 +11,8 @@ Following the SDK initialization, the next step is to create and configure one o
 var zone: AdswizzAdZone!
 do {
       zone = try AdswizzAdZone.Builder()
-          .with(zoneId: "ZONEID_PROVIDED_BY_PIM")         // mandatory
+          .with(zoneId: "ZONEID_PROVIDED_BY_PIM")         // mandatory if 'zoneAlias' is not set
+          .with(zoneAlias: "ZONEALIAS_PROVIDED_BY_PIM")   // mandatory if 'zoneId' is not set
           .with(maxAds: maximum_number_of_ads)            // optional
           .with(maxDuration: maximum_duration_in_seconds) // optional
           .build()
@@ -19,10 +20,10 @@ do {
      print(error)
 }
 ```
+_zoneId_ or _zoneAlias_ will be provided to you by your Adswizz Integration Manager.
+`maxAds` and `maxDuration` properties are completely optional.
 
-_zoneId_ will be provided to you by your Adswizz Integration Manager.
-
-Note that `maxAds` and `maxDuration` properties are completely optional.
+> Note that _zoneId_ and _zoneAlias_ are mutually exclusive and you should not set them both on the same **_AdswizzAdZone_**. Set one or the other, otherwise the `Builder()` will throw an error.
 
 ## Your first ad request
 
@@ -61,7 +62,40 @@ Please note that the order in which you pass the zones is important, as the AdsW
 
 An optional parameter is `duration`, which sets the maximum total duration of ads to be selected, in seconds. It can be used to fine tune the ad delivery and request a specific total duration.
 
-**Custom request parameters**
+##### Shim zone
+
+If your requirement is that the duration of returned ads should be at least the requested size and not less, you can configure your **_AdswizzAdRequest_** to specify ad fillers that will satisfy the total ad pod *duration*. The Adswizz AdServer will pad the ad response with additional "shim" ads by using the **_AdswizzShimZone_** object:
+```swift
+var shimZone: AdswizzShimZone!
+do {
+      shimZone = try AdswizzShimZone.Builder()
+          .with(zoneId: "ZONEID_PROVIDED_BY_PIM")         // mandatory if 'zoneAlias' is not set
+          .with(zoneAlias: "ZONEALIAS_PROVIDED_BY_PIM")   // mandatory if 'zoneId' is not set
+          .with(maxDeadAir: maximum_dead_air_duration_in_seconds) // optional, measured in seconds and only accepts non-zero and positive values.
+          .build()
+} catch {
+     print(error)
+}
+
+var adRequest: AdswizzAdRequest!
+do {
+      adRequest = try AdswizzAdRequest.Builder()
+              ...
+              .with(shim: shimZone)
+              .build()
+} catch {
+     print(error)
+}
+```
+_zoneId_ or _zoneAlias_ will be provided to you by your Adswizz Integration Manager.
+> Similar to the **_AdswizzAdZone_**, that _zoneId_ and _zoneAlias_ are mutually exclusive and you should not set them both on the same **_AdswizzShimZone_**. Set one or the other, otherwise the `Builder()` will throw an error.
+
+The `maxDeadAir` parameter is completely optional and it specifies if the Adswizz AdServer should continue the selection for the "shims" ads, depending on the remaining duration.
+e.g situations where the total duration of returned ads is (almost) filled with ads from the other ad zones so the "shim" ad(s) become(s) unnecessary and some "dead air" is acceptable.
+
+For more details, please consult with your Adswizz Integration Manager.
+
+##### Custom request parameters
 
 You can use custom parameters (key-value pairs) in your **_AdswizzAdRequest_** objects, in order to send various information, such as publisher specific IDs, first-party targeting data, etc.
 Here is an example:
@@ -84,7 +118,7 @@ let adRequest = try AdswizzAdRequest.Builder()
         ...
 ```
 
-**(Advanced) Enable expected ads reporting**
+##### (Advanced) Enable expected ads reporting
 
 You may enable the reporting on the number of expected ads by setting the `enableExpectedAdsReporting` to `true` in your **_AdswizzAdRequest_** objects. By default `enableExpectedAdsReporting` is `false`.
 
@@ -98,7 +132,7 @@ let adRequest = try AdswizzAdRequest.Builder()
 
 Read more about this behavior here: [(Advanced) Handling AdManager reporting for expected ads](#advanced-handling-admanager-reporting-for-expected-ads).
 
-**AdRequestConnection**
+##### AdRequestConnection
 
 Next, you need to create an **_AdRequestConnection_** object and call requestAds with the ad request object.
 
@@ -248,6 +282,23 @@ Called when the **_AdManager_** is about to trigger companion banner click URLs.
 #### func adManagerVideoClickTrackingUrls(_ adManager: AdManager, ad: AdData) -> [URL]
 
 Called when the **_AdManager_** is about to trigger video view click URLs. When the video view is tapped, the SDK can fire your custom additional URLs.
+
+### AdManagerInterstitialEventDatasource protocol
+
+The **_AdManagerInterstitialEventDatasource_** protocol defines the methods used to provide AdswizzSDK with various data during a _livestream ad-replacement_ backed by the **_AdManager_**.
+For more details, read the [HLS Interstitials](/iOS/SDKiOS/HLSInterstitials) support.
+To be able to customize the behavior, you need to set up the `interstitialDatasource` for the **_AdManager_** that conforms to the **_AdManagerInterstitialEventDatasource_** protocol.
+
+#### func adManager(_ adManager: AdManager, interstitialMediaFileURL ad: AdData) -> URL?
+
+Called when the **_AdManager_** is preparing all ads during the `.prepare()` call and the **_AdManagerSettings_** contains an `adInterstitialEventMonitor` reference.
+Use it for the livestream ad-replacement scenario to customize the mediafile URL for each ad in the ad pod during the associated `AVPlayerInterstitialEvent`.
+For each ad in the ad pod, the `AdManager` will receive your (custom) media file URLs and use them internally to identify and match the appropriate `AVPlayerItem`instances handled by the `interstitialPlayer` (AVQueuePlayer). Therefore, you should pass the URL which was used to build the associated `AVPlayerItem` before passing them as templateItems when building the  `AVPlayerInterstitialEvent`.
+
+By default, the `AdManager` expects that the `AVPlayerItem`s use and load the MediaFiles from the VAST response.
+Implementing this method is not required, e.g if your scheduled `AVPlayerInterstitialEvent` uses the ad's MediaFiles from the VAST response.
+    
+> **Important**: Note that the `AdManager` will **not observe** the `AVPlayerItem`s from the `interstitialPlayer` (AVQueuePlayer) if it detects a mismatch between the URL you provide here and the URL used to create the `AVPlayerItem` itself. In this case, the `AdManager` **will not initiate any tracking and will not emit any Ad Events** for the respective `AdData`.
 
 ### Ad events explained
 
