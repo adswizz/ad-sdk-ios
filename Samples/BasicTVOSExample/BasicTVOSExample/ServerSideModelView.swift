@@ -11,7 +11,7 @@ import AdswizzSDK
 class ServerSideModelView: ObservableObject {
     private var adManager: AdManager?
     private var streamManager: AdswizzAdStreamManager?
-    private let streamURL = "http://sdk.mobile.streaming.adswizz.com:8500/shakeDemo"
+    private let streamURL = "https://streaming.sdk.eks.devel.adswizz.com/shakeDemo"
     private let adServer = "demo.deliveryengine.adswizz.com"
     @Published var isPlaying: Bool = false
     

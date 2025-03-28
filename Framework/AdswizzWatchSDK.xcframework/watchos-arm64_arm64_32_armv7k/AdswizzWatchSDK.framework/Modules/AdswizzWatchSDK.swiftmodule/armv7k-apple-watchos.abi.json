@@ -1,8 +1,8 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "TopLevel",
-    "printedName": "TopLevel",
+    "name": "AdswizzWatchSDK",
+    "printedName": "AdswizzWatchSDK",
     "children": [
       {
         "kind": "Import",
@@ -175,6 +175,22 @@
           "AccessControl",
           "ObjC",
           "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -398,6 +414,39 @@
                 "fixedbinaryorder": 4
               },
               {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(rawValue:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "AdswizzWatchSDK.AdLogger.Level?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Level",
+                        "printedName": "AdswizzWatchSDK.AdLogger.Level",
+                        "usr": "s:15AdswizzWatchSDK8AdLoggerC5LevelO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:15AdswizzWatchSDK8AdLoggerC5LevelO8rawValueAESgSi_tcfc",
+                "mangledName": "$s15AdswizzWatchSDK8AdLoggerC5LevelO8rawValueAESgSi_tcfc",
+                "moduleName": "AdswizzWatchSDK",
+                "implicit": true,
+                "init_kind": "Designated"
+              },
+              {
                 "kind": "Var",
                 "name": "rawValue",
                 "printedName": "rawValue",
@@ -435,39 +484,6 @@
                     "accessorKind": "get"
                   }
                 ]
-              },
-              {
-                "kind": "Constructor",
-                "name": "init",
-                "printedName": "init(rawValue:)",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "AdswizzWatchSDK.AdLogger.Level?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Level",
-                        "printedName": "AdswizzWatchSDK.AdLogger.Level",
-                        "usr": "s:15AdswizzWatchSDK8AdLoggerC5LevelO"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Constructor",
-                "usr": "s:15AdswizzWatchSDK8AdLoggerC5LevelO8rawValueAESgSi_tcfc",
-                "mangledName": "$s15AdswizzWatchSDK8AdLoggerC5LevelO8rawValueAESgSi_tcfc",
-                "moduleName": "AdswizzWatchSDK",
-                "implicit": true,
-                "init_kind": "Designated"
               },
               {
                 "kind": "Function",
@@ -560,6 +576,20 @@
             ],
             "enumRawTypeName": "Int",
             "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
               {
                 "kind": "Conformance",
                 "name": "Equatable",
@@ -774,7 +804,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "AdLoggerDestination",
-                "printedName": "AdswizzWatchSDK.AdLoggerDestination",
+                "printedName": "any AdswizzWatchSDK.AdLoggerDestination",
                 "usr": "c:@M@AdswizzWatchSDK@objc(pl)AASDKAdLoggerDestination"
               }
             ],
@@ -800,7 +830,7 @@
                   {
                     "kind": "TypeNominal",
                     "name": "AdLoggerDestination",
-                    "printedName": "AdswizzWatchSDK.AdLoggerDestination",
+                    "printedName": "any AdswizzWatchSDK.AdLoggerDestination",
                     "usr": "c:@M@AdswizzWatchSDK@objc(pl)AASDKAdLoggerDestination"
                   }
                 ],
@@ -828,7 +858,7 @@
                   {
                     "kind": "TypeNominal",
                     "name": "AdLoggerDestination",
-                    "printedName": "AdswizzWatchSDK.AdLoggerDestination",
+                    "printedName": "any AdswizzWatchSDK.AdLoggerDestination",
                     "usr": "c:@M@AdswizzWatchSDK@objc(pl)AASDKAdLoggerDestination"
                   }
                 ],
@@ -910,6 +940,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -1109,7 +1153,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "WatchSession",
-                "printedName": "AdswizzWatchSDK.WatchSession",
+                "printedName": "any AdswizzWatchSDK.WatchSession",
                 "usr": "c:@M@AdswizzWatchSDK@objc(pl)AASDKWatchSession"
               }
             ],
@@ -1135,7 +1179,7 @@
                   {
                     "kind": "TypeNominal",
                     "name": "WatchSession",
-                    "printedName": "AdswizzWatchSDK.WatchSession",
+                    "printedName": "any AdswizzWatchSDK.WatchSession",
                     "usr": "c:@M@AdswizzWatchSDK@objc(pl)AASDKWatchSession"
                   }
                 ],
@@ -1378,6 +1422,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -1600,6 +1658,22 @@
           "AccessControl",
           "ObjC",
           "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -1664,7 +1738,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "WatchSessionDelegate",
-                "printedName": "AdswizzWatchSDK.WatchSessionDelegate",
+                "printedName": "any AdswizzWatchSDK.WatchSessionDelegate",
                 "usr": "c:@M@AdswizzWatchSDK@objc(pl)AASDKWatchSessionDelegate"
               }
             ],
@@ -1694,6 +1768,22 @@
           "AccessControl",
           "ObjC",
           "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -1809,6 +1899,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -1915,10 +2019,25 @@
         "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : Swift.Hashable>",
         "sugared_genericSig": "<Key, Value where Key : Swift.Hashable>",
         "declAttributes": [
+          "EagerMove",
           "Frozen"
         ],
         "isExternal": true,
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Encodable",
@@ -2238,6 +2357,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "_ObjectiveCBridgeable",
             "printedName": "_ObjectiveCBridgeable",
             "children": [
@@ -2402,6 +2535,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -2570,6 +2717,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -2642,6 +2803,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -2718,6 +2893,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -2774,13 +2963,6 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
       "kind": "IntegerLiteral",
-      "offset": 726,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
       "offset": 1375,
       "length": 18,
       "value": "1"
@@ -2833,263 +3015,11 @@
       "offset": 1954,
       "length": 19,
       "value": "8"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1375,
-      "length": 18,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1458,
-      "length": 19,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1542,
-      "length": 15,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1626,
-      "length": 12,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1702,
-      "length": 16,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1779,
-      "length": 14,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1854,
-      "length": 11,
-      "value": "7"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1954,
-      "length": 19,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1375,
-      "length": 18,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1458,
-      "length": 19,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1542,
-      "length": 15,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1626,
-      "length": 12,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1702,
-      "length": 16,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1779,
-      "length": 14,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1854,
-      "length": 11,
-      "value": "7"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1954,
-      "length": 19,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "BooleanLiteral",
-      "offset": 422,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "BooleanLiteral",
-      "offset": 483,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "BooleanLiteral",
-      "offset": 760,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 850,
-      "length": 5,
-      "value": "10000"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 893,
-      "length": 5,
-      "value": "10001"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 930,
-      "length": 5,
-      "value": "10002"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "StringLiteral",
-      "offset": 969,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 986,
-      "length": 5,
-      "value": "10003"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "StringLiteral",
-      "offset": 1026,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1171,
-      "length": 5,
-      "value": "10000"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1208,
-      "length": 5,
-      "value": "10001"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1255,
-      "length": 5,
-      "value": "10002"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1303,
-      "length": 5,
-      "value": "10003"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "StringLiteral",
-      "offset": 1433,
-      "length": 24,
-      "value": "\"Unknown watch message!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/NSError+Watch+Internal.swift",
-      "kind": "StringLiteral",
-      "offset": 1598,
-      "length": 12,
-      "value": "\"Bad error!\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Speech\/SpeechDetector.swift",
       "kind": "BooleanLiteral",
       "offset": 360,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Speech\/SpeechDetector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 543,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Speech\/SpeechDetector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 921,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Speech\/SpeechDetector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1038,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Speech\/SpeechDetector.swift",
-      "kind": "StringLiteral",
-      "offset": 177,
-      "length": 14,
-      "value": "\"AdswizzWatchSDK.SpeechDetector\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Speech\/SpeechDetector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1561,
       "length": 5,
       "value": "false"
     },
@@ -3106,265 +3036,6 @@
       "offset": 454,
       "length": 2,
       "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 798,
-      "length": 96,
-      "value": "\"Received startShakeDetector with inactivity = \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 862,
-      "length": 3,
-      "value": "\" and duration = \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 893,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 998,
-      "length": 97,
-      "value": "\"Received startSpeechDetector with inactivity = \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1063,
-      "length": 3,
-      "value": "\" and duration = \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1094,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1192,
-      "length": 23,
-      "value": "\"Received stopDetector\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1610,
-      "length": 66,
-      "value": "\"Detector with id = \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1644,
-      "length": 8,
-      "value": "\" detected action with id: \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1675,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2058,
-      "length": 43,
-      "value": "\"Detector with id = \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2092,
-      "length": 7,
-      "value": "\" started\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2367,
-      "length": 43,
-      "value": "\"Detector with id = \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2401,
-      "length": 7,
-      "value": "\" stopped\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2655,
-      "length": 84,
-      "value": "\"Detector with id = \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2689,
-      "length": 6,
-      "value": "\" failed with error: \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2738,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 3212,
-      "length": 42,
-      "value": "\"Detector with id = \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 3246,
-      "length": 6,
-      "value": "\" paused\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 3418,
-      "length": 43,
-      "value": "\"Detector with id = \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 3452,
-      "length": 7,
-      "value": "\" resumed\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4019,
-      "length": 35,
-      "value": "\"Already detected for this session\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4398,
-      "length": 62,
-      "value": "\"Could not build valid detector from a start detector message\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4604,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4630,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Init\/AdLogger+Internal.swift",
-      "kind": "StringLiteral",
-      "offset": 1136,
-      "length": 9,
-      "value": "\"Verbose\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Init\/AdLogger+Internal.swift",
-      "kind": "StringLiteral",
-      "offset": 1186,
-      "length": 7,
-      "value": "\"Debug\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Init\/AdLogger+Internal.swift",
-      "kind": "StringLiteral",
-      "offset": 1233,
-      "length": 6,
-      "value": "\"Info\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Init\/AdLogger+Internal.swift",
-      "kind": "StringLiteral",
-      "offset": 1280,
-      "length": 7,
-      "value": "\"Error\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Init\/AdLogger+Internal.swift",
-      "kind": "StringLiteral",
-      "offset": 1327,
-      "length": 6,
-      "value": "\"None\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Init\/AdLogger+Internal.swift",
-      "kind": "StringLiteral",
-      "offset": 1379,
-      "length": 9,
-      "value": "\"Unknown\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetector+Queue.swift",
-      "kind": "IntegerLiteral",
-      "offset": 347,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionListener+Internal.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3666,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Watch\/CollectorManager.swift",
-      "kind": "StringLiteral",
-      "offset": 633,
-      "length": 39,
-      "value": "\"Received collect data for \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Watch\/CollectorManager.swift",
-      "kind": "StringLiteral",
-      "offset": 671,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Watch\/CollectorManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1146,
-      "length": 43,
-      "value": "\"Could not encode profile data from watch!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Watch\/CollectorManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1477,
-      "length": 43,
-      "value": "\"Could not encode polling data from watch!\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
@@ -3389,129 +3060,10 @@
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1687,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 2016,
-      "length": 64,
-      "value": "\"Failed to encode watch message: \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 2078,
-      "length": 1,
-      "value": "\"!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2291,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2356,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 2407,
-      "length": 64,
-      "value": "\"Failed to encode watch message: \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 2469,
-      "length": 1,
-      "value": "\"!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2707,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 2738,
-      "length": 45,
-      "value": "\"No SDK messages in the application context.\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "FloatLiteral",
-      "offset": 3145,
-      "length": 3,
-      "value": "0.1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3159,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
       "kind": "BooleanLiteral",
       "offset": 3293,
       "length": 5,
       "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3383,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 3950,
-      "length": 41,
-      "value": "\"Got a message with seq = \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 3990,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 4227,
-      "length": 64,
-      "value": "\"Failed to decode watch message: \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 4289,
-      "length": 1,
-      "value": "\"!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 4345,
-      "length": 27,
-      "value": "\"Not an sdk watch message!\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
@@ -3521,76 +3073,6 @@
       "value": "\"AdswizzSDK-\""
     },
     {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 4862,
-      "length": 46,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 4898,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 4907,
-      "length": 10,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 5002,
-      "length": 46,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 5038,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSessionImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 5047,
-      "length": 8,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/Public\/AdLogger.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1106,
-      "length": 5,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/Public\/AdLogger.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1153,
-      "length": 4,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/Public\/AdLogger.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1226,
-      "length": 5,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/Public\/AdLogger.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1291,
-      "length": 4,
-      "value": "4"
-    },
-    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/Public\/AdLogger.swift",
       "kind": "IntegerLiteral",
       "offset": 1106,
@@ -3628,170 +3110,9 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device+Audio.swift",
       "kind": "StringLiteral",
-      "offset": 1355,
-      "length": 13,
-      "value": "\"VoiceCallIO\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device+Audio.swift",
-      "kind": "StringLiteral",
       "offset": 2375,
       "length": 14,
       "value": "\"currentRoute\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device+Audio.swift",
-      "kind": "StringLiteral",
-      "offset": 2375,
-      "length": 14,
-      "value": "\"currentRoute\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Device.swift",
-      "kind": "IntegerLiteral",
-      "offset": 563,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Device.swift",
-      "kind": "StringLiteral",
-      "offset": 585,
-      "length": 12,
-      "value": "\"hw.machine\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Device.swift",
-      "kind": "IntegerLiteral",
-      "offset": 616,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Device.swift",
-      "kind": "IntegerLiteral",
-      "offset": 659,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Device.swift",
-      "kind": "StringLiteral",
-      "offset": 696,
-      "length": 12,
-      "value": "\"hw.machine\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Device.swift",
-      "kind": "IntegerLiteral",
-      "offset": 732,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Device.swift",
-      "kind": "StringLiteral",
-      "offset": 859,
-      "length": 9,
-      "value": "\"unknown\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 372,
-      "length": 13,
-      "value": "\"[\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 382,
-      "length": 1,
-      "value": "\"] \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 459,
-      "length": 9,
-      "value": "\"[main] \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 596,
-      "length": 18,
-      "value": "\"[\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 611,
-      "length": 1,
-      "value": "\"] \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 742,
-      "length": 17,
-      "value": "\"[\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 756,
-      "length": 1,
-      "value": "\"] \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 831,
-      "length": 7,
-      "value": "\"[%p] \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 907,
-      "length": 87,
-      "value": "\"[\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 952,
-      "length": 1,
-      "value": "\":\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 966,
-      "length": 1,
-      "value": "\"] \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 983,
-      "length": 1,
-      "value": "\" > \""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 993,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/ConsoleDestination.swift",
-      "kind": "StringLiteral",
-      "offset": 1082,
-      "length": 4,
-      "value": "\"%@\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/AdswizzWatchSDK.swift",
@@ -3836,46 +3157,11 @@
       "value": "30.0"
     },
     {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetectorSettings.swift",
-      "kind": "StringLiteral",
-      "offset": 276,
-      "length": 21,
-      "value": "\"AdswizzWatchSDK.ShakeDetectorSettings\""
-    },
-    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Speech\/NSError+Speech.swift",
       "kind": "IntegerLiteral",
       "offset": 220,
       "length": 4,
       "value": "1300"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Speech\/NSError+Speech.swift",
-      "kind": "IntegerLiteral",
-      "offset": 220,
-      "length": 4,
-      "value": "1300"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Speech\/NSError+Speech.swift",
-      "kind": "IntegerLiteral",
-      "offset": 220,
-      "length": 4,
-      "value": "1300"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Speech\/NSError+Speech.swift",
-      "kind": "StringLiteral",
-      "offset": 401,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/Speech\/NSError+Speech.swift",
-      "kind": "StringLiteral",
-      "offset": 569,
-      "length": 37,
-      "value": "\"Speech to text failed to recognize!\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
@@ -3883,48 +3169,6 @@
       "offset": 3197,
       "length": 3,
       "value": "0.5"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "StringLiteral",
-      "offset": 3278,
-      "length": 9,
-      "value": "\"initial\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "StringLiteral",
-      "offset": 3313,
-      "length": 11,
-      "value": "\"willStart\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "StringLiteral",
-      "offset": 3348,
-      "length": 9,
-      "value": "\"started\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "StringLiteral",
-      "offset": 3380,
-      "length": 8,
-      "value": "\"paused\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "StringLiteral",
-      "offset": 3413,
-      "length": 10,
-      "value": "\"willStop\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "StringLiteral",
-      "offset": 3447,
-      "length": 9,
-      "value": "\"stopped\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
@@ -4026,13 +3270,6 @@
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4099,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
       "kind": "BooleanLiteral",
       "offset": 4299,
       "length": 5,
@@ -4044,314 +3281,6 @@
       "offset": 4337,
       "length": 5,
       "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4627,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4749,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 5081,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5563,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6150,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6503,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6664,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "StringLiteral",
-      "offset": 3142,
-      "length": 12,
-      "value": "\"AdswizzWatchSDK.DetectorBase\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6910,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6949,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6976,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7104,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7327,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7795,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8471,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8547,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8982,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 9005,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 9066,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 9167,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 9529,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 9695,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 9836,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 9859,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 9994,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 10283,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 10332,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 10388,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 10399,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 10633,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 10657,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 10930,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 11422,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 12710,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 13228,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 13758,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 13805,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 13984,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 14118,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 14141,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 14199,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 14222,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 14458,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Detector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 14541,
-      "length": 1,
-      "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetector.swift",
@@ -4368,83 +3297,6 @@
       "value": "false"
     },
     {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 939,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1055,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1251,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetector.swift",
-      "kind": "StringLiteral",
-      "offset": 260,
-      "length": 13,
-      "value": "\"AdswizzWatchSDK.ShakeDetector\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetector.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1602,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1754,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1840,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2000,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2112,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Shake\/ShakeDetector.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2894,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSession.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1250,
-      "length": 1,
-      "value": "0"
-    },
-    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchSession.swift",
       "kind": "BooleanLiteral",
       "offset": 1572,
@@ -4452,132 +3304,6 @@
       "value": "false"
     },
     {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Speech\/SpeechBase.swift",
-      "kind": "IntegerLiteral",
-      "offset": 675,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Speech\/SpeechBase.swift",
-      "kind": "IntegerLiteral",
-      "offset": 896,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Speech\/SpeechBase.swift",
-      "kind": "BooleanLiteral",
-      "offset": 923,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Speech\/SpeechBase.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1227,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Speech\/SpeechBase.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1273,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Speech\/SpeechBase.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1430,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchCollectData+Internal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 628,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchCollectData+Internal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 709,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchCollectData+Internal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1074,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchCollectData+Internal.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1223,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/WatchCollectData+Internal.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1724,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+Watch.swift",
-      "kind": "StringLiteral",
-      "offset": 969,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/AdLogger+Modules.swift",
-      "kind": "StringLiteral",
-      "offset": 573,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/AdLogger+Modules.swift",
-      "kind": "StringLiteral",
-      "offset": 1500,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/AdLogger+Modules.swift",
-      "kind": "StringLiteral",
-      "offset": 2421,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/AdLogger+Modules.swift",
-      "kind": "StringLiteral",
-      "offset": 3345,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/WatchCollectData.swift",
-      "kind": "IntegerLiteral",
-      "offset": 311,
-      "length": 7,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/WatchCollectData.swift",
-      "kind": "IntegerLiteral",
-      "offset": 311,
-      "length": 7,
-      "value": "1"
-    },
-    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/WatchCollectData.swift",
       "kind": "IntegerLiteral",
       "offset": 311,
@@ -4613,34 +3339,6 @@
       "value": "\"background\""
     },
     {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/WatchMessage.swift",
-      "kind": "StringLiteral",
-      "offset": 259,
-      "length": 12,
-      "value": "\"notRunning\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/WatchMessage.swift",
-      "kind": "StringLiteral",
-      "offset": 290,
-      "length": 8,
-      "value": "\"active\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/WatchMessage.swift",
-      "kind": "StringLiteral",
-      "offset": 319,
-      "length": 10,
-      "value": "\"inactive\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/WatchMessage.swift",
-      "kind": "StringLiteral",
-      "offset": 352,
-      "length": 12,
-      "value": "\"background\""
-    },
-    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
       "kind": "IntegerLiteral",
       "offset": 220,
@@ -4811,520 +3509,9 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
       "kind": "IntegerLiteral",
-      "offset": 220,
+      "offset": 1163,
       "length": 4,
-      "value": "1196"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 256,
-      "length": 4,
-      "value": "1197"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 290,
-      "length": 4,
-      "value": "1198"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 321,
-      "length": 4,
-      "value": "1199"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 353,
-      "length": 4,
-      "value": "1200"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 383,
-      "length": 4,
-      "value": "1201"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 415,
-      "length": 4,
-      "value": "1202"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 453,
-      "length": 4,
-      "value": "1203"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 497,
-      "length": 4,
-      "value": "1204"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 556,
-      "length": 4,
-      "value": "1205"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 611,
-      "length": 4,
-      "value": "1206"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 647,
-      "length": 4,
-      "value": "1207"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 671,
-      "length": 4,
-      "value": "1208"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 699,
-      "length": 4,
-      "value": "1209"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 730,
-      "length": 4,
-      "value": "1210"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 759,
-      "length": 4,
-      "value": "1211"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 790,
-      "length": 4,
-      "value": "1212"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 825,
-      "length": 4,
-      "value": "1213"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 864,
-      "length": 4,
-      "value": "1124"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 912,
-      "length": 4,
-      "value": "1125"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 948,
-      "length": 4,
-      "value": "1126"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 989,
-      "length": 4,
-      "value": "1127"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1022,
-      "length": 4,
-      "value": "1128"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1061,
-      "length": 4,
-      "value": "1129"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 220,
-      "length": 4,
-      "value": "1196"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 256,
-      "length": 4,
-      "value": "1197"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 290,
-      "length": 4,
-      "value": "1198"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 321,
-      "length": 4,
-      "value": "1199"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 353,
-      "length": 4,
-      "value": "1200"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 383,
-      "length": 4,
-      "value": "1201"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 415,
-      "length": 4,
-      "value": "1202"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 453,
-      "length": 4,
-      "value": "1203"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 497,
-      "length": 4,
-      "value": "1204"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 556,
-      "length": 4,
-      "value": "1205"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 611,
-      "length": 4,
-      "value": "1206"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 647,
-      "length": 4,
-      "value": "1207"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 671,
-      "length": 4,
-      "value": "1208"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 699,
-      "length": 4,
-      "value": "1209"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 730,
-      "length": 4,
-      "value": "1210"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 759,
-      "length": 4,
-      "value": "1211"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 790,
-      "length": 4,
-      "value": "1212"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 825,
-      "length": 4,
-      "value": "1213"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 864,
-      "length": 4,
-      "value": "1124"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 912,
-      "length": 4,
-      "value": "1125"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 948,
-      "length": 4,
-      "value": "1126"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 989,
-      "length": 4,
-      "value": "1127"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1022,
-      "length": 4,
-      "value": "1128"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1061,
-      "length": 4,
-      "value": "1129"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 1307,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 1488,
-      "length": 22,
-      "value": "\"Bad zero config URL!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 1553,
-      "length": 35,
-      "value": "\"Bad zero config data from remote!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 1629,
-      "length": 29,
-      "value": "\"Already fetching zc config!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 1696,
-      "length": 33,
-      "value": "\"Could not find any cached data!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 1766,
-      "length": 18,
-      "value": "\"Missing zone id!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 1823,
-      "length": 20,
-      "value": "\"Missing ad server!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 1882,
-      "length": 123,
-      "value": "\"Could not get the \"AdswizzAdSDKPlayerId\" from your Info.pList. Please contact an Adswizz PIM\/TAM for the SDK player ID.\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 2050,
-      "length": 135,
-      "value": "\"Could not get the \"AdswizzAdSDKInstallationId\" from your Info.pList. Please contact an Adswizz PIM\/TAM for the SDK installation ID.\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 2236,
-      "length": 38,
-      "value": "\"Location permission was not granted!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 2327,
-      "length": 35,
-      "value": "\"Location updates already running!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 2411,
-      "length": 55,
-      "value": "\"Attempt to change location updates while not running!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 2496,
-      "length": 10,
-      "value": "\"Bad url!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 2537,
-      "length": 11,
-      "value": "\"Bad data!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 2583,
-      "length": 48,
-      "value": "\"No corresponding address for current location!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 2669,
-      "length": 34,
-      "value": "\"Failed to save\/load in Keychain!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 2739,
-      "length": 16,
-      "value": "\"Bad adManager!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 2793,
-      "length": 18,
-      "value": "\"Not implemented!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 2853,
-      "length": 23,
-      "value": "\"Already fetching URL!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 2922,
-      "length": 48,
-      "value": "\"Play called with timestamp and no DVR session!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 3025,
-      "length": 38,
-      "value": "\"Failed to retrieve AdStream Session!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 3106,
-      "length": 54,
-      "value": "\"Play has been called with a timestamp after prepare!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 3209,
-      "length": 23,
-      "value": "\"Bad HTTP status code!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 3272,
-      "length": 21,
-      "value": "\"Bad url components!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 3339,
-      "length": 95,
-      "value": "\"Detected zoneId and zoneAlias set on the same ad zone. Please set one or the other, not both!\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/NSError+AdswizzErrors.swift",
-      "kind": "StringLiteral",
-      "offset": 3743,
-      "length": 28,
-      "value": "\"Unknown error description!\""
+      "value": "1130"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/MotionManager.swift",
@@ -5346,76 +3533,6 @@
       "offset": 2111,
       "length": 30,
       "value": "\"MotionManager.operationQueue\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/MotionManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2330,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/MotionManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3406,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/MotionManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3872,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/MotionManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4056,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/MotionManager.swift",
-      "kind": "FloatLiteral",
-      "offset": 5632,
-      "length": 3,
-      "value": "1.0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/MotionManager.swift",
-      "kind": "FloatLiteral",
-      "offset": 5945,
-      "length": 3,
-      "value": "1.0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/MotionManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6284,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/MotionManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6412,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/MotionManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6478,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/.gen\/AdswizzWatchSDK_watchOS\/MotionManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6598,
-      "length": 1,
-      "value": "0"
     }
   ]
 }

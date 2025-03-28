@@ -19,7 +19,7 @@ class Model {
     var adManager: AdManager?
     var adConnection: AdRequestConnection?
     // This zone should serve a valid VAST response with an <Ad> tag to be played
-    let zoneIds: [String] = ["12561"]
+    let zoneIds: [String] = ["17862"]
     let adServer: String = "demo.deliveryengine.adswizz.com"
     
     // Pinpoint connector

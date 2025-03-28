@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "AdswizzSDKPrivacyDataKit"
-  s.version     = "7.11.0"
+  s.version     = "7.12.0"
   s.summary     = "Optional helper kit framework which provides transparent support for Privacy-Sensitive Data API"
   s.description = <<-DESC
                   The solution for iOS App rejection on AppStore due to lack of string description in app's Info.plist.
@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
   }
   s.author      = { "AdsWizz, Inc" => "sdk@adswizz.com" }
 
-  s.ios.deployment_target = '12.0'
-  s.tvos.deployment_target = '12.0'
-  s.swift_versions = ['5.9.2']
+  s.ios.deployment_target = '13.0'
+  s.tvos.deployment_target = '13.0'
+  s.swift_versions = ['5.10.0']
 
-s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "7.11.0" }
+s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "7.12.0" }
   s.requires_arc = true
 
   # The default subspec which will be installed automatically.

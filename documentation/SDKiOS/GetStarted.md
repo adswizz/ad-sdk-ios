@@ -293,6 +293,32 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
+Alternatively, use the `async` variant if your model supports async context:
+
+```swift
+import UIKit
+import AdswizzSDK
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+......
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+  Task { @MainActor in
+      //the configuration object is optional, unless you want to override the Info.plist values
+      //or simply didn't add the string settings in your app's Info.plist
+      let config = AdswizzSDKConfig(playerId: "yourPlayerId", installationId: "yourInstallationId", appStoreId: "yourAppAppleID")
+      do {
+        try await AdswizzSDK.shared.initialize(with: config)
+        print("AdswizzSDK is initialized")
+      } catch {
+        print(error)
+      }
+  }
+.......
+}
+.......
+}
+```
 
 Your AdsWizz Integration Manager will provide you with unique SDK installation ids that you need to add in your Info.pList under the **_AdswizzSDKInstallationId_** key and **_AdswizzSDKPlayerId_** respectively. You are now ready for your first ad request in a client-side scenario, playing a live stream in the server-side insertion approach or playing podcasts.
 

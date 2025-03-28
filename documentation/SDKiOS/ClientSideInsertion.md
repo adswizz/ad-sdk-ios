@@ -95,6 +95,11 @@ e.g situations where the total duration of returned ads is (almost) filled with 
 
 For more details, please consult with your Adswizz Integration Manager.
 
+##### Companion zones
+
+Optionally, you can specify in the **_AdswizzAdRequest_** if the ads from the response should contain companion banner(s). Contact your Integration Manager to provide you with either companion zone id(s) or companion zone alias(es) to complete the setup.
+For more details on how to set companion zone ids or aliases on the **_AdswizzAdRequest_**, please refer to the [Client-Side setup](/iOS/SDKiOS/CompanionBanner#client-side-setup) section from [Companion Banner](/iOS/SDKiOS/CompanionBanner).
+
 ##### Custom request parameters
 
 You can use custom parameters (key-value pairs) in your **_AdswizzAdRequest_** objects, in order to send various information, such as publisher specific IDs, first-party targeting data, etc.
@@ -132,9 +137,9 @@ let adRequest = try AdswizzAdRequest.Builder()
 
 Read more about this behavior here: [(Advanced) Handling AdManager reporting for expected ads](#advanced-handling-admanager-reporting-for-expected-ads).
 
-##### AdRequestConnection
+## Requesting ads
 
-Next, you need to create an **_AdRequestConnection_** object and call requestAds with the ad request object.
+Next, you need to create an **_AdRequestConnection_** object and call `requestAds()` with the ad request object.
 
 ```swift
 let adRequestConnection = AdRequestConnection(for: adRequest)
@@ -143,7 +148,24 @@ adRequestConnection.requestAds { [weak self] adManager, error in
 }
 ```
 
-Subsequent to this request, the SDK will return an error if the call failed or an **_AdManager_** object if the result was a success.
+Alternatively, use the `async` variant if your model supports async context:
+
+```swift
+func getAds(_ adRequest: AdswizzAdRequest) async {
+    do {
+        let connection = try AdRequestConnection(for: adRequest)
+        let adManager = try await connection.requestAds()
+        //successfully fetched the adManager
+        ...
+    } catch {
+        //error
+        ...
+    }
+}
+
+```
+
+Subsequent to this request, the SDK will either return an error if the call failed or an **_AdManager_** object if the result was a success.
 
 
 ## Working with AdManager object

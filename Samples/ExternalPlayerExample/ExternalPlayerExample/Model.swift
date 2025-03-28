@@ -11,7 +11,7 @@ import AdswizzSDK
 
 class Model {
     let adServer = "demo.deliveryengine.adswizz.com"
-    let zoneId = "12561"
+    let zoneId = "17862"
 
     private var adManager: AdManager?
     private var adConnection: AdRequestConnection?

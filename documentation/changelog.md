@@ -5,6 +5,39 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.12.0] - 2025-03-28
+### Added
+- `AdswizzAdRequest` improvements:
+    - New public methods in **_AdswizzAdRequest.Builder_**:
+        - `with(companionZoneIds: [Int])` sets an array of *numerical* identifiers on the **_AdswizzAdRequest.Builder_** for companion zone ids. It replaces the `with(companionZones: String?)` method which is now deprecated and will be removed in a future release
+        - alternatively, `with(companionZoneAliases: [String])` sets an array of *string* identifiers on the **_AdswizzAdRequest.Builder_** for companion zone aliases
+        - read more on the **_AdswizzAdRequest_** configuration for [companion zones](iOS/SDKiOS/CompanionBanner#client-side-setup) setup
+- Added new VAST version support in `AdswizzAdRequest`:
+    - New public value in **_VASTVersion_** enum:
+        - `v41` unlocks support for VAST version `4.1`, now set as the default value in **_AdswizzAdRequest_**
+- `AdCompanionView` tvOS:
+    - New support for [companion views with static resources](iOS/SDKTVOS/Limitations#adcompanionview) such as images. Note that `html` content remains unsupported due to `WKWebView` being unavailable on tvOS
+- Swift Concurrency:
+    - New public convenience methods to support async context:
+        - `requestAds() async throws -> AdManager` for **_AdRequestConnection_** to [fetch an AdManager](iOS/SDKiOS/ClientSideInsertion#requesting-ads)
+        - `initialize(with configuration: AdswizzSDKConfig? = nil) async throws` for **_AdswizzSDK_** to [setup the SDK](iOS/SDKiOS/GetStarted#sdk-initialization-and-setup)
+- Samples:
+    - Updated the [BasicTVOSExample](iOS/SDKTVOS/SampleProjects#basictvosexample) sample project to showcase companion views with static resources.
+
+### Changed
+- Deployment version:
+    - The minimum deployment version for **_AdswizzSDK_** binary frameworks was bumped to iOS 13.0
+- XCFramework:
+    - **_AdswizzSDK_** binary frameworks are now compiled with Xcode version `16.2` (adds support for Swift version `5.10.0`)
+- AdswizzAdRequest:
+    - By default, **_AdswizzAdRequest_** now uses VAST version `4.1`. Ad requests can still use version 4.0 by manually setting it (using `.with(vastVersion: VASTVersion)` AdswizzAdRequest.Builder method) when configuring an **_AdswizzAdRequest_**
+
+### Fixed
+- AdswizzSDK tvOS:
+    - Building **_AdswizzSDK_** binary frameworks with Xcode `16.2` fixes an issue on AppStore submission for .ipa archives that integrate **_AdswizzSDK_** for the `tvOS` platform
+- Samples:
+    - Improve the predefined ad request zone identifiers from Adswizz AdServer and the AIS streams for testing purposes
+
 ## [7.11.0] - 2025-02-21
 ### Added
 - AdswizzAdRequest:

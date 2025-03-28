@@ -10,7 +10,7 @@ import SwiftUI
 fileprivate let animationDelay = 0.5
 
 struct VideoAdExampleView: View {
-    @StateObject var modelView = ModelView(adType: .video, zoneIds:  ["17161"])
+    @StateObject var modelView = ModelView(adType: .video, zoneIds:  ["19984"])
  
     var body: some View {
         VStack {

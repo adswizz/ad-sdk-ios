@@ -55,7 +55,7 @@ struct BasicHLSLog: Loggable {
 
 class Model: NSObject {
     // The HLS url stream (primary playlist)
-    let url = URL(string: "http://livepoc-ftc-eng-device.streaming.siriusxm.com/v0/breakglass_SoiPMdM5tig/pri-1/AAC_Data/transcode/wmay/daipa/64k/slide.m3u8")
+    let url = URL(string: "https://streaming.sdk.eks.devel.adswizz.com/addictalternative/playlist.m3u8")
     
     // Handles the HLS interstitials.
     private(set) var controller: InterstitialController?

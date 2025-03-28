@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target arm64-apple-tvos12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AdswizzSDK
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-tvos13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name AdswizzSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import AVFoundation
 import AdSupport
 @_exported import AdswizzSDK
@@ -54,15 +54,11 @@ final public class DefaultStatsNetworkSession {
   final public let urlSession: Foundation.URLSession
   public init(urlSession: Foundation.URLSession)
   convenience public init()
-  @available(iOS 13.0, tvOS 13.0, *)
   final public func performDataRequest(_ request: Foundation.URLRequest, networkQoS: Dispatch.DispatchQoS.QoSClass) -> Combine.AnyPublisher<(Foundation.Data?, Foundation.URLResponse), any Swift.Error>
   @objc deinit
 }
 extension CoreFoundation.CGSize : Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
 }
 extension UIKit.NSTextAlignment : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
@@ -80,7 +76,7 @@ extension UIKit.NSTextAlignment : Swift.Codable {
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [InteractiveAdEventType]
   public typealias RawValue = Swift.Int
-  public static var allCases: [InteractiveAdEventType] {
+  nonisolated public static var allCases: [InteractiveAdEventType] {
     get
   }
   public var rawValue: Swift.Int {
@@ -88,7 +84,7 @@ extension UIKit.NSTextAlignment : Swift.Codable {
   }
 }
 extension TrackingPermissionController {
-  @objc @_Concurrency.MainActor(unsafe) public static func trackingController(title: Swift.String? = nil, message: Swift.String? = nil, contentImage: UIKit.UIImage? = nil, headerImage: UIKit.UIImage? = nil) -> TrackingPermissionController
+  @objc @_Concurrency.MainActor @preconcurrency public static func trackingController(title: Swift.String? = nil, message: Swift.String? = nil, contentImage: UIKit.UIImage? = nil, headerImage: UIKit.UIImage? = nil) -> TrackingPermissionController
 }
 @_hasMissingDesignatedInitializers public class SWXMLHashOptions {
   public var shouldProcessLazily: Swift.Bool
@@ -361,12 +357,48 @@ extension AdswizzAdStreamManager {
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [AdswizzPermissionType]
   public typealias RawValue = Swift.Int
-  public static var allCases: [AdswizzPermissionType] {
+  nonisolated public static var allCases: [AdswizzPermissionType] {
     get
   }
   public var rawValue: Swift.Int {
     get
   }
+}
+@objc(AASDKAdCompanionViewDelegate) public protocol AdCompanionViewDelegate {
+  @objc optional func adCompanionViewWillLoad(_ adCompanionView: AdCompanionView)
+  @objc optional func adCompanionViewDidDisplay(_ adCompanionView: AdCompanionView)
+  @objc optional func adCompanionView(_ adCompanionView: AdCompanionView, didFailToDisplay error: any Swift.Error)
+  @objc optional func adCompanionViewDidEndDisplay(_ adCompanionView: AdCompanionView)
+  @objc optional func adCompanionView(_ adCompanionView: AdCompanionView, shouldOverrideCompanionClickThrough url: Foundation.URL) -> Swift.Bool
+  @objc optional func adCompanionViewWillLeaveApplication(_ adCompanionView: AdCompanionView)
+}
+@_inheritsConvenienceInitializers @objc(AASDKAdCompanionView) @_Concurrency.MainActor @preconcurrency public class AdCompanionView : UIKit.UIView {
+  @objc @IBOutlet @_Concurrency.MainActor @preconcurrency weak public var delegate: (any AdCompanionViewDelegate)?
+  @objc @_Concurrency.MainActor @preconcurrency public var clickThrough: Foundation.URL? {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didMoveToSuperview()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didMoveToWindow()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var alpha: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var isHidden: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var intrinsicContentSize: CoreFoundation.CGSize {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func updateConstraints()
+  @objc deinit
+}
+extension AdCompanionView : UIKit.UIGestureRecognizerDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdPodcastManagerSettings) final public class AdPodcastManagerSettings : ObjectiveC.NSObject {
   @objc weak final public var player: (any MediaPlayerState)?
@@ -400,7 +432,7 @@ extension AdData {
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [AdType]
   public typealias RawValue = Swift.Int
-  public static var allCases: [AdType] {
+  nonisolated public static var allCases: [AdType] {
     get
   }
   public var rawValue: Swift.Int {
@@ -512,32 +544,32 @@ extension Swift.Bool : XMLElementDeserializable, XMLAttributeDeserializable {
   @objc optional func adVideoView(_ adVideoView: AdVideoView, shouldOverrideVideoClickThrough url: Foundation.URL) -> Swift.Bool
   @objc optional func adVideoViewWillLeaveApplication(_ adVideoView: AdVideoView)
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdVideoView) @_Concurrency.MainActor(unsafe) public class AdVideoView : UIKit.UIView {
-  @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak public var delegate: (any AdVideoViewDelegate)?
-  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var aspect: AdVideoAspect {
+@_inheritsConvenienceInitializers @objc(AASDKAdVideoView) @_Concurrency.MainActor @preconcurrency public class AdVideoView : UIKit.UIView {
+  @objc @IBOutlet @_Concurrency.MainActor @preconcurrency weak public var delegate: (any AdVideoViewDelegate)?
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var aspect: AdVideoAspect {
     @objc get
     @objc set
   }
-  @objc @_Concurrency.MainActor(unsafe) public var clickThrough: Foundation.URL? {
+  @objc @_Concurrency.MainActor @preconcurrency public var clickThrough: Foundation.URL? {
     @objc get
   }
-  @objc @_Concurrency.MainActor(unsafe) public var state: AdVideoState {
+  @objc @_Concurrency.MainActor @preconcurrency public var state: AdVideoState {
     @objc get
     @objc set
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func awakeFromNib()
   @objc deinit
-  @objc @_Concurrency.MainActor(unsafe) public func didHandleClickThrough()
+  @objc @_Concurrency.MainActor @preconcurrency public func didHandleClickThrough()
 }
 extension AdVideoView {
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func register(_ friendlyObstruction: AdVideoFriendlyObstruction)
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func unregisterAllFriendlyObstructions()
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public func register(_ friendlyObstruction: AdVideoFriendlyObstruction)
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public func unregisterAllFriendlyObstructions()
 }
 extension AdVideoView : UIKit.UIGestureRecognizerDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
 }
 @objc(AASDKMediaFile) public protocol MediaFile {
   @objc var uri: Swift.String { get }
@@ -677,26 +709,26 @@ extension DVRMetadata {
     get
   }
 }
-@objc(AASDKTrackingPermissionController) @_Concurrency.MainActor(unsafe) final public class TrackingPermissionController : UIKit.UIViewController {
-  @_Concurrency.MainActor(unsafe) @objc final override public var title: Swift.String? {
+@objc(AASDKTrackingPermissionController) @_Concurrency.MainActor @preconcurrency final public class TrackingPermissionController : UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency @objc final override public var title: Swift.String? {
     @objc get
     @objc set
   }
-  @objc @_Concurrency.MainActor(unsafe) final public var configuration: TrackingPermissionConfiguration {
+  @objc @_Concurrency.MainActor @preconcurrency final public var configuration: TrackingPermissionConfiguration {
     @objc get
     @objc set
   }
-  @objc @_Concurrency.MainActor(unsafe) weak final public var delegate: (any TrackingPermissionControllerDelegate)?
-  @_Concurrency.MainActor(unsafe) public init(configuration: TrackingPermissionConfiguration? = nil)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLayoutSubviews()
-  @_Concurrency.MainActor(unsafe) @objc override final public func dismiss(animated: Swift.Bool = true, completion: (() -> Swift.Void)? = nil)
-  @_Concurrency.MainActor(unsafe) public static func canPresentController() -> Swift.Bool
+  @objc @_Concurrency.MainActor @preconcurrency weak final public var delegate: (any TrackingPermissionControllerDelegate)?
+  @_Concurrency.MainActor @preconcurrency public init(configuration: TrackingPermissionConfiguration? = nil)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLayoutSubviews()
+  @_Concurrency.MainActor @preconcurrency @objc override final public func dismiss(animated: Swift.Bool = true, completion: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency public static func canPresentController() -> Swift.Bool
   @objc deinit
 }
 extension TrackingPermissionController : UIKit.UIAdaptivePresentationControllerDelegate {
-  @_Concurrency.MainActor(unsafe) @objc final public func presentationControllerDidDismiss(_ presentationController: UIKit.UIPresentationController)
+  @_Concurrency.MainActor @preconcurrency @objc final public func presentationControllerDidDismiss(_ presentationController: UIKit.UIPresentationController)
 }
 @objc(AASDKAdAssetQuality) public enum AdAssetQuality : Swift.Int {
   case low
@@ -750,6 +782,7 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   @objc deinit
   @objc public init(for request: AdRequest) throws
   @objc final public func requestAds(completion: @escaping AdRequestConnection.AdsRequestCompletion)
+  @objc final public func requestAds() async throws -> any AdManager
   @objc final public func cancel()
 }
 @_hasMissingDesignatedInitializers @objc(AASDKAdswizzShimZone) final public class AdswizzShimZone : ObjectiveC.NSObject {
@@ -790,8 +823,6 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
 }
 @objc(AASDKCompanionResource) public protocol CompanionResource : ObjectiveC.NSObjectProtocol {
   @objc var staticRes: [any StaticResource]? { get }
-  @objc var iFrame: [Swift.String]? { get }
-  @objc var html: [Swift.String]? { get }
 }
 @objc(AASDKCompanion) public protocol Companion : ObjectiveC.NSObjectProtocol {
   @objc var width: Swift.Int { get }
@@ -847,7 +878,7 @@ public protocol BatchModelable {
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [VastTrackingEvent]
   public typealias RawValue = Swift.Int
-  public static var allCases: [VastTrackingEvent] {
+  nonisolated public static var allCases: [VastTrackingEvent] {
     get
   }
   public var rawValue: Swift.Int {
@@ -893,6 +924,7 @@ extension AdVideoFriendlyObstruction {
   }
   @objc(AASDKAdswizzAdRequestVASTVersion) public enum VASTVersion : Swift.Int {
     case v40
+    case v41
   }
   @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdRequestBuilder) public class Builder : ObjectiveC.NSObject {
     final public let objectId: Foundation.UUID
@@ -903,7 +935,10 @@ extension AdVideoFriendlyObstruction {
     @objc public func with(shim: AdswizzShimZone) -> AdswizzAdRequest.Builder
     @objc public func with(duration: Foundation.TimeInterval) -> AdswizzAdRequest.Builder
     @objc public func with(zoneAlias: Swift.String) -> AdswizzAdRequest.Builder
+    @available(*, deprecated, message: "Please use either .with(companionZoneIds: [Int]) or .with(companionZoneAliases: [String]) to set the companion zones on the request.")
     @objc public func with(companionZones: Swift.String?) -> AdswizzAdRequest.Builder
+    @objc public func with(companionZoneIds: [Swift.Int]) -> AdswizzAdRequest.Builder
+    @objc public func with(companionZoneAliases: [Swift.String]) -> AdswizzAdRequest.Builder
     @objc public func with(tagsArray: Swift.String?) -> AdswizzAdRequest.Builder
     @objc public func with(referrer: Swift.String?) -> AdswizzAdRequest.Builder
     @objc public func with(server: Swift.String) -> AdswizzAdRequest.Builder
@@ -944,19 +979,22 @@ extension AdswizzAdPodcastManager {
   }
 }
 @objc(AASDKAdCompanionResourceType) public enum AdCompanionResourceType : Swift.Int, Swift.CaseIterable {
-  case firstResourceAvailable
   case image
-  case html
-  case iFrame
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [AdCompanionResourceType]
   public typealias RawValue = Swift.Int
-  public static var allCases: [AdCompanionResourceType] {
+  nonisolated public static var allCases: [AdCompanionResourceType] {
     get
   }
   public var rawValue: Swift.Int {
     get
   }
+}
+@_inheritsConvenienceInitializers @objc(AASDKAdCompanionOptions) public class AdCompanionOptions : ObjectiveC.NSObject {
+  @objc public var extraExposureTime: Swift.Double
+  @objc public var preferredResourceType: AdCompanionResourceType
+  @objc override dynamic public init()
+  @objc deinit
 }
 @objc(AASDKEvent) public protocol Event : ObjectiveC.NSObjectProtocol {
   @objc var extraAdData: [Swift.String : Any]? { get }
@@ -982,7 +1020,7 @@ extension AdswizzAdPodcastManager {
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [AdEventType]
   public typealias RawValue = Swift.Int
-  public static var allCases: [AdEventType] {
+  nonisolated public static var allCases: [AdEventType] {
     get
   }
   public var rawValue: Swift.Int {
@@ -1055,7 +1093,9 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
     @objc get
   }
   @objc public func initialize(with configuration: AdswizzSDKConfig? = nil, completion: AdswizzSDKInitCompletion? = nil) throws
+  @objc public func initialize(with configuration: AdswizzSDKConfig? = nil) async throws
   @objc public func uninitialize()
+  @objc public static func setAdCompanionOptions(_ options: AdCompanionOptions)
   @available(*, deprecated, renamed: "consent.gdpr", message: "Please use the GDPR consent with the new privacy consent API")
   @objc public var gdprConsent: GDPRConsent {
     @objc get
@@ -1273,7 +1313,7 @@ public typealias AdswizzSDKInitCompletion = () -> ()
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [CCPAConsent]
   public typealias RawValue = Swift.Int
-  public static var allCases: [CCPAConsent] {
+  nonisolated public static var allCases: [CCPAConsent] {
     get
   }
   public var rawValue: Swift.Int {

@@ -9,9 +9,9 @@
 		<key>adServer</key>
 		<string>demo.deliveryengine.adswizz.com</string>
 		<key>zoneId</key>
-		<string>12561</string>
+		<string>17862</string>
 		<key>companionZones</key>
-		<string>12562</string>
+		<string>17863</string>
 		<key>description</key>
 		<string>Simple audio ad without any interactivity</string>
 	</dict>
@@ -22,9 +22,9 @@
 		<key>adServer</key>
 		<string>demo.deliveryengine.adswizz.com</string>
 		<key>zoneId</key>
-		<string>12192</string>
+		<string>17873</string>
 		<key>companionZones</key>
-		<string>12193</string>
+		<string></string>
 		<key>description</key>
 		<string>This scenario demos shakeMe ads with different actions (Open URL, Download Coupon, Get Me There, Open Email, Place A Call).</string>
 	</dict>

@@ -30,7 +30,7 @@
         self.isUsingExternalPlayer = YES;
         self.state = PlayerStateStopped;
         self.adServer = @"demo.deliveryengine.adswizz.com";
-        self.url = [NSURL URLWithString:@"http://sdk.mobile.streaming.adswizz.com:8500/shakeDemo"];
+        self.url = [NSURL URLWithString:@"https://streaming.sdk.eks.devel.adswizz.com/shakeDemo"];
     }
     return self;
 }

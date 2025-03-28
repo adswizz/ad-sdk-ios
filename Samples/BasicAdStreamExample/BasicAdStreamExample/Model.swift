@@ -28,7 +28,7 @@ enum Status {
 }
 
 class Model {
-    let url = URL(string: "http://sdk.mobile.streaming.adswizz.com:8500/shakeDemo")
+    let url = URL(string: "https://streaming.sdk.eks.devel.adswizz.com/shakeDemo")
     let adServer = "demo.deliveryengine.adswizz.com"
     var adBreakManager: AdManager?
     var streamManager: AdswizzAdStreamManager?

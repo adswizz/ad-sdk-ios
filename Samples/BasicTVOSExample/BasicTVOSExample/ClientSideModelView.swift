@@ -13,12 +13,20 @@ class ClientSideModelView: ObservableObject {
     private var adConnection: AdRequestConnection?
     private let adServer = "demo.deliveryengine.adswizz.com"
     private let zoneIds: [String]
+    private let companionZone: String
     var videoView: AdVideoView? = nil
-    @Published var isPlaying: Bool = false
-    @Published var adType: AdType?
     
-    init(zoneIds: [String]) {
+    @Published var isPlaying: Bool = false
+    @Published var hasCompanionView = false
+    @Published var adType: AdType?
+    @Published var companionGrid: AdCompanionViewGridType = .single
+    @Published var refreshCompanionGrid = false
+    @Published var hiddenDictionary: [Int: Bool] = [:]
+    
+    init(zoneIds: [String], companionZone: String) {
         self.zoneIds = zoneIds
+        self.companionZone = companionZone
+        initHiddenDictionary()
     }
     
     func requestAds() {
@@ -86,12 +94,44 @@ class ClientSideModelView: ObservableObject {
         adManager = nil
     }
     
+    func increaseAdCompanionGrid() {
+        refreshCompanionGrid = true
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            companionGrid = companionGrid.increasedGrid
+            refreshCompanionGrid = false
+        }
+    }
+    
+    func decreaseAdCompanionGrid() {
+        refreshCompanionGrid = true
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            companionGrid = companionGrid.decreasedGrid
+            refreshCompanionGrid = false
+        }
+    }
+    
+    func shouldHideCompanionView(for index: Int) -> Bool {
+        hiddenDictionary[index] ?? false
+    }
+    
+    func toggleHideCompanionView(for index: Int) {
+        hiddenDictionary[index]?.toggle()
+    }
+    
     private func videoAdRequest(zones: [AdswizzAdZone]) throws -> AdRequest {
         try AdswizzAdRequest.Builder()
             .with(httpProtocol: .http)
             .with(server: adServer)
             .with(zones: zones)
+            .with(companionZones: companionZone)
             .build()
+    }
+    
+    private func initHiddenDictionary() {
+        let maxQuantity = AdCompanionViewGridType.allCases.map { $0.quantity }.max() ?? 0
+        hiddenDictionary = Dictionary(uniqueKeysWithValues: (0..<maxQuantity).map { ($0, false) })
     }
 }
 
@@ -105,6 +145,7 @@ extension ClientSideModelView: AdManagerDelegate {
         switch event.event {
         case .readyForPlay:
             adType = event.ad?.adType
+            hasCompanionView = event.ad?.hasCompanion ?? false
             // Start playing ad(s)
             adManager.play()
         case .didStartPlaying:

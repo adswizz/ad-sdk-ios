@@ -1,6 +1,6 @@
 # Companion banner support
 
-The AdswizzSDK lets you configure companion banner(s) if your Integration Manager provides you with a companion zone id.
+The AdswizzSDK lets you configure companion banner(s) if your Integration Manager provides you with either a companion zone id or alias.
 Additionally, you can find more details on how to customize the behaviour of companion banners in the [Companion banner](iOS/SDKiOS/GeneralSettings#companion-banner) section from [AdswizzSDK general settings](iOS/SDKiOS/GeneralSettings).
 
 
@@ -16,7 +16,7 @@ The **_AdCompanionView_** instance(s) you create work the same across all types 
 
 ### Client side setup
 
-When you create an **_AdswizzAdRequest_** object for the first time, you need to fill in the **_companionZones_** with the value provided by your Integration Manager.
+When you create an **_AdswizzAdRequest_** object for the first time, on the **_AdswizzAdRequest.Builder_** object, you need to call either the `.with(companionZoneIds: [Int])` method or `.with(companionZoneAliases: [String])` by passing the appropriate value(s) provided by your Adswizz Integration Manager.
 
 ```swift
 var zone: AdswizzAdZone!
@@ -33,9 +33,16 @@ do {
 adRequest = try AdswizzAdRequest.Builder()
               .with(server: "SERVER_PROVIDED_BY_INTEGRATION_MANAGER")
               .with(zone: zone)
-              .with(companionZones: "COMPANION_PROVIDED_BY_INTEGRATION_MANAGER") //IMPORTANT: mandatory for loading content into AdCompanionView instances
+              // IMPORTANT: mandatory for loading content into AdCompanionView instances 
+              .with(companionZoneIds: [COMPANION_ZONE_ID_PROVIDED_BY_INTEGRATION_MANAGER]) //mutually exclusive with companionZoneAliases
+              .with(companionZoneAliases: ["COMPANION_ZONE_ALIAS_PROVIDED_BY_INTEGRATION_MANAGER"]) //mutually exclusive with companionZoneIds
               .build()
 ```
+
+> Similarly to the `with(zones: [AdswizzAdZone])` method, the order in which you pass the companion zone ids or aliases is important, as the AdsWizz Ad Server will take that into account during companion banner content selection.
+
+> Note that the `.with(companionZoneIds: [Int])` and `.with(companionZoneAliases: [String])` methods are mutually exclusive. You should only set one or the other, not both. Otherwise the **_AdswizzAdRequest.Builder_** will throw an error.
+The `.with(companionZones: String?)` method has been *deprecated* in **AdswizzSDK v7.12.0** and will be removed in a future release.
 
 Once the request is made, if there is any companion banner associated with the ad, it will be loaded into your **_AdCompanionView_** object.
 

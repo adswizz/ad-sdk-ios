@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InAppNotificationAdExampleView: View {
     
-    @StateObject var modelView = ModelView(adType: .banner, zoneIds: ["13420"])
+    @StateObject var modelView = ModelView(adType: .banner, zoneIds: ["17862"])
  
     var body: some View {
         VStack {

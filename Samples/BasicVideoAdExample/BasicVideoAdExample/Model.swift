@@ -44,7 +44,7 @@ class Model {
     var adConnection: AdRequestConnection?
     var externalPlayer = ExternalMediaPlayer()
     // These 2 zones should serve one video ad and one audio ad
-    let zoneIds: [String] = ["17161", "13381"]
+    let zoneIds: [String] = ["19984", "17862"]
     let adServer: String = "demo.deliveryengine.adswizz.com"
     // Let's mock the skippOffset for an ad. Normally this value would be part of the AdData for an ad.
     let skipOffset: NSNumber = NSNumber(floatLiteral: 5)

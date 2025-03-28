@@ -6,51 +6,51 @@
 	<dict>
 		<key>Headers/AdswizzSDKCore-Swift.h</key>
 		<data>
-		hHx8I7Lm7kzehLObW0CwQCaRlkw=
+		550qt5+drCW2GbMSwDVjZBPO7/8=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		7FCx9azUYJBPeGcPhLVM6O4CJZQ=
+		Vu7bZHFeyB6uq0FfFmrAlIC2veU=
 		</data>
 		<key>Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		xmUgcWHdL6dBW19Y2Jk3BDVgJcI=
+		+LBLz8ONwkqtxYDzTdzBbldbHCk=
 		</data>
 		<key>Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		bTFsjVepyyESKHLeQ8XyHmzsQoo=
+		y7AdNvL7dB9WZ5ZlIiU5t87Z380=
 		</data>
 		<key>Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		SR8DEtiSiX+pXAbFWufeAt/F/co=
+		gu/CwKW9grLdeg3EDxOy2B6EfOU=
 		</data>
 		<key>Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		bTFsjVepyyESKHLeQ8XyHmzsQoo=
+		y7AdNvL7dB9WZ5ZlIiU5t87Z380=
 		</data>
 		<key>Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		63RLOb4kWmql0WTLApIr/SxV8Dk=
+		IoCeTaOIplFJtU56jxt/vz9AvFo=
 		</data>
 		<key>Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		xmUgcWHdL6dBW19Y2Jk3BDVgJcI=
+		+LBLz8ONwkqtxYDzTdzBbldbHCk=
 		</data>
 		<key>Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		lkB+/sqtwflHMaAEl28mS1IybdI=
+		5gnLtf1zXV1CMaMHlx/i0sYesZ4=
 		</data>
 		<key>Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		jShDfITF2lYchm8No03Fd4sk6G4=
+		atEDPzCP4O6YqJ+H4YNqHE8sCFg=
 		</data>
 		<key>Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		lkB+/sqtwflHMaAEl28mS1IybdI=
+		5gnLtf1zXV1CMaMHlx/i0sYesZ4=
 		</data>
 		<key>Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		qh7OT/5cJqPy1EPdnNSyW1qo8SA=
+		38ny90vc+KsEy2UK8JlnZo9NN5Y=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -63,77 +63,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			P5onH3/5fHZTzlcfqglr20H8LSo3CrWP5RPFiGUGgIo=
+			1X4lEsK+Nk2g0Q/LuGGyj4hAXJba6V9Th0i3Ap5O4BI=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			liwNUdOYib66KLK1hKpM8ipM3RR1ote66ZirtYDNAkw=
+			St1wWt+GWOeFiQEpIUkVAVWyHENr/bl9dhrYccs2pz4=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jRYk+7ncuCYElfc3I2oHUagxsrFe//UPrlGuZ6aXLvY=
+			3SOjAsb+l9MWynaJGMoZZqbtIIvwF3xFi52rDRrTres=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			s35HiUoJ6nNR2Fc3E48QyBJ7gASc2gMzJlx7h+Mlrik=
+			Igi0h7Cy1SyGBVRuJDEiHqCOPVVMoPjHxdHx303whg0=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jRYk+7ncuCYElfc3I2oHUagxsrFe//UPrlGuZ6aXLvY=
+			3SOjAsb+l9MWynaJGMoZZqbtIIvwF3xFi52rDRrTres=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			D8zd0xR1RHNWbJhRTg3/kFX38aWAd6SWNLvgNjFwszs=
+			uHAWyVFxl73TdJHZ3qzWeHP8m+/rwTp8jvMdvvx953w=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			liwNUdOYib66KLK1hKpM8ipM3RR1ote66ZirtYDNAkw=
+			St1wWt+GWOeFiQEpIUkVAVWyHENr/bl9dhrYccs2pz4=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LfrCQTSBlEwNZtbjLsgvMe/k/S1J2veP+eI4KmjbXpU=
+			H1dgdBW03LTduca631r/5djTwBNDxW+pA+p8PPMA4IA=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FQ6CLhhq+4f/xYhJsC3eTd+YBdBNhHatm7t3+NZpFa8=
+			9bA5WQX77ND5JJXC04MWUUFquRGX8BfnMuHBigEGBGU=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LfrCQTSBlEwNZtbjLsgvMe/k/S1J2veP+eI4KmjbXpU=
+			H1dgdBW03LTduca631r/5djTwBNDxW+pA+p8PPMA4IA=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6EG5rlO3UoIIR1Lu9+iWa9aZz7Pbc43wiTKGQZmhgEs=
+			sFoGKC8jn2AOe5MsYgvpw6ToA+S8azDmyggZARuY5fE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

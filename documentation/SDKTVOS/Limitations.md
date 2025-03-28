@@ -4,7 +4,9 @@ The **_AdswizzSDK_** tvOS framework comes with several limitations due to the un
 
 ## AdCompanionView
 
-Features reliant on web content, such as **_AdCompanionView_** and in-app notifications with web elements, are not supported on tvOS. These features have been removed for the tvOS platform.
+Features reliant on web content, such as **_AdCompanionView_** with HTML content and in-app notifications with web elements, are not supported on tvOS. These features have been removed for the tvOS platform.
+
+> Note that although the **_AdCompanionView_** cannot render HTML content on the tvOS platform, the support for static resources such as images has been introduced in AdswizzSDK `v7.12.0`.
 
 ## Interactive Ads
 

@@ -51,7 +51,7 @@ This sample shows how to perform DVR using  **_AdStreamManagerSettings_** to con
 
 ## BasicSwiftUIClientSideInsertion
 
-This sample shows how to display all the various UI components from the **_AdswizzSDK_** in a SwiftUI app. The app contains 4 tabs. The Banner tab displays an **_AdswizzAdCompanionView_**. The InApp Notification shows an ad that allows various interaction types like performing a call or going to a specific location on the map. It uses the same code as the previous tab, with different zones for the ads. The Video tab shows a video ad. Last but not least, the Tracking Permissions tab demonstrates showing the built-in permissions UI component to get the user's consent for tracking.
+This sample shows how to display all the various UI components from the **_AdswizzSDK_** in a SwiftUI app. The app contains 4 tabs. The Banner tab displays an **_AdCompanionView_**. The InApp Notification shows an ad that allows various interaction types like performing a call or going to a specific location on the map. It uses the same code as the previous tab, with different zones for the ads. The Video tab shows a video ad. Last but not least, the Tracking Permissions tab demonstrates showing the built-in permissions UI component to get the user's consent for tracking.
 
 ## BasicPodcastExample
 
