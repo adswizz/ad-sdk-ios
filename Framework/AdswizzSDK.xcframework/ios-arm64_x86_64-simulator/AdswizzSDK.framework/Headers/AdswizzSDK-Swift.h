@@ -509,6 +509,13 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
+@class UIGestureRecognizer;
+
+@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
+/// <code>AdCompanionView</code> conformance to <code>UIGestureRecognizerDelegate</code>.
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class WKWebView;
 @class WKWebViewConfiguration;
 @class WKNavigationAction;
@@ -518,14 +525,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// <code>AdCompanionView</code> conformance to <code>WKUIDelegate</code>.
 - (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
 @end
-
-@class UIGestureRecognizer;
-
-@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
-/// <code>AdCompanionView</code> conformance to <code>UIGestureRecognizerDelegate</code>.
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 
 
@@ -541,6 +540,7 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// <code>AdCompanionView</code> conformance to <code>WKNavigationDelegate</code>.
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
+
 
 
 
@@ -1092,6 +1092,31 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdStreamCapabilities, "AdStreamCapabili
   AASDKAdStreamCapabilitiesDvr = 0,
 };
 
+@protocol AASDKAdStreamDVRMetadataValue;
+
+/// The <code>AdStreamDVRMetadata</code> protocol describes the DVR metadata sent by an AdStreamManager which is playing a stream capable of reconnecting in the past.
+SWIFT_PROTOCOL_NAMED("AdStreamDVRMetadata")
+@protocol AASDKAdStreamDVRMetadata
+/// Start UNIX timestamp for the DVR stream.
+@property (nonatomic, readonly) NSInteger start;
+/// Latest UNIX timestamp for the DVR stream.
+@property (nonatomic, readonly) NSInteger end;
+/// Length of the DVR buffer
+@property (nonatomic, readonly) NSInteger length;
+/// The list of metadata values for the DVR stream. May be empty.
+@property (nonatomic, readonly, copy) NSArray<id <AASDKAdStreamDVRMetadataValue>> * _Nonnull metadata;
+@end
+
+
+/// Defines a metadata item value from the <code>metadata</code> array in <code>AdStreamDVRMetadata</code> protocol.
+SWIFT_PROTOCOL_NAMED("AdStreamDVRMetadataValue")
+@protocol AASDKAdStreamDVRMetadataValue
+/// The UNIX timestamp for the metadata.
+@property (nonatomic, readonly) NSInteger timestamp;
+/// The metadata content.
+@property (nonatomic, readonly, copy) NSString * _Nonnull content;
+@end
+
 @protocol AASDKAdStreamManagerDelegate;
 @class AASDKAdStreamManagerSettings;
 
@@ -1129,7 +1154,6 @@ SWIFT_CLASS_NAMED("AdStreamManager")
 @end
 
 @class AVMetadataItem;
-@class AASDKDVRMetadata;
 
 /// The <code>AdStreamManagerDelegate</code> protocol defines the methods used to retrieve information about ads and companion banners inserted server-side.
 SWIFT_PROTOCOL_NAMED("AdStreamManagerDelegate")
@@ -1180,12 +1204,12 @@ SWIFT_PROTOCOL_NAMED("AdStreamManagerDelegate")
 ///
 - (void)adStreamManagerPlayerShouldResume:(AASDKAdStreamManager * _Nonnull)adstreamManager;
 @optional
-/// Notifies when the ad stream has downloaded the DVR metadata.
+/// Notifies when the ad stream has downloaded the DVR metadata. May be nil which suggests that an error occured.
 /// \param adstreamManager owner
 ///
 /// \param dvrMetadata metadata for stream
 ///
-- (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager didReceive:(AASDKDVRMetadata * _Nullable)dvrMetadata;
+- (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager didReceive:(id <AASDKAdStreamDVRMetadata> _Nullable)dvrMetadata;
 @end
 
 
@@ -1341,13 +1365,13 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 /// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behavior changes and events.
@@ -1666,6 +1690,7 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdStreamManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 
@@ -2158,40 +2183,6 @@ SWIFT_PROTOCOL_NAMED("CompanionResource")
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable iFrame;
 /// HTML resources.
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable html;
-@end
-
-@class MetadataItem;
-
-/// Metadata for DVR-enabled streams
-SWIFT_CLASS_NAMED("DVRMetadata")
-@interface AASDKDVRMetadata : NSObject
-/// Start UNIX timestamp for the DVR stream
-@property (nonatomic) NSInteger start;
-/// Latest UNIX timestamp for the DVR stream
-@property (nonatomic) NSInteger end;
-/// Length of the DVR buffer
-@property (nonatomic) NSInteger length;
-/// The list of metadata for the DVR stream
-@property (nonatomic, copy) NSArray<MetadataItem *> * _Nonnull metadata;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-
-@interface AASDKDVRMetadata (SWIFT_EXTENSION(AdswizzSDK))
-@end
-
-
-/// Defines a metadata item from the <code>metadata</code> array in <code>DVRMetadata</code> data class.
-SWIFT_CLASS("_TtCC10AdswizzSDK11DVRMetadata12MetadataItem")
-@interface MetadataItem : NSObject
-/// The UNIX timestamp for the metadata
-@property (nonatomic) NSInteger timestamp;
-/// The metadata content
-@property (nonatomic, copy) NSString * _Nonnull content;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -3438,6 +3429,13 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
+@class UIGestureRecognizer;
+
+@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
+/// <code>AdCompanionView</code> conformance to <code>UIGestureRecognizerDelegate</code>.
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class WKWebView;
 @class WKWebViewConfiguration;
 @class WKNavigationAction;
@@ -3447,14 +3445,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// <code>AdCompanionView</code> conformance to <code>WKUIDelegate</code>.
 - (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
 @end
-
-@class UIGestureRecognizer;
-
-@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
-/// <code>AdCompanionView</code> conformance to <code>UIGestureRecognizerDelegate</code>.
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 
 
@@ -3470,6 +3460,7 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// <code>AdCompanionView</code> conformance to <code>WKNavigationDelegate</code>.
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
+
 
 
 
@@ -4021,6 +4012,31 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKAdStreamCapabilities, "AdStreamCapabili
   AASDKAdStreamCapabilitiesDvr = 0,
 };
 
+@protocol AASDKAdStreamDVRMetadataValue;
+
+/// The <code>AdStreamDVRMetadata</code> protocol describes the DVR metadata sent by an AdStreamManager which is playing a stream capable of reconnecting in the past.
+SWIFT_PROTOCOL_NAMED("AdStreamDVRMetadata")
+@protocol AASDKAdStreamDVRMetadata
+/// Start UNIX timestamp for the DVR stream.
+@property (nonatomic, readonly) NSInteger start;
+/// Latest UNIX timestamp for the DVR stream.
+@property (nonatomic, readonly) NSInteger end;
+/// Length of the DVR buffer
+@property (nonatomic, readonly) NSInteger length;
+/// The list of metadata values for the DVR stream. May be empty.
+@property (nonatomic, readonly, copy) NSArray<id <AASDKAdStreamDVRMetadataValue>> * _Nonnull metadata;
+@end
+
+
+/// Defines a metadata item value from the <code>metadata</code> array in <code>AdStreamDVRMetadata</code> protocol.
+SWIFT_PROTOCOL_NAMED("AdStreamDVRMetadataValue")
+@protocol AASDKAdStreamDVRMetadataValue
+/// The UNIX timestamp for the metadata.
+@property (nonatomic, readonly) NSInteger timestamp;
+/// The metadata content.
+@property (nonatomic, readonly, copy) NSString * _Nonnull content;
+@end
+
 @protocol AASDKAdStreamManagerDelegate;
 @class AASDKAdStreamManagerSettings;
 
@@ -4058,7 +4074,6 @@ SWIFT_CLASS_NAMED("AdStreamManager")
 @end
 
 @class AVMetadataItem;
-@class AASDKDVRMetadata;
 
 /// The <code>AdStreamManagerDelegate</code> protocol defines the methods used to retrieve information about ads and companion banners inserted server-side.
 SWIFT_PROTOCOL_NAMED("AdStreamManagerDelegate")
@@ -4109,12 +4124,12 @@ SWIFT_PROTOCOL_NAMED("AdStreamManagerDelegate")
 ///
 - (void)adStreamManagerPlayerShouldResume:(AASDKAdStreamManager * _Nonnull)adstreamManager;
 @optional
-/// Notifies when the ad stream has downloaded the DVR metadata.
+/// Notifies when the ad stream has downloaded the DVR metadata. May be nil which suggests that an error occured.
 /// \param adstreamManager owner
 ///
 /// \param dvrMetadata metadata for stream
 ///
-- (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager didReceive:(AASDKDVRMetadata * _Nullable)dvrMetadata;
+- (void)adStreamManager:(AASDKAdStreamManager * _Nonnull)adstreamManager didReceive:(id <AASDKAdStreamDVRMetadata> _Nullable)dvrMetadata;
 @end
 
 
@@ -4270,13 +4285,13 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 /// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behavior changes and events.
@@ -4595,6 +4610,7 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdStreamManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 
@@ -5087,40 +5103,6 @@ SWIFT_PROTOCOL_NAMED("CompanionResource")
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable iFrame;
 /// HTML resources.
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable html;
-@end
-
-@class MetadataItem;
-
-/// Metadata for DVR-enabled streams
-SWIFT_CLASS_NAMED("DVRMetadata")
-@interface AASDKDVRMetadata : NSObject
-/// Start UNIX timestamp for the DVR stream
-@property (nonatomic) NSInteger start;
-/// Latest UNIX timestamp for the DVR stream
-@property (nonatomic) NSInteger end;
-/// Length of the DVR buffer
-@property (nonatomic) NSInteger length;
-/// The list of metadata for the DVR stream
-@property (nonatomic, copy) NSArray<MetadataItem *> * _Nonnull metadata;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-
-@interface AASDKDVRMetadata (SWIFT_EXTENSION(AdswizzSDK))
-@end
-
-
-/// Defines a metadata item from the <code>metadata</code> array in <code>DVRMetadata</code> data class.
-SWIFT_CLASS("_TtCC10AdswizzSDK11DVRMetadata12MetadataItem")
-@interface MetadataItem : NSObject
-/// The UNIX timestamp for the metadata
-@property (nonatomic) NSInteger timestamp;
-/// The metadata content
-@property (nonatomic, copy) NSString * _Nonnull content;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 

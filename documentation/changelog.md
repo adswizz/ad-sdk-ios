@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.12.1] - 2025-05-07
+### Added
+- Samples:
+    - Improve the [BasicDVRRequestExample](iOS/SDKTVOS/SampleProjects#basicdvrrequestexample) sample project to showcase external player support for DVR-enabled streams.
+
+### Changed
+- `AdswizzAdStreamManager`:
+    - public **_DVRMetadata_** data class has been replaced by the **_AdStreamDVRMetadata_** protocol as per the **_AdswizzSDK_** naming conventions
+    - public method `loadDVRMetadata(completion: ((DVRMetadata?) -> ())? = nil)` has been replaced by `requestDVRMetadata(completion: ((Result<AdStreamDVRMetadata, Error>) -> Void)? = nil)`
+    - public method `cancelLoadingDVRMetadata()` has been replaced by `cancelDVRMetadataRequest()`
+
 ## [7.12.0] - 2025-03-28
 ### Added
 - `AdswizzAdRequest` improvements:

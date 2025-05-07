@@ -1,14 +1,335 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Content View Controller-->
+        <scene sceneID="DA4-th-uoM">
+            <objects>
+                <tableViewController id="E1I-Q1-3Af" customClass="ContentViewController" customModule="BasicDVRRequestExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="YIv-fa-hAS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="744"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Current DVR metadata" id="m9C-Nb-gaa">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ioq-7r-C5H">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="83"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ioq-7r-C5H" id="0sE-so-T6R">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="HOr-te-RrT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DVRMetadata.start : Contains the first valid UNIX timestamp in milliseconds that the DVR ca be performed." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EL2-mC-PVZ">
+                                                            <rect key="frame" x="8" y="8" width="398" height="27"/>
+                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="buf-bZ-oFk">
+                                                            <rect key="frame" x="8" y="47" width="398" height="28"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpN-ge-b3S">
+                                                                    <rect key="frame" x="0.0" y="4" width="42" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="128347358745" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e3b-92-pnx" customClass="DVRTextField" customModule="BasicDVRRequestExample" customModuleProvider="target">
+                                                                    <rect key="frame" x="54" y="0.0" width="344" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="28" id="JB7-lJ-fdJ"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="HOr-te-RrT" secondAttribute="trailing" id="34A-PJ-ITp"/>
+                                                <constraint firstItem="HOr-te-RrT" firstAttribute="leading" secondItem="0sE-so-T6R" secondAttribute="leading" id="PyY-d0-u5t"/>
+                                                <constraint firstItem="HOr-te-RrT" firstAttribute="top" secondItem="0sE-so-T6R" secondAttribute="top" id="gUf-d2-a2I"/>
+                                                <constraint firstAttribute="bottom" secondItem="HOr-te-RrT" secondAttribute="bottom" id="ogq-kE-A6k"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="kE2-kX-Axv">
+                                        <rect key="frame" x="0.0" y="138.5" width="414" height="83"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kE2-kX-Axv" id="dLv-sF-qlq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hnE-Wu-Fm7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DVRMetadata.end : Contains last first valid unix timestamp in milli the user can perform DVR at." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2N8-3N-gYN">
+                                                            <rect key="frame" x="8" y="8" width="398" height="27"/>
+                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="lFF-t6-AwI">
+                                                            <rect key="frame" x="8" y="47" width="398" height="28"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSa-0H-0Ze">
+                                                                    <rect key="frame" x="0.0" y="4" width="34" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="128347358745" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bIE-Aj-CFJ" customClass="DVRTextField" customModule="BasicDVRRequestExample" customModuleProvider="target">
+                                                                    <rect key="frame" x="46" y="0.0" width="352" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="28" id="tFz-pi-zLi"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="hnE-Wu-Fm7" secondAttribute="bottom" id="OOB-gZ-R47"/>
+                                                <constraint firstItem="hnE-Wu-Fm7" firstAttribute="leading" secondItem="dLv-sF-qlq" secondAttribute="leading" id="Yk4-u9-m8p"/>
+                                                <constraint firstItem="hnE-Wu-Fm7" firstAttribute="top" secondItem="dLv-sF-qlq" secondAttribute="top" id="svu-Vn-1H7"/>
+                                                <constraint firstAttribute="trailing" secondItem="hnE-Wu-Fm7" secondAttribute="trailing" id="xYB-3U-6KZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cet-Me-Y6s">
+                                        <rect key="frame" x="0.0" y="221.5" width="414" height="83"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cet-Me-Y6s" id="gxa-cs-Hzv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-tj-4gf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DVRMetadata.length : The maximum capacity of the sound buffer stored for DVR purposes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9YY-QN-uFM">
+                                                            <rect key="frame" x="8" y="8" width="398" height="27"/>
+                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="kcD-qS-wQ3">
+                                                            <rect key="frame" x="8" y="47" width="398" height="28"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Buffer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKW-84-YHM">
+                                                                    <rect key="frame" x="0.0" y="4" width="51.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="239" verticalHuggingPriority="251" text="34564456" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ue1-Ct-x6r">
+                                                                    <rect key="frame" x="63.5" y="4" width="334.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="28" id="bJi-eQ-clp"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cUl-tj-4gf" firstAttribute="leading" secondItem="gxa-cs-Hzv" secondAttribute="leading" id="WKz-k5-wS5"/>
+                                                <constraint firstItem="cUl-tj-4gf" firstAttribute="top" secondItem="gxa-cs-Hzv" secondAttribute="top" id="Xuk-Q5-8qC"/>
+                                                <constraint firstAttribute="bottom" secondItem="cUl-tj-4gf" secondAttribute="bottom" id="k7P-SE-8sf"/>
+                                                <constraint firstAttribute="trailing" secondItem="cUl-tj-4gf" secondAttribute="trailing" id="rpt-Ig-2wu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Custom DVR timestamp" id="Cmr-Po-vBk">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Bwm-Se-eqF">
+                                        <rect key="frame" x="0.0" y="360.5" width="414" height="129.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bwm-Se-eqF" id="0XH-IZ-wq4">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="129.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="7R1-KQ-1iP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="129.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gc-Wq-Ylx">
+                                                            <rect key="frame" x="8" y="8" width="398" height="27"/>
+                                                            <string key="text">DVR supports play from an arbitrary timestamp. Input any UNIX time in milli and press Play it to hear sound from that position in time.</string>
+                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="in7-vP-2V0">
+                                                            <rect key="frame" x="8" y="47" width="398" height="28"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="128347358745" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xum-9e-sTK" customClass="DVRTextField" customModule="BasicDVRRequestExample" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="398" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="28" id="sTu-sO-Oh3"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIr-kM-fSp">
+                                                            <rect key="frame" x="8" y="87" width="398" height="34.5"/>
+                                                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="Play it!">
+                                                                <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                                            </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="playFromTimestampWithButton:" destination="E1I-Q1-3Af" eventType="touchUpInside" id="7r5-d7-fiN"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7R1-KQ-1iP" firstAttribute="top" secondItem="0XH-IZ-wq4" secondAttribute="top" id="N2T-R9-nEz"/>
+                                                <constraint firstItem="7R1-KQ-1iP" firstAttribute="leading" secondItem="0XH-IZ-wq4" secondAttribute="leading" id="WfN-HE-0u9"/>
+                                                <constraint firstAttribute="trailing" secondItem="7R1-KQ-1iP" secondAttribute="trailing" id="j8j-hL-fur"/>
+                                                <constraint firstAttribute="bottom" secondItem="7R1-KQ-1iP" secondAttribute="bottom" id="vte-hl-h1X"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Predefined DVR timestamps" id="zRx-0j-LXb">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="DkI-dS-ecg">
+                                        <rect key="frame" x="0.0" y="546" width="414" height="110"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DkI-dS-ecg" id="Du3-cK-c3O">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ekV-MY-Nxg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGp-6h-2td">
+                                                            <rect key="frame" x="8" y="8" width="398" height="54"/>
+                                                            <string key="text">Each of the following buttons will perform DVR at a different location between the start and end positions. Starting timestamps are set at 0%, 25%, 50% and 75%, calculated as follows: position = start + (end - start) * percent.</string>
+                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="LXS-Op-WQg">
+                                                            <rect key="frame" x="8" y="74" width="398" height="28"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vI-Re-W0X">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="90.5" height="28"/>
+                                                                    <color key="backgroundColor" systemColor="linkColor"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="Show 1">
+                                                                        <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                                                    </buttonConfiguration>
+                                                                    <connections>
+                                                                        <action selector="playPredefinedTimestampWithButton:" destination="E1I-Q1-3Af" eventType="touchUpInside" id="ixM-4X-n0o"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZS-1z-OE5">
+                                                                    <rect key="frame" x="102.5" y="0.0" width="90.5" height="28"/>
+                                                                    <color key="backgroundColor" systemColor="linkColor"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="Show 2">
+                                                                        <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                                                    </buttonConfiguration>
+                                                                    <connections>
+                                                                        <action selector="playPredefinedTimestampWithButton:" destination="E1I-Q1-3Af" eventType="touchUpInside" id="JUO-Ec-plU"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghz-pB-Xkk">
+                                                                    <rect key="frame" x="205" y="0.0" width="90.5" height="28"/>
+                                                                    <color key="backgroundColor" systemColor="linkColor"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="Show 3">
+                                                                        <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                                                    </buttonConfiguration>
+                                                                    <connections>
+                                                                        <action selector="playPredefinedTimestampWithButton:" destination="E1I-Q1-3Af" eventType="touchUpInside" id="XHj-Jc-T1H"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgW-IF-dWW">
+                                                                    <rect key="frame" x="307.5" y="0.0" width="90.5" height="28"/>
+                                                                    <color key="backgroundColor" systemColor="linkColor"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="Show 4">
+                                                                        <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                                                    </buttonConfiguration>
+                                                                    <connections>
+                                                                        <action selector="playPredefinedTimestampWithButton:" destination="E1I-Q1-3Af" eventType="touchUpInside" id="Xp3-vM-0oa"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="28" id="3hW-9R-woz"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ekV-MY-Nxg" secondAttribute="trailing" id="0RI-ae-8ay"/>
+                                                <constraint firstItem="ekV-MY-Nxg" firstAttribute="leading" secondItem="Du3-cK-c3O" secondAttribute="leading" id="9Jk-t5-cSb"/>
+                                                <constraint firstAttribute="bottom" secondItem="ekV-MY-Nxg" secondAttribute="bottom" id="DKj-i4-fz0"/>
+                                                <constraint firstItem="ekV-MY-Nxg" firstAttribute="top" secondItem="Du3-cK-c3O" secondAttribute="top" id="JDr-CN-D4Q"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="E1I-Q1-3Af" id="b0y-w7-Eq7"/>
+                            <outlet property="delegate" destination="E1I-Q1-3Af" id="URI-6j-jWQ"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="bufferLabel" destination="ue1-Ct-x6r" id="cHL-7O-wyI"/>
+                        <outlet property="endLabel" destination="bIE-Aj-CFJ" id="7iU-29-CXa"/>
+                        <outlet property="playFromTimestampButton" destination="BIr-kM-fSp" id="7Al-em-iqe"/>
+                        <outlet property="playFromTimestampTextField" destination="Xum-9e-sTK" id="bCo-MH-kRq"/>
+                        <outlet property="predefinedTimestamps" destination="LXS-Op-WQg" id="Vxn-5q-YU8"/>
+                        <outlet property="startLabel" destination="e3b-92-pnx" id="7cO-T0-3Rj"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ekJ-Zm-ana" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835" y="46"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -17,322 +338,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="bottom" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rbh-wV-V3X">
-                                <rect key="frame" x="12" y="163" width="390" height="580"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJ2-XW-9ED">
+                                <rect key="frame" x="0.0" y="48" width="414" height="744"/>
+                                <connections>
+                                    <segue destination="E1I-Q1-3Af" kind="embed" identifier="content" id="QvZ-ae-1PT"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65P-GY-d7p">
+                                <rect key="frame" x="0.0" y="792" width="414" height="104"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZqA-5K-r9V">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="580"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jrg-Po-ha0">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHD-mf-j2r" userLabel="DVRStart" customClass="RoundedCornersView" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
+                                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GKb-Bh-ara" userLabel="PlayPauseButtons">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Mmn-MA-Lye">
-                                                        <rect key="frame" x="0.0" y="8.5" width="390" height="83"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DVRMetadata.start : Contains the first valid unix timestamp in milli the user can perform DVR at." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfS-Qw-BYO">
-                                                                <rect key="frame" x="8" y="8" width="374" height="27"/>
-                                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="0Jt-Kc-AWa">
-                                                                <rect key="frame" x="8" y="47" width="374" height="28"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cw8-Sq-PeH">
-                                                                        <rect key="frame" x="0.0" y="4" width="42" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="128347358745" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ja2-Sz-imN" customClass="DVRTextField" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                                        <rect key="frame" x="54" y="0.0" width="320" height="28"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="28" id="xZq-gm-oJs"/>
-                                                                </constraints>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZZ-ZC-Mir" userLabel="Play">
+                                                        <rect key="frame" x="0.0" y="0.0" width="202" height="53"/>
+                                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Play stream"/>
+                                                        <connections>
+                                                            <action selector="playStopStreamWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HWp-2y-ZMW"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rds-VB-rhO" userLabel="Pause">
+                                                        <rect key="frame" x="212" y="0.0" width="202" height="53"/>
+                                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Pause stream"/>
+                                                        <connections>
+                                                            <action selector="pauseResumeStreamWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yBq-94-Cqw"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="Mmn-MA-Lye" secondAttribute="bottom" constant="8.5" id="0X1-zQ-1RT"/>
-                                                    <constraint firstItem="Mmn-MA-Lye" firstAttribute="top" secondItem="sHD-mf-j2r" secondAttribute="top" constant="8.5" id="OFh-wC-vCb"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Mmn-MA-Lye" secondAttribute="trailing" id="TZn-KM-ggz"/>
-                                                    <constraint firstItem="Mmn-MA-Lye" firstAttribute="centerY" secondItem="sHD-mf-j2r" secondAttribute="centerY" id="npx-KZ-o3R"/>
-                                                    <constraint firstItem="Mmn-MA-Lye" firstAttribute="leading" secondItem="sHD-mf-j2r" secondAttribute="leading" id="oon-6C-tJW"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mr0-tc-7XM" userLabel="DVREnd" customClass="RoundedCornersView" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="112" width="390" height="100"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jIa-1I-8Xs" userLabel="ExternalPlayerToggle">
+                                                <rect key="frame" x="0.0" y="53" width="414" height="31"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="b3G-db-LIj">
-                                                        <rect key="frame" x="0.0" y="8.5" width="390" height="83"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DVRMetadata.end : Contains last first valid unix timestamp in milli the user can perform DVR at." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKr-26-kdG">
-                                                                <rect key="frame" x="8" y="8" width="374" height="27"/>
-                                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="AbP-jY-Aek">
-                                                                <rect key="frame" x="8" y="47" width="374" height="28"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Re-gs-CgG">
-                                                                        <rect key="frame" x="0.0" y="4" width="34" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="128347358745" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eiC-L6-vwo" customClass="DVRTextField" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                                        <rect key="frame" x="46" y="0.0" width="328" height="28"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="28" id="dGa-tE-9fn"/>
-                                                                </constraints>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use external player" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wF6-VB-TQk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="281" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2M0-0A-vfJ">
+                                                        <rect key="frame" x="301" y="0.0" width="115" height="31"/>
+                                                        <connections>
+                                                            <action selector="externalPlayerSwitchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="IqM-R4-ZvS"/>
+                                                        </connections>
+                                                    </switch>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="b3G-db-LIj" secondAttribute="bottom" constant="8.5" id="XLa-8F-hho"/>
-                                                    <constraint firstItem="b3G-db-LIj" firstAttribute="centerY" secondItem="mr0-tc-7XM" secondAttribute="centerY" id="j92-gF-eWZ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="b3G-db-LIj" secondAttribute="trailing" id="lOh-BC-YVR"/>
-                                                    <constraint firstItem="b3G-db-LIj" firstAttribute="top" secondItem="mr0-tc-7XM" secondAttribute="top" constant="8.5" id="ri2-YM-GtB"/>
-                                                    <constraint firstItem="b3G-db-LIj" firstAttribute="leading" secondItem="mr0-tc-7XM" secondAttribute="leading" id="tKs-hp-5Ig"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYu-sO-XiC" userLabel="DVRLength" customClass="RoundedCornersView" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="224" width="390" height="100"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="0Kx-ZM-hS2">
-                                                        <rect key="frame" x="0.0" y="8.5" width="390" height="83"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DVRMetadata.length : The maximum capacity of the sound buffer stored for DVR purposes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOQ-e4-hsj">
-                                                                <rect key="frame" x="8" y="8" width="374" height="27"/>
-                                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="eFU-BX-AU9">
-                                                                <rect key="frame" x="8" y="47" width="374" height="28"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Buffer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZe-yk-Zbu">
-                                                                        <rect key="frame" x="0.0" y="4" width="51.5" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="239" verticalHuggingPriority="251" text="34564456" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpX-e7-I92">
-                                                                        <rect key="frame" x="63.5" y="4" width="310.5" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="28" id="f2z-tX-nes"/>
-                                                                </constraints>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="0Kx-ZM-hS2" secondAttribute="trailing" id="6wv-5Q-LaL"/>
-                                                    <constraint firstAttribute="bottom" secondItem="0Kx-ZM-hS2" secondAttribute="bottom" constant="8.5" id="AJs-RY-5XV"/>
-                                                    <constraint firstItem="0Kx-ZM-hS2" firstAttribute="top" secondItem="MYu-sO-XiC" secondAttribute="top" constant="8.5" id="dgA-QI-6Gb"/>
-                                                    <constraint firstItem="0Kx-ZM-hS2" firstAttribute="leading" secondItem="MYu-sO-XiC" secondAttribute="leading" id="w6P-RF-nPg"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5lF-II-vSr" userLabel="DVRPlay" customClass="RoundedCornersView" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="336" width="390" height="128"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hui-wY-sA0">
-                                                        <rect key="frame" x="0.0" y="-3" width="390" height="134"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9S-qj-0Sy">
-                                                                <rect key="frame" x="8" y="8" width="374" height="27"/>
-                                                                <string key="text">DVR supports play from an arbitrary timestamp. Input any UNIX time in milli and press Play it to hear sound from that position in time.</string>
-                                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="CoD-1T-6xQ">
-                                                                <rect key="frame" x="8" y="47" width="374" height="28"/>
-                                                                <subviews>
-                                                                    <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="128347358745" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xUm-1f-MmV" customClass="DVRTextField" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="28"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="28" id="2GN-Wg-WvK"/>
-                                                                </constraints>
-                                                            </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYN-qz-82E" customClass="DVRButton" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                                <rect key="frame" x="8" y="87" width="374" height="39"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="Play it!">
-                                                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
-                                                                </buttonConfiguration>
-                                                                <connections>
-                                                                    <action selector="playFromTimestampWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tyf-KG-zUE"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="hui-wY-sA0" secondAttribute="trailing" id="O2S-q6-IjM"/>
-                                                    <constraint firstItem="hui-wY-sA0" firstAttribute="top" secondItem="5lF-II-vSr" secondAttribute="top" constant="-3" id="h6H-u1-bEX"/>
-                                                    <constraint firstAttribute="bottom" secondItem="hui-wY-sA0" secondAttribute="bottom" constant="-3" id="nA5-hB-ZVT"/>
-                                                    <constraint firstItem="hui-wY-sA0" firstAttribute="leading" secondItem="5lF-II-vSr" secondAttribute="leading" id="ybw-ax-w3E"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UWa-4w-3fK" userLabel="DVRShows" customClass="RoundedCornersView" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="476" width="390" height="104"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="u2f-lU-FZr">
-                                                        <rect key="frame" x="0.0" y="-3" width="390" height="110"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0C-La-WEa">
-                                                                <rect key="frame" x="8" y="8" width="374" height="54"/>
-                                                                <string key="text">Each of the following buttons will perform DVR at a different location between the start and end positions. Starting timestamps are set at 0%, 25%, 50% and 75%, calculated as follows: position = start + (end - start) * percent.</string>
-                                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="lel-1c-NQX">
-                                                                <rect key="frame" x="8" y="74" width="374" height="28"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jz-19-wND" customClass="DVRButton" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="84.5" height="28"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="Show 1">
-                                                                            <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
-                                                                        </buttonConfiguration>
-                                                                        <connections>
-                                                                            <action selector="playShowWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nBS-7Q-498"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2IP-MN-gSR" customClass="DVRButton" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                                        <rect key="frame" x="96.5" y="0.0" width="84.5" height="28"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="Show 2">
-                                                                            <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
-                                                                        </buttonConfiguration>
-                                                                        <connections>
-                                                                            <action selector="playShowWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BEV-YH-OB1"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMw-jZ-VDf" customClass="DVRButton" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                                        <rect key="frame" x="193" y="0.0" width="84.5" height="28"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="Show 3">
-                                                                            <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
-                                                                        </buttonConfiguration>
-                                                                        <connections>
-                                                                            <action selector="playShowWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FL9-Ac-8fw"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mqw-NV-g1f" customClass="DVRButton" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                                                        <rect key="frame" x="289.5" y="0.0" width="84.5" height="28"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="Show 4">
-                                                                            <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
-                                                                        </buttonConfiguration>
-                                                                        <connections>
-                                                                            <action selector="playShowWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sef-ww-G7k"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="28" id="lOJ-1L-HY8"/>
-                                                                </constraints>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="u2f-lU-FZr" secondAttribute="bottom" constant="-3" id="1B4-lP-sBN"/>
-                                                    <constraint firstAttribute="trailing" secondItem="u2f-lU-FZr" secondAttribute="trailing" id="UAM-5c-Pgj"/>
-                                                    <constraint firstItem="u2f-lU-FZr" firstAttribute="leading" secondItem="UWa-4w-3fK" secondAttribute="leading" id="X3t-df-pTe"/>
-                                                    <constraint firstItem="u2f-lU-FZr" firstAttribute="top" secondItem="UWa-4w-3fK" secondAttribute="top" constant="-3" id="o9a-r8-Gd0"/>
-                                                </constraints>
-                                            </view>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="580" id="3FU-JW-ElL"/>
+                                    <constraint firstItem="Jrg-Po-ha0" firstAttribute="leading" secondItem="65P-GY-d7p" secondAttribute="leading" id="ANe-St-L0A"/>
+                                    <constraint firstAttribute="height" constant="104" id="HYa-xC-ccM"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jrg-Po-ha0" secondAttribute="trailing" id="PeO-ld-ykc"/>
+                                    <constraint firstItem="Jrg-Po-ha0" firstAttribute="top" secondItem="65P-GY-d7p" secondAttribute="top" id="TxO-vY-zeZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jrg-Po-ha0" secondAttribute="bottom" constant="20" id="XP1-gm-Ipr"/>
                                 </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GKb-Bh-ara" userLabel="PlayPauseButtons">
-                                <rect key="frame" x="10" y="755" width="392" height="45"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZZ-ZC-Mir" userLabel="Play" customClass="DVRButton" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="191" height="45"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Play stream"/>
-                                        <connections>
-                                            <action selector="playStopStreamWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HWp-2y-ZMW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rds-VB-rhO" userLabel="Pause" customClass="DVRButton" customModule="BasicDVRRequestExample" customModuleProvider="target">
-                                        <rect key="frame" x="201" y="0.0" width="191" height="45"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Pause stream"/>
-                                        <connections>
-                                            <action selector="pauseResumeStreamWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yBq-94-Cqw"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="DTh-9F-Yfm"/>
-                                </constraints>
-                            </stackView>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rbh-wV-V3X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="4pi-sg-lcn"/>
-                            <constraint firstItem="GKb-Bh-ara" firstAttribute="top" secondItem="rbh-wV-V3X" secondAttribute="bottom" constant="12" id="56N-lK-iDV"/>
-                            <constraint firstItem="GKb-Bh-ara" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="RjO-gs-Of7"/>
-                            <constraint firstItem="rbh-wV-V3X" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="YaM-6d-Lxf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GKb-Bh-ara" secondAttribute="trailing" constant="12" id="nyX-KL-Shl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rbh-wV-V3X" secondAttribute="trailing" constant="12" id="y0f-Ud-4AQ"/>
+                            <constraint firstItem="eJ2-XW-9ED" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G0P-jj-yHb"/>
+                            <constraint firstItem="65P-GY-d7p" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="NxD-e4-o06"/>
+                            <constraint firstItem="65P-GY-d7p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SmZ-6D-QSU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eJ2-XW-9ED" secondAttribute="trailing" id="bnl-5E-Jxf"/>
+                            <constraint firstItem="eJ2-XW-9ED" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dtZ-Fv-CNh"/>
+                            <constraint firstItem="65P-GY-d7p" firstAttribute="top" secondItem="eJ2-XW-9ED" secondAttribute="bottom" id="kjP-NZ-5va"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="65P-GY-d7p" secondAttribute="trailing" id="l5X-zf-TG0"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bufferLabel" destination="0Kx-ZM-hS2" id="yya-ta-jER"/>
-                        <outlet property="dvrStackView" destination="ZqA-5K-r9V" id="OXR-M0-xhb"/>
-                        <outlet property="endLabel" destination="b3G-db-LIj" id="jLA-JQ-IS8"/>
+                        <outlet property="externalPlayerToggle" destination="2M0-0A-vfJ" id="oPq-PH-LIt"/>
                         <outlet property="pauseResumeButton" destination="rds-VB-rhO" id="kwG-Y8-4qi"/>
-                        <outlet property="playFromTimestampStackView" destination="hui-wY-sA0" id="ufz-iU-DmJ"/>
                         <outlet property="playStopButton" destination="xZZ-ZC-Mir" id="xIS-7w-F1S"/>
-                        <outlet property="showsStackView" destination="lel-1c-NQX" id="k2b-Op-bjZ"/>
-                        <outlet property="startLabel" destination="Mmn-MA-Lye" id="ReZ-rV-IHh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -341,8 +427,17 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

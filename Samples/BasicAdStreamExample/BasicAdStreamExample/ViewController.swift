@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet var skipAdButton: UIButton!
     
     var model: Model = {
-        return Model()
+        return Model(capabilities: []) // no specific capabilities
     }()
     
     @objc func externalPlayerSwitchChanged(_ mySwitch: UISwitch) {

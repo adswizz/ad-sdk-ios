@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "AdswizzSDK",
-    platforms: [.iOS(.v12), .tvOS(.v12)],
+    platforms: [.iOS(.v13), .tvOS(.v13)],
     products: [
         .library(
             name: "AdswizzSDK",

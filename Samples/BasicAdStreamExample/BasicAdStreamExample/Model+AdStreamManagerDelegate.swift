@@ -45,6 +45,12 @@ extension Model: AdStreamManagerDelegate {
         print("Received ad stream manager event: metadataChanged")
     }
     
+    func adStreamManager(_ adstreamManager: AdStreamManager, didReceive dvrMetadata: AdStreamDVRMetadata?) {
+        self.dvrMetadata = dvrMetadata
+        streamDelegate?.model(self, didReceive: dvrMetadata)
+        print("Received ad stream manager DVR metadata:\n\(String(describing: dvrMetadata?.description))")
+    }
+    
     func adStreamManagerWillReconnect(_ adstreamManager: AdStreamManager) {
         print("Received ad stream manager event: willReconnect")
     }
@@ -73,5 +79,16 @@ extension MediaPlayerStatus {
         @unknown default:
             return "unknown"
         }
+    }
+}
+
+extension AdStreamDVRMetadata {
+    var description: String {
+        return """
+            Start = \(self.start)
+            End = \(self.end)
+            Buffer = \(self.length)
+            Metadata = \(self.metadata)
+            """
     }
 }

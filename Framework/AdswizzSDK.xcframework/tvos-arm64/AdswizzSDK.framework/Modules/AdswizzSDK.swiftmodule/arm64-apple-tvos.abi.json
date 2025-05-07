@@ -6380,11 +6380,384 @@
         ]
       },
       {
-        "kind": "Import",
-        "name": "AdswizzSDKCore",
-        "printedName": "AdswizzSDKCore",
-        "declKind": "Import",
-        "moduleName": "AdswizzSDK"
+        "kind": "TypeDecl",
+        "name": "AdStreamDVRMetadataValue",
+        "printedName": "AdStreamDVRMetadataValue",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "timestamp",
+            "printedName": "timestamp",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadataValue(py)timestamp",
+            "mangledName": "$s10AdswizzSDK24AdStreamDVRMetadataValueP9timestampSivp",
+            "moduleName": "AdswizzSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadataValue(im)timestamp",
+                "mangledName": "$s10AdswizzSDK24AdStreamDVRMetadataValueP9timestampSivg",
+                "moduleName": "AdswizzSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdStreamDVRMetadataValue>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdStreamDVRMetadataValue>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "content",
+            "printedName": "content",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadataValue(py)content",
+            "mangledName": "$s10AdswizzSDK24AdStreamDVRMetadataValueP7contentSSvp",
+            "moduleName": "AdswizzSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadataValue(im)content",
+                "mangledName": "$s10AdswizzSDK24AdStreamDVRMetadataValueP7contentSSvg",
+                "moduleName": "AdswizzSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdStreamDVRMetadataValue>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdStreamDVRMetadataValue>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadataValue",
+        "mangledName": "$s10AdswizzSDK24AdStreamDVRMetadataValueP",
+        "moduleName": "AdswizzSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "objc_name": "AASDKAdStreamDVRMetadataValue",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AdStreamDVRMetadata",
+        "printedName": "AdStreamDVRMetadata",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "start",
+            "printedName": "start",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadata(py)start",
+            "mangledName": "$s10AdswizzSDK19AdStreamDVRMetadataP5startSivp",
+            "moduleName": "AdswizzSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadata(im)start",
+                "mangledName": "$s10AdswizzSDK19AdStreamDVRMetadataP5startSivg",
+                "moduleName": "AdswizzSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdStreamDVRMetadata>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdStreamDVRMetadata>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "end",
+            "printedName": "end",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadata(py)end",
+            "mangledName": "$s10AdswizzSDK19AdStreamDVRMetadataP3endSivp",
+            "moduleName": "AdswizzSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadata(im)end",
+                "mangledName": "$s10AdswizzSDK19AdStreamDVRMetadataP3endSivg",
+                "moduleName": "AdswizzSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdStreamDVRMetadata>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdStreamDVRMetadata>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "length",
+            "printedName": "length",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadata(py)length",
+            "mangledName": "$s10AdswizzSDK19AdStreamDVRMetadataP6lengthSivp",
+            "moduleName": "AdswizzSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadata(im)length",
+                "mangledName": "$s10AdswizzSDK19AdStreamDVRMetadataP6lengthSivg",
+                "moduleName": "AdswizzSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdStreamDVRMetadata>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdStreamDVRMetadata>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "metadata",
+            "printedName": "metadata",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[any AdswizzSDK.AdStreamDVRMetadataValue]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdStreamDVRMetadataValue",
+                    "printedName": "any AdswizzSDK.AdStreamDVRMetadataValue",
+                    "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadataValue"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadata(py)metadata",
+            "mangledName": "$s10AdswizzSDK19AdStreamDVRMetadataP8metadataSayAA0cdE5Value_pGvp",
+            "moduleName": "AdswizzSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[any AdswizzSDK.AdStreamDVRMetadataValue]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AdStreamDVRMetadataValue",
+                        "printedName": "any AdswizzSDK.AdStreamDVRMetadataValue",
+                        "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadataValue"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadata(im)metadata",
+                "mangledName": "$s10AdswizzSDK19AdStreamDVRMetadataP8metadataSayAA0cdE5Value_pGvg",
+                "moduleName": "AdswizzSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdStreamDVRMetadata>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdStreamDVRMetadata>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadata",
+        "mangledName": "$s10AdswizzSDK19AdStreamDVRMetadataP",
+        "moduleName": "AdswizzSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "objc_name": "AASDKAdStreamDVRMetadata",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -16149,966 +16522,6 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "DVRMetadata",
-        "printedName": "DVRMetadata",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "start",
-            "printedName": "start",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(py)start",
-            "mangledName": "$s10AdswizzSDK11DVRMetadataC5startSivp",
-            "moduleName": "AdswizzSDK",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(im)start",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC5startSivg",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(im)setStart:",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC5startSivs",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdswizzSDK11DVRMetadataC5startSivM",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC5startSivM",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "end",
-            "printedName": "end",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(py)end",
-            "mangledName": "$s10AdswizzSDK11DVRMetadataC3endSivp",
-            "moduleName": "AdswizzSDK",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(im)end",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC3endSivg",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(im)setEnd:",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC3endSivs",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdswizzSDK11DVRMetadataC3endSivM",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC3endSivM",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "length",
-            "printedName": "length",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(py)length",
-            "mangledName": "$s10AdswizzSDK11DVRMetadataC6lengthSivp",
-            "moduleName": "AdswizzSDK",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(im)length",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC6lengthSivg",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(im)setLength:",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC6lengthSivs",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdswizzSDK11DVRMetadataC6lengthSivM",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC6lengthSivM",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "metadata",
-            "printedName": "metadata",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[AdswizzSDK.DVRMetadata.MetadataItem]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MetadataItem",
-                    "printedName": "AdswizzSDK.DVRMetadata.MetadataItem",
-                    "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(py)metadata",
-            "mangledName": "$s10AdswizzSDK11DVRMetadataC8metadataSayAC12MetadataItemCGvp",
-            "moduleName": "AdswizzSDK",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[AdswizzSDK.DVRMetadata.MetadataItem]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "MetadataItem",
-                        "printedName": "AdswizzSDK.DVRMetadata.MetadataItem",
-                        "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC"
-                      }
-                    ],
-                    "usr": "s:Sa"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(im)metadata",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC8metadataSayAC12MetadataItemCGvg",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[AdswizzSDK.DVRMetadata.MetadataItem]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "MetadataItem",
-                        "printedName": "AdswizzSDK.DVRMetadata.MetadataItem",
-                        "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC"
-                      }
-                    ],
-                    "usr": "s:Sa"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(im)setMetadata:",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC8metadataSayAC12MetadataItemCGvs",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdswizzSDK11DVRMetadataC8metadataSayAC12MetadataItemCGvM",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC8metadataSayAC12MetadataItemCGvM",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(from:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "DVRMetadata",
-                "printedName": "AdswizzSDK.DVRMetadata",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Decoder",
-                "printedName": "any Swift.Decoder",
-                "usr": "s:s7DecoderP"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:10AdswizzSDK11DVRMetadataC4fromACs7Decoder_p_tKcfc",
-            "mangledName": "$s10AdswizzSDK11DVRMetadataC4fromACs7Decoder_p_tKcfc",
-            "moduleName": "AdswizzSDK",
-            "declAttributes": [
-              "AccessControl",
-              "Required"
-            ],
-            "throwing": true,
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "DVRMetadata",
-                "printedName": "AdswizzSDK.DVRMetadata",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata(im)init",
-            "mangledName": "$s10AdswizzSDK11DVRMetadataCACycfc",
-            "moduleName": "AdswizzSDK",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "encode",
-            "printedName": "encode(to:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Encoder",
-                "printedName": "any Swift.Encoder",
-                "usr": "s:s7EncoderP"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:10AdswizzSDK11DVRMetadataC6encode2toys7Encoder_p_tKF",
-            "mangledName": "$s10AdswizzSDK11DVRMetadataC6encode2toys7Encoder_p_tKF",
-            "moduleName": "AdswizzSDK",
-            "implicit": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "TypeDecl",
-            "name": "MetadataItem",
-            "printedName": "MetadataItem",
-            "children": [
-              {
-                "kind": "Var",
-                "name": "timestamp",
-                "printedName": "timestamp",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Var",
-                "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC9timestampSivp",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC12MetadataItemC9timestampSivp",
-                "moduleName": "AdswizzSDK",
-                "declAttributes": [
-                  "HasInitialValue",
-                  "HasStorage",
-                  "AccessControl",
-                  "ObjC",
-                  "RawDocComment"
-                ],
-                "hasStorage": true,
-                "accessors": [
-                  {
-                    "kind": "Accessor",
-                    "name": "Get",
-                    "printedName": "Get()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Int",
-                        "printedName": "Swift.Int",
-                        "usr": "s:Si"
-                      }
-                    ],
-                    "declKind": "Accessor",
-                    "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC9timestampSivg",
-                    "mangledName": "$s10AdswizzSDK11DVRMetadataC12MetadataItemC9timestampSivg",
-                    "moduleName": "AdswizzSDK",
-                    "implicit": true,
-                    "declAttributes": [
-                      "ObjC"
-                    ],
-                    "accessorKind": "get"
-                  },
-                  {
-                    "kind": "Accessor",
-                    "name": "Set",
-                    "printedName": "Set()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Int",
-                        "printedName": "Swift.Int",
-                        "usr": "s:Si"
-                      }
-                    ],
-                    "declKind": "Accessor",
-                    "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC9timestampSivs",
-                    "mangledName": "$s10AdswizzSDK11DVRMetadataC12MetadataItemC9timestampSivs",
-                    "moduleName": "AdswizzSDK",
-                    "implicit": true,
-                    "declAttributes": [
-                      "ObjC"
-                    ],
-                    "accessorKind": "set"
-                  },
-                  {
-                    "kind": "Accessor",
-                    "name": "Modify",
-                    "printedName": "Modify()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      }
-                    ],
-                    "declKind": "Accessor",
-                    "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC9timestampSivM",
-                    "mangledName": "$s10AdswizzSDK11DVRMetadataC12MetadataItemC9timestampSivM",
-                    "moduleName": "AdswizzSDK",
-                    "implicit": true,
-                    "accessorKind": "_modify"
-                  }
-                ]
-              },
-              {
-                "kind": "Var",
-                "name": "content",
-                "printedName": "content",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Var",
-                "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC7contentSSvp",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC12MetadataItemC7contentSSvp",
-                "moduleName": "AdswizzSDK",
-                "declAttributes": [
-                  "HasInitialValue",
-                  "HasStorage",
-                  "AccessControl",
-                  "ObjC",
-                  "RawDocComment"
-                ],
-                "hasStorage": true,
-                "accessors": [
-                  {
-                    "kind": "Accessor",
-                    "name": "Get",
-                    "printedName": "Get()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "declKind": "Accessor",
-                    "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC7contentSSvg",
-                    "mangledName": "$s10AdswizzSDK11DVRMetadataC12MetadataItemC7contentSSvg",
-                    "moduleName": "AdswizzSDK",
-                    "implicit": true,
-                    "declAttributes": [
-                      "ObjC"
-                    ],
-                    "accessorKind": "get"
-                  },
-                  {
-                    "kind": "Accessor",
-                    "name": "Set",
-                    "printedName": "Set()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "declKind": "Accessor",
-                    "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC7contentSSvs",
-                    "mangledName": "$s10AdswizzSDK11DVRMetadataC12MetadataItemC7contentSSvs",
-                    "moduleName": "AdswizzSDK",
-                    "implicit": true,
-                    "declAttributes": [
-                      "ObjC"
-                    ],
-                    "accessorKind": "set"
-                  },
-                  {
-                    "kind": "Accessor",
-                    "name": "Modify",
-                    "printedName": "Modify()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      }
-                    ],
-                    "declKind": "Accessor",
-                    "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC7contentSSvM",
-                    "mangledName": "$s10AdswizzSDK11DVRMetadataC12MetadataItemC7contentSSvM",
-                    "moduleName": "AdswizzSDK",
-                    "implicit": true,
-                    "accessorKind": "_modify"
-                  }
-                ]
-              },
-              {
-                "kind": "Constructor",
-                "name": "init",
-                "printedName": "init(from:)",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MetadataItem",
-                    "printedName": "AdswizzSDK.DVRMetadata.MetadataItem",
-                    "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Decoder",
-                    "printedName": "any Swift.Decoder",
-                    "usr": "s:s7DecoderP"
-                  }
-                ],
-                "declKind": "Constructor",
-                "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC4fromAEs7Decoder_p_tKcfc",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC12MetadataItemC4fromAEs7Decoder_p_tKcfc",
-                "moduleName": "AdswizzSDK",
-                "declAttributes": [
-                  "AccessControl",
-                  "Required"
-                ],
-                "throwing": true,
-                "init_kind": "Designated"
-              },
-              {
-                "kind": "Function",
-                "name": "encode",
-                "printedName": "encode(to:)",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Encoder",
-                    "printedName": "any Swift.Encoder",
-                    "usr": "s:s7EncoderP"
-                  }
-                ],
-                "declKind": "Func",
-                "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC6encode2toys7Encoder_p_tKF",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC12MetadataItemC6encode2toys7Encoder_p_tKF",
-                "moduleName": "AdswizzSDK",
-                "declAttributes": [
-                  "AccessControl"
-                ],
-                "throwing": true,
-                "funcSelfKind": "NonMutating"
-              },
-              {
-                "kind": "Constructor",
-                "name": "init",
-                "printedName": "init()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MetadataItem",
-                    "printedName": "AdswizzSDK.DVRMetadata.MetadataItem",
-                    "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC"
-                  }
-                ],
-                "declKind": "Constructor",
-                "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemCAEycfc",
-                "mangledName": "$s10AdswizzSDK11DVRMetadataC12MetadataItemCAEycfc",
-                "moduleName": "AdswizzSDK",
-                "overriding": true,
-                "implicit": true,
-                "objc_name": "init",
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC",
-                  "Override"
-                ],
-                "init_kind": "Designated"
-              }
-            ],
-            "declKind": "Class",
-            "usr": "s:10AdswizzSDK11DVRMetadataC12MetadataItemC",
-            "mangledName": "$s10AdswizzSDK11DVRMetadataC12MetadataItemC",
-            "moduleName": "AdswizzSDK",
-            "declAttributes": [
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "isFromExtension": true,
-            "superclassUsr": "c:objc(cs)NSObject",
-            "superclassNames": [
-              "ObjectiveC.NSObject"
-            ],
-            "conformances": [
-              {
-                "kind": "Conformance",
-                "name": "Decodable",
-                "printedName": "Decodable",
-                "usr": "s:Se",
-                "mangledName": "$sSe"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Encodable",
-                "printedName": "Encodable",
-                "usr": "s:SE",
-                "mangledName": "$sSE"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Copyable",
-                "printedName": "Copyable",
-                "usr": "s:s8CopyableP",
-                "mangledName": "$ss8CopyableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Escapable",
-                "printedName": "Escapable",
-                "usr": "s:s9EscapableP",
-                "mangledName": "$ss9EscapableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Equatable",
-                "printedName": "Equatable",
-                "usr": "s:SQ",
-                "mangledName": "$sSQ"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Hashable",
-                "printedName": "Hashable",
-                "usr": "s:SH",
-                "mangledName": "$sSH"
-              },
-              {
-                "kind": "Conformance",
-                "name": "CVarArg",
-                "printedName": "CVarArg",
-                "usr": "s:s7CVarArgP",
-                "mangledName": "$ss7CVarArgP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "_KeyValueCodingAndObservingPublishing",
-                "printedName": "_KeyValueCodingAndObservingPublishing",
-                "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-                "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "_KeyValueCodingAndObserving",
-                "printedName": "_KeyValueCodingAndObserving",
-                "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-                "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "CustomStringConvertible",
-                "printedName": "CustomStringConvertible",
-                "usr": "s:s23CustomStringConvertibleP",
-                "mangledName": "$ss23CustomStringConvertibleP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "CustomDebugStringConvertible",
-                "printedName": "CustomDebugStringConvertible",
-                "usr": "s:s28CustomDebugStringConvertibleP",
-                "mangledName": "$ss28CustomDebugStringConvertibleP"
-              }
-            ]
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata",
-        "mangledName": "$s10AdswizzSDK11DVRMetadataC",
-        "moduleName": "AdswizzSDK",
-        "objc_name": "AASDKDVRMetadata",
-        "declAttributes": [
-          "AccessControl",
-          "ObjC",
-          "RawDocComment"
-        ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Decodable",
-            "printedName": "Decodable",
-            "usr": "s:Se",
-            "mangledName": "$sSe"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Encodable",
-            "printedName": "Encodable",
-            "usr": "s:SE",
-            "mangledName": "$sSE"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AdswizzSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
         "name": "VastErrorCode",
         "printedName": "VastErrorCode",
         "children": [
@@ -20054,16 +19467,6 @@
         "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "AdswizzSDK"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AdswizzSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
       },
       {
         "kind": "Import",
@@ -24855,13 +24258,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "AdswizzSDK.DVRMetadata?",
+                "printedName": "(any AdswizzSDK.AdStreamDVRMetadata)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "DVRMetadata",
-                    "printedName": "AdswizzSDK.DVRMetadata",
-                    "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata"
+                    "name": "AdStreamDVRMetadata",
+                    "printedName": "any AdswizzSDK.AdStreamDVRMetadata",
+                    "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadata"
                   }
                 ],
                 "usr": "s:Sq"
@@ -24869,7 +24272,7 @@
             ],
             "declKind": "Func",
             "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamManagerDelegate(im)adStreamManager:didReceive:",
-            "mangledName": "$s10AdswizzSDK23AdStreamManagerDelegateP02addE0_10didReceiveyAA0cdE0C_AA11DVRMetadataCSgtF",
+            "mangledName": "$s10AdswizzSDK23AdStreamManagerDelegateP02addE0_10didReceiveyAA0cdE0C_AA0cD11DVRMetadata_pSgtF",
             "moduleName": "AdswizzSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdStreamManagerDelegate>",
             "sugared_genericSig": "<Self where Self : AdswizzSDK.AdStreamManagerDelegate>",
@@ -27758,16 +27161,6 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AdswizzSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "AdswizzSDKCore",
         "printedName": "AdswizzSDKCore",
         "declKind": "Import",
@@ -30489,376 +29882,6 @@
         ]
       },
       {
-        "kind": "TypeDecl",
-        "name": "AdStreamManagerSettings",
-        "printedName": "AdStreamManagerSettings",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "player",
-            "printedName": "player",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "WeakStorage",
-                "printedName": "(any AdswizzSDK.MediaPlayerState)?"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(py)player",
-            "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC6playerAA16MediaPlayerState_pSgvp",
-            "moduleName": "AdswizzSDK",
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "ReferenceOwnership",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "ownership": 1,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "(any AdswizzSDK.MediaPlayerState)?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "MediaPlayerState",
-                        "printedName": "any AdswizzSDK.MediaPlayerState",
-                        "usr": "c:@M@AdswizzSDK@objc(pl)AASDKMediaPlayerState"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(im)player",
-                "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC6playerAA16MediaPlayerState_pSgvg",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "(any AdswizzSDK.MediaPlayerState)?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "MediaPlayerState",
-                        "printedName": "any AdswizzSDK.MediaPlayerState",
-                        "usr": "c:@M@AdswizzSDK@objc(pl)AASDKMediaPlayerState"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(im)setPlayer:",
-                "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC6playerAA16MediaPlayerState_pSgvs",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdswizzSDK23AdStreamManagerSettingsC6playerAA16MediaPlayerState_pSgvM",
-                "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC6playerAA16MediaPlayerState_pSgvM",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "automaticallySecureConnectionForAdURL",
-            "printedName": "automaticallySecureConnectionForAdURL",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(py)automaticallySecureConnectionForAdURL",
-            "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC032automaticallySecureConnectionForC3URLSbvp",
-            "moduleName": "AdswizzSDK",
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(im)automaticallySecureConnectionForAdURL",
-                "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC032automaticallySecureConnectionForC3URLSbvg",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(im)setAutomaticallySecureConnectionForAdURL:",
-                "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC032automaticallySecureConnectionForC3URLSbvs",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdswizzSDK23AdStreamManagerSettingsC032automaticallySecureConnectionForC3URLSbvM",
-                "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC032automaticallySecureConnectionForC3URLSbvM",
-                "moduleName": "AdswizzSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "addCapability",
-            "printedName": "addCapability(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "AdStreamCapability",
-                "printedName": "AdswizzSDK.AdStreamCapability",
-                "usr": "c:@M@AdswizzSDK@E@AASDKAdStreamCapabilities"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(im)addCapability:",
-            "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC13addCapabilityyyAA0cdH0OF",
-            "moduleName": "AdswizzSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "AdStreamManagerSettings",
-                "printedName": "AdswizzSDK.AdStreamManagerSettings",
-                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(im)init",
-            "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsCACycfc",
-            "moduleName": "AdswizzSDK",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings",
-        "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC",
-        "moduleName": "AdswizzSDK",
-        "objc_name": "AASDKAdStreamManagerSettings",
-        "declAttributes": [
-          "Final",
-          "AccessControl",
-          "ObjC",
-          "RawDocComment"
-        ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AdswizzSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
         "kind": "Import",
         "name": "AVFoundation",
         "printedName": "AVFoundation",
@@ -30915,16 +29938,6 @@
         "printedName": "Network",
         "declKind": "Import",
         "moduleName": "AdswizzSDK"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AdswizzSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
       },
       {
         "kind": "Import",
@@ -31087,16 +30100,6 @@
         "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "AdswizzSDK"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AdswizzSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
       },
       {
         "kind": "Import",
@@ -39007,6 +38010,110 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AdswizzSDKCore",
+        "printedName": "AdswizzSDKCore",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AdswizzSDKCore",
+        "printedName": "AdswizzSDKCore",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "AdswizzSDKCore",
         "printedName": "AdswizzSDKCore",
         "declKind": "Import",
@@ -40231,8 +39338,8 @@
           },
           {
             "kind": "Function",
-            "name": "loadDVRMetadata",
-            "printedName": "loadDVRMetadata(completion:)",
+            "name": "requestDVRMetadata",
+            "printedName": "requestDVRMetadata(completion:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -40242,12 +39349,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "((AdswizzSDK.DVRMetadata?) -> ())?",
+                "printedName": "((Swift.Result<any AdswizzSDK.AdStreamDVRMetadata, any Swift.Error>) -> ())?",
                 "children": [
                   {
                     "kind": "TypeFunc",
                     "name": "Function",
-                    "printedName": "(AdswizzSDK.DVRMetadata?) -> ()",
+                    "printedName": "(Swift.Result<any AdswizzSDK.AdStreamDVRMetadata, any Swift.Error>) -> ()",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -40256,17 +39363,23 @@
                       },
                       {
                         "kind": "TypeNominal",
-                        "name": "Optional",
-                        "printedName": "AdswizzSDK.DVRMetadata?",
+                        "name": "Result",
+                        "printedName": "Swift.Result<any AdswizzSDK.AdStreamDVRMetadata, any Swift.Error>",
                         "children": [
                           {
                             "kind": "TypeNominal",
-                            "name": "DVRMetadata",
-                            "printedName": "AdswizzSDK.DVRMetadata",
-                            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKDVRMetadata"
+                            "name": "AdStreamDVRMetadata",
+                            "printedName": "any AdswizzSDK.AdStreamDVRMetadata",
+                            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdStreamDVRMetadata"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "any Swift.Error",
+                            "usr": "s:s5ErrorP"
                           }
                         ],
-                        "usr": "s:Sq"
+                        "usr": "s:s6ResultO"
                       }
                     ]
                   }
@@ -40276,18 +39389,19 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10AdswizzSDK0A15AdStreamManagerC15loadDVRMetadata10completionyyAA0G0CSgcSg_tF",
-            "mangledName": "$s10AdswizzSDK0A15AdStreamManagerC15loadDVRMetadata10completionyyAA0G0CSgcSg_tF",
+            "usr": "s:10AdswizzSDK0A15AdStreamManagerC18requestDVRMetadata10completionyys6ResultOyAA0cdG0_ps5Error_pGcSg_tF",
+            "mangledName": "$s10AdswizzSDK0A15AdStreamManagerC18requestDVRMetadata10completionyys6ResultOyAA0cdG0_ps5Error_pGcSg_tF",
             "moduleName": "AdswizzSDK",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
-            "name": "cancelLoadingDVRMetadata",
-            "printedName": "cancelLoadingDVRMetadata()",
+            "name": "cancelDVRMetadataRequest",
+            "printedName": "cancelDVRMetadataRequest()",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -40296,11 +39410,12 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10AdswizzSDK0A15AdStreamManagerC24cancelLoadingDVRMetadatayyF",
-            "mangledName": "$s10AdswizzSDK0A15AdStreamManagerC24cancelLoadingDVRMetadatayyF",
+            "usr": "s:10AdswizzSDK0A15AdStreamManagerC24cancelDVRMetadataRequestyyF",
+            "mangledName": "$s10AdswizzSDK0A15AdStreamManagerC24cancelDVRMetadataRequestyyF",
             "moduleName": "AdswizzSDK",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -41269,26 +40384,6 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AdswizzSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AdswizzSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "AdswizzSDKCore",
         "printedName": "AdswizzSDKCore",
         "declKind": "Import",
@@ -41319,6 +40414,376 @@
         "moduleName": "AdswizzSDK",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AdStreamManagerSettings",
+        "printedName": "AdStreamManagerSettings",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "player",
+            "printedName": "player",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "(any AdswizzSDK.MediaPlayerState)?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(py)player",
+            "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC6playerAA16MediaPlayerState_pSgvp",
+            "moduleName": "AdswizzSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AdswizzSDK.MediaPlayerState)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MediaPlayerState",
+                        "printedName": "any AdswizzSDK.MediaPlayerState",
+                        "usr": "c:@M@AdswizzSDK@objc(pl)AASDKMediaPlayerState"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(im)player",
+                "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC6playerAA16MediaPlayerState_pSgvg",
+                "moduleName": "AdswizzSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AdswizzSDK.MediaPlayerState)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MediaPlayerState",
+                        "printedName": "any AdswizzSDK.MediaPlayerState",
+                        "usr": "c:@M@AdswizzSDK@objc(pl)AASDKMediaPlayerState"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(im)setPlayer:",
+                "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC6playerAA16MediaPlayerState_pSgvs",
+                "moduleName": "AdswizzSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdswizzSDK23AdStreamManagerSettingsC6playerAA16MediaPlayerState_pSgvM",
+                "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC6playerAA16MediaPlayerState_pSgvM",
+                "moduleName": "AdswizzSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "automaticallySecureConnectionForAdURL",
+            "printedName": "automaticallySecureConnectionForAdURL",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(py)automaticallySecureConnectionForAdURL",
+            "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC032automaticallySecureConnectionForC3URLSbvp",
+            "moduleName": "AdswizzSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(im)automaticallySecureConnectionForAdURL",
+                "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC032automaticallySecureConnectionForC3URLSbvg",
+                "moduleName": "AdswizzSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(im)setAutomaticallySecureConnectionForAdURL:",
+                "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC032automaticallySecureConnectionForC3URLSbvs",
+                "moduleName": "AdswizzSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdswizzSDK23AdStreamManagerSettingsC032automaticallySecureConnectionForC3URLSbvM",
+                "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC032automaticallySecureConnectionForC3URLSbvM",
+                "moduleName": "AdswizzSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "addCapability",
+            "printedName": "addCapability(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdStreamCapability",
+                "printedName": "AdswizzSDK.AdStreamCapability",
+                "usr": "c:@M@AdswizzSDK@E@AASDKAdStreamCapabilities"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(im)addCapability:",
+            "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC13addCapabilityyyAA0cdH0OF",
+            "moduleName": "AdswizzSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdStreamManagerSettings",
+                "printedName": "AdswizzSDK.AdStreamManagerSettings",
+                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings(im)init",
+            "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsCACycfc",
+            "moduleName": "AdswizzSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdStreamManagerSettings",
+        "mangledName": "$s10AdswizzSDK23AdStreamManagerSettingsC",
+        "moduleName": "AdswizzSDK",
+        "objc_name": "AASDKAdStreamManagerSettings",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
         ]
       },
       {
@@ -42189,23 +41654,6 @@
       },
       {
         "kind": "Import",
-        "name": "AdswizzSDKCore",
-        "printedName": "AdswizzSDKCore",
-        "declKind": "Import",
-        "moduleName": "AdswizzSDK"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AdswizzSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -42581,16 +42029,6 @@
         "printedName": "CoreData",
         "declKind": "Import",
         "moduleName": "AdswizzSDK"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AdswizzSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
       },
       {
         "kind": "Import",
@@ -43071,48 +42509,6 @@
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Var",
-            "name": "hasDVR",
-            "printedName": "hasDVR",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdswizzSDK15AdStreamManagerC6hasDVRSbvp",
-            "mangledName": "$s10AdswizzSDK15AdStreamManagerC6hasDVRSbvp",
-            "moduleName": "AdswizzSDK",
-            "isOpen": true,
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdswizzSDK15AdStreamManagerC6hasDVRSbvg",
-                "mangledName": "$s10AdswizzSDK15AdStreamManagerC6hasDVRSbvg",
-                "moduleName": "AdswizzSDK",
-                "isOpen": true,
-                "accessorKind": "get"
-              }
-            ]
           },
           {
             "kind": "Function",
@@ -52802,13 +52198,6 @@
       "value": "\"minimized\""
     },
     {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/DVRMetadataRequest\/DVRMetadataFetcher.swift",
-      "kind": "FloatLiteral",
-      "offset": 1188,
-      "length": 3,
-      "value": "5.0"
-    },
-    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Request\/CollectorUploader.swift",
       "kind": "StringLiteral",
       "offset": 965,
@@ -55061,83 +54450,6 @@
       "offset": 2433,
       "length": 2,
       "value": "50"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/DVRMetadata.swift",
-      "kind": "IntegerLiteral",
-      "offset": 355,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/DVRMetadata.swift",
-      "kind": "IntegerLiteral",
-      "offset": 438,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/DVRMetadata.swift",
-      "kind": "IntegerLiteral",
-      "offset": 508,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/DVRMetadata.swift",
-      "kind": "Array",
-      "offset": 606,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/DVRMetadata.swift",
-      "kind": "IntegerLiteral",
-      "offset": 998,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/DVRMetadata.swift",
-      "kind": "StringLiteral",
-      "offset": 1076,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/DVRMetadata.swift",
-      "kind": "StringLiteral",
-      "offset": 2080,
-      "length": 13,
-      "value": "\"buffer-info\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/DVRMetadata.swift",
-      "kind": "StringLiteral",
-      "offset": 2173,
-      "length": 7,
-      "value": "\"start\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/DVRMetadata.swift",
-      "kind": "StringLiteral",
-      "offset": 2203,
-      "length": 8,
-      "value": "\"latest\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/DVRMetadata.swift",
-      "kind": "StringLiteral",
-      "offset": 2243,
-      "length": 17,
-      "value": "\"max-buffer-size\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/DVRMetadata.swift",
-      "kind": "StringLiteral",
-      "offset": 2294,
-      "length": 19,
-      "value": "\"dvr-metadata-list\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/Protocols\/Public\/VastMacro.swift",
@@ -64779,20 +64091,6 @@
       "value": "\"OMSDK\""
     },
     {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/AdStreamManagerSettings.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1198,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Server Side Insertion\/Public\/AdStreamManagerSettings.swift",
-      "kind": "Array",
-      "offset": 1256,
-      "length": 2,
-      "value": "[]"
-    },
-    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/NetworkManager+Internal.swift",
       "kind": "Array",
       "offset": 388,
@@ -64811,7 +64109,7 @@
       "kind": "StringLiteral",
       "offset": 258,
       "length": 8,
-      "value": "\"7.12.0\""
+      "value": "\"7.12.1\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Podcast\/RemoteAudioData\/RADEventRequestBuilder.swift",
@@ -64910,13 +64208,6 @@
       "offset": 897,
       "length": 4,
       "value": "true"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/AdStreamDVRServiceImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 501,
-      "length": 14,
-      "value": "\"dvr_start_ts\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/.gen\/SwiftProtobuf\/TextFormatDecoder.swift",
@@ -66984,6 +66275,90 @@
       "value": "\"IADS\""
     },
     {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/SessionRequest\/StreamSessionFetcher.swift",
+      "kind": "FloatLiteral",
+      "offset": 1208,
+      "length": 3,
+      "value": "5.0"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
+      "kind": "StringLiteral",
+      "offset": 733,
+      "length": 13,
+      "value": "\"buffer-info\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
+      "kind": "StringLiteral",
+      "offset": 775,
+      "length": 15,
+      "value": "\"metadata-list\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
+      "kind": "StringLiteral",
+      "offset": 870,
+      "length": 7,
+      "value": "\"start\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
+      "kind": "StringLiteral",
+      "offset": 900,
+      "length": 8,
+      "value": "\"latest\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
+      "kind": "StringLiteral",
+      "offset": 938,
+      "length": 17,
+      "value": "\"max-buffer-size\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
+      "kind": "StringLiteral",
+      "offset": 3003,
+      "length": 7,
+      "value": "\"start\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
+      "kind": "StringLiteral",
+      "offset": 3034,
+      "length": 10,
+      "value": "\"metadata\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRHandler.swift",
+      "kind": "StringLiteral",
+      "offset": 1113,
+      "length": 14,
+      "value": "\"dvr_start_ts\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamSessionParams.swift",
+      "kind": "Dictionary",
+      "offset": 255,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamSessionParams.swift",
+      "kind": "StringLiteral",
+      "offset": 435,
+      "length": 13,
+      "value": "\"queryParams\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/MetadataRequest\/StreamMetadataFetcher.swift",
+      "kind": "FloatLiteral",
+      "offset": 1209,
+      "length": 3,
+      "value": "5.0"
+    },
+    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Helpers\/MotionActivityManagerWrapper+Internal.swift",
       "kind": "StringLiteral",
       "offset": 586,
@@ -68923,20 +68298,6 @@
       "value": "\"gyro\""
     },
     {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdStreamSessionParams.swift",
-      "kind": "Dictionary",
-      "offset": 268,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdStreamSessionParams.swift",
-      "kind": "StringLiteral",
-      "offset": 460,
-      "length": 13,
-      "value": "\"queryParams\""
-    },
-    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/BundleReading.swift",
       "kind": "StringLiteral",
       "offset": 754,
@@ -69012,6 +68373,20 @@
       "offset": 853,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdStreamManagerSettings.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1198,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdStreamManagerSettings.swift",
+      "kind": "Array",
+      "offset": 1265,
+      "length": 2,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/SystemInfo.swift",
@@ -71238,13 +70613,6 @@
       "offset": 3318,
       "length": 1,
       "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdStreamSessionFetcher.swift",
-      "kind": "FloatLiteral",
-      "offset": 1248,
-      "length": 3,
-      "value": "5.0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdURLDecorator.swift",

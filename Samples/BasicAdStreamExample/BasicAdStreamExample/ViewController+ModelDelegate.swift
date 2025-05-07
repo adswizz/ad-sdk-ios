@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AdswizzSDK
 
 extension ViewController: ModelStreamingDelegate {
     func modelDidStartStreaming(_ model: Model) {
@@ -24,6 +25,10 @@ extension ViewController: ModelStreamingDelegate {
     
     func modelDidResumeStreaming(_ model: Model) {
         setStatus(with: "Playing stream...", fading: true)
+    }
+    
+    func model(_ model: Model, didReceive dvrMetadata: AdStreamDVRMetadata?) {
+        
     }
 }
 

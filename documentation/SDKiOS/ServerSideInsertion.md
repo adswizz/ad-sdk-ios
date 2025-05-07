@@ -184,7 +184,7 @@ settings.addCapability(.dvr)
 streamManager?.adStreamManagerSettings = settings
 ```
 
-Afterwards the stream must start playing as usual without specifying a timestamp. After the first chunk is delivered, an `AdStreamSession` is created internally which will be used transparently by the SDK to perform DVR operations. At this point in time the SDK will also deliver a `DVRMetadata` object via the `AdStreamDelegate` with information about the DVR buffer: a start time symbolizing the first Unix time in the buffer that can be played, an end time or latest which is very close to the current present time, and a length for the buffer, symbolizing how much audio the server will store (1h, 6 h etc). Please note the buffer is configured externally, server-wise and can be stored on a different server than the one that serves the HLS stream.
+Afterwards the stream must start playing as usual without specifying a timestamp. After the first chunk is delivered, an `AdStreamSession` is created internally which will be used transparently by the SDK to perform DVR operations. At this point in time the SDK will also deliver a `AdStreamDVRMetadata` object via the `AdStreamDelegate` with information about the DVR buffer: a start time symbolizing the first Unix time in the buffer that can be played, an end time or latest which is very close to the current present time, and a length for the buffer, symbolizing how much audio the server will store (1h, 6 h etc). Please note the buffer is configured externally, server-wise and can be stored on a different server than the one that serves the HLS stream.
 
 [Step 2]
 ```swift
@@ -193,7 +193,7 @@ try streamManager?.play(with: url)
 
 Delegate method to receive metadata. Please note that this implementation is optional.
 ```swift
-func adStreamManager(_ adstreamManager: AdStreamManager, didReceive dvrMetadata: DVRMetadata?) { 
+func adStreamManager(_ adstreamManager: AdStreamManager, didReceive dvrMetadata: AdStreamDVRMetadata?) { 
 }
 ```
 

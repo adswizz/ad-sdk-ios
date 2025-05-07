@@ -267,6 +267,16 @@ extension AdswizzSDK.XMLElement {
     get
   }
 }
+@objc(AASDKAdStreamDVRMetadataValue) public protocol AdStreamDVRMetadataValue {
+  @objc var timestamp: Swift.Int { get }
+  @objc var content: Swift.String { get }
+}
+@objc(AASDKAdStreamDVRMetadata) public protocol AdStreamDVRMetadata {
+  @objc var start: Swift.Int { get }
+  @objc var end: Swift.Int { get }
+  @objc var length: Swift.Int { get }
+  @objc var metadata: [any AdswizzSDK.AdStreamDVRMetadataValue] { get }
+}
 extension AdswizzSDK.AdPodcastManager {
   @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
 }
@@ -639,24 +649,6 @@ extension Foundation.NSDictionary {
   }
   @objc deinit
 }
-@objc(AASDKDVRMetadata) public class DVRMetadata : ObjectiveC.NSObject, Swift.Codable {
-  @objc public var start: Swift.Int
-  @objc public var end: Swift.Int
-  @objc public var length: Swift.Int
-  @objc public var metadata: [AdswizzSDK.DVRMetadata.MetadataItem]
-  required public init(from decoder: any Swift.Decoder) throws
-  @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-}
-extension AdswizzSDK.DVRMetadata {
-  @objc public class MetadataItem : ObjectiveC.NSObject, Swift.Codable {
-    @objc public var timestamp: Swift.Int
-    @objc public var content: Swift.String
-    required public init(from decoder: any Swift.Decoder) throws
-    public func encode(to encoder: any Swift.Encoder) throws
-    @objc deinit
-  }
-}
 @objc(AASDKVastErrorCode) public enum VastErrorCode : Swift.Int {
   case xmlParsingError = 100
   case schemValidationError = 101
@@ -851,7 +843,7 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   @objc func adStreamManagerWillReconnect(_ adstreamManager: AdswizzSDK.AdStreamManager)
   @objc func adStreamManagerPlayerShouldPause(_ adstreamManager: AdswizzSDK.AdStreamManager)
   @objc func adStreamManagerPlayerShouldResume(_ adstreamManager: AdswizzSDK.AdStreamManager)
-  @objc optional func adStreamManager(_ adstreamManager: AdswizzSDK.AdStreamManager, didReceive dvrMetadata: AdswizzSDK.DVRMetadata?)
+  @objc optional func adStreamManager(_ adstreamManager: AdswizzSDK.AdStreamManager, didReceive dvrMetadata: (any AdswizzSDK.AdStreamDVRMetadata)?)
 }
 @objc(AASDKCompanionStaticResource) public protocol StaticResource : ObjectiveC.NSObjectProtocol {
   @objc var uri: Swift.String { get }
@@ -1005,13 +997,6 @@ public protocol Dispatcher {
 }
 extension Dispatch.DispatchQueue : AdswizzSDK.Dispatcher {
   public func asyncDispatch(task: @escaping () -> Swift.Void)
-}
-@_inheritsConvenienceInitializers @objc(AASDKAdStreamManagerSettings) final public class AdStreamManagerSettings : ObjectiveC.NSObject {
-  @objc weak final public var player: (any AdswizzSDK.MediaPlayerState)?
-  @objc final public var automaticallySecureConnectionForAdURL: Swift.Bool
-  @objc final public func addCapability(_ capability: AdswizzSDK.AdStreamCapability)
-  @objc override dynamic public init()
-  @objc deinit
 }
 extension AdswizzSDK.AdStreamManager {
   @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
@@ -1289,8 +1274,8 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc override public func prepare(with url: Foundation.URL) throws
   @objc override public func play(with url: Foundation.URL) throws
   public func play(with url: Foundation.URL, timestamp: Foundation.NSNumber) throws
-  public func loadDVRMetadata(completion: ((AdswizzSDK.DVRMetadata?) -> ())? = nil)
-  public func cancelLoadingDVRMetadata()
+  public func requestDVRMetadata(completion: ((Swift.Result<any AdswizzSDK.AdStreamDVRMetadata, any Swift.Error>) -> Swift.Void)? = nil)
+  public func cancelDVRMetadataRequest()
   override public func didReceive(metadata: [AVFoundation.AVMetadataItem])
   @objc deinit
 }
@@ -1303,6 +1288,13 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   }
   @objc override dynamic public init()
   @objc public init(analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)? = nil)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(AASDKAdStreamManagerSettings) final public class AdStreamManagerSettings : ObjectiveC.NSObject {
+  @objc weak final public var player: (any AdswizzSDK.MediaPlayerState)?
+  @objc final public var automaticallySecureConnectionForAdURL: Swift.Bool
+  @objc final public func addCapability(_ capability: AdswizzSDK.AdStreamCapability)
+  @objc override dynamic public init()
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdPodcastManager) open class AdPodcastManager : ObjectiveC.NSObject {
@@ -1337,9 +1329,6 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc open func stop()
   @objc open func pause()
   @objc open func resume()
-  open var hasDVR: Swift.Bool {
-    get
-  }
   open func didReceive(metadata: [AVFoundation.AVMetadataItem])
   open func adBreakDetected(of duration: Foundation.TimeInterval, for adId: Swift.String?)
   @objc deinit

@@ -7,14 +7,20 @@
 
 import UIKit
 import AdswizzSDK
+import AdswizzSDKCore
+
+let kLog: AppLogger = AppDelegate.logger
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    static let logger = AppLogger()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        //Let's set the logging level in AdswizzSDK to verbose.
+        AdLogger.shared.level = .verbose
+        AdLogger.shared.destination = kLog
+
         // Initialize AdswizzSDK.
         // Note that unless AdswizzSDK was initialized programmatically with the config object, it expects the following in your app's info.plist:
         //  1. an installationId
@@ -27,8 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //let config = AdswizzSDKConfig(playerId: "yourPlayerId", installationId: "yourInstallationId")
             //try AdswizzSDK.shared.initialize(with: config)
             try AdswizzSDK.shared.initialize()
+            kLog.log("Successfully initialized AdswizzSDK")
         } catch {
-            print(error as NSError)
+            kLog.log("Failed to initialize AdswizzSDK. Reason: \(error.localizedDescription)")
         }
 
         // Set optional settings for AdswizzSDK.
@@ -83,3 +90,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+class AppLogger {
+    func log(_ line: String) {
+        print("App log: \(line)")
+    }
+}
+
+extension AppLogger: AdLoggerDestination {
+    func log(_ level: AdLogger.Level, functionName: String, fileName: String, lineNumber: Int, line: String) {
+        print("AdswizzSDK log: \(line)")
+    }
+}
