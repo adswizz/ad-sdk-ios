@@ -5,10 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.12.2] - 2025-05-12
+### Fixed
+- `AdswizzAdStreamManager`:
+    - Service release that fixes a rare crash when playing a stream URL with external player due to unexpected `playerStatus` state sequence. Please refer to the complete [state machine diagram](iOS/SDKiOS/ExternalPlayer#playerstatus) for your player to implement.
+
 ## [7.12.1] - 2025-05-07
 ### Added
 - Samples:
-    - Improve the [BasicDVRRequestExample](iOS/SDKTVOS/SampleProjects#basicdvrrequestexample) sample project to showcase external player support for DVR-enabled streams.
+    - Improve the [BasicDVRRequestExample](iOS/SDKiOS/SampleProjects#basicdvrrequestexample) sample project to showcase external player support for DVR-enabled streams.
 
 ### Changed
 - `AdswizzAdStreamManager`:

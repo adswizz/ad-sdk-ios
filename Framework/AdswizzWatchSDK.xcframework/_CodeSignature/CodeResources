@@ -18,7 +18,7 @@
 		</data>
 		<key>watchos-arm64_arm64_32_armv7k/AdswizzWatchSDK.framework/Info.plist</key>
 		<data>
-		XRYl9o4gw6PgiC8ICZ13QqNJkEI=
+		eTJyFqlUbMaCAV1oEden6xFQYOk=
 		</data>
 		<key>watchos-arm64_arm64_32_armv7k/AdswizzWatchSDK.framework/Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos.abi.json</key>
 		<data>
@@ -98,7 +98,7 @@
 		</data>
 		<key>watchos-arm64_i386_x86_64-simulator/AdswizzWatchSDK.framework/AdswizzWatchSDK</key>
 		<data>
-		HdAd8hwnJgZd1uRpcTnT7xioxCA=
+		Yztx5dFLvYQxWGazLepRvfqEyrI=
 		</data>
 		<key>watchos-arm64_i386_x86_64-simulator/AdswizzWatchSDK.framework/Headers/AdswizzWatchSDK-Swift.h</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>watchos-arm64_i386_x86_64-simulator/AdswizzWatchSDK.framework/Info.plist</key>
 		<data>
-		KmKwZUE/XxnbhTPnQh+pKsQ0KRA=
+		hfCbiyhqkia63Lg6DlI4DJf8QX8=
 		</data>
 		<key>watchos-arm64_i386_x86_64-simulator/AdswizzWatchSDK.framework/Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos-simulator.abi.json</key>
 		<data>
@@ -190,7 +190,7 @@
 		</data>
 		<key>watchos-arm64_i386_x86_64-simulator/AdswizzWatchSDK.framework/_CodeSignature/CodeResources</key>
 		<data>
-		aVloewHr0I8mlLlEDrivwoFlJdo=
+		lclSb7smZ9U/dULJY3U4s1/OZK4=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -232,11 +232,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XRYl9o4gw6PgiC8ICZ13QqNJkEI=
+			eTJyFqlUbMaCAV1oEden6xFQYOk=
 			</data>
 			<key>hash2</key>
 			<data>
-			mMdPiAb2QU8W8Ls1RRiUgGSJh07a8/8hswapAWD0nok=
+			Ty0t1y7x5pYYuTIeJP23WgkogeBxjttZBC2Bzo7bJgE=
 			</data>
 		</dict>
 		<key>watchos-arm64_arm64_32_armv7k/AdswizzWatchSDK.framework/Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos.abi.json</key>
@@ -452,11 +452,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HdAd8hwnJgZd1uRpcTnT7xioxCA=
+			Yztx5dFLvYQxWGazLepRvfqEyrI=
 			</data>
 			<key>hash2</key>
 			<data>
-			XTImDa9QAdoKPYKlUtw4lkjzgbRjwl1Scl5Lrm6pT+I=
+			1cFv/pSpYG0Dz0ub1Rnoyq+nGeqaw16ibiqZT8fBOG0=
 			</data>
 		</dict>
 		<key>watchos-arm64_i386_x86_64-simulator/AdswizzWatchSDK.framework/Headers/AdswizzWatchSDK-Swift.h</key>
@@ -485,11 +485,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KmKwZUE/XxnbhTPnQh+pKsQ0KRA=
+			hfCbiyhqkia63Lg6DlI4DJf8QX8=
 			</data>
 			<key>hash2</key>
 			<data>
-			tOsl2LXkpj5Me4EVYr1MP7/5P2Zzg6Ku0SYt1hgLzzE=
+			p6ZUyg3stl/NAFE772l68JUQSTnJyND64hYywOSqFpw=
 			</data>
 		</dict>
 		<key>watchos-arm64_i386_x86_64-simulator/AdswizzWatchSDK.framework/Modules/AdswizzWatchSDK.swiftmodule/arm64-apple-watchos-simulator.abi.json</key>
@@ -705,11 +705,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aVloewHr0I8mlLlEDrivwoFlJdo=
+			lclSb7smZ9U/dULJY3U4s1/OZK4=
 			</data>
 			<key>hash2</key>
 			<data>
-			hren1hq1ubI3fpmZiwNswGXccu++szwq6jSWbsnNlIA=
+			pOC6Ti1kTAWyIm5zUdhUYJf4qfFYNQsEippKEc5O5h0=
 			</data>
 		</dict>
 	</dict>

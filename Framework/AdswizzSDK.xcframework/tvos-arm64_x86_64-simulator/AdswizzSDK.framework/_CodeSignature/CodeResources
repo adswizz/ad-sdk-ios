@@ -82,11 +82,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ww6ygKyKr4OyzMeu8GkjTXbk+rs=
+		G8ClI6mOHL+SEHPAyhRYYi5pCQs=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		Q3yCuWgQWnjJXfbSPt1WpBZ2/sE=
+		UlIYSn3BZgo+d3rJuAIWWcRHJc4=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -102,11 +102,11 @@
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		2Jr05UDvChQ911IsTYsWdKppAc4=
+		WCtL6AlUeQ9zm5BWKJ3XrUpaa+s=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		Q3yCuWgQWnjJXfbSPt1WpBZ2/sE=
+		UlIYSn3BZgo+d3rJuAIWWcRHJc4=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -122,7 +122,7 @@
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		BkzkCOtRoJeHSuzgwVYU8pbhyFU=
+		kWtlxZqhY74lwY5fg/hgL5cUi6Q=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -292,7 +292,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			x9aM0HXRfCNT4V5uHKJd8j1ie+kCX0y2b/WhLmp54j8=
+			6QnegtE5nmQfhmyYw7KNXggviKKFYuZfz2toN0bx1vk=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
@@ -320,14 +320,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RBsTJsgPk4MlpRPAQtl1jK9RQUC8jQTVuqy9psJj4P4=
+			FJSlUtFhD+YFfjyhrXfG9MxMFiK8jYgj8hMAfTZBww0=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			x9aM0HXRfCNT4V5uHKJd8j1ie+kCX0y2b/WhLmp54j8=
+			6QnegtE5nmQfhmyYw7KNXggviKKFYuZfz2toN0bx1vk=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
@@ -355,7 +355,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PsoXgRYS27Xp8b1HHsJalKxjtLQ4PRsVEZznp1XS3/8=
+			+L1yC6v+s+3XPMyLbUe/WoxhKO1frbpg8LwbuzZbcA4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

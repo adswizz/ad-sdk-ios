@@ -64109,7 +64109,7 @@
       "kind": "StringLiteral",
       "offset": 258,
       "length": 8,
-      "value": "\"7.12.1\""
+      "value": "\"7.12.2\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Podcast\/RemoteAudioData\/RADEventRequestBuilder.swift",
@@ -71229,6 +71229,13 @@
       "offset": 1047,
       "length": 3,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdStreamManager.swift",
+      "kind": "StringLiteral",
+      "offset": 1102,
+      "length": 46,
+      "value": "\"adStreamManager.playerObservers.serial.queue\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdPlayer.swift",
