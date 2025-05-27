@@ -1622,6 +1622,7 @@ SWIFT_CLASS_NAMED("AdswizzAdStreamManager")
 
 
 
+
 @interface AASDKAdswizzAdStreamManager (SWIFT_EXTENSION(AdswizzSDK))
 @end
 
@@ -1660,7 +1661,6 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdStreamManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -4444,6 +4444,7 @@ SWIFT_CLASS_NAMED("AdswizzAdStreamManager")
 
 
 
+
 @interface AASDKAdswizzAdStreamManager (SWIFT_EXTENSION(AdswizzSDK))
 @end
 
@@ -4482,7 +4483,6 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdStreamManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 

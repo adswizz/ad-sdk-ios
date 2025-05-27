@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.12.3] - 2025-05-27
+### Added
+- `AdswizzAdStreamManager`:
+    - New public method in **_AdswizzAdStreamManager_**:
+        - `static decorate(_ url: URL) throws -> URL` enables you to augument your stream `url` with AdsWizz specific query items
+        
+### Fixed
+- `AdswizzAdStreamManager`:
+    - Service release that fixes the ad break re-entry after skip ad when using external player.
+
 ## [7.12.2] - 2025-05-12
 ### Fixed
 - `AdswizzAdStreamManager`:

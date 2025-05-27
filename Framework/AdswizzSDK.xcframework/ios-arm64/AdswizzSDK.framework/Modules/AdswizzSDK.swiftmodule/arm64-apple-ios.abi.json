@@ -17177,6 +17177,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "AVFoundation",
         "printedName": "AVFoundation",
         "declKind": "Import",
@@ -41160,6 +41170,37 @@
           },
           {
             "kind": "Function",
+            "name": "decorate",
+            "printedName": "decorate(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AdswizzSDK0A15AdStreamManagerC8decoratey10Foundation3URLVAGKFZ",
+            "mangledName": "$s10AdswizzSDK0A15AdStreamManagerC8decoratey10Foundation3URLVAGKFZ",
+            "moduleName": "AdswizzSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "didReceive",
             "printedName": "didReceive(metadata:)",
             "children": [
@@ -57604,7 +57645,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/AdswizzAdStreamManager+Internal.swift",
       "kind": "BooleanLiteral",
-      "offset": 553,
+      "offset": 563,
       "length": 5,
       "value": "false"
     },
@@ -67350,7 +67391,7 @@
       "kind": "StringLiteral",
       "offset": 258,
       "length": 8,
-      "value": "\"7.12.2\""
+      "value": "\"7.12.3\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
@@ -69630,51 +69671,37 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
       "kind": "StringLiteral",
-      "offset": 733,
+      "offset": 776,
       "length": 13,
       "value": "\"buffer-info\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
       "kind": "StringLiteral",
-      "offset": 775,
-      "length": 15,
-      "value": "\"metadata-list\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 870,
+      "offset": 869,
       "length": 7,
       "value": "\"start\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
       "kind": "StringLiteral",
-      "offset": 900,
+      "offset": 899,
       "length": 8,
       "value": "\"latest\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
       "kind": "StringLiteral",
-      "offset": 938,
+      "offset": 937,
       "length": 17,
       "value": "\"max-buffer-size\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
       "kind": "StringLiteral",
-      "offset": 3003,
-      "length": 7,
-      "value": "\"start\""
-    },
-    {
-      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRMetadataImpl.swift",
-      "kind": "StringLiteral",
-      "offset": 3034,
-      "length": 10,
-      "value": "\"metadata\""
+      "offset": 986,
+      "length": 19,
+      "value": "\"dvr-metadata-list\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Server Side Insertion\/DVR\/StreamDVRHandler.swift",
@@ -70197,23 +70224,30 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdswizzAdStreamManager.swift",
       "kind": "StringLiteral",
-      "offset": 1506,
+      "offset": 1566,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdswizzAdStreamManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1563,
+      "offset": 1623,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdswizzAdStreamManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1614,
+      "offset": 1674,
       "length": 1,
       "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdswizzAdStreamManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1712,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/WatchProfileRequest.pb.swift",

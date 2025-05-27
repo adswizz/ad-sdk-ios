@@ -227,3 +227,27 @@ try streamManager?.play(with: url)
 // perform DVR 
 try streamManager?.play(with: url, timestamp: NSNumber(value: timestamp))
 ```
+
+## Augment the streamURL using decorate url static method
+
+Starting with SDK version 7.12.3 a new static method named `decorate(_ url: URL) throws -> URL` was added to the `AdswizzAdStreamManager` class, in case you need to use it in a synchronous context to augment your stream `url` with AdsWizz specific query items.
+
+Example of usage:
+
+```swift
+        guard let url = URL("http://sdk.mobile.streaming.adswizz.com:8500/shakeDemo") else { return }
+        do {
+            let decoratedURL = try AdswizzAdStreamManager.decorate(url)
+            print("AdswizzAdStreamManager.decorateUrl: ", url, decoratedURL)
+        } catch {
+            print("Failed to decorate url: \(error)")
+        }
+```
+
+```
+http://sdk.mobile.streaming.adswizz.com:8500/shakeDemo
+
+will be transformed in
+
+http:/sdk.mobile.streaming.adswizz.com:8500/shakeDemo?aw_0_1st.sessionid=1748273017863.617.361522&aw_0_1st.cb=1748273092831.468018.22209&aw_0_1st.version=7.12.3%3Aios18.2&aw_0_awz.appVers=1.0%3A1&aw_0_req.lmt=1&aw_0_1st.ts=1748273092&aw_0_req.bundleId=com.adswizz.Artemis&aw_0_1st.playerId=artemisSwiftIos&aw_0_req.permissions=NNNNNNNNN11NN&calendar=N&sdkiad=1&call=1&pkpass=1&companionAds=true&aw_0_req.wopp=0&aw_0_req.appState=fg&aw_0_awz.listenerid=00000000-0000-0000-0000-000000000000
+```

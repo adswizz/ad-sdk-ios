@@ -1217,6 +1217,7 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   public func play(with url: Foundation.URL, timestamp: Foundation.NSNumber) throws
   public func requestDVRMetadata(completion: ((Swift.Result<any AdswizzSDK.AdStreamDVRMetadata, any Swift.Error>) -> Swift.Void)? = nil)
   public func cancelDVRMetadataRequest()
+  public static func decorate(_ url: Foundation.URL) throws -> Foundation.URL
   override public func didReceive(metadata: [AVFoundation.AVMetadataItem])
   @objc deinit
 }
