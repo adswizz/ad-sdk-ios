@@ -57393,7 +57393,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdManagerImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 39902,
+      "offset": 40320,
       "length": 5,
       "value": "false"
     },
@@ -66535,28 +66535,28 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdAssetImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 4712,
+      "offset": 4741,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdAssetImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 4839,
+      "offset": 4868,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdAssetImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 4919,
+      "offset": 4948,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdAssetImpl.swift",
       "kind": "Array",
-      "offset": 5164,
+      "offset": 5256,
       "length": 2,
       "value": "[]"
     },
@@ -67391,7 +67391,7 @@
       "kind": "StringLiteral",
       "offset": 258,
       "length": 8,
-      "value": "\"7.12.3\""
+      "value": "\"7.12.4\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",

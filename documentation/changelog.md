@@ -5,12 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.12.4] - 2025-06-11
+### Changed
+- `AdManager` analytics:
+    - The following analytics events are now triggered in response to the **_AdEvent_** updates received from either the internal (integrated) or external player, rather than on methods such as `play()` or `pause()`:
+        - ad-manager-play
+        - ad-manager-pause
+
+### Fixed
+- `AdManager` pre-caching:
+    - Service release that clears the old asset before attempting to play the ad break that previously failed e.g due to network conditions while downloading the asset.
+- Samples:
+    - Minor UI corrections for the `BasicAdStreamExample` project
+
 ## [7.12.3] - 2025-05-27
 ### Added
 - `AdswizzAdStreamManager`:
     - New public method in **_AdswizzAdStreamManager_**:
         - `static decorate(_ url: URL) throws -> URL` enables you to augument your stream `url` with AdsWizz specific query items
-        
+
 ### Fixed
 - `AdswizzAdStreamManager`:
     - Service release that fixes the ad break re-entry after skip ad when using external player.

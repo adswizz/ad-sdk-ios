@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         return Model(capabilities: []) // no specific capabilities
     }()
     
-    @objc func externalPlayerSwitchChanged(_ mySwitch: UISwitch) {
+    @IBAction func externalPlayerSwitchChanged(_ mySwitch: UISwitch) {
         model.isUsingExternalPlayer = mySwitch.isOn
     }
     
