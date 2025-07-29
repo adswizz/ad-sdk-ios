@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/AdswizzSDKPrivacyDataCore.framework/AdswizzSDKPrivacyDataCore</key>
 		<data>
-		fAF7eyuvo5HHCFoBdlFwV/RyAYI=
+		u5TVnPlSvRnUWe3UlA9iNFV1ajw=
 		</data>
 		<key>ios-arm64/AdswizzSDKPrivacyDataCore.framework/Headers/AdswizzSDKPrivacyDataCore-Swift.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>ios-arm64/dSYMs/AdswizzSDKPrivacyDataCore.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKPrivacyDataCore</key>
 		<data>
-		GmmX3MbF33dCYkZMYSVPCEe6rwM=
+		WMdqUqEHFFgE0m+OIL1VLf/vMts=
 		</data>
 		<key>ios-arm64/dSYMs/AdswizzSDKPrivacyDataCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKPrivacyDataCore.yml</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKPrivacyDataCore.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKPrivacyDataCore</key>
 		<data>
-		WRgNC5WNJHgxjCDhJl6Ik7TAU1g=
+		98WfQ1Nt5B0yrve9aNniCFvLzJM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKPrivacyDataCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKPrivacyDataCore.yml</key>
 		<data>
@@ -130,7 +130,7 @@
 		</data>
 		<key>tvos-arm64/AdswizzSDKPrivacyDataCore.framework/AdswizzSDKPrivacyDataCore</key>
 		<data>
-		BRogwzrq8tEoRTfiAToRvd16GXc=
+		qEM9FfPcc+qc2ACmwTRY0ElMLA0=
 		</data>
 		<key>tvos-arm64/AdswizzSDKPrivacyDataCore.framework/Headers/AdswizzSDKPrivacyDataCore-Swift.h</key>
 		<data>
@@ -174,7 +174,7 @@
 		</data>
 		<key>tvos-arm64/dSYMs/AdswizzSDKPrivacyDataCore.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKPrivacyDataCore</key>
 		<data>
-		bdakELAK57Tjn7h8s9zqf/f19MY=
+		0S7pNAiY6Cqbg3YQPQnFJey6Aag=
 		</data>
 		<key>tvos-arm64/dSYMs/AdswizzSDKPrivacyDataCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKPrivacyDataCore.yml</key>
 		<data>
@@ -242,7 +242,7 @@
 		</data>
 		<key>tvos-arm64_x86_64-simulator/dSYMs/AdswizzSDKPrivacyDataCore.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKPrivacyDataCore</key>
 		<data>
-		b7PyUjVR3vFldg5Na1gLicmkHnk=
+		W745G9jrUNsdNxYsQwD9npLQRQk=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/dSYMs/AdswizzSDKPrivacyDataCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKPrivacyDataCore.yml</key>
 		<data>
@@ -259,11 +259,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fAF7eyuvo5HHCFoBdlFwV/RyAYI=
+			u5TVnPlSvRnUWe3UlA9iNFV1ajw=
 			</data>
 			<key>hash2</key>
 			<data>
-			3C2U75+2VTJu6lrSAHIkMnP43Yz/rxJmFDjBNWWcju4=
+			cW/efvhqh9kdoyoa9KewYv6P09UyHMm51HxXmvw+Dr8=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKPrivacyDataCore.framework/Headers/AdswizzSDKPrivacyDataCore-Swift.h</key>
@@ -380,11 +380,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GmmX3MbF33dCYkZMYSVPCEe6rwM=
+			WMdqUqEHFFgE0m+OIL1VLf/vMts=
 			</data>
 			<key>hash2</key>
 			<data>
-			BeP5tP/t7CKmdLh9ORmTpaN09w16glF6AFgBrJgvrvI=
+			ptDjnCZRuv2erzw343lOyGkgeIaBaEtiI7Hv0Yj47pY=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/AdswizzSDKPrivacyDataCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKPrivacyDataCore.yml</key>
@@ -567,11 +567,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WRgNC5WNJHgxjCDhJl6Ik7TAU1g=
+			98WfQ1Nt5B0yrve9aNniCFvLzJM=
 			</data>
 			<key>hash2</key>
 			<data>
-			ua8s4hfDN4NzacFEW74q1bj6VsYaCJu2doFIz7dIs64=
+			JzaWlejvHF+NMPtC2CGPZdEpgc98PkdJKyV7Igx9Xqk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKPrivacyDataCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKPrivacyDataCore.yml</key>
@@ -600,11 +600,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BRogwzrq8tEoRTfiAToRvd16GXc=
+			qEM9FfPcc+qc2ACmwTRY0ElMLA0=
 			</data>
 			<key>hash2</key>
 			<data>
-			wkK3dgkpWa+Xjhd/q7NRpwKY3D8CLVzov+CPVxVLeEM=
+			GVY7QyxebKiMOQNYmGIPYnhbtxTySmb1UhWi35hFDv0=
 			</data>
 		</dict>
 		<key>tvos-arm64/AdswizzSDKPrivacyDataCore.framework/Headers/AdswizzSDKPrivacyDataCore-Swift.h</key>
@@ -721,11 +721,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bdakELAK57Tjn7h8s9zqf/f19MY=
+			0S7pNAiY6Cqbg3YQPQnFJey6Aag=
 			</data>
 			<key>hash2</key>
 			<data>
-			c6qhHEYQjEJYFK1+GtxUVOr2Qz017Rmp3nTqlYVajGc=
+			zG50o7Y/J7oOvrleOn6bY8m71fqkjBGoT10milYkNeg=
 			</data>
 		</dict>
 		<key>tvos-arm64/dSYMs/AdswizzSDKPrivacyDataCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKPrivacyDataCore.yml</key>
@@ -908,11 +908,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b7PyUjVR3vFldg5Na1gLicmkHnk=
+			W745G9jrUNsdNxYsQwD9npLQRQk=
 			</data>
 			<key>hash2</key>
 			<data>
-			aosjrCl+tEy7W4Lrzh79AnqlFB9GpW6XP8RiMHv5qi0=
+			MfMXDn67bti+2sKHOnw7E0pyKyTQ3GvSueO/qdlJ4ic=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/dSYMs/AdswizzSDKPrivacyDataCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKPrivacyDataCore.yml</key>

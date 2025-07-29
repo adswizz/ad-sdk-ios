@@ -573,6 +573,9 @@ SWIFT_PROTOCOL_NAMED("AdData")
 /// Companions associated with the ad.
 /// May not be available when the ad is preparing/ready to play or has just started playing . Use <code>hasCompanion</code> instead to check for the presence of any companion data.
 @property (nonatomic, readonly, copy) NSArray<id <AASDKCompanion>> * _Nonnull companions;
+/// The selected companion which will be displayed when the ad starts. If <code>hasCompanion</code> is true, expect a a non-nil value.
+/// Just like the <code>companions</code> array, it may not be available early in the succession of ad events.
+@property (nonatomic, readonly, strong) id <AASDKCompanion> _Nullable selectedCompanion;
 /// Marks a timeinterval in seconds that an ad can be skipped.
 @property (nonatomic, readonly, strong) NSNumber * _Nullable skipOffset;
 /// VAST ad duration in seconds. It may be -1 when it is missing.
@@ -3395,6 +3398,9 @@ SWIFT_PROTOCOL_NAMED("AdData")
 /// Companions associated with the ad.
 /// May not be available when the ad is preparing/ready to play or has just started playing . Use <code>hasCompanion</code> instead to check for the presence of any companion data.
 @property (nonatomic, readonly, copy) NSArray<id <AASDKCompanion>> * _Nonnull companions;
+/// The selected companion which will be displayed when the ad starts. If <code>hasCompanion</code> is true, expect a a non-nil value.
+/// Just like the <code>companions</code> array, it may not be available early in the succession of ad events.
+@property (nonatomic, readonly, strong) id <AASDKCompanion> _Nullable selectedCompanion;
 /// Marks a timeinterval in seconds that an ad can be skipped.
 @property (nonatomic, readonly, strong) NSNumber * _Nullable skipOffset;
 /// VAST ad duration in seconds. It may be -1 when it is missing.

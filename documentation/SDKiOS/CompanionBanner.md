@@ -55,6 +55,64 @@ More details in the [Server-Side Insertion](/iOS/SDKiOS/ServerSideInsertion) sec
 
 Similar to the server-side scenario, when you create your **_AdswizzAdPodcastManager_**, you need to fill in the **_companionZones_** with the value provided by your Integration Manager. You can find more details in the [Getting started](/iOS/SDKiOS/Podcasts#getting-started) section for [Podcasts](/iOS/SDKiOS/Podcasts).
 
+## Companion data
+
+If available, **_AdswizzSDK_** provides access to companion data through the **_Companion_** protocol associated to each **_AdData_** instance that has any companion banner content to display.
+The **_Companion_** protocol encapsulates and exposes information from the VAST response itself - and packaged by the **_AdManager_**.
+
+```swift
+import AdswizzSDK
+
+class YourModelClass: AdManagerDelegate {
+   var adManager: AdManager?
+.....
+func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
+    ......
+    self.adManager = adManager   // Keep a strong reference of this object
+    adManager?.delegate = self   // Get notifications from the Ad SDK
+    
+    ......
+    // Complete the setup on the adManager instance as needed by setting an appropriate AdManagerSettings()
+    ......
+
+    adManager?.prepare()   // Start buffering the ads in the AdManager
+}
+......
+
+......
+func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
+    switch event.event {
+      case .preparingForPlay:
+           // This is the earliest point in the ad events succession where you can inspect the companion banner information if available.
+           // However, you can also inspect this information on other ad events such as .readyForPlay or .didStartPlaying
+           print("hasCompanion = \(event.ad?.hasCompanion ?? false)")
+           print("selected companion width = \(event.ad?.selectedCompanion?.width) height = \(event.ad?.selectedCompanion?.height)")
+
+      default:
+          break
+    }
+}
+......
+}
+```
+
+Next, let's explore further the companion data accessible from the **_AdData_** instance.
+
+### companions
+
+The list of available **_Companion_** instances associated with the **_AdData_**. May be empty if the ad does not have any companion data associated with the ad.
+May not be available when the ad is preparing/ready to play or has just started playing. Take a look below at the **_hasCompanion_** property instead to check for the presence of any companion data.
+
+### hasCompanion
+
+Determines if the ad has any companion banner information to display. Note that this information is available early in the succession of ad events and it can be used to update your UI accordingly. For example, in case **_hasCompanion_** returns `false`, you may want to swap the **_AdCompanionView_** with a placeholder or remove the companion view container altogheter.
+
+### selectedCompanion
+
+The **_Companion_** instance which will be displayed when the ad starts. The selection is based based on various criterias such as setting the [preferred resource type](/iOS/SDKiOS/GeneralSettings#preferred-resource-type).
+
+For more details on how and when the **_Companion_** data might be useful, please read the [Companion best practices](#companion-best-practices) section below.
+
 ## Companion events
 
 You can associate a delegate to your **_AdCompanionView_** object that conforms to the **_AdCompanionViewDelegate_** protocol. You will be notified when the ad loaded the companion view, if the companion view was displayed, or if it ended the display. If there was an error while loading the companion banner, you will be notified through this delegate. Also, you can decide whether or not to override the click-through target URL on the companion banner. 
@@ -96,4 +154,6 @@ Here are a few things to consider when working with the **_AdCompanionView_**:
 * it is not mandatory to implement any of the callbacks for the **_AdCompanionView_** from the **_AdCompanionViewDelegate_** protocol. Setting a delegate on your **_AdCompanionView_** instance is completely optional, however, keep in mind that this is your only communication channel with the **_AdCompanionView_** when it comes to content rendering.
 * in some cases, the **_AdCompanionView_** may inform your app that an error occured via the `adCompanionView(_ adCompanionView: AdCompanionView, didFailToDisplay error: Error)` delegate method from **_AdCompanionViewDelegate_** protocol. It is considered best practice to implement this method so that your application is well aware of any such error. When an error is received, you may want to show a placeholder instead of the empty companion view or remove it entirely from your views hierarchy.
 * if you prefer `SwiftUI` over `UIKit`, we highly encourage you to take a look at the [BasicSwiftUIClientSideInsertion](iOS/SDKiOS/SampleProjects#basicswiftuiclientsideinsertion) sample which shows how to best handle UI components such as `AdCompanionView` and `AdVideoView` in a SwiftUI app. The sample also includes recommendations on how to use animations with **_AdCompanionView_** components.
+* you may want to resize the **_AdCompanionView_** container based on the **VAST aspect ratio** directives. To determine the appropriate size, use the `width` and `height` properties of the [selectedCompanion](#selectedcompanion) accessible from the **_Companion_** object in its associated **_AdData_** and compute the aspect ratio. Then apply it to your **_AdCompanionView_** container so that the content will fit your desired size without unwanted stretching or clipping.
+
 

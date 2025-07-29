@@ -36,9 +36,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         podcastList = [
-            PodcastListItem(title: "Podcast 1", url: URL(string: "http://sdk.mobile.streaming.adswizz.com:8501/podcast_RAD_QueenBohemian.mp3")!),
-            PodcastListItem(title: "Podcast 2", url: URL(string: "http://sdk.mobile.streaming.adswizz.com:8501/podcast_RAD_sampleFile.mp3")!),
-            PodcastListItem(title: "Podcast 3", url: URL(string: "http://sdk.mobile.streaming.adswizz.com:8501/podcast_RAD_muchosEvents.mp3")!)
+            PodcastListItem(title: "Podcast 1", url: URL(string: "https://streaming.sdk.eks.devel.adswizz.com/podcast/podcast_RAD_QueenBohemian.mp3")!),
+            PodcastListItem(title: "Podcast 2", url: URL(string: "https://streaming.sdk.eks.devel.adswizz.com/podcast/podcast_RAD_muchosEvents.mp3")!),
+            PodcastListItem(title: "Podcast 3", url: URL(string: "https://streaming.sdk.eks.devel.adswizz.com/podcast/podcast_RAD_sampleFile.mp3")!)
         ]
         podcastList.forEach {
             $0.delegate = self

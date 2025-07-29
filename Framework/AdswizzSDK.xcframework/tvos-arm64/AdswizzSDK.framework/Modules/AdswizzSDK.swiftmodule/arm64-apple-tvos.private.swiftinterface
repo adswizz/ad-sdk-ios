@@ -421,6 +421,7 @@ extension AdCompanionView : UIKit.UIGestureRecognizerDelegate {
   @objc var adType: AdType { get }
   @objc var asset: any AdAsset { get }
   @objc var companions: [any Companion] { get }
+  @objc var selectedCompanion: (any Companion)? { get }
   @objc var skipOffset: Foundation.NSNumber? { get }
   @objc var duration: Foundation.TimeInterval { get }
   @objc var extensions: [any VastExtension] { get }

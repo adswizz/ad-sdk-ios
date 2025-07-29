@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.12.5] - 2025-07-29
+### Added
+- `AdData`:
+    - New public property in **_AdData_**:
+        - `selectedCompanion` to access the VAST [Companion data](iOS/SDKiOS/CompanionBanner#companion-data) model properties such as ideal `width` and `height` that determine the intended aspect ratio for the associated resource.
+
+### Fixed
+- HLS interstitials:
+    - Fix behavior for the internal interstitial player in response to `skipAd()` and `reset()` on the **_AdManager_** instance set up with an **_AdInterstitialEventMonitor_**.
+    - Resolve a potential crash on ad playback error when using the internal interstitial player
+    - Improve URL matching when internal interstitial player observes the AVQueuePlayer's backing items
+
 ## [7.12.4] - 2025-06-11
 ### Changed
 - `AdManager` analytics:

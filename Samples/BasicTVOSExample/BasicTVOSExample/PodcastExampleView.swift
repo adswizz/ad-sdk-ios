@@ -9,7 +9,7 @@ import AdswizzSDK
 import SwiftUI
 
 struct PodcastExampleView: View {
-    @StateObject var modelView = PodcastModelView(podcastURL: "http://sdk.mobile.streaming.adswizz.com:8501/podcast_RAD_QueenBohemian.mp3")
+    @StateObject var modelView = PodcastModelView(podcastURL: "https://streaming.sdk.eks.devel.adswizz.com/podcast/podcast_RAD_QueenBohemian.mp3")
  
     var body: some View {
         controlsView
@@ -29,5 +29,5 @@ struct PodcastExampleView: View {
 }
 
 #Preview {
-    PodcastExampleView(modelView: PodcastModelView(podcastURL: "http://sdk.mobile.streaming.adswizz.com:8501/podcast_RAD_QueenBohemian.mp3"))
+    PodcastExampleView(modelView: PodcastModelView(podcastURL: "https://streaming.sdk.eks.devel.adswizz.com/podcast/podcast_RAD_QueenBohemian.mp3"))
 }
