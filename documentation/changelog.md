@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.13.0] - 2025-08-28
+### Added
+- `AdCompanionView`:
+    - New public method in **_AdCompanionView_**:
+        - `activateIfNeeded()` forces the `AdCompanionView` instance to recheck its internal visibility state if it is not already "active". Please refer to the [Companion view best practices](iOS/SDKiOS/CompanionBanner#companion-best-practices) section from the [AdCompanionView docs](iOS/SDKiOS/CompanionBanner).
+
+### Fixed
+- Foundation URLs:
+    - Improve internal validation for Foundation URLs by conforming to the [latest URL Standard](https://url.spec.whatwg.org/)
+- `AdCompanionView`:
+    - Improve the internal `WkWebView` content sizing
+- Samples
+    - UI corrections for the `BasicAdRequestExample` project
+
 ## [7.12.5] - 2025-07-29
 ### Added
 - `AdData`:
