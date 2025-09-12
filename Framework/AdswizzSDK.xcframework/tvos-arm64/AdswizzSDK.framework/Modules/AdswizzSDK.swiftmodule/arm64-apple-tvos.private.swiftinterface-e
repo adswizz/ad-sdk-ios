@@ -420,6 +420,8 @@ extension AdswizzSDK.AdCompanionView : UIKit.UIGestureRecognizerDelegate {
 }
 @objc(AASDKAdData) public protocol AdData {
   @objc var id: Swift.String? { get }
+  @objc var adTitle: Swift.String { get }
+  @objc var adDescription: Swift.String? { get }
   @objc var adType: AdswizzSDK.AdType { get }
   @objc var asset: any AdswizzSDK.AdAsset { get }
   @objc var companions: [any AdswizzSDK.Companion] { get }

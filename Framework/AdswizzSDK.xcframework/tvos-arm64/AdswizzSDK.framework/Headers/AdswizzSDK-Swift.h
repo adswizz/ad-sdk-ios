@@ -571,6 +571,10 @@ SWIFT_PROTOCOL_NAMED("AdData")
 @protocol AASDKAdData
 /// ID for an ad. It may be missing.
 @property (nonatomic, readonly, copy) NSString * _Nullable id;
+/// Title for the ad.  If a longer description is needed, check the <code>adDescription</code> property.
+@property (nonatomic, readonly, copy) NSString * _Nonnull adTitle;
+/// Description of the ad. It may be missing.
+@property (nonatomic, readonly, copy) NSString * _Nullable adDescription;
 /// Type of VAST ad. The default is <code>.audio</code>.
 @property (nonatomic, readonly) enum AASDKAdType adType;
 /// Asset data for the ad.

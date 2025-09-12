@@ -38,11 +38,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		5154ukY9JX+jPs3ti3Cv2kZy9KQ=
+		IS64mpsGtJlzY7Vdbg9t4yZwO5E=
 		</data>
 		<key>Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		2i8ON6PJtNPdcSEAQEBfiQl3Te0=
+		4UVEVTP0GEwtko71YQv/xXoVzHQ=
 		</data>
 		<key>Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -58,11 +58,11 @@
 		</data>
 		<key>Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		/3WiTY80yYPsoNcF025jR0PKG4M=
+		coDfqEQyLvc9BMTzhoJhz2XZTOY=
 		</data>
 		<key>Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		2i8ON6PJtNPdcSEAQEBfiQl3Te0=
+		4UVEVTP0GEwtko71YQv/xXoVzHQ=
 		</data>
 		<key>Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		+8++EqWyfUglg1v7B1HxkvZPIkU=
+		fGRA67h8tBmJLX+Gcntf1UMQEXg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -151,7 +151,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EUL5UNNrYqz8ZHoDdkatQBLzp36gg/JkC91ABeI1mP4=
+			8khE8j/aiSUSc5G4brxEocnJCq5bR3PNyAX7TE9ZOCA=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -179,14 +179,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Bqo7LRw6FXdfpWN0vqOpZpW0NNFnco6GkeUTpvtjSHg=
+			2wQQxyqe3J95aXFfJ5wyip/sUhKO6n8JIeW94k730KM=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EUL5UNNrYqz8ZHoDdkatQBLzp36gg/JkC91ABeI1mP4=
+			8khE8j/aiSUSc5G4brxEocnJCq5bR3PNyAX7TE9ZOCA=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -214,7 +214,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SlNogS9IajyaBpr43Up0ab3w7jlvJNxya9/SSonhZIQ=
+			Rn+WdLX7Nl2tx/q8zqn3f10gkMZhJTvPe25Ueo/EFck=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
