@@ -33,10 +33,7 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
-        "moduleName": "AdswizzWatchSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
+        "moduleName": "AdswizzWatchSDK"
       },
       {
         "kind": "Import",
@@ -74,10 +71,7 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
-        "moduleName": "AdswizzWatchSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
+        "moduleName": "AdswizzWatchSDK"
       },
       {
         "kind": "Import",
@@ -1081,10 +1075,7 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
-        "moduleName": "AdswizzWatchSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
+        "moduleName": "AdswizzWatchSDK"
       },
       {
         "kind": "TypeDecl",
@@ -3026,14 +3017,14 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
       "kind": "Dictionary",
-      "offset": 383,
+      "offset": 397,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/Detection\/Watch\/DetectorsManager.swift",
       "kind": "Array",
-      "offset": 454,
+      "offset": 468,
       "length": 2,
       "value": "[]"
     },
@@ -3117,7 +3108,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzWatchSDK\/AdswizzWatchSDK\/AdswizzWatchSDK.swift",
       "kind": "BooleanLiteral",
-      "offset": 851,
+      "offset": 865,
       "length": 5,
       "value": "false"
     },

@@ -535,7 +535,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
-
 @class WKNavigation;
 
 @interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <WKNavigationDelegate>
@@ -546,6 +545,7 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// <code>AdCompanionView</code> conformance to <code>WKNavigationDelegate</code>.
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
+
 
 
 
