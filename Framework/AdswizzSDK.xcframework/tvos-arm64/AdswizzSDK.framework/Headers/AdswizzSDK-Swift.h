@@ -1346,13 +1346,13 @@ SWIFT_CLASS_NAMED("AdVideoView")
 @end
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 /// <code>UIGestureRecognizerDelegate</code> conformance. Implemented by <code>AdswizzSDK</code>.
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 /// The <code>AdVideoViewDelegate</code> protocol defines delegate methods for receiving <code>AdVideoView</code> behavior changes and events.
@@ -1398,6 +1398,7 @@ SWIFT_CLASS_NAMED("AdswizzAdPodcastManager")
 @end
 
 
+
 @interface AASDKAdswizzAdPodcastManager (SWIFT_EXTENSION(AdswizzSDK))
 @end
 
@@ -1436,7 +1437,6 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdPodcastManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -2519,7 +2519,6 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 @end
 
 
-
 @interface AASDKTrackingPermissionController (SWIFT_EXTENSION(AdswizzSDK))
 /// Convenience method to quickly create a tracking permission controller with basic customizations.
 /// \param title A custom title for the controller. It defaults to a generic title.
@@ -2535,6 +2534,7 @@ SWIFT_CLASS_NAMED("TrackingPermissionController")
 /// The controller with the designated configuration.
 + (AASDKTrackingPermissionController * _Nonnull)trackingControllerWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message contentImage:(UIImage * _Nullable)contentImage headerImage:(UIImage * _Nullable)headerImage SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 
@@ -2615,12 +2615,6 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKTrackingDismissReason, "TrackingStatus"
 /// The flow was ended by explicitly declining the permission to be tracked.
   AASDKTrackingDismissReasonDenied = 5,
 };
-
-
-
-
-
-
 
 
 

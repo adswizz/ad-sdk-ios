@@ -514,6 +514,13 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 
 
 
+@class UIGestureRecognizer;
+
+@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
+/// <code>AdCompanionView</code> conformance to <code>UIGestureRecognizerDelegate</code>.
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class WKWebView;
 @class WKWebViewConfiguration;
 @class WKNavigationAction;
@@ -523,14 +530,6 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// <code>AdCompanionView</code> conformance to <code>WKUIDelegate</code>.
 - (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
 @end
-
-@class UIGestureRecognizer;
-
-@interface AASDKAdCompanionView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
-/// <code>AdCompanionView</code> conformance to <code>UIGestureRecognizerDelegate</code>.
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 
 
@@ -545,6 +544,7 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// <code>AdCompanionView</code> conformance to <code>WKNavigationDelegate</code>.
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
+
 
 
 
@@ -1365,7 +1365,6 @@ SWIFT_CLASS_NAMED("AdVideoView")
 
 
 
-
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK))
 /// Registers a view that overlays or obstructs this container as “friendly” for viewability measurement purposes.
 /// See the Open Measurement in AdswizzSDK for guidance on what you are and what you are not allowed to register.
@@ -1375,6 +1374,7 @@ SWIFT_CLASS_NAMED("AdVideoView")
 /// Unregisters all previously registered friendly obstructions.
 - (void)unregisterAllFriendlyObstructions;
 @end
+
 
 
 @interface AASDKAdVideoView (SWIFT_EXTENSION(AdswizzSDK)) <UIGestureRecognizerDelegate>
@@ -1429,7 +1429,6 @@ SWIFT_CLASS_NAMED("AdswizzAdPodcastManager")
 @end
 
 
-
 @interface AASDKAdswizzAdPodcastManager (SWIFT_EXTENSION(AdswizzSDK))
 @end
 
@@ -1468,6 +1467,7 @@ SWIFT_CLASS_NAMED("Builder")
 - (AASDKAdswizzAdPodcastManager * _Nullable)buildAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 
@@ -2679,12 +2679,6 @@ typedef SWIFT_ENUM_NAMED(NSInteger, AASDKTrackingDismissReason, "TrackingStatus"
 /// The flow was ended by explicitly declining the permission to be tracked.
   AASDKTrackingDismissReasonDenied = 5,
 };
-
-
-
-
-
-
 
 
 

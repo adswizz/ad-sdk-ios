@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.13.3] - 2025-11-26
+### Changed
+- Foundation URLs:
+    - For apps linked on or after iOS 17, invalid characters (such as spaces) in URLs are automatically percent- and IDNA-encoded to help create a valid URL according to [RFC 3986](https://www.ietf.org/rfc/rfc3986.txt)
+
+### Fixed
+- `AdCompanionView`:
+    - Improve the companion view's content transition between multiple ads each with its own associated companion resource
+- Podcasts
+    - Correct a rare case when downloading a podcast would be out-of-sync with its VAST file
+
 ## [7.13.2] - 2025-10-13
 ### Changed
 - `AdCompanionView`:
