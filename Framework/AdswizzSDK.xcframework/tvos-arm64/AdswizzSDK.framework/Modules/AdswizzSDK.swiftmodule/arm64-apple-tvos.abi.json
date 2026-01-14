@@ -6822,6 +6822,13 @@
       },
       {
         "kind": "Import",
+        "name": "AdswizzSDKCore",
+        "printedName": "AdswizzSDKCore",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -7995,6 +8002,13 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "AdswizzSDKCore",
+        "printedName": "AdswizzSDKCore",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
       },
       {
         "kind": "Import",
@@ -27594,6 +27608,13 @@
       },
       {
         "kind": "Import",
+        "name": "AdswizzSDKCore",
+        "printedName": "AdswizzSDKCore",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -32967,6 +32988,16 @@
             "usr": "s:s8CopyableP",
             "mangledName": "$ss8CopyableP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -39246,6 +39277,16 @@
         "printedName": "AdswizzSDKCore",
         "declKind": "Import",
         "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
       },
       {
         "kind": "Import",
@@ -52458,14 +52499,14 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Request\/CollectorUploader.swift",
       "kind": "StringLiteral",
-      "offset": 965,
+      "offset": 987,
       "length": 6,
       "value": "\"POST\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Request\/CollectorUploader.swift",
       "kind": "FloatLiteral",
-      "offset": 1166,
+      "offset": 1188,
       "length": 3,
       "value": "5.0"
     },
@@ -54432,7 +54473,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdManagerImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 41297,
+      "offset": 41945,
       "length": 5,
       "value": "false"
     },
@@ -56040,6 +56081,13 @@
       "value": "1403"
     },
     {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKError.swift",
+      "kind": "IntegerLiteral",
+      "offset": 397,
+      "length": 4,
+      "value": "1404"
+    },
+    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/.gen\/SwiftProtobuf\/JSONEncoder.swift",
       "kind": "StringLiteral",
       "offset": 577,
@@ -56259,7 +56307,14 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Modules\/Internal\/AdCompanion\/AdCompanionManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 3449,
+      "offset": 2907,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Modules\/Internal\/AdCompanion\/AdCompanionManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3661,
       "length": 5,
       "value": "false"
     },
@@ -60249,7 +60304,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdsFetcher\/Public\/AdRequestConnection.swift",
       "kind": "Array",
-      "offset": 9398,
+      "offset": 9440,
       "length": 49,
       "value": "[\"adswizz.com\", \"pandora.com\", \"savagebeast.com\"]"
     },
@@ -63483,7 +63538,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdsFetcher\/AdFetcherManager.swift",
       "kind": "StringLiteral",
-      "offset": 11071,
+      "offset": 11903,
       "length": 16,
       "value": "\"aw_0_awz.xpaid\""
     },
@@ -63875,98 +63930,105 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 778,
+      "offset": 768,
+      "length": 41,
+      "value": "\"OMID UniversalAdID initialization error\""
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 874,
       "length": 28,
       "value": "\"OMSDK Plugin AdManager Set\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 847,
+      "offset": 943,
       "length": 34,
       "value": "\"OMSDK Plugin AdManager Destroyed\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 920,
+      "offset": 1016,
       "length": 35,
       "value": "\"OMSDK Plugin did Prepare Tracking\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 993,
+      "offset": 1089,
       "length": 33,
       "value": "\"OMSDK Plugin did Start Tracking\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1063,
+      "offset": 1159,
       "length": 39,
       "value": "\"OMSDK Plugin did record Session Start\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1140,
+      "offset": 1236,
       "length": 40,
       "value": "\"OMSDK Plugin did record Session Finish\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1211,
+      "offset": 1307,
       "length": 35,
       "value": "\"OMSDK Plugin did record Ad Loaded\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1287,
+      "offset": 1383,
       "length": 36,
       "value": "\"OMSDK Plugin did record Impression\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1369,
+      "offset": 1465,
       "length": 43,
       "value": "\"OMSDK Plugin did create Lifecycle Tracker\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1460,
+      "offset": 1556,
       "length": 44,
       "value": "\"OMSDK Plugin did destroy Lifecycle Tracker\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1541,
+      "offset": 1637,
       "length": 31,
       "value": "\"OMSDK Plugin Video View Added\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1619,
+      "offset": 1715,
       "length": 41,
       "value": "\"OMSDK Plugin Friendly Obstruction Added\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1706,
+      "offset": 1802,
       "length": 41,
       "value": "\"OMSDK Plugin Video Player State Changed\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/omsdk-plugin-ios\/OMSDK-Plugin\/OMSDK-Plugin\/Classes\/OMSDKConstants.swift",
       "kind": "StringLiteral",
-      "offset": 1788,
+      "offset": 1884,
       "length": 38,
       "value": "\"OMSDK Plugin did receive video click\""
     },
@@ -64078,49 +64140,49 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/ExtendedAdData.swift",
       "kind": "StringLiteral",
-      "offset": 3484,
+      "offset": 3593,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/ExtendedAdData.swift",
       "kind": "StringLiteral",
-      "offset": 3579,
+      "offset": 3688,
       "length": 12,
       "value": "\"audio\/mpeg\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/ExtendedAdData.swift",
       "kind": "IntegerLiteral",
-      "offset": 3846,
+      "offset": 3955,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/ExtendedAdData.swift",
       "kind": "IntegerLiteral",
-      "offset": 3886,
+      "offset": 3995,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/ExtendedAdData.swift",
       "kind": "IntegerLiteral",
-      "offset": 4067,
+      "offset": 4176,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/ExtendedAdData.swift",
       "kind": "IntegerLiteral",
-      "offset": 4237,
+      "offset": 4346,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzInteractiveAd\/AdswizzInteractiveAd\/Interactive Ads\/ExtendedAdData.swift",
       "kind": "IntegerLiteral",
-      "offset": 4265,
+      "offset": 4374,
       "length": 1,
       "value": "0"
     },
@@ -64409,7 +64471,7 @@
       "kind": "StringLiteral",
       "offset": 258,
       "length": 8,
-      "value": "\"7.13.3\""
+      "value": "\"7.13.4\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Podcast\/RemoteAudioData\/RADEventRequestBuilder.swift",
@@ -69968,6 +70030,48 @@
       "offset": 74198,
       "length": 2,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdDataExtended.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5103,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdDataExtended.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5108,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdDataExtended.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5177,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdDataExtended.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5182,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdDataExtended.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5257,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/AdDataExtended.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5262,
+      "length": 1,
+      "value": "2"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/NSError+AdswizzErrors.swift",
