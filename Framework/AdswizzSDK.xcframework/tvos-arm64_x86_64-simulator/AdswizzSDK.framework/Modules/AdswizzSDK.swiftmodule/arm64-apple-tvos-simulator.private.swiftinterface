@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-tvos13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name AdswizzSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
+// swift-module-flags: -target arm64-apple-tvos13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdswizzSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
 import AVFoundation
 import AdSupport
 @_exported import AdswizzSDK
@@ -54,7 +54,9 @@ final public class DefaultStatsNetworkSession {
   final public let urlSession: Foundation.URLSession
   public init(urlSession: Foundation.URLSession)
   convenience public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func performDataRequest(_ request: Foundation.URLRequest, networkQoS: Dispatch.DispatchQoS.QoSClass) -> Combine.AnyPublisher<(Foundation.Data?, Foundation.URLResponse), any Swift.Error>
+  #endif
   @objc deinit
 }
 extension CoreFoundation.CGSize : Swift.Hashable {
@@ -65,7 +67,9 @@ extension UIKit.NSTextAlignment : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
 }
 @objc(AASDKInteractiveAdEvent) public protocol InteractiveAdEvent : Event {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var ad: (any AdData)? { get }
+  #endif
   @objc var event: InteractiveAdEventType { get }
 }
 @objc(AASDKInteractiveAdEventType) public enum InteractiveAdEventType : Swift.Int, Swift.CaseIterable {
@@ -73,7 +77,9 @@ extension UIKit.NSTextAlignment : Swift.Codable {
   case willBeSkipped
   case skipped
   case extended
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias AllCases = [InteractiveAdEventType]
   public typealias RawValue = Swift.Int
   nonisolated public static var allCases: [InteractiveAdEventType] {
@@ -84,7 +90,9 @@ extension UIKit.NSTextAlignment : Swift.Codable {
   }
 }
 extension TrackingPermissionController {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @_Concurrency.MainActor @preconcurrency public static func trackingController(title: Swift.String? = nil, message: Swift.String? = nil, contentImage: UIKit.UIImage? = nil, headerImage: UIKit.UIImage? = nil) -> TrackingPermissionController
+  #endif
 }
 @_hasMissingDesignatedInitializers public class SWXMLHashOptions {
   public var shouldProcessLazily: Swift.Bool
@@ -154,9 +162,11 @@ public enum XMLIndexer {
   public static func XMLError(_: IndexingError) -> XMLIndexer
   @available(*, unavailable, renamed: "withAttribute(_:_:)")
   public static func withAttr(_ attr: Swift.String, _ value: Swift.String) throws -> XMLIndexer
+  #if compiler(>=5.3) && $NonescapableTypes
   public var element: XMLElement? {
     get
   }
+  #endif
   public var all: [XMLIndexer] {
     get
   }
@@ -208,7 +218,9 @@ public struct XMLAttribute {
     get
   }
   public var allAttributes: [Swift.String : XMLAttribute]
+  #if compiler(>=5.3) && $NonescapableTypes
   public func attribute(by name: Swift.String) -> XMLAttribute?
+  #endif
   public var text: Swift.String {
     get
   }
@@ -248,11 +260,15 @@ extension XMLIndexer {
   }
 }
 extension XMLElement {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func attribute<N>(by name: N) -> XMLAttribute? where N : Swift.RawRepresentable, N.RawValue == Swift.String
+  #endif
 }
 @objc(AASDKAdStreamCapabilities) public enum AdStreamCapability : Swift.Int {
   case dvr
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -269,7 +285,9 @@ extension XMLElement {
   @objc var metadata: [any AdStreamDVRMetadataValue] { get }
 }
 extension AdPodcastManager {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  #endif
 }
 public typealias AdManagerOwner = AdManager
 @objc(AASDKInteractiveAdManagerDelegate) public protocol InteractiveAdManagerDelegate {
@@ -298,7 +316,9 @@ extension AdManagerSettings {
   case downloading
   case ready
   case failed
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -306,21 +326,27 @@ extension AdManagerSettings {
 }
 @objc(AASDKDownloadableAsset) public protocol DownloadableAsset {
   @objc var url: Foundation.URL { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var mimeType: Swift.String? { get }
+  #endif
   @objc var expectedContentLength: Swift.Int64 { get }
   @objc var state: DownloadableAssetState { get }
   @objc var location: Foundation.URL { get }
 }
 extension AdswizzAdRequest.VASTVersion : Swift.RawRepresentable {
   public typealias RawValue = Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public var rawValue: Swift.String {
     get
   }
 }
 extension HTTPProtocol : Swift.RawRepresentable {
   public typealias RawValue = Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public var rawValue: Swift.String {
     get
   }
@@ -339,7 +365,9 @@ extension AdswizzAdStreamManager {
   @objc final public let playerId: Swift.String
   @objc final public let installationId: Swift.String
   @objc final public let appStoreId: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init(playerId: Swift.String, installationId: Swift.String, appStoreId: Swift.String? = nil)
+  #endif
   @objc deinit
 }
 @objc public enum AdswizzPermissionValue : Swift.Int {
@@ -347,7 +375,9 @@ extension AdswizzAdStreamManager {
   case denied
   case notAsked
   case cantAsk
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -364,7 +394,9 @@ extension AdswizzAdStreamManager {
   case camera
   case idfa
   case motionActivity
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias AllCases = [AdswizzPermissionType]
   public typealias RawValue = Swift.Int
   nonisolated public static var allCases: [AdswizzPermissionType] {
@@ -384,11 +416,15 @@ extension AdswizzAdStreamManager {
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdCompanionView) @_Concurrency.MainActor @preconcurrency public class AdCompanionView : UIKit.UIView {
   @objc @IBOutlet @_Concurrency.MainActor @preconcurrency weak public var delegate: (any AdCompanionViewDelegate)?
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @_Concurrency.MainActor @preconcurrency public var clickThrough: Foundation.URL? {
     @objc get
   }
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func awakeFromNib()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didMoveToSuperview()
@@ -418,20 +454,34 @@ extension AdCompanionView : UIKit.UIGestureRecognizerDelegate {
   @objc deinit
 }
 @objc(AASDKAdData) public protocol AdData {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var id: Swift.String? { get }
+  #endif
   @objc var adTitle: Swift.String { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var adDescription: Swift.String? { get }
+  #endif
   @objc var adType: AdType { get }
   @objc var asset: any AdAsset { get }
   @objc var companions: [any Companion] { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var selectedCompanion: (any Companion)? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var skipOffset: Foundation.NSNumber? { get }
+  #endif
   @objc var duration: Foundation.TimeInterval { get }
   @objc var extensions: [any VastExtension] { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var adParameters: (any VastAdParameters)? { get }
+  #endif
   @objc var creativeExtensions: [any VastCreativeExtension] { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var pricing: (any VastPricing)? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var advertiser: (any VastAdvertiser)? { get }
+  #endif
   @objc var hasCompanion: Swift.Bool { get }
 }
 extension AdData {
@@ -443,7 +493,9 @@ extension AdData {
   case audio
   case video
   case hybrid
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias AllCases = [AdType]
   public typealias RawValue = Swift.Int
   nonisolated public static var allCases: [AdType] {
@@ -473,35 +525,63 @@ extension XMLAttributeDeserializable {
 }
 extension XMLIndexer {
   public func value<T>(ofAttribute attr: Swift.String) throws -> T where T : XMLAttributeDeserializable
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T>(ofAttribute attr: Swift.String) -> T? where T : XMLAttributeDeserializable
+  #endif
   public func value<T>(ofAttribute attr: Swift.String) throws -> [T] where T : XMLAttributeDeserializable
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T>(ofAttribute attr: Swift.String) throws -> [T]? where T : XMLAttributeDeserializable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T>(ofAttribute attr: Swift.String) throws -> [T?] where T : XMLAttributeDeserializable
+  #endif
   public func value<T>() throws -> T where T : XMLElementDeserializable
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T>() throws -> T? where T : XMLElementDeserializable
+  #endif
   public func value<T>() throws -> [T] where T : XMLElementDeserializable
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T>() throws -> [T]? where T : XMLElementDeserializable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T>() throws -> [T?] where T : XMLElementDeserializable
+  #endif
   public func value<T>() throws -> T where T : XMLIndexerDeserializable
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T>() throws -> T? where T : XMLIndexerDeserializable
+  #endif
   public func value<T>() throws -> [T] where T : XMLIndexerDeserializable
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T>() throws -> [T]? where T : XMLIndexerDeserializable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T>() throws -> [T?] where T : XMLIndexerDeserializable
+  #endif
 }
 extension XMLIndexer {
   public func value<T, A>(ofAttribute attr: A) throws -> T where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T, A>(ofAttribute attr: A) -> T? where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  #endif
   public func value<T, A>(ofAttribute attr: A) throws -> [T] where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T, A>(ofAttribute attr: A) throws -> [T]? where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T, A>(ofAttribute attr: A) throws -> [T?] where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  #endif
 }
 extension XMLElement {
   public func value<T>(ofAttribute attr: Swift.String) throws -> T where T : XMLAttributeDeserializable
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T>(ofAttribute attr: Swift.String) -> T? where T : XMLAttributeDeserializable
+  #endif
 }
 extension XMLElement {
   public func value<T, A>(ofAttribute attr: A) throws -> T where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   public func value<T, A>(ofAttribute attr: A) -> T? where T : XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  #endif
 }
 public enum XMLDeserializationError : Swift.Error, Swift.CustomStringConvertible {
   case implementationIsMissing(method: Swift.String)
@@ -548,7 +628,9 @@ extension Swift.Bool : XMLElementDeserializable, XMLAttributeDeserializable {
   case aspectFit
   case aspectFill
   case fill
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -564,15 +646,19 @@ extension Swift.Bool : XMLElementDeserializable, XMLAttributeDeserializable {
     @objc get
     @objc set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @_Concurrency.MainActor @preconcurrency public var clickThrough: Foundation.URL? {
     @objc get
   }
+  #endif
   @objc @_Concurrency.MainActor @preconcurrency public var state: AdVideoState {
     @objc get
     @objc set
   }
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func awakeFromNib()
   @objc deinit
   @objc @_Concurrency.MainActor @preconcurrency public func didHandleClickThrough()
@@ -588,18 +674,32 @@ extension AdVideoView : UIKit.UIGestureRecognizerDelegate {
 @objc(AASDKMediaFile) public protocol MediaFile {
   @objc var uri: Swift.String { get }
   @objc var type: Swift.String { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var codec: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var id: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var bitrate: Foundation.NSNumber? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var minBitrate: Foundation.NSNumber? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var maxBitrate: Foundation.NSNumber? { get }
+  #endif
   @objc var width: Foundation.NSNumber { get }
   @objc var height: Foundation.NSNumber { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var fileSize: Foundation.NSNumber? { get }
+  #endif
 }
 @objc(AASDKAdCachePolicy) public enum AdCachePolicy : Swift.Int {
   case assets
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -649,7 +749,9 @@ extension AdVideoView : UIKit.UIGestureRecognizerDelegate {
   case companionNotFound = 604
   case undefined = 900
   case generalVPAID = 901
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -699,27 +801,37 @@ extension AdVideoView : UIKit.UIGestureRecognizerDelegate {
   case openedSettings
   case granted
   case denied
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
 @objc(AASDKTrackingPermissionController) @_Concurrency.MainActor @preconcurrency final public class TrackingPermissionController : UIKit.UIViewController {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc final override public var title: Swift.String? {
     @objc get
     @objc set
   }
+  #endif
   @objc @_Concurrency.MainActor @preconcurrency final public var configuration: TrackingPermissionConfiguration {
     @objc get
     @objc set
   }
   @objc @_Concurrency.MainActor @preconcurrency weak final public var delegate: (any TrackingPermissionControllerDelegate)?
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(configuration: TrackingPermissionConfiguration? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLayoutSubviews()
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override final public func dismiss(animated: Swift.Bool = true, completion: (() -> Swift.Void)? = nil)
+  #endif
   @_Concurrency.MainActor @preconcurrency public static func canPresentController() -> Swift.Bool
   @objc deinit
 }
@@ -731,7 +843,9 @@ extension TrackingPermissionController : UIKit.UIAdaptivePresentationControllerD
   case medium
   case high
   case auto
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -740,7 +854,9 @@ extension TrackingPermissionController : UIKit.UIAdaptivePresentationControllerD
 extension AVFAudio.AVAudioSession.Port : Swift.Codable {
 }
 @objc(AASDKAdManagerDelegate) public protocol AdManagerDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func adManager(_ adManager: any AdManager, didReceiveAd ad: (any AdData)?, error: any Swift.Error)
+  #endif
   @objc func adManager(_ adManager: any AdManager, didReceiveAdEvent event: any AdEvent)
   @objc optional func adManager(_ adManager: any AdManager, ad: any AdData, didChangedPlayHead playHead: Foundation.TimeInterval, adDuration duration: Foundation.TimeInterval)
 }
@@ -752,15 +868,25 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   @objc optional func adManagerVideoClickTrackingUrls(_ adManager: any AdManager, ad: any AdData) -> [Foundation.URL]
 }
 @objc(AASDKAdManagerInterstitialEventDatasource) public protocol AdManagerInterstitialEventDatasource {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc optional func adManager(_ adManager: any AdManager, interstitialMediaFileURL ad: any AdData) -> Foundation.URL?
+  #endif
 }
 @objc(AASDKAdManager) public protocol AdManager {
   @objc var adManagerSettings: AdManagerSettings { get set }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc weak var delegate: (any AdManagerDelegate)? { get set }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc weak var datasource: (any AdManagerDatasource)? { get set }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc weak var interstitialDatasource: (any AdManagerInterstitialEventDatasource)? { get set }
+  #endif
   @objc var ads: [any AdData] { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)? { get set }
+  #endif
   @objc func prepare()
   @objc func play()
   @objc func pause()
@@ -801,7 +927,9 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   @objc func adStreamManagerWillReconnect(_ adstreamManager: AdStreamManager)
   @objc func adStreamManagerPlayerShouldPause(_ adstreamManager: AdStreamManager)
   @objc func adStreamManagerPlayerShouldResume(_ adstreamManager: AdStreamManager)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc optional func adStreamManager(_ adstreamManager: AdStreamManager, didReceive dvrMetadata: (any AdStreamDVRMetadata)?)
+  #endif
 }
 @objc(AASDKCompanionStaticResource) public protocol StaticResource : ObjectiveC.NSObjectProtocol {
   @objc var uri: Swift.String { get }
@@ -811,19 +939,25 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   case def
   case endCard
   case concurrent
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
 @objc(AASDKCompanionResource) public protocol CompanionResource : ObjectiveC.NSObjectProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var staticRes: [any StaticResource]? { get }
+  #endif
 }
 @objc(AASDKCompanion) public protocol Companion : ObjectiveC.NSObjectProtocol {
   @objc var width: Swift.Int { get }
   @objc var height: Swift.Int { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var id: Swift.String? { get }
+  #endif
   @objc var renderingMode: CompanionRenderingMode { get }
   @objc var resource: any CompanionResource { get }
 }
@@ -871,7 +1005,9 @@ public protocol BatchModelable {
   case close
   case overlayViewDuration
   case otherAdInteraction
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias AllCases = [VastTrackingEvent]
   public typealias RawValue = Swift.Int
   nonisolated public static var allCases: [VastTrackingEvent] {
@@ -888,7 +1024,9 @@ extension UIKit.UIUserInterfaceIdiom : Swift.Codable {
   case closeAd
   case notVisible
   case other
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -898,11 +1036,15 @@ extension UIKit.UIUserInterfaceIdiom : Swift.Codable {
   @objc final public let view: UIKit.UIView
   @objc final public let purpose: AdVideoFriendlyObstructionPurpose
   @objc final public let detailedReason: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init(view: UIKit.UIView, purpose: AdVideoFriendlyObstructionPurpose, detailedReason: Swift.String? = nil)
+  #endif
   @objc deinit
 }
 extension AdVideoFriendlyObstruction {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override final public var hash: Swift.Int {
     @objc get
   }
@@ -912,9 +1054,11 @@ extension AdVideoFriendlyObstruction {
   case https
 }
 @_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdRequest) final public class AdswizzAdRequest : AdRequest {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override final public var url: Foundation.URL? {
     @objc get
   }
+  #endif
   @objc override final public var expectedAdsCount: Swift.UInt {
     @objc get
   }
@@ -931,16 +1075,28 @@ extension AdVideoFriendlyObstruction {
     @objc public func with(shim: AdswizzShimZone) -> AdswizzAdRequest.Builder
     @objc public func with(duration: Foundation.TimeInterval) -> AdswizzAdRequest.Builder
     @objc public func with(zoneAlias: Swift.String) -> AdswizzAdRequest.Builder
+    #if compiler(>=5.3) && $NonescapableTypes
     @available(*, deprecated, message: "Please use either .with(companionZoneIds: [Int]) or .with(companionZoneAliases: [String]) to set the companion zones on the request.")
     @objc public func with(companionZones: Swift.String?) -> AdswizzAdRequest.Builder
+    #endif
     @objc public func with(companionZoneIds: [Swift.Int]) -> AdswizzAdRequest.Builder
     @objc public func with(companionZoneAliases: [Swift.String]) -> AdswizzAdRequest.Builder
+    #if compiler(>=5.3) && $NonescapableTypes
     @objc public func with(tagsArray: Swift.String?) -> AdswizzAdRequest.Builder
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
     @objc public func with(referrer: Swift.String?) -> AdswizzAdRequest.Builder
+    #endif
     @objc public func with(server: Swift.String) -> AdswizzAdRequest.Builder
+    #if compiler(>=5.3) && $NonescapableTypes
     @objc public func with(additionalCustomParameters: Swift.String?) -> AdswizzAdRequest.Builder
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
     @objc public func with(analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)?) -> AdswizzAdRequest.Builder
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
     @objc public func with(userConsentV2: Swift.String?) -> AdswizzAdRequest.Builder
+    #endif
     @objc public func with(enableExpectedAdsReporting: Swift.Bool) -> AdswizzAdRequest.Builder
     @objc public func build() throws -> AdswizzAdRequest
     @objc deinit
@@ -955,7 +1111,9 @@ extension Dispatch.DispatchQueue : Dispatcher {
   public func asyncDispatch(task: @escaping () -> Swift.Void)
 }
 extension AdStreamManager {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  #endif
 }
 extension AdswizzAdPodcastManager {
   @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdPodcastManagerBuilder) public class Builder : ObjectiveC.NSObject {
@@ -969,7 +1127,9 @@ extension AdswizzAdPodcastManager {
 }
 @objc(AASDKAdCompanionResourceType) public enum AdCompanionResourceType : Swift.Int, Swift.CaseIterable {
   case image
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias AllCases = [AdCompanionResourceType]
   public typealias RawValue = Swift.Int
   nonisolated public static var allCases: [AdCompanionResourceType] {
@@ -986,11 +1146,15 @@ extension AdswizzAdPodcastManager {
   @objc deinit
 }
 @objc(AASDKEvent) public protocol Event : ObjectiveC.NSObjectProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var extraAdData: [Swift.String : Any]? { get }
+  #endif
   @objc var stringEvent: Swift.String { get }
 }
 @objc(AASDKAdEvent) public protocol AdEvent : Event {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var ad: (any AdData)? { get }
+  #endif
   @objc var event: AdEventType { get }
 }
 @objc(AASDKAdEventType) public enum AdEventType : Swift.Int, Swift.CaseIterable {
@@ -1006,7 +1170,9 @@ extension AdswizzAdPodcastManager {
   case didFinishPlaying
   case adCompleted
   case allAdsCompleted
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias AllCases = [AdEventType]
   public typealias RawValue = Swift.Int
   nonisolated public static var allCases: [AdEventType] {
@@ -1017,15 +1183,21 @@ extension AdswizzAdPodcastManager {
   }
 }
 @objc(AASDKVastExtension) public protocol VastExtension : ObjectiveC.NSObjectProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var type: Swift.String? { get }
+  #endif
   @objc var xmlString: Swift.String { get }
 }
 @objc(AASDKVastAdParameters) public protocol VastAdParameters : ObjectiveC.NSObjectProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var xmlEncoded: Foundation.NSNumber? { get }
+  #endif
   @objc var xmlString: Swift.String { get }
 }
 @objc(AASDKVastCreativeExtension) public protocol VastCreativeExtension : ObjectiveC.NSObjectProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var type: Swift.String? { get }
+  #endif
   @objc var xmlString: Swift.String { get }
 }
 @objc(AASDKVastPricing) public protocol VastPricing : ObjectiveC.NSObjectProtocol {
@@ -1034,7 +1206,9 @@ extension AdswizzAdPodcastManager {
   @objc var currency: Swift.String { get }
 }
 @objc(AASDKVastAdvertiser) public protocol VastAdvertiser : ObjectiveC.NSObjectProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var id: Swift.String? { get }
+  #endif
   @objc var content: Swift.String { get }
 }
 extension AdswizzSDKCore.AdLogger.Level : Swift.Comparable {
@@ -1052,14 +1226,18 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AASDKAdswizzSDK) public class AdswizzSDK : ObjectiveC.NSObject {
   @objc public static let shared: AdswizzSDK
   @objc weak public var delegate: (any AdswizzSDKDelegate)?
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var backgroundSessionCompletionHandler: (() -> Swift.Void)? {
     @objc get
     @objc set
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc weak public var palManager: (any PALManagerProtocol)? {
     @objc get
     @objc set
   }
+  #endif
   @objc public var omidPartner: Swift.String {
     @objc get
   }
@@ -1069,9 +1247,11 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc public var omidVersion: Swift.String {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var xpaid: Swift.String? {
     @objc get
   }
+  #endif
   @objc public var sdkVersion: Swift.String {
     @objc get
   }
@@ -1081,8 +1261,12 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc public var location: AdswizzLocationConfig {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public func initialize(with configuration: AdswizzSDKConfig? = nil, completion: AdswizzSDKInitCompletion? = nil) throws
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public func initialize(with configuration: AdswizzSDKConfig? = nil) async throws
+  #endif
   @objc public func uninitialize()
   @objc public static func setAdCompanionOptions(_ options: AdCompanionOptions)
   @available(*, deprecated, renamed: "consent.gdpr", message: "Please use the GDPR consent with the new privacy consent API")
@@ -1095,13 +1279,15 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
     @objc get
     @objc set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(*, deprecated, renamed: "consent.gpp", message: "Please use the GPP consent with the new privacy consent API")
   @objc public var gppConsent: Swift.String? {
     @objc get
     @objc set
   }
+  #endif
   @available(*, deprecated, renamed: "location.accuracy", message: "Please use the accuracy property with the new location API")
-  @objc public var locationAccuracy: CoreLocation.CLLocationAccuracy {
+  @objc public var locationAccuracy: _LocationEssentials.CLLocationAccuracy {
     @objc get
     @objc set
   }
@@ -1129,7 +1315,9 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   case paused
   case finished
   case failed
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1152,13 +1340,21 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc dynamic var currentPlayhead: Foundation.TimeInterval { get }
   @objc var currentDuration: Foundation.TimeInterval { get }
   @objc dynamic var playerStatus: MediaPlayerStatus { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic var metadataItem: [AVFoundation.AVMetadataItem]? { get }
+  #endif
   @objc optional var bufferingCompleted: Swift.Bool { get }
   @objc var isBufferingWhilePaused: Swift.Bool { get }
   @objc dynamic var volume: Swift.Float { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var lastError: (any Swift.Error)? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var capabilities: Swift.Set<MediaPlayerCapability>? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var stateInfo: Swift.Set<MediaPlayerCapability.State>? { get }
+  #endif
 }
 @objc(AASDKAdAssetDelegate) public protocol AdAssetDelegate {
   @objc optional func adAssetDidFinishDownloadingData(_ asset: any AdAsset)
@@ -1172,21 +1368,31 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   case loading
   case ready
   case failed
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
 @objc(AASDKAdAsset) public protocol AdAsset {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var mediaUrl: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var mimeType: Swift.String? { get }
+  #endif
   @objc var width: Swift.Int { get }
   @objc var height: Swift.Int { get }
   @objc var expectedContentLength: Swift.Int64 { get }
   @objc var state: AdAssetState { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var lastError: (any Swift.Error)? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc weak var delegate: (any AdAssetDelegate)? { get set }
+  #endif
 }
 @objc(AASDKAdPodcastManagerDownloadDelegate) public protocol AdPodcastManagerDownloadDelegate {
   @objc func adPodcastManager(_ adPodcastManager: AdPodcastManager, didDownload bytesDownloaded: Swift.Int64, outOf bytesExpected: Swift.Int64, for asset: any DownloadableAsset)
@@ -1206,7 +1412,9 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   case collapsed
   case fullscreen
   case minimized
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1219,7 +1427,9 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc override public func prepare(with url: Foundation.URL) throws
   @objc override public func play(with url: Foundation.URL) throws
   public func play(with url: Foundation.URL, timestamp: Foundation.NSNumber) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   public func requestDVRMetadata(completion: ((Swift.Result<any AdStreamDVRMetadata, any Swift.Error>) -> Swift.Void)? = nil)
+  #endif
   public func cancelDVRMetadataRequest()
   public static func decorate(_ url: Foundation.URL) throws -> Foundation.URL
   override public func didReceive(metadata: [AVFoundation.AVMetadataItem])
@@ -1233,7 +1443,9 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
     get
   }
   @objc override dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init(analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)? = nil)
+  #endif
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdStreamManagerSettings) final public class AdStreamManagerSettings : ObjectiveC.NSObject {
@@ -1260,7 +1472,9 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   case notAsked
   case granted
   case denied
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1276,12 +1490,14 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc open func pause()
   @objc open func resume()
   open func didReceive(metadata: [AVFoundation.AVMetadataItem])
+  #if compiler(>=5.3) && $NonescapableTypes
   open func adBreakDetected(of duration: Foundation.TimeInterval, for adId: Swift.String?)
+  #endif
   @objc deinit
   @objc override dynamic public init()
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AASDKAdswizzLocationConfig) final public class AdswizzLocationConfig : ObjectiveC.NSObject {
-  @objc final public var accuracy: CoreLocation.CLLocationAccuracy {
+  @objc final public var accuracy: _LocationEssentials.CLLocationAccuracy {
     @objc get
     @objc set
   }
@@ -1304,7 +1520,9 @@ public typealias AdswizzSDKInitCompletion = () -> ()
   case no
   case yes
   case notApplicable
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias AllCases = [CCPAConsent]
   public typealias RawValue = Swift.Int
   nonisolated public static var allCases: [CCPAConsent] {
@@ -1329,7 +1547,9 @@ public typealias AdswizzSDKInitCompletion = () -> ()
   @objc deinit
 }
 extension AdswizzCCPAConfig {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AASDKAdswizzPrivacyConsent) final public class AdswizzPrivacyConsent : ObjectiveC.NSObject {
   @objc final public var gdpr: GDPRConsent

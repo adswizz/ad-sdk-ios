@@ -24,13 +24,12 @@
 			<key>BinaryPath</key>
 			<string>AdswizzWatchSDK.framework/AdswizzWatchSDK</string>
 			<key>LibraryIdentifier</key>
-			<string>watchos-arm64_i386_x86_64-simulator</string>
+			<string>watchos-arm64_x86_64-simulator</string>
 			<key>LibraryPath</key>
 			<string>AdswizzWatchSDK.framework</string>
 			<key>SupportedArchitectures</key>
 			<array>
 				<string>arm64</string>
-				<string>i386</string>
 				<string>x86_64</string>
 			</array>
 			<key>SupportedPlatform</key>

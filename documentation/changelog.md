@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.13.5] - 2026-03-10
+### Added
+- Analytics:
+    - New attribute for `trigger-vast-event` analytics events with `.creativeView` VASTTrackingEvent:
+        - `metricType` will differentiate between _linear_ or _companion_ tracking events
+
+### Changed
+- Analytics:
+    - `trigger-vast-event` events with `.creativeView` VASTTrackingEvent (`metricType` set to _linear_) are now logged alongside `trigger-impression` events
+- XCFramework:
+    - **_AdswizzSDK_** binary frameworks are now compiled with Xcode version `26.0` (keeps support for Swift version `5.10.0`)
+
 ## [7.13.4] - 2026-01-14
 ### Added
 - Open Measurement SDK:

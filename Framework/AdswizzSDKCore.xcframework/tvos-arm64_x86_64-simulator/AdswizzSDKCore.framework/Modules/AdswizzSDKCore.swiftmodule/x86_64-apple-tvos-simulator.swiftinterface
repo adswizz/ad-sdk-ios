@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target x86_64-apple-tvos13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name AdswizzSDKCore
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
+// swift-module-flags: -target x86_64-apple-tvos13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdswizzSDKCore
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
 import Foundation
 import Swift
 import _Concurrency
@@ -17,7 +17,9 @@ import _SwiftConcurrencyShims
     case info
     case error
     case none
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -35,7 +37,9 @@ import _SwiftConcurrencyShims
     case error
     case info
     public static func < (a: AdswizzSDKCore.AASDKAnalytics.Level, b: AdswizzSDKCore.AASDKAnalytics.Level) -> Swift.Bool
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -48,11 +52,17 @@ import _SwiftConcurrencyShims
   @objc var id: Swift.String { get }
   @objc var category: Swift.String { get }
   @objc var level: AdswizzSDKCore.AASDKAnalytics.Level { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var params: [Swift.String : Any]? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var customParams: [Swift.String : Any]? { get }
+  #endif
 }
 @objc(AASDKAnalyticsCustomData) public protocol AnalyticsCustomData {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var params: [Swift.String : Any]? { get }
+  #endif
 }
 @objc(AASDKAnalyticsCollecting) public protocol AnalyticsCollecting {
   @objc func log(_ event: any AdswizzSDKCore.AnalyticsEvent, _ timestamp: Foundation.Date)

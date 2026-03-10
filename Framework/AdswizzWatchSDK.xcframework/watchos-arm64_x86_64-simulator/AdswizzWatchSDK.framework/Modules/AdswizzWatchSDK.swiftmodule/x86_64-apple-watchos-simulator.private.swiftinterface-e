@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target i386-apple-watchos6.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name AdswizzWatchSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
+// swift-module-flags: -target x86_64-apple-watchos6.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdswizzWatchSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
 import AVFoundation
 @_exported import AdswizzWatchSDK
 import CoreMotion
@@ -12,16 +12,16 @@ import WatchKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-extension AdLogger.Level : Swift.Comparable {
-  public static func < (lhs: AdLogger.Level, rhs: AdLogger.Level) -> Swift.Bool
+extension AdswizzWatchSDK.AdLogger.Level : Swift.Comparable {
+  public static func < (lhs: AdswizzWatchSDK.AdLogger.Level, rhs: AdswizzWatchSDK.AdLogger.Level) -> Swift.Bool
 }
-extension AdLogger.Level : Swift.CustomStringConvertible {
+extension AdswizzWatchSDK.AdLogger.Level : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
 }
 @objc(AASDKAdLoggerDestination) public protocol AdLoggerDestination {
-  @objc func log(_ level: AdLogger.Level, functionName: Swift.String, fileName: Swift.String, lineNumber: Swift.Int, line: Swift.String)
+  @objc func log(_ level: AdswizzWatchSDK.AdLogger.Level, functionName: Swift.String, fileName: Swift.String, lineNumber: Swift.Int, line: Swift.String)
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdLogger) final public class AdLogger : ObjectiveC.NSObject {
   @objc public enum Level : Swift.Int {
@@ -30,23 +30,25 @@ extension AdLogger.Level : Swift.CustomStringConvertible {
     case info
     case error
     case none
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
     }
   }
-  @objc public static let shared: AdLogger
-  @objc final public var level: AdLogger.Level
-  @objc final public var destination: any AdLoggerDestination
+  @objc public static let shared: AdswizzWatchSDK.AdLogger
+  @objc final public var level: AdswizzWatchSDK.AdLogger.Level
+  @objc final public var destination: any AdswizzWatchSDK.AdLoggerDestination
   @objc override dynamic public init()
   @objc deinit
 }
 extension AVFAudio.AVAudioSession.Port : Swift.Codable {
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdswizzWatchSDK) public class AdswizzWatchSDK : ObjectiveC.NSObject {
-  @objc public static let shared: AdswizzWatchSDK
-  @objc public var watchSession: any WatchSession {
+  @objc public static let shared: AdswizzWatchSDK.AdswizzWatchSDK
+  @objc public var watchSession: any AdswizzWatchSDK.WatchSession {
     get
   }
   @objc public var runningInBackground: Swift.Bool {
@@ -56,7 +58,7 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   @objc override dynamic public init()
   @objc deinit
 }
-extension AdswizzWatchSDK {
+extension AdswizzWatchSDK.AdswizzWatchSDK {
   @objc dynamic public func applicationDidBecomeActive()
   @objc dynamic public func applicationWillResignActive()
   @objc dynamic public func applicationWillEnterForeground()
@@ -68,7 +70,7 @@ extension AdswizzWatchSDK {
 }
 @objc(AASDKWatchSession) public protocol WatchSession {
   @objc func receivedMessage(_ data: [Swift.String : Any])
-  @objc func setDelegate(_ delegate: any WatchSessionDelegate)
+  @objc func setDelegate(_ delegate: any AdswizzWatchSDK.WatchSessionDelegate)
 }
 extension Swift.Dictionary where Key == Swift.String {
   public var isAdswizzWatchData: Swift.Bool {
@@ -80,5 +82,5 @@ extension Foundation.NSDictionary {
     @objc get
   }
 }
-extension AdLogger.Level : Swift.Hashable {}
-extension AdLogger.Level : Swift.RawRepresentable {}
+extension AdswizzWatchSDK.AdLogger.Level : Swift.Hashable {}
+extension AdswizzWatchSDK.AdLogger.Level : Swift.RawRepresentable {}
