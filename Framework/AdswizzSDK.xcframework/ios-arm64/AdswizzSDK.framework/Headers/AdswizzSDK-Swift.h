@@ -658,6 +658,25 @@ SWIFT_PROTOCOL_NAMED("AdInterstitialEventMonitor")
 @property (nonatomic, readonly, strong) AVQueuePlayer * _Nonnull interstitialPlayer;
 @end
 
+/// The <code>AdMacroProvider</code> protocol encapsulates values for various VAST macros that cannot be automatically computed by <code>AdswizzSDK</code>.
+/// Pass an <code>AdMacroProvider</code> implementation suitable to your integration scenario in <code>AdRequest</code> and <code>AdManager</code>. The values will then be used by the internal macro replacer into their coresspondent pixel tracking URLs and/or VAST request URIs.
+SWIFT_PROTOCOL_NAMED("AdMacroProvider")
+@protocol AASDKAdMacroProvider
+/// Value for [CONTENTID] macro.
+/// The publisher-specific content identifier for the content asset into which the ad is being loaded or inserted.
+/// The format is similar to the [UNIVERSALADID] macro, consisting of a registry identifier and a registry-specific content identifier. e.g “my-domain.com my-audio-123”.
+/// Do not encode the value. Applicable for VAST request URIs and all tracking pixels.
+@property (nonatomic, readonly, copy) NSString * _Nullable contentId;
+/// Value for [CONTENTURI] macro.
+/// The URI of the main media content asset into which the ad is being loaded or inserted.
+/// Do not encode the value. Applicable for VAST request URIs and all tracking pixels.
+@property (nonatomic, readonly, copy) NSString * _Nullable contentUri;
+/// Value for [MEDIAPLAYHEAD] macro.
+/// Playhead for the video or audio content (NOT the ad creative). Measured in seconds.
+/// Applicable for VAST request URIs and all tracking pixels.
+@property (nonatomic, readonly) NSTimeInterval mediaPlayhead;
+@end
+
 @class AASDKAdManagerSettings;
 @protocol AASDKAdManagerDelegate;
 @protocol AASDKAdManagerDatasource;
@@ -681,6 +700,9 @@ SWIFT_PROTOCOL_NAMED("AdManager")
 @property (nonatomic, readonly, copy) NSArray<id <AASDKAdData>> * _Nonnull ads;
 /// Analytics interface for custom data that the AdswizzSDK will use for all <code>AnalyticsEvent</code> entries related to the ad lifecycle.
 @property (nonatomic, strong) id <AASDKAnalyticsCustomData> _Nullable analyticsCustomData;
+/// VAST macros interface to encapsulate values that cannot be automatically computed for tracking pixels and are expected to be provided by publishers.
+/// Note that the default value is passed down from the <code>AdRequestConnection</code> which generated the <code>AdManager</code>.
+@property (nonatomic, strong) id <AASDKAdMacroProvider> _Nullable adMacroProvider;
 /// Prepare and load the ads.
 - (void)prepare;
 /// Play an ad when using the internal player.
@@ -1002,12 +1024,16 @@ SWIFT_CLASS_NAMED("AdRequest")
 @property (nonatomic, readonly) NSUInteger expectedAdsCount;
 /// The URL for the <code>AdRequest</code> server call.
 @property (nonatomic, readonly, copy) NSURL * _Nullable url;
+/// VAST macros provider for values from publishers used in VAST request URIs.
+@property (nonatomic, readonly, strong) id <AASDKAdMacroProvider> _Nullable adMacroProvider;
 /// Designated initializer for a plain <code>AdRequest</code>object.
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-/// Initialize a plain <code>AdRequest</code> with optional analytics custom data to be used by custom <code>AnalyticsConnector</code> objects.
+/// Initialize a plain <code>AdRequest</code> with optional parameters such as analytics custom data to be used by custom <code>AnalyticsConnector</code> objects.
 /// \param analyticsCustomData custom interface to pass in custom params when <code>AnalyticsEvent</code> entries are logged
 ///
-- (nonnull instancetype)initWithAnalyticsCustomData:(id <AASDKAnalyticsCustomData> _Nullable)analyticsCustomData OBJC_DESIGNATED_INITIALIZER;
+/// \param adMacroProvider provider interface for VAST macros applicable in VAST request URIs
+///
+- (nonnull instancetype)initWithAnalyticsCustomData:(id <AASDKAnalyticsCustomData> _Nullable)analyticsCustomData adMacroProvider:(id <AASDKAdMacroProvider> _Nullable)adMacroProvider OBJC_DESIGNATED_INITIALIZER;
 @end
 
 /// The <code>AdRequestConnection</code> represents a single connection to the AdsWizz ad server.
@@ -1393,7 +1419,7 @@ SWIFT_CLASS_NAMED("AdswizzAdRequest")
 @property (nonatomic, readonly) NSUInteger expectedAdsCount;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (nonnull instancetype)initWithAnalyticsCustomData:(id <AASDKAnalyticsCustomData> _Nullable)analyticsCustomData SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithAnalyticsCustomData:(id <AASDKAnalyticsCustomData> _Nullable)analyticsCustomData adMacroProvider:(id <AASDKAdMacroProvider> _Nullable)adMacroProvider SWIFT_UNAVAILABLE;
 @end
 
 /// VAST version.
@@ -1515,6 +1541,16 @@ SWIFT_CLASS_NAMED("Builder")
 /// returns:
 /// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withAdditionalCustomParameters:(NSString * _Nullable)additionalCustomParameters SWIFT_WARN_UNUSED_RESULT;
+/// Set and pass parameters directly into <code>AdswizzAdRequest</code>. Optional.
+/// All key-value pairs will be URL encoded by the <code>AdswizzSDK</code>, thus providing URL-encoded params will result in double encoding.
+/// The resulted <code>AdRequest</code> will contain unique query parameters, and in case of key-naming collisions, all existing keys will be overridden with the values from [queryParameters] array.
+/// Note that it should only be used at the recommendation of AdsWizz.
+/// \param queryParameters unencoded key value pairs which will appear with a format such as <code>key1=value1&key2=value2</code>
+///
+///
+/// returns:
+/// the same builder object
+- (AASDKAdswizzAdRequestBuilder * _Nonnull)withQueryParameters:(NSDictionary<NSString *, NSString *> * _Nonnull)queryParameters SWIFT_WARN_UNUSED_RESULT;
 /// Set and pass custom analytics data used for all<code>AnalyticsEvent</code> entries. Optional.
 /// Must be set before calling <code>build()</code>.
 /// \param analyticsCustomData custom parameters appended to all<code>AnalyticsEvent</code> entries
@@ -1523,6 +1559,14 @@ SWIFT_CLASS_NAMED("Builder")
 /// returns:
 /// the same builder object
 - (AASDKAdswizzAdRequestBuilder * _Nonnull)withAnalyticsCustomData:(id <AASDKAnalyticsCustomData> _Nullable)analyticsCustomData SWIFT_WARN_UNUSED_RESULT;
+/// Set and pass an <code>AdMacroProvider</code> implementation to supply values for client specific VAST macros. Optional.
+/// Must be set before calling <code>build()</code>.
+/// \param adMacroProvider VAST macros provider
+///
+///
+/// returns:
+/// the same builder object
+- (AASDKAdswizzAdRequestBuilder * _Nonnull)withAdMacroProvider:(id <AASDKAdMacroProvider> _Nullable)adMacroProvider SWIFT_WARN_UNUSED_RESULT;
 /// Set a TCFv2 string as described by IAB’s Transparency and Consent Framework (TCF). Optional.
 /// \param userConsentV2 a valid TCFv2 string
 ///

@@ -941,6 +941,9 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   #if compiler(>=5.3) && $NonescapableTypes
   @objc var analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)? { get set }
   #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc var adMacroProvider: (any AdMacroProvider)? { get set }
+  #endif
   @objc func prepare()
   @objc func play()
   @objc func pause()
@@ -1077,6 +1080,15 @@ public protocol BatchModelable {
     get
   }
 }
+@objc(AASDKAdMacroProvider) public protocol AdMacroProvider {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc var contentId: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc var contentUri: Swift.String? { get }
+  #endif
+  @objc var mediaPlayhead: Foundation.TimeInterval { get }
+}
 extension UIKit.UIUserInterfaceIdiom : Swift.Codable {
 }
 @objc(AASDKAdVideoFriendlyObstructionPurpose) public enum AdVideoFriendlyObstructionPurpose : Swift.Int {
@@ -1151,8 +1163,12 @@ extension AdVideoFriendlyObstruction {
     #if compiler(>=5.3) && $NonescapableTypes
     @objc public func with(additionalCustomParameters: Swift.String?) -> AdswizzAdRequest.Builder
     #endif
+    @objc public func with(queryParameters: [Swift.String : Swift.String]) -> AdswizzAdRequest.Builder
     #if compiler(>=5.3) && $NonescapableTypes
     @objc public func with(analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)?) -> AdswizzAdRequest.Builder
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    @objc public func with(adMacroProvider: (any AdMacroProvider)?) -> AdswizzAdRequest.Builder
     #endif
     #if compiler(>=5.3) && $NonescapableTypes
     @objc public func with(userConsentV2: Swift.String?) -> AdswizzAdRequest.Builder
@@ -1513,9 +1529,12 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc open var url: Foundation.URL? {
     get
   }
+  @objc open var adMacroProvider: (any AdMacroProvider)? {
+    get
+  }
   @objc override dynamic public init()
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc public init(analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)? = nil)
+  @objc public init(analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)? = nil, adMacroProvider: (any AdMacroProvider)? = nil)
   #endif
   @objc deinit
 }

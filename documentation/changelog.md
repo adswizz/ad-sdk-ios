@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.13.6] - 2026-05-04
+### Added
+- VAST macros:
+    - New public protocol called **_AdMacroProvider_** with support for newly introduced VAST 4.1 macros such as CONTENTID, CONTENTURI and MEDIAPLAYHEAD
+    - New public members in **_AdManager_** and **_AdswizzAdRequest_**.**_Builder_**:
+        - `adMacroProvider` to dynamically set/update values for supported VAST 4.1 macros
+- AdswizzAdRequest:
+    - New public method in **_AdswizzAdRequest.Builder_**:
+        - `with(queryParameters: [String: String])` sets a dictionary with *key/value* pairs on the **_AdswizzAdRequest.Builder_** to be able to directly add new custom query parameters or replace existing ones. Note that it should only be used at the recommendation of AdsWizz.
+        - alternatively, `with(additionalCustomParameters: String?)` requires a proper URL encoded and formatted string such as "key1=value1&key2=value2"
+
+### Fixed
+- `AdCompanionView`:
+    - Improve rendering for HTML and static image resources
+- `MediaPlayerState`:
+    - Fix reported volume changes by deduplicating values in a continuous stream of updates
+
 ## [7.13.5] - 2026-03-10
 ### Added
 - Analytics:

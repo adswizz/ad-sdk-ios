@@ -22938,6 +22938,109 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "adMacroProvider",
+            "printedName": "adMacroProvider",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AdswizzSDK.AdMacroProvider)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdMacroProvider",
+                    "printedName": "any AdswizzSDK.AdMacroProvider",
+                    "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdManager(py)adMacroProvider",
+            "mangledName": "$s10AdswizzSDK9AdManagerP15adMacroProviderAA0cfG0_pSgvp",
+            "moduleName": "AdswizzSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AdswizzSDK.AdMacroProvider)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AdMacroProvider",
+                        "printedName": "any AdswizzSDK.AdMacroProvider",
+                        "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdManager(im)adMacroProvider",
+                "mangledName": "$s10AdswizzSDK9AdManagerP15adMacroProviderAA0cfG0_pSgvg",
+                "moduleName": "AdswizzSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdManager>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdManager>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AdswizzSDK.AdMacroProvider)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AdMacroProvider",
+                        "printedName": "any AdswizzSDK.AdMacroProvider",
+                        "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdManager(im)setAdMacroProvider:",
+                "mangledName": "$s10AdswizzSDK9AdManagerP15adMacroProviderAA0cfG0_pSgvs",
+                "moduleName": "AdswizzSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdManager>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdManager>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "prepare",
             "printedName": "prepare()",
@@ -27527,6 +27630,220 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "AdMacroProvider",
+        "printedName": "AdMacroProvider",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "contentId",
+            "printedName": "contentId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider(py)contentId",
+            "mangledName": "$s10AdswizzSDK15AdMacroProviderP9contentIdSSSgvp",
+            "moduleName": "AdswizzSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider(im)contentId",
+                "mangledName": "$s10AdswizzSDK15AdMacroProviderP9contentIdSSSgvg",
+                "moduleName": "AdswizzSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdMacroProvider>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdMacroProvider>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "contentUri",
+            "printedName": "contentUri",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider(py)contentUri",
+            "mangledName": "$s10AdswizzSDK15AdMacroProviderP10contentUriSSSgvp",
+            "moduleName": "AdswizzSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider(im)contentUri",
+                "mangledName": "$s10AdswizzSDK15AdMacroProviderP10contentUriSSSgvg",
+                "moduleName": "AdswizzSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdMacroProvider>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdMacroProvider>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "mediaPlayhead",
+            "printedName": "mediaPlayhead",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider(py)mediaPlayhead",
+            "mangledName": "$s10AdswizzSDK15AdMacroProviderP13mediaPlayheadSdvp",
+            "moduleName": "AdswizzSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider(im)mediaPlayhead",
+                "mangledName": "$s10AdswizzSDK15AdMacroProviderP13mediaPlayheadSdvg",
+                "moduleName": "AdswizzSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDK.AdMacroProvider>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDK.AdMacroProvider>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider",
+        "mangledName": "$s10AdswizzSDK15AdMacroProviderP",
+        "moduleName": "AdswizzSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "objc_name": "AASDKAdMacroProvider",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "CoreData",
         "printedName": "CoreData",
@@ -29626,6 +29943,50 @@
               {
                 "kind": "Function",
                 "name": "with",
+                "printedName": "with(queryParameters:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "AdswizzSDK.AdswizzAdRequest.Builder",
+                    "usr": "s:10AdswizzSDK0A9AdRequestC7BuilderC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:10AdswizzSDK0A9AdRequestC7BuilderC4with15queryParametersAESDyS2SG_tF",
+                "mangledName": "$s10AdswizzSDK0A9AdRequestC7BuilderC4with15queryParametersAESDyS2SG_tF",
+                "moduleName": "AdswizzSDK",
+                "objc_name": "withQueryParameters:",
+                "declAttributes": [
+                  "AccessControl",
+                  "ObjC",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "with",
                 "printedName": "with(analyticsCustomData:)",
                 "children": [
                   {
@@ -29654,6 +30015,44 @@
                 "mangledName": "$s10AdswizzSDK0A9AdRequestC7BuilderC4with19analyticsCustomDataAE0A7SDKCore09AnalyticshI0_pSg_tF",
                 "moduleName": "AdswizzSDK",
                 "objc_name": "withAnalyticsCustomData:",
+                "declAttributes": [
+                  "AccessControl",
+                  "ObjC",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "with",
+                "printedName": "with(adMacroProvider:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "AdswizzSDK.AdswizzAdRequest.Builder",
+                    "usr": "s:10AdswizzSDK0A9AdRequestC7BuilderC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AdswizzSDK.AdMacroProvider)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AdMacroProvider",
+                        "printedName": "any AdswizzSDK.AdMacroProvider",
+                        "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:10AdswizzSDK0A9AdRequestC7BuilderC4with15adMacroProviderAeA0chI0_pSg_tF",
+                "mangledName": "$s10AdswizzSDK0A9AdRequestC7BuilderC4with15adMacroProviderAeA0chI0_pSg_tF",
+                "moduleName": "AdswizzSDK",
+                "objc_name": "withAdMacroProvider:",
                 "declAttributes": [
                   "AccessControl",
                   "ObjC",
@@ -29891,7 +30290,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(analyticsCustomData:)",
+            "printedName": "init(analyticsCustomData:adMacroProvider:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -29913,15 +30312,30 @@
                 ],
                 "hasDefaultArg": true,
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AdswizzSDK.AdMacroProvider)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdMacroProvider",
+                    "printedName": "any AdswizzSDK.AdMacroProvider",
+                    "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdswizzAdRequest(im)initWithAnalyticsCustomData:",
-            "mangledName": "$s10AdswizzSDK0A9AdRequestC19analyticsCustomDataAC0A7SDKCore09AnalyticsfG0_pSg_tcfc",
+            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdswizzAdRequest(im)initWithAnalyticsCustomData:adMacroProvider:",
+            "mangledName": "$s10AdswizzSDK0A9AdRequestC19analyticsCustomData15adMacroProviderAC0A7SDKCore09AnalyticsfG0_pSg_AA0ciJ0_pSgtcfc",
             "moduleName": "AdswizzSDK",
             "overriding": true,
             "implicit": true,
-            "objc_name": "initWithAnalyticsCustomData:",
+            "objc_name": "initWithAnalyticsCustomData:adMacroProvider:",
             "declAttributes": [
               "ObjC",
               "Override"
@@ -40443,6 +40857,74 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "adMacroProvider",
+            "printedName": "adMacroProvider",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AdswizzSDK.AdMacroProvider)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdMacroProvider",
+                    "printedName": "any AdswizzSDK.AdMacroProvider",
+                    "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdRequest(py)adMacroProvider",
+            "mangledName": "$s10AdswizzSDK9AdRequestC15adMacroProviderAA0cfG0_pSgvp",
+            "moduleName": "AdswizzSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "SetterAccess",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AdswizzSDK.AdMacroProvider)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AdMacroProvider",
+                        "printedName": "any AdswizzSDK.AdMacroProvider",
+                        "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdRequest(im)adMacroProvider",
+                "mangledName": "$s10AdswizzSDK9AdRequestC15adMacroProviderAA0cfG0_pSgvg",
+                "moduleName": "AdswizzSDK",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -40472,7 +40954,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(analyticsCustomData:)",
+            "printedName": "init(analyticsCustomData:adMacroProvider:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -40494,13 +40976,28 @@
                 ],
                 "hasDefaultArg": true,
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AdswizzSDK.AdMacroProvider)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdMacroProvider",
+                    "printedName": "any AdswizzSDK.AdMacroProvider",
+                    "usr": "c:@M@AdswizzSDK@objc(pl)AASDKAdMacroProvider"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdRequest(im)initWithAnalyticsCustomData:",
-            "mangledName": "$s10AdswizzSDK9AdRequestC19analyticsCustomDataAC0A7SDKCore09AnalyticsfG0_pSg_tcfc",
+            "usr": "c:@M@AdswizzSDK@objc(cs)AASDKAdRequest(im)initWithAnalyticsCustomData:adMacroProvider:",
+            "mangledName": "$s10AdswizzSDK9AdRequestC19analyticsCustomData15adMacroProviderAC0A7SDKCore09AnalyticsfG0_pSg_AA0ciJ0_pSgtcfc",
             "moduleName": "AdswizzSDK",
-            "objc_name": "initWithAnalyticsCustomData:",
+            "objc_name": "initWithAnalyticsCustomData:adMacroProvider:",
             "declAttributes": [
               "AccessControl",
               "ObjC",
@@ -52756,49 +53253,49 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 11964,
+      "offset": 13096,
       "length": 14,
       "value": "\"backgrounded\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 12045,
+      "offset": 13177,
       "length": 14,
       "value": "\"foregrounded\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 12149,
+      "offset": 13281,
       "length": 8,
       "value": "\"normal\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 12221,
+      "offset": 13353,
       "length": 11,
       "value": "\"collapsed\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 12295,
+      "offset": 13427,
       "length": 10,
       "value": "\"expanded\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 12370,
+      "offset": 13502,
       "length": 12,
       "value": "\"fullscreen\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/VastMacro+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 12446,
+      "offset": 13578,
       "length": 11,
       "value": "\"minimized\""
     },
@@ -53715,14 +54212,14 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Modules\/Internal\/AdCompanion\/AdCompanionView.swift",
       "kind": "IntegerLiteral",
-      "offset": 18789,
+      "offset": 19186,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Modules\/Internal\/AdCompanion\/AdCompanionView.swift",
       "kind": "IntegerLiteral",
-      "offset": 19114,
+      "offset": 19511,
       "length": 6,
       "value": "999999"
     },
@@ -54436,28 +54933,28 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/CreativeCycle.swift",
       "kind": "BooleanLiteral",
-      "offset": 8610,
+      "offset": 8579,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/CreativeCycle.swift",
       "kind": "IntegerLiteral",
-      "offset": 10739,
+      "offset": 10708,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/CreativeCycle.swift",
       "kind": "IntegerLiteral",
-      "offset": 10837,
+      "offset": 10806,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/CreativeCycle.swift",
       "kind": "IntegerLiteral",
-      "offset": 14555,
+      "offset": 14594,
       "length": 1,
       "value": "0"
     },
@@ -54779,7 +55276,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdManager\/AdManagerImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 42392,
+      "offset": 42520,
       "length": 5,
       "value": "false"
     },
@@ -60610,7 +61107,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/AdsFetcher\/Public\/AdRequestConnection.swift",
       "kind": "Array",
-      "offset": 9440,
+      "offset": 9500,
       "length": 49,
       "value": "[\"adswizz.com\", \"pandora.com\", \"savagebeast.com\"]"
     },
@@ -64586,21 +65083,21 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Request\/AdswizzAdRequest.swift",
       "kind": "IntegerLiteral",
-      "offset": 1656,
+      "offset": 1866,
       "length": 3,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Request\/AdswizzAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 2893,
+      "offset": 3196,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Request\/AdswizzAdRequest.swift",
       "kind": "StringLiteral",
-      "offset": 14684,
+      "offset": 16546,
       "length": 3,
       "value": "\",\""
     },
@@ -64769,15 +65266,15 @@
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/MacroFormatter.swift",
       "kind": "StringLiteral",
       "offset": 298,
-      "length": 5,
-      "value": "\";,:\""
+      "length": 6,
+      "value": "\";,:&\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/Protocols\/Public\/Modules\/SDKVersionSource.swift",
       "kind": "StringLiteral",
       "offset": 258,
       "length": 8,
-      "value": "\"7.13.5\""
+      "value": "\"7.13.6\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Podcast\/RemoteAudioData\/RADEventRequestBuilder.swift",
