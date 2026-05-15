@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.14.0] - 2026-05-15
+### Fixed
+- `AdManager` pre-caching:
+    - Fixed a playback failure (`AVFoundationErrorDomain Code=-11828 "Cannot Open"`) during ad asset pre-caching caused by setting the content type on `AVAssetResourceLoadingContentInformationRequest` as a raw MIME type string (e.g. `video/mp4`) instead of the required UTI (e.g. `public.mpeg-4`)
+    - During progressive download, byte-range access is now only signalled once the asset is fully cached, preventing `AVFoundation` from issuing unsatisfiable seek requests on non-faststart MP4 files
+
 ## [7.13.6] - 2026-05-04
 ### Added
 - VAST macros:

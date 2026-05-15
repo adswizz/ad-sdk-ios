@@ -16,6 +16,7 @@ import CoreLocation
 import DeveloperToolsSupport
 import Dispatch
 import Foundation
+import MobileCoreServices
 import Network
 import Swift
 import SwiftUI

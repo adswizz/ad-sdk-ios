@@ -21,6 +21,7 @@ import Dispatch
 import EventKitUI
 import Foundation
 import MessageUI
+import MobileCoreServices
 import Network
 import Speech
 import Swift
