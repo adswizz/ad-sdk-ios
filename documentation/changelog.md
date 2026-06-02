@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.14.1] - 2026-06-02
+### Added
+- `VastExtension`/`VastCreativeExtension`:
+    - New public class in **_VastExtension_** and **_VastCreativeExtension_**:
+        - `XMLContent` conveniently parses and exposes the XML structure from `xmlString` property
+
+### Changed
+- VAST Parser:
+    - Reworked the internal VAST parsing engine to use the native `XMLParser` for improved performance and reduced memory footprint
+- `AdswizzShimZone`:
+    - Removed `with(maxDeadAir: TimeInterval)` method from **_AdswizzShimZone.Builder_**
+    - New public method in **_AdswizzShimZone.Builder_**:
+        - `with(minExtraDuration: TimeInterval)` replaces `with(maxDeadAir: TimeInterval)` for setting the minimum extra duration on a shim zone
+
+### Fixed
+- Interactive ads:
+    - Fixed the `started` VAST event being lost after a background-to-foreground transition when an ad has stopped playing in background
+    - Fixed `shakeTimeOffset` query parameter not being populated for the shake `detected` tracking event
+
 ## [7.14.0] - 2026-05-15
 ### Fixed
 - `AdManager` pre-caching:

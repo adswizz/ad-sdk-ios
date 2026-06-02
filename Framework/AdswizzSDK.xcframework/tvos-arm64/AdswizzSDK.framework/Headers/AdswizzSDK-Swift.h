@@ -2007,16 +2007,16 @@ SWIFT_CLASS_NAMED("Builder")
 /// returns:
 /// the same builder object
 - (AASDKAdswizzShimZoneBuilder * _Nonnull)withZoneAlias:(NSString * _Nonnull)zoneAlias SWIFT_WARN_UNUSED_RESULT;
-/// Set the acceptable duration for “dead air” to fulfill the duration requirement. Optional.
+/// Set the acceptable minimum duration so that the AdServer fulfills the duration requirement. Optional.
 /// This parameter specifies if the Adswizz AdServer should continue the selection for the “shims” ads, depending on the remaining duration.
 /// e.g situations where the total duration of returned ads is (almost) filled with ads from the other non-shims zones so the “shim” ad(s) become(s) unnecessary and some “dead air” is acceptable.
 /// Measured in seconds and only accepts non-zero and positive values.
-/// \param maxDeadAir tolerance amount in seconds towards the duration fulfilment
+/// \param minExtraDuration tolerance amount in seconds towards the duration fulfilment
 ///
 ///
 /// returns:
 /// the same builder object
-- (AASDKAdswizzShimZoneBuilder * _Nonnull)withMaxDeadAir:(NSTimeInterval)maxDeadAir SWIFT_WARN_UNUSED_RESULT;
+- (AASDKAdswizzShimZoneBuilder * _Nonnull)withMinExtraDuration:(NSTimeInterval)minExtraDuration SWIFT_WARN_UNUSED_RESULT;
 /// Builds an <code>AdswizzShimZone</code> object.
 ///
 /// throws:
