@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.14.2] - 2026-06-17
+### Changed
+- Data Collector:
+    - Improved `IN_CAR` segment detection by introducing a `CarPlayMonitor` that tracks CarPlay screen connection state via `UIScreen` notifications, replacing the previous check based on `UIDevice.userInterfaceIdiom`
+
+### Fixed
+- VAST Parser:
+    - Fixed a stack overflow crash when parsing VAST documents with deeply nested XML elements by enforcing a 256-level nesting depth limit in `XMLTreeBuilder`
+
 ## [7.14.1] - 2026-06-02
 ### Added
 - `VastExtension`/`VastCreativeExtension`:

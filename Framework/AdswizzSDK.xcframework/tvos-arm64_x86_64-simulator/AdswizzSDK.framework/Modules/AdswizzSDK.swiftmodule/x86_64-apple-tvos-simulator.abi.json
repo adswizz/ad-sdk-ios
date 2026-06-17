@@ -18793,6 +18793,30 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "AdswizzSDKCore",
+        "printedName": "AdswizzSDKCore",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -56161,6 +56185,13 @@
       "value": "\"headerFields\""
     },
     {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/CarPlayMonitor.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2025,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/submodules\/mercury-analytic-plugin-ios\/MercuryAnalytics-Plugin\/MercuryAnalytics-Plugin\/MercuryProtocols\/eventsApple.pb.swift",
       "kind": "Dictionary",
       "offset": 1036,
@@ -59026,7 +59057,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/Polling\/CollectorData+Polling.swift",
       "kind": "StringLiteral",
-      "offset": 12052,
+      "offset": 12244,
       "length": 14,
       "value": "\"headerFields\""
     },
@@ -59420,7 +59451,7 @@
       "kind": "StringLiteral",
       "offset": 258,
       "length": 8,
-      "value": "\"7.14.1\""
+      "value": "\"7.14.2\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Podcast\/RemoteAudioData\/RADEventRequestBuilder.swift",
@@ -61682,6 +61713,13 @@
       "offset": 919,
       "length": 1,
       "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device+Internal.swift",
+      "kind": "BooleanLiteral",
+      "offset": 631,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Request\/CollectorHTTPHeader.swift",
@@ -65200,14 +65238,28 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/XML+Parsing.swift",
       "kind": "Array",
-      "offset": 1798,
+      "offset": 1925,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/XML+Parsing.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5900,
+      "length": 3,
+      "value": "256"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/XML+Parsing.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5977,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDK\/AdswizzSDK\/.gen\/AdswizzSDK\/XML+Parsing.swift",
       "kind": "Dictionary",
-      "offset": 6991,
+      "offset": 7498,
       "length": 3,
       "value": "[]"
     },

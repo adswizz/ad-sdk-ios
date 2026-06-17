@@ -86,11 +86,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Cu7jkx9dTqxkOAahtrmvP4wPYBk=
+		WtaQT/w5BP5weF+n2jSKXByD+MM=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		Czqn2/CDP/xeOrXgnsGi8tzF1xo=
+		8TlKmSdvmWipn5qITP5O/dQR6l0=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -106,11 +106,11 @@
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		wYjPTb+9iFhPxMMStshdmTQpc2E=
+		tO5PJNLyU0leUmtZ/qqpLYqKGks=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		Czqn2/CDP/xeOrXgnsGi8tzF1xo=
+		8TlKmSdvmWipn5qITP5O/dQR6l0=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -126,7 +126,7 @@
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		8JeNksKTJUu3/JgkCUj3oGnX0Sc=
+		5/TVBHE8fh5XM0xUGnlN8pWfa90=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -303,7 +303,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SCyjNzJR2hDQ+ohHjKf9mcbWyaH1PGoyf9Q3N8+4L0s=
+			0LE9/ttfj7o4Xug9K64GiayZ2p0u8sxAj6WaDErdTp0=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
@@ -331,14 +331,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tgA50ULUUZOOvzTuGMsyaFTujY0RLUET99y8AcjIZK0=
+			jSKGGqa7SDLSRzePMOgqCcf40+tnWFpWmf+gz3uhLOg=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SCyjNzJR2hDQ+ohHjKf9mcbWyaH1PGoyf9Q3N8+4L0s=
+			0LE9/ttfj7o4Xug9K64GiayZ2p0u8sxAj6WaDErdTp0=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
@@ -366,7 +366,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TRBHgt//oqxMwtM0O7ZFqvpa3taD0iqFtx86n/N6OzA=
+			hHG517k9WLk8srFtTT3DOApm2+LSZcrGpsydgUYWYh0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
