@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.14.3] - 2026-08-20
+### Fixed
+- Data Collector:
+    - Fixed the `connected` flag inside the `wifi` object always being reported as `false` on iOS 26 by deriving Wi-Fi connectivity from network reachability instead of SSID availability
+    - Reworked Wi-Fi SSID reading to use `NEHotspotNetwork` on iOS 14+
+
 ## [7.14.2] - 2026-06-17
 ### Changed
 - Data Collector:

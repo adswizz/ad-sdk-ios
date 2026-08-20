@@ -46478,56 +46478,56 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 7608,
+      "offset": 7728,
       "length": 7,
       "value": "\"level\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 7654,
+      "offset": 7774,
       "length": 13,
       "value": "\"jackPlugged\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 8571,
+      "offset": 8691,
       "length": 6,
       "value": "\"lang\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 8606,
+      "offset": 8726,
       "length": 5,
       "value": "\"gmt\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 8652,
+      "offset": 8772,
       "length": 11,
       "value": "\"dstOffset\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 11576,
+      "offset": 11696,
       "length": 10,
       "value": "\"bundleId\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 11613,
+      "offset": 11733,
       "length": 15,
       "value": "\"bundleVersion\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 11655,
+      "offset": 11775,
       "length": 8,
       "value": "\"device\""
     },
@@ -59057,7 +59057,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/Polling\/CollectorData+Polling.swift",
       "kind": "StringLiteral",
-      "offset": 12244,
+      "offset": 12314,
       "length": 14,
       "value": "\"headerFields\""
     },
@@ -59451,7 +59451,7 @@
       "kind": "StringLiteral",
       "offset": 258,
       "length": 8,
-      "value": "\"7.14.2\""
+      "value": "\"7.14.3\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Podcast\/RemoteAudioData\/RADEventRequestBuilder.swift",
@@ -61717,7 +61717,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device+Internal.swift",
       "kind": "BooleanLiteral",
-      "offset": 631,
+      "offset": 655,
       "length": 5,
       "value": "false"
     },

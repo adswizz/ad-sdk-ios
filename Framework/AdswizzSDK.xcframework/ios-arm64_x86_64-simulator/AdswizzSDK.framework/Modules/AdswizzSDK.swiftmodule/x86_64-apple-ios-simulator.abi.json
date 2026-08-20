@@ -35955,6 +35955,13 @@
       },
       {
         "kind": "Import",
+        "name": "NetworkExtension",
+        "printedName": "NetworkExtension",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDK"
+      },
+      {
+        "kind": "Import",
         "name": "CoreTelephony.CTTelephonyNetworkInfo",
         "printedName": "CoreTelephony.CTTelephonyNetworkInfo",
         "declKind": "Import",
@@ -49488,84 +49495,84 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 5561,
+      "offset": 5575,
       "length": 8,
       "value": "\"status\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 5600,
+      "offset": 5614,
       "length": 10,
       "value": "\"charging\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 6509,
+      "offset": 6523,
       "length": 11,
       "value": "\"connected\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 7608,
+      "offset": 7728,
       "length": 7,
       "value": "\"level\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 7654,
+      "offset": 7774,
       "length": 13,
       "value": "\"jackPlugged\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 8571,
+      "offset": 8691,
       "length": 6,
       "value": "\"lang\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 8606,
+      "offset": 8726,
       "length": 5,
       "value": "\"gmt\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 8652,
+      "offset": 8772,
       "length": 11,
       "value": "\"dstOffset\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 10225,
+      "offset": 10345,
       "length": 14,
       "value": "\"operatorCode\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 11576,
+      "offset": 11696,
       "length": 10,
       "value": "\"bundleId\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 11613,
+      "offset": 11733,
       "length": 15,
       "value": "\"bundleVersion\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device.swift",
       "kind": "StringLiteral",
-      "offset": 11655,
+      "offset": 11775,
       "length": 8,
       "value": "\"device\""
     },
@@ -62319,7 +62326,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/Polling\/CollectorData+Polling.swift",
       "kind": "StringLiteral",
-      "offset": 12244,
+      "offset": 12314,
       "length": 14,
       "value": "\"headerFields\""
     },
@@ -62713,7 +62720,7 @@
       "kind": "StringLiteral",
       "offset": 258,
       "length": 8,
-      "value": "\"7.14.2\""
+      "value": "\"7.14.3\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",
@@ -65091,7 +65098,7 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzDataCollector\/AdswizzDataCollector\/DataCollector\/Collector\/OS specific\/Device+Internal.swift",
       "kind": "BooleanLiteral",
-      "offset": 631,
+      "offset": 655,
       "length": 5,
       "value": "false"
     },
