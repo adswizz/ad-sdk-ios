@@ -2,6 +2,8 @@
 
 Out of the box, the AdswizzSDK is configured to play the ad media using its internal player. This behavior also extends to playing streams or podcasts.
 
+> Since **_AdswizzSDK_** `v8.0.0`, **_MediaPlayerState_** is `@MainActor` isolated and refines `Sendable`. Annotate your player type `@MainActor` — which is where the SDK already expected to read its state from — and keep updating that state on the main thread. The sample types below are annotated accordingly. See the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md).
+
 ## Client side setup
 
 In a [Client-Side Insertion](/iOS/SDKiOS/ClientSideInsertion) scenario, if you prefer playing the ads with your own player, you must configure the **_AdManager_** object received after an **_AdConnectionRequest_** with a new **_AdManagerSettings_** object. Here you can provide the player, which must conform to the **_MediaPlayerState_** protocol. Through this protocol, the AdswizzSDK uses the KVO pattern to detect changes in your player. You can also check the [AdManager life cycle](/iOS/SDKiOS/ClientSideInsertion#admanager-life-cycle) diagram (right one) to see what is expected from your player, so that the **_AdManger_** can function properly.
@@ -9,6 +11,7 @@ In a [Client-Side Insertion](/iOS/SDKiOS/ClientSideInsertion) scenario, if you p
 Here is how you set up your own player:
 
 ```swift
+@MainActor
 class YourModelClass {
     var yourPlayer: YourPlayer
 
@@ -51,6 +54,7 @@ In a [Server-Side Insertion](/iOS/SDKiOS/ServerSideInsertion) scenario, if you p
 Here is what it could look like in your code:
 
 ```swift
+@MainActor
 class YourModelClass {
     var streamManager: AdswizzAdStreamManager?
 
@@ -77,7 +81,7 @@ class YourModelClass {
     ...
 }
 
-extension YourModelClass: AdStreamManagerDelegate
+extension YourModelClass: @MainActor AdStreamManagerDelegate
     ......
 
     func adStreamManager(_ adstreamManager: AdStreamManager, adBreakStarted manager: AdManager) {
@@ -102,6 +106,7 @@ Unlike playing live streams in a [Server-Side Insertion](/iOS/SDKiOS/ServerSideI
 Here is what it could look like in your code:
 
 ```swift
+@MainActor
 class YourModelClass {
     var podcastManager: AdswizzAdPodcastManager?
 
@@ -198,6 +203,7 @@ Assuming your player is a direct subclass or a wrapper for **_AVPlayer_**, here 
 
 ```swift
 
+@MainActor
 class YourPlayer: NSObject, MediaPlayerState {
 
     private var player: AVPlayer?
@@ -211,8 +217,9 @@ class YourPlayer: NSObject, MediaPlayerState {
         ...
 
         let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-        timeObserverToken = player?.addPeriodicTimeObserver(forInterval: interval, queue: nil, using: { [weak self] time in
-            self?.updatePlayhead(time)
+        timeObserverToken = player?.addPeriodicTimeObserver(forInterval: interval, queue: .main, using: { [weak self] time in
+            // The observer block is `@Sendable`, so hop to the main actor before touching the player's state.
+            Task { @MainActor in self?.updatePlayhead(time) }
         })
     }
 

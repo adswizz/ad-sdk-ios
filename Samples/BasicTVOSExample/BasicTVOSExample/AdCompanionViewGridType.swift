@@ -1,5 +1,5 @@
 //
-//  Untitled.swift
+//  AdCompanionViewGridType.swift
 //  BasicTVOSExample
 //
 //  Created by George Mihoc on 11.03.2025.

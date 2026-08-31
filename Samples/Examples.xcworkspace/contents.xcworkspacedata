@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:AdswizzExamplesCommon/AdswizzExamplesCommon.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:AdvancedPodcastExample/AdvancedPodcastExample.xcodeproj">
    </FileRef>
    <FileRef
@@ -38,7 +41,7 @@
       location = "group:BasicDVRRequestExample/BasicDVRRequestExample.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:BasicSwiftUIClientSideInsertion/BasicSwiftUIClientSideInsertion.xcodeproj">
+      location = "group:BasicUIKitClientSideInsertion/BasicUIKitClientSideInsertion.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:BasicPodcastExample/BasicPodcastExample.xcodeproj">
@@ -48,5 +51,8 @@
    </FileRef>
    <FileRef
       location = "group:AdvancedHLSInterstitialExample/AdvancedHLSInterstitialExample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

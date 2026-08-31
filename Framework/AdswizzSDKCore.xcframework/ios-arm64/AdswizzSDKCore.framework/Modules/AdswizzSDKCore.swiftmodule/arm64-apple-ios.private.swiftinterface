@@ -1,7 +1,8 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
-// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdswizzSDKCore
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
+// swift-compiler-version: Apple Swift version 6.3.1 effective-5.10 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdswizzSDKCore
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.1
+import CoreLocation
 import Foundation
 import Swift
 import _Concurrency
@@ -17,9 +18,7 @@ import _SwiftConcurrencyShims
     case info
     case error
     case none
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
-    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -32,14 +31,12 @@ import _SwiftConcurrencyShims
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AASDKAnalytics) final public class AASDKAnalytics : ObjectiveC.NSObject {
-  @objc(AASDKAnalyticsCategory) public enum Level : Swift.Int, Swift.Codable, Swift.Comparable {
+  @objc(AASDKAnalyticsCategory) public enum Level : Swift.Int, Swift.Codable, Swift.Comparable, Swift.Sendable {
     case none
     case error
     case info
     public static func < (a: AdswizzSDKCore.AASDKAnalytics.Level, b: AdswizzSDKCore.AASDKAnalytics.Level) -> Swift.Bool
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
-    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -48,31 +45,33 @@ import _SwiftConcurrencyShims
   @objc override dynamic public init()
   @objc deinit
 }
-@objc(AASDKAnalyticsEvent) public protocol AnalyticsEvent {
-  @objc var id: Swift.String { get }
-  @objc var category: Swift.String { get }
-  @objc var level: AdswizzSDKCore.AASDKAnalytics.Level { get }
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc var params: [Swift.String : Any]? { get }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc var customParams: [Swift.String : Any]? { get }
-  #endif
+public protocol AnalyticsEvent : Swift.Sendable {
+  var id: Swift.String { get }
+  var category: Swift.String { get }
+  var level: AdswizzSDKCore.AASDKAnalytics.Level { get }
+  var params: [Swift.String : any Swift.Sendable]? { get }
+  var customParams: [Swift.String : any Swift.Sendable]? { get }
 }
-@objc(AASDKAnalyticsCustomData) public protocol AnalyticsCustomData {
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc var params: [Swift.String : Any]? { get }
-  #endif
+@_Concurrency.MainActor @objc(AASDKAnalyticsCustomData) public protocol AnalyticsCustomData {
+  @objc @_Concurrency.MainActor var params: [Swift.String : Any]? { get }
 }
-@objc(AASDKAnalyticsCollecting) public protocol AnalyticsCollecting {
-  @objc func log(_ event: any AdswizzSDKCore.AnalyticsEvent, _ timestamp: Foundation.Date)
-  @objc func send(forced: Swift.Bool)
+extension AdswizzSDKCore.AnalyticsCustomData {
+  @_Concurrency.MainActor public var sendableParams: [Swift.String : any Swift.Sendable]? {
+    get
+  }
 }
-@objc(AASDKAnalyticsCollector) public protocol AnalyticsCollector {
-  @objc func add(_ connector: any AdswizzSDKCore.AnalyticsConnector)
-  @objc func remove(_ connector: any AdswizzSDKCore.AnalyticsConnector)
+public protocol AnalyticsCollecting : AnyObject, Swift.Sendable {
+  func log(_ event: any AdswizzSDKCore.AnalyticsEvent, _ timestamp: Foundation.Date)
+  func send(forced: Swift.Bool)
 }
-@objc(AASDKAnalyticsConnector) public protocol AnalyticsConnector : AdswizzSDKCore.AnalyticsCollecting {
+@_Concurrency.MainActor public protocol AnalyticsCollector {
+  @_Concurrency.MainActor func add(_ connector: any AdswizzSDKCore.AnalyticsConnector)
+  @_Concurrency.MainActor func remove(_ connector: any AdswizzSDKCore.AnalyticsConnector)
+}
+public protocol AnalyticsConnector : AdswizzSDKCore.AnalyticsCollecting {
+}
+public protocol AdswizzAnalyticsConfigurable : AnyObject {
+  @_Concurrency.MainActor func applyAnalyticsConfiguration(enabled: Swift.Bool, canLog: @escaping @Sendable (any AdswizzSDKCore.AnalyticsEvent) -> Swift.Bool, isLocationEnabled: @escaping @_Concurrency.MainActor @Sendable () -> Swift.Bool, lastLocation: @escaping @_Concurrency.MainActor @Sendable () -> _LocationEssentials.CLLocation?, placemarks: @escaping @_Concurrency.MainActor @Sendable () -> [CoreLocation.CLPlacemark]?)
 }
 extension AdswizzSDKCore.AdLogger.Level : Swift.Equatable {}
 extension AdswizzSDKCore.AdLogger.Level : Swift.Hashable {}

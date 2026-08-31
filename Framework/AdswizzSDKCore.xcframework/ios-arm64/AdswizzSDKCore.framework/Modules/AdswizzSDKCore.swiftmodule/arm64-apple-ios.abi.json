@@ -427,17 +427,17 @@
               },
               {
                 "kind": "Conformance",
-                "name": "Escapable",
-                "printedName": "Escapable",
-                "usr": "s:s9EscapableP",
-                "mangledName": "$ss9EscapableP"
-              },
-              {
-                "kind": "Conformance",
                 "name": "Equatable",
                 "printedName": "Equatable",
                 "usr": "s:SQ",
                 "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
               },
               {
                 "kind": "Conformance",
@@ -770,38 +770,10 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
           },
           {
             "kind": "Conformance",
@@ -812,10 +784,24 @@
           },
           {
             "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
           },
           {
             "kind": "Conformance",
@@ -826,10 +812,24 @@
           },
           {
             "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
           }
         ]
       },
@@ -842,6 +842,13 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "AdswizzSDKCore"
       },
       {
         "kind": "TypeDecl",
@@ -1115,13 +1122,6 @@
               },
               {
                 "kind": "Conformance",
-                "name": "Equatable",
-                "printedName": "Equatable",
-                "usr": "s:SQ",
-                "mangledName": "$sSQ"
-              },
-              {
-                "kind": "Conformance",
                 "name": "Hashable",
                 "printedName": "Hashable",
                 "usr": "s:SH",
@@ -1169,6 +1169,27 @@
                 "printedName": "Comparable",
                 "usr": "s:SL",
                 "mangledName": "$sSL"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
               }
             ]
           },
@@ -1218,38 +1239,10 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
           },
           {
             "kind": "Conformance",
@@ -1260,10 +1253,24 @@
           },
           {
             "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
           },
           {
             "kind": "Conformance",
@@ -1274,10 +1281,24 @@
           },
           {
             "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
           }
         ]
       },
@@ -1299,13 +1320,12 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent(py)id",
+            "usr": "s:14AdswizzSDKCore14AnalyticsEventP2idSSvp",
             "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP2idSSvp",
             "moduleName": "AdswizzSDKCore",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
-              "ObjC"
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -1321,15 +1341,12 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent(im)id",
+                "usr": "s:14AdswizzSDKCore14AnalyticsEventP2idSSvg",
                 "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP2idSSvg",
                 "moduleName": "AdswizzSDKCore",
                 "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKCore.AnalyticsEvent>",
                 "sugared_genericSig": "<Self where Self : AdswizzSDKCore.AnalyticsEvent>",
                 "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
               }
@@ -1348,13 +1365,12 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent(py)category",
+            "usr": "s:14AdswizzSDKCore14AnalyticsEventP8categorySSvp",
             "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP8categorySSvp",
             "moduleName": "AdswizzSDKCore",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
-              "ObjC"
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -1370,15 +1386,12 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent(im)category",
+                "usr": "s:14AdswizzSDKCore14AnalyticsEventP8categorySSvg",
                 "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP8categorySSvg",
                 "moduleName": "AdswizzSDKCore",
                 "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKCore.AnalyticsEvent>",
                 "sugared_genericSig": "<Self where Self : AdswizzSDKCore.AnalyticsEvent>",
                 "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
               }
@@ -1397,13 +1410,12 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent(py)level",
+            "usr": "s:14AdswizzSDKCore14AnalyticsEventP5levelAA14AASDKAnalyticsC5LevelOvp",
             "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP5levelAA14AASDKAnalyticsC5LevelOvp",
             "moduleName": "AdswizzSDKCore",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
-              "ObjC"
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -1419,15 +1431,12 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent(im)level",
+                "usr": "s:14AdswizzSDKCore14AnalyticsEventP5levelAA14AASDKAnalyticsC5LevelOvg",
                 "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP5levelAA14AASDKAnalyticsC5LevelOvg",
                 "moduleName": "AdswizzSDKCore",
                 "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKCore.AnalyticsEvent>",
                 "sugared_genericSig": "<Self where Self : AdswizzSDKCore.AnalyticsEvent>",
                 "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
               }
@@ -1441,12 +1450,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String : Any]?",
+                "printedName": "[Swift.String : any Swift.Sendable]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Dictionary",
-                    "printedName": "[Swift.String : Any]",
+                    "printedName": "[Swift.String : any Swift.Sendable]",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -1456,8 +1465,9 @@
                       },
                       {
                         "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "Any"
+                        "name": "Sendable",
+                        "printedName": "any Swift.Sendable",
+                        "usr": "s:s8SendableP"
                       }
                     ],
                     "usr": "s:SD"
@@ -1467,13 +1477,12 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent(py)params",
-            "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP6paramsSDySSypGSgvp",
+            "usr": "s:14AdswizzSDKCore14AnalyticsEventP6paramsSDySSs8Sendable_pGSgvp",
+            "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP6paramsSDySSs8Sendable_pGSgvp",
             "moduleName": "AdswizzSDKCore",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
-              "ObjC"
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -1484,12 +1493,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[Swift.String : Any]?",
+                    "printedName": "[Swift.String : any Swift.Sendable]?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Dictionary",
-                        "printedName": "[Swift.String : Any]",
+                        "printedName": "[Swift.String : any Swift.Sendable]",
                         "children": [
                           {
                             "kind": "TypeNominal",
@@ -1499,8 +1508,9 @@
                           },
                           {
                             "kind": "TypeNominal",
-                            "name": "ProtocolComposition",
-                            "printedName": "Any"
+                            "name": "Sendable",
+                            "printedName": "any Swift.Sendable",
+                            "usr": "s:s8SendableP"
                           }
                         ],
                         "usr": "s:SD"
@@ -1510,15 +1520,12 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent(im)params",
-                "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP6paramsSDySSypGSgvg",
+                "usr": "s:14AdswizzSDKCore14AnalyticsEventP6paramsSDySSs8Sendable_pGSgvg",
+                "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP6paramsSDySSs8Sendable_pGSgvg",
                 "moduleName": "AdswizzSDKCore",
                 "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKCore.AnalyticsEvent>",
                 "sugared_genericSig": "<Self where Self : AdswizzSDKCore.AnalyticsEvent>",
                 "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
               }
@@ -1532,12 +1539,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String : Any]?",
+                "printedName": "[Swift.String : any Swift.Sendable]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Dictionary",
-                    "printedName": "[Swift.String : Any]",
+                    "printedName": "[Swift.String : any Swift.Sendable]",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -1547,8 +1554,9 @@
                       },
                       {
                         "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "Any"
+                        "name": "Sendable",
+                        "printedName": "any Swift.Sendable",
+                        "usr": "s:s8SendableP"
                       }
                     ],
                     "usr": "s:SD"
@@ -1558,13 +1566,12 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent(py)customParams",
-            "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP12customParamsSDySSypGSgvp",
+            "usr": "s:14AdswizzSDKCore14AnalyticsEventP12customParamsSDySSs8Sendable_pGSgvp",
+            "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP12customParamsSDySSs8Sendable_pGSgvp",
             "moduleName": "AdswizzSDKCore",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
-              "ObjC"
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -1575,12 +1582,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[Swift.String : Any]?",
+                    "printedName": "[Swift.String : any Swift.Sendable]?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Dictionary",
-                        "printedName": "[Swift.String : Any]",
+                        "printedName": "[Swift.String : any Swift.Sendable]",
                         "children": [
                           {
                             "kind": "TypeNominal",
@@ -1590,8 +1597,9 @@
                           },
                           {
                             "kind": "TypeNominal",
-                            "name": "ProtocolComposition",
-                            "printedName": "Any"
+                            "name": "Sendable",
+                            "printedName": "any Swift.Sendable",
+                            "usr": "s:s8SendableP"
                           }
                         ],
                         "usr": "s:SD"
@@ -1601,15 +1609,12 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent(im)customParams",
-                "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP12customParamsSDySSypGSgvg",
+                "usr": "s:14AdswizzSDKCore14AnalyticsEventP12customParamsSDySSs8Sendable_pGSgvg",
+                "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP12customParamsSDySSs8Sendable_pGSgvg",
                 "moduleName": "AdswizzSDKCore",
                 "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKCore.AnalyticsEvent>",
                 "sugared_genericSig": "<Self where Self : AdswizzSDKCore.AnalyticsEvent>",
                 "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
               }
@@ -1617,15 +1622,13 @@
           }
         ],
         "declKind": "Protocol",
-        "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent",
+        "usr": "s:14AdswizzSDKCore14AnalyticsEventP",
         "mangledName": "$s14AdswizzSDKCore14AnalyticsEventP",
         "moduleName": "AdswizzSDKCore",
-        "genericSig": "<τ_0_0 : AnyObject>",
-        "sugared_genericSig": "<Self : AnyObject>",
-        "objc_name": "AASDKAnalyticsEvent",
+        "genericSig": "<τ_0_0 : Swift.Sendable>",
+        "sugared_genericSig": "<Self : Swift.Sendable>",
         "declAttributes": [
           "AccessControl",
-          "ObjC",
           "RawDocComment"
         ],
         "conformances": [
@@ -1642,6 +1645,20 @@
             "printedName": "Copyable",
             "usr": "s:s8CopyableP",
             "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -1689,6 +1706,7 @@
             "moduleName": "AdswizzSDKCore",
             "protocolReq": true,
             "declAttributes": [
+              "Custom",
               "RawDocComment",
               "ObjC"
             ],
@@ -1740,6 +1758,96 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "sendableParams",
+            "printedName": "sendableParams",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : any Swift.Sendable]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : any Swift.Sendable]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Sendable",
+                        "printedName": "any Swift.Sendable",
+                        "usr": "s:s8SendableP"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14AdswizzSDKCore19AnalyticsCustomDataPAAE14sendableParamsSDySSs8Sendable_pGSgvp",
+            "mangledName": "$s14AdswizzSDKCore19AnalyticsCustomDataPAAE14sendableParamsSDySSs8Sendable_pGSgvp",
+            "moduleName": "AdswizzSDKCore",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String : any Swift.Sendable]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : any Swift.Sendable]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Sendable",
+                            "printedName": "any Swift.Sendable",
+                            "usr": "s:s8SendableP"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14AdswizzSDKCore19AnalyticsCustomDataPAAE14sendableParamsSDySSs8Sendable_pGSgvg",
+                "mangledName": "$s14AdswizzSDKCore19AnalyticsCustomDataPAAE14sendableParamsSDySSs8Sendable_pGSgvg",
+                "moduleName": "AdswizzSDKCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKCore.AnalyticsCustomData>",
+                "sugared_genericSig": "<Self where Self : AdswizzSDKCore.AnalyticsCustomData>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Protocol",
@@ -1752,6 +1860,7 @@
         "declAttributes": [
           "AccessControl",
           "ObjC",
+          "Custom",
           "RawDocComment"
         ],
         "conformances": [
@@ -1790,7 +1899,7 @@
                 "kind": "TypeNominal",
                 "name": "AnalyticsEvent",
                 "printedName": "any AdswizzSDKCore.AnalyticsEvent",
-                "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent"
+                "usr": "s:14AdswizzSDKCore14AnalyticsEventP"
               },
               {
                 "kind": "TypeNominal",
@@ -1800,15 +1909,14 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsCollecting(im)log::",
+            "usr": "s:14AdswizzSDKCore19AnalyticsCollectingP3logyyAA0C5Event_p_10Foundation4DateVtF",
             "mangledName": "$s14AdswizzSDKCore19AnalyticsCollectingP3logyyAA0C5Event_p_10Foundation4DateVtF",
             "moduleName": "AdswizzSDKCore",
             "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKCore.AnalyticsCollecting>",
             "sugared_genericSig": "<Self where Self : AdswizzSDKCore.AnalyticsCollecting>",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
-              "ObjC"
+              "RawDocComment"
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
@@ -1831,30 +1939,27 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsCollecting(im)sendWithForced:",
+            "usr": "s:14AdswizzSDKCore19AnalyticsCollectingP4send6forcedySb_tF",
             "mangledName": "$s14AdswizzSDKCore19AnalyticsCollectingP4send6forcedySb_tF",
             "moduleName": "AdswizzSDKCore",
             "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKCore.AnalyticsCollecting>",
             "sugared_genericSig": "<Self where Self : AdswizzSDKCore.AnalyticsCollecting>",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
-              "ObjC"
+              "RawDocComment"
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
-        "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsCollecting",
+        "usr": "s:14AdswizzSDKCore19AnalyticsCollectingP",
         "mangledName": "$s14AdswizzSDKCore19AnalyticsCollectingP",
         "moduleName": "AdswizzSDKCore",
-        "genericSig": "<τ_0_0 : AnyObject>",
-        "sugared_genericSig": "<Self : AnyObject>",
-        "objc_name": "AASDKAnalyticsCollecting",
+        "genericSig": "<τ_0_0 : AnyObject, τ_0_0 : Swift.Sendable>",
+        "sugared_genericSig": "<Self : AnyObject, Self : Swift.Sendable>",
         "declAttributes": [
           "AccessControl",
-          "ObjC",
           "RawDocComment"
         ],
         "conformances": [
@@ -1871,6 +1976,20 @@
             "printedName": "Copyable",
             "usr": "s:s8CopyableP",
             "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -1893,19 +2012,19 @@
                 "kind": "TypeNominal",
                 "name": "AnalyticsConnector",
                 "printedName": "any AdswizzSDKCore.AnalyticsConnector",
-                "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsConnector"
+                "usr": "s:14AdswizzSDKCore18AnalyticsConnectorP"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsCollector(im)add:",
+            "usr": "s:14AdswizzSDKCore18AnalyticsCollectorP3addyyAA0C9Connector_pF",
             "mangledName": "$s14AdswizzSDKCore18AnalyticsCollectorP3addyyAA0C9Connector_pF",
             "moduleName": "AdswizzSDKCore",
             "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKCore.AnalyticsCollector>",
             "sugared_genericSig": "<Self where Self : AdswizzSDKCore.AnalyticsCollector>",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
-              "ObjC"
+              "Custom",
+              "RawDocComment"
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
@@ -1924,34 +2043,31 @@
                 "kind": "TypeNominal",
                 "name": "AnalyticsConnector",
                 "printedName": "any AdswizzSDKCore.AnalyticsConnector",
-                "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsConnector"
+                "usr": "s:14AdswizzSDKCore18AnalyticsConnectorP"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsCollector(im)remove:",
+            "usr": "s:14AdswizzSDKCore18AnalyticsCollectorP6removeyyAA0C9Connector_pF",
             "mangledName": "$s14AdswizzSDKCore18AnalyticsCollectorP6removeyyAA0C9Connector_pF",
             "moduleName": "AdswizzSDKCore",
             "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKCore.AnalyticsCollector>",
             "sugared_genericSig": "<Self where Self : AdswizzSDKCore.AnalyticsCollector>",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
-              "ObjC"
+              "Custom",
+              "RawDocComment"
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
-        "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsCollector",
+        "usr": "s:14AdswizzSDKCore18AnalyticsCollectorP",
         "mangledName": "$s14AdswizzSDKCore18AnalyticsCollectorP",
         "moduleName": "AdswizzSDKCore",
-        "genericSig": "<τ_0_0 : AnyObject>",
-        "sugared_genericSig": "<Self : AnyObject>",
-        "objc_name": "AASDKAnalyticsCollector",
         "declAttributes": [
           "AccessControl",
-          "ObjC",
+          "Custom",
           "RawDocComment"
         ],
         "conformances": [
@@ -1976,15 +2092,13 @@
         "name": "AnalyticsConnector",
         "printedName": "AnalyticsConnector",
         "declKind": "Protocol",
-        "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsConnector",
+        "usr": "s:14AdswizzSDKCore18AnalyticsConnectorP",
         "mangledName": "$s14AdswizzSDKCore18AnalyticsConnectorP",
         "moduleName": "AdswizzSDKCore",
         "genericSig": "<τ_0_0 : AdswizzSDKCore.AnalyticsCollecting>",
         "sugared_genericSig": "<Self : AdswizzSDKCore.AnalyticsCollecting>",
-        "objc_name": "AASDKAnalyticsConnector",
         "declAttributes": [
           "AccessControl",
-          "ObjC",
           "RawDocComment"
         ],
         "conformances": [
@@ -2006,8 +2120,183 @@
             "kind": "Conformance",
             "name": "AnalyticsCollecting",
             "printedName": "AnalyticsCollecting",
-            "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsCollecting",
+            "usr": "s:14AdswizzSDKCore19AnalyticsCollectingP",
             "mangledName": "$s14AdswizzSDKCore19AnalyticsCollectingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AdswizzAnalyticsConfigurable",
+        "printedName": "AdswizzAnalyticsConfigurable",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "applyAnalyticsConfiguration",
+            "printedName": "applyAnalyticsConfiguration(enabled:canLog:isLocationEnabled:lastLocation:placemarks:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(any AdswizzSDKCore.AnalyticsEvent) -> Swift.Bool",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnalyticsEvent",
+                    "printedName": "any AdswizzSDKCore.AnalyticsEvent",
+                    "usr": "s:14AdswizzSDKCore14AnalyticsEventP"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> Swift.Bool",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> _LocationEssentials.CLLocation?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "_LocationEssentials.CLLocation?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CLLocation",
+                        "printedName": "_LocationEssentials.CLLocation",
+                        "usr": "c:objc(cs)CLLocation"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> [CoreLocation.CLPlacemark]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[CoreLocation.CLPlacemark]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[CoreLocation.CLPlacemark]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CLPlacemark",
+                            "printedName": "CoreLocation.CLPlacemark",
+                            "usr": "c:objc(cs)CLPlacemark"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14AdswizzSDKCore0A21AnalyticsConfigurableP05applyC13Configuration7enabled6canLog17isLocationEnabled04lastK010placemarksySb_SbAA0C5Event_pYbcSbyYbScMYccSo10CLLocationCSgyYbScMYccSaySo11CLPlacemarkCGSgyYbScMYcctF",
+            "mangledName": "$s14AdswizzSDKCore0A21AnalyticsConfigurableP05applyC13Configuration7enabled6canLog17isLocationEnabled04lastK010placemarksySb_SbAA0C5Event_pYbcSbyYbScMYccSo10CLLocationCSgyYbScMYccSaySo11CLPlacemarkCGSgyYbScMYcctF",
+            "moduleName": "AdswizzSDKCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdswizzSDKCore.AdswizzAnalyticsConfigurable>",
+            "sugared_genericSig": "<Self where Self : AdswizzSDKCore.AdswizzAnalyticsConfigurable>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:14AdswizzSDKCore0A21AnalyticsConfigurableP",
+        "mangledName": "$s14AdswizzSDKCore0A21AnalyticsConfigurableP",
+        "moduleName": "AdswizzSDKCore",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
           }
         ]
       }
@@ -2046,14 +2335,14 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/Public\/AnalyticsCollecting.swift",
       "kind": "IntegerLiteral",
-      "offset": 550,
+      "offset": 580,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKCore\/AdswizzSDKCore\/Public\/AnalyticsCollecting.swift",
       "kind": "IntegerLiteral",
-      "offset": 610,
+      "offset": 640,
       "length": 4,
       "value": "2"
     }

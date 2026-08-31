@@ -10,7 +10,6 @@
 		28F366472D1583FC00C077C9 /* AdvancedHLSInterstitialExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366432D1583FC00C077C9 /* AdvancedHLSInterstitialExampleApp.swift */; };
 		28F366482D1583FC00C077C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366452D1583FC00C077C9 /* ContentView.swift */; };
 		28F3664A2D1583FC00C077C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F366442D1583FC00C077C9 /* Assets.xcassets */; };
-		28F366552D15858B00C077C9 /* ExternalMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366542D15858B00C077C9 /* ExternalMediaPlayer.swift */; };
 		28F366572D1585A000C077C9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366562D15859D00C077C9 /* Model.swift */; };
 		28F366592D1585B300C077C9 /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366582D1585B000C077C9 /* MediaPlayer.swift */; };
 		28F3665B2D1585E900C077C9 /* AdRequestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F3665A2D1585E600C077C9 /* AdRequestConfig.swift */; };
@@ -18,8 +17,9 @@
 		28F3665F2D15860A00C077C9 /* InterstitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F3665E2D15860700C077C9 /* InterstitialController.swift */; };
 		28F366612D15862100C077C9 /* HLSInterstitialExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366602D15861600C077C9 /* HLSInterstitialExampleView.swift */; };
 		28F366632D15863200C077C9 /* HLSInterstitialModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366622D15862D00C077C9 /* HLSInterstitialModelView.swift */; };
-		28F366652D15866700C077C9 /* AdCompanionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366642D15866300C077C9 /* AdCompanionSwiftUIView.swift */; };
 		28F366672D1593A200C077C9 /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366662D15939F00C077C9 /* LogsView.swift */; };
+		28HLS0012D7E000000000001 /* AdswizzExamplesCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28HLS0012D7E000000000000 /* AdswizzExamplesCommon.framework */; };
+		28HLS0012D7E000000000002 /* AdswizzExamplesCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28HLS0012D7E000000000000 /* AdswizzExamplesCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +29,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				28HLS0012D7E000000000002 /* AdswizzExamplesCommon.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,7 +42,6 @@
 		28F366442D1583FC00C077C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28F366452D1583FC00C077C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		28F3664B2D1584AF00C077C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28F366542D15858B00C077C9 /* ExternalMediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExternalMediaPlayer.swift; path = ../BasicAdStreamExample/BasicAdStreamExample/ExternalMediaPlayer.swift; sourceTree = SOURCE_ROOT; };
 		28F366562D15859D00C077C9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		28F366582D1585B000C077C9 /* MediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayer.swift; sourceTree = "<group>"; };
 		28F3665A2D1585E600C077C9 /* AdRequestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdRequestConfig.swift; sourceTree = "<group>"; };
@@ -49,8 +49,8 @@
 		28F3665E2D15860700C077C9 /* InterstitialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialController.swift; sourceTree = "<group>"; };
 		28F366602D15861600C077C9 /* HLSInterstitialExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSInterstitialExampleView.swift; sourceTree = "<group>"; };
 		28F366622D15862D00C077C9 /* HLSInterstitialModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSInterstitialModelView.swift; sourceTree = "<group>"; };
-		28F366642D15866300C077C9 /* AdCompanionSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCompanionSwiftUIView.swift; sourceTree = "<group>"; };
 		28F366662D15939F00C077C9 /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
+		28HLS0012D7E000000000000 /* AdswizzExamplesCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdswizzExamplesCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,17 +58,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28HLS0012D7E000000000001 /* AdswizzExamplesCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0616C035DA4A8A0AA23DFAF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28HLS0012D7E000000000000 /* AdswizzExamplesCommon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		28F366272D1583F100C077C9 = {
 			isa = PBXGroup;
 			children = (
 				28F366462D1583FC00C077C9 /* AdvancedHLSInterstitialExample */,
 				28F366312D1583F100C077C9 /* Products */,
+				0616C035DA4A8A0AA23DFAF5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,7 +98,6 @@
 				28F366452D1583FC00C077C9 /* ContentView.swift */,
 				28F366562D15859D00C077C9 /* Model.swift */,
 				28F366582D1585B000C077C9 /* MediaPlayer.swift */,
-				28F366542D15858B00C077C9 /* ExternalMediaPlayer.swift */,
 				28F3665A2D1585E600C077C9 /* AdRequestConfig.swift */,
 				28F3665C2D1585F500C077C9 /* AdRequestScheduler.swift */,
 				28F3665E2D15860700C077C9 /* InterstitialController.swift */,
@@ -104,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				28F366662D15939F00C077C9 /* LogsView.swift */,
-				28F366642D15866300C077C9 /* AdCompanionSwiftUIView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -126,8 +134,6 @@
 			dependencies = (
 			);
 			name = AdvancedHLSInterstitialExample;
-			packageProductDependencies = (
-			);
 			productName = AdvancedHLSInterstitialExample;
 			productReference = 28F366302D1583F100C077C9 /* AdvancedHLSInterstitialExample.app */;
 			productType = "com.apple.product-type.application";
@@ -181,10 +187,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28F366652D15866700C077C9 /* AdCompanionSwiftUIView.swift in Sources */,
 				28F366672D1593A200C077C9 /* LogsView.swift in Sources */,
 				28F366472D1583FC00C077C9 /* AdvancedHLSInterstitialExampleApp.swift in Sources */,
-				28F366552D15858B00C077C9 /* ExternalMediaPlayer.swift in Sources */,
 				28F366632D15863200C077C9 /* HLSInterstitialModelView.swift in Sources */,
 				28F366482D1583FC00C077C9 /* ContentView.swift in Sources */,
 				28F366612D15862100C077C9 /* HLSInterstitialExampleView.swift in Sources */,
@@ -342,7 +346,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adswizz.AdvancedHLSInterstitialExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -371,7 +375,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adswizz.AdvancedHLSInterstitialExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

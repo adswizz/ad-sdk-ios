@@ -63,7 +63,8 @@ The **_Companion_** protocol encapsulates and exposes information from the VAST 
 ```swift
 import AdswizzSDK
 
-class YourModelClass: AdManagerDelegate {
+@MainActor
+class YourModelClass: @MainActor AdManagerDelegate {
    var adManager: AdManager?
 .....
 func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {

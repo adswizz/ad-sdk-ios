@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		646B904D2887FA1B00AB92A3 /* ExternalMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B904C2887FA1B00AB92A3 /* ExternalMediaPlayer.swift */; };
-		646B904F2887FA4800AB92A3 /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B904E2887FA4800AB92A3 /* Bundle+Version.swift */; };
+		485BE899195F6A294ACDA6F7 /* AdswizzExamplesCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C352A855865BA8F42EE623 /* AdswizzExamplesCommon.framework */; };
 		646B90552887FB7A00AB92A3 /* ViewController+InteractiveAdManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B90542887FB7A00AB92A3 /* ViewController+InteractiveAdManagerDelegate.swift */; };
 		646B90572888009A00AB92A3 /* AdswizzSDKConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 646B90562888009A00AB92A3 /* AdswizzSDKConfig.plist */; };
+		8BFBAF1A88E7F756F6D38297 /* AdswizzExamplesCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03C352A855865BA8F42EE623 /* AdswizzExamplesCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE5EB9D4240FAB0A00ECAEF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EB9D3240FAB0A00ECAEF7 /* AppDelegate.swift */; };
 		AE5EB9D6240FAB0A00ECAEF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EB9D5240FAB0A00ECAEF7 /* SceneDelegate.swift */; };
 		AE5EB9DB240FAB0A00ECAEF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EB9D9240FAB0A00ECAEF7 /* Main.storyboard */; };
@@ -26,23 +26,16 @@
 		AE5EBA1D240FAB7100ECAEF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5EBA1C240FAB7100ECAEF7 /* Assets.xcassets */; };
 		AE5EBA22240FAB7100ECAEF7 /* BasicAdRequestWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AE5EBA05240FAB6F00ECAEF7 /* BasicAdRequestWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AE5EBA30240FBDDF00ECAEF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA2B240FBDDE00ECAEF7 /* ViewController.swift */; };
-		AE5EBA31240FBDDF00ECAEF7 /* UIWindow+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA2C240FBDDE00ECAEF7 /* UIWindow+SafeArea.swift */; };
 		AE5EBA32240FBDDF00ECAEF7 /* ViewController+AdCompanionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA2D240FBDDE00ECAEF7 /* ViewController+AdCompanionViewDelegate.swift */; };
 		AE5EBA33240FBDDF00ECAEF7 /* content_example.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE5EBA2E240FBDDE00ECAEF7 /* content_example.mp3 */; };
 		AE5EBA34240FBDDF00ECAEF7 /* ViewController+AdManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA2F240FBDDF00ECAEF7 /* ViewController+AdManagerDelegate.swift */; };
 		AE5EBA36240FD41800ECAEF7 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA35240FD41800ECAEF7 /* MainController.swift */; };
 		AE5EBA3A240FE29A00ECAEF7 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA39240FE29A00ECAEF7 /* SessionDelegate.swift */; };
 		AE5EBA3B240FE3E300ECAEF7 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA39240FE29A00ECAEF7 /* SessionDelegate.swift */; };
-		AE5EBA4324113BBD00ECAEF7 /* NowPlayableMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA4224113BBD00ECAEF7 /* NowPlayableMetadata.swift */; };
 		AE5EBA4524113C9900ECAEF7 /* ViewController+NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA4424113C9900ECAEF7 /* ViewController+NowPlaying.swift */; };
-		AE5EBA492411457200ECAEF7 /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA482411457200ECAEF7 /* ViewControllerModel.swift */; };
 		AE5EBA4B2411491A00ECAEF7 /* ViewController+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA4A2411491A00ECAEF7 /* ViewController+Model.swift */; };
-		AE5EBA55241159C600ECAEF7 /* WatchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA54241159C600ECAEF7 /* WatchSupport.swift */; };
-		AE5EBA5824115A8700ECAEF7 /* WatchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA54241159C600ECAEF7 /* WatchSupport.swift */; };
 		AE6275BD25C19F2300B09304 /* ViewController+AdManagerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6275BC25C19F2300B09304 /* ViewController+AdManagerDatasource.swift */; };
-		CC9A840E285B3640006AF21D /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9A840C285B3640006AF21D /* Bundle+Version.swift */; };
 		CC9A8413285B377E006AF21D /* ViewController+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9A8412285B377E006AF21D /* ViewController+Extra.swift */; };
-		CC9A8415285B3870006AF21D /* ViewController+InteractiveAdManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9A8414285B3870006AF21D /* ViewController+InteractiveAdManagerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,13 +92,23 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C7D14954367DB267687D9EA7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8BFBAF1A88E7F756F6D38297 /* AdswizzExamplesCommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		646B904C2887FA1B00AB92A3 /* ExternalMediaPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExternalMediaPlayer.swift; path = ../../BasicAdStreamExample/BasicAdStreamExample/ExternalMediaPlayer.swift; sourceTree = "<group>"; };
-		646B904E2887FA4800AB92A3 /* Bundle+Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bundle+Version.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/Bundle+Version.swift"; sourceTree = "<group>"; };
-		646B90542887FB7A00AB92A3 /* ViewController+InteractiveAdManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+InteractiveAdManagerDelegate.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/ViewController+InteractiveAdManagerDelegate.swift"; sourceTree = "<group>"; };
-		646B90562888009A00AB92A3 /* AdswizzSDKConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AdswizzSDKConfig.plist; path = ../../BasicAdRequestExample/BasicAdRequestExample/AdswizzSDKConfig.plist; sourceTree = "<group>"; };
+		03C352A855865BA8F42EE623 /* AdswizzExamplesCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdswizzExamplesCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		646B90542887FB7A00AB92A3 /* ViewController+InteractiveAdManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+InteractiveAdManagerDelegate.swift"; sourceTree = "<group>"; };
+		646B90562888009A00AB92A3 /* AdswizzSDKConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AdswizzSDKConfig.plist; sourceTree = "<group>"; };
 		AE5EB9D0240FAB0A00ECAEF7 /* BasicAdRequestWatchExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicAdRequestWatchExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5EB9D3240FAB0A00ECAEF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE5EB9D5240FAB0A00ECAEF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,22 +132,16 @@
 		AE5EBA1C240FAB7100ECAEF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE5EBA1E240FAB7100ECAEF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE5EBA1F240FAB7100ECAEF7 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		AE5EBA2B240FBDDE00ECAEF7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../BasicAdRequestExample/BasicAdRequestExample/ViewController.swift; sourceTree = "<group>"; };
-		AE5EBA2C240FBDDE00ECAEF7 /* UIWindow+SafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIWindow+SafeArea.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/UIWindow+SafeArea.swift"; sourceTree = "<group>"; };
-		AE5EBA2D240FBDDE00ECAEF7 /* ViewController+AdCompanionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+AdCompanionViewDelegate.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/ViewController+AdCompanionViewDelegate.swift"; sourceTree = "<group>"; };
-		AE5EBA2E240FBDDE00ECAEF7 /* content_example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = content_example.mp3; path = ../../BasicAdRequestExample/BasicAdRequestExample/content_example.mp3; sourceTree = "<group>"; };
-		AE5EBA2F240FBDDF00ECAEF7 /* ViewController+AdManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+AdManagerDelegate.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/ViewController+AdManagerDelegate.swift"; sourceTree = "<group>"; };
+		AE5EBA2B240FBDDE00ECAEF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AE5EBA2D240FBDDE00ECAEF7 /* ViewController+AdCompanionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+AdCompanionViewDelegate.swift"; sourceTree = "<group>"; };
+		AE5EBA2E240FBDDE00ECAEF7 /* content_example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = content_example.mp3; sourceTree = "<group>"; };
+		AE5EBA2F240FBDDF00ECAEF7 /* ViewController+AdManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+AdManagerDelegate.swift"; sourceTree = "<group>"; };
 		AE5EBA35240FD41800ECAEF7 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		AE5EBA39240FE29A00ECAEF7 /* SessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDelegate.swift; sourceTree = "<group>"; };
-		AE5EBA4224113BBD00ECAEF7 /* NowPlayableMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NowPlayableMetadata.swift; path = ../../BasicAdRequestExample/BasicAdRequestExample/NowPlayableMetadata.swift; sourceTree = "<group>"; };
 		AE5EBA4424113C9900ECAEF7 /* ViewController+NowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NowPlaying.swift"; sourceTree = "<group>"; };
-		AE5EBA482411457200ECAEF7 /* ViewControllerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerModel.swift; path = ../../BasicAdRequestExample/BasicAdRequestExample/ViewControllerModel.swift; sourceTree = "<group>"; };
 		AE5EBA4A2411491A00ECAEF7 /* ViewController+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Model.swift"; sourceTree = "<group>"; };
-		AE5EBA54241159C600ECAEF7 /* WatchSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSupport.swift; sourceTree = "<group>"; };
-		AE6275BC25C19F2300B09304 /* ViewController+AdManagerDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+AdManagerDatasource.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/ViewController+AdManagerDatasource.swift"; sourceTree = "<group>"; };
-		CC9A840C285B3640006AF21D /* Bundle+Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bundle+Version.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/Bundle+Version.swift"; sourceTree = "<group>"; };
-		CC9A8412285B377E006AF21D /* ViewController+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+Extra.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/ViewController+Extra.swift"; sourceTree = "<group>"; };
-		CC9A8414285B3870006AF21D /* ViewController+InteractiveAdManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+InteractiveAdManagerDelegate.swift"; path = "../../BasicAdRequestExample/BasicAdRequestExample/ViewController+InteractiveAdManagerDelegate.swift"; sourceTree = "<group>"; };
+		AE6275BC25C19F2300B09304 /* ViewController+AdManagerDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+AdManagerDatasource.swift"; sourceTree = "<group>"; };
+		CC9A8412285B377E006AF21D /* ViewController+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extra.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				485BE899195F6A294ACDA6F7 /* AdswizzExamplesCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,13 +184,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0BBF8604CE66C42928F122DA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AE5EB9C7240FAB0A00ECAEF7 = {
 			isa = PBXGroup;
 			children = (
@@ -202,7 +193,7 @@
 				AE5EBA06240FAB6F00ECAEF7 /* BasicAdRequestWatch */,
 				AE5EBA15240FAB7000ECAEF7 /* BasicAdRequestWatch Extension */,
 				AE5EB9D1240FAB0A00ECAEF7 /* Products */,
-				0BBF8604CE66C42928F122DA /* Frameworks */,
+				FC9D725E2D70E6AB4785B8D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,13 +214,10 @@
 			children = (
 				646B90562888009A00AB92A3 /* AdswizzSDKConfig.plist */,
 				CC9A8412285B377E006AF21D /* ViewController+Extra.swift */,
-				CC9A840C285B3640006AF21D /* Bundle+Version.swift */,
 				AE5EB9D3240FAB0A00ECAEF7 /* AppDelegate.swift */,
 				AE5EB9D5240FAB0A00ECAEF7 /* SceneDelegate.swift */,
 				AE5EBA2E240FBDDE00ECAEF7 /* content_example.mp3 */,
-				AE5EBA2C240FBDDE00ECAEF7 /* UIWindow+SafeArea.swift */,
 				AE5EBA2B240FBDDE00ECAEF7 /* ViewController.swift */,
-				AE5EBA482411457200ECAEF7 /* ViewControllerModel.swift */,
 				AE5EBA4A2411491A00ECAEF7 /* ViewController+Model.swift */,
 				AE5EBA2D240FBDDE00ECAEF7 /* ViewController+AdCompanionViewDelegate.swift */,
 				AE5EBA2F240FBDDF00ECAEF7 /* ViewController+AdManagerDelegate.swift */,
@@ -237,10 +225,6 @@
 				646B90542887FB7A00AB92A3 /* ViewController+InteractiveAdManagerDelegate.swift */,
 				AE5EBA4424113C9900ECAEF7 /* ViewController+NowPlaying.swift */,
 				AE5EBA39240FE29A00ECAEF7 /* SessionDelegate.swift */,
-				646B904E2887FA4800AB92A3 /* Bundle+Version.swift */,
-				646B904C2887FA1B00AB92A3 /* ExternalMediaPlayer.swift */,
-				AE5EBA4224113BBD00ECAEF7 /* NowPlayableMetadata.swift */,
-				AE5EBA54241159C600ECAEF7 /* WatchSupport.swift */,
 				AE5EB9D9240FAB0A00ECAEF7 /* Main.storyboard */,
 				AE5EB9DC240FAB0C00ECAEF7 /* Assets.xcassets */,
 				AE5EB9DE240FAB0C00ECAEF7 /* LaunchScreen.storyboard */,
@@ -290,6 +274,14 @@
 			path = "BasicAdRequestWatch Extension";
 			sourceTree = "<group>";
 		};
+		FC9D725E2D70E6AB4785B8D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03C352A855865BA8F42EE623 /* AdswizzExamplesCommon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,6 +293,7 @@
 				AE5EB9CD240FAB0A00ECAEF7 /* Frameworks */,
 				AE5EB9CE240FAB0A00ECAEF7 /* Resources */,
 				AE5EBA2A240FAB7100ECAEF7 /* Embed Watch Content */,
+				C7D14954367DB267687D9EA7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -486,21 +479,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE5EBA34240FBDDF00ECAEF7 /* ViewController+AdManagerDelegate.swift in Sources */,
-				AE5EBA55241159C600ECAEF7 /* WatchSupport.swift in Sources */,
-				CC9A840E285B3640006AF21D /* Bundle+Version.swift in Sources */,
 				AE5EBA4B2411491A00ECAEF7 /* ViewController+Model.swift in Sources */,
 				AE6275BD25C19F2300B09304 /* ViewController+AdManagerDatasource.swift in Sources */,
 				CC9A8413285B377E006AF21D /* ViewController+Extra.swift in Sources */,
 				AE5EBA4524113C9900ECAEF7 /* ViewController+NowPlaying.swift in Sources */,
 				AE5EBA30240FBDDF00ECAEF7 /* ViewController.swift in Sources */,
 				AE5EB9D4240FAB0A00ECAEF7 /* AppDelegate.swift in Sources */,
-				646B904F2887FA4800AB92A3 /* Bundle+Version.swift in Sources */,
-				AE5EBA4324113BBD00ECAEF7 /* NowPlayableMetadata.swift in Sources */,
 				AE5EBA32240FBDDF00ECAEF7 /* ViewController+AdCompanionViewDelegate.swift in Sources */,
 				AE5EB9D6240FAB0A00ECAEF7 /* SceneDelegate.swift in Sources */,
-				646B904D2887FA1B00AB92A3 /* ExternalMediaPlayer.swift in Sources */,
-				AE5EBA31240FBDDF00ECAEF7 /* UIWindow+SafeArea.swift in Sources */,
-				AE5EBA492411457200ECAEF7 /* ViewControllerModel.swift in Sources */,
 				AE5EBA3A240FE29A00ECAEF7 /* SessionDelegate.swift in Sources */,
 				646B90552887FB7A00AB92A3 /* ViewController+InteractiveAdManagerDelegate.swift in Sources */,
 			);
@@ -528,7 +514,6 @@
 			files = (
 				AE5EBA1B240FAB7000ECAEF7 /* NotificationController.swift in Sources */,
 				AE5EBA36240FD41800ECAEF7 /* MainController.swift in Sources */,
-				AE5EBA5824115A8700ECAEF7 /* WatchSupport.swift in Sources */,
 				AE5EBA19240FAB7000ECAEF7 /* ExtensionDelegate.swift in Sources */,
 				AE5EBA3B240FE3E300ECAEF7 /* SessionDelegate.swift in Sources */,
 			);
@@ -637,7 +622,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -691,7 +676,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -715,7 +700,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicAdRequestWatchExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -734,7 +719,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicAdRequestWatchExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -747,7 +732,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
 				INFOPLIST_FILE = BasicAdRequestWatchExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -755,7 +740,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicAdRequestWatchExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BasicAdRequestWatchExample.app/BasicAdRequestWatchExample";
 			};
@@ -769,7 +754,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
 				INFOPLIST_FILE = BasicAdRequestWatchExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -777,7 +762,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicAdRequestWatchExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BasicAdRequestWatchExample.app/BasicAdRequestWatchExample";
 			};
@@ -797,7 +782,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicAdRequestWatchExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BasicAdRequestWatchExample;
 			};
@@ -817,7 +802,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicAdRequestWatchExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BasicAdRequestWatchExample;
 			};
@@ -839,7 +824,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
@@ -861,7 +846,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
@@ -880,7 +865,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
@@ -899,7 +884,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};

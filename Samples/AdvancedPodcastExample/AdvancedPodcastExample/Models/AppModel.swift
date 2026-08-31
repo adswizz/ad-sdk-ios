@@ -10,7 +10,7 @@ import Foundation
 import AdswizzSDK
 
 /// Notifies a listener about the `AppModel` playlist events
-protocol AppModelListenerDelegate: AnyObject {
+@MainActor protocol AppModelListenerDelegate: AnyObject {
     //playlist
     func appModel(_ appModel: AppModelProtocol, stateWillChange state: Playlist.State, for podcast: PodcastConfig.Podcast)
     func appModel(_ appModel: AppModelProtocol, playheadChanged playhead: TimeInterval, duration: TimeInterval, for podcast: PodcastConfig.Podcast)
@@ -20,7 +20,7 @@ protocol AppModelListenerDelegate: AnyObject {
     func appModel(_ appModel: AppModelProtocol, didEndPlaying ad: AdData, withCompanion: Bool)
 }
 
-protocol AppModelListener {
+@MainActor protocol AppModelListener {
     /// Register a listener to receive playlist events
     func add(listener: AppModelListenerDelegate)
     
@@ -28,7 +28,7 @@ protocol AppModelListener {
     func remove(listener: AppModelListenerDelegate)
 }
 
-protocol AppModelProtocol {
+@MainActor protocol AppModelProtocol {
     func play(from podcast: PodcastConfig.Podcast)
     func playNext()
     func playPrevious()
@@ -40,7 +40,7 @@ protocol AppModelProtocol {
 }
 
 /// The main app model
-class AppModel {
+@MainActor class AppModel {
     
     /// The listener model.
     private struct Listener {

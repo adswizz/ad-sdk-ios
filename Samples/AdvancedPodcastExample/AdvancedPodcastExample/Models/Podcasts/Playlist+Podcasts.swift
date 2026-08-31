@@ -12,7 +12,7 @@ extension Playlist {
     
     /// Create a playlist with podcast items from a config.
     convenience init(from data: PodcastConfig) {
-        let items = data.podcasts.map { PodcastPlaylistItem(with: $0) }
+        let items = data.podcasts.compactMap { try? PodcastPlaylistItem(with: $0) }
         self.init(items: items)
     }
 }

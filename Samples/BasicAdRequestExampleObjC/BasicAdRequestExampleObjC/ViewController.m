@@ -84,7 +84,7 @@
         return;
     }
     
-    AASDKAdswizzAdRequest *adRequest = [[[[[AASDKAdswizzAdRequestBuilder new] withServer:@"demo.deliveryengine.adswizz.com"] withZone:adZone] withCompanionZones:@"17863"] buildAndReturnError:&error];
+    AASDKAdswizzAdRequest *adRequest = [[[[[AASDKAdswizzAdRequestBuilder new] withServer:@"demo.deliveryengine.adswizz.com"] withZone:adZone] withCompanionZoneIds:@[@17863]] buildAndReturnError:&error];
     if (error) {
         NSLog(@"Oops, the request is not valid");
         return;

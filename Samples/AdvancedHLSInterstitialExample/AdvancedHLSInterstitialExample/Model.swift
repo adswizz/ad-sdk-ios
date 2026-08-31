@@ -7,8 +7,9 @@
 
 import AVFoundation
 import AdswizzSDK
+import AdswizzExamplesCommon
 
-protocol MediaModel: AnyObject {
+@MainActor protocol MediaModel: AnyObject {
     func play()
     func pauseAd()
     func resumeAd()
@@ -16,18 +17,18 @@ protocol MediaModel: AnyObject {
     func stop()
 }
 
-protocol ModelAdBreakDelegate: AnyObject {
+@MainActor protocol ModelAdBreakDelegate: AnyObject {
     func modelDidStartAdBreak(_ model: Model)
     func modelDidEndAdBreak(_ model: Model)
     func model(_ model: Model, didChangePlayhead playhead: TimeInterval, outOf duration: TimeInterval)
 }
 
-protocol ModelMediaDelegate: AnyObject {
+@MainActor protocol ModelMediaDelegate: AnyObject {
     func model(_ model: Model, didChangeState state: MediaPlayerStatus)
     func model(_ model: Model, didChangePlayhead playhead: TimeInterval)
 }
 
-protocol ModelLogDelegate: AnyObject {
+@MainActor protocol ModelLogDelegate: AnyObject {
     func model(_ model: Model, didLog event: BasicHLSLog)
 }
 
@@ -53,7 +54,7 @@ struct BasicHLSLog: Loggable {
     var hasMessage: Bool { message != nil }
 }
 
-class Model: NSObject {
+@MainActor class Model: Isolatable {
     // The HLS url stream (primary playlist)
     let url = URL(string: "https://streaming.sdk.eks.devel.adswizz.com/addictalternative/playlist.m3u8")
     
@@ -68,10 +69,11 @@ class Model: NSObject {
     
     // Primary player.
     private let player: MediaPlayer
-
-    // Internal state if the model is observing or not the primary player.
-    private var observing: Bool
-
+    
+    // KVO observation tokens.
+    private var playheadObservation: NSKeyValueObservation?
+    private var statusObservation: NSKeyValueObservation?
+    
     // Internal flag to indicate if primary player is reporting any loading e.g buffering.
     var isLoading: Bool { player.playerStatus == .buffering }
     
@@ -85,16 +87,23 @@ class Model: NSObject {
     var currentAdBreakDescription: String?
     var currentAdIndex = 0
     
-    override init() {
-        observing = true
+    init() {
         player = MediaPlayer()
-        super.init()
-        (player as NSObject).addObserver(self, forKeyPath: "currentPlayhead", options: [.new], context: nil)
-        (player as NSObject).addObserver(self, forKeyPath: "playerStatus", options: [.initial, .new], context: nil)
+        
+        playheadObservation = player.observe(\.currentPlayhead, options: [.new]) { [weak self] _, change in
+            guard let value = change.newValue else { return }
+            self?.onMainActor { self?.playHeadProgressChanged(value) }
+        }
+        
+        statusObservation = player.observe(\.playerStatus, options: [.initial, .new]) { [weak self] _, change in
+            guard let rawValue = change.newValue?.rawValue, let status = MediaPlayerStatus(rawValue: rawValue) else { return }
+            self?.onMainActor { self?.playerStatusChanged(status) }
+        }
     }
     
-    deinit {
-        detach()
+    isolated deinit {
+        playheadObservation?.invalidate()
+        statusObservation?.invalidate()
     }
 }
 
@@ -149,30 +158,6 @@ extension Model: MediaModel {
 }
 
 extension Model {
-    private func detach() {
-        if !observing {
-            return
-        }
-        observing = false
-        (player as NSObject).removeObserver(self, forKeyPath: "currentPlayhead")
-        (player as NSObject).removeObserver(self, forKeyPath: "playerStatus")
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        switch keyPath {
-        case "currentPlayhead":
-            if let value = change?[.newKey] as? Double {
-                playHeadProgressChanged(value)
-            }
-        case "playerStatus":
-            if let value = change?[.newKey] as? Int, let status = MediaPlayerStatus(rawValue: value) {
-                playerStatusChanged(status)
-            }
-        default:
-            break
-        }
-    }
-    
     private func playHeadProgressChanged(_ time: TimeInterval) {
         if player.playerStatus != .playing || (player.playerStatus == .bufferingFinished && state == .playing) {
             return

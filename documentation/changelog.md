@@ -5,6 +5,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [8.0.0] - 2026-08-31
+### Added
+- **Swift 6 support**: the binary XCFrameworks are now compiled with Swift 6 strict concurrency checking enabled, and the public API declares the actor it expects to be used from. See the [migration guide](iOS/SDKMigrations/v8_0_0.md)
+
+### Changed
+- **_AdswizzSDK_** binary frameworks are now compiled and generated with Xcode version `26.4.1`
+- Main actor isolation:
+    - `AdswizzSDK`, `AdRequestConnection`, `AdManager`, `AdswizzAdRequest`, `AdswizzAdZone`, `AdswizzShimZone` and their builders, `AdswizzAdStreamManager`, `AdswizzAdPodcastManager`, `AdCompanionView`, `AdVideoView`, `TrackingPermissionController`, `WatchSession` and `AdData`/`AdAsset` members are now `@MainActor` isolated
+    - `MediaPlayerState` is now `@MainActor` and refines `Sendable`. Annotate your own player type `@MainActor`
+    - `AnalyticsCustomData` and `AnalyticsCollector` are now `@MainActor`
+    - `AdswizzPinpointConnector` in **_AdswizzSDKPinpointAnalytics_** is now `@MainActor`
+- `AdswizzAdPodcastManager`:
+    - `startDownloadPodcast(with:to:)` and `stopDownloadPodcast(at:)` are now `async throws`
+    - the completion block of `seek(to:completion:)` and of `AdPodcastManagerDelegate.adPodcastManagerPlayer(_:shouldSeekTo:completion:)` is now `@Sendable`
+- Analytics:
+    - `AnalyticsEvent` now refines `Sendable`, and its `params` and `customParams` changed from `[String: Any]?` to `[String: any Sendable]?`
+    - `AnalyticsCollecting` now refines `AnyObject, Sendable`. Analytics events are delivered off the main actor, so a connector that needs main-actor state must hop to it
+    - New public extension member on **_AnalyticsCustomData_**:
+        - `sendableParams` provides a `Sendable` snapshot of `params`, taken on the main actor
+    - New public protocol called **_AdswizzAnalyticsConfigurable_** used by the SDK to track Adswizz-owned connectors
+- `AdswizzSDKPrivacyDataCore`:
+    - `RequestCompletion` is now `@Sendable`; `PermissionType` and `RequestResult` are now `Sendable` as well
+- Many public enums, protocols and value types now conform to `Sendable`, including `AdManager`, `AdData`, `AdAsset`, `StaticResource`, `DownloadableAsset`, `AdStreamDVRMetadata`, `MediaPlayerCapability`, `AdType`, `GDPRConsent`, `CCPAConsent`, `HTTPProtocol` and `AdswizzPermissionType`/`AdswizzPermissionValue`
+
+### Removed
+- Objective-C exposure for the analytics interfaces. `AASDKAnalyticsEvent`, `AASDKAnalyticsCollecting`, `AASDKAnalyticsCollector` and `AASDKAnalyticsConnector` are no longer generated, and `AdswizzSDK.add(connector:)` / `remove(connector:)` are no longer available to Objective-C. Objective-C integrations need a Swift bridge — see the [migration guide](iOS/SDKMigrations/v8_0_0.md#your-application-is-written-in-objective-c)
+
 ## [7.14.3] - 2026-08-20
 ### Fixed
 - Data Collector:

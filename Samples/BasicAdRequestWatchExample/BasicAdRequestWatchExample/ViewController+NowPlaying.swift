@@ -7,25 +7,14 @@
 //
 
 import Foundation
-import MediaPlayer
+import AdswizzExamplesCommon
 
-extension ViewController {
+extension ViewController: Isolatable {
     func updateNowPlaying(with data: NowPlayableStaticMetadata) {
-        MPNowPlayingInfoCenter.default().setNowPlayingMetadata(data)
-        // Configure interface objects here.
-        let remoteCenter = MPRemoteCommandCenter.shared()
-        remoteCenter.playCommand.isEnabled = true
-        remoteCenter.pauseCommand.isEnabled = true
-        remoteCenter.playCommand.removeTarget(nil)
-        remoteCenter.pauseCommand.removeTarget(nil)
-        remoteCenter.playCommand.addTarget { [weak self] _ in
-            self?.playContent()
-            return .success
-        }
-        
-        remoteCenter.pauseCommand.addTarget { [weak self] _ in
-            self?.pauseContent()
-            return .success
-        }
+        NowPlayingHelper.updateNowPlaying(
+            with: data,
+            onPlay: { [weak self] in self?.onMainActor { self?.playContent() } },
+            onPause: { [weak self] in self?.onMainActor { self?.pauseContent() } }
+        )
     }
 }

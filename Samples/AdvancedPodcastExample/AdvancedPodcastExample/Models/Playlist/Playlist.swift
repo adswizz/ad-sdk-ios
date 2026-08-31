@@ -9,7 +9,7 @@
 import Foundation
 
 /// The `PlaylistDelegate` informs other interested objects in the playlist various events and updates.
-protocol PlaylistDelegate: AnyObject{
+@MainActor protocol PlaylistDelegate: AnyObject {
     func playlist(_ list: Playlist, stateWillChange state: Playlist.State)
     func playlist(_ list: Playlist, playlistItem listItem: PlaylistItem, stateWillChange state: Playlist.State)
     func playlist(_ list: Playlist, playheadChanged playhead: TimeInterval, duration: TimeInterval)
@@ -18,7 +18,7 @@ protocol PlaylistDelegate: AnyObject{
 
 /// A playlist implementation which manages a list of `PlaylistItem`.
 /// The playlist encapsulates functionality such as start, stop and playback related logic.
-class Playlist {
+@MainActor class Playlist {
     
     /// The state of the playlist.
     enum State: String {

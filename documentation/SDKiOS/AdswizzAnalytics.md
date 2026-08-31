@@ -7,19 +7,28 @@ To learn more about the types of events you can listen and use, please reach out
 AdsWizz may also use this mechanism to collect and analyze SDK performance metrics in order to identify integration-specific issues that may affect capacity or impressions/opportunities ratio.
 
 ```swift
-class YourAnalyticsConnector: AnalyticsConnector {
-  func log(_ event: AnalyticsEvent, _ timestamp: Date) {
+final class YourAnalyticsConnector: AnalyticsConnector {
+  func log(_ event: any AnalyticsEvent, _ timestamp: Date) {
       //Store or send this event to your desired platform
-      //This will be called on a background queue    
+      //This is called off the main actor, on a background executor
   }
 
   func send(forced: Bool) {
       //Get's called when the SDK uninitialize. There might be other times in the future were this gets called.
       //If forced is true you should be flushing the stored events ASAP. If it is false you can send your events whenever you want.
-      //This will be called on a background queue    
+      //This is called off the main actor, on a background executor
   }
 }
+
+...
+
+//registering a connector is a main-actor call
+AdswizzSDK.shared.add(connector: YourAnalyticsConnector())
 ```
+
+> **Changes in `v8.0.0`**<br>
+> **_AnalyticsCollecting_** (which **_AnalyticsConnector_** inherits) now refines `Sendable`, because events are delivered off the main actor. Keep your connector free of unsynchronised mutable state, and if a callback needs main-actor state, hop to it explicitly with `Task { @MainActor in … }`.<br>
+> **_AnalyticsEvent_**, **_AnalyticsCollecting_**, **_AnalyticsConnector_** and **_AnalyticsCollector_** are also **no longer exposed to Objective-C**, together with `AdswizzSDK.add(connector:)` / `remove(connector:)`. Objective-C integrations need a small Swift bridge — see the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md#your-application-is-written-in-objective-c).
 
 Events whose level is set to **_error_** may be of particular interest.
 
@@ -30,7 +39,8 @@ The AdswizzSDK is able to pass down your key-value collection of custom attribut
 The exposed **_AnalyticsCustomData_** interface encapsulates any additional data you wish to pass for every **_AnalyticsEvent_**. Here is an example of how you can do that:
 
 ```swift
-class YourCustomAnalyticsData {
+@MainActor //required since v8.0.0: `AnalyticsCustomData` is main-actor isolated
+final class YourCustomAnalyticsData {
     private let internalParams: [String: String]?
     //these represent your custom key-value collection
     var params: [String : Any]? { //required by `AnalyticsCustomData` protocol
@@ -45,6 +55,8 @@ class YourCustomAnalyticsData {
 extension YourCustomAnalyticsData: AnalyticsCustomData {}
 
 ```
+
+> Note that **_AnalyticsCustomData_** keeps its `[String: Any]?` `params` type and remains available to Objective-C. The SDK snapshots your values into the (`Sendable`) event for you. On **_AnalyticsEvent_** itself, however, `params` and `customParams` changed from `[String: Any]?` to `[String: any Sendable]?` in `v8.0.0`, so if you read them in your connector the values you get are `Sendable`.
 
 The params you provide into `YourCustomAnalyticsData` will be reflected in the **_customParams_** property of the **_AnalyticsEvent_** objects.
 To inject `YourCustomAnalyticsData` created above, you need to pass it to the AdswizzSDK using one of the approaches detailed below.

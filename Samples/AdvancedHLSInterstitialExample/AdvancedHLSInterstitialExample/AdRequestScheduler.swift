@@ -11,7 +11,7 @@ import AdswizzSDK
 typealias AdRequestResult = Result<AdManager, Error>
 
 //Scheduler implementation for adRequests that each fetch an AdManager
-protocol AdRequestScheduler {
+@MainActor protocol AdRequestScheduler {
     var scheduleFired: ((AdRequestConfig) -> Void)? { get set }
     var scheduleFinished: ((AdRequestResult, AdRequestConfig) -> Void)? { get set }
     func isScheduled(_ adRequest: AdRequestConfig) -> Bool
@@ -20,7 +20,7 @@ protocol AdRequestScheduler {
     func unscheduleAll()
 }
 
-class AdRequestSchedulerImpl {
+@MainActor class AdRequestSchedulerImpl {
     private var schedules: [ObjectIdentifier: Timer?] = [:]
     private var connections: [ObjectIdentifier: AdRequestConnection?] = [:]
     var scheduleFired: ((AdRequestConfig) -> Void)? = nil
@@ -89,11 +89,13 @@ extension AdRequestSchedulerImpl {
             let adRequest = try adRequestConfig.adswizzAdRequest()
             let adConnection = try AdRequestConnection(for: adRequest)
             storeAdRequestConnection(adConnection, for: adRequestConfig)
-            adConnection.requestAds { [weak self] adManager, error in
-                if let error = error {
-                    self?.scheduleFinished?(AdRequestResult.failure(error), adRequestConfig)
-                } else if let adManager = adManager {
+
+            Task { [weak self] in
+                do {
+                    let adManager = try await adConnection.requestAds()
                     self?.scheduleFinished?(AdRequestResult.success(adManager), adRequestConfig)
+                } catch {
+                    self?.scheduleFinished?(AdRequestResult.failure(error), adRequestConfig)
                 }
                 self?.removeAdRequestConnection(for: adRequestConfig)
             }

@@ -19,7 +19,8 @@ The next step is to decide when to present / dismiss the video view. Video rende
 ```swift
 import AdswizzSDK
 
-class YourModelClass: AdManagerDelegate {
+@MainActor
+class YourModelClass: @MainActor AdManagerDelegate {
    var adManager: AdManager?
 ......
 func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {

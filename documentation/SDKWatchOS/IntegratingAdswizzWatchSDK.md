@@ -83,11 +83,12 @@ import AdswizzSDK
 import AdswizzWatchSDK
 #endif
 
+@MainActor //required since v8.0.0: `WatchSession` and `WatchSessionDelegate` are main-actor isolated
 class SessionDelegate: NSObject {
 #if os(iOS)
-    let watchSession: WatchSession = AdswizzSDK.shared.watchSession
+    let watchSession: any WatchSession = AdswizzSDK.shared.watchSession
 #elseif os(watchOS)
-    let watchSession: WatchSession = AdswizzWatchSDK.shared.watchSession
+    let watchSession: any WatchSession = AdswizzWatchSDK.shared.watchSession
 #endif
     
     override init() {
@@ -103,21 +104,27 @@ In the SessionDelegate class, we need to conform to WCSessionDelegate to handle 
 
 ```swift
 extension SessionDelegate: WCSessionDelegate {
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+    nonisolated func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         //inspect the data
-        //If it is from AdsWizz SDK, forward it to the WatchSession
+        //If it is from AdsWizz SDK, forward it to the WatchSession.
+        //`WCSessionDelegate` callbacks are nonisolated and `receivedMessage(_:)` is @MainActor since
+        //v8.0.0, so the payload has to cross to the main actor. `[String: Any]` is not `Sendable`,
+        //but WCSession hands you property-list values that are consumed once, so the transfer is
+        //audited with `nonisolated(unsafe)`.
         if message.isAdswizzWatchData {
-            watchSession.receivedMessage(message)
+            nonisolated(unsafe) let payload = message
+            Task { @MainActor in watchSession.receivedMessage(payload) }
         }
         //handle your data
         ....
     }
     
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+    nonisolated func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         //inspect the data
         //If it is from AdsWizz SDK, forward it to the WatchSession
         if applicationContext.isAdswizzWatchData {
-            watchSession.receivedMessage(applicationContext)
+            nonisolated(unsafe) let payload = applicationContext
+            Task { @MainActor in watchSession.receivedMessage(payload) }
         }
         //handle your data
         ....

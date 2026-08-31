@@ -12,14 +12,28 @@
 		2840D0CD2CFE33DE001AB860 /* PodcastModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2840D0CC2CFE33DA001AB860 /* PodcastModelView.swift */; };
 		2840D0E42D00B73B001AB860 /* ServerSideModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2840D0E32D00B733001AB860 /* ServerSideModelView.swift */; };
 		284850262CEB88C9002EE205 /* ClientSideExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284850252CEB88C3002EE205 /* ClientSideExampleView.swift */; };
-		284850282CEB88EB002EE205 /* AdswizzVideoAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284850272CEB88DC002EE205 /* AdswizzVideoAdView.swift */; };
 		2848502A2CEB894A002EE205 /* ClientSideModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284850292CEB8948002EE205 /* ClientSideModelView.swift */; };
 		2849F2642CEB850E00990F17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2849F25F2CEB850E00990F17 /* Assets.xcassets */; };
 		2849F2652CEB850E00990F17 /* BasicTVOSExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2849F2602CEB850E00990F17 /* BasicTVOSExampleApp.swift */; };
 		2849F2662CEB850E00990F17 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2849F2612CEB850E00990F17 /* ContentView.swift */; };
-		28DCF1352D7E54E200B2881B /* AdswizzAdCompanionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DCF1342D7E54DC00B2881B /* AdswizzAdCompanionView.swift */; };
+		28COMMON012D7E000000000001 /* AdswizzExamplesCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28COMMON012D7E000000000000 /* AdswizzExamplesCommon.framework */; };
+		28COMMON012D7E000000000002 /* AdswizzExamplesCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28COMMON012D7E000000000000 /* AdswizzExamplesCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		28DCF1372D7FAE9700B2881B /* AdCompanionViewGridType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DCF1362D7FAE9600B2881B /* AdCompanionViewGridType.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		28COMMON012D7E000000000003 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				28COMMON012D7E000000000002 /* AdswizzExamplesCommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		281168802CEF340F00E87EE5 /* ServerSideExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSideExampleView.swift; sourceTree = "<group>"; };
@@ -27,14 +41,13 @@
 		2840D0CC2CFE33DA001AB860 /* PodcastModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastModelView.swift; sourceTree = "<group>"; };
 		2840D0E32D00B733001AB860 /* ServerSideModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSideModelView.swift; sourceTree = "<group>"; };
 		284850252CEB88C3002EE205 /* ClientSideExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideExampleView.swift; sourceTree = "<group>"; };
-		284850272CEB88DC002EE205 /* AdswizzVideoAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdswizzVideoAdView.swift; sourceTree = "<group>"; };
 		284850292CEB8948002EE205 /* ClientSideModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideModelView.swift; sourceTree = "<group>"; };
 		284850332CEB8BAD002EE205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2849F24C2CEB84DF00990F17 /* BasicTVOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicTVOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2849F25F2CEB850E00990F17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2849F2602CEB850E00990F17 /* BasicTVOSExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTVOSExampleApp.swift; sourceTree = "<group>"; };
 		2849F2612CEB850E00990F17 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		28DCF1342D7E54DC00B2881B /* AdswizzAdCompanionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdswizzAdCompanionView.swift; sourceTree = "<group>"; };
+		28COMMON012D7E000000000000 /* AdswizzExamplesCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdswizzExamplesCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28DCF1362D7FAE9600B2881B /* AdCompanionViewGridType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCompanionViewGridType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,25 +56,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28COMMON012D7E000000000001 /* AdswizzExamplesCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2848502B2CEB8A89002EE205 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		2849F2432CEB84DF00990F17 = {
 			isa = PBXGroup;
 			children = (
 				2849F2622CEB850E00990F17 /* BasicTVOSExample */,
-				2848502B2CEB8A89002EE205 /* Frameworks */,
 				2849F24D2CEB84DF00990F17 /* Products */,
+				7C0637D1435F54C910B9D9C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,12 +92,18 @@
 				284850252CEB88C3002EE205 /* ClientSideExampleView.swift */,
 				281168802CEF340F00E87EE5 /* ServerSideExampleView.swift */,
 				2840D0CA2CFE261C001AB860 /* PodcastExampleView.swift */,
-				284850272CEB88DC002EE205 /* AdswizzVideoAdView.swift */,
-				28DCF1342D7E54DC00B2881B /* AdswizzAdCompanionView.swift */,
 				284850332CEB8BAD002EE205 /* Info.plist */,
 				2849F25F2CEB850E00990F17 /* Assets.xcassets */,
 			);
 			path = BasicTVOSExample;
+			sourceTree = "<group>";
+		};
+		7C0637D1435F54C910B9D9C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28COMMON012D7E000000000000 /* AdswizzExamplesCommon.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,14 +116,13 @@
 				2849F2482CEB84DF00990F17 /* Sources */,
 				2849F2492CEB84DF00990F17 /* Frameworks */,
 				2849F24A2CEB84DF00990F17 /* Resources */,
+				28COMMON012D7E000000000003 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = BasicTVOSExample;
-			packageProductDependencies = (
-			);
 			productName = BasicTVOSExample;
 			productReference = 2849F24C2CEB84DF00990F17 /* BasicTVOSExample.app */;
 			productType = "com.apple.product-type.application";
@@ -165,10 +177,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2849F2652CEB850E00990F17 /* BasicTVOSExampleApp.swift in Sources */,
-				28DCF1352D7E54E200B2881B /* AdswizzAdCompanionView.swift in Sources */,
 				2849F2662CEB850E00990F17 /* ContentView.swift in Sources */,
 				2840D0E42D00B73B001AB860 /* ServerSideModelView.swift in Sources */,
-				284850282CEB88EB002EE205 /* AdswizzVideoAdView.swift in Sources */,
 				2840D0CD2CFE33DE001AB860 /* PodcastModelView.swift in Sources */,
 				281168812CEF341400E87EE5 /* ServerSideExampleView.swift in Sources */,
 				28DCF1372D7FAE9700B2881B /* AdCompanionViewGridType.swift in Sources */,
@@ -328,7 +338,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Debug;
@@ -361,7 +371,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Release;

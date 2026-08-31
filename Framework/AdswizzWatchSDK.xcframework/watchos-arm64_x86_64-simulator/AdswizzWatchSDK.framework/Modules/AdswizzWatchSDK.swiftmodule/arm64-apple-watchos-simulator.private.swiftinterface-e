@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
-// swift-module-flags: -target arm64-apple-watchos6.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdswizzWatchSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
+// swift-compiler-version: Apple Swift version 6.3.1 effective-5.10 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
+// swift-module-flags: -target arm64-apple-watchos6.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdswizzWatchSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.1
 import AVFoundation
 @_exported import AdswizzWatchSDK
 import CoreMotion
@@ -12,10 +12,10 @@ import WatchKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-extension AdswizzWatchSDK.AdLogger.Level : Swift.Comparable {
+extension AdswizzWatchSDK.AdLogger.Level : @retroactive Swift.Comparable {
   public static func < (lhs: AdswizzWatchSDK.AdLogger.Level, rhs: AdswizzWatchSDK.AdLogger.Level) -> Swift.Bool
 }
-extension AdswizzWatchSDK.AdLogger.Level : Swift.CustomStringConvertible {
+extension AdswizzWatchSDK.AdLogger.Level : @retroactive Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -30,9 +30,7 @@ extension AdswizzWatchSDK.AdLogger.Level : Swift.CustomStringConvertible {
     case info
     case error
     case none
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
-    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -44,33 +42,33 @@ extension AdswizzWatchSDK.AdLogger.Level : Swift.CustomStringConvertible {
   @objc override dynamic public init()
   @objc deinit
 }
-extension AVFAudio.AVAudioSession.Port : Swift.Codable {
+extension AVFAudio.AVAudioSession.Port : @retroactive Swift.Codable {
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdswizzWatchSDK) public class AdswizzWatchSDK : ObjectiveC.NSObject {
-  @objc public static let shared: AdswizzWatchSDK.AdswizzWatchSDK
-  @objc public var watchSession: any AdswizzWatchSDK.WatchSession {
+@_inheritsConvenienceInitializers @_Concurrency.MainActor @objc(AASDKAdswizzWatchSDK) public class AdswizzWatchSDK : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor public static let shared: AdswizzWatchSDK.AdswizzWatchSDK
+  @objc @_Concurrency.MainActor public var watchSession: any AdswizzWatchSDK.WatchSession {
     get
   }
-  @objc public var runningInBackground: Swift.Bool {
+  @objc @_Concurrency.MainActor public var runningInBackground: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc override dynamic public init()
+  @_Concurrency.MainActor @objc override dynamic public init()
   @objc deinit
 }
 extension AdswizzWatchSDK.AdswizzWatchSDK {
-  @objc dynamic public func applicationDidBecomeActive()
-  @objc dynamic public func applicationWillResignActive()
-  @objc dynamic public func applicationWillEnterForeground()
-  @objc dynamic public func applicationDidEnterBackground()
+  @objc @_Concurrency.MainActor dynamic public func applicationDidBecomeActive()
+  @objc @_Concurrency.MainActor dynamic public func applicationWillResignActive()
+  @objc @_Concurrency.MainActor dynamic public func applicationWillEnterForeground()
+  @objc @_Concurrency.MainActor dynamic public func applicationDidEnterBackground()
 }
-@objc(AASDKWatchSessionDelegate) public protocol WatchSessionDelegate {
-  @objc func sendMessage(_ data: [Swift.String : Any])
-  @objc func updateApplicationContext(_ data: [Swift.String : Any])
+@_Concurrency.MainActor @objc(AASDKWatchSessionDelegate) public protocol WatchSessionDelegate {
+  @objc @_Concurrency.MainActor func sendMessage(_ data: [Swift.String : Any])
+  @objc @_Concurrency.MainActor func updateApplicationContext(_ data: [Swift.String : Any])
 }
-@objc(AASDKWatchSession) public protocol WatchSession {
-  @objc func receivedMessage(_ data: [Swift.String : Any])
-  @objc func setDelegate(_ delegate: any AdswizzWatchSDK.WatchSessionDelegate)
+@_Concurrency.MainActor @objc(AASDKWatchSession) public protocol WatchSession {
+  @objc @_Concurrency.MainActor func receivedMessage(_ data: [Swift.String : Any])
+  @objc @_Concurrency.MainActor func setDelegate(_ delegate: any AdswizzWatchSDK.WatchSessionDelegate)
 }
 extension Swift.Dictionary where Key == Swift.String {
   public var isAdswizzWatchData: Swift.Bool {
@@ -84,3 +82,6 @@ extension Foundation.NSDictionary {
 }
 extension AdswizzWatchSDK.AdLogger.Level : Swift.Hashable {}
 extension AdswizzWatchSDK.AdLogger.Level : Swift.RawRepresentable {}
+extension AdswizzWatchSDK.AdswizzWatchSDK : Swift.Sendable {}
+extension CoreMotion.CMAccelerometerData : Swift.Sendable {}
+extension CoreMotion.CMGyroData : Swift.Sendable {}

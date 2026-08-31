@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64199B5D28D35A9000E4EE1A /* ExternalMediaPlayerObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64199B5B28D35A9000E4EE1A /* ExternalMediaPlayerObjC.m */; };
 		6402BC1428D35C170004AA5C /* ExternalMediaPlayerObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64199B5B28D35A9000E4EE1A /* ExternalMediaPlayerObjC.m */; };
 		AE5194AB23F5446D0083D87B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5194AA23F5446D0083D87B /* AppDelegate.m */; };
 		AE5194AE23F5446D0083D87B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5194AD23F5446D0083D87B /* SceneDelegate.m */; };
@@ -91,13 +90,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7891DEFFA69E5235821115EA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AE51949D23F5446D0083D87B = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +97,6 @@
 				AE5194C423F5446F0083D87B /* BasicAdStreamExampleObjCTests */,
 				AE5194CF23F5446F0083D87B /* BasicAdStreamExampleObjCUITests */,
 				AE5194A723F5446D0083D87B /* Products */,
-				7891DEFFA69E5235821115EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

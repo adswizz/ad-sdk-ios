@@ -9,9 +9,11 @@ In a server-side insertion scenario, it takes the pressure off your app by makin
 
 ## Prerequisites
 
-*   Xcode 15.2+
-*   Swift 5.9+ if the integration app uses Swift or Objective-C
+*   Xcode 26.0+ (latest recommended). **_AdswizzSDK_** `v8.0.0` binaries are built with Xcode 26.4.1 and Swift 6, so your toolchain needs a Swift 6 compiler to read the concurrency annotations they export
+*   Swift 5.9+ if the integration app uses Swift or Objective-C. Your app may stay in the **Swift 5 language mode**; adopting the Swift 6 language mode is optional
 *   Framework binaries - either via CocoaPods 1.13.0+, Carthage, Swift Package Manager (v7.9.2+) or archive (manual integration)
+
+> Upgrading from `v7.x`? The public API is now explicit about the main actor. Read the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md) first — for most apps the change is annotating the types that own the SDK managers with `@MainActor`.
 
 ## Changelog
 

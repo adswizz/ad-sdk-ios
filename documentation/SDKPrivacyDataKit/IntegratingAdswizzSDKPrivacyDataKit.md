@@ -1,9 +1,11 @@
 # Integrating AdswizzSDKPrivacyDataKit components
 
 ## Requirements
-* Xcode 15.2+
+* Xcode 16.0+ (latest recommended) when used alongside **_AdswizzSDK_** `v8.0.0` or newer
 * iOS 12.0+
 * Swift 5.9.2+
+
+> Since **_AdswizzSDK_** `v8.0.0`, **_AdswizzSDKPrivacyDataCore_**'s `RequestCompletion` type alias is `@Sendable`, and `PermissionType` and `RequestResult` are `Sendable`. If you pass a completion handler to a permission request, it must not capture non-`Sendable` state — hop to the main actor inside it if you need to update your UI.
 
 ## Dependencies
 Note that the **_AdswizzSDKPrivacyDataCore.xcframework_** is built as a standalone binary framework, it compiles out-of-the-box and does not require any extra dependency.

@@ -6,6 +6,7 @@
 //
 
 import AdswizzSDK
+import AdswizzExamplesCommon
 import SwiftUI
 
 struct ServerSideExampleView: View {
@@ -17,10 +18,14 @@ struct ServerSideExampleView: View {
     
     private var controlsView: some View {
         HStack(spacing: 50) {
-            Button(action: modelView.isPlaying ? modelView.stop : modelView.start) {
+            Button {
+                if modelView.isPlaying { modelView.stop() } else { modelView.start() }
+            } label: {
                 Text(!modelView.isPlaying ? "Start stream" : "Stop stream")
             }
-            Button(action: modelView.skip) {
+            Button {
+                modelView.skip()
+            } label: {
                 Text("Skip ad")
             }
             .disabled(!modelView.isPlaying)

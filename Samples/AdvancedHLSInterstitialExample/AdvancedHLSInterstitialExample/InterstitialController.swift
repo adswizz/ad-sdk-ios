@@ -7,6 +7,7 @@
 
 import AVFoundation
 import AdswizzSDK
+import AdswizzExamplesCommon
 
 // This class encapsulates and pairs an adpod driven by an`AdManager` (holding one or more `AdData` objects) with an `AVPlayerInterstitialEvent`.
 class InterstitialAdBreak {
@@ -20,7 +21,7 @@ class InterstitialAdBreak {
 }
 
 // The `InterstitialController` ad break delegate.
-protocol InterstitialAdBreakDelegate: AnyObject {
+@MainActor protocol InterstitialAdBreakDelegate: AnyObject {
     func controller(_ controller: InterstitialController, didChangePlayhead playhead: TimeInterval, outOf duration: TimeInterval)
     func controller(_ controller: InterstitialController, didStartAdBreak interstitialAdBreak: InterstitialAdBreak?)
     func controller(_ controller: InterstitialController, didEndAdBreak interstitialAdBreak: InterstitialAdBreak?)
@@ -30,7 +31,7 @@ protocol InterstitialAdBreakDelegate: AnyObject {
 
 // The `InterstitialController` class drives the logic behind working with an `AdManager` from `AdswizzSDK`
 // and the native HLS interstitial support provided by the `AVPlayer` (primary player) in conjunction with `AVQueuePlayer` (interstitial player) from `AVFoundation`.
-class InterstitialController: NSObject {
+@MainActor class InterstitialController: Isolatable {
     // AdswizzSDK.
     private var scheduler: AdRequestScheduler = AdRequestSchedulerImpl()
     var configs: [AdRequestConfig] = {
@@ -79,11 +80,11 @@ class InterstitialController: NSObject {
     
     // The observer for interstitial events
     private lazy var observer: AVPlayerInterstitialEventMonitor = {
-        let observer = AVPlayerInterstitialEventMonitor(primaryPlayer: primaryPlayer)
+        let observer = AVPlayerInterstitialEventMonitor(primaryPlayer: primaryPlayer.avPlayer)
         return observer
     }()
     private lazy var controller: AVPlayerInterstitialEventController = {
-        let controller = AVPlayerInterstitialEventController(primaryPlayer: primaryPlayer)
+        let controller = AVPlayerInterstitialEventController(primaryPlayer: primaryPlayer.avPlayer)
         return controller
     }()
     
@@ -95,11 +96,10 @@ class InterstitialController: NSObject {
     
     init(with primaryPlayer: MediaPlayer) {
         self.primaryPlayer = primaryPlayer
-        super.init()
         attach()
     }
     
-    deinit {
+    isolated deinit {
         detach()
         scheduler.unscheduleAll()
     }
@@ -184,8 +184,10 @@ private extension InterstitialController {
             forName: AVPlayerInterstitialEventMonitor.eventsDidChangeNotification,
             object: observer,
             queue: OperationQueue.main) { [weak self] notification in
-                if self?.adBreaks.isEmpty ?? false {
-                    self?.controller.events = []
+                self?.onMainActor {
+                    if self?.adBreaks.isEmpty ?? false {
+                        self?.controller.events = []
+                    }
                 }
             }
         
@@ -193,40 +195,42 @@ private extension InterstitialController {
             forName: AVPlayerInterstitialEventMonitor.currentEventDidChangeNotification,
             object: observer,
             queue: OperationQueue.main) { [weak self] notification in
-                guard let self else { return }
-                print("[Interstitial] Playing interstitial = \(String(describing: observer.currentEvent?.identifier)) at playhead = \(String(describing: observer.currentEvent?.time.seconds))")
-                
-                if let current = currentInterstitial, observer.currentEvent == nil {
-                    adBreakDelegate?.controller(self, didEndAdBreak: current)
-                    
-                    //remove current interstitial from ad breaks collection.
-                    adBreaks = adBreaks.filter { $0.interstitial.identifier != current.interstitial.identifier }
-                    
-                    //remove the current interstitial from the controller
-                    let remainingEvents: [AVPlayerInterstitialEvent] = controller.events.map {
-                        guard let copy = $0.copy() as? AVPlayerInterstitialEvent else { return nil }
-                        return copy
-                    }.compactMap { $0 }.filter { $0.identifier != current.interstitial.identifier }
-                    controller.events = remainingEvents
-                    
-                    currentInterstitial = nil
-                    
-                    //kick-off the AdManager for the next upcoming interstitial event
-                    adBreaks.first?.adManager.start(monitor: observer)
-                    
-                    print("[Interstitial] Remaining scheduled interstitial events = \(controller.events.map { $0.identifier })")
-                    controller.events.forEach {
-                        print("[Interstitial] Event = \($0.identifier) scheduled at playhead = \($0.time.seconds) with player items = \($0.templateItems.map { ($0.asset as? AVURLAsset)?.url })")
+                self?.onMainActor {
+                    guard let self else { return }
+                    print("[Interstitial] Playing interstitial = \(String(describing: self.observer.currentEvent?.identifier)) at playhead = \(String(describing: self.observer.currentEvent?.time.seconds))")
+
+                    if let current = self.currentInterstitial, self.observer.currentEvent == nil {
+                        self.adBreakDelegate?.controller(self, didEndAdBreak: current)
+
+                        //remove current interstitial from ad breaks collection.
+                        self.adBreaks = self.adBreaks.filter { $0.interstitial.identifier != current.interstitial.identifier }
+
+                        //remove the current interstitial from the controller
+                        let remainingEvents: [AVPlayerInterstitialEvent] = self.controller.events.map {
+                            guard let copy = $0.copy() as? AVPlayerInterstitialEvent else { return nil }
+                            return copy
+                        }.compactMap { $0 }.filter { $0.identifier != current.interstitial.identifier }
+                        self.controller.events = remainingEvents
+
+                        self.currentInterstitial = nil
+
+                        //kick-off the AdManager for the next upcoming interstitial event
+                        self.adBreaks.first?.adManager.start(monitor: self.observer)
+
+                        print("[Interstitial] Remaining scheduled interstitial events = \(self.controller.events.map { $0.identifier })")
+                        self.controller.events.forEach {
+                            print("[Interstitial] Event = \($0.identifier) scheduled at playhead = \($0.time.seconds) with player items = \($0.templateItems.map { ($0.asset as? AVURLAsset)?.url })")
+                        }
                     }
+
+                    guard let event = self.observer.currentEvent,
+                          let currentInterstitial = self.adBreaks.filter({ $0.interstitial.identifier == event.identifier }).first,
+                          currentInterstitial.adManager.ads.count != 0 else {
+                        return
+                    }
+                    self.currentInterstitial = currentInterstitial
+                    self.adBreakDelegate?.controller(self, didStartAdBreak: currentInterstitial)
                 }
-                
-                guard let event = observer.currentEvent,
-                      let currentInterstitial = adBreaks.filter({ $0.interstitial.identifier == event.identifier }).first,
-                      currentInterstitial.adManager.ads.count != 0 else {
-                    return
-                }
-                self.currentInterstitial = currentInterstitial
-                adBreakDelegate?.controller(self, didStartAdBreak: currentInterstitial)
             }
     }
     
@@ -235,7 +239,7 @@ private extension InterstitialController {
     }
 }
 
-extension InterstitialController: AdManagerDelegate {
+extension InterstitialController: @MainActor AdManagerDelegate {
     func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
         adBreakDelegate?.controller(self, didReceiveAdBreakEvent: event, error: nil, for: currentInterstitial)
         switch event.event {

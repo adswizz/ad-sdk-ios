@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
-// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdswizzSDKPrivacyDataCore
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
+// swift-compiler-version: Apple Swift version 6.3.1 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 6 -Onone -enable-experimental-feature DebugDescriptionMacro -module-name AdswizzSDKPrivacyDataCore
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.1
 @_exported import AdswizzSDKPrivacyDataCore
 import Foundation
 import Speech
@@ -9,26 +9,22 @@ import Swift
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@objc public class RequestResult : ObjectiveC.NSObject {
+@objc public class RequestResult : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @objc public var success: AdswizzSDKPrivacyDataCore.PermissionValue {
     get
   }
   @objc public var failure: (any Swift.Error)? {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(success: AdswizzSDKPrivacyDataCore.PermissionValue, failure: (any Swift.Error)? = nil)
-  #endif
   @objc deinit
 }
 extension AdswizzSDKPrivacyDataCore.RequestResult {
-  #if compiler(>=5.3) && $NonescapableTypes
   public var result: Swift.Result<AdswizzSDKPrivacyDataCore.PermissionValue, any Swift.Error> {
     get
   }
-  #endif
 }
-public typealias RequestCompletion = (_ result: AdswizzSDKPrivacyDataCore.RequestResult) -> Swift.Void
+public typealias RequestCompletion = @Sendable (_ result: AdswizzSDKPrivacyDataCore.RequestResult) -> Swift.Void
 @objc public protocol RequesterProtocol {
   @objc var authorizationStatus: AdswizzSDKPrivacyDataCore.PermissionValue { get }
   @objc(request:) func request(completion: @escaping AdswizzSDKPrivacyDataCore.RequestCompletion)
@@ -41,15 +37,13 @@ public typealias RequestCompletion = (_ result: AdswizzSDKPrivacyDataCore.Reques
   public var stringRepresentation: Swift.String {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
-@objc public enum PermissionType : Swift.Int, Swift.CaseIterable {
+@objc public enum PermissionType : Swift.Int, Swift.CaseIterable, Swift.Sendable {
   case location
   case locationAdvanced
   case photo
@@ -61,9 +55,7 @@ public typealias RequestCompletion = (_ result: AdswizzSDKPrivacyDataCore.Reques
   case camera
   case idfa
   case motionActivity
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias AllCases = [AdswizzSDKPrivacyDataCore.PermissionType]
   public typealias RawValue = Swift.Int
   nonisolated public static var allCases: [AdswizzSDKPrivacyDataCore.PermissionType] {
@@ -78,15 +70,11 @@ public typealias RequestCompletion = (_ result: AdswizzSDKPrivacyDataCore.Reques
   @objc func request(permission type: AdswizzSDKPrivacyDataCore.PermissionType, completion: @escaping AdswizzSDKPrivacyDataCore.RequestCompletion)
 }
 @objc public protocol AdswizzSDKFactory {
-  #if compiler(>=5.3) && $NonescapableTypes
   @objc func buildActivityManager() -> (any AdswizzSDKPrivacyDataCore.MotionActivityManager)?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   @objc func buildSpeechRecognizer(locale: Foundation.Locale) -> (any AdswizzSDKPrivacyDataCore.SpeechRecognizer)?
-  #endif
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class AdswizzSDKPrivacyData : ObjectiveC.NSObject {
-  @objc public static let shared: AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData
+  @_Concurrency.MainActor @objc public static let shared: AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData
   @objc deinit
 }
 extension AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData : AdswizzSDKPrivacyDataCore.AdswizzSDKPermissions {
@@ -94,20 +82,14 @@ extension AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData : AdswizzSDKPrivacyDat
   @objc dynamic public func authorizationStatus(for permission: AdswizzSDKPrivacyDataCore.PermissionType) -> AdswizzSDKPrivacyDataCore.PermissionValue
 }
 extension AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData : AdswizzSDKPrivacyDataCore.AdswizzSDKFactory {
-  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func buildActivityManager() -> (any AdswizzSDKPrivacyDataCore.MotionActivityManager)?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func buildSpeechRecognizer(locale: Foundation.Locale) -> (any AdswizzSDKPrivacyDataCore.SpeechRecognizer)?
-  #endif
 }
 @objc public enum MotionActivityConfidence : Swift.Int {
   case low = 0
   case medium
   case high
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -124,25 +106,17 @@ extension AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData : AdswizzSDKPrivacyDat
   @objc var cycling: Swift.Bool { get }
 }
 @objc public protocol MotionActivityManager {
-  #if compiler(>=5.3) && $NonescapableTypes
   @objc func startActivity(to queue: Foundation.OperationQueue, withHandler handler: @escaping ((any AdswizzSDKPrivacyDataCore.MotionActivity)?) -> ())
-  #endif
   @objc func stopActivity()
 }
 @objc public protocol SpeechRecognizer {
-  #if compiler(>=5.3) && $NonescapableTypes
   @objc init?(locale: Foundation.Locale)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   @objc func recognitionTask(with request: Speech.SFSpeechRecognitionRequest, resultHandler: @escaping (Speech.SFSpeechRecognitionResult?, (any Swift.Error)?) -> Swift.Void) -> Speech.SFSpeechRecognitionTask
-  #endif
 }
 @objc public enum LocationUsageType : Swift.Int {
   case whenInUse
   case always
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -154,9 +128,7 @@ extension AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData : AdswizzSDKPrivacyDat
 @objc public enum CalendarAccessType : Swift.Int {
   case writeOnly
   case full
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get

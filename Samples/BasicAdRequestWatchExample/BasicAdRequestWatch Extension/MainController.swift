@@ -57,7 +57,7 @@ extension MainController {
     @objc func appMessage(_ notification: Notification) {
         guard
             let raw = notification.userInfo?["WatchMessage"] as? String,
-            let state = State(rawValue: raw)
+            let state = WatchPlaybackState(rawValue: raw)
         else {
             return
         }

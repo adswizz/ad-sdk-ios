@@ -8,6 +8,7 @@ def common_pods
 pod 'AdswizzSDK', :git => "https://github.com/adswizz/ad-sdk-ios.git"
 end
 
+project 'AdswizzExamplesCommon/AdswizzExamplesCommon.xcodeproj'
 project 'BasicAdStreamExample/BasicAdStreamExample.xcodeproj'
 project 'BasicAdStreamExampleObjC/BasicAdStreamExampleObjC.xcodeproj'
 project 'BasicAdRequestExample/BasicAdRequestExample.xcodeproj'
@@ -18,11 +19,16 @@ project 'BasicVideoAdExample/BasicVideoAdExample.xcodeproj'
 project 'BasicTrackingPermissionExample/BasicTrackingPermissionExample.xcodeproj'
 project 'BasicEmptyAdsExample/BasicEmptyAdsExample.xcodeproj'
 project 'BasicDVRRequestExample/BasicDVRRequestExample.xcodeproj'
-project 'BasicSwiftUIClientSideInsertion/BasicSwiftUIClientSideInsertion.xcodeproj'
+project 'BasicUIKitClientSideInsertion/BasicUIKitClientSideInsertion.xcodeproj'
 project 'BasicTVOSExample/BasicTVOSExample.xcodeproj'
 project 'AdvancedHLSInterstitialExample/AdvancedHLSInterstitialExample.xcodeproj'
 project 'BasicPodcastExample/BasicPodcastExample'
 project 'BasicAnalyticsExample/BasicAnalyticsExample'
+
+target :AdswizzExamplesCommon do
+  project 'AdswizzExamplesCommon/AdswizzExamplesCommon.xcodeproj'
+  common_pods
+end
 
 target :BasicAdRequestExample do
   project 'BasicAdRequestExample/BasicAdRequestExample.xcodeproj'
@@ -118,6 +124,7 @@ end
 target :BasicTrackingPermissionExample do
   project 'BasicTrackingPermissionExample/BasicTrackingPermissionExample.xcodeproj'
   common_pods
+  pod 'AdswizzSDKPrivacyDataKit/IDFA', :path => "../"
 end
 
 target :BasicEmptyAdsExample do
@@ -130,14 +137,20 @@ target :BasicDVRRequestExample do
   common_pods
 end
 
-target :BasicSwiftUIClientSideInsertion do
-  project 'BasicSwiftUIClientSideInsertion/BasicSwiftUIClientSideInsertion.xcodeproj'
+target :BasicUIKitClientSideInsertion do
+  project 'BasicUIKitClientSideInsertion/BasicUIKitClientSideInsertion.xcodeproj'
   common_pods
 end
 
 target :BasicTVOSExample do
   platform :tvos, '13.0'
   project 'BasicTVOSExample/BasicTVOSExample.xcodeproj'
+  common_pods
+end
+
+target :AdswizzExamplesCommonTV do
+  platform :tvos, '13.0'
+  project 'AdswizzExamplesCommon/AdswizzExamplesCommon.xcodeproj'
   common_pods
 end
 

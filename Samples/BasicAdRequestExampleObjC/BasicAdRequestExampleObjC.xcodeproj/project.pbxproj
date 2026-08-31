@@ -92,13 +92,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		563AC74F6CB4F670A011A7B6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AE5193FD23F3F7EE0083D87B = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +99,6 @@
 				AE51942423F3F7EF0083D87B /* BasicAdRequestExampleObjCTests */,
 				AE51942F23F3F7EF0083D87B /* BasicAdRequestExampleObjCUITests */,
 				AE51940723F3F7EE0083D87B /* Products */,
-				563AC74F6CB4F670A011A7B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

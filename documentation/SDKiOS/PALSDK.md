@@ -36,7 +36,10 @@ Once you get a **_PALNonceManager_**, the final step is to link the AdswizzSDK w
 extension PALNonceManagerResolver: NonceLoaderDelegate {
   func nonceLoader(_ nonceLoader: NonceLoader, with request: NonceRequest, didLoad nonceManager: NonceManager) {
       self.nonceManager = nonceManager //keep the nonce manager in your app
-      AdswizzSDK.shared.palManager = nonceManager //link with AdswizzSDK
+      //`palManager` is @MainActor since v8.0.0; this Google delegate callback is nonisolated, so hop
+      Task { @MainActor in
+          AdswizzSDK.shared.palManager = nonceManager //link with AdswizzSDK
+      }
   }
 
   func nonceLoader(_ nonceLoader: NonceLoader, with request: NonceRequest, didFailWith error: Error) {

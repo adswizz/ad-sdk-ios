@@ -5,11 +5,14 @@ Podcast apps that integrate the AdswizzSDK will benefit from real-time reporting
 ## Build AdswizzAdPodcastManager
 
 To get started, you need to create an **_AdswizzAdPodcastManager_** object.
+> Since **_AdswizzSDK_** `v8.0.0` the objects used below are `@MainActor` isolated, which is why the sample types are annotated `@MainActor` and their **_AdswizzSDK_** delegate conformances are isolated. See the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md) for details.
+
 
 ```swift
 import AdswizzSDK
 
-class YourModelClass: AdPodcastManagerDelegate, AdPodcastManagerDownloadDelegate {
+@MainActor
+class YourModelClass: @MainActor AdPodcastManagerDelegate, @MainActor AdPodcastManagerDownloadDelegate {
    var podcastManager: AdswizzAdPodcastManager?
 
 func prepareForPlay() {
@@ -120,11 +123,22 @@ Notice that `completionHandler` is passed to **_AdswizzSDK_** shared instance in
 
 ### start download
 
-To begin downloading a podcast, the `startDownloadPodcast(with url: URL, to location: URL)` method takes a remote URL to download from and a location file URL as destination to save the media file once the download is complete. Similar to the `play(with url: URL)` method, the remote URL will be enhanced by **_AdswizzAdPodcastManager_** with extra parameters that enable the delivery of ads from an Adswizz server when the podcast is played.
+To begin downloading a podcast, the `startDownloadPodcast(with url: URL, to location: URL) async throws` method takes a remote URL to download from and a location file URL as destination to save the media file once the download is complete. Similar to the `play(with url: URL)` method, the remote URL will be enhanced by **_AdswizzAdPodcastManager_** with extra parameters that enable the delivery of ads from an Adswizz server when the podcast is played.
 
 ### stop download
 
-Calling the `stopDownloadPodcast(at location: URL)` method cancels a previously started download operation for a podcast at its location file URL as destination on disk.
+Calling the `stopDownloadPodcast(at location: URL) async throws` method cancels a previously started download operation for a podcast at its location file URL as destination on disk.
+
+> Since **_AdswizzSDK_** `v8.0.0` both `startDownloadPodcast(with:to:)` and `stopDownloadPodcast(at:)` are `async throws`, so they must be awaited from an asynchronous context:
+> ```swift
+> Task { @MainActor in
+>     do {
+>         try await podcastManager?.startDownloadPodcast(with: remoteURL, to: destinationURL)
+>     } catch {
+>         print(error)
+>     }
+> }
+> ```
 
 ### remove
 
@@ -182,13 +196,13 @@ When playing with an external player, the SDK informs your app to pause the cont
 
 When playing with an external player, the SDK informs your app to resume playing the content after being previously paused.
 
-### func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval, completion: @escaping () -> Void)
+### func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval, completion: @escaping @Sendable () -> Void)
 
 When playing with an external player, the SDK informs your app to seek forward the content when an ad is skipped. When this gets called you should seek to the `time` relative to the podcast duration as suggested by the **_AdswizzAdPodcastManager_**.
-Note that when your player completes the seek operation, it is important that your app call the specified completion block back to the SDK. Here is an example where `player` is an external player (that implements `MediaPlayerState` interface) based on Apple's `AVPlayer`:
+Note that when your player completes the seek operation, it is important that your app call the specified completion block back to the SDK. Since `v8.0.0` this completion block is `@Sendable`, so it must not capture non-`Sendable` state — capture only the values you need and hop to the main actor if your player has to be touched there. Here is an example where `player` is an external player (that implements `MediaPlayerState` interface) based on Apple's `AVPlayer`:
 
 ```swift
-func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval, completion: @escaping () -> Void) {
+func adPodcastManagerPlayer(_ adPodcastManager: AdPodcastManager, shouldSeekTo time: TimeInterval, completion: @escaping @Sendable () -> Void) {
     player?.seek(to: CMTime(seconds: time, preferredTimescale: CMTimeScale(NSEC_PER_SEC)),
                  toleranceBefore: CMTime.zero,
                  toleranceAfter: CMTime.zero) { _ in

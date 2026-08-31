@@ -42,13 +42,13 @@ extension AppModel {
         AdswizzSDK.setAdCompanionOptions(companionOptions)
 
         /// Handle privacy policies such as GDPR, CCPA or GPP consent
-        AdswizzSDK.shared.gdprConsent = .notApplicable
-        AdswizzSDK.shared.ccpaConfig = AdswizzCCPAConfig.Builder().build() //not applicable
-        AdswizzSDK.shared.gppConsent = "<your GPP consent string>"
+        AdswizzSDK.shared.consent.gdpr = .notApplicable
+        AdswizzSDK.shared.consent.ccpa = AdswizzCCPAConfig.Builder().build() //not applicable
+        AdswizzSDK.shared.consent.gpp = "<your GPP consent string>"
         
         /// Location settings if applicable
-        AdswizzSDK.shared.locationAccuracy = 100 //in meters
-        AdswizzSDK.shared.enableLocationSignificantChanges = true
+        AdswizzSDK.shared.location.accuracy = 100 //in meters
+        AdswizzSDK.shared.location.enableSignificantChanges = true
     }
     
     func configureAnalytics() {
@@ -60,7 +60,7 @@ extension AppModel {
 }
 
 /// Conform `AppModel` to `AdswizzSDKDelegate`
-extension AppModel: AdswizzSDKDelegate {
+extension AppModel: @MainActor AdswizzSDKDelegate {
     func adswizzSDKRecordingStarted(_ adswizzSDK: AdswizzSDK) {
         Log.info("Received recording started")
     }

@@ -33,7 +33,7 @@ Apple recommends that your app’s UI reflect when recording starts or stops. Th
 
 
 ```swift
-extension AppDelegate: AdswizzSDKDelegate {
+extension AppDelegate: @MainActor AdswizzSDKDelegate {
     func configureAdswizzSDK() {
        AdswizzSDK.initialize(installationId: "YOUR_INSTALLATION_ID")
        AdswizzSDK.setDelegate(self)
@@ -67,6 +67,7 @@ Called immediately after the coupon has been downloaded as a result of a shake e
 Next, here is an example of what the **_InteractiveAdManagerDelegate_** implementation may look like:
 
 ```swift
+@MainActor
 class YourModelClass {
 ......
 func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
@@ -76,6 +77,7 @@ func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
     ......
  }
 ......
+//`InteractiveAdManagerDelegate` is already `@MainActor` in the SDK, so this conformance needs no annotation
 extension YourModelClass: InteractiveAdManagerDelegate {
 func interactiveAdManager(_ adManager: AdManager, shouldPresentCoupon pkpassData: Data) {
     do {

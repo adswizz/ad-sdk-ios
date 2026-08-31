@@ -6,6 +6,7 @@
 //
 
 import AdswizzSDK
+import AdswizzExamplesCommon
 import SwiftUI
 
 struct HLSInterstitialExampleView: View {
@@ -25,7 +26,7 @@ struct HLSInterstitialExampleView: View {
     private var adCompanionContainer: some View {
         ZStack {
             if modelView.shouldDisplayAdCompanionView {
-                AdCompanionSwiftUIView(delegate: modelView)
+                AdswizzAdCompanionView(onReceiveEvent: modelView.handleCompanionEvent)
             } else {
                 adCompanionViewPlaceholder
             }
@@ -64,14 +65,18 @@ struct HLSInterstitialExampleView: View {
     
     private var controlsView : some View {
         HStack(spacing: 50) {
-            Button(action: modelView.isPlaying ? modelView.stop : modelView.start) {
+            Button {
+                if modelView.isPlaying { modelView.stop() } else { modelView.start() }
+            } label: {
                 Text(!modelView.isPlaying ? "Start stream" : "Stop stream")
             }
             if modelView.isAdBreak {
-                Button(action: modelView.isPausedAd ? modelView.resumeAd : modelView.pauseAd) {
+                Button {
+                    if modelView.isPausedAd { modelView.resumeAd() } else { modelView.pauseAd() }
+                } label: {
                     Text(modelView.isPausedAd ? "Resume ad" : "Pause ad")
                 }
-                Button(action: modelView.skipAd) {
+                Button(action: { modelView.skipAd() }) {
                     Text("Skip ad")
                 }
             }

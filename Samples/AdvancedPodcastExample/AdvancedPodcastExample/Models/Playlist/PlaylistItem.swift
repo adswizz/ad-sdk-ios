@@ -9,7 +9,7 @@
 import Foundation
 
 /// The `PlaylistItemDelegate` informs a playlist.
-protocol PlaylistItemDelegate: AnyObject {
+@MainActor protocol PlaylistItemDelegate: AnyObject {
     func playlistItemWillStart(_ item: PlaylistItem)
     func playlistItemDidStart(_ item: PlaylistItem)
     func playlistItemDidStop(_ item: PlaylistItem)
@@ -22,7 +22,7 @@ protocol PlaylistItemDelegate: AnyObject {
 
 /// A playlist item base implementation.
 /// The item encapsulates functionality such as start, stop and playback related logic.
-class PlaylistItem: NSObject {
+@MainActor class PlaylistItem: NSObject {
     
     /// Internal.
     var couldBePlayed = true

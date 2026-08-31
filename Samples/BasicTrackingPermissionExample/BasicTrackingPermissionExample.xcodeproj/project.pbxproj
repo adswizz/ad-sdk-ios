@@ -3,18 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE4F9A8A256E45A700D2FCB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F9A89256E45A700D2FCB2 /* AppDelegate.swift */; };
-		AE4F9A8C256E45A700D2FCB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F9A8B256E45A700D2FCB2 /* SceneDelegate.swift */; };
-		AE4F9A8E256E45A700D2FCB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F9A8D256E45A700D2FCB2 /* ViewController.swift */; };
-		AE4F9A91256E45A700D2FCB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4F9A8F256E45A700D2FCB2 /* Main.storyboard */; };
+		16C1638923FDF800751E5061 /* AdswizzExamplesCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2C5C46ADF9559A4CC51D58 /* AdswizzExamplesCommon.framework */; };
+		286E782C2F2279B000D14B7C /* BasicTrackingPermissionExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E782B2F2279AB00D14B7C /* BasicTrackingPermissionExampleApp.swift */; };
+		286E782F2F2279BB00D14B7C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E782E2F2279B800D14B7C /* MainView.swift */; };
+		286E78312F2279C000D14B7C /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E78302F2279BD00D14B7C /* MainViewModel.swift */; };
 		AE4F9A93256E45A900D2FCB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4F9A92256E45A900D2FCB2 /* Assets.xcassets */; };
-		AE4F9A96256E45A900D2FCB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4F9A94256E45A900D2FCB2 /* LaunchScreen.storyboard */; };
 		AE4F9AA1256E45A900D2FCB2 /* BasicTrackingPermissionExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F9AA0256E45A900D2FCB2 /* BasicTrackingPermissionExampleTests.swift */; };
 		AE4F9AAC256E45A900D2FCB2 /* BasicTrackingPermissionExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F9AAB256E45A900D2FCB2 /* BasicTrackingPermissionExampleUITests.swift */; };
+		D3024AA955133D2BA1322AA4 /* AdswizzExamplesCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB2C5C46ADF9559A4CC51D58 /* AdswizzExamplesCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +34,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9418E6632CDA3120F6A03B8C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D3024AA955133D2BA1322AA4 /* AdswizzExamplesCommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		286E782B2F2279AB00D14B7C /* BasicTrackingPermissionExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTrackingPermissionExampleApp.swift; sourceTree = "<group>"; };
+		286E782E2F2279B800D14B7C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		286E78302F2279BD00D14B7C /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		AB2C5C46ADF9559A4CC51D58 /* AdswizzExamplesCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdswizzExamplesCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4F9A86256E45A700D2FCB2 /* BasicTrackingPermissionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicTrackingPermissionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE4F9A89256E45A700D2FCB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AE4F9A8B256E45A700D2FCB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE4F9A8D256E45A700D2FCB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AE4F9A90256E45A700D2FCB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE4F9A92256E45A900D2FCB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AE4F9A95256E45A900D2FCB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE4F9A97256E45A900D2FCB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE4F9A9C256E45A900D2FCB2 /* BasicTrackingPermissionExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasicTrackingPermissionExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4F9AA0256E45A900D2FCB2 /* BasicTrackingPermissionExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTrackingPermissionExampleTests.swift; sourceTree = "<group>"; };
@@ -56,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16C1638923FDF800751E5061 /* AdswizzExamplesCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,9 +90,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8FC62AE2A44DF6A498F823C8 /* Frameworks */ = {
+		286E782D2F2279B300D14B7C /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				286E78302F2279BD00D14B7C /* MainViewModel.swift */,
+				286E782E2F2279B800D14B7C /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		6820FA6E343DCA26ECFBCFF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB2C5C46ADF9559A4CC51D58 /* AdswizzExamplesCommon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -90,7 +114,7 @@
 				AE4F9A9F256E45A900D2FCB2 /* BasicTrackingPermissionExampleTests */,
 				AE4F9AAA256E45A900D2FCB2 /* BasicTrackingPermissionExampleUITests */,
 				AE4F9A87256E45A700D2FCB2 /* Products */,
-				8FC62AE2A44DF6A498F823C8 /* Frameworks */,
+				6820FA6E343DCA26ECFBCFF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,12 +131,9 @@
 		AE4F9A88256E45A700D2FCB2 /* BasicTrackingPermissionExample */ = {
 			isa = PBXGroup;
 			children = (
-				AE4F9A89256E45A700D2FCB2 /* AppDelegate.swift */,
-				AE4F9A8B256E45A700D2FCB2 /* SceneDelegate.swift */,
-				AE4F9A8D256E45A700D2FCB2 /* ViewController.swift */,
-				AE4F9A8F256E45A700D2FCB2 /* Main.storyboard */,
+				286E782B2F2279AB00D14B7C /* BasicTrackingPermissionExampleApp.swift */,
+				286E782D2F2279B300D14B7C /* MainView */,
 				AE4F9A92256E45A900D2FCB2 /* Assets.xcassets */,
-				AE4F9A94256E45A900D2FCB2 /* LaunchScreen.storyboard */,
 				AE4F9A97256E45A900D2FCB2 /* Info.plist */,
 			);
 			path = BasicTrackingPermissionExample;
@@ -146,6 +167,7 @@
 				AE4F9A82256E45A700D2FCB2 /* Sources */,
 				AE4F9A83256E45A700D2FCB2 /* Frameworks */,
 				AE4F9A84256E45A700D2FCB2 /* Resources */,
+				9418E6632CDA3120F6A03B8C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,9 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE4F9A96256E45A900D2FCB2 /* LaunchScreen.storyboard in Resources */,
 				AE4F9A93256E45A900D2FCB2 /* Assets.xcassets in Resources */,
-				AE4F9A91256E45A700D2FCB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,9 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE4F9A8E256E45A700D2FCB2 /* ViewController.swift in Sources */,
-				AE4F9A8A256E45A700D2FCB2 /* AppDelegate.swift in Sources */,
-				AE4F9A8C256E45A700D2FCB2 /* SceneDelegate.swift in Sources */,
+				286E782C2F2279B000D14B7C /* BasicTrackingPermissionExampleApp.swift in Sources */,
+				286E782F2F2279BB00D14B7C /* MainView.swift in Sources */,
+				286E78312F2279C000D14B7C /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,25 +322,6 @@
 			targetProxy = AE4F9AA8256E45A900D2FCB2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		AE4F9A8F256E45A700D2FCB2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE4F9A90256E45A700D2FCB2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AE4F9A94256E45A900D2FCB2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE4F9A95256E45A900D2FCB2 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AE4F9AAE256E45A900D2FCB2 /* Debug */ = {
@@ -374,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -429,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -453,7 +454,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicTrackingPermissionExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -472,7 +473,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicTrackingPermissionExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -485,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
 				INFOPLIST_FILE = BasicTrackingPermissionExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,7 +494,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicTrackingPermissionExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BasicTrackingPermissionExample.app/BasicTrackingPermissionExample";
 			};
@@ -507,7 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
 				INFOPLIST_FILE = BasicTrackingPermissionExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -515,7 +516,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicTrackingPermissionExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BasicTrackingPermissionExample.app/BasicTrackingPermissionExample";
 			};
@@ -535,7 +536,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicTrackingPermissionExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BasicTrackingPermissionExample;
 			};
@@ -555,7 +556,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicTrackingPermissionExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BasicTrackingPermissionExample;
 			};

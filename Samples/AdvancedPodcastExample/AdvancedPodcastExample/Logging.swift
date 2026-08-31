@@ -148,7 +148,7 @@ class AdswizzSDKFormatter: LogFormatterProtocol {
     }
 }
 
-extension XCGLogger: AdLoggerDestination {
+extension XCGLogger: @retroactive AdLoggerDestination {
     public func log(_ level: AdLogger.Level, functionName: String, fileName: String, lineNumber: Int, line: String) {
         switch level {
         case .verbose:

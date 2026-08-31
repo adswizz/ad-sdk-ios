@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NormalAds</key>
+	<dict>
+		<key>modelName</key>
+		<string>Normal audio ads (without interactivity)</string>
+		<key>adServer</key>
+		<string>demo.deliveryengine.adswizz.com</string>
+		<key>zoneId</key>
+		<string>17862</string>
+		<key>companionZones</key>
+		<string>17863</string>
+		<key>description</key>
+		<string>Simple audio ad without any interactivity</string>
+	</dict>
+	<key>InteractiveAds</key>
+	<dict>
+		<key>modelName</key>
+		<string>Interactive audio ads (ShakeME)</string>
+		<key>adServer</key>
+		<string>demo.deliveryengine.adswizz.com</string>
+		<key>zoneId</key>
+		<string>17873</string>
+		<key>companionZones</key>
+		<string></string>
+		<key>description</key>
+		<string>This scenario demos shakeMe ads with different actions (Open URL, Download Coupon, Get Me There, Open Email, Place A Call).</string>
+	</dict>
+	<key>AskPermissionAds</key>
+	<dict>
+		<key>modelName</key>
+		<string>Interactive Ads to ask user&apos;s permission (ShakeME)</string>
+		<key>adServer</key>
+		<string>demo.deliveryengine.adswizz.com</string>
+		<key>zoneId</key>
+		<string>14349</string>
+		<key>companionZones</key>
+		<string></string>
+		<key>description</key>
+		<string>Using this type of ads you can ask for Microphone or Speech permissions</string>
+	</dict>
+	<key>InteractiveVoiceAds</key>
+	<dict>
+		<key>modelName</key>
+		<string>Voice Ads with Variable Listening Time</string>
+		<key>adServer</key>
+		<string>demo.deliveryengine.adswizz.com</string>
+		<key>zoneId</key>
+		<string>14712</string>
+		<key>companionZones</key>
+		<string></string>
+		<key>description</key>
+		<string>This scenario demos voice ads with Variable Listening Time (VLT). In order to have this ad working please be sure that the app has Mic &amp; Speech permissions (to do this you can ran &apos;AskPermsisionsAds&apos; scenario). Addtitionally, NO_MICROPHONE_ACCESS and NO_SPEECH_ACCESS should be removed from the post_install hook in your Podfile. Check our &apos;Integration Guide&apos; for more details.</string>
+	</dict>
+	<key>YourConfig</key>
+	<dict>
+		<key>modelName</key>
+		<string>My custom model</string>
+		<key>adServer</key>
+		<string>&lt;URL_PROVIDED_BY_ADSWIZZ_PIM&gt;</string>
+		<key>zoneId</key>
+		<string>&lt;ID_PROVIDED_BY_ADSWIZZ_PIM&gt;</string>
+		<key>companionZones</key>
+		<string>&lt;ID_PROVIDED_BY_ADSWIZZ_PIM&gt;</string>
+		<key>description</key>
+		<string>Your custom model description</string>
+	</dict>
+</dict>
+</plist>

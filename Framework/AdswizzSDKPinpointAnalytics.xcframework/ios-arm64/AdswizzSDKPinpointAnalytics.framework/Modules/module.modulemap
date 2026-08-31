@@ -7,5 +7,4 @@ framework module AdswizzSDKPinpointAnalytics {
 
 module AdswizzSDKPinpointAnalytics.Swift {
   header "AdswizzSDKPinpointAnalytics-Swift.h"
-  requires objc
 }

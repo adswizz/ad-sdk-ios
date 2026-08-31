@@ -7,5 +7,4 @@ framework module AdswizzWatchSDK {
 
 module AdswizzWatchSDK.Swift {
   header "AdswizzWatchSDK-Swift.h"
-  requires objc
 }

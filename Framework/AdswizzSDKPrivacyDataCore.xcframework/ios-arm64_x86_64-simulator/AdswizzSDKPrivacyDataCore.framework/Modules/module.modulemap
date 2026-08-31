@@ -7,5 +7,4 @@ framework module AdswizzSDKPrivacyDataCore {
 
 module AdswizzSDKPrivacyDataCore.Swift {
   header "AdswizzSDKPrivacyDataCore-Swift.h"
-  requires objc
 }

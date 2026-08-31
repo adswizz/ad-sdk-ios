@@ -9,28 +9,27 @@ import Foundation
 import AVFoundation
 import UIKit
 import AdswizzSDK
+import AdswizzExamplesCommon
 
-protocol PodcastListItemDelegate: AnyObject {
+@MainActor protocol PodcastListItemDelegate: AnyObject {
     func startedDownload(id: Int)
-    
     func stoppedDownload(id: Int)
-    
     func finishedDownload(id: Int)
-    
     func updatedDownloadProgress(id: Int, percent: Float)
 }
 
-class PodcastListItem {
+@MainActor class PodcastListItem {
     let title: String
     let url: URL
-    private static var podcastManagerUnique: AdswizzAdPodcastManager?
-    var podcastManager: AdswizzAdPodcastManager? { PodcastListItem.podcastManagerUnique }
     let id: Int
-    private var isDownloaded = false
-    weak var delegate: AdPodcastManagerDelegate?
+
     weak var podcastItemDelegate: PodcastListItemDelegate?
+
+    weak var podcastManager: AdswizzAdPodcastManager?
     var externalPlayer = ExternalMediaPlayer()
-    
+
+    private var isDownloaded = false
+
     private static var currentID = 0
     private static func getNextId() -> Int {
         let id = currentID
@@ -42,54 +41,8 @@ class PodcastListItem {
         self.id = PodcastListItem.getNextId()
         self.title = title
         self.url = url
-        
-        createPodcastInstanceIfNeeded()
-    }
-    let player = ExternalMediaPlayer()
-    private func createPodcastInstanceIfNeeded() {
-        guard PodcastListItem.podcastManagerUnique == nil else { return }
-        
-        do {
-            PodcastListItem.podcastManagerUnique = try AdswizzAdPodcastManager.Builder()
-                    .with(adServer: "demo.deliveryengine.adswizz.com")
-                    .with(httpProtocol: .http)
-                    .with(companionZones: "") // optional, if no companion zone id is found in the vast file this id will be used instead
-                    .build()
-        } catch {
-            print("Could not build podcastManager: \(error.localizedDescription)")
-            PodcastListItem.podcastManagerUnique = nil
-        }
     }
 
-    func downloadPressed() {
-        if isDownloaded {
-            stopAndRemoveDownload()
-        } else {
-            startDownload()
-        }
-        isDownloaded = !isDownloaded
-    }
-    
-    private func startDownload() {
-        podcastManager?.downloadDelegate = self
-        do {
-            try podcastManager?.startDownloadPodcast(with: url, to: url.getPathForPodcast())
-        } catch {
-            print("Error \(error) occured while starting download at \(url)")
-        }
-        podcastItemDelegate?.startedDownload(id: id)
-    }
-    
-    private func stopAndRemoveDownload() {
-        do {
-            try podcastManager?.stopDownloadPodcast(at: url.getPathForPodcast())
-            try podcastManager?.removePodcast(at: url.getPathForPodcast())
-        } catch {
-            print("Error \(error) when removing download for \(url)")
-        }
-        podcastItemDelegate?.stoppedDownload(id: id)
-    }
-    
     func prepareExternalPlayer(url: URL) {
         externalPlayer.prepare(with: url)
     }
@@ -106,7 +59,7 @@ class PodcastListItem {
         externalPlayer.stop()
     }
     
-    func externalPlayerSeek(to: TimeInterval, completion: @escaping () -> Void) {
+    func externalPlayerSeek(to: TimeInterval, completion: @escaping @Sendable () -> Void) {
         let seekTime = CMTime(value: Int64(to), timescale: 1)
         externalPlayer.seek(to: seekTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero) { finished in
             if finished {
@@ -115,51 +68,44 @@ class PodcastListItem {
             }
         }
     }
-    
-    func play(shouldUseCustomPlayer: Bool) {
-        podcastManager?.delegate = delegate
-        if shouldUseCustomPlayer {
-            let settings = AdPodcastManagerSettings()
-            settings.player = externalPlayer
-            PodcastListItem.podcastManagerUnique?.adPodcastManagerSettings = settings
-        } else  {
-            let settings = podcastManager?.adPodcastManagerSettings ?? AdPodcastManagerSettings()
-            settings.player = nil
-            PodcastListItem.podcastManagerUnique?.adPodcastManagerSettings = settings
+
+    func downloadPressed() {
+        Task {
+            if isDownloaded {
+                await stopAndRemoveDownload()
+            } else {
+                await startDownload()
+            }
+            isDownloaded = !isDownloaded
         }
-        
-        AdswizzSDK.shared.disableRAD = true
-        
+    }
+
+    private func startDownload() async {
+        podcastManager?.downloadDelegate = self
         do {
-            try podcastManager?.play(with: url)
+            try await podcastManager?.startDownloadPodcast(with: url, to: url.getPathForPodcast())
         } catch {
-            print("Could not play podcastManager: \(error.localizedDescription)")
+            print("Error \(error) occured while starting download at \(url)")
         }
+        podcastItemDelegate?.startedDownload(id: id)
     }
-    
-    func stop() {
-        podcastManager?.stop()
-    }
-    
-    func pause() {
-        podcastManager?.pause()
-    }
-    
-    func resume() {
-        podcastManager?.resume()
-    }
-    
-    func seek(to: Float) {
-        try? podcastManager?.seek(to: TimeInterval(to)) {
-            //seek operation finished
+
+    private func stopAndRemoveDownload() async {
+        do {
+            try await podcastManager?.stopDownloadPodcast(at: url.getPathForPodcast())
+            try podcastManager?.removePodcast(at: url.getPathForPodcast())
+        } catch {
+            print("Error \(error) when removing download for \(url)")
         }
+        podcastItemDelegate?.stoppedDownload(id: id)
     }
 }
 
-extension PodcastListItem: AdPodcastManagerDownloadDelegate {
+extension PodcastListItem: @MainActor AdPodcastManagerDownloadDelegate {
     func adPodcastManager(_ adPodcastManager: AdPodcastManager, didDownload bytesDownloaded: Int64, outOf bytesExpected: Int64, for asset: DownloadableAsset) {
         print("adPodcastManager didDownload \(bytesDownloaded) of \(bytesExpected) for \(asset.url)")
-        podcastItemDelegate?.updatedDownloadProgress(id: id, percent: Float(bytesDownloaded) / Float(bytesExpected))
+        let percent = Float(bytesDownloaded) / Float(bytesExpected)
+        podcastItemDelegate?.updatedDownloadProgress(id: id, percent: percent)
     }
     
     func adPodcastManager(_ adPodcastManager: AdPodcastManager, didFinishDownload asset: DownloadableAsset) {

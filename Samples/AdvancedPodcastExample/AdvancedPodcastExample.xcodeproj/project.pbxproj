@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE4D66922A9E02960071103B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66912A9E02960071103B /* AppDelegate.swift */; };
-		AE4D66942A9E02960071103B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66932A9E02960071103B /* SceneDelegate.swift */; };
-		AE4D66992A9E02960071103B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4D66972A9E02960071103B /* Main.storyboard */; };
+		286E77EF2F1F9D5000D14B7C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E77EE2F1F9D4E00D14B7C /* MainView.swift */; };
+		286E77F12F1F9D5600D14B7C /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E77F02F1F9D5400D14B7C /* MainViewModel.swift */; };
+		286E77FC2F1F9F1700D14B7C /* PodcastRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E77F92F1F9F1700D14B7C /* PodcastRow.swift */; };
+		286E77FF2F1FAC1900D14B7C /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E77FD2F1FAC1900D14B7C /* PlayerView.swift */; };
+		286E78002F1FAC1900D14B7C /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E77FE2F1FAC1900D14B7C /* PlayerViewModel.swift */; };
+		286E780B2F1FAF7F00D14B7C /* AdvancedPodcastExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E780A2F1FAF7800D14B7C /* AdvancedPodcastExampleApp.swift */; };
+		286E780D2F1FC53200D14B7C /* MinimizedPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E780C2F1FC52B00D14B7C /* MinimizedPlayerView.swift */; };
+		366B1FC50F46A08546A1AE46 /* AdswizzExamplesCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7F6BF67D9AEF2984DD55BDF /* AdswizzExamplesCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE4D669B2A9E02970071103B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4D669A2A9E02970071103B /* Assets.xcassets */; };
 		AE4D669E2A9E02970071103B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4D669C2A9E02970071103B /* LaunchScreen.storyboard */; };
-		AE4D66A82A9E174B0071103B /* PodcastsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66A72A9E174B0071103B /* PodcastsViewController.swift */; };
-		AE4D66B22A9E1EA30071103B /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66B12A9E1EA30071103B /* PlayerViewController.swift */; };
-		AE4D66B52A9E21570071103B /* SeekBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66B42A9E21570071103B /* SeekBarView.swift */; };
-		AE4D66B72A9E31CA0071103B /* PodcastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66B62A9E31CA0071103B /* PodcastTableViewCell.swift */; };
-		AE4D66B92A9E38120071103B /* ExternalMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66B82A9E38120071103B /* ExternalMediaPlayer.swift */; };
-		AE4D66BB2A9E3A2B0071103B /* AppDelegate+Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66BA2A9E3A2B0071103B /* AppDelegate+Logger.swift */; };
 		AE4D66BD2A9E3A8F0071103B /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66BC2A9E3A8F0071103B /* Logging.swift */; };
 		AE4D66C52A9F435D0071103B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66C12A9F435D0071103B /* AppModel.swift */; };
 		AE4D66CA2A9F656F0071103B /* AdswizzSDKConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66C92A9F656F0071103B /* AdswizzSDKConfig.swift */; };
@@ -25,8 +24,6 @@
 		AE4D66D02A9F8ACE0071103B /* App+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66CF2A9F8ACE0071103B /* App+Error.swift */; };
 		AE4D66D42AA0711B0071103B /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = AE4D66D32AA0711B0071103B /* config.json */; };
 		AE4D66D72AA076500071103B /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66D62AA076500071103B /* Bundle+Decode.swift */; };
-		AE4D66DD2AA0C4D80071103B /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66DC2AA0C4D80071103B /* PlayerView.swift */; };
-		AE4D66DF2AA5E26E0071103B /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66DE2AA5E26E0071103B /* UIViewController+Storyboard.swift */; };
 		AE4D66E82AA70BC00071103B /* PlaylistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66E32AA70BC00071103B /* PlaylistItem.swift */; };
 		AE4D66E92AA70BC00071103B /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66E42AA70BC00071103B /* Playlist.swift */; };
 		AE4D66EA2AA70BC00071103B /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66E62AA70BC00071103B /* Podcast.swift */; };
@@ -34,23 +31,35 @@
 		AE4D66ED2AA70BF50071103B /* Playlist+Podcasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66EC2AA70BF50071103B /* Playlist+Podcasts.swift */; };
 		AE4D66EF2AA70C660071103B /* PodcastPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66EE2AA70C660071103B /* PodcastPlaylist.swift */; };
 		AE4D66F32AA726680071103B /* PodcastPlaylistItem+AdManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66F22AA726680071103B /* PodcastPlaylistItem+AdManagerDelegate.swift */; };
-		AE4D66F52AA860370071103B /* PlayingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D66F42AA860370071103B /* PlayingIndicatorView.swift */; };
+		CC0BE099368E86F9C0023361 /* AdswizzExamplesCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F6BF67D9AEF2984DD55BDF /* AdswizzExamplesCommon.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E00E8F60F6955402017442DC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				366B1FC50F46A08546A1AE46 /* AdswizzExamplesCommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		286E77EE2F1F9D4E00D14B7C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		286E77F02F1F9D5400D14B7C /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		286E77F92F1F9F1700D14B7C /* PodcastRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastRow.swift; sourceTree = "<group>"; };
+		286E77FD2F1FAC1900D14B7C /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		286E77FE2F1FAC1900D14B7C /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		286E780A2F1FAF7800D14B7C /* AdvancedPodcastExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedPodcastExampleApp.swift; sourceTree = "<group>"; };
+		286E780C2F1FC52B00D14B7C /* MinimizedPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimizedPlayerView.swift; sourceTree = "<group>"; };
 		AE4D668E2A9E02960071103B /* AdvancedPodcastExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvancedPodcastExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE4D66912A9E02960071103B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AE4D66932A9E02960071103B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE4D66982A9E02960071103B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE4D669A2A9E02970071103B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE4D669D2A9E02970071103B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE4D669F2A9E02970071103B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE4D66A72A9E174B0071103B /* PodcastsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastsViewController.swift; sourceTree = "<group>"; };
-		AE4D66B12A9E1EA30071103B /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		AE4D66B42A9E21570071103B /* SeekBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeekBarView.swift; path = ../../../BasicPodcastExample/BasicPodcastExample/SeekBarView.swift; sourceTree = "<group>"; };
-		AE4D66B62A9E31CA0071103B /* PodcastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastTableViewCell.swift; sourceTree = "<group>"; };
-		AE4D66B82A9E38120071103B /* ExternalMediaPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExternalMediaPlayer.swift; path = ../../../BasicAdStreamExample/BasicAdStreamExample/ExternalMediaPlayer.swift; sourceTree = "<group>"; };
-		AE4D66BA2A9E3A2B0071103B /* AppDelegate+Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Logger.swift"; sourceTree = "<group>"; };
 		AE4D66BC2A9E3A8F0071103B /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		AE4D66C12A9F435D0071103B /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		AE4D66C92A9F656F0071103B /* AdswizzSDKConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdswizzSDKConfig.swift; sourceTree = "<group>"; };
@@ -58,8 +67,6 @@
 		AE4D66CF2A9F8ACE0071103B /* App+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Error.swift"; sourceTree = "<group>"; };
 		AE4D66D32AA0711B0071103B /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		AE4D66D62AA076500071103B /* Bundle+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Decode.swift"; sourceTree = "<group>"; };
-		AE4D66DC2AA0C4D80071103B /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
-		AE4D66DE2AA5E26E0071103B /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		AE4D66E32AA70BC00071103B /* PlaylistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistItem.swift; sourceTree = "<group>"; };
 		AE4D66E42AA70BC00071103B /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		AE4D66E62AA70BC00071103B /* Podcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
@@ -67,7 +74,7 @@
 		AE4D66EC2AA70BF50071103B /* Playlist+Podcasts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Playlist+Podcasts.swift"; sourceTree = "<group>"; };
 		AE4D66EE2AA70C660071103B /* PodcastPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastPlaylist.swift; sourceTree = "<group>"; };
 		AE4D66F22AA726680071103B /* PodcastPlaylistItem+AdManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PodcastPlaylistItem+AdManagerDelegate.swift"; sourceTree = "<group>"; };
-		AE4D66F42AA860370071103B /* PlayingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingIndicatorView.swift; sourceTree = "<group>"; };
+		E7F6BF67D9AEF2984DD55BDF /* AdswizzExamplesCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdswizzExamplesCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,17 +82,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0BE099368E86F9C0023361 /* AdswizzExamplesCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		286E77ED2F1F9D4A00D14B7C /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				286E77FA2F1F9F1700D14B7C /* Subviews */,
+				286E77F02F1F9D5400D14B7C /* MainViewModel.swift */,
+				286E77EE2F1F9D4E00D14B7C /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		286E77FA2F1F9F1700D14B7C /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				286E780C2F1FC52B00D14B7C /* MinimizedPlayerView.swift */,
+				286E77F92F1F9F1700D14B7C /* PodcastRow.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		286E780E2F1FCD3900D14B7C /* PlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				286E77FD2F1FAC1900D14B7C /* PlayerView.swift */,
+				286E77FE2F1FAC1900D14B7C /* PlayerViewModel.swift */,
+			);
+			path = PlayerView;
+			sourceTree = "<group>";
+		};
+		381A59B5615B5B5A6C75C1D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7F6BF67D9AEF2984DD55BDF /* AdswizzExamplesCommon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AE4D66852A9E02960071103B = {
 			isa = PBXGroup;
 			children = (
 				AE4D66902A9E02960071103B /* AdvancedPodcastExample */,
 				AE4D668F2A9E02960071103B /* Products */,
+				381A59B5615B5B5A6C75C1D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,43 +145,19 @@
 		AE4D66902A9E02960071103B /* AdvancedPodcastExample */ = {
 			isa = PBXGroup;
 			children = (
+				286E780A2F1FAF7800D14B7C /* AdvancedPodcastExampleApp.swift */,
+				286E77ED2F1F9D4A00D14B7C /* MainView */,
+				286E780E2F1FCD3900D14B7C /* PlayerView */,
 				AE4D66D52AA076400071103B /* Extensions */,
-				AE4D66B32A9E211A0071103B /* Common */,
 				AE4D66C02A9F435D0071103B /* Models */,
-				AE4D66A62A9E171E0071103B /* Views */,
-				AE4D66912A9E02960071103B /* AppDelegate.swift */,
-				AE4D66BA2A9E3A2B0071103B /* AppDelegate+Logger.swift */,
 				AE4D66BC2A9E3A8F0071103B /* Logging.swift */,
 				AE4D66CF2A9F8ACE0071103B /* App+Error.swift */,
-				AE4D66932A9E02960071103B /* SceneDelegate.swift */,
-				AE4D66972A9E02960071103B /* Main.storyboard */,
 				AE4D669A2A9E02970071103B /* Assets.xcassets */,
 				AE4D669C2A9E02970071103B /* LaunchScreen.storyboard */,
 				AE4D66D32AA0711B0071103B /* config.json */,
 				AE4D669F2A9E02970071103B /* Info.plist */,
 			);
 			path = AdvancedPodcastExample;
-			sourceTree = "<group>";
-		};
-		AE4D66A62A9E171E0071103B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				AE4D66DC2AA0C4D80071103B /* PlayerView.swift */,
-				AE4D66B12A9E1EA30071103B /* PlayerViewController.swift */,
-				AE4D66A72A9E174B0071103B /* PodcastsViewController.swift */,
-				AE4D66B62A9E31CA0071103B /* PodcastTableViewCell.swift */,
-				AE4D66F42AA860370071103B /* PlayingIndicatorView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		AE4D66B32A9E211A0071103B /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				AE4D66B42A9E21570071103B /* SeekBarView.swift */,
-				AE4D66B82A9E38120071103B /* ExternalMediaPlayer.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		AE4D66C02A9F435D0071103B /* Models */ = {
@@ -155,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				AE4D66D62AA076500071103B /* Bundle+Decode.swift */,
-				AE4D66DE2AA5E26E0071103B /* UIViewController+Storyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,6 +211,7 @@
 				AE4D668A2A9E02960071103B /* Sources */,
 				AE4D668B2A9E02960071103B /* Frameworks */,
 				AE4D668C2A9E02960071103B /* Resources */,
+				E00E8F60F6955402017442DC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,7 +263,6 @@
 				AE4D669E2A9E02970071103B /* LaunchScreen.storyboard in Resources */,
 				AE4D66D42AA0711B0071103B /* config.json in Resources */,
 				AE4D669B2A9E02970071103B /* Assets.xcassets in Resources */,
-				AE4D66992A9E02960071103B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,44 +273,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE4D66A82A9E174B0071103B /* PodcastsViewController.swift in Sources */,
-				AE4D66BB2A9E3A2B0071103B /* AppDelegate+Logger.swift in Sources */,
-				AE4D66B92A9E38120071103B /* ExternalMediaPlayer.swift in Sources */,
 				AE4D66C52A9F435D0071103B /* AppModel.swift in Sources */,
-				AE4D66DF2AA5E26E0071103B /* UIViewController+Storyboard.swift in Sources */,
+				286E77FF2F1FAC1900D14B7C /* PlayerView.swift in Sources */,
+				286E780B2F1FAF7F00D14B7C /* AdvancedPodcastExampleApp.swift in Sources */,
+				286E78002F1FAC1900D14B7C /* PlayerViewModel.swift in Sources */,
 				AE4D66D02A9F8ACE0071103B /* App+Error.swift in Sources */,
-				AE4D66B52A9E21570071103B /* SeekBarView.swift in Sources */,
 				AE4D66EA2AA70BC00071103B /* Podcast.swift in Sources */,
-				AE4D66DD2AA0C4D80071103B /* PlayerView.swift in Sources */,
+				286E780D2F1FC53200D14B7C /* MinimizedPlayerView.swift in Sources */,
+				286E77FC2F1F9F1700D14B7C /* PodcastRow.swift in Sources */,
 				AE4D66E82AA70BC00071103B /* PlaylistItem.swift in Sources */,
-				AE4D66B72A9E31CA0071103B /* PodcastTableViewCell.swift in Sources */,
 				AE4D66CC2A9F6F520071103B /* AppModel+AdswizzSDK.swift in Sources */,
 				AE4D66F32AA726680071103B /* PodcastPlaylistItem+AdManagerDelegate.swift in Sources */,
 				AE4D66EF2AA70C660071103B /* PodcastPlaylist.swift in Sources */,
 				AE4D66EB2AA70BC00071103B /* PodcastPlaylistItem.swift in Sources */,
-				AE4D66F52AA860370071103B /* PlayingIndicatorView.swift in Sources */,
 				AE4D66D72AA076500071103B /* Bundle+Decode.swift in Sources */,
 				AE4D66CA2A9F656F0071103B /* AdswizzSDKConfig.swift in Sources */,
 				AE4D66ED2AA70BF50071103B /* Playlist+Podcasts.swift in Sources */,
-				AE4D66922A9E02960071103B /* AppDelegate.swift in Sources */,
 				AE4D66BD2A9E3A8F0071103B /* Logging.swift in Sources */,
-				AE4D66B22A9E1EA30071103B /* PlayerViewController.swift in Sources */,
-				AE4D66942A9E02960071103B /* SceneDelegate.swift in Sources */,
+				286E77EF2F1F9D5000D14B7C /* MainView.swift in Sources */,
 				AE4D66E92AA70BC00071103B /* Playlist.swift in Sources */,
+				286E77F12F1F9D5600D14B7C /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AE4D66972A9E02960071103B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE4D66982A9E02960071103B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AE4D669C2A9E02970071103B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -428,10 +436,9 @@
 				INFOPLIST_FILE = AdvancedPodcastExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -440,7 +447,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adswizz.AdvancedPodcastExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -457,10 +464,9 @@
 				INFOPLIST_FILE = AdvancedPodcastExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -469,7 +475,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adswizz.AdvancedPodcastExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

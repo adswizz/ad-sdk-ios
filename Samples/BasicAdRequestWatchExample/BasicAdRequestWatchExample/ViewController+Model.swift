@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AdswizzExamplesCommon
 
 class WatchSupportImpl: WatchSupport {
     var hasSupport: Bool {
@@ -16,14 +17,14 @@ class WatchSupportImpl: WatchSupport {
         }
     }
     
-    func sendMessage(_ state: State) {
+    func sendMessage(_ state: WatchPlaybackState) {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         appDelegate?.sendMessage(state)
     }
 }
 
-extension ViewController: ViewControllerModelBuilder {
-    func build() -> ViewControllerModelProtocol {
-        return ViewControllerModel("13381", WatchSupportImpl())
+extension ViewController {
+    func build() -> AdRequestConfigModelProtocol {
+        return AdRequestConfigModel("13381", WatchSupportImpl())
     }
 }

@@ -7,7 +7,7 @@
 
 import AdswizzSDK
 
-class HLSInterstitialModelView: ObservableObject {
+@MainActor class HLSInterstitialModelView: ObservableObject {
     @Published var isPlaying: Bool = false
     @Published var playhead: String?
     @Published var duration: String?
@@ -52,21 +52,18 @@ class HLSInterstitialModelView: ObservableObject {
 
 private extension HLSInterstitialModelView {
     func updatePlayhead(_ playhead: TimeInterval, _ duration: TimeInterval) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            let isLive = duration == Double.greatestFiniteMagnitude
-            if isLive {
-                self.duration = "LIVE"
-            } else {
-                let secondsText = String(format: "%02d", Int(duration) % 60)
-                let minutesText = String(format: "%02d", Int(duration) / 60)
-                self.duration = "\(minutesText):\(secondsText)"
-            }
-            
-            let secondsText = String(format: "%02d", Int(playhead) % 60)
-            let minutesText = String(format: "%02d", Int(playhead) / 60)
-            self.playhead = "\(minutesText):\(secondsText)"
+        let isLive = duration == Double.greatestFiniteMagnitude
+        if isLive {
+            self.duration = "LIVE"
+        } else {
+            let secondsText = String(format: "%02d", Int(duration) % 60)
+            let minutesText = String(format: "%02d", Int(duration) / 60)
+            self.duration = "\(minutesText):\(secondsText)"
         }
+
+        let secondsText = String(format: "%02d", Int(playhead) % 60)
+        let minutesText = String(format: "%02d", Int(playhead) / 60)
+        self.playhead = "\(minutesText):\(secondsText)"
     }
 }
 
@@ -106,20 +103,12 @@ extension HLSInterstitialModelView: ModelAdBreakDelegate {
     }
 }
 
-extension HLSInterstitialModelView: AdCompanionViewDelegate {
-    func adCompanionViewWillLoad(_ adCompanionView: AdCompanionView) {
-        shouldDisplayAdCompanionView = true
-    }
-    
-    func adCompanionViewDidDisplay(_ adCompanionView: AdCompanionView) {
-        shouldDisplayAdCompanionView = true
-    }
-    
-    func adCompanionView(_ adCompanionView: AdCompanionView, didFailToDisplay error: any Error) {
-        shouldDisplayAdCompanionView = false
-    }
-    
-    func adCompanionViewDidEndDisplay(_ adCompanionView: AdCompanionView) {
-        shouldDisplayAdCompanionView = false
+extension HLSInterstitialModelView {
+    func handleCompanionEvent(_ event: String) {
+        if event.hasPrefix("WillLoadAd") || event.hasPrefix("DidDisplayAd") {
+            shouldDisplayAdCompanionView = true
+        } else if event.hasPrefix("DidEndDisplay") || event.hasPrefix("DidFailToDisplay") {
+            shouldDisplayAdCompanionView = false
+        }
     }
 }

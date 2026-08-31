@@ -3,33 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE32E4AD288B0657005F1D63 /* ExternalMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64961B9D2886DC5D0057FD29 /* ExternalMediaPlayer.swift */; };
-		AE5193CE23F3F7600083D87B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5193CD23F3F7600083D87B /* AppDelegate.swift */; };
-		AE5193D023F3F7600083D87B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5193CF23F3F7600083D87B /* SceneDelegate.swift */; };
-		AE5193D523F3F7600083D87B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5193D323F3F7600083D87B /* Main.storyboard */; };
+		0AD6858178E8511DEDF09957 /* AdswizzExamplesCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0158BAA86685344F544DA4F8 /* AdswizzExamplesCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2824315C2F17F62E00E88AD1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824315B2F17F62C00E88AD1 /* MainView.swift */; };
+		282431602F17F69C00E88AD1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824315F2F17F69800E88AD1 /* MainViewModel.swift */; };
+		2824316E2F17F8FE00E88AD1 /* ActionButtonsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824316D2F17F8FE00E88AD1 /* ActionButtonsSection.swift */; };
+		282431772F17F9FD00E88AD1 /* MainViewModel+AdManagerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282431762F17F9F500E88AD1 /* MainViewModel+AdManagerDatasource.swift */; };
+		2824317B2F17FA5C00E88AD1 /* MainViewModel+NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824317A2F17FA5600E88AD1 /* MainViewModel+NowPlaying.swift */; };
+		2824317D2F17FA7B00E88AD1 /* PassAddViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824317C2F17FA7B00E88AD1 /* PassAddViewControllerRepresentable.swift */; };
+		2824317F2F1800F200E88AD1 /* BasicAdRequestExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824317E2F1800EB00E88AD1 /* BasicAdRequestExampleApp.swift */; };
 		AE5193D723F3F7630083D87B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5193D623F3F7630083D87B /* Assets.xcassets */; };
 		AE5193DA23F3F7630083D87B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5193D823F3F7630083D87B /* LaunchScreen.storyboard */; };
 		AE5193E523F3F7630083D87B /* BasicAdRequestExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5193E423F3F7630083D87B /* BasicAdRequestExampleTests.swift */; };
 		AE5193F023F3F7630083D87B /* BasicAdRequestExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5193EF23F3F7630083D87B /* BasicAdRequestExampleUITests.swift */; };
 		AE51944223F40B020083D87B /* content_example.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE51943E23F40B020083D87B /* content_example.mp3 */; };
-		AE51944323F40B020083D87B /* ViewController+AdManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51943F23F40B020083D87B /* ViewController+AdManagerDelegate.swift */; };
-		AE51944423F40B020083D87B /* ViewController+AdCompanionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51944023F40B020083D87B /* ViewController+AdCompanionViewDelegate.swift */; };
-		AE51944523F40B020083D87B /* UIWindow+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51944123F40B020083D87B /* UIWindow+SafeArea.swift */; };
-		AE51944723F410850083D87B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51944623F410850083D87B /* ViewController.swift */; };
-		AE5EBA412411391100ECAEF7 /* NowPlayableMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA402411391100ECAEF7 /* NowPlayableMetadata.swift */; };
-		AE5EBA47241144FE00ECAEF7 /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA46241144FE00ECAEF7 /* ViewControllerModel.swift */; };
-		AE5EBA4D24114A4600ECAEF7 /* ViewController+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA4C24114A4600ECAEF7 /* ViewController+Model.swift */; };
-		AE5EBA512411584A00ECAEF7 /* ViewController+NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA502411584A00ECAEF7 /* ViewController+NowPlaying.swift */; };
-		AE5EBA57241159D900ECAEF7 /* WatchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EBA56241159D900ECAEF7 /* WatchSupport.swift */; };
-		AEDD7D2625B8878A00F2ED17 /* ViewController+AdManagerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD7D2525B8878900F2ED17 /* ViewController+AdManagerDatasource.swift */; };
-		C234BA6426C6A66F00B406AB /* ViewController+InteractiveAdManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C234BA6326C6A66F00B406AB /* ViewController+InteractiveAdManagerDelegate.swift */; };
-		C240E84E271F2C1100F76853 /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240E84D271F2C1100F76853 /* Bundle+Version.swift */; };
+		C1BC8EB0B5C3DD65726579A0 /* AdswizzExamplesCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0158BAA86685344F544DA4F8 /* AdswizzExamplesCommon.framework */; };
 		C29AA46026E235E900F58782 /* AdswizzSDKConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = C29AA45F26E235E800F58782 /* AdswizzSDKConfig.plist */; };
-		CC9A8411285B3730006AF21D /* ViewController+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9A8410285B3730006AF21D /* ViewController+Extra.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,12 +41,30 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		52BC00A46CA4D6B1F0B1E25F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0AD6858178E8511DEDF09957 /* AdswizzExamplesCommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		64961B9D2886DC5D0057FD29 /* ExternalMediaPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExternalMediaPlayer.swift; path = ../../BasicAdStreamExample/BasicAdStreamExample/ExternalMediaPlayer.swift; sourceTree = "<group>"; };
+		0158BAA86685344F544DA4F8 /* AdswizzExamplesCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdswizzExamplesCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2824315B2F17F62C00E88AD1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		2824315F2F17F69800E88AD1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		2824316D2F17F8FE00E88AD1 /* ActionButtonsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonsSection.swift; sourceTree = "<group>"; };
+		282431762F17F9F500E88AD1 /* MainViewModel+AdManagerDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+AdManagerDatasource.swift"; sourceTree = "<group>"; };
+		2824317A2F17FA5600E88AD1 /* MainViewModel+NowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+NowPlaying.swift"; sourceTree = "<group>"; };
+		2824317C2F17FA7B00E88AD1 /* PassAddViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassAddViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		2824317E2F1800EB00E88AD1 /* BasicAdRequestExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAdRequestExampleApp.swift; sourceTree = "<group>"; };
 		AE5193CA23F3F7600083D87B /* BasicAdRequestExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicAdRequestExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE5193CD23F3F7600083D87B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AE5193CF23F3F7600083D87B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE5193D423F3F7600083D87B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE5193D623F3F7630083D87B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE5193D923F3F7630083D87B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE5193DB23F3F7630083D87B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,20 +75,7 @@
 		AE5193EF23F3F7630083D87B /* BasicAdRequestExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAdRequestExampleUITests.swift; sourceTree = "<group>"; };
 		AE5193F123F3F7630083D87B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE51943E23F40B020083D87B /* content_example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = content_example.mp3; sourceTree = "<group>"; };
-		AE51943F23F40B020083D87B /* ViewController+AdManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+AdManagerDelegate.swift"; sourceTree = "<group>"; };
-		AE51944023F40B020083D87B /* ViewController+AdCompanionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+AdCompanionViewDelegate.swift"; sourceTree = "<group>"; };
-		AE51944123F40B020083D87B /* UIWindow+SafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+SafeArea.swift"; sourceTree = "<group>"; };
-		AE51944623F410850083D87B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AE5EBA402411391100ECAEF7 /* NowPlayableMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableMetadata.swift; sourceTree = "<group>"; };
-		AE5EBA46241144FE00ECAEF7 /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
-		AE5EBA4C24114A4600ECAEF7 /* ViewController+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Model.swift"; sourceTree = "<group>"; };
-		AE5EBA502411584A00ECAEF7 /* ViewController+NowPlaying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+NowPlaying.swift"; path = "../../BasicAdRequestWatchExample/BasicAdRequestWatchExample/ViewController+NowPlaying.swift"; sourceTree = "<group>"; };
-		AE5EBA56241159D900ECAEF7 /* WatchSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchSupport.swift; path = ../../BasicAdRequestWatchExample/BasicAdRequestWatchExample/WatchSupport.swift; sourceTree = "<group>"; };
-		AEDD7D2525B8878900F2ED17 /* ViewController+AdManagerDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+AdManagerDatasource.swift"; sourceTree = "<group>"; };
-		C234BA6326C6A66F00B406AB /* ViewController+InteractiveAdManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+InteractiveAdManagerDelegate.swift"; sourceTree = "<group>"; };
-		C240E84D271F2C1100F76853 /* Bundle+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Version.swift"; sourceTree = "<group>"; };
 		C29AA45F26E235E800F58782 /* AdswizzSDKConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AdswizzSDKConfig.plist; sourceTree = "<group>"; };
-		CC9A8410285B3730006AF21D /* ViewController+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Extra.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1BC8EB0B5C3DD65726579A0 /* AdswizzExamplesCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +104,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2824315E2F17F68E00E88AD1 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				282431622F17F72700E88AD1 /* Extensions */,
+				282431612F17F6EF00E88AD1 /* Subviews */,
+				2824315F2F17F69800E88AD1 /* MainViewModel.swift */,
+				2824315B2F17F62C00E88AD1 /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		282431612F17F6EF00E88AD1 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				2824317C2F17FA7B00E88AD1 /* PassAddViewControllerRepresentable.swift */,
+				2824316D2F17F8FE00E88AD1 /* ActionButtonsSection.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		282431622F17F72700E88AD1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2824317A2F17FA5600E88AD1 /* MainViewModel+NowPlaying.swift */,
+				282431762F17F9F500E88AD1 /* MainViewModel+AdManagerDatasource.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		59CF569539D4E51F2529E118 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0158BAA86685344F544DA4F8 /* AdswizzExamplesCommon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AE5193C123F3F7600083D87B = {
 			isa = PBXGroup;
 			children = (
@@ -113,7 +148,7 @@
 				AE5193E323F3F7630083D87B /* BasicAdRequestExampleTests */,
 				AE5193EE23F3F7630083D87B /* BasicAdRequestExampleUITests */,
 				AE5193CB23F3F7600083D87B /* Products */,
-				C58D0BAAAC08C5E1AB84992E /* Frameworks */,
+				59CF569539D4E51F2529E118 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,24 +165,9 @@
 		AE5193CC23F3F7600083D87B /* BasicAdRequestExample */ = {
 			isa = PBXGroup;
 			children = (
-				CC9A8410285B3730006AF21D /* ViewController+Extra.swift */,
+				2824317E2F1800EB00E88AD1 /* BasicAdRequestExampleApp.swift */,
+				2824315E2F17F68E00E88AD1 /* MainView */,
 				C29AA45F26E235E800F58782 /* AdswizzSDKConfig.plist */,
-				AE5EBA402411391100ECAEF7 /* NowPlayableMetadata.swift */,
-				AE5193CD23F3F7600083D87B /* AppDelegate.swift */,
-				AE5193CF23F3F7600083D87B /* SceneDelegate.swift */,
-				AE51944123F40B020083D87B /* UIWindow+SafeArea.swift */,
-				C240E84D271F2C1100F76853 /* Bundle+Version.swift */,
-				AE51944623F410850083D87B /* ViewController.swift */,
-				64961B9D2886DC5D0057FD29 /* ExternalMediaPlayer.swift */,
-				AE5EBA46241144FE00ECAEF7 /* ViewControllerModel.swift */,
-				AE5EBA4C24114A4600ECAEF7 /* ViewController+Model.swift */,
-				AE51943F23F40B020083D87B /* ViewController+AdManagerDelegate.swift */,
-				AEDD7D2525B8878900F2ED17 /* ViewController+AdManagerDatasource.swift */,
-				AE51944023F40B020083D87B /* ViewController+AdCompanionViewDelegate.swift */,
-				C234BA6326C6A66F00B406AB /* ViewController+InteractiveAdManagerDelegate.swift */,
-				AE5EBA502411584A00ECAEF7 /* ViewController+NowPlaying.swift */,
-				AE5EBA56241159D900ECAEF7 /* WatchSupport.swift */,
-				AE5193D323F3F7600083D87B /* Main.storyboard */,
 				AE5193D623F3F7630083D87B /* Assets.xcassets */,
 				AE5193D823F3F7630083D87B /* LaunchScreen.storyboard */,
 				AE5193DB23F3F7630083D87B /* Info.plist */,
@@ -174,13 +194,6 @@
 			path = BasicAdRequestExampleUITests;
 			sourceTree = "<group>";
 		};
-		C58D0BAAAC08C5E1AB84992E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -191,6 +204,7 @@
 				AE5193C623F3F7600083D87B /* Sources */,
 				AE5193C723F3F7600083D87B /* Frameworks */,
 				AE5193C823F3F7600083D87B /* Resources */,
+				52BC00A46CA4D6B1F0B1E25F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,7 +302,6 @@
 				AE5193DA23F3F7630083D87B /* LaunchScreen.storyboard in Resources */,
 				C29AA46026E235E900F58782 /* AdswizzSDKConfig.plist in Resources */,
 				AE5193D723F3F7630083D87B /* Assets.xcassets in Resources */,
-				AE5193D523F3F7600083D87B /* Main.storyboard in Resources */,
 				AE51944223F40B020083D87B /* content_example.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,22 +327,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEDD7D2625B8878A00F2ED17 /* ViewController+AdManagerDatasource.swift in Sources */,
-				AE5EBA412411391100ECAEF7 /* NowPlayableMetadata.swift in Sources */,
-				C240E84E271F2C1100F76853 /* Bundle+Version.swift in Sources */,
-				AE51944723F410850083D87B /* ViewController.swift in Sources */,
-				AE32E4AD288B0657005F1D63 /* ExternalMediaPlayer.swift in Sources */,
-				AE51944523F40B020083D87B /* UIWindow+SafeArea.swift in Sources */,
-				AE5193CE23F3F7600083D87B /* AppDelegate.swift in Sources */,
-				CC9A8411285B3730006AF21D /* ViewController+Extra.swift in Sources */,
-				AE5EBA512411584A00ECAEF7 /* ViewController+NowPlaying.swift in Sources */,
-				C234BA6426C6A66F00B406AB /* ViewController+InteractiveAdManagerDelegate.swift in Sources */,
-				AE5EBA47241144FE00ECAEF7 /* ViewControllerModel.swift in Sources */,
-				AE5EBA4D24114A4600ECAEF7 /* ViewController+Model.swift in Sources */,
-				AE51944423F40B020083D87B /* ViewController+AdCompanionViewDelegate.swift in Sources */,
-				AE5EBA57241159D900ECAEF7 /* WatchSupport.swift in Sources */,
-				AE51944323F40B020083D87B /* ViewController+AdManagerDelegate.swift in Sources */,
-				AE5193D023F3F7600083D87B /* SceneDelegate.swift in Sources */,
+				2824317B2F17FA5C00E88AD1 /* MainViewModel+NowPlaying.swift in Sources */,
+				2824315C2F17F62E00E88AD1 /* MainView.swift in Sources */,
+				282431772F17F9FD00E88AD1 /* MainViewModel+AdManagerDatasource.swift in Sources */,
+				2824316E2F17F8FE00E88AD1 /* ActionButtonsSection.swift in Sources */,
+				2824317F2F1800F200E88AD1 /* BasicAdRequestExampleApp.swift in Sources */,
+				2824317D2F17FA7B00E88AD1 /* PassAddViewControllerRepresentable.swift in Sources */,
+				282431602F17F69C00E88AD1 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,14 +369,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AE5193D323F3F7600083D87B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE5193D423F3F7600083D87B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AE5193D823F3F7630083D87B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -434,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -488,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -505,13 +501,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
 				INFOPLIST_FILE = BasicAdRequestExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicAdRequestExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -523,13 +520,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
 				INFOPLIST_FILE = BasicAdRequestExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicAdRequestExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -542,7 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
 				INFOPLIST_FILE = BasicAdRequestExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -550,7 +548,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicAdRequestExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BasicAdRequestExample.app/BasicAdRequestExample";
 			};
@@ -564,7 +562,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
 				INFOPLIST_FILE = BasicAdRequestExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,7 +570,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicAdRequestExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BasicAdRequestExample.app/BasicAdRequestExample";
 			};
@@ -592,7 +590,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicAdRequestExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BasicAdRequestExample;
 			};
@@ -612,7 +610,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicAdRequestExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BasicAdRequestExample;
 			};

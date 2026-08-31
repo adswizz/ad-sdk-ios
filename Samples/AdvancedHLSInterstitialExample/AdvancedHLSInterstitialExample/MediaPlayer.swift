@@ -6,26 +6,9 @@
 //
 
 import AdswizzSDK
+import AdswizzExamplesCommon
 
-class MediaPlayer: ExternalMediaPlayer {}
-
-extension MediaPlayerStatus {
-    var stringValue: String {
-        switch self {
-        case .initialized: return "initialized"
-        case .buffering: return "buffering"
-        case .bufferingFinished: return "bufferingFinished"
-        case .readyToPlay: return "readyToPlay"
-        case .playing: return "playing"
-        case .paused: return "paused"
-        case .finished: return "finished"
-        case .failed: return "failed"
-        case .unknown: return "unknown"
-        @unknown default:
-            return "unknown"
-        }
-    }
-}
+typealias MediaPlayer = ExternalMediaPlayer
 
 extension AdEventType {
     func toString() -> String {

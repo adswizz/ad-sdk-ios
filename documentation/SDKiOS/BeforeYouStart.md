@@ -6,6 +6,10 @@ This guide is addressed to iOS Developers who want to integrate the **_AdswizzSD
 
 **IMPORTANT: The AdswizzSDK is NOT thread safe, so it is expected that all the calls to the SDK and any updates to the MediaPlayerState are done on the main thread. The AdswizzSDK does all the heavy lifting on background queues, so that the main queue remains responsive.**
 
+Since **_AdswizzSDK_** `v8.0.0` this expectation is **enforced by the compiler**: the public API that requests and plays ads is `@MainActor` isolated, so calling it from a nonisolated context no longer builds. The requirement itself has not changed — only that it is now checked rather than documented. See the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md).
+
+Note that the analytics callbacks are the deliberate exception: **_AnalyticsConnector_** events are delivered **off** the main actor.
+
 ## User privacy and permissions
 
 The **_AdswizzSDK_** was carefully crafted with user privacy in mind. This also extends to iOS permissions. For that, we've built **_AdswizzSDKPrivacyData_**, a helper framework for the iOS **_AdswizzSDK_**, which has all the Privacy-Sensitive APIs that **_AdswizzSDK.framework_** requires. **_AdswizzSDKPrivacyData_** provides a way to exclude sensitive APIs that would otherwise force your app to add unwanted permissions usage description strings in the app's Info.plist.

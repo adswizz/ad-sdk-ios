@@ -87,7 +87,7 @@
 
 - (void)resume {
     if (self.isUsingExternalPlayer) {
-        [self.externalPlayer pause];
+        [self.externalPlayer resume];
     } else { // Calling stop for isUsingExternalPlayer doesn't have any effect, only needed for internal player
         [self.streamManager resume];
     }

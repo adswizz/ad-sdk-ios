@@ -55,7 +55,7 @@ The **_AdInterstitialEventMonitor_** is required to be set on the **_AdManagerSe
     /// Set the interstitial event monitor that provides support for playing the ads during a HLS interstitial event (ad break).
     /// This will instruct the `AdManager` to play the ads which were previously set as template items when the interstitial event is triggered.
     /// If you have your own custom implementation for HLS interstitials, use the `player` property instead (and set your interstitial player as external player instance that conforms to the `MediaPlayerState` protocol).
-    @objc public weak var adInterstitialEventMonitor: AdInterstitialEventMonitor?
+    @objc public weak var adInterstitialEventMonitor: (any AdInterstitialEventMonitor)?
  
     ....
 }
@@ -66,7 +66,10 @@ The **_AdInterstitialEventMonitor_** is required to be set on the **_AdManagerSe
 The new interface API is designed to mirror the `AVPlayerInterstitialEventController`. In your application, you only need to conform to the **_AdInterstitialEventMonitor_** protocol:
 ```swift
 import AVFoundation
-extension AVPlayerInterstitialEventController: AdInterstitialEventMonitor {}
+// `AVPlayerInterstitialEventController` inherits from `AVPlayerInterstitialEventMonitor`, so conforming
+// the monitor covers both. `@retroactive` is required from `v8.0.0` onwards, because both the type and
+// the protocol are declared in other modules.
+extension AVPlayerInterstitialEventMonitor: @retroactive AdInterstitialEventMonitor {}
 ```
 ...and set the `AVPlayerInterstitialEventController`  instance to the **_AdManagerSettings_** before passing to the **_AdManagerSettings_**.
 ```swift
@@ -90,7 +93,9 @@ adManager.adManagerSettings = settings
 adManager.prepare()
 ```
 
-> Note that your application is required to keep a **strong reference** to both the **_AdManager_** and the **_AdInterstitialEventMonitor_** instances **before** and **during** the HLS interstitial event.
+> Note that your application is required to keep a **strong reference** to both the **_AdManager_** and the **_AdInterstitialEventMonitor_** instances **before** and **during** the HLS interstitial event, because `AdManagerSettings.adInterstitialEventMonitor` is a `weak` property.
+
+> Since **_AdswizzSDK_** `v8.0.0` the **_AdManager_** and its settings are `@MainActor` isolated, so the type that owns them (a `UIViewController` already qualifies) must be `@MainActor` too, and its **_AdManagerDelegate_** / **_AdManagerInterstitialEventDatasource_** conformances must be isolated. See the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md).
 
 You are now ready to schedule an `AVPlayerInterstitialEvent` onto the HLS primary player timeline.
 
@@ -112,6 +117,7 @@ controller.events = [event]
 
 ...
 
+@MainActor
 extension AdManager {
 
     var allMediaFilesURLs: [URL] {

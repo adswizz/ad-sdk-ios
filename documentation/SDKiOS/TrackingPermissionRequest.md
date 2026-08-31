@@ -14,6 +14,8 @@ The **_TrackingPermissionController_** is meant to be **_presented_** modally in
 
 Here is how you create and present a **_TrackingPermissionController_** instance:
 
+> Since **_AdswizzSDK_** `v8.0.0` **_TrackingPermissionController_** is `@MainActor` isolated (it is a `UIViewController`) and **_TrackingPermissionControllerDelegate_** is `@MainActor` in the SDK, so a `UIViewController` presenting it needs no extra annotation.
+
 ```swift
 class YourViewController: UIViewController {
     var trackingController: TrackingPermissionController?

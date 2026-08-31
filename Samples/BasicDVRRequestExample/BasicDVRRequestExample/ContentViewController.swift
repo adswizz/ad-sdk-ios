@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ContentViewControllerDelegate: AnyObject {
+@MainActor protocol ContentViewControllerDelegate: AnyObject {
     func content(_ contentViewController: ContentViewController, didTapPlayFromTimestamp button: UIButton)
     func content(_ contentViewController: ContentViewController, didTapPlayFromPredefinedTimestamp button: UIButton)
 }

@@ -9,14 +9,15 @@
 import Foundation
 import AVFoundation
 import AdswizzSDK
+import AdswizzExamplesCommon
 
 /// Ad related events.
-protocol PodcastPlaylistItemAdDelegate: AnyObject {
+@MainActor protocol PodcastPlaylistItemAdDelegate: AnyObject {
     func podcastPlaylistItem(_ item: PodcastPlaylistItem, didStartPlaying ad: AdData, withCompanion: Bool)
     func podcastPlaylistItem(_ item: PodcastPlaylistItem, didEndPlaying ad: AdData, withCompanion: Bool)
 }
 
-class PodcastPlaylistItem: PlaylistItem {
+class PodcastPlaylistItem: PlaylistItem, Isolatable {
     /// The `AdswizzSDK` manager for handling the monetized podcast.
     private let manager: AdswizzAdPodcastManager
     
@@ -35,6 +36,7 @@ class PodcastPlaylistItem: PlaylistItem {
     /// Internal.
     private var pausedCalled = false
     private var stopping = false
+    private var pendingSeekCompletion: (() -> Void)?
         
     /// `PlaylistItem` properties
     override var duration: TimeInterval {
@@ -46,8 +48,8 @@ class PodcastPlaylistItem: PlaylistItem {
     }
 
     /// Initialize the model.
-    init(with podcast: PodcastConfig.Podcast) {
-        manager = try! AdswizzAdPodcastManager.Builder()
+    init(with podcast: PodcastConfig.Podcast) throws {
+        manager = try AdswizzAdPodcastManager.Builder()
             .with(httpProtocol: .http)
             .with(adServer: "demo.deliveryengine.adswizz.com")
             .build()
@@ -102,10 +104,14 @@ class PodcastPlaylistItem: PlaylistItem {
     
     override func seek(to position: TimeInterval, completion: @escaping () -> Void) {
         let seekTime = CMTime(value: Int64(position), timescale: 1)
-        player.seek(to: seekTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero) { finished in
+        pendingSeekCompletion = completion
+        player.seek(to: seekTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero) { [weak self] finished in
             if finished {
                 //let the podcast manager know that the player finished the seek operation
-                completion()
+                self?.onMainActor {
+                    self?.pendingSeekCompletion?()
+                    self?.pendingSeekCompletion = nil
+                }
             }
         }
     }
@@ -157,7 +163,7 @@ private extension PodcastPlaylistItem {
     }
 }
 
-extension PodcastPlaylistItem: AdPodcastManagerDelegate {
+extension PodcastPlaylistItem: @MainActor AdPodcastManagerDelegate {
     func adPodcastManager(_ adPodcastManager: AdPodcastManager, willStartPlaying url: URL) {
         /// When this method is called, `AdswizzAdPodcastManager` provides the **decorated** `url` with `AdswizzSDK` specific query params.
         /// Use the decorated `url` to play the podcast with your own player that must conform to `MediaPlayerState`.

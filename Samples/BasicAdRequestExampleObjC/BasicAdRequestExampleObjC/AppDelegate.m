@@ -45,20 +45,20 @@
     [AASDKAdswizzSDK setAdCompanionOptions:options];
     
     // You may want to pass the GDPR consent status if it applies to your app.
-    // You can set the .gdprConsent property whenever you have the info available from your users.
+    // You can set the consent.gdpr property whenever you have the info available from your users.
     // Defaults to .notApplicable which means the rules of the GDPR do not apply.
-    [[AASDKAdswizzSDK shared] setGdprConsent:AASDKGDPROptionGranted];
+    AASDKAdswizzSDK.shared.consent.gdpr = AASDKGDPROptionGranted;
 
-    // Same as .gdprConsent, through the .ccpaConfig
+    // Same as consent.gdpr, through consent.ccpa
     // you define the U.S privacy string if it applies to your app.
     // Defaults to .notApplicable which means the rules of the CCPA do not apply.
     AASDKAdswizzCCPAConfig *ccpaConfig = [[[[[AASDKAdswizzCCPAConfigBuilder new] withExplicitNotice:AASDKCCPAOptionYes] withOptOut:AASDKCCPAOptionNo] withLspa:AASDKCCPAOptionYes] build];
-    [[AASDKAdswizzSDK shared] setCcpaConfig:ccpaConfig];
-    
+    AASDKAdswizzSDK.shared.consent.ccpa = ccpaConfig;
+
     // These settings affect how the SDK handles location if permission is granted at any time.
     // Otherwise they have no effect.
-    [[AASDKAdswizzSDK shared] setLocationAccuracy:1000.0]; // in meters
-    [[AASDKAdswizzSDK shared] setEnableLocationSignificantChanges:NO];
+    AASDKAdswizzSDK.shared.location.accuracy = 1000.0; // in meters
+    AASDKAdswizzSDK.shared.location.enableSignificantChanges = NO;
     
     return YES;
 }

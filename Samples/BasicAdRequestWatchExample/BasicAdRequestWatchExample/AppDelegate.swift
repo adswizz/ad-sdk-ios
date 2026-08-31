@@ -8,9 +8,10 @@
 
 import UIKit
 import AdswizzSDK
+import AdswizzExamplesCommon
 import WatchConnectivity
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -56,12 +57,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // You may want to pass the GDPR consent status if it applies to your app.
         // You can set the .gdprConsent property whenever you have the info available from your users.
         // Defaults to .notApplicable which means the rules of the GDPR do not apply.
-        AdswizzSDK.shared.gdprConsent = .granted
+        AdswizzSDK.shared.consent.gdpr = .granted
         
         // Same as .gdprConsent, through the .ccpaConfig
         // you define the U.S privacy string if it applies to your app.
         // Defaults to .notApplicable which means the rules of the CCPA do not apply.
-        AdswizzSDK.shared.ccpaConfig = AdswizzCCPAConfig.Builder()
+        AdswizzSDK.shared.consent.ccpa = AdswizzCCPAConfig.Builder()
             .with(explicitNotice: .yes)
             .with(optOut: .no)
             .with(lspa: .yes)
@@ -69,8 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // These settings affect how the SDK handles location if permission is granted at any time.
         // Otherwise they have no effect.
-        AdswizzSDK.shared.locationAccuracy = 1000.0 // in meters
-        AdswizzSDK.shared.enableLocationSignificantChanges = false
+        AdswizzSDK.shared.location.accuracy = 1000.0 // in meters
+        AdswizzSDK.shared.location.enableSignificantChanges = false
         
         return true
     }
@@ -97,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func sendMessage(_ state: State) {
+    func sendMessage(_ state: WatchPlaybackState) {
         sessionDelegate.sendMessage(["Adswizz Ext": state.rawValue, "\(UUID())": "random"])
     }
 }

@@ -15,12 +15,11 @@
 		64575EBB2695A9D900BE6B7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64575EB92695A9D900BE6B7F /* LaunchScreen.storyboard */; };
 		64575EC62695A9DA00BE6B7F /* BasicDVRRequestExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64575EC52695A9DA00BE6B7F /* BasicDVRRequestExampleTests.swift */; };
 		64575ED12695A9DA00BE6B7F /* BasicDVRRequestExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64575ED02695A9DA00BE6B7F /* BasicDVRRequestExampleUITests.swift */; };
+		A136EE5CCC11F5DFBB0BF3F7 /* AdswizzExamplesCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E239316DCC8C95232FEF9F2A /* AdswizzExamplesCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE0811DC2DB91B9C009FE2C9 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0811DB2DB91B9C009FE2C9 /* ContentViewController.swift */; };
-		AE8A2D702DCB873800665398 /* ExternalMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A2D6F2DCB873800665398 /* ExternalMediaPlayer.swift */; };
-		AE8A2D752DCB887F00665398 /* Model+AdStreamManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A2D732DCB887F00665398 /* Model+AdStreamManagerDelegate.swift */; };
-		AE8A2D762DCB887F00665398 /* Model+NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A2D742DCB887F00665398 /* Model+NSError.swift */; };
-		AE8A2D772DCB887F00665398 /* Model+AdManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A2D722DCB887F00665398 /* Model+AdManagerDelegate.swift */; };
-		AE8A2D782DCB887F00665398 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A2D712DCB887F00665398 /* Model.swift */; };
+		AE8A2D792DCB890000665398 /* DVRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A2D7A2DCB890000665398 /* DVRViewModel.swift */; };
+		AE8A2D7B2DCB890100665398 /* StyledUIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A2D7C2DCB890100665398 /* StyledUIComponents.swift */; };
+		F7B27B274F5CDBDBE5A5DF05 /* AdswizzExamplesCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E239316DCC8C95232FEF9F2A /* AdswizzExamplesCommon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +39,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9F50EDB9631EAFC6E4341A97 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A136EE5CCC11F5DFBB0BF3F7 /* AdswizzExamplesCommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		64575EAB2695A9D800BE6B7F /* BasicDVRRequestExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicDVRRequestExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64575EAE2695A9D800BE6B7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,11 +69,9 @@
 		64575ED02695A9DA00BE6B7F /* BasicDVRRequestExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDVRRequestExampleUITests.swift; sourceTree = "<group>"; };
 		64575ED22695A9DA00BE6B7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE0811DB2DB91B9C009FE2C9 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
-		AE8A2D6F2DCB873800665398 /* ExternalMediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExternalMediaPlayer.swift; path = ../BasicAdStreamExample/BasicAdStreamExample/ExternalMediaPlayer.swift; sourceTree = SOURCE_ROOT; };
-		AE8A2D712DCB887F00665398 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Model.swift; path = ../BasicAdStreamExample/BasicAdStreamExample/Model.swift; sourceTree = SOURCE_ROOT; };
-		AE8A2D722DCB887F00665398 /* Model+AdManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Model+AdManagerDelegate.swift"; path = "../BasicAdStreamExample/BasicAdStreamExample/Model+AdManagerDelegate.swift"; sourceTree = SOURCE_ROOT; };
-		AE8A2D732DCB887F00665398 /* Model+AdStreamManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Model+AdStreamManagerDelegate.swift"; path = "../BasicAdStreamExample/BasicAdStreamExample/Model+AdStreamManagerDelegate.swift"; sourceTree = SOURCE_ROOT; };
-		AE8A2D742DCB887F00665398 /* Model+NSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Model+NSError.swift"; path = "../BasicAdStreamExample/BasicAdStreamExample/Model+NSError.swift"; sourceTree = SOURCE_ROOT; };
+		AE8A2D7A2DCB890000665398 /* DVRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVRViewModel.swift; sourceTree = "<group>"; };
+		AE8A2D7C2DCB890100665398 /* StyledUIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledUIComponents.swift; sourceTree = "<group>"; };
+		E239316DCC8C95232FEF9F2A /* AdswizzExamplesCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdswizzExamplesCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7B27B274F5CDBDBE5A5DF05 /* AdswizzExamplesCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DBF6976C05239093682E3EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E239316DCC8C95232FEF9F2A /* AdswizzExamplesCommon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		64575EA22695A9D800BE6B7F = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +115,7 @@
 				64575EC42695A9DA00BE6B7F /* BasicDVRRequestExampleTests */,
 				64575ECF2695A9DA00BE6B7F /* BasicDVRRequestExampleUITests */,
 				64575EAC2695A9D800BE6B7F /* Products */,
-				B5F6FED5BC1E73C20EEC67F5 /* Frameworks */,
+				5DBF6976C05239093682E3EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,11 +136,8 @@
 				64575EB02695A9D800BE6B7F /* SceneDelegate.swift */,
 				64575EB22695A9D800BE6B7F /* ViewController.swift */,
 				AE0811DB2DB91B9C009FE2C9 /* ContentViewController.swift */,
-				AE8A2D712DCB887F00665398 /* Model.swift */,
-				AE8A2D722DCB887F00665398 /* Model+AdManagerDelegate.swift */,
-				AE8A2D732DCB887F00665398 /* Model+AdStreamManagerDelegate.swift */,
-				AE8A2D742DCB887F00665398 /* Model+NSError.swift */,
-				AE8A2D6F2DCB873800665398 /* ExternalMediaPlayer.swift */,
+				AE8A2D7A2DCB890000665398 /* DVRViewModel.swift */,
+				AE8A2D7C2DCB890100665398 /* StyledUIComponents.swift */,
 				64575EB42695A9D800BE6B7F /* Main.storyboard */,
 				64575EB72695A9D900BE6B7F /* Assets.xcassets */,
 				64575EB92695A9D900BE6B7F /* LaunchScreen.storyboard */,
@@ -147,13 +164,6 @@
 			path = BasicDVRRequestExampleUITests;
 			sourceTree = "<group>";
 		};
-		B5F6FED5BC1E73C20EEC67F5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,6 +174,7 @@
 				64575EA72695A9D800BE6B7F /* Sources */,
 				64575EA82695A9D800BE6B7F /* Frameworks */,
 				64575EA92695A9D800BE6B7F /* Resources */,
+				9F50EDB9631EAFC6E4341A97 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -284,13 +295,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE8A2D752DCB887F00665398 /* Model+AdStreamManagerDelegate.swift in Sources */,
-				AE8A2D762DCB887F00665398 /* Model+NSError.swift in Sources */,
-				AE8A2D772DCB887F00665398 /* Model+AdManagerDelegate.swift in Sources */,
-				AE8A2D782DCB887F00665398 /* Model.swift in Sources */,
 				AE0811DC2DB91B9C009FE2C9 /* ContentViewController.swift in Sources */,
 				64575EB32695A9D800BE6B7F /* ViewController.swift in Sources */,
-				AE8A2D702DCB873800665398 /* ExternalMediaPlayer.swift in Sources */,
+				AE8A2D792DCB890000665398 /* DVRViewModel.swift in Sources */,
+				AE8A2D7B2DCB890100665398 /* StyledUIComponents.swift in Sources */,
 				64575EAF2695A9D800BE6B7F /* AppDelegate.swift in Sources */,
 				64575EB12695A9D800BE6B7F /* SceneDelegate.swift in Sources */,
 			);
@@ -398,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -453,7 +461,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -477,7 +485,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.AdsWizz.BasicDVRRequestExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -496,7 +504,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.AdsWizz.BasicDVRRequestExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -509,7 +517,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
 				INFOPLIST_FILE = BasicDVRRequestExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -517,7 +525,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicDVRRequestExample.BasicDVRRequestExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BasicDVRRequestExample.app/BasicDVRRequestExample";
 			};
@@ -531,7 +539,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3N4BPH864;
 				INFOPLIST_FILE = BasicDVRRequestExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -539,7 +547,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicDVRRequestExample.BasicDVRRequestExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BasicDVRRequestExample.app/BasicDVRRequestExample";
 			};
@@ -559,7 +567,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicDVRRequestExample.BasicDVRRequestExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BasicDVRRequestExample;
 			};
@@ -579,7 +587,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AdsWizz.BasicDVRRequestExample.BasicDVRRequestExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BasicDVRRequestExample;
 			};

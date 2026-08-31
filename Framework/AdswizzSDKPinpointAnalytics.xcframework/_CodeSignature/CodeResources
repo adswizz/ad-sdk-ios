@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/AdswizzSDKPinpointAnalytics</key>
 		<data>
-		fzBVxivlU5X85STv+qtYVdZ2lg8=
+		LN/vWaihPl4a5+ChXHdZx4cFUO4=
 		</data>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/AdswizzSDKPinpointAnalytics.debug.xcconfig</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Headers/AdswizzSDKPinpointAnalytics-Swift.h</key>
 		<data>
-		mn+Fa5tsjoP18wBIvuVWuoB5jwc=
+		GREfbNsbwqWKHxvYC+n1AjhqB/Y=
 		</data>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Headers/AdswizzSDKPinpointAnalytics.h</key>
 		<data>
@@ -42,27 +42,27 @@
 		</data>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Info.plist</key>
 		<data>
-		myUgS3ht/O0UYQLLclp6sRqjDKA=
+		CmYet67feUX7i8MVjDa33OxYX3Q=
 		</data>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		R6bzNroxntU0lChV90qOsQ2rck8=
+		/cAtxqISGLV6g69FMeQXT4phcNk=
 		</data>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		Gt1iQj/rSdMNB1GtEoDL+C4Q1W8=
+		Ae62877h8zd0PErOsV7/o6C8tb4=
 		</data>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		f0HY+JMHzEf4czOzP+/PSaS/TWc=
+		kAsYxc5a7gYB54s7WjfM1lmHdAU=
 		</data>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		Gt1iQj/rSdMNB1GtEoDL+C4Q1W8=
+		Ae62877h8zd0PErOsV7/o6C8tb4=
 		</data>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Modules/module.modulemap</key>
 		<data>
-		Iz5QWW+S6/MoAJXlWfMK0QzQVEs=
+		sqW2ENGA63IitiiWtml3sVKjm0U=
 		</data>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -70,19 +70,19 @@
 		</data>
 		<key>ios-arm64/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Info.plist</key>
 		<data>
-		r9zflFUe6ytK6e+zthcWCn0UmHo=
+		JsSYu627HINxiDhAnGn7OSOi9y0=
 		</data>
 		<key>ios-arm64/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKPinpointAnalytics</key>
 		<data>
-		btWXYza67BBv+UTBeEWmAw8eDEg=
+		zyKW8euAwKPAbZMTnYX6Cr+uggM=
 		</data>
 		<key>ios-arm64/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKPinpointAnalytics.yml</key>
 		<data>
-		rkK1YwZ9HMp7n4A/GPsgaON5WMA=
+		vzMXmYAg5k66ZqMKiVu1Eqkw6Wo=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/AdswizzSDKPinpointAnalytics</key>
 		<data>
-		jMN/dHhLVqLGUjMYniIPcehfac4=
+		RmvtIx2HdAjq3Xb/MjWM+toaY5g=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/AdswizzSDKPinpointAnalytics.debug.xcconfig</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Headers/AdswizzSDKPinpointAnalytics-Swift.h</key>
 		<data>
-		aAIBchdIIm4uGBKGNzuO0SDaHrc=
+		lN4srn0Yv5p/GiANrZsg38Tv7LI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Headers/AdswizzSDKPinpointAnalytics.h</key>
 		<data>
@@ -118,43 +118,43 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Info.plist</key>
 		<data>
-		If3UMfzfE2hPMGZUMgXT2uUUeoM=
+		NvW2nZrQrlXmTseZ/5dGn6fwYjY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		R6bzNroxntU0lChV90qOsQ2rck8=
+		/cAtxqISGLV6g69FMeQXT4phcNk=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		7223dYPEDdmLoRsOAVjcjj5k49U=
+		qEWEAr+h+wPQKouhk6L8WGMoQ7Q=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		+iywmXmQnFKpmnx4u+YEfplgHZg=
+		41HvEhocnLTlVydiHkXA1RMKcAw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		7223dYPEDdmLoRsOAVjcjj5k49U=
+		qEWEAr+h+wPQKouhk6L8WGMoQ7Q=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		R6bzNroxntU0lChV90qOsQ2rck8=
+		/cAtxqISGLV6g69FMeQXT4phcNk=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		yXHQfquvgi6/Ag/qMbTi19Ti2D0=
+		iJhg1guRKVsPLp0DruGMX8YeuJY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		F/dL0AEs5ANYYWQbtwLiQ0fkxkc=
+		5EheJ8N0YQm4hxoOjuT19/65OQE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		yXHQfquvgi6/Ag/qMbTi19Ti2D0=
+		iJhg1guRKVsPLp0DruGMX8YeuJY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/module.modulemap</key>
 		<data>
-		Iz5QWW+S6/MoAJXlWfMK0QzQVEs=
+		sqW2ENGA63IitiiWtml3sVKjm0U=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -162,23 +162,23 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/_CodeSignature/CodeResources</key>
 		<data>
-		86td02QZ/MOSV5IQ8S7X3YagArk=
+		+RcigeYWM5Of2qzc2q/Lk1OC9i8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Info.plist</key>
 		<data>
-		r9zflFUe6ytK6e+zthcWCn0UmHo=
+		JsSYu627HINxiDhAnGn7OSOi9y0=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKPinpointAnalytics</key>
 		<data>
-		FjFEe2+2HRAR5I1Lil/+kj0V8v0=
+		GEoXrnvLVo78cv5VtgGTXiiHWg8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKPinpointAnalytics.yml</key>
 		<data>
-		Y7UNdXluEDpf0LIspjrCR8j1d1w=
+		XARb3xzvLtJTa+DFBUFo3t83pTg=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Resources/Relocations/x86_64/AdswizzSDKPinpointAnalytics.yml</key>
 		<data>
-		CFTvOeSW6Vjie0WAGxu3BaWO5U8=
+		m8GHVfc1wf+akbkMau6OewY+e4s=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -187,7 +187,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			c2n7h3DO3zQXbArHccRkXdrhmlgDgaRU+3ZwBXUyBb8=
+			cRfBqlKl/1o6Fs7TywxXxumcUth4/leo6bAOd5gQZ1w=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/AdswizzSDKPinpointAnalytics.debug.xcconfig</key>
@@ -236,7 +236,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JAeBfjathHuBo9iYoxGGrhbOcXsTPDqKjGr1D2V0ryI=
+			xfkIZGMVT6ob7R2G27ZTn619vbDQVL3VwvfVfEPfNRc=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Headers/AdswizzSDKPinpointAnalytics.h</key>
@@ -250,42 +250,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BHh7VH6c7hl+l0u8ZoVBoNf4vNN5MU4AEbgNoGvzcSs=
+			GHzuMxB1lV8yhOzA0kaYMO2tSdw4i4zudJTP8pTDPRg=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HXYQTj/4NqpvojV8ZqDzSUcIA3PN0vmOLoOtdoMr3C0=
+			yyzxjlRtNVEmkbsGkjFSZf3GAk/z82tT/toFO2wuvvE=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/UO/yQY4wIso9Npu4wfczlaU5UdlDZLVuso8VjON6Ok=
+			TjkpeR75DVzM2dkI4nuwh+DDXk1Y5AS7WGhngweCjDc=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MxWW5YBwKvPuSZ2Ul/3xSmfjJNEytw1vFxeqWv6lrWo=
+			UCF4IOHjm5OnXofaPmBYcjzFjRwRtA0piNG0u+HiaVE=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/UO/yQY4wIso9Npu4wfczlaU5UdlDZLVuso8VjON6Ok=
+			TjkpeR75DVzM2dkI4nuwh+DDXk1Y5AS7WGhngweCjDc=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YK75Sue9aCEmSLUaRALqPSnfVvWuRbW/6T5X0nM+eS4=
+			GxoaAXsERMZ5mzpzLgfQ5vkAyiwCqTYBE/Z5bRsXW1A=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKPinpointAnalytics.framework/PrivacyInfo.xcprivacy</key>
@@ -299,28 +299,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NsYGIHNl0rsBxVtN4JkPQQ6IEEF2bpm3XlOdzTiE++Q=
+			QCK6hlHgKgPsem6inCuEbtWbBdwxevGX80cmqVHd6Fk=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKPinpointAnalytics</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KAtbOIt5TuiEzQblGWcWPqWOVrB+DaY7rGUlR4FD+lk=
+			LH8g1Lsrea9la43oJkgGR7JyKbElNzuRkWqX64cWG7A=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKPinpointAnalytics.yml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HEFAU0EFFHTM8at8J2WLkkULzmFlr3VGArLSN2clVRc=
+			35Gle4xyCDUfclxIyd1y+91ci/t6aKhcDbYu7YjtLtw=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/AdswizzSDKPinpointAnalytics</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HWLB35RBjtaw+9QemnA111UUcHavaPQdKZPHGpV1d4Y=
+			3CkxQhbzd4S8d2PdguKGRtGP24zgL00TSZaeoHYemrI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/AdswizzSDKPinpointAnalytics.debug.xcconfig</key>
@@ -369,7 +369,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HZhKcKTSiKs90znAKnB5ukTyO/UuLVjmmHS32BqXifU=
+			CLuy90JlEhwQdfNJowOTmkHu+vA6qsKW9TVubF7hSNs=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Headers/AdswizzSDKPinpointAnalytics.h</key>
@@ -383,70 +383,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MUu9TC1cxRu7xQoWVoTDyRajE7J8BNXn7vy3W8R9sGg=
+			OiUSPS2OTkxAbAb2qB2rHQiB/lzjI+TB4YjCCtXvBVs=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HXYQTj/4NqpvojV8ZqDzSUcIA3PN0vmOLoOtdoMr3C0=
+			yyzxjlRtNVEmkbsGkjFSZf3GAk/z82tT/toFO2wuvvE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lcwJyu2MKLoK1czEsRG9QX3FANCSCMVmPCoVK2kBzYg=
+			d3ZgOye9z2ILv9wk9uJtC2+VPOx0YDbb5knJnOMvbnM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6u0FTYp/u5qmBDdFdM77u1crHWBoudHoGmCE6CLLPKA=
+			KHvwoqJByAQle/DFbXAenk66W+sBaVUbxIWTyxIBVHI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lcwJyu2MKLoK1czEsRG9QX3FANCSCMVmPCoVK2kBzYg=
+			d3ZgOye9z2ILv9wk9uJtC2+VPOx0YDbb5knJnOMvbnM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HXYQTj/4NqpvojV8ZqDzSUcIA3PN0vmOLoOtdoMr3C0=
+			yyzxjlRtNVEmkbsGkjFSZf3GAk/z82tT/toFO2wuvvE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/YWILwWghwdrOhf4m5Snv6pra6Mp1xGbaE0EzQ5qMyk=
+			GrLmJY+omRMtf+r1fGwBF+heQJVP4TtNfD6gY7QGOTc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nIv/xYu+5HiSQEF8ZZMGDntaWQ0Xs2X89k/IFL5BjPE=
+			z1H/ilkZL0Ocss2E7VeDdrcsbgBa1fXv6MDzGCP8qwA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/AdswizzSDKPinpointAnalytics.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/YWILwWghwdrOhf4m5Snv6pra6Mp1xGbaE0EzQ5qMyk=
+			GrLmJY+omRMtf+r1fGwBF+heQJVP4TtNfD6gY7QGOTc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YK75Sue9aCEmSLUaRALqPSnfVvWuRbW/6T5X0nM+eS4=
+			GxoaAXsERMZ5mzpzLgfQ5vkAyiwCqTYBE/Z5bRsXW1A=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKPinpointAnalytics.framework/PrivacyInfo.xcprivacy</key>
@@ -460,35 +460,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iUa/0C8EyAHm0i/rHU5JpgO1qSbritcjbJxw1vA/T+c=
+			MVZii/s+c2N0AqR0OtV3H/1YXT53BzV8RidrNhrNzvQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NsYGIHNl0rsBxVtN4JkPQQ6IEEF2bpm3XlOdzTiE++Q=
+			QCK6hlHgKgPsem6inCuEbtWbBdwxevGX80cmqVHd6Fk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKPinpointAnalytics</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Uzn5O6I7S+9i7RskEOVzqFRlSs9gMo284upEVYBd+Sc=
+			Q8M4UgHbaZBdkLDqLqDhlsr5ree4MJFf+tEPQyocyKg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKPinpointAnalytics.yml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EWDY7JrXOzdId3sYIiCM/vIlFFZoQ8OYCSmtFbyirXg=
+			6Xaxfunbl+lqv/hsx4Zq98Cok1OoRSIRCHrveH+1OYA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKPinpointAnalytics.framework.dSYM/Contents/Resources/Relocations/x86_64/AdswizzSDKPinpointAnalytics.yml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wT/Kp3hZAW8igBr5bIZm1LVM4mzdlXB2RKYdaYozUpc=
+			7xUwX1//tNLrf9f9n+7z2zcCjKXGucUC7WWI7/zvKak=
 			</data>
 		</dict>
 	</dict>

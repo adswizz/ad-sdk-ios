@@ -2,6 +2,8 @@
 
 
 In this scenario, AdswizzSDK lets you decide when and where to request ads from an Ad Insertion Server and subsequently play those ads in your application.
+> Since **_AdswizzSDK_** `v8.0.0` the objects used below are `@MainActor` isolated, which is why the sample types are annotated `@MainActor` and their **_AdswizzSDK_** delegate conformances are isolated. See the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md) for details.
+
 
 ## Setting up your zone(s) for ad requests
 
@@ -197,7 +199,8 @@ Here is what it looks like:
 ```swift
 import AdswizzSDK
 
-class YourModelClass: AdManagerDelegate, AdManagerDatasource {
+@MainActor
+class YourModelClass: @MainActor AdManagerDelegate, @MainActor AdManagerDatasource {
    var adManager: AdManager?
 .....
 func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
@@ -406,7 +409,8 @@ Here is what it looks like with the pre-caching enabled.
 ```swift
 import AdswizzSDK
 
-class YourModelClass: AdManagerDelegate, AdAssetDelegate {
+@MainActor
+class YourModelClass: @MainActor AdManagerDelegate, @MainActor AdAssetDelegate {
    var adManager: AdManager?
 .....
 func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {
@@ -483,7 +487,8 @@ Here is a simplified setup that highlights handling an **_AdManager_** with no a
 ```swift
 import AdswizzSDK
 
-class YourModelClass: AdManagerDelegate {
+@MainActor
+class YourModelClass: @MainActor AdManagerDelegate {
    var adManager: AdManager?
 .....
 func didReceiveResponse(_ adManager: AdManager?, _ error: Error?) {

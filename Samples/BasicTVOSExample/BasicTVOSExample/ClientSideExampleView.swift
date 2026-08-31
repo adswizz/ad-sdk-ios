@@ -6,6 +6,7 @@
 //
 
 import AdswizzSDK
+import AdswizzExamplesCommon
 import SwiftUI
 
 struct ClientSideExampleView: View {
@@ -55,7 +56,7 @@ struct ClientSideExampleView: View {
     }
     
     private func videoView(for adVideoView: AdVideoView) -> some View {
-        AdswizzVideoAdView(
+        AdswizzAdVideoView(
             videoView: adVideoView,
             shouldOverrideUrl: false,
             fadeInAnimationDuration: 1.0
@@ -102,11 +103,15 @@ struct ClientSideExampleView: View {
     
     private var adCompanionGridControlsView: some View {
         HStack(spacing: 50) {
-            Button(action: modelView.increaseAdCompanionGrid) {
+            Button {
+                modelView.increaseAdCompanionGrid()
+            } label: {
                 Text("+")
             }
             .disabled(modelView.companionGrid == .quad)
-            Button(action: modelView.decreaseAdCompanionGrid) {
+            Button {
+                modelView.decreaseAdCompanionGrid()
+            } label: {
                 Text("-")
             }
             .disabled(modelView.companionGrid == .single)
@@ -152,10 +157,14 @@ struct ClientSideExampleView: View {
     
     private var mediaControlsView: some View {
         HStack(spacing: 50) {
-            Button(action: modelView.isPlaying ? modelView.stop : modelView.requestAds) {
+            Button {
+                if modelView.isPlaying { modelView.stop() } else { modelView.requestAds() }
+            } label: {
                 Text(!modelView.isPlaying ? "Request ad(s)" : "Stop")
             }
-            Button(action: modelView.skip) {
+            Button {
+                modelView.skip()
+            } label: {
                 Text("Skip ad")
             }
             .disabled(!modelView.isPlaying)

@@ -6,15 +6,15 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		D52aLG55LmdB0TyG29W0OM4PrqI=
+		be0O4kD+kMjmDs2/V5c0b+TjxmU=
 		</data>
 		<key>Headers/AdswizzPrivacyDataInterop.h</key>
 		<data>
-		SVYA/BlmQQay0MFANdRbNIoDZWU=
+		GLgch7odlxwgdQPapxX9H82559s=
 		</data>
 		<key>Headers/AdswizzSDK-Swift.h</key>
 		<data>
-		iFiNVPyKjStNK61gAoG1jYAIALc=
+		54KkAHdbiYcQljnEJlPwgKr/5eY=
 		</data>
 		<key>Headers/AdswizzSDK.h</key>
 		<data>
@@ -86,51 +86,51 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Ip8e8+a9/+2SoFEeIFwfak3iy+U=
+		of3T9fl7NPoBhqliQvK0lGeMaA8=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		qPvfZnS2TdNfxh9IJvgj/CNaj2A=
+		Oz3HKua4eNcccnFiV1de+EVx1Ms=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		e0CviKz5R5T8CjQFRHOuU7rMA10=
+		69SBL6i/8oReeXb4rZFfmAJJ/qo=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		hnxvzUIJQfHpXBv1SRr6r/WPASA=
+		ITMbWi7qfzbwf4qMEm+8rZYcVU8=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		e0CviKz5R5T8CjQFRHOuU7rMA10=
+		69SBL6i/8oReeXb4rZFfmAJJ/qo=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		QGXH20OM8/HgklrBtqWZiiBo5ck=
+		6uo5RrjHmq+td8XtSoxZdxMMACk=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		qPvfZnS2TdNfxh9IJvgj/CNaj2A=
+		Oz3HKua4eNcccnFiV1de+EVx1Ms=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		5jORdVG+ehXvAQWB6nHHEncyAKk=
+		uplI6EsxEgAoIWxiuebgtuUBMek=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		1UrD0kLzF3EqED7BQOM5GM2YUDI=
+		mvACmMUNLCYTWDtxdGlZ+wAEx0w=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		5jORdVG+ehXvAQWB6nHHEncyAKk=
+		uplI6EsxEgAoIWxiuebgtuUBMek=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		htxZc2dBXL1Yv4rAwiL7HgOP9+w=
+		pFxmsy2ZnCh5vflIjUX2171k7Eo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		FY/3lklFKoFegAo6B3iaa1I8dKg=
+		WwTMi8RwnKC4zi2Ns4OuBKeqC/k=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
@@ -138,7 +138,7 @@
 		</data>
 		<key>StatsCollector.momd/StatsCollector 0.mom</key>
 		<data>
-		acGr8sc1N8eihaHVAc0dEEUxtfc=
+		Cn+1gJ0hOoVwKjm28QytgwYiY04=
 		</data>
 		<key>StatsCollector.momd/StatsCollector 0.omo</key>
 		<data>
@@ -163,21 +163,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			q35/N+3Hf32QT9Y3RksXgbNUbXp49gNaXxiRoTPFEyY=
+			s0OslWWBCPairyLwhQ4OrDa2wNROvPYsq0xHcWjJt20=
 			</data>
 		</dict>
 		<key>Headers/AdswizzPrivacyDataInterop.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/PW5jaz4/7oCEj6l3D4IvtAvn9PWGiCLUAx9267P574=
+			n8577WhSZw0LsTItYdRGSJdCbwzyaV1n3t009W93CR8=
 			</data>
 		</dict>
 		<key>Headers/AdswizzSDK-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oWPl0uiK7qAIGsS8grXzutlDQRvijoiOXhb5vsILCYs=
+			vbYkZnetdG1wvlRSPslrZmvlMCsragM02fuuwX2tShs=
 			</data>
 		</dict>
 		<key>Headers/AdswizzSDK.h</key>
@@ -303,77 +303,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VR+uxk65hNCr8749PDFdlzyobKTQDL8XFzjYE92Tzx8=
+			dOwFpu1/EUH+aWuXGoS+RfVDknZwxmBSPZ0LE2TcDc0=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UgyziBsPJ5Gj+3Ca7JzoNEXwqVO/9XE8pTVTDFKmhWE=
+			qjg7VAisqtDHkINxusgghQjU7Peyo61WaZR+o3bKqB4=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ha84VE+uzCI3iY82DORpxs+ekCe4HqfffGdgEZAFCR4=
+			OJ5wf0QWSGWKWY+mmkNXSRRhPk+4P4atQ8R36+AFvl8=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UgyziBsPJ5Gj+3Ca7JzoNEXwqVO/9XE8pTVTDFKmhWE=
+			qjg7VAisqtDHkINxusgghQjU7Peyo61WaZR+o3bKqB4=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mf4eOVsw9I+6AhJREqCrUHRVyfu5SxT9jfGKxX+ur9U=
+			vkMn9D/A+kQvm/kvSD5utvXhG34EOivonjB/oeOafLk=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VR+uxk65hNCr8749PDFdlzyobKTQDL8XFzjYE92Tzx8=
+			dOwFpu1/EUH+aWuXGoS+RfVDknZwxmBSPZ0LE2TcDc0=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zaZ4QP53E59Cj1lmwbWM+hi5XcWyXYn5afhWgaEuxPI=
+			djVJM/ss5KFB32OjQIucwncb/Be9M2nQel+1rN4ivpA=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5hE2BTpkJxFTpgisn/GO3XhJxtJmDPFzZRuitYP1NXI=
+			PQseZhUQ0Gbfv3LZU72krUbd57a+/81geEa5dk8XVwA=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zaZ4QP53E59Cj1lmwbWM+hi5XcWyXYn5afhWgaEuxPI=
+			djVJM/ss5KFB32OjQIucwncb/Be9M2nQel+1rN4ivpA=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SIZa7I2Cu0Dqz7hKcsOQxX+oUXJ4IyUuTNoLa7GnStU=
+			M4er7f/xki1Mrwr3oip5EA/UwCDpKmU9ENIG2qycpKI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PtrUETFx+KEJKaaV2XVNrU6rnN17OHtf18v+Pr4DGTY=
+			C3abrc3GNLkFlbzRB4ZsJGzPkwQ2g+H9AgJDjds2KAQ=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>
@@ -387,7 +387,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			G1whvLmWjQXmJtvnhiAjeseqbYV05S1bmn/NbbgUbgs=
+			aaHASaZFnpNwJTdDp8X8jrlCD1wVYUunLS6RqeYpLRg=
 			</data>
 		</dict>
 		<key>StatsCollector.momd/StatsCollector 0.omo</key>

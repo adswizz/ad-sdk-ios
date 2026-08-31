@@ -9,7 +9,7 @@
 import Foundation
 import AdswizzSDK
 
-extension PodcastPlaylistItem: AdManagerDelegate {
+extension PodcastPlaylistItem: @MainActor AdManagerDelegate {
     func adManager(_ adManager: AdManager, didReceiveAdEvent event: AdEvent) {
         guard let ad = event.ad else {
             return

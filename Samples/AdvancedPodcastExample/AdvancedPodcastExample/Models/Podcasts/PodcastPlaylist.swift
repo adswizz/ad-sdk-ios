@@ -10,7 +10,7 @@ import Foundation
 import AdswizzSDK
 
 /// Ad related events.
-protocol PodcastPlaylistAdDelegate: AnyObject {
+@MainActor protocol PodcastPlaylistAdDelegate: AnyObject {
     func podcastPlaylist(_ playlist: PodcastPlaylist, didStartPlaying ad: AdData, withCompanion: Bool)
     func podcastPlaylist(_ playlist: PodcastPlaylist, didEndPlaying ad: AdData, withCompanion: Bool)
 }

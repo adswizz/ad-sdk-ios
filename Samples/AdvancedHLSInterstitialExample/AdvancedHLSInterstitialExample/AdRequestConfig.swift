@@ -71,14 +71,14 @@ class AdRequestConfig {
 }
 
 extension AdRequestConfig {
-    func adswizzAdRequest() throws -> AdswizzAdRequest {
+    @MainActor func adswizzAdRequest() throws -> AdswizzAdRequest {
         do {
             let zones: [AdswizzAdZone] = zoneIds.compactMap { $0.toAdswizzAdZone() }
             let request = try AdswizzAdRequest.Builder()
                 .with(httpProtocol: .http)
                 .with(zones: zones)
                 .with(server: adServer)
-                .with(companionZones: companionZones)
+                .with(companionZoneIds: companionZones?.components(separatedBy: CharacterSet(charactersIn: ",")).compactMap { Int($0) } ?? [])
                 .with(additionalCustomParameters: customParams)
                 .build()
             return request
@@ -89,13 +89,13 @@ extension AdRequestConfig {
 }
 
 fileprivate extension String {
-    func toAdswizzAdZone() -> AdswizzAdZone? {
+    @MainActor func toAdswizzAdZone() -> AdswizzAdZone? {
         return try? AdswizzAdZone.Builder().with(zoneId: self).build()
     }
 }
 
 private extension AdRequestConfig.InterstitialConfig {
-    static var defaultConfig: AdRequestConfig.InterstitialConfig = AdRequestConfig.InterstitialConfig(identifier: "AdswizzInterstitialEvent",
+    static let defaultConfig: AdRequestConfig.InterstitialConfig = AdRequestConfig.InterstitialConfig(identifier: "AdswizzInterstitialEvent",
                                                                                                       requestTimeOffset: 5,
                                                                                                       eventTimeOffset: 5)
 }

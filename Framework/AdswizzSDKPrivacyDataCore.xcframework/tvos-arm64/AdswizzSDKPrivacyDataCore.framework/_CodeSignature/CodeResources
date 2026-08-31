@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/AdswizzSDKPrivacyDataCore-Swift.h</key>
 		<data>
-		XrNYfzgRUZpD7VyRCyeqvM6ATmY=
+		k5nZOv9dW0ctbq0zzESDdroP6hg=
 		</data>
 		<key>Headers/AdswizzSDKPrivacyDataCore.h</key>
 		<data>
@@ -14,31 +14,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		qvjq+Clqexta83cP4DDr68kHDFQ=
+		+3bKpWE9ISzyyS7TU2zv6R1m9AI=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos.abi.json</key>
 		<data>
-		sYRXUCKMLCmNQPLDsTou6KN2l+s=
+		/V2dQTfFinLW13Q5/oTK1xZq1Vw=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos.private.swiftinterface</key>
 		<data>
-		CtXlsE4i0RHm+Yn2XLcoQvwdWBw=
+		Qig7BVm6dLwy7iMiOyg6mrY0rUs=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos.swiftdoc</key>
 		<data>
-		NQtnXN5+NqiBek6lpY7RBmurILY=
+		AUDayhWnfVdM2+eePQzQSSUkqp0=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos.swiftinterface</key>
 		<data>
-		CtXlsE4i0RHm+Yn2XLcoQvwdWBw=
+		Qig7BVm6dLwy7iMiOyg6mrY0rUs=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos.swiftmodule</key>
 		<data>
-		2VRvMJdVSaCBlOTPUujT3wsHcKM=
+		Sp5ZmSEk3VDr5x7/V3vnmHSSy6A=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		c5XkjRvRgWyB740xgJJIRWRZJFg=
+		amA21hPUKRyg9y2FX50S5IPFcog=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -47,7 +47,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uHlgYYfdstUd6r9Npo5dHjtoQfFusbDoQQmi7hr3wqo=
+			r3GfbBWEdRXcOvkWhmk6kJwun4N3VuY02ckjHDTkEZU=
 			</data>
 		</dict>
 		<key>Headers/AdswizzSDKPrivacyDataCore.h</key>
@@ -61,42 +61,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ioWfvJKuIyrq5ZbhpoKIUa0VIXNTy5Nl4k4vaxMGhvM=
+			C1Wd6tekkR0Y2UvwpGllZRHquUibgv9RVlmEa2GkMls=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			f2KFxX94oLF/JvSpZfcZjlvMnoeQVkJykFF5XmWRJNw=
+			H1J7Gfb3Fw4JTKko2vJFKUnpVB/BB74UbI6/wbIPjR4=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zaC7Rml0KxSV5/49Id4ck+jxl64ANdl2d6HGh10jdVE=
+			4sMezMPUU5HNS3sbbmWFICKCQymY1gXF9/6exHFnnBk=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			f2KFxX94oLF/JvSpZfcZjlvMnoeQVkJykFF5XmWRJNw=
+			H1J7Gfb3Fw4JTKko2vJFKUnpVB/BB74UbI6/wbIPjR4=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SsucQv6Swl1uGJxrKgYwXezqPv34Ge8g1mlSMf4ajIA=
+			jkS4chKZe6MS3dyzxbltesD47Q43IxOzI9RCXw4YTKQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			v0rZ8Aod4yHgXi9eXP03uQEpD/1Pkicoa+p4YLey/gQ=
+			/6y/rpsWutVPrv1+20Xw8TgYOnF6fytUK9wxQnj+vYs=
 			</data>
 		</dict>
 	</dict>
