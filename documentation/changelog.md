@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.14.4] - 2026-09-03
+### Changed
+- VAST Parser:
+    - Improved VAST parser flexibility to better handle non-standard syntax and VAST responses containing invalid characters through a best-effort parsing approach
+
 ## [8.0.0] - 2026-08-31
 ### Added
 - **Swift 6 support**: the binary XCFrameworks are now compiled with Swift 6 strict concurrency checking enabled, and the public API declares the actor it expects to be used from. See the [migration guide](iOS/SDKMigrations/v8_0_0.md)

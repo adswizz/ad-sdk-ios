@@ -6,31 +6,31 @@
 	<dict>
 		<key>ios-arm64/AdswizzSDKCore.framework/AdswizzSDKCore</key>
 		<data>
-		cmzq+4gIunOW0+qR50/AsstDTJU=
+		wfE/nuHIsEGy52tf9MszvSTYdq4=
 		</data>
 		<key>ios-arm64/AdswizzSDKCore.framework/Headers/AdswizzSDKCore-Swift.h</key>
 		<data>
-		GUSHuLtZ5lAylbJd6kD4Xh79yVA=
+		lObdWUdPNTZPDdfZJ5Zl2VTonXM=
 		</data>
 		<key>ios-arm64/AdswizzSDKCore.framework/Info.plist</key>
 		<data>
-		JzZE8HhgsXoxkpuB7FtbawDFpFM=
+		Raed0P7H/QtOJuXr7l9aqjJ7Fbc=
 		</data>
 		<key>ios-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		RU96z5HC4Mjh7BgT5NdYmQCozgs=
+		J1ACYZcM+8oDmue7+6TvqwofUFo=
 		</data>
 		<key>ios-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		/vpZfcwRhPmzk3tPTiFnS2lAJho=
+		zmZuBtVqNHbzBWdtzl9Q7VfYnzQ=
 		</data>
 		<key>ios-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		nyRJdnUUTqC38q+T/578aRJkx0w=
+		SA6X5Vkih14Au5DXAlw54o6xekw=
 		</data>
 		<key>ios-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		/vpZfcwRhPmzk3tPTiFnS2lAJho=
+		zmZuBtVqNHbzBWdtzl9Q7VfYnzQ=
 		</data>
 		<key>ios-arm64/AdswizzSDKCore.framework/Modules/module.modulemap</key>
 		<data>
@@ -38,59 +38,59 @@
 		</data>
 		<key>ios-arm64/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Info.plist</key>
 		<data>
-		bUJ+KDn/riS1QS3GUXb6rE0HjwQ=
+		qYX2Sgrv69sx35RL3b5OXwR0qaI=
 		</data>
 		<key>ios-arm64/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKCore</key>
 		<data>
-		dBe0R5GbV/1KxFbgUVkwdH/fMSM=
+		8x3L3Wq7T0rp+qIDOTSWa4bdANE=
 		</data>
 		<key>ios-arm64/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKCore.yml</key>
 		<data>
-		pRmDZCZKpDEXZ+u2I1lbbi+K4Vg=
+		85+gil47Ljrxr1tity6llcdS3tM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/AdswizzSDKCore</key>
 		<data>
-		o92yGVpDxed6Km342dmW0IFikAA=
+		XrcJcpQ+HyTrY0fegHWuL28oyBI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Headers/AdswizzSDKCore-Swift.h</key>
 		<data>
-		IoKOkNZYGWTsEkRoy95W9qkmdd0=
+		vd4oHgrq01jlaCuTj7Ibje2k4jY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Info.plist</key>
 		<data>
-		+RKpLKEAC4KJ2tvZJriKGMQC0p8=
+		PpiJV+fTjIXt9Bvl5IMFqBCTYAE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		RU96z5HC4Mjh7BgT5NdYmQCozgs=
+		J1ACYZcM+8oDmue7+6TvqwofUFo=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		+p4hPaviuIYDPN1HHCXwcjddKrE=
+		rI95UnTGJ4so/ApYMicIGaJjXR4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		6ACvy/xCJ5GJwjk0EyZcpzILTbk=
+		M97H3bVkr9pP4u0J6qLzWiuLQ7Y=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		+p4hPaviuIYDPN1HHCXwcjddKrE=
+		rI95UnTGJ4so/ApYMicIGaJjXR4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		RU96z5HC4Mjh7BgT5NdYmQCozgs=
+		J1ACYZcM+8oDmue7+6TvqwofUFo=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		d035Cy65MvgJBKu2BEDo5kIU1WA=
+		px2XqKdVp2bhYVneFe+m99zcuWM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		KnsROjxFF2tyhRZFanigCpBSfJA=
+		rMHjt/UaPH7OGQVx/SW90sjMfgU=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		d035Cy65MvgJBKu2BEDo5kIU1WA=
+		px2XqKdVp2bhYVneFe+m99zcuWM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/module.modulemap</key>
 		<data>
@@ -98,51 +98,51 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/_CodeSignature/CodeResources</key>
 		<data>
-		U8qdz1rJkRQwkKQX2uQyOMpQuoc=
+		UhWfxsVINPqRuo732XBn/3K+1O4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Info.plist</key>
 		<data>
-		bUJ+KDn/riS1QS3GUXb6rE0HjwQ=
+		qYX2Sgrv69sx35RL3b5OXwR0qaI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKCore</key>
 		<data>
-		Pup8YovHYtgJB36rv1Vh9Z5pqcA=
+		iNz5DgtLdOfsmVoB3rWXR2gHZTg=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKCore.yml</key>
 		<data>
-		7OZPxH4NoAv+DKX4s4uMXnNptfg=
+		YZbvh86aieT5rLkF+69NkuoAYRw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/Relocations/x86_64/AdswizzSDKCore.yml</key>
 		<data>
-		Ce3qnxGLyq0tq95njcqG4z0saD0=
+		fLn6Ft5TvDyT+srF8TaIL8K8S8o=
 		</data>
 		<key>tvos-arm64/AdswizzSDKCore.framework/AdswizzSDKCore</key>
 		<data>
-		aA0GbZNORgowZYrpM9lyyn4F+TI=
+		ZNwQnqwNAgjxhU1ANec6wwsGRos=
 		</data>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Headers/AdswizzSDKCore-Swift.h</key>
 		<data>
-		GUSHuLtZ5lAylbJd6kD4Xh79yVA=
+		lObdWUdPNTZPDdfZJ5Zl2VTonXM=
 		</data>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Info.plist</key>
 		<data>
-		yOyj7RF3m+DkQX8EZrr8VYtBpxo=
+		qbVCuS2CoxHHP28uAzC5meRjUgs=
 		</data>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos.abi.json</key>
 		<data>
-		RU96z5HC4Mjh7BgT5NdYmQCozgs=
+		J1ACYZcM+8oDmue7+6TvqwofUFo=
 		</data>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos.private.swiftinterface</key>
 		<data>
-		XaaSaTR6BaQ+LQnPZjd522QBa7c=
+		blqQmU5xd7tnSH47HQw5ibDNUeU=
 		</data>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos.swiftdoc</key>
 		<data>
-		s8ggep2CMXQbxPOAiuRpERaZr5I=
+		c60ATRQUkuufDSIiErRVoNj68x0=
 		</data>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos.swiftinterface</key>
 		<data>
-		XaaSaTR6BaQ+LQnPZjd522QBa7c=
+		blqQmU5xd7tnSH47HQw5ibDNUeU=
 		</data>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Modules/module.modulemap</key>
 		<data>
@@ -150,59 +150,59 @@
 		</data>
 		<key>tvos-arm64/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Info.plist</key>
 		<data>
-		bUJ+KDn/riS1QS3GUXb6rE0HjwQ=
+		qYX2Sgrv69sx35RL3b5OXwR0qaI=
 		</data>
 		<key>tvos-arm64/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKCore</key>
 		<data>
-		vjMgGxrCkEslBAmR4MDDii4KTf4=
+		I2F5J1xkTJ4FSwICoXYrcrD5k04=
 		</data>
 		<key>tvos-arm64/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKCore.yml</key>
 		<data>
-		pRmDZCZKpDEXZ+u2I1lbbi+K4Vg=
+		85+gil47Ljrxr1tity6llcdS3tM=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/AdswizzSDKCore</key>
 		<data>
-		kEcKtsNw3Qmhd+/W4R2KMKsmyq8=
+		yxEw+RpI4ciX8DUS3zyzgxKciqc=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Headers/AdswizzSDKCore-Swift.h</key>
 		<data>
-		IoKOkNZYGWTsEkRoy95W9qkmdd0=
+		vd4oHgrq01jlaCuTj7Ibje2k4jY=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Info.plist</key>
 		<data>
-		q9eF+ryl9JjuHp/sZc+UkYRLArM=
+		QJdsnGqSF2itc0EcSin+iebUzN0=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		RU96z5HC4Mjh7BgT5NdYmQCozgs=
+		J1ACYZcM+8oDmue7+6TvqwofUFo=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		POIQa1nwzv/r1KeGZ2NwNbQ/yK4=
+		rdiehCEYntA9b3mctfTkmhagPSc=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		cXhbHMSCDxlhZ4ynvYc/NTGIhYY=
+		t2xeUXdiYG0gwlDEqZj8+syazDA=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		POIQa1nwzv/r1KeGZ2NwNbQ/yK4=
+		rdiehCEYntA9b3mctfTkmhagPSc=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		RU96z5HC4Mjh7BgT5NdYmQCozgs=
+		J1ACYZcM+8oDmue7+6TvqwofUFo=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		BKxIzh1+t7tuaD80QxD8RXed4SM=
+		QnpuaBLNEwKQSkqAx7AQTYi3Swo=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		LWmry0JuNzg1voGokV5tf3LiJ90=
+		yjbpuHLd6Rp3fibKFUnuIYzvSt8=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		BKxIzh1+t7tuaD80QxD8RXed4SM=
+		QnpuaBLNEwKQSkqAx7AQTYi3Swo=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/module.modulemap</key>
 		<data>
@@ -210,23 +210,23 @@
 		</data>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/_CodeSignature/CodeResources</key>
 		<data>
-		062mRAQnD3t+hCuERJ4W0xEWPp4=
+		VJxS5aqt1ipszaKAjTc+he/Ms9M=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Info.plist</key>
 		<data>
-		bUJ+KDn/riS1QS3GUXb6rE0HjwQ=
+		qYX2Sgrv69sx35RL3b5OXwR0qaI=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKCore</key>
 		<data>
-		EZkqRHSMqQ43d+xF+DAspWiiZ3Y=
+		O8EyHFEy5zVGWC3DyBYsIC+DnrE=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKCore.yml</key>
 		<data>
-		7OZPxH4NoAv+DKX4s4uMXnNptfg=
+		YZbvh86aieT5rLkF+69NkuoAYRw=
 		</data>
 		<key>tvos-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/Relocations/x86_64/AdswizzSDKCore.yml</key>
 		<data>
-		Ce3qnxGLyq0tq95njcqG4z0saD0=
+		fLn6Ft5TvDyT+srF8TaIL8K8S8o=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -235,49 +235,49 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rcvJVThs1BWI6gFBy2h1oJuJDKgb3iT+0n5UBMn86GM=
+			Pa9kt7FHuLTYHGDji02b7fkBV8A6HaBi30zYRPcb9O8=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKCore.framework/Headers/AdswizzSDKCore-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			B/WhCY7CMy0e3f9Zr0zHnjJ+cMaQCFgBGsPm1J1lEyg=
+			sMRlohDmsxpoOCcYTjICawT7EUVffBcZXvOI3S8ZO7E=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKCore.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DulPvngePubqnmSJG4YOxeJs1GtmyGx2GHTPEN9nYak=
+			EEnrtfxZZiMh/8Pdj24y7jVJKAaqvkQqwYmyYzhDyJw=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FIM/QB8HKzJMCXLUDJwcbBhubCzJsKll8sFxEWTRIL8=
+			8PxlaXYkUg7BbF5vMpPw/mu70+NZtFgourEIpPFFkTI=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			k9y9+8qV4t8/1b3GlifQ4AEqYrlQk3U6gBIKYD5qTDs=
+			j1yLFitIbtoOp1TNEW/3lQ2hWt3TbfzwHHm6uZrExRI=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8/bA41BBFyj4NYn3cNw2pTdvL3C/l401uwYMzv0JQNI=
+			3rbeRTX3V9nORfIJ1pUTl+h1d/5tZXnjQOxVicccDcg=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			k9y9+8qV4t8/1b3GlifQ4AEqYrlQk3U6gBIKYD5qTDs=
+			j1yLFitIbtoOp1TNEW/3lQ2hWt3TbfzwHHm6uZrExRI=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKCore.framework/Modules/module.modulemap</key>
@@ -291,98 +291,98 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			M55t6yCa0wILUynjt21YJb645tz7IvAQTblZpkTpOws=
+			F5ruHPqYiVGe5q+3g3iR906BZf/lEQ4rsJbKg7Q5tHs=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKCore</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yjSYCQqlQWBiNtbPSK2SHXEzYAT3Kr+Zy063Qo/7Hgo=
+			PemlaIANTIzNx5NhLRgL37VryBbI3YutaNcJUYJUJnE=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKCore.yml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			43knhNajDoAJyq8eJXk4aYlHqHQALjfSIWFXXe3MnSo=
+			x2EKfgkvgObgKTp+xQrLcX4yHshIrYKd8nHKfefRl+c=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/AdswizzSDKCore</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MzatjMDfS5fRFQ1kgtyHggULO3sT7LrqRcZQqiT6SQw=
+			g/6jUo3/Y27hLKH/pzBYRrDh8Zzpv42CtnoISzX84bU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Headers/AdswizzSDKCore-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xi/sDjYB7aIRlI6dRJeI2Wc18KRl8Qm5kFDVPpmDbQ4=
+			mKDXhvXs/Uq6sGgrkhHaQvQfeN7I5cEgle/os/0lM94=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jKHSl3ROL7/LBntByd4Z1NGL1cWusu26wmgSz6jsSSs=
+			nQbgP/U6V4P1hd2T34ZG+FH5xmOonZml4suZL+6Ifwo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FIM/QB8HKzJMCXLUDJwcbBhubCzJsKll8sFxEWTRIL8=
+			8PxlaXYkUg7BbF5vMpPw/mu70+NZtFgourEIpPFFkTI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YQGPsbDcnSDpwMpJKWgCW2PA6E0bC4njsY3EOTVkfFw=
+			M/QuwAk+DKQiSqmxIGqC3i2k4ASQSDi/y8/D19EfNrM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dBFr6EQI4eZnn0ycqPGsywheDDeoNg/B2YBeqUY0KlY=
+			WHAinLi8mapBjx6aURe4Yz+2k8lqjWizI6xFlQtRQMA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YQGPsbDcnSDpwMpJKWgCW2PA6E0bC4njsY3EOTVkfFw=
+			M/QuwAk+DKQiSqmxIGqC3i2k4ASQSDi/y8/D19EfNrM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FIM/QB8HKzJMCXLUDJwcbBhubCzJsKll8sFxEWTRIL8=
+			8PxlaXYkUg7BbF5vMpPw/mu70+NZtFgourEIpPFFkTI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			scd7gT35vyvtbHaV7RNuAXP1bCfSL3/MrccW+dhCWyE=
+			tH7ZzbflXjDD8sb/KAluZeVSc0EyjG6VXtBXZoIxOfQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hoS9i5ZXWA4bJeopJ2pn2e7h/M4/sAfB6HEQzNGO6Tc=
+			0XWOkNoFrheSYHgZGCAKRvp5qVyOI7Trz4h0EsBKMH4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			scd7gT35vyvtbHaV7RNuAXP1bCfSL3/MrccW+dhCWyE=
+			tH7ZzbflXjDD8sb/KAluZeVSc0EyjG6VXtBXZoIxOfQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/module.modulemap</key>
@@ -396,84 +396,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y1sY26Jww6+XYHyYD9ayy4ZDk8D6KmBU1HVVZYLTe1c=
+			sG2EcD3C62212e6lbWG6+AdA53C4WOk8sFJh8ofLCbY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			M55t6yCa0wILUynjt21YJb645tz7IvAQTblZpkTpOws=
+			F5ruHPqYiVGe5q+3g3iR906BZf/lEQ4rsJbKg7Q5tHs=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKCore</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aNl14z/U3sq8HF8aI2X7t5vzt1Yp4u5ikTkTt0M1HeI=
+			VNBqO2YvYPSsjdzkimQrO1oZgfFyfDw4YB3kXT0F2dc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKCore.yml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1K6OxN5f4XotqvJQRYkACoVtknl+Y4jgB/PVRMc0csc=
+			BAVQMbhZzoavkc+FnvlBL7BpSaOpVT9FTgd+W150mow=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/Relocations/x86_64/AdswizzSDKCore.yml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cM57Y7si9h91MpwMeVPmOkkr3Vk47mRZMHAyG6xVC+w=
+			iU3RdoJGPknKeQzPw1udlFp+VOJAbwFKM3uDGvFidds=
 			</data>
 		</dict>
 		<key>tvos-arm64/AdswizzSDKCore.framework/AdswizzSDKCore</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AWtl1JLKHNtd/Us0g0cjtnRp57G1viAGuIodwJL/tVs=
+			tZomxqDpZhTH3XsxEK+zj3PeeN0Svju2ZPsm3NOMXr0=
 			</data>
 		</dict>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Headers/AdswizzSDKCore-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			B/WhCY7CMy0e3f9Zr0zHnjJ+cMaQCFgBGsPm1J1lEyg=
+			sMRlohDmsxpoOCcYTjICawT7EUVffBcZXvOI3S8ZO7E=
 			</data>
 		</dict>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			h4w3zs+k8SJVINMKJ70/0wqH/ZOIGeXfYXHd1aAlo8k=
+			EklafNuoOGnOSYaV35SaBxFnF+gmjXzWy4x+8DHnGI8=
 			</data>
 		</dict>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FIM/QB8HKzJMCXLUDJwcbBhubCzJsKll8sFxEWTRIL8=
+			8PxlaXYkUg7BbF5vMpPw/mu70+NZtFgourEIpPFFkTI=
 			</data>
 		</dict>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qgwR/1Jn1k/ihMLowwPMm4qoU2t7n0zR0eiddHSqTOs=
+			0UcPbrSEQOhCKjCJh1rPaxvOgUm3ICa+cXHXqu5tIYU=
 			</data>
 		</dict>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uEhM5ylgqY1TDcjycH5LcEMPmZJ8QQ0vB/rqvdZDTmA=
+			f4BbZQXyHeQCY0bqghxBKwN9WbNipBwyBENozX8j0eQ=
 			</data>
 		</dict>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qgwR/1Jn1k/ihMLowwPMm4qoU2t7n0zR0eiddHSqTOs=
+			0UcPbrSEQOhCKjCJh1rPaxvOgUm3ICa+cXHXqu5tIYU=
 			</data>
 		</dict>
 		<key>tvos-arm64/AdswizzSDKCore.framework/Modules/module.modulemap</key>
@@ -487,98 +487,98 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			M55t6yCa0wILUynjt21YJb645tz7IvAQTblZpkTpOws=
+			F5ruHPqYiVGe5q+3g3iR906BZf/lEQ4rsJbKg7Q5tHs=
 			</data>
 		</dict>
 		<key>tvos-arm64/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKCore</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5zPd5+J2NfB1DjjOwOSWx0vNVBGbU6kBUQ5wLsorxXc=
+			hRFNol1Xcwrc+TAf39dsNytTHYhNG21XXfixIwLc/Dw=
 			</data>
 		</dict>
 		<key>tvos-arm64/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKCore.yml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			43knhNajDoAJyq8eJXk4aYlHqHQALjfSIWFXXe3MnSo=
+			x2EKfgkvgObgKTp+xQrLcX4yHshIrYKd8nHKfefRl+c=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/AdswizzSDKCore</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5LTBriDh3pmR40bXlRcd2O7cgmWzWbRfKRB8AJWIm9Q=
+			tWunhhBHsy8W7ftQf/FTW33PN3GJ/D91LuId3BjmNuY=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Headers/AdswizzSDKCore-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xi/sDjYB7aIRlI6dRJeI2Wc18KRl8Qm5kFDVPpmDbQ4=
+			mKDXhvXs/Uq6sGgrkhHaQvQfeN7I5cEgle/os/0lM94=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NEzUs4+tF3wttCbPaxZznHKihWl/Z7UgDcOOkLAik44=
+			BUMAi3VXj02n9yxMYo04TmBU7jDT5YmtN6lZtt+BC7k=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FIM/QB8HKzJMCXLUDJwcbBhubCzJsKll8sFxEWTRIL8=
+			8PxlaXYkUg7BbF5vMpPw/mu70+NZtFgourEIpPFFkTI=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0kdixWUcxLSmsr8GllQC3a8uweIW5ed0908JhR5+BxE=
+			OAVryAz0bvpmBHuHa0zS/QPl8Zga31XWlm8xslaXoJI=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FFreExiQrnUY2MZMUK1BV/Nk+JXRWhSfuI73XA+GO0g=
+			sMe/o0eFj/t47Ah8n/K2HkR/JBh3j2ZxytGy/DCP5Ag=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0kdixWUcxLSmsr8GllQC3a8uweIW5ed0908JhR5+BxE=
+			OAVryAz0bvpmBHuHa0zS/QPl8Zga31XWlm8xslaXoJI=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FIM/QB8HKzJMCXLUDJwcbBhubCzJsKll8sFxEWTRIL8=
+			8PxlaXYkUg7BbF5vMpPw/mu70+NZtFgourEIpPFFkTI=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mM13pVRW1e07DLKfl1ri5EzsEyl4rge20Eg/wYNAmW0=
+			rqM7MXjXv4K+Zvhoj1K+S8ZHXnT7IBYf+K6rxLfY8Yc=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EVfNHk6gwmpfQwIfqwK4Kybq/+mOWxzrKhQEjGrMF3I=
+			L2gesn6DnajhtdDJXJpYoGOXDEpv1LJHZ8HOBJ2qEAg=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/AdswizzSDKCore.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mM13pVRW1e07DLKfl1ri5EzsEyl4rge20Eg/wYNAmW0=
+			rqM7MXjXv4K+Zvhoj1K+S8ZHXnT7IBYf+K6rxLfY8Yc=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/AdswizzSDKCore.framework/Modules/module.modulemap</key>
@@ -592,35 +592,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0WAOh9FZAgCTIecphHGR/DhSCpyEftQMMBT7hn5MmQo=
+			a7aitRgpM56DDUDgG+qwPb7ZzScvgJWPkxriaCWA214=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			M55t6yCa0wILUynjt21YJb645tz7IvAQTblZpkTpOws=
+			F5ruHPqYiVGe5q+3g3iR906BZf/lEQ4rsJbKg7Q5tHs=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/DWARF/AdswizzSDKCore</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mvOIRMudbSxSsfAcGstYJ3+4OS4vTCfOWqOoC4Cdxik=
+			Udnb/qynZULfU6OKJRhFNgY5eX90WNJKR81jcwybmo4=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/Relocations/aarch64/AdswizzSDKCore.yml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1K6OxN5f4XotqvJQRYkACoVtknl+Y4jgB/PVRMc0csc=
+			BAVQMbhZzoavkc+FnvlBL7BpSaOpVT9FTgd+W150mow=
 			</data>
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/dSYMs/AdswizzSDKCore.framework.dSYM/Contents/Resources/Relocations/x86_64/AdswizzSDKCore.yml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cM57Y7si9h91MpwMeVPmOkkr3Vk47mRZMHAyG6xVC+w=
+			iU3RdoJGPknKeQzPw1udlFp+VOJAbwFKM3uDGvFidds=
 			</data>
 		</dict>
 	</dict>

@@ -1,10 +1,10 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.3.1 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
-// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name AdswizzSDKPinpointAnalytics
+// swift-compiler-version: Apple Swift version 6.3.1 effective-5.10 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdswizzSDKPinpointAnalytics
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.1
 import AWSCore
 import AdSupport
-@preconcurrency import AdswizzSDKCore
+import AdswizzSDKCore
 @_exported import AdswizzSDKPinpointAnalytics
 import CoreFoundation
 import CoreLocation
@@ -14,21 +14,18 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@objc(AASDKAdswizzPinpointConnector) @_Concurrency.MainActor final public class AdswizzPinpointConnector : ObjectiveC.NSObject {
-  @objc @_Concurrency.MainActor final public let objectId: Foundation.UUID
-  @objc @_Concurrency.MainActor final public let configuration: AdswizzSDKPinpointAnalytics.AdswizzPinpointConfiguration
-  @objc @_Concurrency.MainActor public init(with configuration: AdswizzSDKPinpointAnalytics.AdswizzPinpointConfiguration) throws
-  nonisolated final public func log(_ event: any AdswizzSDKCore.AnalyticsEvent, _ timestamp: Foundation.Date)
-  nonisolated final public func send(forced: Swift.Bool)
+@objc(AASDKAdswizzPinpointConnector) final public class AdswizzPinpointConnector : ObjectiveC.NSObject {
+  @objc final public let objectId: Foundation.UUID
+  @objc final public let configuration: AdswizzSDKPinpointAnalytics.AdswizzPinpointConfiguration
+  @objc public init(with configuration: AdswizzSDKPinpointAnalytics.AdswizzPinpointConfiguration) throws
+  @objc final public func log(_ event: any AdswizzSDKCore.AnalyticsEvent, _ timestamp: Foundation.Date)
+  @objc final public func send(forced: Swift.Bool)
   @objc deinit
 }
-extension AdswizzSDKPinpointAnalytics.AdswizzPinpointConnector : AdswizzSDKCore.AdswizzAnalyticsConfigurable {
-  @_Concurrency.MainActor final public func applyAnalyticsConfiguration(enabled: Swift.Bool, canLog: @escaping @Sendable (any AdswizzSDKCore.AnalyticsEvent) -> Swift.Bool, isLocationEnabled: @escaping @_Concurrency.MainActor @Sendable () -> Swift.Bool, lastLocation: @escaping @_Concurrency.MainActor @Sendable () -> _LocationEssentials.CLLocation?, placemarks: @escaping @_Concurrency.MainActor @Sendable () -> [CoreLocation.CLPlacemark]?)
-}
-extension AdswizzSDKCore.AdLogger.Level : @retroactive Swift.Comparable {
+extension AdswizzSDKCore.AdLogger.Level : Swift.Comparable {
   public static func < (lhs: AdswizzSDKCore.AdLogger.Level, rhs: AdswizzSDKCore.AdLogger.Level) -> Swift.Bool
 }
-extension AdswizzSDKCore.AdLogger.Level : @retroactive Swift.CustomStringConvertible {
+extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }

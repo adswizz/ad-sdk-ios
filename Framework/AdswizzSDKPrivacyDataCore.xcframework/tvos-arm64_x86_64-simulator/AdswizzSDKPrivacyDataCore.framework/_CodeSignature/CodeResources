@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/AdswizzSDKPrivacyDataCore-Swift.h</key>
 		<data>
-		T+mqY8zD6bUgsyVt0pc+uQ3pq60=
+		23EbQiZtbAppd9etGska5nawXf0=
 		</data>
 		<key>Headers/AdswizzSDKPrivacyDataCore.h</key>
 		<data>
@@ -18,43 +18,43 @@
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		/V2dQTfFinLW13Q5/oTK1xZq1Vw=
+		axWQdAwD7LAFI9Eha6AsvYml/bI=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		P8uHHVi9r31UYrxEHl6Id2v1HRg=
+		SZ7itxXMpJez1QJd7yVq44Ix3Sc=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		0+4FJg5QxBCqRsv3r4V/QgjCI/I=
+		eTKA6nk6XGJTkOW6vp9OEiZ0aek=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		P8uHHVi9r31UYrxEHl6Id2v1HRg=
+		SZ7itxXMpJez1QJd7yVq44Ix3Sc=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		fiHP8gk89s86epQrv/rZvQLB2Ic=
+		g08HdF71eqf/qOT2GIcz0PkObxA=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		/V2dQTfFinLW13Q5/oTK1xZq1Vw=
+		axWQdAwD7LAFI9Eha6AsvYml/bI=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		fHy19cLqC3RoQlgOP2YfRTkKliE=
+		1wQBJn2yPAGOsXXj0d5HJ6TYoUM=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		q3Io+x2SXASPDFtNDByfFfNdOHQ=
+		BCe55ER/ZryrJ3DsQKnuNASbJao=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		fHy19cLqC3RoQlgOP2YfRTkKliE=
+		1wQBJn2yPAGOsXXj0d5HJ6TYoUM=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		IvacNgVK65RTxZh+hAZ1HAe/rA4=
+		Ho6/nc6Mn/6102Ag44hCRCM44kQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -67,7 +67,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wKwyZR/VHzRW/ZgjzG7SLOXzSqPV307kCoXaPBmwfwE=
+			21/oVFnufnaVxKNBOLMr7utmnmmczZRJXqhjWKwphcY=
 			</data>
 		</dict>
 		<key>Headers/AdswizzSDKPrivacyDataCore.h</key>
@@ -81,70 +81,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			C1Wd6tekkR0Y2UvwpGllZRHquUibgv9RVlmEa2GkMls=
+			rQw1YOAT/p3U+qe3PBoGTiwmlrhbNyMOqxNskgu19/8=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yT5WIdrSZoaO8dsMMyLgbELPsFuGuqwwjFok3wWkI/A=
+			pU1KWedwNA0eeWvSJoyqVTrp0OWGWOjobDgu7K9kLSE=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kEY1AuvHljav6rRqk8dxVAiBfxt9VE7V3bg7q/uf5RQ=
+			NBwx2RZMQO6jR40cHW9te2EJ4Byols6tMgxX0rFpOgc=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yT5WIdrSZoaO8dsMMyLgbELPsFuGuqwwjFok3wWkI/A=
+			pU1KWedwNA0eeWvSJoyqVTrp0OWGWOjobDgu7K9kLSE=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qeb05eabFgkr8KubBm13q0cxWHt/IUEkRzzMBB7Rf7E=
+			0/7H1cOVzMDSO1fSOfwNIOlzaUTdMQYXxw4iHms0n9c=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			C1Wd6tekkR0Y2UvwpGllZRHquUibgv9RVlmEa2GkMls=
+			rQw1YOAT/p3U+qe3PBoGTiwmlrhbNyMOqxNskgu19/8=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			a7QyzZ3Thr9NfP7mq6eeRyW1Aul9Fwc6FzxH/q3f3UM=
+			sGhLf+8x70emg6onL9ymFaFDBi/QD+rY11Go9tfkiP4=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			g8jdz+fliUc+s4kr1QG2pctduHl9jTpDNw/nHTghNNQ=
+			1qxA0pnVcnJyPAkncIvl4hnBpRVPf3VDTMXIxChavGQ=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			a7QyzZ3Thr9NfP7mq6eeRyW1Aul9Fwc6FzxH/q3f3UM=
+			sGhLf+8x70emg6onL9ymFaFDBi/QD+rY11Go9tfkiP4=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			j/Hj5Ejm4PyBDV7rzo6jhtHHmG48hP4oeOfUkiiKxwM=
+			+q2ZT3XqMpwu0MQksdBqHIPHZL+VotU5mUjPgh3uJSM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

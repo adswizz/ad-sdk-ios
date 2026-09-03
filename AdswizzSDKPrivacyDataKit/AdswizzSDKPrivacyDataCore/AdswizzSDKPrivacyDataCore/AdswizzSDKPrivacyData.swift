@@ -34,7 +34,7 @@ import Speech
 }
 
 /// Supported types of permissions that might be requested.
-@objc public enum PermissionType: Int, CaseIterable, Sendable {
+@objc public enum PermissionType: Int, CaseIterable {
     /// Location - when in use.
     case location
 #if !os(tvOS)
@@ -79,7 +79,7 @@ import Speech
 /// Main frm class
 @objc public class AdswizzSDKPrivacyData: NSObject {
     /// The shared instance.
-    @MainActor @objc public static let shared = AdswizzSDKPrivacyData()
+    @objc public static let shared = AdswizzSDKPrivacyData()
     let requesters: [PermissionType: RequesterProtocol]
     
     override init() {

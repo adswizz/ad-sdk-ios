@@ -1864,6 +1864,7 @@ SWIFT_CLASS_NAMED("AdswizzPrivacyConsent")
 @protocol AASDKAdswizzSDKDelegate;
 @protocol AASDKPALManagerProtocol;
 @class AASDKAdswizzSDKConfig;
+@protocol AASDKAnalyticsConnector;
 /// <code>AdswizzSDK</code> main entry point.
 /// Use the <code>shared</code> instance to set the <code>AdswizzSDKDelegate</code> or initialize the SDK.
 SWIFT_CLASS_NAMED("AdswizzSDK")
@@ -1920,6 +1921,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 @property (nonatomic, copy) NSString * _Nullable gppConsent SWIFT_DEPRECATED_MSG("Please use the GPP consent with the new privacy consent API", "consent.gpp");
 /// Set the location accuracy.
 @property (nonatomic) CLLocationAccuracy locationAccuracy SWIFT_DEPRECATED_MSG("Please use the accuracy property with the new location API", "location.accuracy");
+/// Add  an <code>AnalyticsConnector</code> to <code>AdswizzSDK</code> to log events to the <code>connector</code>.
+/// \param connector the connector to add
+///
+- (void)addWithConnector:(id <AASDKAnalyticsConnector> _Nonnull)connector;
+/// Remove  an <code>AnalyticsConnector</code> from <code>AdswizzSDK</code> to stop logging events to the <code>connector</code>.
+/// \param connector the connector to remove
+///
+- (void)removeWithConnector:(id <AASDKAnalyticsConnector> _Nonnull)connector;
 /// Get the current permission status in the SDK.
 /// \param type permissionType as described in <code>AdswizzSDKPrivacyData</code> framework
 ///
@@ -4602,6 +4611,7 @@ SWIFT_CLASS_NAMED("AdswizzPrivacyConsent")
 @protocol AASDKAdswizzSDKDelegate;
 @protocol AASDKPALManagerProtocol;
 @class AASDKAdswizzSDKConfig;
+@protocol AASDKAnalyticsConnector;
 /// <code>AdswizzSDK</code> main entry point.
 /// Use the <code>shared</code> instance to set the <code>AdswizzSDKDelegate</code> or initialize the SDK.
 SWIFT_CLASS_NAMED("AdswizzSDK")
@@ -4658,6 +4668,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 @property (nonatomic, copy) NSString * _Nullable gppConsent SWIFT_DEPRECATED_MSG("Please use the GPP consent with the new privacy consent API", "consent.gpp");
 /// Set the location accuracy.
 @property (nonatomic) CLLocationAccuracy locationAccuracy SWIFT_DEPRECATED_MSG("Please use the accuracy property with the new location API", "location.accuracy");
+/// Add  an <code>AnalyticsConnector</code> to <code>AdswizzSDK</code> to log events to the <code>connector</code>.
+/// \param connector the connector to add
+///
+- (void)addWithConnector:(id <AASDKAnalyticsConnector> _Nonnull)connector;
+/// Remove  an <code>AnalyticsConnector</code> from <code>AdswizzSDK</code> to stop logging events to the <code>connector</code>.
+/// \param connector the connector to remove
+///
+- (void)removeWithConnector:(id <AASDKAnalyticsConnector> _Nonnull)connector;
 /// Get the current permission status in the SDK.
 /// \param type permissionType as described in <code>AdswizzSDKPrivacyData</code> framework
 ///

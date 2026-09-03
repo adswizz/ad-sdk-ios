@@ -433,13 +433,62 @@ SWIFT_PROTOCOL_NAMED("AdLoggerDestination")
 - (void)log:(enum Level)level functionName:(NSString * _Nonnull)functionName fileName:(NSString * _Nonnull)fileName lineNumber:(NSInteger)lineNumber line:(NSString * _Nonnull)line;
 @end
 
+@protocol AASDKAnalyticsEvent;
+@class NSDate;
+/// The <code>AnalyticsCollecting</code> protocol defines an interface for collecting <code>AdswizzSDK</code> analytics data. All events will be received on a serial background queue.
+/// Note that the <code>AnalyticsConnector</code> class conforms to <code>AnalyticsCollecting</code>.
+SWIFT_PROTOCOL_NAMED("AnalyticsCollecting")
+@protocol AASDKAnalyticsCollecting
+/// Log an event matched to a category and level.
+/// \param event event to log
+///
+- (void)log:(id <AASDKAnalyticsEvent> _Nonnull)event :(NSDate * _Nonnull)timestamp;
+/// Force a send to all connectors.
+/// When you receive this call, the connector should try to flush all its stored events if <code>forced</code> is true.
+/// \param forced true if the action is required immediately
+///
+- (void)sendWithForced:(BOOL)forced;
+@end
+
+@protocol AASDKAnalyticsConnector;
+/// The <code>AnalyticsCollector</code> protocol defines the interface for <code>AdswizzSDK</code> to be able to add or remove instances of objects that conform to the <code>AnalyticsConnector</code> protocol.
+SWIFT_PROTOCOL_NAMED("AnalyticsCollector")
+@protocol AASDKAnalyticsCollector
+/// Add a connector.
+/// \param connector the connector to add
+///
+- (void)add:(id <AASDKAnalyticsConnector> _Nonnull)connector;
+/// Remove a connector.
+/// \param connector the connector to remove
+///
+- (void)remove:(id <AASDKAnalyticsConnector> _Nonnull)connector;
+@end
+
+/// <code>AnalyticsConnector</code> inherits <code>AnalyticsCollecting</code> protocol.
+SWIFT_PROTOCOL_NAMED("AnalyticsConnector")
+@protocol AASDKAnalyticsConnector <AASDKAnalyticsCollecting>
+@end
+
 /// Analytics interface to customize <code>AnalyticsEvent</code> entries.
-/// Custom data is host-provided configuration read on the main actor while an event is being constructed.
-/// Note that Its <code>params</code> are snapshotted into the (immutable, <code>Sendable</code>) event before delivery, so this type is main-actor isolated.
 SWIFT_PROTOCOL_NAMED("AnalyticsCustomData")
 @protocol AASDKAnalyticsCustomData
 /// Custom params will be attached to each <code>AnalyticsEvent</code> during the ad lifecycle. See the <code>customParams</code> property from <code>AnalyticsEvent</code>.
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable params;
+@end
+
+/// The <code>AnalyticsEvent</code> protocol defines all properties for an event.
+SWIFT_PROTOCOL_NAMED("AnalyticsEvent")
+@protocol AASDKAnalyticsEvent
+/// Identifier value for the event - should be unique.
+@property (nonatomic, readonly, copy) NSString * _Nonnull id;
+/// Category name for the event.
+@property (nonatomic, readonly, copy) NSString * _Nonnull category;
+/// Category level for the event. See <code>Level</code> for possible values.
+@property (nonatomic, readonly) enum AASDKAnalyticsCategory level;
+/// Extra params attached to the event.
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable params;
+/// Custom params attached to the event that are passed from outside the SDK.
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable customParams;
 @end
 
 #endif // defined(__OBJC__)

@@ -18,7 +18,7 @@ import UIKit
 /// - see: Apple's document on user privacy for details of available authorisations
 /// https://developer.apple.com/documentation/uikit/core_app/protecting_the_user_s_privacy
 ///
-@objc class CalendarRequester: NSObject, CalendarRequesterProtocol, @unchecked Sendable {
+@objc class CalendarRequester: NSObject, CalendarRequesterProtocol {
     let calendarAccess: CalendarAccessType
     var authorizationStatus: PermissionValue {
         switch calendarAccess {
@@ -47,7 +47,7 @@ import UIKit
 private extension CalendarRequester {
     func internalRequest(completion: @escaping RequestCompletion) {
         
-        let completed: @Sendable (Bool, Error?) -> () = { [weak self] _, error in
+        let completed: (Bool, Error?) -> () = { [weak self] _, error in
             if let error = error {
                 completion(RequestResult(success: .cantAsk, failure: error))
             } else {
