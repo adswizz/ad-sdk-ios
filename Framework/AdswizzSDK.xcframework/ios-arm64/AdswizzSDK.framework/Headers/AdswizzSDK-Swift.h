@@ -581,7 +581,10 @@ SWIFT_CLASS_NAMED("AdCompanionView")
 /// <code>AdCompanionView</code> conformance to <code>WKNavigationDelegate</code>.
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 /// <code>AdCompanionView</code> conformance to <code>WKNavigationDelegate</code>.
-- (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
+/// Note that the old signature:
+/// <code>func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void)</code>
+/// was replaced with async variant to avoid “nearly matches” warning/error in Xcode 26.
+- (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))completionHandler;
 @end
 
 /// The <code>AdCompanionViewDelegate</code> protocol defines delegate methods to communicate changes in the lifecycle of <code>AdCompanionView</code> instances.
@@ -1898,7 +1901,6 @@ SWIFT_CLASS_NAMED("AdswizzPrivacyConsent")
 @protocol AASDKWatchSession;
 @protocol AASDKPALManagerProtocol;
 @class AASDKAdswizzSDKConfig;
-@protocol AASDKAnalyticsConnector;
 /// <code>AdswizzSDK</code> main entry point.
 /// Use the <code>shared</code> instance to set the <code>AdswizzSDKDelegate</code> or initialize the SDK.
 SWIFT_CLASS_NAMED("AdswizzSDK")
@@ -1959,14 +1961,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AASDKAdswizz
 @property (nonatomic) CLLocationAccuracy locationAccuracy SWIFT_DEPRECATED_MSG("Please use the accuracy property with the new location API", "location.accuracy");
 /// Enable/disable location significant changes mode.
 @property (nonatomic) BOOL enableLocationSignificantChanges SWIFT_DEPRECATED_MSG("Please use the enableSignificantChanges property with the new location API", "location.enableSignificantChanges");
-/// Add  an <code>AnalyticsConnector</code> to <code>AdswizzSDK</code> to log events to the <code>connector</code>.
-/// \param connector the connector to add
-///
-- (void)addWithConnector:(id <AASDKAnalyticsConnector> _Nonnull)connector;
-/// Remove  an <code>AnalyticsConnector</code> from <code>AdswizzSDK</code> to stop logging events to the <code>connector</code>.
-/// \param connector the connector to remove
-///
-- (void)removeWithConnector:(id <AASDKAnalyticsConnector> _Nonnull)connector;
 /// Get the current permission status in the SDK.
 /// \param type permissionType as described in <code>AdswizzSDKPrivacyData</code> framework
 ///

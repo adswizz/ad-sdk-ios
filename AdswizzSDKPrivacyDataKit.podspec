@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "AdswizzSDKPrivacyDataKit"
-  s.version     = "7.14.5"
+  s.version     = "8.0.1"
   s.summary     = "Optional helper kit framework which provides transparent support for Privacy-Sensitive Data API"
   s.description = <<-DESC
                   The solution for iOS App rejection on AppStore due to lack of string description in app's Info.plist.
@@ -9,21 +9,16 @@ Pod::Spec.new do |s|
                   AdswizzSDKPrivacyDataCore's purpose is to facilitate the interoperability with AdswizzSDK and to allow your app to manage sensitive APIs (such as permission APIs) without adding unwanted permission usage decription strings in the app's Info.plist manifest. 
                   It is a transparent way to communicate to AdswizzSDK all your app-specific Privacy needs and constraints.
                   DESC
-  s.homepage    = "http://adswizz.com"
+  s.homepage    = "https://sdk.adswizz.com/#/"
 
-  s.license     = {
-     :type => 'Copyright',
-     :text => <<-LICENSE
-       Copyright 2024 AdsWizz, Inc. All rights reserved.
-       LICENSE
-  }
+  s.license     = { :type => 'Copyright', :file => 'LICENSE' }
   s.author      = { "AdsWizz, Inc" => "sdk@adswizz.com" }
 
   s.ios.deployment_target = '13.0'
   s.tvos.deployment_target = '13.0'
-  s.swift_versions = ['5.10.0']
+  s.swift_versions = ['6.3.1']
 
-s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "7.14.5" }
+s.source = { :git => "https://github.com/adswizz/ad-sdk-ios.git", :tag => "8.0.1" }
   s.requires_arc = true
 
   # The default subspec which will be installed automatically.

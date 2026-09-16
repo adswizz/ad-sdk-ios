@@ -9,7 +9,7 @@
 import Foundation
 
 /// An Objective-C `NSObject` wrapper around the Swift `Result<Success, Failure>` to maintain Obj-C interoperability.
-@objc public class RequestResult: NSObject {
+@objc public class RequestResult: NSObject, @unchecked Sendable {
     
     /// The success argument. See the `PermissionValue` enum for possible values.
     @objc public private(set) var success: PermissionValue
@@ -43,7 +43,7 @@ public extension RequestResult {
 /// The completion block will always occur on the main thread.
 ///
 /// - parameter result: The output of the `request(completion:)` method when it completes.
-public typealias RequestCompletion = (_ result: RequestResult) -> Void
+public typealias RequestCompletion = @Sendable (_ result: RequestResult) -> Void
 
 /// The interface for all the requesters implementations.
 @objc public protocol RequesterProtocol: AnyObject {

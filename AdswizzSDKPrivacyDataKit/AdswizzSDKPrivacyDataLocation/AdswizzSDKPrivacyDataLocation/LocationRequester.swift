@@ -18,7 +18,7 @@ import CoreLocation
 /// - see: Apple's document on user privacy for details of available authorisations
 /// https://developer.apple.com/documentation/uikit/core_app/protecting_the_user_s_privacy
 ///
-@objc class LocationRequester: NSObject, LocationRequesterProtocol {
+@objc class LocationRequester: NSObject, LocationRequesterProtocol, @unchecked Sendable {
     let locationUsage: LocationUsageType
     private let locationManager: CLLocationManager
     private var completion: RequestCompletion?
@@ -47,7 +47,7 @@ import CoreLocation
     }
     
     func request(completion: @escaping RequestCompletion) {
-        DispatchQueue.main.async { [weak self] in
+        Task { @MainActor [weak self] in
             self?.internalRequest(completion: completion)
         }
     }
@@ -87,7 +87,7 @@ extension LocationRequester: CLLocationManagerDelegate {
 }
 
 private extension LocationRequester {
-    func internalRequest(completion: @escaping RequestCompletion) {
+    @MainActor func internalRequest(completion: @escaping RequestCompletion) {
         self.completion = completion
         isRequesting = true
         

@@ -12,7 +12,7 @@ Note that the **_AdswizzSDKPrivacyDataCore.xcframework_** is built as a standalo
 However, all the other [components](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit#structure) that handle a specific permission, each depends on the **_AdswizzSDKPrivacyDataCore_** module.<br>
 The **_AdswizzSDKPrivacyDataCore_** dependency above is automatically added if you choose to integrate any component from the **_AdswizzSDKPrivacyDataKit_** using Cocoapods or Swift Package Manager. If you choose either the Carthage or the manual integration, you will have to provide it at link time.<br>
 
-**_AdswizzSDKPrivacyDataCore_** is delivered as source code but the integration relies on the .xcframework to maintain binary compatibility with AdswizzSDK. The rest of the components are delivered as source code available from the Github official repository for AdswizzSDK. See next how to add **_AdswizzSDKPrivacyDataKit_** components to your Xcode project.
+**_AdswizzSDKPrivacyDataCore_** is delivered as source code but the integration relies on the .xcframework to maintain binary compatibility with AdswizzSDK. The rest of the components are delivered as source code available from the public GitHub repository for AdswizzSDK. See next how to add **_AdswizzSDKPrivacyDataKit_** components to your Xcode project.
 
 ## Installation
 
@@ -32,9 +32,8 @@ Adding the desired **_AdswizzSDKPrivacyDataKit_** Swift package components into 
 1. Go to Files > Swift Packages > Add Package Dependency… and include the URL of the GitHub repository:
 
 ```ruby
-https://ADSWIZZ_TOKEN@github.com/adswizz/ad-sdk-ios
+https://github.com/adswizz/ad-sdk-ios
 ```
-> Replace ADSWIZZ_TOKEN with the Personal Access Token received from your Technical Account Manager.
 
 2. Next, you'll see the repository rules for which version of the AdswizzSDK you want Swift Package Manager to install. Choose the `Up to Next Major Version` as it will use the latest compatible version of the dependency that can be detected from the main branch. Select which project you want Swift Package Manager to add the AdswizzSDK, then click "Add Package".
 
@@ -46,20 +45,17 @@ Another example, if you plan to leverage AdsWizz's interactive audio ad formats,
 ### Cocoapods
 The recommended version for Cocoapods is 1.15.0 or later. If you already have a Podfile, for each of the [components](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit#structure) you wish to install, just add the following line in your application target:
 
-* **IDFA**         - `pod 'AdswizzSDKPrivacyDataKit/IDFA', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git"`
-* **Photos**       - `pod 'AdswizzSDKPrivacyDataKit/Photos', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git"`
-* **Microphone**   - `pod 'AdswizzSDKPrivacyDataKit/Microphone', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git"`
-* **Speech**       - `pod 'AdswizzSDKPrivacyDataKit/Speech', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git"`
-* **Location**     - `pod 'AdswizzSDKPrivacyDataKit/Location', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git"`
-* **Calendar**     - `pod 'AdswizzSDKPrivacyDataKit/Calendar', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git"`
-* **Motion**       - `pod 'AdswizzSDKPrivacyDataKit/Motion', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git"`
-* **Contacts**     - `pod 'AdswizzSDKPrivacyDataKit/Contacts', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git"`
-* **Camera**       - `pod 'AdswizzSDKPrivacyDataKit/Camera', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git"`
+* **IDFA**         - `pod 'AdswizzSDKPrivacyDataKit/IDFA', :git => "https://github.com/adswizz/ad-sdk-ios.git"`
+* **Photos**       - `pod 'AdswizzSDKPrivacyDataKit/Photos', :git => "https://github.com/adswizz/ad-sdk-ios.git"`
+* **Microphone**   - `pod 'AdswizzSDKPrivacyDataKit/Microphone', :git => "https://github.com/adswizz/ad-sdk-ios.git"`
+* **Speech**       - `pod 'AdswizzSDKPrivacyDataKit/Speech', :git => "https://github.com/adswizz/ad-sdk-ios.git"`
+* **Location**     - `pod 'AdswizzSDKPrivacyDataKit/Location', :git => "https://github.com/adswizz/ad-sdk-ios.git"`
+* **Calendar**     - `pod 'AdswizzSDKPrivacyDataKit/Calendar', :git => "https://github.com/adswizz/ad-sdk-ios.git"`
+* **Motion**       - `pod 'AdswizzSDKPrivacyDataKit/Motion', :git => "https://github.com/adswizz/ad-sdk-ios.git"`
+* **Contacts**     - `pod 'AdswizzSDKPrivacyDataKit/Contacts', :git => "https://github.com/adswizz/ad-sdk-ios.git"`
+* **Camera**       - `pod 'AdswizzSDKPrivacyDataKit/Camera', :git => "https://github.com/adswizz/ad-sdk-ios.git"`
 
-Replace **_ADSWIZZ_GITHUB_TOKEN_** with the token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for a password, enter the token repository provided by AdsWizz. Once authorization is successful, the dependency will be added and installed automatically to your project.
-
-> **Note**
-> You can safely use the same token you obtained for the **_AdswizzSDK_** installation. 
+After modifying the Podfile, run `pod install`. The dependency will be added and installed automatically to your project.
 
 ### Carthage
 Visit the [Carthage](/iOS/SDKiOS/GetStarted#carthage) section and follow the same steps for integrating **_AdswizzSDK_**. Be sure to link and embed the **_AdswizzSDKPrivacyDataCore.xcframework_** binary and the other dependent binaries your application needs from the same `Build` folder generated by Carthage.

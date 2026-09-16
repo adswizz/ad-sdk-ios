@@ -38,7 +38,7 @@ typedef NS_CLOSED_ENUM(NSUInteger, AdswizzPermissionValueObjC) {
 
 //MARK: - AdswizzRequestPermissionResult
 /// Permission request result wrapper.
-@interface AdswizzRequestPermissionResult : NSObject
+NS_SWIFT_UI_ACTOR @interface AdswizzRequestPermissionResult : NSObject
 
 @property (assign, nonatomic) AdswizzPermissionValueObjC success;
 @property (strong, nonatomic, nullable) NSError *failure;

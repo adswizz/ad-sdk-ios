@@ -1,8 +1,8 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.3.1 effective-5.10 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
-// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdswizzSDK
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-upcoming-feature ConciseMagicFile -enable-upcoming-feature ForwardTrailingClosures -enable-upcoming-feature DeprecateApplicationMain -enable-upcoming-feature ImportObjcForwardDeclarations -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature IsolatedDefaultValues -enable-upcoming-feature GlobalConcurrency -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature ImplicitOpenExistentials -enable-upcoming-feature RegionBasedIsolation -enable-upcoming-feature DynamicActorIsolation -enable-upcoming-feature NonfrozenEnumExhaustivity -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdswizzSDK
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.1
-import AVFoundation
+@preconcurrency import AVFoundation
 import AdSupport
 @_exported import AdswizzSDK
 import AdswizzSDKCore
@@ -11,9 +11,9 @@ import CoreTelephony.CTTelephonyNetworkInfo
 import SystemConfiguration.CaptiveNetwork
 import Combine
 import CommonCrypto
-import CoreData
+@preconcurrency import CoreData
 import CoreFoundation
-import CoreLocation
+@preconcurrency import CoreLocation
 import CoreMotion
 import CoreTelephony
 import DeveloperToolsSupport
@@ -22,7 +22,7 @@ import EventKitUI
 import Foundation
 import MessageUI
 import MobileCoreServices
-import Network
+@preconcurrency import Network
 import NetworkExtension
 import Speech
 import Swift
@@ -75,9 +75,9 @@ extension UIKit.NSTextAlignment : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
 }
-@objc(AASDKInteractiveAdEvent) public protocol InteractiveAdEvent : AdswizzSDK.Event {
-  @objc var ad: (any AdswizzSDK.AdData)? { get }
-  @objc var event: AdswizzSDK.InteractiveAdEventType { get }
+@_Concurrency.MainActor @objc(AASDKInteractiveAdEvent) public protocol InteractiveAdEvent : AdswizzSDK.Event {
+  @objc @_Concurrency.MainActor var ad: (any AdswizzSDK.AdData)? { get }
+  @objc @_Concurrency.MainActor var event: AdswizzSDK.InteractiveAdEventType { get }
 }
 @objc(AASDKInteractiveAdEventType) public enum InteractiveAdEventType : Swift.Int, Swift.CaseIterable {
   case unknown
@@ -105,23 +105,23 @@ extension AdswizzSDK.TrackingPermissionController {
     get
   }
 }
-@objc(AASDKAdStreamDVRMetadataValue) public protocol AdStreamDVRMetadataValue {
+@objc(AASDKAdStreamDVRMetadataValue) public protocol AdStreamDVRMetadataValue : Swift.Sendable {
   @objc var timestamp: Swift.Int { get }
   @objc var content: Swift.String { get }
 }
-@objc(AASDKAdStreamDVRMetadata) public protocol AdStreamDVRMetadata {
+@objc(AASDKAdStreamDVRMetadata) public protocol AdStreamDVRMetadata : Swift.Sendable {
   @objc var start: Swift.Int { get }
   @objc var end: Swift.Int { get }
   @objc var length: Swift.Int { get }
   @objc var metadata: [any AdswizzSDK.AdStreamDVRMetadataValue] { get }
 }
 extension AdswizzSDK.AdPodcastManager {
-  @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  @_Concurrency.MainActor @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
 }
 public typealias AdManagerOwner = AdswizzSDK.AdManager
-@objc(AASDKInteractiveAdManagerDelegate) public protocol InteractiveAdManagerDelegate {
-  @objc func interactiveAdManager(_ adManager: any AdswizzSDK.AdManager, shouldPresentCoupon pkpassData: Foundation.Data)
-  @objc func interactiveAdManager(_ adManager: any AdswizzSDK.AdManager, didReceiveAdEvent event: any AdswizzSDK.InteractiveAdEvent)
+@_Concurrency.MainActor @objc(AASDKInteractiveAdManagerDelegate) public protocol InteractiveAdManagerDelegate {
+  @objc @_Concurrency.MainActor func interactiveAdManager(_ adManager: any AdswizzSDK.AdManager, shouldPresentCoupon pkpassData: Foundation.Data)
+  @objc @_Concurrency.MainActor func interactiveAdManager(_ adManager: any AdswizzSDK.AdManager, didReceiveAdEvent event: any AdswizzSDK.InteractiveAdEvent)
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdManagerSettings) final public class AdManagerSettings : ObjectiveC.NSObject {
   @objc weak final public var player: (any AdswizzSDK.MediaPlayerState)?
@@ -139,7 +139,7 @@ public typealias AdManagerOwner = AdswizzSDK.AdManager
 extension AdswizzSDK.AdManagerSettings {
   @objc final public func isCachedAssetsEnabled() -> Swift.Bool
 }
-@objc(AASDKDownloadableAssetState) public enum DownloadableAssetState : Swift.Int {
+@objc(AASDKDownloadableAssetState) public enum DownloadableAssetState : Swift.Int, Swift.Sendable {
   case unknown
   case initialized
   case downloading
@@ -151,7 +151,7 @@ extension AdswizzSDK.AdManagerSettings {
     get
   }
 }
-@objc(AASDKDownloadableAsset) public protocol DownloadableAsset {
+@objc(AASDKDownloadableAsset) public protocol DownloadableAsset : Swift.Sendable {
   @objc var url: Foundation.URL { get }
   @objc var mimeType: Swift.String? { get }
   @objc var expectedContentLength: Swift.Int64 { get }
@@ -173,12 +173,12 @@ extension AdswizzSDK.HTTPProtocol : Swift.RawRepresentable {
   }
 }
 extension AdswizzSDK.AdswizzAdStreamManager {
-  @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdStreamManagerBuilder) public class Builder : ObjectiveC.NSObject {
-    @objc public func with(httpProtocol: AdswizzSDK.HTTPProtocol) -> AdswizzSDK.AdswizzAdStreamManager.Builder
-    @objc public func with(companionZones: Swift.String) -> AdswizzSDK.AdswizzAdStreamManager.Builder
-    @objc public func with(adServer: Swift.String) -> AdswizzSDK.AdswizzAdStreamManager.Builder
-    @objc public func build() throws -> AdswizzSDK.AdswizzAdStreamManager
-    @objc override dynamic public init()
+  @_inheritsConvenienceInitializers @_Concurrency.MainActor @objc(AASDKAdswizzAdStreamManagerBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc @_Concurrency.MainActor public func with(httpProtocol: AdswizzSDK.HTTPProtocol) -> AdswizzSDK.AdswizzAdStreamManager.Builder
+    @objc @_Concurrency.MainActor public func with(companionZones: Swift.String) -> AdswizzSDK.AdswizzAdStreamManager.Builder
+    @objc @_Concurrency.MainActor public func with(adServer: Swift.String) -> AdswizzSDK.AdswizzAdStreamManager.Builder
+    @objc @_Concurrency.MainActor public func build() throws -> AdswizzSDK.AdswizzAdStreamManager
+    @_Concurrency.MainActor @objc override dynamic public init()
     @objc deinit
   }
 }
@@ -189,7 +189,7 @@ extension AdswizzSDK.AdswizzAdStreamManager {
   @objc public init(playerId: Swift.String, installationId: Swift.String, appStoreId: Swift.String? = nil)
   @objc deinit
 }
-@objc public enum AdswizzPermissionValue : Swift.Int {
+@objc public enum AdswizzPermissionValue : Swift.Int, Swift.Sendable {
   case granted
   case denied
   case notAsked
@@ -200,7 +200,7 @@ extension AdswizzSDK.AdswizzAdStreamManager {
     get
   }
 }
-@objc public enum AdswizzPermissionType : Swift.Int, Swift.CaseIterable {
+@objc public enum AdswizzPermissionType : Swift.Int, Swift.CaseIterable, Swift.Sendable {
   case location
   case locationAdvanced
   case photo
@@ -230,31 +230,31 @@ extension AdswizzSDK.AdswizzAdStreamManager {
   @objc optional func adCompanionView(_ adCompanionView: AdswizzSDK.AdCompanionView, shouldOverrideCompanionClickThrough url: Foundation.URL) -> Swift.Bool
   @objc optional func adCompanionViewWillLeaveApplication(_ adCompanionView: AdswizzSDK.AdCompanionView)
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdCompanionView) @_Concurrency.MainActor @preconcurrency public class AdCompanionView : UIKit.UIView {
-  @objc @IBOutlet @_Concurrency.MainActor @preconcurrency weak public var delegate: (any AdswizzSDK.AdCompanionViewDelegate)?
-  @objc @_Concurrency.MainActor @preconcurrency public var clickThrough: Foundation.URL? {
+@_inheritsConvenienceInitializers @_Concurrency.MainActor @objc(AASDKAdCompanionView) public class AdCompanionView : UIKit.UIView {
+  @objc @IBOutlet @_Concurrency.MainActor weak public var delegate: (any AdswizzSDK.AdCompanionViewDelegate)?
+  @objc @_Concurrency.MainActor public var clickThrough: Foundation.URL? {
     @objc get
   }
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func awakeFromNib()
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didMoveToSuperview()
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didMoveToWindow()
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var alpha: CoreFoundation.CGFloat {
-    @objc get
-    @objc set
-  }
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var isHidden: Swift.Bool {
+  @_Concurrency.MainActor @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor @objc override dynamic public func didMoveToSuperview()
+  @_Concurrency.MainActor @objc override dynamic public func didMoveToWindow()
+  @_Concurrency.MainActor @objc override dynamic public var alpha: CoreFoundation.CGFloat {
     @objc get
     @objc set
   }
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var intrinsicContentSize: CoreFoundation.CGSize {
+  @_Concurrency.MainActor @objc override dynamic public var isHidden: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @objc override dynamic public var intrinsicContentSize: CoreFoundation.CGSize {
     @objc get
   }
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func updateConstraints()
-  @objc deinit
-  @objc @_Concurrency.MainActor @preconcurrency public func activateIfNeeded()
+  @_Concurrency.MainActor @objc override dynamic public func updateConstraints()
+  @objc isolated deinit
+  @objc @_Concurrency.MainActor public func activateIfNeeded()
 }
 extension AdswizzSDK.AdCompanionView : UIKit.UIGestureRecognizerDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
@@ -262,7 +262,7 @@ extension AdswizzSDK.AdCompanionView : UIKit.UIGestureRecognizerDelegate {
 extension AdswizzSDK.AdCompanionView : WebKit.WKNavigationDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didStartProvisionalNavigation navigation: WebKit.WKNavigation!)
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction) async -> WebKit.WKNavigationActionPolicy
 }
 extension AdswizzSDK.AdCompanionView : WebKit.WKUIDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, createWebViewWith configuration: WebKit.WKWebViewConfiguration, for navigationAction: WebKit.WKNavigationAction, windowFeatures: WebKit.WKWindowFeatures) -> WebKit.WKWebView?
@@ -273,29 +273,29 @@ extension AdswizzSDK.AdCompanionView : WebKit.WKUIDelegate {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc(AASDKAdData) public protocol AdData {
-  @objc var id: Swift.String? { get }
-  @objc var adTitle: Swift.String { get }
-  @objc var adDescription: Swift.String? { get }
-  @objc var adType: AdswizzSDK.AdType { get }
-  @objc var asset: any AdswizzSDK.AdAsset { get }
-  @objc var companions: [any AdswizzSDK.Companion] { get }
-  @objc var selectedCompanion: (any AdswizzSDK.Companion)? { get }
-  @objc var skipOffset: Foundation.NSNumber? { get }
-  @objc var duration: Foundation.TimeInterval { get }
-  @objc var extensions: [any AdswizzSDK.VastExtension] { get }
-  @objc var adParameters: (any AdswizzSDK.VastAdParameters)? { get }
-  @objc var creativeExtensions: [any AdswizzSDK.VastCreativeExtension] { get }
-  @objc var pricing: (any AdswizzSDK.VastPricing)? { get }
-  @objc var advertiser: (any AdswizzSDK.VastAdvertiser)? { get }
-  @objc var hasCompanion: Swift.Bool { get }
+@_Concurrency.MainActor @objc(AASDKAdData) public protocol AdData : Swift.Sendable {
+  @objc @_Concurrency.MainActor var id: Swift.String? { get }
+  @objc @_Concurrency.MainActor var adTitle: Swift.String { get }
+  @objc @_Concurrency.MainActor var adDescription: Swift.String? { get }
+  @objc @_Concurrency.MainActor var adType: AdswizzSDK.AdType { get }
+  @objc @_Concurrency.MainActor var asset: any AdswizzSDK.AdAsset { get }
+  @objc @_Concurrency.MainActor var companions: [any AdswizzSDK.Companion] { get }
+  @objc @_Concurrency.MainActor var selectedCompanion: (any AdswizzSDK.Companion)? { get }
+  @objc @_Concurrency.MainActor var skipOffset: Foundation.NSNumber? { get }
+  @objc @_Concurrency.MainActor var duration: Foundation.TimeInterval { get }
+  @objc @_Concurrency.MainActor var extensions: [any AdswizzSDK.VastExtension] { get }
+  @objc @_Concurrency.MainActor var adParameters: (any AdswizzSDK.VastAdParameters)? { get }
+  @objc @_Concurrency.MainActor var creativeExtensions: [any AdswizzSDK.VastCreativeExtension] { get }
+  @objc @_Concurrency.MainActor var pricing: (any AdswizzSDK.VastPricing)? { get }
+  @objc @_Concurrency.MainActor var advertiser: (any AdswizzSDK.VastAdvertiser)? { get }
+  @objc @_Concurrency.MainActor var hasCompanion: Swift.Bool { get }
 }
 extension AdswizzSDK.AdData {
-  public var isEmpty: Swift.Bool {
+  @_Concurrency.MainActor public var isEmpty: Swift.Bool {
     get
   }
 }
-@objc(AASDKAdType) public enum AdType : Swift.Int, Swift.CaseIterable {
+@objc(AASDKAdType) public enum AdType : Swift.Int, Swift.CaseIterable, Swift.Sendable {
   case audio
   case video
   case hybrid
@@ -323,40 +323,40 @@ extension AdswizzSDK.AdData {
   @objc optional func adVideoView(_ adVideoView: AdswizzSDK.AdVideoView, shouldOverrideVideoClickThrough url: Foundation.URL) -> Swift.Bool
   @objc optional func adVideoViewWillLeaveApplication(_ adVideoView: AdswizzSDK.AdVideoView)
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdVideoView) @_Concurrency.MainActor @preconcurrency public class AdVideoView : UIKit.UIView {
-  @objc @IBOutlet @_Concurrency.MainActor @preconcurrency weak public var delegate: (any AdswizzSDK.AdVideoViewDelegate)?
-  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var aspect: AdswizzSDK.AdVideoAspect {
+@_inheritsConvenienceInitializers @_Concurrency.MainActor @objc(AASDKAdVideoView) public class AdVideoView : UIKit.UIView {
+  @objc @IBOutlet @_Concurrency.MainActor weak public var delegate: (any AdswizzSDK.AdVideoViewDelegate)?
+  @objc @IBInspectable @_Concurrency.MainActor public var aspect: AdswizzSDK.AdVideoAspect {
     @objc get
     @objc set
   }
-  @objc @_Concurrency.MainActor @preconcurrency public var clickThrough: Foundation.URL? {
+  @objc @_Concurrency.MainActor public var clickThrough: Foundation.URL? {
     @objc get
   }
-  @objc @_Concurrency.MainActor @preconcurrency public var state: AdswizzSDK.AdVideoState {
+  @objc @_Concurrency.MainActor public var state: AdswizzSDK.AdVideoState {
     @objc get
     @objc set
   }
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func awakeFromNib()
-  @objc deinit
-  @objc @_Concurrency.MainActor @preconcurrency public func didHandleClickThrough()
+  @_Concurrency.MainActor @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor @objc override dynamic public func awakeFromNib()
+  @objc isolated deinit
+  @objc @_Concurrency.MainActor public func didHandleClickThrough()
 }
 extension AdswizzSDK.AdVideoView {
-  @objc @_Concurrency.MainActor @preconcurrency dynamic public func register(_ friendlyObstruction: AdswizzSDK.AdVideoFriendlyObstruction)
-  @objc @_Concurrency.MainActor @preconcurrency dynamic public func unregisterAllFriendlyObstructions()
+  @objc @_Concurrency.MainActor dynamic public func register(_ friendlyObstruction: AdswizzSDK.AdVideoFriendlyObstruction)
+  @objc @_Concurrency.MainActor dynamic public func unregisterAllFriendlyObstructions()
 }
 extension AdswizzSDK.AdVideoView : UIKit.UIGestureRecognizerDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
 }
-@objc(AASDKWatchSessionDelegate) public protocol WatchSessionDelegate {
-  @objc func sendMessage(_ data: [Swift.String : Any])
-  @objc func updateApplicationContext(_ data: [Swift.String : Any])
+@_Concurrency.MainActor @objc(AASDKWatchSessionDelegate) public protocol WatchSessionDelegate {
+  @objc @_Concurrency.MainActor func sendMessage(_ data: [Swift.String : Any])
+  @objc @_Concurrency.MainActor func updateApplicationContext(_ data: [Swift.String : Any])
 }
-@objc(AASDKWatchSession) public protocol WatchSession {
-  @objc func receivedMessage(_ data: [Swift.String : Any])
-  @objc func setDelegate(_ delegate: any AdswizzSDK.WatchSessionDelegate)
+@_Concurrency.MainActor @objc(AASDKWatchSession) public protocol WatchSession {
+  @objc @_Concurrency.MainActor func receivedMessage(_ data: [Swift.String : Any])
+  @objc @_Concurrency.MainActor func setDelegate(_ delegate: any AdswizzSDK.WatchSessionDelegate)
 }
 extension Swift.Dictionary where Key == Swift.String {
   public var isAdswizzWatchData: Swift.Bool {
@@ -457,7 +457,7 @@ extension Foundation.NSDictionary {
   @objc func adPodcastManager(_ adPodcastManager: AdswizzSDK.AdPodcastManager, playheadChanged playhead: Foundation.TimeInterval, duration: Foundation.TimeInterval)
   @objc func adPodcastManagerPlayerShouldPause(_ adPodcastManager: AdswizzSDK.AdPodcastManager)
   @objc func adPodcastManagerPlayerShouldResume(_ adPodcastManager: AdswizzSDK.AdPodcastManager)
-  @objc func adPodcastManagerPlayer(_ adPodcastManager: AdswizzSDK.AdPodcastManager, shouldSeekTo time: Foundation.TimeInterval, completion: @escaping () -> Swift.Void)
+  @objc func adPodcastManagerPlayer(_ adPodcastManager: AdswizzSDK.AdPodcastManager, shouldSeekTo time: Foundation.TimeInterval, completion: @escaping @Sendable () -> Swift.Void)
 }
 @_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdZone) final public class AdswizzAdZone : ObjectiveC.NSObject {
   @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdZoneBuilder) public class Builder : ObjectiveC.NSObject {
@@ -471,9 +471,9 @@ extension Foundation.NSDictionary {
   }
   @objc deinit
 }
-@objc(AASDKTrackingPermissionControllerDelegate) public protocol TrackingPermissionControllerDelegate {
-  @objc func tracking(_ controller: AdswizzSDK.TrackingPermissionController, didFinishWith status: AdswizzSDK.TrackingStatus)
-  @objc func tracking(_ controller: AdswizzSDK.TrackingPermissionController, didFailed error: any Swift.Error)
+@_Concurrency.MainActor @objc(AASDKTrackingPermissionControllerDelegate) public protocol TrackingPermissionControllerDelegate {
+  @objc @_Concurrency.MainActor func tracking(_ controller: AdswizzSDK.TrackingPermissionController, didFinishWith status: AdswizzSDK.TrackingStatus)
+  @objc @_Concurrency.MainActor func tracking(_ controller: AdswizzSDK.TrackingPermissionController, didFailed error: any Swift.Error)
 }
 @objc(AASDKTrackingDismissReason) public enum TrackingStatus : Swift.Int {
   case unknown
@@ -529,7 +529,7 @@ extension AdswizzSDK.TrackingPermissionController : UIKit.UIAdaptivePresentation
     get
   }
 }
-extension AVFAudio.AVAudioSession.Port : Swift.Codable {
+extension AVFAudio.AVAudioSession.Port : @retroactive Swift.Codable {
 }
 @objc(AASDKAdManagerDelegate) public protocol AdManagerDelegate {
   @objc func adManager(_ adManager: any AdswizzSDK.AdManager, didReceiveAd ad: (any AdswizzSDK.AdData)?, error: any Swift.Error)
@@ -546,34 +546,34 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
 @objc(AASDKAdManagerInterstitialEventDatasource) public protocol AdManagerInterstitialEventDatasource {
   @objc optional func adManager(_ adManager: any AdswizzSDK.AdManager, interstitialMediaFileURL ad: any AdswizzSDK.AdData) -> Foundation.URL?
 }
-@objc(AASDKAdManager) public protocol AdManager {
-  @objc var adManagerSettings: AdswizzSDK.AdManagerSettings { get set }
-  @objc weak var delegate: (any AdswizzSDK.AdManagerDelegate)? { get set }
-  @objc weak var datasource: (any AdswizzSDK.AdManagerDatasource)? { get set }
-  @objc weak var interstitialDatasource: (any AdswizzSDK.AdManagerInterstitialEventDatasource)? { get set }
-  @objc weak var interactiveDelegate: (any AdswizzSDK.InteractiveAdManagerDelegate)? { get set }
-  @objc var ads: [any AdswizzSDK.AdData] { get }
-  @objc var analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)? { get set }
-  @objc var adMacroProvider: (any AdswizzSDK.AdMacroProvider)? { get set }
-  @objc func prepare()
-  @objc func play()
-  @objc func pause()
-  @objc func skipAd()
-  @objc func skipAd(with error: any Swift.Error)
-  @objc func reset()
+@_Concurrency.MainActor @objc(AASDKAdManager) public protocol AdManager : Swift.Sendable {
+  @objc @_Concurrency.MainActor var adManagerSettings: AdswizzSDK.AdManagerSettings { get set }
+  @objc @_Concurrency.MainActor weak var delegate: (any AdswizzSDK.AdManagerDelegate)? { get set }
+  @objc @_Concurrency.MainActor weak var datasource: (any AdswizzSDK.AdManagerDatasource)? { get set }
+  @objc @_Concurrency.MainActor weak var interstitialDatasource: (any AdswizzSDK.AdManagerInterstitialEventDatasource)? { get set }
+  @objc @_Concurrency.MainActor weak var interactiveDelegate: (any AdswizzSDK.InteractiveAdManagerDelegate)? { get set }
+  @objc @_Concurrency.MainActor var ads: [any AdswizzSDK.AdData] { get }
+  @objc @_Concurrency.MainActor var analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)? { get set }
+  @objc @_Concurrency.MainActor var adMacroProvider: (any AdswizzSDK.AdMacroProvider)? { get set }
+  @objc @_Concurrency.MainActor func prepare()
+  @objc @_Concurrency.MainActor func play()
+  @objc @_Concurrency.MainActor func pause()
+  @objc @_Concurrency.MainActor func skipAd()
+  @objc @_Concurrency.MainActor func skipAd(with error: any Swift.Error)
+  @objc @_Concurrency.MainActor func reset()
 }
-@objc(AASDKAdRequestConnection) final public class AdRequestConnection : ObjectiveC.NSObject {
+@_Concurrency.MainActor @objc(AASDKAdRequestConnection) final public class AdRequestConnection : ObjectiveC.NSObject {
   public typealias AdsRequestCompletion = (_ adManger: (any AdswizzSDK.AdManager)?, _ error: (any Swift.Error)?) -> Swift.Void
-  final public var timeout: Swift.Double
-  @objc final public var objc_timeout: Foundation.NSNumber {
+  @_Concurrency.MainActor final public var timeout: Swift.Double
+  @objc @_Concurrency.MainActor final public var objc_timeout: Foundation.NSNumber {
     @objc get
     @objc set
   }
-  @objc deinit
-  @objc public init(for request: AdswizzSDK.AdRequest) throws
-  @objc final public func requestAds(completion: @escaping AdswizzSDK.AdRequestConnection.AdsRequestCompletion)
-  @objc final public func requestAds() async throws -> any AdswizzSDK.AdManager
-  @objc final public func cancel()
+  @objc isolated deinit
+  @objc @_Concurrency.MainActor public init(for request: AdswizzSDK.AdRequest) throws
+  @objc @_Concurrency.MainActor final public func requestAds(completion: @escaping AdswizzSDK.AdRequestConnection.AdsRequestCompletion)
+  @objc @_Concurrency.MainActor final public func requestAds() async throws -> any AdswizzSDK.AdManager
+  @objc @_Concurrency.MainActor final public func cancel()
 }
 @_hasMissingDesignatedInitializers @objc(AASDKAdswizzShimZone) final public class AdswizzShimZone : ObjectiveC.NSObject {
   @_inheritsConvenienceInitializers @objc(AASDKAdswizzShimZoneBuilder) public class Builder : ObjectiveC.NSObject {
@@ -597,7 +597,7 @@ extension AVFAudio.AVAudioSession.Port : Swift.Codable {
   @objc func adStreamManagerPlayerShouldResume(_ adstreamManager: AdswizzSDK.AdStreamManager)
   @objc optional func adStreamManager(_ adstreamManager: AdswizzSDK.AdStreamManager, didReceive dvrMetadata: (any AdswizzSDK.AdStreamDVRMetadata)?)
 }
-@objc(AASDKCompanionStaticResource) public protocol StaticResource : ObjectiveC.NSObjectProtocol {
+@objc(AASDKCompanionStaticResource) public protocol StaticResource : ObjectiveC.NSObjectProtocol, Swift.Sendable {
   @objc var uri: Swift.String { get }
   @objc var creativeType: Swift.String { get }
 }
@@ -708,64 +708,64 @@ extension AdswizzSDK.AdVideoFriendlyObstruction {
     @objc get
   }
 }
-@objc(AASDKAdswizzAdRequestProtocol) public enum HTTPProtocol : Swift.Int {
+@objc(AASDKAdswizzAdRequestProtocol) public enum HTTPProtocol : Swift.Int, Swift.Sendable {
   case http
   case https
 }
-@_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdRequest) final public class AdswizzAdRequest : AdswizzSDK.AdRequest {
-  @objc override final public var url: Foundation.URL? {
+@_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdRequest) @_Concurrency.MainActor final public class AdswizzAdRequest : AdswizzSDK.AdRequest {
+  @_Concurrency.MainActor @objc override final public var url: Foundation.URL? {
     @objc get
   }
-  @objc override final public var expectedAdsCount: Swift.UInt {
+  @_Concurrency.MainActor @objc override final public var expectedAdsCount: Swift.UInt {
     @objc get
   }
   @objc(AASDKAdswizzAdRequestVASTVersion) public enum VASTVersion : Swift.Int {
     case v40
     case v41
   }
-  @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdRequestBuilder) public class Builder : ObjectiveC.NSObject {
-    final public let objectId: Foundation.UUID
-    @objc public func with(httpProtocol: AdswizzSDK.HTTPProtocol) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(vastVersion: AdswizzSDK.AdswizzAdRequest.VASTVersion) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(zone: AdswizzSDK.AdswizzAdZone) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(zones: [AdswizzSDK.AdswizzAdZone]) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(shim: AdswizzSDK.AdswizzShimZone) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(duration: Foundation.TimeInterval) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(zoneAlias: Swift.String) -> AdswizzSDK.AdswizzAdRequest.Builder
+  @_inheritsConvenienceInitializers @_Concurrency.MainActor @objc(AASDKAdswizzAdRequestBuilder) public class Builder : ObjectiveC.NSObject {
+    @_Concurrency.MainActor final public let objectId: Foundation.UUID
+    @objc @_Concurrency.MainActor public func with(httpProtocol: AdswizzSDK.HTTPProtocol) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(vastVersion: AdswizzSDK.AdswizzAdRequest.VASTVersion) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(zone: AdswizzSDK.AdswizzAdZone) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(zones: [AdswizzSDK.AdswizzAdZone]) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(shim: AdswizzSDK.AdswizzShimZone) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(duration: Foundation.TimeInterval) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(zoneAlias: Swift.String) -> AdswizzSDK.AdswizzAdRequest.Builder
     @available(*, deprecated, message: "Please use either .with(companionZoneIds: [Int]) or .with(companionZoneAliases: [String]) to set the companion zones on the request.")
-    @objc public func with(companionZones: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(companionZoneIds: [Swift.Int]) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(companionZoneAliases: [Swift.String]) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(tagsArray: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(referrer: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(server: Swift.String) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(additionalCustomParameters: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(queryParameters: [Swift.String : Swift.String]) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)?) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(adMacroProvider: (any AdswizzSDK.AdMacroProvider)?) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(userConsentV2: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func with(enableExpectedAdsReporting: Swift.Bool) -> AdswizzSDK.AdswizzAdRequest.Builder
-    @objc public func build() throws -> AdswizzSDK.AdswizzAdRequest
-    @objc deinit
-    @objc override dynamic public init()
+    @objc @_Concurrency.MainActor public func with(companionZones: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(companionZoneIds: [Swift.Int]) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(companionZoneAliases: [Swift.String]) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(tagsArray: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(referrer: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(server: Swift.String) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(additionalCustomParameters: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(queryParameters: [Swift.String : Swift.String]) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)?) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(adMacroProvider: (any AdswizzSDK.AdMacroProvider)?) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(userConsentV2: Swift.String?) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @objc @_Concurrency.MainActor public func with(enableExpectedAdsReporting: Swift.Bool) -> AdswizzSDK.AdswizzAdRequest.Builder
+    @_Concurrency.MainActor @objc public func build() throws -> AdswizzSDK.AdswizzAdRequest
+    @objc isolated deinit
+    @_Concurrency.MainActor @objc override dynamic public init()
   }
   @objc deinit
 }
 public protocol Dispatcher {
-  func asyncDispatch(task: @escaping () -> Swift.Void)
+  func asyncDispatch(task: @escaping @Sendable () -> Swift.Void)
 }
 extension Dispatch.DispatchQueue : AdswizzSDK.Dispatcher {
-  public func asyncDispatch(task: @escaping () -> Swift.Void)
+  public func asyncDispatch(task: @escaping @Sendable () -> Swift.Void)
 }
 extension AdswizzSDK.AdStreamManager {
-  @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  @_Concurrency.MainActor @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
 }
 extension AdswizzSDK.AdswizzAdPodcastManager {
   @_inheritsConvenienceInitializers @objc(AASDKAdswizzAdPodcastManagerBuilder) public class Builder : ObjectiveC.NSObject {
     @objc public func with(httpProtocol: AdswizzSDK.HTTPProtocol) -> AdswizzSDK.AdswizzAdPodcastManager.Builder
     @objc public func with(companionZones: Swift.String) -> AdswizzSDK.AdswizzAdPodcastManager.Builder
     @objc public func with(adServer: Swift.String) -> AdswizzSDK.AdswizzAdPodcastManager.Builder
-    @objc public func build() throws -> AdswizzSDK.AdswizzAdPodcastManager
+    @_Concurrency.MainActor @objc public func build() throws -> AdswizzSDK.AdswizzAdPodcastManager
     @objc override dynamic public init()
     @objc deinit
   }
@@ -869,10 +869,10 @@ extension AdswizzSDK.VastCreativeExtension {
   @objc var id: Swift.String? { get }
   @objc var content: Swift.String { get }
 }
-extension AdswizzSDKCore.AdLogger.Level : Swift.Comparable {
+extension AdswizzSDKCore.AdLogger.Level : @retroactive Swift.Comparable {
   public static func < (lhs: AdswizzSDKCore.AdLogger.Level, rhs: AdswizzSDKCore.AdLogger.Level) -> Swift.Bool
 }
-extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
+extension AdswizzSDKCore.AdLogger.Level : @retroactive Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -881,79 +881,79 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc func adswizzSDKRecordingStarted(_ adswizzSDK: AdswizzSDK.AdswizzSDK)
   @objc func adswizzSDKRecordingStopped(_ adswizzSDK: AdswizzSDK.AdswizzSDK)
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AASDKAdswizzSDK) public class AdswizzSDK : ObjectiveC.NSObject {
-  @objc public static let shared: AdswizzSDK.AdswizzSDK
-  @objc weak public var delegate: (any AdswizzSDK.AdswizzSDKDelegate)?
-  @objc public var watchSession: any AdswizzSDK.WatchSession {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @objc(AASDKAdswizzSDK) public class AdswizzSDK : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor public static let shared: AdswizzSDK.AdswizzSDK
+  @objc @_Concurrency.MainActor weak public var delegate: (any AdswizzSDK.AdswizzSDKDelegate)?
+  @objc @_Concurrency.MainActor public var watchSession: any AdswizzSDK.WatchSession {
     @objc get
   }
-  @objc public var backgroundSessionCompletionHandler: (() -> Swift.Void)? {
-    @objc get
-    @objc set
-  }
-  @objc weak public var palManager: (any AdswizzSDK.PALManagerProtocol)? {
+  @objc @_Concurrency.MainActor public var backgroundSessionCompletionHandler: (() -> Swift.Void)? {
     @objc get
     @objc set
   }
-  @objc public var omidPartner: Swift.String {
+  @objc @_Concurrency.MainActor weak public var palManager: (any AdswizzSDK.PALManagerProtocol)? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor public var omidPartner: Swift.String {
     @objc get
   }
-  @objc public var omidPartnerVersion: Swift.String {
+  @objc @_Concurrency.MainActor public var omidPartnerVersion: Swift.String {
     @objc get
   }
-  @objc public var omidVersion: Swift.String {
+  @objc @_Concurrency.MainActor public var omidVersion: Swift.String {
     @objc get
   }
-  @objc public var xpaid: Swift.String? {
+  @objc @_Concurrency.MainActor public var xpaid: Swift.String? {
     @objc get
   }
-  @objc public var sdkVersion: Swift.String {
+  @objc @_Concurrency.MainActor public var sdkVersion: Swift.String {
     @objc get
   }
-  @objc public var consent: AdswizzSDK.AdswizzPrivacyConsent {
+  @objc @_Concurrency.MainActor public var consent: AdswizzSDK.AdswizzPrivacyConsent {
     @objc get
   }
-  @objc public var location: AdswizzSDK.AdswizzLocationConfig {
+  @objc @_Concurrency.MainActor public var location: AdswizzSDK.AdswizzLocationConfig {
     @objc get
   }
-  @objc public func initialize(with configuration: AdswizzSDK.AdswizzSDKConfig? = nil, completion: AdswizzSDK.AdswizzSDKInitCompletion? = nil) throws
-  @objc public func initialize(with configuration: AdswizzSDK.AdswizzSDKConfig? = nil) async throws
-  @objc public func uninitialize()
-  @objc public static func setAdCompanionOptions(_ options: AdswizzSDK.AdCompanionOptions)
+  @objc @_Concurrency.MainActor public func initialize(with configuration: AdswizzSDK.AdswizzSDKConfig? = nil, completion: AdswizzSDK.AdswizzSDKInitCompletion? = nil) throws
+  @objc @_Concurrency.MainActor public func initialize(with configuration: AdswizzSDK.AdswizzSDKConfig? = nil) async throws
+  @objc @_Concurrency.MainActor public func uninitialize()
+  @objc @_Concurrency.MainActor public static func setAdCompanionOptions(_ options: AdswizzSDK.AdCompanionOptions)
   @available(*, deprecated, renamed: "consent.gdpr", message: "Please use the GDPR consent with the new privacy consent API")
-  @objc public var gdprConsent: AdswizzSDK.GDPRConsent {
+  @objc @_Concurrency.MainActor public var gdprConsent: AdswizzSDK.GDPRConsent {
     @objc get
     @objc set
   }
   @available(*, deprecated, renamed: "consent.ccpa", message: "Please use the CCPA config consent with the new privacy consent API")
-  @objc public var ccpaConfig: AdswizzSDK.AdswizzCCPAConfig {
+  @objc @_Concurrency.MainActor public var ccpaConfig: AdswizzSDK.AdswizzCCPAConfig {
     @objc get
     @objc set
   }
   @available(*, deprecated, renamed: "consent.gpp", message: "Please use the GPP consent with the new privacy consent API")
-  @objc public var gppConsent: Swift.String? {
+  @objc @_Concurrency.MainActor public var gppConsent: Swift.String? {
     @objc get
     @objc set
   }
   @available(*, deprecated, renamed: "location.accuracy", message: "Please use the accuracy property with the new location API")
-  @objc public var locationAccuracy: _LocationEssentials.CLLocationAccuracy {
+  @objc @_Concurrency.MainActor public var locationAccuracy: _LocationEssentials.CLLocationAccuracy {
     @objc get
     @objc set
   }
   @available(*, deprecated, renamed: "location.enableSignificantChanges", message: "Please use the enableSignificantChanges property with the new location API")
-  @objc public var enableLocationSignificantChanges: Swift.Bool {
+  @objc @_Concurrency.MainActor public var enableLocationSignificantChanges: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc public func add(connector: any AdswizzSDKCore.AnalyticsConnector)
-  @objc public func remove(connector: any AdswizzSDKCore.AnalyticsConnector)
-  @objc public func permissionStatus(for type: AdswizzSDK.AdswizzPermissionType) -> Swift.Bool
-  @objc public func setPermissionStatus(for type: AdswizzSDK.AdswizzPermissionType, status: Swift.Bool)
-  @objc public var disableDataCollection: Swift.Bool {
+  @_Concurrency.MainActor public func add(connector: any AdswizzSDKCore.AnalyticsConnector)
+  @_Concurrency.MainActor public func remove(connector: any AdswizzSDKCore.AnalyticsConnector)
+  @objc @_Concurrency.MainActor public func permissionStatus(for type: AdswizzSDK.AdswizzPermissionType) -> Swift.Bool
+  @objc @_Concurrency.MainActor public func setPermissionStatus(for type: AdswizzSDK.AdswizzPermissionType, status: Swift.Bool)
+  @objc @_Concurrency.MainActor public var disableDataCollection: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc public var disableRAD: Swift.Bool {
+  @objc @_Concurrency.MainActor public var disableRAD: Swift.Bool {
     @objc get
     @objc set
   }
@@ -975,9 +975,9 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(AASDKMediaPlayerCapability) final public class MediaPlayerCapability : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc(AASDKMediaPlayerCapability) final public class MediaPlayerCapability : ObjectiveC.NSObject, Swift.Sendable {
   @objc final public let state: AdswizzSDK.MediaPlayerCapability.State?
-  @_hasMissingDesignatedInitializers @objc(AASDKMediaPlayerStateInfo) final public class State : ObjectiveC.NSObject {
+  @_hasMissingDesignatedInitializers @objc(AASDKMediaPlayerStateInfo) final public class State : ObjectiveC.NSObject, Swift.Sendable {
     @objc deinit
   }
   @objc public static let skip: AdswizzSDK.MediaPlayerCapability
@@ -988,17 +988,17 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc public static let icon: AdswizzSDK.MediaPlayerCapability
   @objc deinit
 }
-@objc(AASDKMediaPlayerState) public protocol MediaPlayerState : ObjectiveC.NSObjectProtocol {
-  @objc dynamic var currentPlayhead: Foundation.TimeInterval { get }
-  @objc var currentDuration: Foundation.TimeInterval { get }
-  @objc dynamic var playerStatus: AdswizzSDK.MediaPlayerStatus { get }
-  @objc dynamic var metadataItem: [AVFoundation.AVMetadataItem]? { get }
-  @objc optional var bufferingCompleted: Swift.Bool { get }
-  @objc var isBufferingWhilePaused: Swift.Bool { get }
-  @objc dynamic var volume: Swift.Float { get }
-  @objc var lastError: (any Swift.Error)? { get }
-  @objc var capabilities: Swift.Set<AdswizzSDK.MediaPlayerCapability>? { get }
-  @objc var stateInfo: Swift.Set<AdswizzSDK.MediaPlayerCapability.State>? { get }
+@_Concurrency.MainActor @objc(AASDKMediaPlayerState) public protocol MediaPlayerState : ObjectiveC.NSObjectProtocol, Swift.Sendable {
+  @objc @_Concurrency.MainActor dynamic var currentPlayhead: Foundation.TimeInterval { get }
+  @objc @_Concurrency.MainActor var currentDuration: Foundation.TimeInterval { get }
+  @objc @_Concurrency.MainActor dynamic var playerStatus: AdswizzSDK.MediaPlayerStatus { get }
+  @objc @_Concurrency.MainActor dynamic var metadataItem: [AVFoundation.AVMetadataItem]? { get }
+  @objc @_Concurrency.MainActor optional var bufferingCompleted: Swift.Bool { get }
+  @objc @_Concurrency.MainActor var isBufferingWhilePaused: Swift.Bool { get }
+  @objc @_Concurrency.MainActor dynamic var volume: Swift.Float { get }
+  @objc @_Concurrency.MainActor var lastError: (any Swift.Error)? { get }
+  @objc @_Concurrency.MainActor var capabilities: Swift.Set<AdswizzSDK.MediaPlayerCapability>? { get }
+  @objc @_Concurrency.MainActor var stateInfo: Swift.Set<AdswizzSDK.MediaPlayerCapability.State>? { get }
 }
 @objc(AASDKAdAssetDelegate) public protocol AdAssetDelegate {
   @objc optional func adAssetDidFinishDownloadingData(_ asset: any AdswizzSDK.AdAsset)
@@ -1018,15 +1018,15 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
     get
   }
 }
-@objc(AASDKAdAsset) public protocol AdAsset {
-  @objc var mediaUrl: Swift.String? { get }
-  @objc var mimeType: Swift.String? { get }
-  @objc var width: Swift.Int { get }
-  @objc var height: Swift.Int { get }
-  @objc var expectedContentLength: Swift.Int64 { get }
-  @objc var state: AdswizzSDK.AdAssetState { get }
-  @objc var lastError: (any Swift.Error)? { get }
-  @objc weak var delegate: (any AdswizzSDK.AdAssetDelegate)? { get set }
+@_Concurrency.MainActor @objc(AASDKAdAsset) public protocol AdAsset : Swift.Sendable {
+  @objc @_Concurrency.MainActor var mediaUrl: Swift.String? { get }
+  @objc @_Concurrency.MainActor var mimeType: Swift.String? { get }
+  @objc @_Concurrency.MainActor var width: Swift.Int { get }
+  @objc @_Concurrency.MainActor var height: Swift.Int { get }
+  @objc @_Concurrency.MainActor var expectedContentLength: Swift.Int64 { get }
+  @objc @_Concurrency.MainActor var state: AdswizzSDK.AdAssetState { get }
+  @objc @_Concurrency.MainActor var lastError: (any Swift.Error)? { get }
+  @objc @_Concurrency.MainActor weak var delegate: (any AdswizzSDK.AdAssetDelegate)? { get set }
 }
 @objc(AASDKAdPodcastManagerDownloadDelegate) public protocol AdPodcastManagerDownloadDelegate {
   @objc func adPodcastManager(_ adPodcastManager: AdswizzSDK.AdPodcastManager, didDownload bytesDownloaded: Swift.Int64, outOf bytesExpected: Swift.Int64, for asset: any AdswizzSDK.DownloadableAsset)
@@ -1052,31 +1052,31 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdStreamManager) public class AdswizzAdStreamManager : AdswizzSDK.AdStreamManager {
-  @objc final public let httpProtocol: AdswizzSDK.HTTPProtocol
-  @objc final public let adServer: Swift.String
-  @objc final public let companionZone: Swift.String?
-  @objc override public func prepare(with url: Foundation.URL) throws
-  @objc override public func play(with url: Foundation.URL) throws
-  public func play(with url: Foundation.URL, timestamp: Foundation.NSNumber) throws
-  public func requestDVRMetadata(completion: ((Swift.Result<any AdswizzSDK.AdStreamDVRMetadata, any Swift.Error>) -> Swift.Void)? = nil)
-  public func cancelDVRMetadataRequest()
-  public static func decorate(_ url: Foundation.URL) throws -> Foundation.URL
-  override public func didReceive(metadata: [AVFoundation.AVMetadataItem])
-  @objc deinit
+@_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdStreamManager) @_Concurrency.MainActor public class AdswizzAdStreamManager : AdswizzSDK.AdStreamManager {
+  @objc @_Concurrency.MainActor final public let httpProtocol: AdswizzSDK.HTTPProtocol
+  @objc @_Concurrency.MainActor final public let adServer: Swift.String
+  @objc @_Concurrency.MainActor final public let companionZone: Swift.String?
+  @objc isolated deinit
+  @_Concurrency.MainActor @objc override public func prepare(with url: Foundation.URL) throws
+  @_Concurrency.MainActor @objc override public func play(with url: Foundation.URL) throws
+  @_Concurrency.MainActor public func play(with url: Foundation.URL, timestamp: Foundation.NSNumber) throws
+  @_Concurrency.MainActor public func requestDVRMetadata(completion: ((Swift.Result<any AdswizzSDK.AdStreamDVRMetadata, any Swift.Error>) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor public func cancelDVRMetadataRequest()
+  @_Concurrency.MainActor public static func decorate(_ url: Foundation.URL) throws -> Foundation.URL
+  @_Concurrency.MainActor override public func didReceive(metadata: [AVFoundation.AVMetadataItem])
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AASDKAdRequest) open class AdRequest : ObjectiveC.NSObject {
-  @objc open var expectedAdsCount: Swift.UInt {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @objc(AASDKAdRequest) open class AdRequest : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor open var expectedAdsCount: Swift.UInt {
     get
   }
-  @objc open var url: Foundation.URL? {
+  @objc @_Concurrency.MainActor open var url: Foundation.URL? {
     get
   }
-  @objc open var adMacroProvider: (any AdswizzSDK.AdMacroProvider)? {
+  @objc @_Concurrency.MainActor open var adMacroProvider: (any AdswizzSDK.AdMacroProvider)? {
     get
   }
-  @objc override dynamic public init()
-  @objc public init(analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)? = nil, adMacroProvider: (any AdswizzSDK.AdMacroProvider)? = nil)
+  @_Concurrency.MainActor @objc override dynamic public init()
+  @objc @_Concurrency.MainActor public init(analyticsCustomData: (any AdswizzSDKCore.AnalyticsCustomData)? = nil, adMacroProvider: (any AdswizzSDK.AdMacroProvider)? = nil)
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AASDKAdStreamManagerSettings) final public class AdStreamManagerSettings : ObjectiveC.NSObject {
@@ -1086,19 +1086,19 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc override dynamic public init()
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdPodcastManager) open class AdPodcastManager : ObjectiveC.NSObject {
-  @objc final public let objectId: Foundation.UUID
-  @objc weak public var delegate: (any AdswizzSDK.AdPodcastManagerDelegate)?
-  @objc public var adPodcastManagerSettings: AdswizzSDK.AdPodcastManagerSettings
-  @objc open func play(with url: Foundation.URL) throws
-  @objc open func stop()
-  @objc open func pause()
-  @objc open func resume()
-  @objc open func seek(to time: Foundation.TimeInterval, completion: @escaping () -> Swift.Void) throws
-  @objc deinit
-  @objc override dynamic public init()
+@_inheritsConvenienceInitializers @_Concurrency.MainActor @objc(AASDKAdPodcastManager) open class AdPodcastManager : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor final public let objectId: Foundation.UUID
+  @objc @_Concurrency.MainActor weak public var delegate: (any AdswizzSDK.AdPodcastManagerDelegate)?
+  @objc @_Concurrency.MainActor public var adPodcastManagerSettings: AdswizzSDK.AdPodcastManagerSettings
+  @objc @_Concurrency.MainActor open func play(with url: Foundation.URL) throws
+  @objc @_Concurrency.MainActor open func stop()
+  @objc @_Concurrency.MainActor open func pause()
+  @objc @_Concurrency.MainActor open func resume()
+  @objc @_Concurrency.MainActor open func seek(to time: Foundation.TimeInterval, completion: @escaping @Sendable () -> Swift.Void) throws
+  @objc isolated deinit
+  @_Concurrency.MainActor @objc override dynamic public init()
 }
-@objc(AASDKGDPROption) public enum GDPRConsent : Swift.Int, Swift.Codable {
+@objc(AASDKGDPROption) public enum GDPRConsent : Swift.Int, Swift.Codable, Swift.Sendable {
   case notApplicable
   case notAsked
   case granted
@@ -1109,19 +1109,19 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
     get
   }
 }
-@_inheritsConvenienceInitializers @objc(AASDKAdStreamManager) open class AdStreamManager : ObjectiveC.NSObject {
-  @objc final public let objectId: Foundation.UUID
-  @objc weak public var delegate: (any AdswizzSDK.AdStreamManagerDelegate)?
-  @objc public var adStreamManagerSettings: AdswizzSDK.AdStreamManagerSettings
-  @objc open func prepare(with url: Foundation.URL) throws
-  @objc open func play(with url: Foundation.URL) throws
-  @objc open func stop()
-  @objc open func pause()
-  @objc open func resume()
-  open func didReceive(metadata: [AVFoundation.AVMetadataItem])
-  open func adBreakDetected(of duration: Foundation.TimeInterval, for adId: Swift.String?)
-  @objc deinit
-  @objc override dynamic public init()
+@_inheritsConvenienceInitializers @_Concurrency.MainActor @objc(AASDKAdStreamManager) open class AdStreamManager : ObjectiveC.NSObject {
+  @objc @_Concurrency.MainActor final public let objectId: Foundation.UUID
+  @objc @_Concurrency.MainActor weak public var delegate: (any AdswizzSDK.AdStreamManagerDelegate)?
+  @objc @_Concurrency.MainActor public var adStreamManagerSettings: AdswizzSDK.AdStreamManagerSettings
+  @objc @_Concurrency.MainActor open func prepare(with url: Foundation.URL) throws
+  @objc @_Concurrency.MainActor open func play(with url: Foundation.URL) throws
+  @objc @_Concurrency.MainActor open func stop()
+  @objc @_Concurrency.MainActor open func pause()
+  @objc @_Concurrency.MainActor open func resume()
+  @_Concurrency.MainActor open func didReceive(metadata: [AVFoundation.AVMetadataItem])
+  @_Concurrency.MainActor open func adBreakDetected(of duration: Foundation.TimeInterval, for adId: Swift.String?)
+  @objc isolated deinit
+  @_Concurrency.MainActor @objc override dynamic public init()
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AASDKAdswizzLocationConfig) final public class AdswizzLocationConfig : ObjectiveC.NSObject {
   @objc final public var accuracy: _LocationEssentials.CLLocationAccuracy {
@@ -1135,19 +1135,19 @@ extension AdswizzSDKCore.AdLogger.Level : Swift.CustomStringConvertible {
   @objc deinit
 }
 public typealias AdswizzSDKInitCompletion = () -> ()
-@_hasMissingDesignatedInitializers @objc(AASDKAdswizzAdPodcastManager) public class AdswizzAdPodcastManager : AdswizzSDK.AdPodcastManager {
-  @objc final public let httpProtocol: AdswizzSDK.HTTPProtocol
-  @objc final public let adServer: Swift.String
-  @objc final public let companionZone: Swift.String?
-  @objc weak public var downloadDelegate: (any AdswizzSDK.AdPodcastManagerDownloadDelegate)?
-  @objc deinit
-  @objc override public func play(with url: Foundation.URL) throws
-  @objc override public func stop()
-  public func startDownloadPodcast(with url: Foundation.URL, to location: Foundation.URL) throws
-  public func stopDownloadPodcast(at location: Foundation.URL) throws
-  public func removePodcast(at location: Foundation.URL) throws
+@_hasMissingDesignatedInitializers @_Concurrency.MainActor @objc(AASDKAdswizzAdPodcastManager) public class AdswizzAdPodcastManager : AdswizzSDK.AdPodcastManager {
+  @objc @_Concurrency.MainActor final public let httpProtocol: AdswizzSDK.HTTPProtocol
+  @objc @_Concurrency.MainActor final public let adServer: Swift.String
+  @objc @_Concurrency.MainActor final public let companionZone: Swift.String?
+  @objc @_Concurrency.MainActor weak public var downloadDelegate: (any AdswizzSDK.AdPodcastManagerDownloadDelegate)?
+  @objc isolated deinit
+  @_Concurrency.MainActor @objc override public func play(with url: Foundation.URL) throws
+  @_Concurrency.MainActor @objc override public func stop()
+  @_Concurrency.MainActor public func startDownloadPodcast(with url: Foundation.URL, to location: Foundation.URL) async throws
+  @_Concurrency.MainActor public func stopDownloadPodcast(at location: Foundation.URL) async throws
+  @_Concurrency.MainActor public func removePodcast(at location: Foundation.URL) throws
 }
-@objc(AASDKCCPAOption) public enum CCPAConsent : Swift.Int, Swift.Codable, Swift.CaseIterable {
+@objc(AASDKCCPAOption) public enum CCPAConsent : Swift.Int, Swift.Codable, Swift.CaseIterable, Swift.Sendable {
   case no
   case yes
   case notApplicable
@@ -1161,7 +1161,7 @@ public typealias AdswizzSDKInitCompletion = () -> ()
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(AASDKAdswizzCCPAConfig) final public class AdswizzCCPAConfig : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc(AASDKAdswizzCCPAConfig) final public class AdswizzCCPAConfig : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @_inheritsConvenienceInitializers @objc(AASDKAdswizzCCPAConfigBuilder) final public class Builder : ObjectiveC.NSObject {
     @objc final public func with(explicitNotice: AdswizzSDK.CCPAConsent) -> AdswizzSDK.AdswizzCCPAConfig.Builder
     @objc final public func with(optOut: AdswizzSDK.CCPAConsent) -> AdswizzSDK.AdswizzCCPAConfig.Builder
@@ -1197,6 +1197,8 @@ extension AdswizzSDK.AdVideoState : Swift.RawRepresentable {}
 extension AdswizzSDK.AdStreamCapability : Swift.Equatable {}
 extension AdswizzSDK.AdStreamCapability : Swift.Hashable {}
 extension AdswizzSDK.AdStreamCapability : Swift.RawRepresentable {}
+extension AdswizzSDK.AdPodcastManager : Swift.Sendable {}
+extension AdswizzSDK.AdRequestConnection : Swift.Sendable {}
 extension AdswizzSDK.DownloadableAssetState : Swift.Equatable {}
 extension AdswizzSDK.DownloadableAssetState : Swift.Hashable {}
 extension AdswizzSDK.DownloadableAssetState : Swift.RawRepresentable {}
@@ -1204,6 +1206,7 @@ extension AdswizzSDK.AdswizzAdRequest.VASTVersion : Swift.Equatable {}
 extension AdswizzSDK.AdswizzAdRequest.VASTVersion : Swift.Hashable {}
 extension AdswizzSDK.HTTPProtocol : Swift.Equatable {}
 extension AdswizzSDK.HTTPProtocol : Swift.Hashable {}
+extension AdswizzSDK.AdswizzAdStreamManager.Builder : Swift.Sendable {}
 extension AdswizzSDK.AdswizzPermissionValue : Swift.Equatable {}
 extension AdswizzSDK.AdswizzPermissionValue : Swift.Hashable {}
 extension AdswizzSDK.AdswizzPermissionValue : Swift.RawRepresentable {}
@@ -1251,9 +1254,15 @@ extension AdswizzSDK.StoreStrategy : Swift.Hashable {}
 extension AdswizzSDK.AdAssetState : Swift.Equatable {}
 extension AdswizzSDK.AdAssetState : Swift.Hashable {}
 extension AdswizzSDK.AdAssetState : Swift.RawRepresentable {}
+extension AdswizzSDK.AdswizzAdRequest.Builder : Swift.Sendable {}
+extension AdswizzSDK.AdStreamManager : Swift.Sendable {}
 extension AdswizzSDK.AdCompanionResourceType : Swift.Equatable {}
 extension AdswizzSDK.AdCompanionResourceType : Swift.Hashable {}
 extension AdswizzSDK.AdCompanionResourceType : Swift.RawRepresentable {}
+extension AdswizzSDK.AdswizzSDK : Swift.Sendable {}
 extension AdswizzSDK.GDPRConsent : Swift.Equatable {}
 extension AdswizzSDK.GDPRConsent : Swift.Hashable {}
 extension AdswizzSDK.GDPRConsent : Swift.RawRepresentable {}
+extension AdswizzSDK.AdRequest : Swift.Sendable {}
+extension CoreMotion.CMAccelerometerData : Swift.Sendable {}
+extension CoreMotion.CMGyroData : Swift.Sendable {}

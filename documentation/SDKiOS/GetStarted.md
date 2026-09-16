@@ -40,44 +40,7 @@ You should use one and only one of these ways to import the **_AdswizzSDK_**. Im
 
 ### Swift Package Manager
 
-To be able to install **_AdswizzSDK_** using Swift Package Manager, please follow the steps detailed below.
-
-#### Authentication
-
-**_AdswizzSDK_** is delivered as an .xcframework from a private Github repository, and as a result, Swift Package Manager needs to be instructed to checkout the binary files using a Github token. You can obtain a token from your AdsWizz partner integration manager. 
-
-Since Xcode 13.3, Swift Package Manager has official support for binary frameworks which are vended from a private Github release. For more details, you can read the discussions on the official [thread](https://forums.swift.org/t/spm-support-basic-auth-for-non-git-binary-dependency-hosts/37878) which started in June 2020.
-
-Next, let's set up the Swift Package Manager authentication mechanism. Please choose one of the authentication methods below.
-
-##### .netrc
-
-The `.netrc` file format is commonly used for the automatic authentication of HTTP requests and usually placed in the user’s home directory (`~/.netrc`). Learn more about netrc by reading the [gnu documentation](https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html).
-
-To use the `.netrc` authentication, make sure you have it under your home directory. If you don't have a .netrc file, go ahead and create one:
-
-```ruby
-touch ~/.netrc
-```
-...and add the following inside:
-
-```ruby
-machine api.github.com login adswizz password ADSWIZZ_GITHUB_TOKEN
-```
-
-Replace **_ADSWIZZ_GITHUB_TOKEN_** with your token received from AdsWizz.
-
-##### Apple's Keychain
-
-Even though `.netrc` is a great solution which works on Mac and also on Linux, if the integration is done exclusively on Mac (and most **_AdswizzSDK_** integrators do) then your application can leverage Apple's Keychain as alternative. Instead of creating an entry in the `~/.netrc` file, create an internet password instead containing:
-- Keychain Item Name: `api.github.com`
-- Account Name: GitHub user name
-- Password: The personal access token supplied by your Adswizz Technical Account Manager
-
-Xcode (SPM) will read from your Keychain once the permission is granted. Such a dialogue may come up during package resolution.
-<img src="../img/xcode_keychain_access.png" width="500" />
-
-Once you've completed the authentication setup by choosing one of the methods above, let's add the **_AdswizzSDK_** Swift package and its dependencies.
+**_AdswizzSDK_** is delivered as an .xcframework from a public GitHub repository, so no authentication or access token is required.
 
 #### Installation
 
@@ -85,9 +48,8 @@ Once you've completed the authentication setup by choosing one of the methods ab
 
 2. Enter the following URL for the **_AdswizzSDK_** for iOS Swift Package Manager GitHub repo into the search bar:
 ```ruby
-https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios
+https://github.com/adswizz/ad-sdk-ios
 ```
-Replace ADSWIZZ_GITHUB_TOKEN with the token you received from AdsWizz.
 3. You'll see the repository rules for which version of the **_AdswizzSDK_** you want Swift Package Manager to install. Choose the `Up to Next Major Version` as it will use the latest compatible version of the dependency that can be detected from the main branch. Select which project you want Swift Package Manager to add the **_AdswizzSDK_**, then click "Add Package".
 4. Choose which of the libraries you want added to your project target. Always select the **_AdswizzSDK_** product. The remaining library products to install are optional (depending on your application needs). AdswizzWatchSDK and AdswizzSDKPinpointAnalytics rely on **_AdswizzSDK_** main binary framework.<br>
 
@@ -170,15 +132,15 @@ Restore **_AdswizzSDK_** and its dependency packages by using Xcode options such
 The **_AdswizzSDK_** is delivered as an xcframework, so another way to integrate it is through CocoaPods. The recommended version for Cocoapods is 1.13.0 or newer. If you already have a Podfile, you just need to add the following line:
 
 ```ruby
-pod 'AdswizzSDK',            :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git"
+pod 'AdswizzSDK',            :git => "https://github.com/adswizz/ad-sdk-ios.git"
 ```
-Replace **_ADSWIZZ_GITHUB_TOKEN_** with the token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for a password, enter the token repository provided by AdsWizz. Once authorization is successful, external dependencies will be added automatically. 
+After modifying the Podfile, run `pod install`. The external dependencies will be added automatically.
 
 > At this point you will also be able to link the optional frameworks from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#cocoapods) components from the **_AdswizzSDKPrivacyDataKit_** module.
 
 ### Carthage
 
-The **_AdswizzSDK_** can also be delivered using Carthage. The recommended version for Carthage is 0.38.0 or newer.
+The **_AdswizzSDK_** can also be delivered using Carthage. The recommended version for Carthage is 0.38.0 or newer. No authentication is required.
 
 #### Cartfile
 
@@ -192,39 +154,24 @@ github "https://github.com/adswizz/ad-sdk-ios"
 > **Note**
 > The `github "aws-amplify/aws-sdk-ios"` line is only needed if you also consider integrating **_AdswizzSDKPinpointAnalytics_**. For more details, please visit the [Integrating AdswizzSDK Pinpoint Analytics](iOS/SDKPinpointAnalytics/IntegratingAdswizzSDKPinpointAnalytics) section. 
 
-#### Authentication
-
-Because the **_AdswizzSDK_** is under a private repository, it needs an authentication mechanism to access it. We'll use `.netrc` for it. If you don't have a .netrc file under your home directory, go ahead and create one:
-
-```ruby
-touch ~/.netrc
-```
-...and add the following inside: 
-
-```ruby
-machine github.com login adswizz password ADSWIZZ_GITHUB_TOKEN
-machine raw.githubusercontent.com login adswizz password ADSWIZZ_GITHUB_TOKEN
-```
-Replace **_ADSWIZZ_GITHUB_TOKEN_** with your token received from AdsWizz. 
-
 #### Run Carthage update
     
 You are now ready to install **_AdswizzSDK_** with Carthage. Open Terminal.app, navigate to the folder where your Cartfile is located, and run the following command: 
 ```ruby
-carthage update --use-xcframeworks --use-netrc
+carthage update --use-xcframeworks
 ```
 If the command runs succesfully, Carthage will create a `Build` folder with all the **_AdswizzSDK_** binaries.
 
 #### Project Setup
 
-Carthage requires that the needed frameworks be linked manually to the project. After completing the [Run](#Run-carthage-update) step above, drag and drop to copy the `AdswizzSDK.xcframework` and `AdswizzSDKCore.xcframework` binary frameworks into your application `Frameworks` group, and be sure to link and embed them.
+Carthage requires that the needed frameworks be linked manually to the project. After completing the [Run](#run-carthage-update) step above, drag and drop to copy the `AdswizzSDK.xcframework` and `AdswizzSDKCore.xcframework` binary frameworks into your application `Frameworks` group, and be sure to link and embed them.
 
 > At this point you will also be able to link the optional frameworks from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#carthage) components from the **_AdswizzSDKPrivacyDataKit_** module.
 
 ### Manual
 
 Unzip the **_AdswizzSDK_** archive, which contains the **_AdswizzSDK.xcframework_** binary. Drop the **_AdswizzSDK.xcframework_** file in your project’s Frameworks directory. Make sure that **_AdswizzSDK.xcframework_** is listed in the **_Embedded Binaries_** section of your target.<br>
-Optional components from **_AdswizzSDKPrivacyDataKit_** can be added as submodules from the https://github.com/adswizz/ad-sdk-ios repository by selecting the appropriate tag and add the approapriate **_.xcodeproj_** files to your workspace or project.
+Optional components from **_AdswizzSDKPrivacyDataKit_** can be added as submodules from the public https://github.com/adswizz/ad-sdk-ios repository by selecting the appropriate tag and add the approapriate **_.xcodeproj_** files to your workspace or project.
 
 ## Changes in your Info.pList file
 

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/AdswizzSDKPrivacyDataCore-Swift.h</key>
 		<data>
-		dNc5uzgIT74tWu8NaVuaHWJJ8xs=
+		xsX5PR/3BXQq0y6twGNlkxFCzRM=
 		</data>
 		<key>Headers/AdswizzSDKPrivacyDataCore.h</key>
 		<data>
@@ -18,23 +18,23 @@
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		Xwji+gloJppBR/4EiGU1kdj52Uw=
+		wANZlJJjKyTdYoO6aD9O8BwTBl8=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		iNlpwvey1ft9pA4jzAmxF4yEehU=
+		R9us/AetCDHy8zmC5QuM0UfSFSg=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		Qr2S/nWzXXZtZ+WjWzwm365KPns=
+		ZewM6OZgo1r5ixPlqBdAQe6r8fo=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		iNlpwvey1ft9pA4jzAmxF4yEehU=
+		R9us/AetCDHy8zmC5QuM0UfSFSg=
 		</data>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		zMI/y1++qppKWrvDatcTORGQ8A0=
+		1WDqmIDGmFgEJHFfN+MxG4QJhB0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -47,7 +47,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			r9lJNplw3j5o0cn55B5oVLFnpPRVqFJlomgDRx8w68Q=
+			tfbU2n+8odlSYNfWz2rQBrVeUNqN/DiAYOrrdkD9ZE0=
 			</data>
 		</dict>
 		<key>Headers/AdswizzSDKPrivacyDataCore.h</key>
@@ -61,35 +61,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FCg8G6r0HyFNyQIF33bVxpa+AV6bIqVtIqZp6N2deP4=
+			jWXw5DTce4W+YstJ4gTwl3stWD3tYN+/cYAREZYhnUk=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7vXvvT0tCdOeZ1288rI2IS0a0FnPBlE8ZB/macZP/j8=
+			6tPBRr1vaEMqB2bujz/I3mXQspYq3M+tcdFyHCOPV14=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oqcBVXkCO/Q1mmPGiCZyqkh6JfWwRi7N6e3AybsZolE=
+			2vdFXBCyCGgHPuvitsb/7zr9znHOY5g6GGo9b+GQi64=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7vXvvT0tCdOeZ1288rI2IS0a0FnPBlE8ZB/macZP/j8=
+			6tPBRr1vaEMqB2bujz/I3mXQspYq3M+tcdFyHCOPV14=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDKPrivacyDataCore.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NAEkWqtMScIZm7y5Uv/Lx5aqFbx5J32s/+Hd47fI9yk=
+			2sp8vMkrr60A7baPaK0fJA35h57XMElB4T1X5zAYKDc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

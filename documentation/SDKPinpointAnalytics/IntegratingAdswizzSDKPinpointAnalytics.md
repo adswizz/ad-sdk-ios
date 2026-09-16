@@ -19,10 +19,10 @@ The dependency above is automatically added if you choose to integrate the **_Ad
 The recommended version for Cocoapods is 1.9.3 or later. If you already have a .podfile, you just need to add the following line in your application target:
 
 ```ruby
-    pod 'AdswizzSDKPinpointAnalytics', :git => "https://ADSWIZZ_GITHUB_TOKEN@github.com/adswizz/ad-sdk-ios.git"
+    pod 'AdswizzSDKPinpointAnalytics', :git => "https://github.com/adswizz/ad-sdk-ios.git"
 ```
 
-Replace **_ADSWIZZ_GITHUB_TOKEN_** with the token you received from AdsWizz. You can obtain a token from your AdsWizz partner integration manager. After modifying the podfile, run `pod install`. You will be prompted to enter a username. Enter any valid email address. Don't leave this value empty or the install will fail. When prompted for a password, enter the token repository provided by AdsWizz. Once authorization is successful, the dependency will be added and installed automatically to your project.
+After modifying the Podfile, run `pod install`. The dependency will be added and installed automatically to your project.
 
 > **Note**
 > You can safely use the same token you obtained for the **_AdswizzSDK_** installation. 

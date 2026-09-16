@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.3.1 effective-5.10 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
-// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -Onone -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdswizzSDKPrivacyDataCore
+// swift-compiler-version: Apple Swift version 6.3.1 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -Onone -enable-experimental-feature DebugDescriptionMacro -module-name AdswizzSDKPrivacyDataCore
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.1
 @_exported import AdswizzSDKPrivacyDataCore
 import Foundation
@@ -9,7 +9,7 @@ import Swift
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@objc public class RequestResult : ObjectiveC.NSObject {
+@objc public class RequestResult : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @objc public var success: AdswizzSDKPrivacyDataCore.PermissionValue {
     get
   }
@@ -24,7 +24,7 @@ extension AdswizzSDKPrivacyDataCore.RequestResult {
     get
   }
 }
-public typealias RequestCompletion = (_ result: AdswizzSDKPrivacyDataCore.RequestResult) -> Swift.Void
+public typealias RequestCompletion = @Sendable (_ result: AdswizzSDKPrivacyDataCore.RequestResult) -> Swift.Void
 @objc public protocol RequesterProtocol {
   @objc var authorizationStatus: AdswizzSDKPrivacyDataCore.PermissionValue { get }
   @objc(request:) func request(completion: @escaping AdswizzSDKPrivacyDataCore.RequestCompletion)
@@ -43,7 +43,7 @@ public typealias RequestCompletion = (_ result: AdswizzSDKPrivacyDataCore.Reques
     get
   }
 }
-@objc public enum PermissionType : Swift.Int, Swift.CaseIterable {
+@objc public enum PermissionType : Swift.Int, Swift.CaseIterable, Swift.Sendable {
   case location
   case locationAdvanced
   case photo
@@ -74,7 +74,7 @@ public typealias RequestCompletion = (_ result: AdswizzSDKPrivacyDataCore.Reques
   @objc func buildSpeechRecognizer(locale: Foundation.Locale) -> (any AdswizzSDKPrivacyDataCore.SpeechRecognizer)?
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class AdswizzSDKPrivacyData : ObjectiveC.NSObject {
-  @objc public static let shared: AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData
+  @_Concurrency.MainActor @objc public static let shared: AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData
   @objc deinit
 }
 extension AdswizzSDKPrivacyDataCore.AdswizzSDKPrivacyData : AdswizzSDKPrivacyDataCore.AdswizzSDKPermissions {

@@ -121,7 +121,10 @@
         "name": "AdswizzSDKCore",
         "printedName": "AdswizzSDKCore",
         "declKind": "Import",
-        "moduleName": "AdswizzSDKPinpointAnalytics"
+        "moduleName": "AdswizzSDKPinpointAnalytics",
+        "declAttributes": [
+          "Preconcurrency"
+        ]
       },
       {
         "kind": "TypeDecl",
@@ -147,6 +150,7 @@
             "declAttributes": [
               "HasInitialValue",
               "Final",
+              "Custom",
               "HasStorage",
               "AccessControl",
               "ObjC",
@@ -198,6 +202,7 @@
             "moduleName": "AdswizzSDKPinpointAnalytics",
             "declAttributes": [
               "Final",
+              "Custom",
               "HasStorage",
               "AccessControl",
               "ObjC",
@@ -255,6 +260,7 @@
             "moduleName": "AdswizzSDKPinpointAnalytics",
             "objc_name": "initWith:error:",
             "declAttributes": [
+              "Custom",
               "AccessControl",
               "ObjC",
               "RawDocComment"
@@ -276,7 +282,7 @@
                 "kind": "TypeNominal",
                 "name": "AnalyticsEvent",
                 "printedName": "any AdswizzSDKCore.AnalyticsEvent",
-                "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsEvent"
+                "usr": "s:14AdswizzSDKCore14AnalyticsEventP"
               },
               {
                 "kind": "TypeNominal",
@@ -286,14 +292,14 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdswizzSDKPinpointAnalytics@objc(cs)AASDKAdswizzPinpointConnector(im)log::",
+            "usr": "s:27AdswizzSDKPinpointAnalytics0A17PinpointConnectorC3logyy0A7SDKCore0C5Event_p_10Foundation4DateVtF",
             "mangledName": "$s27AdswizzSDKPinpointAnalytics0A17PinpointConnectorC3logyy0A7SDKCore0C5Event_p_10Foundation4DateVtF",
             "moduleName": "AdswizzSDKPinpointAnalytics",
-            "objc_name": "log::",
             "declAttributes": [
               "Final",
-              "ObjC",
-              "AccessControl"
+              "AccessControl",
+              "Nonisolated",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -315,14 +321,13 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdswizzSDKPinpointAnalytics@objc(cs)AASDKAdswizzPinpointConnector(im)sendWithForced:",
+            "usr": "s:27AdswizzSDKPinpointAnalytics0A17PinpointConnectorC4send6forcedySb_tF",
             "mangledName": "$s27AdswizzSDKPinpointAnalytics0A17PinpointConnectorC4send6forcedySb_tF",
             "moduleName": "AdswizzSDKPinpointAnalytics",
-            "objc_name": "sendWithForced:",
             "declAttributes": [
               "Final",
-              "ObjC",
-              "AccessControl"
+              "AccessControl",
+              "Nonisolated"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -348,9 +353,136 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Custom",
               "Override"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "applyAnalyticsConfiguration",
+            "printedName": "applyAnalyticsConfiguration(enabled:canLog:isLocationEnabled:lastLocation:placemarks:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(any AdswizzSDKCore.AnalyticsEvent) -> Swift.Bool",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnalyticsEvent",
+                    "printedName": "any AdswizzSDKCore.AnalyticsEvent",
+                    "usr": "s:14AdswizzSDKCore14AnalyticsEventP"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> Swift.Bool",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> _LocationEssentials.CLLocation?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "_LocationEssentials.CLLocation?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CLLocation",
+                        "printedName": "_LocationEssentials.CLLocation",
+                        "usr": "c:objc(cs)CLLocation"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> [CoreLocation.CLPlacemark]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[CoreLocation.CLPlacemark]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[CoreLocation.CLPlacemark]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CLPlacemark",
+                            "printedName": "CoreLocation.CLPlacemark",
+                            "usr": "c:objc(cs)CLPlacemark"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:27AdswizzSDKPinpointAnalytics0A17PinpointConnectorC05applyC13Configuration7enabled6canLog17isLocationEnabled04lastL010placemarksySb_Sb0A7SDKCore0C5Event_pYbcSbyYbScMYccSo10CLLocationCSgyYbScMYccSaySo11CLPlacemarkCGSgyYbScMYcctF",
+            "mangledName": "$s27AdswizzSDKPinpointAnalytics0A17PinpointConnectorC05applyC13Configuration7enabled6canLog17isLocationEnabled04lastL010placemarksySb_Sb0A7SDKCore0C5Event_pYbcSbyYbScMYccSo10CLLocationCSgyYbScMYccSaySo11CLPlacemarkCGSgyYbScMYcctF",
+            "moduleName": "AdswizzSDKPinpointAnalytics",
+            "declAttributes": [
+              "Custom",
+              "Final",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -361,6 +493,7 @@
         "declAttributes": [
           "Final",
           "AccessControl",
+          "Custom",
           "ObjC",
           "RawDocComment"
         ],
@@ -373,15 +506,36 @@
             "kind": "Conformance",
             "name": "AnalyticsConnector",
             "printedName": "AnalyticsConnector",
-            "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsConnector",
+            "usr": "s:14AdswizzSDKCore18AnalyticsConnectorP",
             "mangledName": "$s14AdswizzSDKCore18AnalyticsConnectorP"
           },
           {
             "kind": "Conformance",
             "name": "AnalyticsCollecting",
             "printedName": "AnalyticsCollecting",
-            "usr": "c:@M@AdswizzSDKCore@objc(pl)AASDKAnalyticsCollecting",
+            "usr": "s:14AdswizzSDKCore19AnalyticsCollectingP",
             "mangledName": "$s14AdswizzSDKCore19AnalyticsCollectingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AdswizzAnalyticsConfigurable",
+            "printedName": "AdswizzAnalyticsConfigurable",
+            "usr": "s:14AdswizzSDKCore0A21AnalyticsConfigurableP",
+            "mangledName": "$s14AdswizzSDKCore0A21AnalyticsConfigurableP"
           },
           {
             "kind": "Conformance",
@@ -2181,17 +2335,17 @@
           },
           {
             "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "SendableMetatype",
             "printedName": "SendableMetatype",
             "usr": "s:s16SendableMetatypeP",
             "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
           }
         ]
       },
@@ -3562,49 +3716,56 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/Public\/AdswizzPinpointConnector.swift",
       "kind": "BooleanLiteral",
-      "offset": 2109,
+      "offset": 2136,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/Public\/AdswizzPinpointConnector.swift",
       "kind": "IntegerLiteral",
-      "offset": 2242,
+      "offset": 2269,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/Public\/AdswizzPinpointConnector.swift",
       "kind": "IntegerLiteral",
-      "offset": 2281,
+      "offset": 2308,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSContext.swift",
       "kind": "StringLiteral",
-      "offset": 894,
+      "offset": 905,
       "length": 14,
       "value": "\"MachineIdKey\""
     },
     {
+      "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Helpers\/AppStatusManager+Internal.swift",
+      "kind": "Dictionary",
+      "offset": 322,
+      "length": 3,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWS Helpers\/AWSServiceWrapper.swift",
       "kind": "BooleanLiteral",
-      "offset": 550,
+      "offset": 574,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWS Helpers\/AWSServiceWrapper.swift",
       "kind": "StringLiteral",
-      "offset": 625,
+      "offset": 649,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWS Helpers\/AWSServiceWrapper.swift",
       "kind": "Dictionary",
-      "offset": 664,
+      "offset": 688,
       "length": 3,
       "value": "[]"
     },
@@ -3612,8 +3773,8 @@
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdCore\/AdCore\/Client Side Insertion\/Parsers\/Protocols\/Public\/Modules\/SDKVersionSource.swift",
       "kind": "StringLiteral",
       "offset": 258,
-      "length": 8,
-      "value": "\"7.14.5\""
+      "length": 7,
+      "value": "\"8.0.1\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSPinpointResponses.swift",
@@ -3716,245 +3877,245 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 3282,
+      "offset": 3293,
       "length": 8,
       "value": "\"CUSTOM\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 3384,
+      "offset": 3395,
       "length": 9,
       "value": "\"Address\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 3422,
+      "offset": 3433,
       "length": 6,
       "value": "\"User\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 3464,
+      "offset": 3475,
       "length": 13,
       "value": "\"Demographic\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 3510,
+      "offset": 3521,
       "length": 10,
       "value": "\"Location\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 3556,
+      "offset": 3567,
       "length": 13,
       "value": "\"ChannelType\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 4355,
+      "offset": 4537,
       "length": 8,
       "value": "\"UserId\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 4869,
+      "offset": 5062,
       "length": 6,
       "value": "\"Make\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 4909,
+      "offset": 5102,
       "length": 7,
       "value": "\"Model\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 4957,
+      "offset": 5150,
       "length": 14,
       "value": "\"ModelVersion\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 5008,
+      "offset": 5201,
       "length": 10,
       "value": "\"Timezone\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 5053,
+      "offset": 5246,
       "length": 8,
       "value": "\"Locale\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 5100,
+      "offset": 5293,
       "length": 12,
       "value": "\"AppVersion\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 5149,
+      "offset": 5342,
       "length": 10,
       "value": "\"Platform\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 5203,
+      "offset": 5396,
       "length": 17,
       "value": "\"PlatformVersion\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 6165,
+      "offset": 6425,
       "length": 10,
       "value": "\"Latitude\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 6213,
+      "offset": 6473,
       "length": 11,
       "value": "\"Longitude\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 6263,
+      "offset": 6523,
       "length": 12,
       "value": "\"PostalCode\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 6308,
+      "offset": 6568,
       "length": 6,
       "value": "\"City\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 6349,
+      "offset": 6609,
       "length": 8,
       "value": "\"Region\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 6393,
+      "offset": 6653,
       "length": 9,
       "value": "\"Country\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 7953,
+      "offset": 8235,
       "length": 11,
       "value": "\"EventType\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 7998,
+      "offset": 8280,
       "length": 11,
       "value": "\"Timestamp\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 8050,
+      "offset": 8332,
       "length": 18,
       "value": "\"ClientSdkVersion\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 8107,
+      "offset": 8389,
       "length": 16,
       "value": "\"AppPackageName\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 8156,
+      "offset": 8438,
       "length": 10,
       "value": "\"AppTitle\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 8205,
+      "offset": 8487,
       "length": 16,
       "value": "\"AppVersionCode\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 8253,
+      "offset": 8535,
       "length": 9,
       "value": "\"Session\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 8297,
+      "offset": 8579,
       "length": 12,
       "value": "\"Attributes\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 8341,
+      "offset": 8623,
       "length": 9,
       "value": "\"Metrics\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 11805,
+      "offset": 12139,
       "length": 4,
       "value": "\"Id\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 11852,
+      "offset": 12186,
       "length": 16,
       "value": "\"StartTimestamp\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 11905,
+      "offset": 12239,
       "length": 10,
       "value": "\"Duration\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/AWSBatchItems.swift",
       "kind": "StringLiteral",
-      "offset": 11957,
+      "offset": 12291,
       "length": 15,
       "value": "\"StopTimestamp\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/.gen\/AdswizzSDKPinpointAnalytics\/SystemInfo.swift",
       "kind": "StringLiteral",
-      "offset": 1860,
+      "offset": 1882,
       "length": 7,
       "value": "\"Apple\""
     },
@@ -4192,21 +4353,21 @@
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/.gen\/AdswizzSDKPinpointAnalytics\/AppStatusManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 242,
+      "offset": 246,
       "length": 10,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/.gen\/AdswizzSDKPinpointAnalytics\/IDFASupport.swift",
       "kind": "StringLiteral",
-      "offset": 678,
+      "offset": 706,
       "length": 38,
       "value": "\"00000000-0000-0000-0000-000000000000\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzSDKPinpointAnalytics\/AdswizzSDKPinpointAnalytics\/.gen\/AdswizzSDKPinpointAnalytics\/IDFASupport.swift",
       "kind": "BooleanLiteral",
-      "offset": 853,
+      "offset": 881,
       "length": 5,
       "value": "false"
     },
