@@ -1,0 +1,558 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "library",
+      "bom-ref": "pkg:generic/adswizz-ios-sdk@8.0.2",
+      "name": "AdsWizz iOS SDK",
+      "version": "8.0.2",
+      "group": "com.adswizz",
+      "purl": "pkg:generic/adswizz-ios-sdk@8.0.2",
+      "description": "AdsWizz iOS SDK release, distributed as independent CocoaPods podspecs.",
+      "supplier": {
+        "name": "AdsWizz, Inc.",
+        "url": [
+          "https://adswizz.com"
+        ]
+      },
+      "licenses": [
+        {
+          "license": {
+            "name": "Adswizz SDK License",
+            "url": "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/LICENSE"
+          }
+        }
+      ]
+    },
+    "supplier": {
+      "name": "AdsWizz, Inc.",
+      "url": [
+        "https://adswizz.com"
+      ]
+    },
+    "properties": [
+      {
+        "name": "adswizz:scopeNote",
+        "value": "Covers only components shipped in the podspecs listed here. Demo applications and build tooling are out of scope — see sbom/scope.json."
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:cocoapods/AdswizzSDK@8.0.2",
+      "name": "AdswizzSDK",
+      "version": "8.0.2",
+      "purl": "pkg:cocoapods/AdswizzSDK@8.0.2",
+      "description": "Bundle build (Config/Bundle.xcconfig BUILD_BUNDLE) — all AdsWizz modules plus the submodules glued into one binary. Ships as AdswizzSDK.xcframework + AdswizzSDKCore.xcframework.",
+      "supplier": {
+        "name": "AdsWizz, Inc.",
+        "url": [
+          "https://adswizz.com"
+        ]
+      },
+      "licenses": [
+        {
+          "license": {
+            "name": "Adswizz SDK License",
+            "url": "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/LICENSE"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "adswizz:podspec",
+          "value": "AdswizzSDK.podspec"
+        },
+        {
+          "name": "adswizz:platform",
+          "value": "ios"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cocoapods/AdswizzWatchSDK@8.0.2",
+      "name": "AdswizzWatchSDK",
+      "version": "8.0.2",
+      "purl": "pkg:cocoapods/AdswizzWatchSDK@8.0.2",
+      "description": "Ships NO third-party code. Verified: 0 SwiftProtobuf references in project.pbxproj and 0 protobuf symbols via nm on the built framework (vs 4947 in AdswizzDataCollector). Its .gen dir holds visibility-stripped sources, not protobuf.",
+      "supplier": {
+        "name": "AdsWizz, Inc.",
+        "url": [
+          "https://adswizz.com"
+        ]
+      },
+      "licenses": [
+        {
+          "license": {
+            "name": "Adswizz SDK License",
+            "url": "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/LICENSE"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "adswizz:podspec",
+          "value": "AdswizzWatchSDK.podspec"
+        },
+        {
+          "name": "adswizz:platform",
+          "value": "watchos"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cocoapods/AdswizzSDKPinpointAnalytics@8.0.2",
+      "name": "AdswizzSDKPinpointAnalytics",
+      "version": "8.0.2",
+      "purl": "pkg:cocoapods/AdswizzSDKPinpointAnalytics@8.0.2",
+      "description": "The only artifact with a declared CocoaPods dependency. Scripts/Fastfile_develop:141 emits an UNVERSIONED s.dependency 'AWSCore', so the customer's resolved version may differ from the one recorded here.",
+      "supplier": {
+        "name": "AdsWizz, Inc.",
+        "url": [
+          "https://adswizz.com"
+        ]
+      },
+      "licenses": [
+        {
+          "license": {
+            "name": "Adswizz SDK License",
+            "url": "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/LICENSE"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "adswizz:podspec",
+          "value": "AdswizzSDKPinpointAnalytics.podspec"
+        },
+        {
+          "name": "adswizz:platform",
+          "value": "ios"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cocoapods/AdswizzSDKPrivacyDataKit@8.0.2",
+      "name": "AdswizzSDKPrivacyDataKit",
+      "version": "8.0.2",
+      "purl": "pkg:cocoapods/AdswizzSDKPrivacyDataKit@8.0.2",
+      "description": "Core subspec is the default (Scripts/Fastfile_develop:190); the 9 optional subspecs add no third-party code. Imports only Apple frameworks.",
+      "supplier": {
+        "name": "AdsWizz, Inc.",
+        "url": [
+          "https://adswizz.com"
+        ]
+      },
+      "licenses": [
+        {
+          "license": {
+            "name": "Adswizz SDK License",
+            "url": "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/LICENSE"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "adswizz:podspec",
+          "value": "AdswizzSDKPrivacyDataKit.podspec"
+        },
+        {
+          "name": "adswizz:platform",
+          "value": "ios"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "embedded/omsdk-ios@1.6.2",
+      "name": "Open Measurement SDK (iOS)",
+      "version": "1.6.2",
+      "purl": "pkg:generic/omsdk-ios@1.6.2",
+      "description": "IAB Tech Lab Open Measurement SDK. Pre-built static library statically linked into AdswizzSDK.xcframework for viewability measurement.",
+      "supplier": {
+        "name": "IAB Technology Laboratory",
+        "url": [
+          "https://iabtechlab.com/standards/open-measurement-sdk/"
+        ]
+      },
+      "licenses": [
+        {
+          "license": {
+            "name": "Open Measurement (OM) License for Native-App Measurement, V 1.1",
+            "url": "https://iabtechlab.com/standards/open-measurement-sdk/"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d60352cd171b2e4cdf06cedfc0125387cf53fb377dd3c82c8806706233ef6feb"
+        }
+      ],
+      "properties": [
+        {
+          "name": "adswizz:provenance",
+          "value": "submodules/omsdk-plugin-ios/OMSDK-Plugin/OMSDK-Plugin/OMSDK/OMSDK-Static_Adswizz.xcframework"
+        },
+        {
+          "name": "adswizz:versionSource",
+          "value": "OMSDK/CHANGELOG.md first entry: '## 1.6.2 - 2026-01-06'"
+        },
+        {
+          "name": "adswizz:hashedFile",
+          "value": "OMSDK-Static_Adswizz.xcframework/ios-arm64/libAppVerificationLibrary.a (1 of 4 slices: ios-arm64, ios-arm64_x86_64-simulator, tvos-arm64, tvos-arm64_x86_64-simulator)"
+        },
+        {
+          "name": "adswizz:linkage",
+          "value": "static"
+        },
+        {
+          "name": "adswizz:licenceNote",
+          "value": "Bespoke IAB licence — no SPDX identifier exists. Attribution and approval conditions apply; review with Legal before external publication."
+        },
+        {
+          "name": "adswizz:invisibleToTooling",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "embedded/omsdk-js@1.6.2",
+      "name": "omsdk-v1.js",
+      "version": "1.6.2",
+      "purl": "pkg:generic/omsdk-js@1.6.2",
+      "description": "Open Measurement JavaScript session client, bundled as a resource alongside the OM SDK static library and injected into ad-creative webviews.",
+      "supplier": {
+        "name": "IAB Technology Laboratory",
+        "url": [
+          "https://iabtechlab.com/standards/open-measurement-sdk/"
+        ]
+      },
+      "licenses": [
+        {
+          "license": {
+            "name": "Open Measurement (OM) License for Native-App Measurement, V 1.1",
+            "url": "https://iabtechlab.com/standards/open-measurement-sdk/"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d8c400b9c2febf5fcc2bd7afff1c9eaec7f7c57d527a6f409746a0b5f455a455"
+        }
+      ],
+      "properties": [
+        {
+          "name": "adswizz:provenance",
+          "value": "submodules/omsdk-plugin-ios/OMSDK-Plugin/OMSDK-Plugin/OMSDK/JS/omsdk-v1.js"
+        },
+        {
+          "name": "adswizz:versionSource",
+          "value": "INFERRED — assumed to track the OM SDK release it ships beside (1.6.2). The file carries no version banner. VERIFY against OM SDK release notes."
+        },
+        {
+          "name": "adswizz:linkage",
+          "value": "resource"
+        },
+        {
+          "name": "adswizz:invisibleToTooling",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "embedded/swift-protobuf@1.35.1",
+      "name": "SwiftProtobuf",
+      "version": "1.35.1",
+      "purl": "pkg:swift/github.com/apple/swift-protobuf@1.35.1",
+      "description": "Apple SwiftProtobuf runtime. Config/SwiftProtobufGen.sh copies the runtime .swift files out of the pinned submodule into a gitignored .gen/ directory, strips public/open access modifiers and rewrites symbol names, then compiles them directly into the AdsWizz module. Source-level vendoring, not a linked dependency.",
+      "supplier": {
+        "name": "Apple Inc.",
+        "url": [
+          "https://github.com/apple/swift-protobuf"
+        ]
+      },
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/apple/swift-protobuf"
+        },
+        {
+          "type": "license",
+          "url": "https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt"
+        }
+      ],
+      "properties": [
+        {
+          "name": "adswizz:provenance",
+          "value": "submodules/swift-protobuf @ 5596511fce902e649c403cd4d6d5da1254f142b7 (tag 1.35.1)"
+        },
+        {
+          "name": "adswizz:versionSource",
+          "value": "git describe --tags on the pinned submodule: 1.35.1"
+        },
+        {
+          "name": "adswizz:linkage",
+          "value": "source-compiled"
+        },
+        {
+          "name": "adswizz:licenceNote",
+          "value": "Apache-2.0 requires attribution and NOTICE preservation. Not currently attributed in any published podspec — tracked separately, out of scope for this document."
+        },
+        {
+          "name": "adswizz:invisibleToTooling",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "firstparty/omsdk-plugin-ios@c75ce68",
+      "name": "OMSDK-Plugin",
+      "version": "0.0.0+c75ce685c12c555c653d8cd4e8a4fbd55bd3368c",
+      "description": "AdsWizz wrapper around the IAB Open Measurement SDK, and the vehicle by which the OM SDK and omsdk-v1.js enter the shipped binary. First-party; no upstream semver tag.",
+      "supplier": {
+        "name": "AdsWizz, Inc."
+      },
+      "licenses": [
+        {
+          "license": {
+            "name": "Adswizz SDK License",
+            "url": "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/LICENSE"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "adswizz:provenance",
+          "value": "submodules/omsdk-plugin-ios @ c75ce685c12c555c653d8cd4e8a4fbd55bd3368c"
+        },
+        {
+          "name": "adswizz:versionSource",
+          "value": "No upstream semver tag; pinned commit used as build identifier."
+        },
+        {
+          "name": "adswizz:linkage",
+          "value": "source-compiled"
+        },
+        {
+          "name": "adswizz:firstParty",
+          "value": "true"
+        },
+        {
+          "name": "adswizz:invisibleToTooling",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "firstparty/mercury-analytic-plugin-ios@9942531",
+      "name": "MercuryAnalytics-Plugin",
+      "version": "0.0.0+99425314b6017c3a0a5de215eaf1b9df3094cb03",
+      "description": "AdsWizz Mercury analytics plugin, compiled into the AdswizzSDK bundle build. First-party; no upstream semver tag.",
+      "supplier": {
+        "name": "AdsWizz, Inc."
+      },
+      "licenses": [
+        {
+          "license": {
+            "name": "Adswizz SDK License",
+            "url": "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/LICENSE"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "adswizz:provenance",
+          "value": "submodules/mercury-analytic-plugin-ios @ 99425314b6017c3a0a5de215eaf1b9df3094cb03"
+        },
+        {
+          "name": "adswizz:versionSource",
+          "value": "No upstream semver tag; pinned commit used as build identifier."
+        },
+        {
+          "name": "adswizz:linkage",
+          "value": "source-compiled"
+        },
+        {
+          "name": "adswizz:firstParty",
+          "value": "true"
+        },
+        {
+          "name": "adswizz:invisibleToTooling",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "firstparty/sonar-protobuf@2ada317",
+      "name": "sonar-protobuf",
+      "version": "0.0.0+2ada317c1d6a0dccca9bab83dbd8b884e85d1e11",
+      "description": "AdsWizz .proto schema definitions consumed by AdswizzDataCollector. Code-generation input rather than linked code, but it determines the wire format the shipped binary emits.",
+      "supplier": {
+        "name": "AdsWizz, Inc."
+      },
+      "licenses": [
+        {
+          "license": {
+            "name": "Adswizz SDK License",
+            "url": "https://raw.githubusercontent.com/adswizz/ad-sdk-ios/master/LICENSE"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "adswizz:provenance",
+          "value": "submodules/sonar-protobuf @ 2ada317c1d6a0dccca9bab83dbd8b884e85d1e11"
+        },
+        {
+          "name": "adswizz:versionSource",
+          "value": "No upstream semver tag; pinned commit used as build identifier."
+        },
+        {
+          "name": "adswizz:linkage",
+          "value": "code-generation-input"
+        },
+        {
+          "name": "adswizz:firstParty",
+          "value": "true"
+        },
+        {
+          "name": "adswizz:invisibleToTooling",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dependency/AWSCore@2.37.2",
+      "name": "AWSCore",
+      "version": "2.37.2",
+      "purl": "pkg:cocoapods/AWSCore@2.37.2",
+      "description": "Amazon Web Services SDK for iOS. Declared as a CocoaPods dependency of AdswizzSDKPinpointAnalytics and resolved by the consuming project; not embedded in the AdsWizz binary.",
+      "supplier": {
+        "name": "Amazon Web Services",
+        "url": [
+          "http://aws.amazon.com/mobile/sdk"
+        ]
+      },
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "http://aws.amazon.com/mobile/sdk"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/aws-amplify/aws-sdk-ios.git"
+        }
+      ],
+      "properties": [
+        {
+          "name": "adswizz:provenance",
+          "value": "Scripts/Fastfile_develop: AdswizzSDKPinpointAnalytics.podspec declares s.dependency 'AWSCore' (unversioned)"
+        },
+        {
+          "name": "adswizz:versionSource",
+          "value": "Read from the repository Podfile.lock at build time: the version the Pinpoint framework is built and tested with. The dependency is unversioned, so a consumer's resolved version may differ."
+        },
+        {
+          "name": "adswizz:linkage",
+          "value": "declared-dependency"
+        },
+        {
+          "name": "adswizz:licenceNote",
+          "value": "Apache-2.0, with the AWSLex/Bluefront directory under the AWS Customer Agreement."
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:generic/adswizz-ios-sdk@8.0.2",
+      "dependsOn": [
+        "pkg:cocoapods/AdswizzSDK@8.0.2",
+        "pkg:cocoapods/AdswizzWatchSDK@8.0.2",
+        "pkg:cocoapods/AdswizzSDKPinpointAnalytics@8.0.2",
+        "pkg:cocoapods/AdswizzSDKPrivacyDataKit@8.0.2"
+      ]
+    },
+    {
+      "ref": "pkg:cocoapods/AdswizzSDK@8.0.2",
+      "dependsOn": [
+        "embedded/omsdk-ios@1.6.2",
+        "embedded/omsdk-js@1.6.2",
+        "embedded/swift-protobuf@1.35.1",
+        "firstparty/omsdk-plugin-ios@c75ce68",
+        "firstparty/mercury-analytic-plugin-ios@9942531",
+        "firstparty/sonar-protobuf@2ada317"
+      ]
+    },
+    {
+      "ref": "pkg:cocoapods/AdswizzWatchSDK@8.0.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cocoapods/AdswizzSDKPinpointAnalytics@8.0.2",
+      "dependsOn": [
+        "dependency/AWSCore@2.37.2"
+      ]
+    },
+    {
+      "ref": "pkg:cocoapods/AdswizzSDKPrivacyDataKit@8.0.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "embedded/omsdk-ios@1.6.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "embedded/omsdk-js@1.6.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "embedded/swift-protobuf@1.35.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "firstparty/omsdk-plugin-ios@c75ce68",
+      "dependsOn": []
+    },
+    {
+      "ref": "firstparty/mercury-analytic-plugin-ios@9942531",
+      "dependsOn": []
+    },
+    {
+      "ref": "firstparty/sonar-protobuf@2ada317",
+      "dependsOn": []
+    },
+    {
+      "ref": "dependency/AWSCore@2.37.2",
+      "dependsOn": []
+    }
+  ]
+}

@@ -119,6 +119,8 @@ Drop `AdswizzSDK.xcframework` and `AdswizzSDKCore.xcframework` into your project
 
 Optionally, link and embed `AdswizzSDKPrivacyDataCore.xcframework`, then add the permission components you need from the `AdswizzSDKPrivacyDataKit` folder by dragging the appropriate `.xcodeproj` files into your workspace or project.
 
+To check the frameworks before you add them, see [Verifying release integrity](#verifying-release-integrity).
+
 ## Configuration
 
 After adding the SDK you need to supply an **_installationId_** and a **_playerId_** — both provided by your AdsWizz Integration Manager — either in your `Info.plist` (`AdswizzAdSDKInstallationId`, `AdswizzAdSDKPlayerId`) or programmatically via `AdswizzSDKConfig`. See [Get started](https://docs.sdk.adswizz.com/#/iOS/SDKiOS/GetStarted) for the full setup, including the optional `AdswizzAdSDKAppStoreId` and the permission usage description keys.
@@ -138,10 +140,24 @@ Runnable examples live in the [`Samples`](Samples) folder of this repository. Op
 
 ## Releases
 
-Check out the [releases section](https://github.com/adswizz/ad-sdk-ios/releases) for downloadable zips of the SDK, and the [changelog](https://docs.sdk.adswizz.com/#/iOS/CHANGELOG) for what changed in each version.
+Check out the [releases section](https://github.com/adswizz/ad-sdk-ios/releases) for each version's release notes and the [changelog](https://docs.sdk.adswizz.com/#/iOS/CHANGELOG) for what changed in each version. From `8.0.2`, each release also has the signed checksum files from the [`CodeSigning`](CodeSigning) folder and the SBOM attached.
 
 > **Note**
 > Release tags use plain semantic versioning (for example `7.14.5`). Versions released before `7.14.0` use the older `release/x.y.z` tag format.
+
+## Verifying release integrity
+
+You can check that the SDK in your app is exactly what AdsWizz published. This is optional.
+
+* **Apple code signature (from `7.9.0`).** Every XCFramework is signed with AdsWizz's Apple Distribution certificate, **ADSWIZZ SA (team ID `C3N4BPH864`)**. Xcode checks it on every build. When you first add a framework, check that Xcode's File inspector shows that signer. If a later build fails with *"not signed with the expected identity and may have been compromised"*, don't click **Accept Change** until AdsWizz confirms it. See [Code signing](https://docs.sdk.adswizz.com/#/iOS/SDKPrivacy/CodeSigning?id=what-changed).
+* **GPG signature (from `8.0.2`).** The [`CodeSigning`](CodeSigning) folder in this repository, also attached to each release, holds a SHA-256 checksum of every file in every XCFramework, signed with the AdsWizz SDK GPG key.
+
+How to verify each way of adding the SDK, the folder layout, expected output and troubleshooting:
+
+* [Verify a release](https://docs.sdk.adswizz.com/#/iOS/SDKPrivacy/CodeSigning?id=verify-a-release): Swift Package Manager, CocoaPods or a clone
+* [The `CodeSigning` folder](https://docs.sdk.adswizz.com/#/iOS/SDKPrivacy/CodeSigning?id=the-codesigning-folder)
+* [Signing key](https://docs.sdk.adswizz.com/#/iOS/SDKPrivacy/CodeSigning?id=signing-key), including where to download it
+* [Troubleshooting](https://docs.sdk.adswizz.com/#/iOS/SDKPrivacy/CodeSigning?id=troubleshooting)
 
 ## License
 

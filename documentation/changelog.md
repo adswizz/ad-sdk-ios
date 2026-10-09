@@ -5,10 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [8.0.2] - 2026-10-09
+### Added
+- Code Signing:
+    - New [GPG signing](iOS/SDKPrivacy/CodeSigning#gpg-signing) for every **_AdswizzSDK_** release, in addition to the Apple code signature. A new [`CodeSigning`](iOS/SDKPrivacy/CodeSigning#the-codesigning-folder) folder ships next to `Framework` with a SHA-256 checksum of every file inside each XCFramework:
+        * `AdswizzSDK`
+        * `AdswizzSDKCore`
+        * `AdswizzSDKPrivacyDataCore`
+        * `AdswizzSDKPinpointAnalytics`
+        * `AdswizzWatchSDK`
+    - The per-framework checksum files are collected in `sha256sums.txt`, which is signed with the AdsWizz SDK GPG key (`sha256sums.txt.asc`). The files from the `CodeSigning` folder are also attached to each GitHub Release
+- Software Bill of Materials:
+    - New [CycloneDX](https://cyclonedx.org) `v1.5` [Software Bill of Materials](iOS/SoftwareBillOfMaterials.md) (`sbom/bom.json`) generated for every release. It lists the [third-party components](iOS/SoftwareBillOfMaterials#third-party-components) shipped with **_AdswizzSDK_**, **_AdswizzSDKPinpointAnalytics_**, **_AdswizzWatchSDK_** and **_AdswizzSDKPrivacyDataKit_**, along with their versions and [licences](iOS/SoftwareBillOfMaterials#licences-and-attributions). The SBOM is also attached to each GitHub Release
+- Integration Guide:
+    - New [GPG signing](iOS/SDKPrivacy/CodeSigning#gpg-signing) section in [Code Signing](iOS/SDKPrivacy/CodeSigning.md) explaining how to [verify a release](iOS/SDKPrivacy/CodeSigning#verify-a-release) integrated through Swift Package Manager, CocoaPods or a clone of the repository, plus [troubleshooting](iOS/SDKPrivacy/CodeSigning#troubleshooting) steps
+    - New "Software Bill of Materials" page describing the [SBOM](iOS/SoftwareBillOfMaterials.md) scope, how to [obtain it](iOS/SoftwareBillOfMaterials#obtaining-the-sbom) and how to [report a vulnerability](iOS/SoftwareBillOfMaterials#reporting-a-vulnerability)
+
 ## [8.0.1] - 2026-09-16
 ### Added
 - Copyright:
     - Add LICENSE for proprietary AdsWizz Inc. materials
+
 ### Changed
 - VAST Parser:
     - Improved VAST parser flexibility to better handle non-standard syntax and VAST responses containing invalid characters through a best-effort parsing approach

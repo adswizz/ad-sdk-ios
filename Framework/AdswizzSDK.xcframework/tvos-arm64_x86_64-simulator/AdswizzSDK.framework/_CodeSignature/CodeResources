@@ -86,11 +86,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		8MQzIBwhP/fJiQ03296iTRNPS20=
+		QQV15NbfL7gkFEb4s1zc51lr1K4=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		eXBS8IsWZBOWeuh8noLbMOLb/AU=
+		wsW9ggpIeCpWIThfbL+hrayLJIM=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -106,11 +106,11 @@
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		hbth5IKyveu9E4T+D4i+mLGtOM8=
+		iY8bLWBMPVWYY1rl6pnNchx4M5Y=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		eXBS8IsWZBOWeuh8noLbMOLb/AU=
+		wsW9ggpIeCpWIThfbL+hrayLJIM=
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -126,7 +126,7 @@
 		</data>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		a8MDIBEi9LaBZlUjFdW0FF3Cs/c=
+		zEbtsVPLgQ9eS9NRkPNdgBX2U2Q=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -303,7 +303,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+9K6EdGukykgV3HneGs/nPeTe7hI9/fPHVgh3SMazoc=
+			6mYaEkLElBe8vyhQQkis3XDAeFfqji9lGLaCkUQXxqM=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
@@ -331,14 +331,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7+CTJONINCXJaaQrw28DUCUDACBblpgnuZLQD6nZYSM=
+			I8jHZHeTqNgg1UNZkD4K2f1lxZ/Am3aGAoWjbkUQGX0=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+9K6EdGukykgV3HneGs/nPeTe7hI9/fPHVgh3SMazoc=
+			6mYaEkLElBe8vyhQQkis3XDAeFfqji9lGLaCkUQXxqM=
 			</data>
 		</dict>
 		<key>Modules/AdswizzSDK.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
@@ -366,7 +366,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7UaQyBsz6Q2N/tBK7fPkmAQ3sH3GWFAXlyHvDDvSljw=
+			qJhrUjpDs6lWZBm1T2E8qIHocjlyoQ7W6tMgqlsYqoM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

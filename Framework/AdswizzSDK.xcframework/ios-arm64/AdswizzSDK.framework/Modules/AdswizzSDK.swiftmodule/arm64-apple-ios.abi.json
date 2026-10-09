@@ -60029,7 +60029,7 @@
       "kind": "StringLiteral",
       "offset": 258,
       "length": 7,
-      "value": "\"8.0.1\""
+      "value": "\"8.0.2\""
     },
     {
       "filePath": "\/Users\/gitlab\/gitlab-runner\/builds\/builds\/HaNYzgLW\/0\/sdk\/audio-ad-sdk-ios\/AdswizzSDK-develop\/audio-ad-sdk-ios\/AdswizzCore\/AdswizzCore\/Watch\/PayloadMessage.swift",

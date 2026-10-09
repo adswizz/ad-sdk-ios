@@ -3,8 +3,6 @@
 The best way to see the **_AdswizzWatchSDK_** in action is by studying the example projects included in the `/Samples` folder. Download the `/Samples` folder using the below `git` command:
 ```properties
 $ git clone https://github.com/adswizz/ad-sdk-ios.git
-Username: adswizz-sdk
-Password: your_access_token (provided by AdsWizz)
  ```
 
 The examples are structured as separate projects in the _**Examples.workspace**_. Note that the samples workspace uses Cocoapods to install **_AdswizzWatchSDK_**, **_AdswizzSDK_** and, the necessary dependencies. To successfully build and run the samples, you first need to run a `pod install` to make sure all the necessary dependencies are downloaded and resolved properly.
