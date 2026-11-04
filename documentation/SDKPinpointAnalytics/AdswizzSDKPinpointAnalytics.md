@@ -32,5 +32,5 @@ Here is the list of requirements when integrating **_AdswizzSDKPinpointAnalytics
 * make sure you update your **_AdswizzSDK_** integration to **v7.8.0 or later**
 * make sure you install **_AdswizzSDKPinpointAnalytics_** through the supported installations via Cocoapods, Carthage or manually
 
-For more details on how to integrate **_AdswizzSDKPinpointAnalytics_**, please visit the [Integrating AdswizzSDK Pinpoint Analytics](iOS/SDKPinpointAnalytics/IntegratingAdswizzSDKPinpointAnalytics) section.
+For more details on how to integrate **_AdswizzSDKPinpointAnalytics_**, please visit the [Integrating AdswizzSDK Pinpoint Analytics](/iOS/SDKPinpointAnalytics/IntegratingAdswizzSDKPinpointAnalytics) section.
 

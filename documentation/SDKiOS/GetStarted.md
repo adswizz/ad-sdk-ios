@@ -13,20 +13,20 @@ In a server-side insertion scenario, it takes the pressure off your app by makin
 *   Swift 5.9+ if the integration app uses Swift or Objective-C. Your app may stay in the **Swift 5 language mode**; adopting the Swift 6 language mode is optional
 *   Framework binaries - either via CocoaPods 1.13.0+, Carthage, Swift Package Manager (v7.9.2+) or archive (manual integration)
 
-> Upgrading from `v7.x`? The public API is now explicit about the main actor. Read the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md) first — for most apps the change is annotating the types that own the SDK managers with `@MainActor`.
+> Upgrading from `v7.x`? The public API is now explicit about the main actor. Read the [v8.0.0 migration guide](/iOS/SDKMigrations/v8_0_0.md) first — for most apps the change is annotating the types that own the SDK managers with `@MainActor`.
 
 ## Changelog
 
-Please check [here](iOS/CHANGELOG.md) the latest AdswizzSDK version and all new changes & fixes it comes with. 
+Please check [here](/iOS/CHANGELOG.md) the latest AdswizzSDK version and all new changes & fixes it comes with. 
 
 ## Dependencies
 
-With the release of **_AdswizzSDK_** `v7.10.0`, the dependency of AdswizzSDKPrivacyData.framework (1.0.7) was removed. It was replaced by the **optional** [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) framework suite.
+With the release of **_AdswizzSDK_** `v7.10.0`, the dependency of AdswizzSDKPrivacyData.framework (1.0.7) was removed. It was replaced by the **optional** [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) framework suite.
 
 ### History
 *AdswizzSDKPrivacyData* was a source library which implemented Privacy-Sensitive API that required user permission. *AdswizzSDKPrivacyData* was configured to exclude any sensitive API at build time. This dependency was automatically added if you chose to integrate the SDK using CocoaPods. If you chose the Carthage or manual integration you had to provide it at link time.
 
-> Note that if you are updating from an older version of **_AdswizzSDK_** to version `7.10.0` or newer, you should first consult the [migration guide](iOS/SDKMigrations/v7_10_0.md). Otherwise, if you are new to **_AdswizzSDK_**, keep reading through the next sections below to install the latest version.
+> Note that if you are updating from an older version of **_AdswizzSDK_** to version `7.10.0` or newer, you should first consult the [migration guide](/iOS/SDKMigrations/v7_10_0.md). Otherwise, if you are new to **_AdswizzSDK_**, keep reading through the next sections below to install the latest version.
 
 ## Adding the SDK to your Xcode project
 
@@ -53,7 +53,7 @@ https://github.com/adswizz/ad-sdk-ios
 3. You'll see the repository rules for which version of the **_AdswizzSDK_** you want Swift Package Manager to install. Choose the `Up to Next Major Version` as it will use the latest compatible version of the dependency that can be detected from the main branch. Select which project you want Swift Package Manager to add the **_AdswizzSDK_**, then click "Add Package".
 4. Choose which of the libraries you want added to your project target. Always select the **_AdswizzSDK_** product. The remaining library products to install are optional (depending on your application needs). AdswizzWatchSDK and AdswizzSDKPinpointAnalytics rely on **_AdswizzSDK_** main binary framework.<br>
 
-> At this point you will also be able to link the optional frameworks from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#swift-package-manager) components from the **_AdswizzSDKPrivacyDataKit_** module.
+> At this point you will also be able to link the optional frameworks from the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#swift-package-manager) components from the **_AdswizzSDKPrivacyDataKit_** module.
 
 Select all that are appropriate, then click "Add Package(s)" for Xcode to resolve the package(s) and link them into your project.
 
@@ -97,12 +97,12 @@ And finally, navigate to:
 ...and delete all the `https___api_github_com_repos_adswizz_ad_sdk_ios_releases_assets_xxxxxxxxx_zip` entries.
 
 <div class="container" style="max-width: 500px;">
-  <img src="img/swift-package-manager-clear-caches-1.png" alt="~/Library/Caches/org.swift.swiftpm/" class="image">
+  <img src="/img/swift-package-manager-clear-caches-1.png" alt="~/Library/Caches/org.swift.swiftpm/" class="image">
   <div class="overlay">~/Library/Caches/org.swift.swiftpm/</div>
 </div>
 
 <div class="container"style="max-width: 500px;">
-  <img src="img/swift-package-manager-clear-caches-2.png" alt="~/Library/org.swift.swiftpm/security/fingerprints" class="image">
+  <img src="/img/swift-package-manager-clear-caches-2.png" alt="~/Library/org.swift.swiftpm/security/fingerprints" class="image">
   <div class="overlay">~/Library/org.swift.swiftpm/security/fingerprints</div>
 </div>
 <br clear="left"/>
@@ -136,7 +136,7 @@ pod 'AdswizzSDK',            :git => "https://github.com/adswizz/ad-sdk-ios.git"
 ```
 After modifying the Podfile, run `pod install`. The external dependencies will be added automatically.
 
-> At this point you will also be able to link the optional frameworks from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#cocoapods) components from the **_AdswizzSDKPrivacyDataKit_** module.
+> At this point you will also be able to link the optional frameworks from the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#cocoapods) components from the **_AdswizzSDKPrivacyDataKit_** module.
 
 ### Carthage
 
@@ -152,7 +152,7 @@ github "aws-amplify/aws-sdk-ios"
 github "https://github.com/adswizz/ad-sdk-ios"
 ```
 > **Note**
-> The `github "aws-amplify/aws-sdk-ios"` line is only needed if you also consider integrating **_AdswizzSDKPinpointAnalytics_**. For more details, please visit the [Integrating AdswizzSDK Pinpoint Analytics](iOS/SDKPinpointAnalytics/IntegratingAdswizzSDKPinpointAnalytics) section. 
+> The `github "aws-amplify/aws-sdk-ios"` line is only needed if you also consider integrating **_AdswizzSDKPinpointAnalytics_**. For more details, please visit the [Integrating AdswizzSDK Pinpoint Analytics](/iOS/SDKPinpointAnalytics/IntegratingAdswizzSDKPinpointAnalytics) section. 
 
 #### Run Carthage update
     
@@ -166,7 +166,7 @@ If the command runs succesfully, Carthage will create a `Build` folder with all 
 
 Carthage requires that the needed frameworks be linked manually to the project. After completing the [Run](#run-carthage-update) step above, drag and drop to copy the `AdswizzSDK.xcframework` and `AdswizzSDKCore.xcframework` binary frameworks into your application `Frameworks` group, and be sure to link and embed them.
 
-> At this point you will also be able to link the optional frameworks from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#carthage) components from the **_AdswizzSDKPrivacyDataKit_** module.
+> At this point you will also be able to link the optional frameworks from the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#carthage) components from the **_AdswizzSDKPrivacyDataKit_** module.
 
 ### Manual
 
@@ -180,26 +180,26 @@ For more details about these settings please consult [SDK initialization and set
 
 1. Settings for the framework:
     1. Add "**_AdswizzAdSDKInstallationId_**" as a string setting. This is a unique string provided by your AdsWizz Integration Manager. If not provided programmatically, this setting is **mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
-    <img src="../img/installationId.png" width="1000" />
+    <img src="/img/installationId.png" width="1000" />
 
     2. Add the "**_AdswizzAdSDKPlayerId_**" string setting. This is a unique string provided by your AdsWizz Integration Manager. If not provided programmatically, this setting is **mandatory** and, if not set in your app’s Info.pList, the initialize method of the AdswizzSDK will throw an error.
-    <img src="../img/playerId.png" width="1000" />
+    <img src="/img/playerId.png" width="1000" />
     
     3. (Optional) Add the "**_AdswizzAdSDKAppStoreId_**" string setting. This value is an automatically generated ID assigned to your app in AppStore Connect. It can be found in your AppStore Connect page for your app under App Information -> General Information -> Apple ID. If not provided programmatically, this setting is **optional** and, if not set in your app’s Info.pList either, AdswizzSDK will not throw an error, however, during initialization, it will attempt to obtain the AppStoreId for your app using Apple's public lookup API call.
-    <img src="../img/appStoreId.png" width="1000" />
+    <img src="/img/appStoreId.png" width="1000" />
     
 2. Settings for permissions(**optional**):
-    1. Add a **_NSCalendarsUsageDescription_** entry. There are interactive ads that, once acted upon, add events in the Calendar. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataCalendar.framework_** from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
-    2. Add **_NSContactsUsageDescription_** entry. As events are added to the Calendar, the user might be interested in inviting friends along. For this, the SDK requires access to the Contacts and Calendar permissions. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataContacts.framework_** from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
-    3. Add a **_NSLocationWhenInUseUsageDescription_** entry. One of the best targeting criteria for ads is users's location. The SDK only updates location when in the foreground. For this, the SDK requires access to Location - While the app is in use. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataLocation.framework_** from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
-    4. Add a **_NSLocationAlwaysAndWhenInUseUsageDescription_** entry. To enhance the location-based targeting capability, the SDK can leverage the location information when the app is running in background. For this, the SDK requires access to Location - Always. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataLocation.framework_** from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
-    5. Add a **_NSMicrophoneUsageDescription_** entry. Interactive voice ads depend on the user being able to interact with the ad, through voice. For this, the SDK requires access to the Microphone. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataMicrophone.framework_** from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
-    6. Add a **_NSSpeechRecognitionUsageDescription_** entry. Once the user interacts with an interactive voice ad, the SDK needs to convert voice into text, in order to comprehend the command. For this, the SDK will require access to SpeechKit. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataSpeech.framework_** from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
-    7. Add a **_NSPhotoLibraryUsageDescription_** entry. One of the actions users can perform on an interactive ad is saving a coupon or a banner to the photo library. For this, the SDK requires access to the Photo Library. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataPhotos.framework_** from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
-    8. Add a **_NSMotionUsageDescription_** entry. For better targetting AdsWizz can use CMMotionActivityManager to determine what activity is the user engaged in. For this, the SDK requires access to the device’s motion data. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataMotion.framework_** from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
-    9. Add a **_NSUserTrackingUsageDescription_** entry. If you want to use the AdswizzSDK tracking framework to assist you in asking users's consent for accessing IDFA, add this in your app's Info.plist. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataIDFA.framework_** from the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
+    1. Add a **_NSCalendarsUsageDescription_** entry. There are interactive ads that, once acted upon, add events in the Calendar. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataCalendar.framework_** from the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
+    2. Add **_NSContactsUsageDescription_** entry. As events are added to the Calendar, the user might be interested in inviting friends along. For this, the SDK requires access to the Contacts and Calendar permissions. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataContacts.framework_** from the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
+    3. Add a **_NSLocationWhenInUseUsageDescription_** entry. One of the best targeting criteria for ads is users's location. The SDK only updates location when in the foreground. For this, the SDK requires access to Location - While the app is in use. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataLocation.framework_** from the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
+    4. Add a **_NSLocationAlwaysAndWhenInUseUsageDescription_** entry. To enhance the location-based targeting capability, the SDK can leverage the location information when the app is running in background. For this, the SDK requires access to Location - Always. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataLocation.framework_** from the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
+    5. Add a **_NSMicrophoneUsageDescription_** entry. Interactive voice ads depend on the user being able to interact with the ad, through voice. For this, the SDK requires access to the Microphone. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataMicrophone.framework_** from the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
+    6. Add a **_NSSpeechRecognitionUsageDescription_** entry. Once the user interacts with an interactive voice ad, the SDK needs to convert voice into text, in order to comprehend the command. For this, the SDK will require access to SpeechKit. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataSpeech.framework_** from the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
+    7. Add a **_NSPhotoLibraryUsageDescription_** entry. One of the actions users can perform on an interactive ad is saving a coupon or a banner to the photo library. For this, the SDK requires access to the Photo Library. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataPhotos.framework_** from the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
+    8. Add a **_NSMotionUsageDescription_** entry. For better targetting AdsWizz can use CMMotionActivityManager to determine what activity is the user engaged in. For this, the SDK requires access to the device’s motion data. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataMotion.framework_** from the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
+    9. Add a **_NSUserTrackingUsageDescription_** entry. If you want to use the AdswizzSDK tracking framework to assist you in asking users's consent for accessing IDFA, add this in your app's Info.plist. Note that in order to support it, you should also link the **_AdsiwzzSDKPrivacyDataIDFA.framework_** from the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) components. Read more on how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit#installation) these optional framework components.
 
-    <img src="../img/InfoPList.png" width="1000" />
+    <img src="/img/InfoPList.png" width="1000" />
 
 
 

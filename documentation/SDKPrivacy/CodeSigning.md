@@ -28,11 +28,11 @@ This section includes information about the signature, such as the **_AdswizzSDK
 Xcode will keep track of the identity the first time the **_AdswizzSDK_** XCframework is used and verifies that it does not change during later builds or releases. Because Xcode trusts whatever it sees first, check when you first add the framework that the inspector shows it is signed by **ADSWIZZ SA** with team ID **C3N4BPH864**. How it looks like before and after signing:
 
 <div class="container">
-  <img src="../img/unsignedCodeExample.png" alt="Missing signature example" class="image">
+  <img src="/img/unsignedCodeExample.png" alt="Missing signature example" class="image">
 </div>
 
 <div class="container">
-  <img src="../img/signedCodeExample.png" alt="Valid signature example" class="image">
+  <img src="/img/signedCodeExample.png" alt="Valid signature example" class="image">
 </div>
 
 <br clear="left"/>
@@ -41,7 +41,7 @@ Note that if the signature is removed, becomes invalid, or changes to a differen
 However, selecting the error offers an alert explaining that the **_AdswizzSDK_** identity has changed, showing how the expected identity compares to what is present in the new version.
 
 <div style="max-width: 600px;" class="container">
-  <img src="../img/invalidCodeSignatureExample.png" alt="Signature changed example" class="image">
+  <img src="/img/invalidCodeSignatureExample.png" alt="Signature changed example" class="image">
 </div>
 
 <br clear="left"/>

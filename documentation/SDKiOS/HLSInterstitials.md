@@ -95,7 +95,7 @@ adManager.prepare()
 
 > Note that your application is required to keep a **strong reference** to both the **_AdManager_** and the **_AdInterstitialEventMonitor_** instances **before** and **during** the HLS interstitial event, because `AdManagerSettings.adInterstitialEventMonitor` is a `weak` property.
 
-> Since **_AdswizzSDK_** `v8.0.0` the **_AdManager_** and its settings are `@MainActor` isolated, so the type that owns them (a `UIViewController` already qualifies) must be `@MainActor` too, and its **_AdManagerDelegate_** / **_AdManagerInterstitialEventDatasource_** conformances must be isolated. See the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md).
+> Since **_AdswizzSDK_** `v8.0.0` the **_AdManager_** and its settings are `@MainActor` isolated, so the type that owns them (a `UIViewController` already qualifies) must be `@MainActor` too, and its **_AdManagerDelegate_** / **_AdManagerInterstitialEventDatasource_** conformances must be isolated. See the [v8.0.0 migration guide](/iOS/SDKMigrations/v8_0_0.md).
 
 You are now ready to schedule an `AVPlayerInterstitialEvent` onto the HLS primary player timeline.
 
@@ -142,7 +142,7 @@ When the `AVPlayerInterstitialEvent` is triggered by the `AVPlayerInterstitialEv
 
 The diagram below shows the **_AdManager_** states for a HLS interstitial event lifecycle.
 
-<img src="../img/HLSInterstitialState.png" width="1500" />
+<img src="/img/HLSInterstitialState.png" width="1500" />
 
 ## Other considerations
 

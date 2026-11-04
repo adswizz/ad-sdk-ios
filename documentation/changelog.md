@@ -1,14 +1,26 @@
-[<img src="../img/adswizz_logo.png" alt="AdsWizz" style="width:30%;">](https://www.adswizz.com)
+[<img src="/img/adswizz_logo.png" alt="AdsWizz" style="width:30%;">](https://www.adswizz.com)
 # Changelog
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [8.0.3] - 2026-11-04
+### Fixed
+- Main actor isolation:
+    - Fixed a crash (`SIGTRAP`) when the last reference to an `AdRequestConnection`, `AdswizzAdRequest.Builder`, `AdswizzAdStreamManager` or `AdswizzAdPodcastManager` instance was released off the main thread
+- `AdRequestConnection`:
+    - Fixed a VAST response without any `<Ad>` element, received directly or at the end of a wrapper chain, being handled as an invalid VAST response instead of an empty ads (no-fill) case
+- VAST error tracking:
+    - Fixed the VAST error codes reported for empty ads: `101` for an inline ad without a `<Linear>` element, `403` for a `<Linear>` element without a supported `<MediaFile>` and `303` for a no-fill response
+    - Wrapper `<Error>` URLs are now reported while the wrapper chain is fetched, and empty `<Error>` elements are no longer fired
+- Analytics:
+    - Fixed the `no-ad-manager` event to be logged once per `requestAds()` call whenever an **_AdManager_** could not be created
+
 ## [8.0.2] - 2026-10-09
 ### Added
 - Code Signing:
-    - New [GPG signing](iOS/SDKPrivacy/CodeSigning#gpg-signing) for every **_AdswizzSDK_** release, in addition to the Apple code signature. A new [`CodeSigning`](iOS/SDKPrivacy/CodeSigning#the-codesigning-folder) folder ships next to `Framework` with a SHA-256 checksum of every file inside each XCFramework:
+    - New [GPG signing](/iOS/SDKPrivacy/CodeSigning#gpg-signing) for every **_AdswizzSDK_** release, in addition to the Apple code signature. A new [`CodeSigning`](/iOS/SDKPrivacy/CodeSigning#the-codesigning-folder) folder ships next to `Framework` with a SHA-256 checksum of every file inside each XCFramework:
         * `AdswizzSDK`
         * `AdswizzSDKCore`
         * `AdswizzSDKPrivacyDataCore`
@@ -16,10 +28,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
         * `AdswizzWatchSDK`
     - The per-framework checksum files are collected in `sha256sums.txt`, which is signed with the AdsWizz SDK GPG key (`sha256sums.txt.asc`). The files from the `CodeSigning` folder are also attached to each GitHub Release
 - Software Bill of Materials:
-    - New [CycloneDX](https://cyclonedx.org) `v1.5` [Software Bill of Materials](iOS/SoftwareBillOfMaterials.md) (`sbom/bom.json`) generated for every release. It lists the [third-party components](iOS/SoftwareBillOfMaterials#third-party-components) shipped with **_AdswizzSDK_**, **_AdswizzSDKPinpointAnalytics_**, **_AdswizzWatchSDK_** and **_AdswizzSDKPrivacyDataKit_**, along with their versions and [licences](iOS/SoftwareBillOfMaterials#licences-and-attributions). The SBOM is also attached to each GitHub Release
+    - New [CycloneDX](https://cyclonedx.org) `v1.5` [Software Bill of Materials](/iOS/SoftwareBillOfMaterials.md) (`sbom/bom.json`) generated for every release. It lists the [third-party components](/iOS/SoftwareBillOfMaterials#third-party-components) shipped with **_AdswizzSDK_**, **_AdswizzSDKPinpointAnalytics_**, **_AdswizzWatchSDK_** and **_AdswizzSDKPrivacyDataKit_**, along with their versions and [licences](/iOS/SoftwareBillOfMaterials#licences-and-attributions). The SBOM is also attached to each GitHub Release
 - Integration Guide:
-    - New [GPG signing](iOS/SDKPrivacy/CodeSigning#gpg-signing) section in [Code Signing](iOS/SDKPrivacy/CodeSigning.md) explaining how to [verify a release](iOS/SDKPrivacy/CodeSigning#verify-a-release) integrated through Swift Package Manager, CocoaPods or a clone of the repository, plus [troubleshooting](iOS/SDKPrivacy/CodeSigning#troubleshooting) steps
-    - New "Software Bill of Materials" page describing the [SBOM](iOS/SoftwareBillOfMaterials.md) scope, how to [obtain it](iOS/SoftwareBillOfMaterials#obtaining-the-sbom) and how to [report a vulnerability](iOS/SoftwareBillOfMaterials#reporting-a-vulnerability)
+    - New [GPG signing](/iOS/SDKPrivacy/CodeSigning#gpg-signing) section in [Code Signing](/iOS/SDKPrivacy/CodeSigning.md) explaining how to [verify a release](/iOS/SDKPrivacy/CodeSigning#verify-a-release) integrated through Swift Package Manager, CocoaPods or a clone of the repository, plus [troubleshooting](/iOS/SDKPrivacy/CodeSigning#troubleshooting) steps
+    - New "Software Bill of Materials" page describing the [SBOM](/iOS/SoftwareBillOfMaterials.md) scope, how to [obtain it](/iOS/SoftwareBillOfMaterials#obtaining-the-sbom) and how to [report a vulnerability](/iOS/SoftwareBillOfMaterials#reporting-a-vulnerability)
 
 ## [8.0.1] - 2026-09-16
 ### Added
@@ -42,7 +54,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [8.0.0] - 2026-08-31
 ### Added
-- **Swift 6 support**: the binary XCFrameworks are now compiled with Swift 6 strict concurrency checking enabled, and the public API declares the actor it expects to be used from. See the [migration guide](iOS/SDKMigrations/v8_0_0.md)
+- **Swift 6 support**: the binary XCFrameworks are now compiled with Swift 6 strict concurrency checking enabled, and the public API declares the actor it expects to be used from. See the [migration guide](/iOS/SDKMigrations/v8_0_0.md)
 
 ### Changed
 - **_AdswizzSDK_** binary frameworks are now compiled and generated with Xcode version `26.4.1`
@@ -65,7 +77,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Many public enums, protocols and value types now conform to `Sendable`, including `AdManager`, `AdData`, `AdAsset`, `StaticResource`, `DownloadableAsset`, `AdStreamDVRMetadata`, `MediaPlayerCapability`, `AdType`, `GDPRConsent`, `CCPAConsent`, `HTTPProtocol` and `AdswizzPermissionType`/`AdswizzPermissionValue`
 
 ### Removed
-- Objective-C exposure for the analytics interfaces. `AASDKAnalyticsEvent`, `AASDKAnalyticsCollecting`, `AASDKAnalyticsCollector` and `AASDKAnalyticsConnector` are no longer generated, and `AdswizzSDK.add(connector:)` / `remove(connector:)` are no longer available to Objective-C. Objective-C integrations need a Swift bridge — see the [migration guide](iOS/SDKMigrations/v8_0_0.md#your-application-is-written-in-objective-c)
+- Objective-C exposure for the analytics interfaces. `AASDKAnalyticsEvent`, `AASDKAnalyticsCollecting`, `AASDKAnalyticsCollector` and `AASDKAnalyticsConnector` are no longer generated, and `AdswizzSDK.add(connector:)` / `remove(connector:)` are no longer available to Objective-C. Objective-C integrations need a Swift bridge — see the [migration guide](/iOS/SDKMigrations/v8_0_0.md#your-application-is-written-in-objective-c)
 
 ## [7.14.3] - 2026-08-20
 ### Fixed
@@ -176,7 +188,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `AdCompanionView`:
     - New public method in **_AdCompanionView_**:
-        - `activateIfNeeded()` forces the `AdCompanionView` instance to recheck its internal visibility state if it is not already "active". Please refer to the [Companion view best practices](iOS/SDKiOS/CompanionBanner#companion-best-practices) section from the [AdCompanionView docs](iOS/SDKiOS/CompanionBanner).
+        - `activateIfNeeded()` forces the `AdCompanionView` instance to recheck its internal visibility state if it is not already "active". Please refer to the [Companion view best practices](/iOS/SDKiOS/CompanionBanner#companion-best-practices) section from the [AdCompanionView docs](/iOS/SDKiOS/CompanionBanner).
 
 ### Fixed
 - Foundation URLs:
@@ -190,7 +202,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `AdData`:
     - New public property in **_AdData_**:
-        - `selectedCompanion` to access the VAST [Companion data](iOS/SDKiOS/CompanionBanner#companion-data) model properties such as ideal `width` and `height` that determine the intended aspect ratio for the associated resource.
+        - `selectedCompanion` to access the VAST [Companion data](/iOS/SDKiOS/CompanionBanner#companion-data) model properties such as ideal `width` and `height` that determine the intended aspect ratio for the associated resource.
 
 ### Fixed
 - HLS interstitials:
@@ -224,12 +236,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [7.12.2] - 2025-05-12
 ### Fixed
 - `AdswizzAdStreamManager`:
-    - Service release that fixes a rare crash when playing a stream URL with external player due to unexpected `playerStatus` state sequence. Please refer to the complete [state machine diagram](iOS/SDKiOS/ExternalPlayer#playerstatus) for your player to implement.
+    - Service release that fixes a rare crash when playing a stream URL with external player due to unexpected `playerStatus` state sequence. Please refer to the complete [state machine diagram](/iOS/SDKiOS/ExternalPlayer#playerstatus) for your player to implement.
 
 ## [7.12.1] - 2025-05-07
 ### Added
 - Samples:
-    - Improve the [BasicDVRRequestExample](iOS/SDKiOS/SampleProjects#basicdvrrequestexample) sample project to showcase external player support for DVR-enabled streams.
+    - Improve the [BasicDVRRequestExample](/iOS/SDKiOS/SampleProjects#basicdvrrequestexample) sample project to showcase external player support for DVR-enabled streams.
 
 ### Changed
 - `AdswizzAdStreamManager`:
@@ -243,18 +255,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - New public methods in **_AdswizzAdRequest.Builder_**:
         - `with(companionZoneIds: [Int])` sets an array of *numerical* identifiers on the **_AdswizzAdRequest.Builder_** for companion zone ids. It replaces the `with(companionZones: String?)` method which is now deprecated and will be removed in a future release
         - alternatively, `with(companionZoneAliases: [String])` sets an array of *string* identifiers on the **_AdswizzAdRequest.Builder_** for companion zone aliases
-        - read more on the **_AdswizzAdRequest_** configuration for [companion zones](iOS/SDKiOS/CompanionBanner#client-side-setup) setup
+        - read more on the **_AdswizzAdRequest_** configuration for [companion zones](/iOS/SDKiOS/CompanionBanner#client-side-setup) setup
 - Added new VAST version support in `AdswizzAdRequest`:
     - New public value in **_VASTVersion_** enum:
         - `v41` unlocks support for VAST version `4.1`, now set as the default value in **_AdswizzAdRequest_**
 - `AdCompanionView` tvOS:
-    - New support for [companion views with static resources](iOS/SDKTVOS/Limitations#adcompanionview) such as images. Note that `html` content remains unsupported due to `WKWebView` being unavailable on tvOS
+    - New support for [companion views with static resources](/iOS/SDKTVOS/Limitations#adcompanionview) such as images. Note that `html` content remains unsupported due to `WKWebView` being unavailable on tvOS
 - Swift Concurrency:
     - New public convenience methods to support async context:
-        - `requestAds() async throws -> AdManager` for **_AdRequestConnection_** to [fetch an AdManager](iOS/SDKiOS/ClientSideInsertion#requesting-ads)
-        - `initialize(with configuration: AdswizzSDKConfig? = nil) async throws` for **_AdswizzSDK_** to [setup the SDK](iOS/SDKiOS/GetStarted#sdk-initialization-and-setup)
+        - `requestAds() async throws -> AdManager` for **_AdRequestConnection_** to [fetch an AdManager](/iOS/SDKiOS/ClientSideInsertion#requesting-ads)
+        - `initialize(with configuration: AdswizzSDKConfig? = nil) async throws` for **_AdswizzSDK_** to [setup the SDK](/iOS/SDKiOS/GetStarted#sdk-initialization-and-setup)
 - Samples:
-    - Updated the [BasicTVOSExample](iOS/SDKTVOS/SampleProjects#basictvosexample) sample project to showcase companion views with static resources.
+    - Updated the [BasicTVOSExample](/iOS/SDKTVOS/SampleProjects#basictvosexample) sample project to showcase companion views with static resources.
 
 ### Changed
 - Deployment version:
@@ -291,7 +303,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - New public property in **_AdManager_** protocol:
         - `interstitialDatasource` to communicate with objects that conform to **_AdManagerInterstitialEventDatasource_**
 - Integration Guide:
-    - New section on [AdManagerInterstitialEventDatasource](iOS/SDKiOS/ClientSideInsertion#admanagerinterstitialeventdatasource-protocol) protocol and [AdswizzShimZone](iOS/SDKiOS/ClientSideInsertion#shim-zone) support
+    - New section on [AdManagerInterstitialEventDatasource](/iOS/SDKiOS/ClientSideInsertion#admanagerinterstitialeventdatasource-protocol) protocol and [AdswizzShimZone](/iOS/SDKiOS/ClientSideInsertion#shim-zone) support
 
 ### Fixed
 - AdswizzSDK tvOS:
@@ -300,13 +312,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [7.10.2] - 2024-12-20
 ### Added
 - HLS interstitials:
-    - Add support for native [HLS Interstitials](iOS/SDKiOS/HLSInterstitials) from `AVPlayer` driven by **_AdManager_** instances
-    - New [sample project](iOS/SDKiOS/SampleProjects?id=advancedhlsinterstitialexample) which demonstrates the HLS Interstitials support
+    - Add support for native [HLS Interstitials](/iOS/SDKiOS/HLSInterstitials) from `AVPlayer` driven by **_AdManager_** instances
+    - New [sample project](/iOS/SDKiOS/SampleProjects?id=advancedhlsinterstitialexample) which demonstrates the HLS Interstitials support
 
 ## [7.10.1] - 2024-12-12
 ### Added
 - AdswizzSDK tvOS:
-    - Add support for [AdswizzSDK tvOS](iOS/SDKTVOS/AdswizzTVOSSDK) framework
+    - Add support for [AdswizzSDK tvOS](/iOS/SDKTVOS/AdswizzTVOSSDK) framework
 
 ### Changed
 - Client side scenario:
@@ -317,46 +329,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [7.10.0] - 2024-10-25
 ### Added
 - AdswizzSDKPrivacyDataKit
-    - Add support for [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) optional framework suite
+    - Add support for [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) optional framework suite
 - Integration Guide:
-    - New section on [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) overview and how to [integrate](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit) optional permission [components](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit#structure)
-    - New guide on [How to migrate to AdswizzSDK v7.10.0+](iOS/SDKMigrations/v7_10_0.md)
+    - New section on [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) overview and how to [integrate](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit) optional permission [components](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit#structure)
+    - New guide on [How to migrate to AdswizzSDK v7.10.0+](/iOS/SDKMigrations/v7_10_0.md)
 
 ### Removed
 - AdswizzSDKPrivacyData mandatory dependency:
-    - Removed support for **_AdswizzSDKPrivacyData.framework_**. Replaced by [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit)
+    - Removed support for **_AdswizzSDKPrivacyData.framework_**. Replaced by [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit)
 
 ### Changed
 - Integration Guide:
-    - Updated the [Get Started](iOS/SDKiOS/GetStarted) section and the [integration guide](iOS/SDKiOS/GetStarted#adding-the-sdk-to-your-xcode-project)
+    - Updated the [Get Started](/iOS/SDKiOS/GetStarted) section and the [integration guide](/iOS/SDKiOS/GetStarted#adding-the-sdk-to-your-xcode-project)
 
 ### Fixed
 - Raw data signals:
     - Service release that fixes the internal data collectors in order to prevent crashing the application due to an asynchronous issue
 - Integration Guide:
-    - Improved [Companion banners best practices](iOS/SDKiOS/CompanionBanner#companion-best-practices) section when working with the [AdCompanionView](iOS/SDKiOS/CompanionBanner#adding-an-adcompanionview) component
+    - Improved [Companion banners best practices](/iOS/SDKiOS/CompanionBanner#companion-best-practices) section when working with the [AdCompanionView](/iOS/SDKiOS/CompanionBanner#adding-an-adcompanionview) component
 
 ## [7.9.3] - 2024-09-13
 ### Added
 - Integration Guide:
-    - New section on [Companion banners best practices](iOS/SDKiOS/CompanionBanner#companion-best-practices) when working with the [AdCompanionView](iOS/SDKiOS/CompanionBanner#adding-an-adcompanionview) component
+    - New section on [Companion banners best practices](/iOS/SDKiOS/CompanionBanner#companion-best-practices) when working with the [AdCompanionView](/iOS/SDKiOS/CompanionBanner#adding-an-adcompanionview) component
 
 ### Fixed
 - Analytics:
     - Service release
 - Integration Guide:
-    - Minor fix in the `carthage.sh` script for [Carthage integrations](iOS/SDKiOS/GetStarted#custom-carthage-run-script) when the script is executed in the `zsh` interactive shell instead of `bash` 
+    - Minor fix in the `carthage.sh` script for [Carthage integrations](/iOS/SDKiOS/GetStarted#custom-carthage-run-script) when the script is executed in the `zsh` interactive shell instead of `bash` 
 - Samples:
-    - Updated the [BasicSwiftUIClientSideInsertion](iOS/SDKiOS/SampleProjects#basicswiftuiclientsideinsertion) sample which improves handling for UI components such as `AdCompanionView` and `AdVideoView` in a SwiftUI app
+    - Updated the [BasicSwiftUIClientSideInsertion](/iOS/SDKiOS/SampleProjects#basicswiftuiclientsideinsertion) sample which improves handling for UI components such as `AdCompanionView` and `AdVideoView` in a SwiftUI app
 
 ## [7.9.2] - 2024-06-28
 ### Added
 - Dependency manager support:
-    - Add Swift Package Manager support for integrating **_AdswizzSDK_** and its dependencies. For more details, please visit the [Get started](iOS/SDKiOS/GetStarted#adding-the-sdk-to-your-xcode-project) section from the Integration Guide on iOS
+    - Add Swift Package Manager support for integrating **_AdswizzSDK_** and its dependencies. For more details, please visit the [Get started](/iOS/SDKiOS/GetStarted#adding-the-sdk-to-your-xcode-project) section from the Integration Guide on iOS
 - VAST macros support:
     - [STOREID] VAST Macro for AppStore ID
 - Integration Guide:
-    - New section which describes the **_AdswizzSDK_** integration with [Swift Package Manager](iOS/SDKiOS/GetStarted#swift-package-manager)
+    - New section which describes the **_AdswizzSDK_** integration with [Swift Package Manager](/iOS/SDKiOS/GetStarted#swift-package-manager)
 
 ### Fixed
 - Interactive ads:
@@ -365,14 +377,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [7.9.1] - 2024-04-25
 ### Added
 - Integration Guide:
-    - New guide on [How to migrate to AdswizzSDK v7.9.0+](iOS/SDKMigrations/v7_9_0.md)
-    - New section on [AdManager best practices](iOS/SDKiOS/ClientSideInsertion#admanager-best-practices) in the [Client Side Insertion](iOS/SDKiOS/ClientSideInsertion) scenario
+    - New guide on [How to migrate to AdswizzSDK v7.9.0+](/iOS/SDKMigrations/v7_9_0.md)
+    - New section on [AdManager best practices](/iOS/SDKiOS/ClientSideInsertion#admanager-best-practices) in the [Client Side Insertion](/iOS/SDKiOS/ClientSideInsertion) scenario
 
 ### Changed
 - Privacy:
     - Updated the `PrivacyInfo.xcprivacy` content for **_AdswizzSDK_** binary frameworks under privacy guidelines (`AdswizzSDK`, `AdswizzWatchSDK` and `AdswizzSDKPinpointAnalytics`)
 - Integration Guide:
-    - Updated the "Privacy" section on [Data Usage Policy](iOS/SDKPrivacy/DataUsagePolicy.md)
+    - Updated the "Privacy" section on [Data Usage Policy](/iOS/SDKPrivacy/DataUsagePolicy.md)
 
 ## [7.9.0] - 2024-04-10
 ### Added
@@ -382,7 +394,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
         * `AdswizzWatchSDK`
         * `AdswizzSDKPinpointAnalytics`
 - Integration Guide:
-    - New "Privacy" section describing the [Privacy Manifest](iOS/SDKPrivacy/PrivacyManifest.md) support, [Data Usage Policy](iOS/SDKPrivacy/DataUsagePolicy.md) and [Code Signing](iOS/SDKPrivacy/CodeSigning.md) for **_AdswizzSDK_**
+    - New "Privacy" section describing the [Privacy Manifest](/iOS/SDKPrivacy/PrivacyManifest.md) support, [Data Usage Policy](/iOS/SDKPrivacy/DataUsagePolicy.md) and [Code Signing](/iOS/SDKPrivacy/CodeSigning.md) for **_AdswizzSDK_**
 
 ### Changed
 - XCframework:

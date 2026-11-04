@@ -6,7 +6,7 @@ This guide is addressed to iOS Developers who want to integrate the **_AdswizzSD
 
 **IMPORTANT: The AdswizzSDK is NOT thread safe, so it is expected that all the calls to the SDK and any updates to the MediaPlayerState are done on the main thread. The AdswizzSDK does all the heavy lifting on background queues, so that the main queue remains responsive.**
 
-Since **_AdswizzSDK_** `v8.0.0` this expectation is **enforced by the compiler**: the public API that requests and plays ads is `@MainActor` isolated, so calling it from a nonisolated context no longer builds. The requirement itself has not changed — only that it is now checked rather than documented. See the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md).
+Since **_AdswizzSDK_** `v8.0.0` this expectation is **enforced by the compiler**: the public API that requests and plays ads is `@MainActor` isolated, so calling it from a nonisolated context no longer builds. The requirement itself has not changed — only that it is now checked rather than documented. See the [v8.0.0 migration guide](/iOS/SDKMigrations/v8_0_0.md).
 
 Note that the analytics callbacks are the deliberate exception: **_AnalyticsConnector_** events are delivered **off** the main actor.
 
@@ -17,8 +17,8 @@ The **_AdswizzSDK_** was carefully crafted with user privacy in mind. This also 
 For more information on **_AdswizzSDKPrivacyData_**, we strongly suggest that you consult [Get started](/iOS/SDKiOS/GetStarted) for how **_AdswizzSDKPrivacyData_** operates, as well as the [Permissions](/iOS/SDKiOS/GeneralSettings#permissions) chapter from the **_AdswizzSDK_** [Privacy](/iOS/SDKiOS/GeneralSettings#privacy) section.
 
 > Important! <br>
-With the release of **_AdswizzSDK_** `v7.10.0`, *AdswizzSDKPrivacyData* source based framework has been replaced by the [AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) optional framework suite. Although **_AdswizzSDKPrivacyDataCore_** and the other dependant components are optional and **_AdswizzSDK_** can function without them, **we strongly recommend you to install AdswizzSDKPrivacyDataCore and AdswizzSDKPrivacyDataIDFA components from AdswizzSDKPrivacyDataKit**, otherwise **_AdswizzSDK_** won't be able to access Apple's IDFA (Identifier For Advertisers). As a result, **_AdswizzSDK_** won't be able to deliver personalised ads to your audience (in case your users grant the system tracking permission).
-More details in the `v7.10.0` [migration guide](iOS/SDKMigrations/v7_10_0).
+With the release of **_AdswizzSDK_** `v7.10.0`, *AdswizzSDKPrivacyData* source based framework has been replaced by the [AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/AdswizzSDKPrivacyDataKit) optional framework suite. Although **_AdswizzSDKPrivacyDataCore_** and the other dependant components are optional and **_AdswizzSDK_** can function without them, **we strongly recommend you to install AdswizzSDKPrivacyDataCore and AdswizzSDKPrivacyDataIDFA components from AdswizzSDKPrivacyDataKit**, otherwise **_AdswizzSDK_** won't be able to access Apple's IDFA (Identifier For Advertisers). As a result, **_AdswizzSDK_** won't be able to deliver personalised ads to your audience (in case your users grant the system tracking permission).
+More details in the `v7.10.0` [migration guide](/iOS/SDKMigrations/v7_10_0).
 
 ### User privacy (AppTrackingTransparency)
 

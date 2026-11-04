@@ -52,7 +52,7 @@ The **_AdswizzPinpointConfiguration_** is used to instantiate the **_AdswizzPinp
 ### AdswizzPinpointConnector
 You are now ready to create the **_AdswizzPinpointConnector_**. Here is how you can do that in your application.
 
-> Since **_AdswizzSDK_** `v8.0.0`, **_AdswizzPinpointConnector_** is `@MainActor` isolated and `AdswizzSDK.add(connector:)` is a main-actor call, so both must happen from a main-actor context — the `AppDelegate` below already is one. Note also that **_AnalyticsConnector_** is no longer exposed to Objective-C; if your app registers connectors from Objective-C, see the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md#your-application-is-written-in-objective-c).
+> Since **_AdswizzSDK_** `v8.0.0`, **_AdswizzPinpointConnector_** is `@MainActor` isolated and `AdswizzSDK.add(connector:)` is a main-actor call, so both must happen from a main-actor context — the `AppDelegate` below already is one. Note also that **_AnalyticsConnector_** is no longer exposed to Objective-C; if your app registers connectors from Objective-C, see the [v8.0.0 migration guide](/iOS/SDKMigrations/v8_0_0.md#your-application-is-written-in-objective-c).
 
 ```swift
 import AdswizzSDK

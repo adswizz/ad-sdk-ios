@@ -31,7 +31,7 @@ It is important to note that this can only be achieved if you install the **_Ads
 * **AdswizzSDKPrivacyDataCamera** 		- handles the camera permission (currently not used)
 * **AdswizzSDKPrivacyDataContacts** 	- handles the contacts permission (currently not used)
 
-For more details on how to integrate any of the above components from **_AdswizzSDKPrivacyDataKit_**, please visit the [Integrating AdswizzSDKPrivacyDataKit](iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit) section.
+For more details on how to integrate any of the above components from **_AdswizzSDKPrivacyDataKit_**, please visit the [Integrating AdswizzSDKPrivacyDataKit](/iOS/SDKPrivacyDataKit/IntegratingAdswizzSDKPrivacyDataKit) section.
 
 
 

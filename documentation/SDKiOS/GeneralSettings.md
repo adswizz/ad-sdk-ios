@@ -7,7 +7,7 @@
 By default, the **_AdCompanionView_** will stop displaying the content after the ad finishes playing. If you need to keep the companion on the screen for a longer period of time (or indefinitely), you can configure it like this.
 
 
-> All the snippets below configure `AdswizzSDK.shared`, which is `@MainActor` isolated since `v8.0.0` — call them from a main-actor context such as your `AppDelegate` or a `@MainActor` type. See the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md).
+> All the snippets below configure `AdswizzSDK.shared`, which is `@MainActor` isolated since `v8.0.0` — call them from a main-actor context such as your `AppDelegate` or a `@MainActor` type. See the [v8.0.0 migration guide](/iOS/SDKMigrations/v8_0_0.md).
 
 ```swift
 let adCompanionOptions = AdCompanionOptions()

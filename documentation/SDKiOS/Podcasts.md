@@ -5,7 +5,7 @@ Podcast apps that integrate the AdswizzSDK will benefit from real-time reporting
 ## Build AdswizzAdPodcastManager
 
 To get started, you need to create an **_AdswizzAdPodcastManager_** object.
-> Since **_AdswizzSDK_** `v8.0.0` the objects used below are `@MainActor` isolated, which is why the sample types are annotated `@MainActor` and their **_AdswizzSDK_** delegate conformances are isolated. See the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md) for details.
+> Since **_AdswizzSDK_** `v8.0.0` the objects used below are `@MainActor` isolated, which is why the sample types are annotated `@MainActor` and their **_AdswizzSDK_** delegate conformances are isolated. See the [v8.0.0 migration guide](/iOS/SDKMigrations/v8_0_0.md) for details.
 
 
 ```swift

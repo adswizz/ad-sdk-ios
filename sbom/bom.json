@@ -5,11 +5,11 @@
   "metadata": {
     "component": {
       "type": "library",
-      "bom-ref": "pkg:generic/adswizz-ios-sdk@8.0.2",
+      "bom-ref": "pkg:generic/adswizz-ios-sdk@8.0.3",
       "name": "AdsWizz iOS SDK",
-      "version": "8.0.2",
+      "version": "8.0.3",
       "group": "com.adswizz",
-      "purl": "pkg:generic/adswizz-ios-sdk@8.0.2",
+      "purl": "pkg:generic/adswizz-ios-sdk@8.0.3",
       "description": "AdsWizz iOS SDK release, distributed as independent CocoaPods podspecs.",
       "supplier": {
         "name": "AdsWizz, Inc.",
@@ -42,10 +42,10 @@
   "components": [
     {
       "type": "library",
-      "bom-ref": "pkg:cocoapods/AdswizzSDK@8.0.2",
+      "bom-ref": "pkg:cocoapods/AdswizzSDK@8.0.3",
       "name": "AdswizzSDK",
-      "version": "8.0.2",
-      "purl": "pkg:cocoapods/AdswizzSDK@8.0.2",
+      "version": "8.0.3",
+      "purl": "pkg:cocoapods/AdswizzSDK@8.0.3",
       "description": "Bundle build (Config/Bundle.xcconfig BUILD_BUNDLE) — all AdsWizz modules plus the submodules glued into one binary. Ships as AdswizzSDK.xcframework + AdswizzSDKCore.xcframework.",
       "supplier": {
         "name": "AdsWizz, Inc.",
@@ -74,10 +74,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:cocoapods/AdswizzWatchSDK@8.0.2",
+      "bom-ref": "pkg:cocoapods/AdswizzWatchSDK@8.0.3",
       "name": "AdswizzWatchSDK",
-      "version": "8.0.2",
-      "purl": "pkg:cocoapods/AdswizzWatchSDK@8.0.2",
+      "version": "8.0.3",
+      "purl": "pkg:cocoapods/AdswizzWatchSDK@8.0.3",
       "description": "Ships NO third-party code. Verified: 0 SwiftProtobuf references in project.pbxproj and 0 protobuf symbols via nm on the built framework (vs 4947 in AdswizzDataCollector). Its .gen dir holds visibility-stripped sources, not protobuf.",
       "supplier": {
         "name": "AdsWizz, Inc.",
@@ -106,10 +106,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:cocoapods/AdswizzSDKPinpointAnalytics@8.0.2",
+      "bom-ref": "pkg:cocoapods/AdswizzSDKPinpointAnalytics@8.0.3",
       "name": "AdswizzSDKPinpointAnalytics",
-      "version": "8.0.2",
-      "purl": "pkg:cocoapods/AdswizzSDKPinpointAnalytics@8.0.2",
+      "version": "8.0.3",
+      "purl": "pkg:cocoapods/AdswizzSDKPinpointAnalytics@8.0.3",
       "description": "The only artifact with a declared CocoaPods dependency. Scripts/Fastfile_develop:141 emits an UNVERSIONED s.dependency 'AWSCore', so the customer's resolved version may differ from the one recorded here.",
       "supplier": {
         "name": "AdsWizz, Inc.",
@@ -138,10 +138,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:cocoapods/AdswizzSDKPrivacyDataKit@8.0.2",
+      "bom-ref": "pkg:cocoapods/AdswizzSDKPrivacyDataKit@8.0.3",
       "name": "AdswizzSDKPrivacyDataKit",
-      "version": "8.0.2",
-      "purl": "pkg:cocoapods/AdswizzSDKPrivacyDataKit@8.0.2",
+      "version": "8.0.3",
+      "purl": "pkg:cocoapods/AdswizzSDKPrivacyDataKit@8.0.3",
       "description": "Core subspec is the default (Scripts/Fastfile_develop:190); the 9 optional subspecs add no third-party code. Imports only Apple frameworks.",
       "supplier": {
         "name": "AdsWizz, Inc.",
@@ -493,16 +493,16 @@
   ],
   "dependencies": [
     {
-      "ref": "pkg:generic/adswizz-ios-sdk@8.0.2",
+      "ref": "pkg:generic/adswizz-ios-sdk@8.0.3",
       "dependsOn": [
-        "pkg:cocoapods/AdswizzSDK@8.0.2",
-        "pkg:cocoapods/AdswizzWatchSDK@8.0.2",
-        "pkg:cocoapods/AdswizzSDKPinpointAnalytics@8.0.2",
-        "pkg:cocoapods/AdswizzSDKPrivacyDataKit@8.0.2"
+        "pkg:cocoapods/AdswizzSDK@8.0.3",
+        "pkg:cocoapods/AdswizzWatchSDK@8.0.3",
+        "pkg:cocoapods/AdswizzSDKPinpointAnalytics@8.0.3",
+        "pkg:cocoapods/AdswizzSDKPrivacyDataKit@8.0.3"
       ]
     },
     {
-      "ref": "pkg:cocoapods/AdswizzSDK@8.0.2",
+      "ref": "pkg:cocoapods/AdswizzSDK@8.0.3",
       "dependsOn": [
         "embedded/omsdk-ios@1.6.2",
         "embedded/omsdk-js@1.6.2",
@@ -513,17 +513,17 @@
       ]
     },
     {
-      "ref": "pkg:cocoapods/AdswizzWatchSDK@8.0.2",
+      "ref": "pkg:cocoapods/AdswizzWatchSDK@8.0.3",
       "dependsOn": []
     },
     {
-      "ref": "pkg:cocoapods/AdswizzSDKPinpointAnalytics@8.0.2",
+      "ref": "pkg:cocoapods/AdswizzSDKPinpointAnalytics@8.0.3",
       "dependsOn": [
         "dependency/AWSCore@2.37.2"
       ]
     },
     {
-      "ref": "pkg:cocoapods/AdswizzSDKPrivacyDataKit@8.0.2",
+      "ref": "pkg:cocoapods/AdswizzSDKPrivacyDataKit@8.0.3",
       "dependsOn": []
     },
     {

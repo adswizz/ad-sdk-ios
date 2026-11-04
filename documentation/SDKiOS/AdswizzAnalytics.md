@@ -28,7 +28,7 @@ AdswizzSDK.shared.add(connector: YourAnalyticsConnector())
 
 > **Changes in `v8.0.0`**<br>
 > **_AnalyticsCollecting_** (which **_AnalyticsConnector_** inherits) now refines `Sendable`, because events are delivered off the main actor. Keep your connector free of unsynchronised mutable state, and if a callback needs main-actor state, hop to it explicitly with `Task { @MainActor in … }`.<br>
-> **_AnalyticsEvent_**, **_AnalyticsCollecting_**, **_AnalyticsConnector_** and **_AnalyticsCollector_** are also **no longer exposed to Objective-C**, together with `AdswizzSDK.add(connector:)` / `remove(connector:)`. Objective-C integrations need a small Swift bridge — see the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md#your-application-is-written-in-objective-c).
+> **_AnalyticsEvent_**, **_AnalyticsCollecting_**, **_AnalyticsConnector_** and **_AnalyticsCollector_** are also **no longer exposed to Objective-C**, together with `AdswizzSDK.add(connector:)` / `remove(connector:)`. Objective-C integrations need a small Swift bridge — see the [v8.0.0 migration guide](/iOS/SDKMigrations/v8_0_0.md#your-application-is-written-in-objective-c).
 
 Events whose level is set to **_error_** may be of particular interest.
 

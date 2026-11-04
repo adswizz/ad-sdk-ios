@@ -522,7 +522,7 @@ extension AVFAudio.AVAudioSession.Port : @retroactive Swift.Codable {
     @objc get
     @objc set
   }
-  @objc isolated deinit
+  @objc deinit
   @objc @_Concurrency.MainActor public init(for request: AdRequest) throws
   @objc @_Concurrency.MainActor final public func requestAds(completion: @escaping AdRequestConnection.AdsRequestCompletion)
   @objc @_Concurrency.MainActor final public func requestAds() async throws -> any AdManager
@@ -697,7 +697,7 @@ extension AdVideoFriendlyObstruction {
     @objc @_Concurrency.MainActor public func with(userConsentV2: Swift.String?) -> AdswizzAdRequest.Builder
     @objc @_Concurrency.MainActor public func with(enableExpectedAdsReporting: Swift.Bool) -> AdswizzAdRequest.Builder
     @_Concurrency.MainActor @objc public func build() throws -> AdswizzAdRequest
-    @objc isolated deinit
+    @objc deinit
     @_Concurrency.MainActor @objc override dynamic public init()
   }
   @objc deinit
@@ -996,7 +996,6 @@ extension AdswizzSDKCore.AdLogger.Level : @retroactive Swift.CustomStringConvert
   @objc @_Concurrency.MainActor final public let httpProtocol: HTTPProtocol
   @objc @_Concurrency.MainActor final public let adServer: Swift.String
   @objc @_Concurrency.MainActor final public let companionZone: Swift.String?
-  @objc isolated deinit
   @_Concurrency.MainActor @objc override public func prepare(with url: Foundation.URL) throws
   @_Concurrency.MainActor @objc override public func play(with url: Foundation.URL) throws
   @_Concurrency.MainActor public func play(with url: Foundation.URL, timestamp: Foundation.NSNumber) throws
@@ -1004,6 +1003,7 @@ extension AdswizzSDKCore.AdLogger.Level : @retroactive Swift.CustomStringConvert
   @_Concurrency.MainActor public func cancelDVRMetadataRequest()
   @_Concurrency.MainActor public static func decorate(_ url: Foundation.URL) throws -> Foundation.URL
   @_Concurrency.MainActor override public func didReceive(metadata: [AVFoundation.AVMetadataItem])
+  @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @objc(AASDKAdRequest) open class AdRequest : ObjectiveC.NSObject {
   @objc @_Concurrency.MainActor open var expectedAdsCount: Swift.UInt {
@@ -1035,7 +1035,7 @@ extension AdswizzSDKCore.AdLogger.Level : @retroactive Swift.CustomStringConvert
   @objc @_Concurrency.MainActor open func pause()
   @objc @_Concurrency.MainActor open func resume()
   @objc @_Concurrency.MainActor open func seek(to time: Foundation.TimeInterval, completion: @escaping @Sendable () -> Swift.Void) throws
-  @objc isolated deinit
+  @objc deinit
   @_Concurrency.MainActor @objc override dynamic public init()
 }
 @objc(AASDKGDPROption) public enum GDPRConsent : Swift.Int, Swift.Codable, Swift.Sendable {
@@ -1060,7 +1060,7 @@ extension AdswizzSDKCore.AdLogger.Level : @retroactive Swift.CustomStringConvert
   @objc @_Concurrency.MainActor open func resume()
   @_Concurrency.MainActor open func didReceive(metadata: [AVFoundation.AVMetadataItem])
   @_Concurrency.MainActor open func adBreakDetected(of duration: Foundation.TimeInterval, for adId: Swift.String?)
-  @objc isolated deinit
+  @objc deinit
   @_Concurrency.MainActor @objc override dynamic public init()
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AASDKAdswizzLocationConfig) final public class AdswizzLocationConfig : ObjectiveC.NSObject {
@@ -1076,7 +1076,7 @@ public typealias AdswizzSDKInitCompletion = () -> ()
   @objc @_Concurrency.MainActor final public let adServer: Swift.String
   @objc @_Concurrency.MainActor final public let companionZone: Swift.String?
   @objc @_Concurrency.MainActor weak public var downloadDelegate: (any AdPodcastManagerDownloadDelegate)?
-  @objc isolated deinit
+  @objc deinit
   @_Concurrency.MainActor @objc override public func play(with url: Foundation.URL) throws
   @_Concurrency.MainActor @objc override public func stop()
   @_Concurrency.MainActor public func startDownloadPodcast(with url: Foundation.URL, to location: Foundation.URL) async throws

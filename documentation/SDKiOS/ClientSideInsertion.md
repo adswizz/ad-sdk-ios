@@ -2,7 +2,7 @@
 
 
 In this scenario, AdswizzSDK lets you decide when and where to request ads from an Ad Insertion Server and subsequently play those ads in your application.
-> Since **_AdswizzSDK_** `v8.0.0` the objects used below are `@MainActor` isolated, which is why the sample types are annotated `@MainActor` and their **_AdswizzSDK_** delegate conformances are isolated. See the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md) for details.
+> Since **_AdswizzSDK_** `v8.0.0` the objects used below are `@MainActor` isolated, which is why the sample types are annotated `@MainActor` and their **_AdswizzSDK_** delegate conformances are isolated. See the [v8.0.0 migration guide](/iOS/SDKMigrations/v8_0_0.md) for details.
 
 
 ## Setting up your zone(s) for ad requests
@@ -475,7 +475,7 @@ func adAsset(_ asset: AdAsset, downloadingFailedWith error: Error) {
 
 If you want to know more on how the **_AdManager_** handles pre-caching behind the scenes, have a look at the diagram below.
 
-<img src="../img/AdManagerPrecachingDiagram.jpg" width="1000" />
+<img src="/img/AdManagerPrecachingDiagram.jpg" width="1000" />
 
 ### Handling AdManager with no ads
 
@@ -544,7 +544,7 @@ Read more about `AdManagerDatasource` methods and behavior here: [Working with A
 
 After requesting your first ad from the AdsWizz ad server, you are ready to play the ads from the AdManager object. Keep in mind that you may receive more than one ad from the server, but you are not required to play them all. If you decide to play multiple ads in your app, you need to listen to the events that the **_AdManager_** sends to your app and decide what is the appropriate action to take. Here is a diagram of the AdManager states. If you want the AdManager to play the ads with the internal player, follow the left diagram. If you want to use your own player, follow the diagram on the right.
 
-<img src="../img/AdManagerState.png" width="1000" />
+<img src="/img/AdManagerState.png" width="1000" />
 
 ### AdManager properties
 

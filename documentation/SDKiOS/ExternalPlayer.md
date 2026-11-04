@@ -2,7 +2,7 @@
 
 Out of the box, the AdswizzSDK is configured to play the ad media using its internal player. This behavior also extends to playing streams or podcasts.
 
-> Since **_AdswizzSDK_** `v8.0.0`, **_MediaPlayerState_** is `@MainActor` isolated and refines `Sendable`. Annotate your player type `@MainActor` — which is where the SDK already expected to read its state from — and keep updating that state on the main thread. The sample types below are annotated accordingly. See the [v8.0.0 migration guide](iOS/SDKMigrations/v8_0_0.md).
+> Since **_AdswizzSDK_** `v8.0.0`, **_MediaPlayerState_** is `@MainActor` isolated and refines `Sendable`. Annotate your player type `@MainActor` — which is where the SDK already expected to read its state from — and keep updating that state on the main thread. The sample types below are annotated accordingly. See the [v8.0.0 migration guide](/iOS/SDKMigrations/v8_0_0.md).
 
 ## Client side setup
 

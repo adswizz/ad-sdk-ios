@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/AdswizzSDKPrivacyDataCore.framework/AdswizzSDKPrivacyDataCore</key>
 		<data>
-		2rJlx6eK83t9JfxR6iJqeAKoCL0=
+		QpkcEYHv22r1EmBf0OrhttszAzo=
 		</data>
 		<key>ios-arm64/AdswizzSDKPrivacyDataCore.framework/Headers/AdswizzSDKPrivacyDataCore-Swift.h</key>
 		<data>
@@ -130,7 +130,7 @@
 		</data>
 		<key>tvos-arm64/AdswizzSDKPrivacyDataCore.framework/AdswizzSDKPrivacyDataCore</key>
 		<data>
-		ab+27OEOVbSaD8rgxTwSB83tNpk=
+		xgKx+5mVIdNhYMb5VIoYfr35YQI=
 		</data>
 		<key>tvos-arm64/AdswizzSDKPrivacyDataCore.framework/Headers/AdswizzSDKPrivacyDataCore-Swift.h</key>
 		<data>
@@ -259,7 +259,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XpEPUgne1GCQSR28cf3PQY9cnOzBlmn98CgavzUJTdc=
+			rMUj5F7LnLKFlUJgsn5TzSvWOKLxp3qCfnCv+9xhSo8=
 			</data>
 		</dict>
 		<key>ios-arm64/AdswizzSDKPrivacyDataCore.framework/Headers/AdswizzSDKPrivacyDataCore-Swift.h</key>
@@ -476,7 +476,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ny6XGRbF+ERNybLbUQovSQCbo39vi1pUTdEdnC7mS10=
+			jism/3V/EP4zO73Iyi4y/xAKwz2ciG9SZKoVzHGcZ1Y=
 			</data>
 		</dict>
 		<key>tvos-arm64/AdswizzSDKPrivacyDataCore.framework/Headers/AdswizzSDKPrivacyDataCore-Swift.h</key>
